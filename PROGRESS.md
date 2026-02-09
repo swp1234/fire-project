@@ -1057,11 +1057,23 @@ portal/
 - [x] GSC 수동 색인 요청 (미인덱싱 14개 URL)
 - [x] GA4 실시간 모니터링 (2/10 17명, 직접 유입 100%)
 
-### Round 26: 최종 검증 & 배포
+### Round 26: 최종 검증 & 배포 (완료)
 - [x] 전체 앱 코드 리뷰 (45개 × 빠른 검증)
-- [x] Git 커밋 & 푸시 (모든 변경사항 동기화)
-- [x] 배포 상태 확인 (GitHub Pages 45개 live)
+- [x] Git 커밋 & 푸시 (10개 주요 프로젝트 완료)
+  - portal (5685d10)
+  - idle-clicker (d6e8f41)
+  - sky-runner (ef218b4)
+  - emoji-merge (74b6342)
+  - stack-tower (1d3171d)
+  - zigzag-runner (95f66ed)
+  - memory-card (473e94e)
+  - brick-breaker (8cf4ef3)
+  - numerology (63b7b3e)
+  - password-generator (cd7a4ab)
+  - root-directory (59480d7) - .gitignore 정리
+- [x] 배포 상태 확인 (GitHub Pages 45개+ live)
 - [x] 인덱싱 상태 업데이트 (12/45 인덱싱 완료)
+- [x] .gitignore 확장 (임시 파일 및 세션 리포트 제외)
 
 ---
 
