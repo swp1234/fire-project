@@ -139,6 +139,15 @@ function calculateBMI() {
     displayResults(bmi, height, weight);
     drawGauge(bmi);
     addToHistory(bmi, height, weight);
+    // GA4: 도구 사용
+    if (typeof gtag === 'function') {
+        gtag('event', 'tool_use', {
+            tool_name: 'bmi-calculator',
+            action: 'calculate',
+            bmi_value: bmi,
+            unit: currentUnit
+        });
+    }
     recordGA4Event('bmi_calculated', { bmi: bmi });
 }
 
@@ -342,6 +351,15 @@ function shareBMI() {
     if (!bmiData) return;
 
     const text = `나의 BMI는 ${bmiData.bmi}입니다! 🏃‍♂️ BMI 계산기: https://dopabrain.com/bmi-calculator/`;
+
+    // GA4: 결과 공유
+    if (typeof gtag === 'function') {
+        gtag('event', 'share', {
+            method: navigator.share ? 'native' : 'clipboard',
+            app_name: 'bmi-calculator',
+            content_type: 'calculation_result'
+        });
+    }
 
     if (navigator.share) {
         navigator.share({

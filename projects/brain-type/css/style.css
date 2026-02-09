@@ -22,6 +22,16 @@
     --type-spirit: #1abc9c;
 }
 
+/* Light mode */
+[data-theme="light"] {
+    --secondary-color: #ffffff;
+    --bg-dark: #f5f5f5;
+    --bg-card: #ffffff;
+    --border-color: #e0e0e0;
+    --text-primary: #1a1a2e;
+    --text-secondary: #666666;
+}
+
 /* Dark mode (기본) */
 body.light-mode {
     --secondary-color: #ffffff;
@@ -211,6 +221,36 @@ body {
 .lang-option.active {
     background: var(--primary-color);
     font-weight: bold;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 76px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 2px 8px rgba(224, 64, 251, 0.3);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(224, 64, 251, 0.5);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
 }
 
 /* 광고 컨테이너 */

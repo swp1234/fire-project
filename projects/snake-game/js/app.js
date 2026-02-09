@@ -38,6 +38,9 @@ class SnakeGame {
             survivalTime: parseInt(localStorage.getItem('snake_survivalTime')) || 0
         };
 
+        // Leaderboard system
+        this.leaderboard = new LeaderboardManager('snake-game', 10);
+
         this.initDOMElements();
         this.setupEventListeners();
         this.resizeCanvas();
@@ -476,8 +479,15 @@ class SnakeGame {
         localStorage.setItem('snake_foodEaten', this.stats.foodEaten);
         localStorage.setItem('snake_survivalTime', this.stats.survivalTime);
 
+        // Add score to leaderboard
+        const leaderboardResult = this.leaderboard.addScore(this.score, {
+            mode: this.gameMode,
+            survivalTime: survivalSeconds,
+            foodCount: this.stats.foodEaten
+        });
+
         // Check for new record
-        const isNewRecord = this.score > this.highScore;
+        const isNewRecord = leaderboardResult.isNewRecord;
         if (isNewRecord) {
             this.highScore = this.score;
             localStorage.setItem('snake_highscore', this.highScore);
@@ -495,6 +505,9 @@ class SnakeGame {
         // Set rank
         const rank = this.getRank(this.score);
         this.goRank.innerHTML = `<span class="rank-icon">${rank.icon}</span><span class="rank-title">${rank.title}</span>`;
+
+        // Display leaderboard
+        this.displayLeaderboard(leaderboardResult);
 
         this.gameScreen.classList.add('hidden');
         this.gameoverScreen.classList.remove('hidden');
@@ -723,3 +736,85 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Start game
     window.game = new SnakeGame();
 });
+
+// Add displayLeaderboard method to SnakeGame prototype
+SnakeGame.prototype.displayLeaderboard = function(leaderboardResult) {
+    // Create or get leaderboard container
+    const gameoverScreen = document.getElementById('gameover-screen');
+    let leaderboardContainer = gameoverScreen.querySelector('.leaderboard-section');
+    if (!leaderboardContainer) {
+        leaderboardContainer = document.createElement('div');
+        leaderboardContainer.className = 'leaderboard-section';
+        gameoverScreen.appendChild(leaderboardContainer);
+    }
+
+    // Get top scores
+    const topScores = this.leaderboard.getTopScores(5);
+    const currentScore = parseInt(document.getElementById('go-score').textContent);
+
+    // Build leaderboard HTML
+    let html = '<div class="leaderboard-title">🏆 Top 5 Scores</div>';
+    html += '<div class="leaderboard-list">';
+
+    topScores.forEach((entry, index) => {
+        const medals = ['🥇', '🥈', '🥉', '4️⃣', '5️⃣'];
+        const isCurrentScore = entry.score === currentScore && leaderboardResult.isNewRecord;
+        const classes = isCurrentScore ? 'leaderboard-item highlight' : 'leaderboard-item';
+
+        html += `
+            <div class="${classes}">
+                <span class="medal">${medals[index] || (index + 1) + '.'}</span>
+                <span class="score-value">${entry.score}</span>
+                <span class="score-date">${entry.date}</span>
+            </div>
+        `;
+    });
+
+    html += '</div>';
+    html += '<button id="reset-leaderboard-btn" class="reset-btn">Reset Records</button>';
+
+    leaderboardContainer.innerHTML = html;
+
+    // Add reset button event listener
+    const resetBtn = leaderboardContainer.querySelector('#reset-leaderboard-btn');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to reset all records?')) {
+                this.leaderboard.resetScores();
+                this.highScore = 0;
+                localStorage.setItem('snake_highscore', '0');
+                this.displayLeaderboard({ isNewRecord: false, rank: -1, notifications: [] });
+                alert('Records reset!');
+            }
+        });
+    }
+
+    // Show notifications
+    leaderboardResult.notifications.forEach(notif => {
+        this.showNotification(notif);
+    });
+};
+
+SnakeGame.prototype.showNotification = function(notification) {
+    const notifEl = document.createElement('div');
+    notifEl.className = `notification notification-${notification.type}`;
+    notifEl.textContent = notification.message;
+    notifEl.style.position = 'fixed';
+    notifEl.style.top = '20px';
+    notifEl.style.right = '20px';
+    notifEl.style.padding = '12px 20px';
+    notifEl.style.backgroundColor = notification.type === 'new-record' ? '#FFD700' : '#4CAF50';
+    notifEl.style.color = '#000';
+    notifEl.style.borderRadius = '8px';
+    notifEl.style.fontSize = '14px';
+    notifEl.style.fontWeight = 'bold';
+    notifEl.style.zIndex = '9999';
+    notifEl.style.animation = 'slideIn 0.3s ease-out';
+
+    document.body.appendChild(notifEl);
+
+    setTimeout(() => {
+        notifEl.style.animation = 'slideOut 0.3s ease-out forwards';
+        setTimeout(() => notifEl.remove(), 300);
+    }, 3000);
+};

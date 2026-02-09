@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <!-- Resource hints for external domains -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+
     <meta name="description" content="당신의 두뇌는 어떤 유형인가요? 🧠 10개 질문으로 당신의 뇌 유형을 알아보세요. 8가지 유형 중 당신은? SNS 공유 가능한 재미있는 심리 테스트입니다." data-i18n="meta.description">
     <meta name="keywords" content="뇌 유형 테스트, 심리 테스트, 두뇌 진단, 성격 테스트, 브레인 유형, 인지 스타일, 뇌 분석" data-i18n="meta.keywords">
     <meta property="og:type" content="website">
@@ -89,12 +96,16 @@
     </script>
 
     <link rel="manifest" href="manifest.json">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882"
-        crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>
     <link rel="icon" href="icon-192.svg">
     <link rel="apple-touch-icon" href="icon-192.svg">
-    <meta name="theme-color" content="#1a1a2e">
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="theme-color" content="#9b59b6">
+
+    <!-- Critical CSS async loading -->
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+
+    <!-- Preload critical scripts -->
     <link rel="preload" href="js/i18n.js" as="script">
     <link rel="preload" href="js/quiz-data.js" as="script">
     <link rel="preload" href="js/app.js" as="script">
@@ -112,6 +123,9 @@
     </div>
 
     <div class="app-container">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode" title="Theme toggle">🌙</button>
+
         <!-- 언어 선택기 -->
         <div class="language-selector">
             <button id="lang-toggle" class="lang-toggle" title="언어 선택">🌐</button>
