@@ -812,3 +812,23 @@ body::after {
 .history-list::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 184, 148, 0.5);
 }
+
+/* Selection Color */
+::selection {
+    background: #667eea;
+    color: white;
+}
+
+::-moz-selection {
+    background: #667eea;
+    color: white;
+}
+
+/* Focus Visible - Accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+[role="button"]:focus-visible {
+    outline: 3px solid #667eea;
+    outline-offset: 2px;
+}

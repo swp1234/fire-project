@@ -1222,3 +1222,26 @@ select:focus-visible {
     scrollbar-color: var(--primary-color, #3b82f6) var(--bg-dark, #f1f5f9);
     scrollbar-width: thin;
 }
+
+/* Selection Color */
+::selection {
+    background: #e040fb;
+    color: white;
+}
+
+::-moz-selection {
+    background: #e040fb;
+    color: white;
+}
+
+/* Glassmorphism Enhancement */
+.header, .modal, .overlay, [role="dialog"], .menu {
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* Card/Panel Glassmorphism */
+.card, .panel, .sidebar, [class*="card"] {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
