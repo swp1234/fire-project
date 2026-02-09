@@ -840,6 +840,37 @@ body {
 }
 
 /* Accessibility */
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark, var(--bg-primary, var(--background, #0f0f23)));
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6c63ff;
+    border-radius: 5px;
+    border: 2px solid var(--bg-dark, var(--bg-primary, var(--background, #0f0f23)));
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8982ff;
+    opacity: 0.8;
+}
+
+/* Selection Color */
+::selection {
+    background: #6c63ff;
+    color: white;
+}
+
+::-moz-selection {
+    background: #6c63ff;
+    color: white;
+}
+
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
