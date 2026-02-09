@@ -61,10 +61,12 @@ class BrainTypeApp {
         this.initTheme();
 
         // 공유 버튼
+        const shareImageDownload = document.getElementById('share-image-download');
         const shareKakao = document.getElementById('share-kakao');
         const shareTwitter = document.getElementById('share-twitter');
         const shareFacebook = document.getElementById('share-facebook');
         const shareCopy = document.getElementById('share-copy');
+        if (shareImageDownload) shareImageDownload.addEventListener('click', () => this.downloadImage());
         if (shareKakao) shareKakao.addEventListener('click', () => this.shareKakao());
         if (shareTwitter) shareTwitter.addEventListener('click', () => this.shareTwitter());
         if (shareFacebook) shareFacebook.addEventListener('click', () => this.shareFacebook());
@@ -417,6 +419,72 @@ class BrainTypeApp {
 
         if (typeof gtag !== 'undefined') {
             gtag('event', 'premium_content_viewed', {
+                event_category: 'engagement',
+                result_type: this.resultType
+            });
+        }
+    }
+
+    downloadImage() {
+        const canvas = document.getElementById('result-canvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        const typeData = BRAIN_TYPES[this.resultType];
+
+        // 배경
+        ctx.fillStyle = '#f5f5f5';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // 헤더 배경
+        ctx.fillStyle = '#667eea';
+        ctx.fillRect(0, 0, canvas.width, 200);
+
+        // 로고 텍스트
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 40px Arial, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('두뇌 유형 테스트', canvas.width / 2, 80);
+
+        // 이모지
+        ctx.font = 'bold 100px Arial';
+        ctx.fillText(typeData.emoji, canvas.width / 2, 180);
+
+        // 결과 제목
+        ctx.fillStyle = '#333333';
+        ctx.font = 'bold 48px Arial, sans-serif';
+        ctx.fillText(i18n.t(typeData.nameKey), canvas.width / 2, 350);
+
+        // 설명
+        ctx.fillStyle = '#666666';
+        ctx.font = '24px Arial, sans-serif';
+        ctx.fillText(i18n.t(typeData.descKey), canvas.width / 2, 420);
+
+        // 특징
+        ctx.font = 'bold 28px Arial, sans-serif';
+        ctx.fillStyle = '#333333';
+        ctx.textAlign = 'left';
+        const traits = i18n.t(typeData.traitsKey).split(', ');
+        let yPos = 500;
+        traits.slice(0, 3).forEach(trait => {
+            ctx.fillText('• ' + trait, 100, yPos);
+            yPos += 60;
+        });
+
+        // 하단 텍스트
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#667eea';
+        ctx.font = 'bold 24px Arial, sans-serif';
+        ctx.fillText('dopabrain.com/brain-type/', canvas.width / 2, canvas.height - 40);
+
+        // 다운로드
+        const link = document.createElement('a');
+        link.download = `brain-type-${this.resultType}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'download_image', {
                 event_category: 'engagement',
                 result_type: this.resultType
             });

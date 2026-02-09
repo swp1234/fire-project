@@ -274,7 +274,10 @@
                 <!-- 공유 섹션 -->
                 <div class="share-section">
                     <h3 data-i18n="result.share">결과 공유하기</h3>
+                    <!-- Canvas for image generation -->
+                    <canvas id="result-canvas" width="1080" height="1080" style="display:none;"></canvas>
                     <div class="share-buttons">
+                        <button id="share-image-download" class="share-btn download" data-i18n="button.share_download">📥 이미지 다운로드</button>
                         <button id="share-kakao" class="share-btn kakao" data-i18n="button.share_kakao">카카오톡</button>
                         <button id="share-twitter" class="share-btn twitter" data-i18n="button.share_twitter">트위터</button>
                         <button id="share-facebook" class="share-btn facebook" data-i18n="button.share_facebook">페이스북</button>
