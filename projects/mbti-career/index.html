@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f0f23">
+    <meta name="description" content="MBTI 성격 유형별 최적의 직업과 진로를 추천받으세요. 간단한 테스트로 당신에게 맞는 직업을 발견하세요.">
+    <meta name="keywords" content="MBTI, 직업, 진로, 심리테스트, 궁합, 추천">
+
+    <!-- Open Graph (SNS 공유) -->
+    <meta property="og:title" content="MBTI 직업 궁합 테스트">
+    <meta property="og:description" content="당신의 MBTI 유형에 맞는 최고의 직업을 찾아보세요. 성격 강점, 약점, 적합 직업 TOP 10을 분석합니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mbti-career.dopabrain.com">
+    <meta property="og:image" content="https://mbti-career.dopabrain.com/icon-512.svg">
+    <meta property="og:locale" content="ko_KR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MBTI 직업 궁합 테스트">
+    <meta name="twitter:description" content="당신의 MBTI에 맞는 최적의 직업을 발견하세요">
+    <meta name="twitter:image" content="https://mbti-career.dopabrain.com/icon-512.svg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "WebApplication",
+        "name": "MBTI 직업 궁합 테스트",
+        "description": "MBTI 성격 유형별 최적의 직업과 진로를 추천받는 심리테스트",
+        "url": "https://mbti-career.dopabrain.com",
+        "applicationCategory": "EducationalApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "KRW"
+        }
+    }
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8GSWM40TV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-J8GSWM40TV');
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="icon-192.svg">
+    <link rel="apple-touch-icon" href="icon-192.svg">
+    <link rel="manifest" href="manifest.json">
+
+    <title>MBTI 직업 궁합 테스트 - 당신의 이상적인 직업을 찾아보세요</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header with Language Selector -->
+    <header class="header">
+        <div class="container header-content">
+            <h1 data-i18n="app.title">MBTI 직업 궁합 테스트</h1>
+            <div class="header-right">
+                <button id="lang-toggle" class="lang-toggle" title="언어 선택" data-i18n-title="app.language">🌐</button>
+                <div id="lang-menu" class="lang-menu hidden">
+                    <button class="lang-option" data-lang="ko">🇰🇷 한국어</button>
+                    <button class="lang-option" data-lang="en">🇺🇸 English</button>
+                    <button class="lang-option" data-lang="ja">🇯🇵 日本語</button>
+                    <button class="lang-option" data-lang="zh">🇨🇳 中文</button>
+                    <button class="lang-option" data-lang="es">🇪🇸 Español</button>
+                    <button class="lang-option" data-lang="pt">🇧🇷 Português</button>
+                    <button class="lang-option" data-lang="id">🇮🇩 Bahasa Indonesia</button>
+                    <button class="lang-option" data-lang="tr">🇹🇷 Türkçe</button>
+                    <button class="lang-option" data-lang="de">🇩🇪 Deutsch</button>
+                    <button class="lang-option" data-lang="fr">🇫🇷 Français</button>
+                    <button class="lang-option" data-lang="hi">🇮🇳 हिन्दी</button>
+                    <button class="lang-option" data-lang="ru">🇷🇺 Русский</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top AdSense Banner -->
+    <div class="ad-top">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3600813755953882"
+             data-ad-slot="1234567890"
+             data-ad-format="horizontal"
+             data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <main class="container main-content">
+        <!-- Home Screen -->
+        <section id="home-screen" class="screen active">
+            <div class="hero">
+                <h2 data-i18n="home.heading">당신의 성격에 맞는 완벽한 직업을 찾아보세요</h2>
+                <p data-i18n="home.subtitle">MBTI 테스트로 당신의 강점과 적합한 커리어 경로를 발견하세요</p>
+            </div>
+
+            <div class="home-buttons">
+                <button id="quick-test-btn" class="btn btn-primary" data-i18n="home.quickTest">빠른 테스트 (12문제)</button>
+                <button id="direct-select-btn" class="btn btn-secondary" data-i18n="home.directSelect">직접 선택 (16가지)</button>
+            </div>
+
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="info-icon">📊</div>
+                    <h3 data-i18n="home.feature1Title">정확한 분석</h3>
+                    <p data-i18n="home.feature1Desc">12개 질문으로 당신의 MBTI 유형을 정확히 파악</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">💼</div>
+                    <h3 data-i18n="home.feature2Title">직업 매칭</h3>
+                    <p data-i18n="home.feature2Desc">TOP 10 추천 직업과 적합도 점수 제공</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🌟</div>
+                    <h3 data-i18n="home.feature3Title">심층 분석</h3>
+                    <p data-i18n="home.feature3Desc">강점, 약점, 팀 구성 제안으로 완벽한 가이드 제공</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Test Screen -->
+        <section id="test-screen" class="screen">
+            <div class="test-header">
+                <h2 data-i18n="test.title">MBTI 성격 유형 테스트</h2>
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <p id="progress-text" class="progress-text"></p>
+            </div>
+
+            <div id="test-content" class="test-content">
+                <!-- Questions will be inserted here -->
+            </div>
+
+            <div class="test-buttons">
+                <button id="prev-btn" class="btn btn-secondary" data-i18n="button.previous">이전</button>
+                <button id="next-btn" class="btn btn-primary" data-i18n="button.next">다음</button>
+            </div>
+        </section>
+
+        <!-- MBTI Selection Screen -->
+        <section id="select-screen" class="screen">
+            <div class="select-header">
+                <h2 data-i18n="select.title">당신의 MBTI 유형을 선택하세요</h2>
+                <p data-i18n="select.subtitle">16가지 성격 유형 중 해당하는 것을 클릭하세요</p>
+            </div>
+
+            <div class="mbti-grid">
+                <!-- MBTI options will be inserted here -->
+            </div>
+
+            <div class="select-buttons">
+                <button id="select-back-btn" class="btn btn-secondary" data-i18n="button.back">돌아가기</button>
+            </div>
+        </section>
+
+        <!-- Results Screen -->
+        <section id="results-screen" class="screen">
+            <div class="results-header">
+                <button id="close-results-btn" class="btn-close" data-i18n="button.close">✕</button>
+                <h2 data-i18n="results.title">당신의 결과</h2>
+            </div>
+
+            <div class="results-content">
+                <!-- MBTI Summary Card -->
+                <div id="mbti-summary" class="mbti-summary">
+                    <div class="mbti-type">
+                        <div id="mbti-icon" class="mbti-icon"></div>
+                        <h3 id="mbti-name">ISTJ</h3>
+                        <p id="mbti-description" class="mbti-description"></p>
+                    </div>
+                </div>
+
+                <!-- Strengths & Weaknesses Radar Chart -->
+                <div class="chart-container">
+                    <h3 data-i18n="results.strengthsWeaknesses">강점 & 약점</h3>
+                    <svg id="radar-chart" class="radar-chart" viewBox="0 0 200 200">
+                        <!-- Radar chart will be drawn here -->
+                    </svg>
+                </div>
+
+                <!-- Career Recommendations -->
+                <div id="career-section" class="career-section">
+                    <h3 data-i18n="results.recommendedCareers">추천 직업 TOP 10</h3>
+                    <div id="careers-list" class="careers-list">
+                        <!-- Career cards will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Team Compatibility -->
+                <div id="team-section" class="team-section">
+                    <h3 data-i18n="results.teamCompatibility">팀 구성 궁합</h3>
+                    <div id="team-list" class="team-list">
+                        <!-- Team compatibility will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Premium Analysis Button -->
+                <div class="premium-section">
+                    <button id="premium-btn" class="btn btn-premium" data-i18n="results.deepAnalysis">🎯 AI 심층 진로 분석 보기 (광고 시청)</button>
+                    <p id="premium-description" data-i18n="results.deepAnalysisDesc"></p>
+                </div>
+
+                <!-- Share Buttons -->
+                <div class="share-section">
+                    <button id="share-image-btn" class="btn btn-secondary" data-i18n="results.shareImage">📸 결과 이미지 저장</button>
+                    <button id="share-url-btn" class="btn btn-secondary" data-i18n="results.shareLink">🔗 결과 공유</button>
+                </div>
+
+                <!-- Take Test Again -->
+                <div class="retry-section">
+                    <button id="retry-btn" class="btn btn-secondary" data-i18n="button.retake">다시 테스트</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium Analysis Modal -->
+        <div id="premium-modal" class="modal hidden">
+            <div class="modal-content">
+                <button id="close-modal-btn" class="btn-close">✕</button>
+                <h3 data-i18n="premium.title">AI 심층 진로 분석</h3>
+                <p data-i18n="premium.adNotice">광고를 시청하면 상세 분석을 보실 수 있습니다.</p>
+                <div id="premium-ad" class="ad-container">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-3600813755953882"
+                         data-ad-slot="2345678901"
+                         data-ad-format="rectangle"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+                <button id="watch-ad-btn" class="btn btn-primary" data-i18n="premium.watchAd">광고 시청 완료</button>
+                <div id="premium-analysis" class="premium-analysis hidden">
+                    <h4 data-i18n="premium.careerPath">당신의 최적 진로</h4>
+                    <p id="premium-career-text"></p>
+
+                    <h4 data-i18n="premium.workEnvironment">이상적인 업무 환경</h4>
+                    <p id="premium-environment-text"></p>
+
+                    <h4 data-i18n="premium.developmentTips">경력 개발 팁</h4>
+                    <p id="premium-tips-text"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom AdSense Banner -->
+    <div class="ad-bottom">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3600813755953882"
+             data-ad-slot="3456789012"
+             data-ad-format="horizontal"
+             data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <footer class="footer">
+        <p data-i18n="footer.copyright">© 2026 MBTI Career Test. All rights reserved.</p>
+        <p data-i18n="footer.disclaimer">이 테스트는 교육 목적으로 제작되었습니다. 전문가 진로 상담을 대체할 수 없습니다.</p>
+    </footer>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').catch(() => {
+                console.log('Service Worker registration failed');
+            });
+        }
+    </script>
+
+    <!-- App Scripts -->
+    <script src="js/i18n.js"></script>
+    <script src="js/mbti-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
