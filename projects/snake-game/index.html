@@ -5,9 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="robots" content="max-image-preview:large">
 
+    <!-- Resource hints for external domains -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+
+    <title>Snake Classic 🐍 - 클래식 뱀 게임 현대적 리메이크</title>
+
     <!-- SEO -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>
-    <title>Snake Classic 🐍 - 클래식 뱀 게임 현대적 리메이크</title>
     <meta name="description" content="클래식 뱀 게임의 현대적 리메이크! 🐍 네온 스타일, 모바일 스와이프, 다양한 먹이 종류. 무한모드와 벽모드에서 최고 점수를 목표로 하세요!">
     <meta name="keywords" content="뱀 게임, 스네이크, 클래식 게임, 캐주얼 게임, 무료 게임, 아케이드 게임, 모바일 게임">
     <link rel="canonical" href="https://dopabrain.com/snake-game/">
@@ -80,15 +87,19 @@
     <link rel="icon" type="image/svg+xml" href="icon-192.svg">
     <link rel="apple-touch-icon" href="icon-192.svg">
 
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Preload critical resources -->
-    <link rel="preload" href="css/style.css" as="style">
-    <!-- Prefetch app scripts -->
-    <link rel="prefetch" href="js/sound-engine.js">
-    <link rel="prefetch" href="js/app.js">
+    <!-- Critical CSS async loading -->
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+
+    <!-- Preload critical scripts -->
+    <link rel="preload" href="js/sound-engine.js" as="script">
+    <link rel="preload" href="js/app.js" as="script">
+
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8GSWM40TV"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-J8GSWM40TV');</script>
+
+    <!-- Deferred script loading -->
     <script src="js/i18n.js" defer></script>
 </head>
 <body>
