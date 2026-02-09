@@ -110,21 +110,33 @@ class ErrorHandler {
             animation: slideUp 0.3s ease;
         `;
 
-        notification.innerHTML = `
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <span style="font-size: 18px;">⚠️</span>
-                <span>${message}</span>
-                <button style="
-                    background: none;
-                    border: none;
-                    color: white;
-                    cursor: pointer;
-                    font-size: 16px;
-                    padding: 0;
-                    margin-left: auto;
-                " onclick="this.parentElement.parentElement.remove()">✕</button>
-            </div>
+        const container = document.createElement('div');
+        container.style.cssText = 'display: flex; align-items: center; gap: 10px;';
+
+        const icon = document.createElement('span');
+        icon.style.fontSize = '18px';
+        icon.textContent = '⚠️';
+
+        const text = document.createElement('span');
+        text.textContent = message;
+
+        const closeBtn = document.createElement('button');
+        closeBtn.style.cssText = `
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 0;
+            margin-left: auto;
         `;
+        closeBtn.textContent = '✕';
+        closeBtn.addEventListener('click', () => notification.remove());
+
+        container.appendChild(icon);
+        container.appendChild(text);
+        container.appendChild(closeBtn);
+        notification.appendChild(container);
 
         document.body.appendChild(notification);
 
