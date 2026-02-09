@@ -1,0 +1,67 @@
+{
+  "app": {
+    "skipLink": "Lewati ke konten utama",
+    "loading": "Memuat..."
+  },
+  "header": {
+    "title": "🔮 Bacaan Tarot Harian",
+    "tagline": "Temukan takdir Anda dengan 22 kartu Arcana Besar"
+  },
+  "tabs": {
+    "reading": "🃏 Bacaan Harian",
+    "category": "💕 Kategori",
+    "gallery": "📖 Galeri"
+  },
+  "reading": {
+    "title": "Bacaan Tarot Harian",
+    "hint": "Fokus pada pertanyaan Anda dan tarik tiga kartu: Masa Lalu, Masa Kini, Masa Depan",
+    "freeDaily": "1 bacaan gratis per hari",
+    "startBtn": "Mulai Membaca",
+    "drawCards": "Tarik Kartu Anda",
+    "clickCard": "Klik kartu untuk mengungkapnya",
+    "past": "Masa Lalu",
+    "present": "Masa Kini",
+    "future": "Masa Depan",
+    "yourReading": "Bacaan Anda",
+    "summary": "Pesan Hari Ini",
+    "share": "Bagikan",
+    "newReading": "Bacaan Baru",
+    "limitReached": "Anda telah menggunakan bacaan gratis harian Anda. Tonton iklan untuk bacaan lagi?",
+    "copiedToClipboard": "Disalin ke papan klip!"
+  },
+  "category": {
+    "title": "Pilih Fokus",
+    "hint": "Dapatkan bacaan yang ditargetkan untuk area kehidupan tertentu",
+    "love": "💕 Cinta dan Hubungan",
+    "money": "💰 Uang dan Karir",
+    "health": "💪 Kesehatan dan Kesejahteraan",
+    "personal": "🌟 Pertumbuhan Pribadi",
+    "share": "Bagikan",
+    "newReading": "Bacaan Baru"
+  },
+  "gallery": {
+    "title": "Galeri Tarot",
+    "subtitle": "Semua 22 Arcana Besar",
+    "upright": "Posisi Tegak",
+    "reversed": "Posisi Terbalik"
+  },
+  "premium": {
+    "badge": "✨ Bacaan Mendalam AI",
+    "title": "Analisis Tarot Mendalam AI",
+    "deepReading": "Bacaan Mendalam",
+    "patterns": "Pola dan Wawasan",
+    "guidance": "Panduan",
+    "advice": "Item Tindakan"
+  },
+  "ads": {
+    "banner": "Area iklan",
+    "interstitial": "Iklan",
+    "close": "Tutup"
+  },
+  "recommendations": {
+    "title": "Anda juga mungkin menyukai"
+  },
+  "game": {
+    "back": "Kembali ke DopaBrain"
+  }
+}

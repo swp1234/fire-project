@@ -1,0 +1,67 @@
+{
+  "app": {
+    "skipLink": "Passer au contenu principal",
+    "loading": "Chargement..."
+  },
+  "header": {
+    "title": "🔮 Lecture Quotidienne du Tarot",
+    "tagline": "Découvrez votre destin avec 22 cartes des Arcanes Majeurs"
+  },
+  "tabs": {
+    "reading": "🃏 Lecture Quotidienne",
+    "category": "💕 Catégorie",
+    "gallery": "📖 Galerie"
+  },
+  "reading": {
+    "title": "Lecture Quotidienne du Tarot",
+    "hint": "Concentrez-vous sur votre question et tirez trois cartes : Passé, Présent, Avenir",
+    "freeDaily": "1 lecture gratuite par jour",
+    "startBtn": "Commencer la Lecture",
+    "drawCards": "Tirez Vos Cartes",
+    "clickCard": "Cliquez sur une carte pour la révéler",
+    "past": "Passé",
+    "present": "Présent",
+    "future": "Avenir",
+    "yourReading": "Votre Lecture",
+    "summary": "Message d'Aujourd'hui",
+    "share": "Partager",
+    "newReading": "Nouvelle Lecture",
+    "limitReached": "Vous avez utilisé votre lecture gratuite quotidienne. Regarder une publicité pour une autre lecture ?",
+    "copiedToClipboard": "Copié dans le presse-papiers !"
+  },
+  "category": {
+    "title": "Choisissez un Domaine",
+    "hint": "Obtenez une lecture ciblée pour des domaines de vie spécifiques",
+    "love": "💕 Amour et Relations",
+    "money": "💰 Argent et Carrière",
+    "health": "💪 Santé et Bien-être",
+    "personal": "🌟 Croissance Personnelle",
+    "share": "Partager",
+    "newReading": "Nouvelle Lecture"
+  },
+  "gallery": {
+    "title": "Galerie de Tarot",
+    "subtitle": "Les 22 Arcanes Majeurs",
+    "upright": "Position Droite",
+    "reversed": "Position Inversée"
+  },
+  "premium": {
+    "badge": "✨ Lecture Profonde IA",
+    "title": "Analyse Profonde du Tarot IA",
+    "deepReading": "Lecture Profonde",
+    "patterns": "Modèles et Perspectives",
+    "guidance": "Orientation",
+    "advice": "Éléments d'Action"
+  },
+  "ads": {
+    "banner": "Zone de publicité",
+    "interstitial": "Publicité",
+    "close": "Fermer"
+  },
+  "recommendations": {
+    "title": "Vous aimerez peut-être aussi"
+  },
+  "game": {
+    "back": "Retour à DopaBrain"
+  }
+}

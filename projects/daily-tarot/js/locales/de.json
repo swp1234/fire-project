@@ -1,0 +1,67 @@
+{
+  "app": {
+    "skipLink": "Zum Hauptinhalt springen",
+    "loading": "Laden..."
+  },
+  "header": {
+    "title": "🔮 Tägliche Tarot-Lesung",
+    "tagline": "Entdecken Sie Ihr Schicksal mit 22 Großen Arkana Karten"
+  },
+  "tabs": {
+    "reading": "🃏 Tägliche Lesung",
+    "category": "💕 Kategorie",
+    "gallery": "📖 Galerie"
+  },
+  "reading": {
+    "title": "Tägliche Tarot-Lesung",
+    "hint": "Konzentrieren Sie sich auf Ihre Frage und ziehen Sie drei Karten: Vergangenheit, Gegenwart, Zukunft",
+    "freeDaily": "1 kostenlose Lesung pro Tag",
+    "startBtn": "Lesung Starten",
+    "drawCards": "Ihre Karten Ziehen",
+    "clickCard": "Klicken Sie auf eine Karte, um sie aufzudecken",
+    "past": "Vergangenheit",
+    "present": "Gegenwart",
+    "future": "Zukunft",
+    "yourReading": "Ihre Lesung",
+    "summary": "Heutige Botschaft",
+    "share": "Teilen",
+    "newReading": "Neue Lesung",
+    "limitReached": "Sie haben Ihre kostenlose Tageslesung verwendet. Möchten Sie eine Anzeige ansehen, um noch eine Lesung zu erhalten?",
+    "copiedToClipboard": "In die Zwischenablage kopiert!"
+  },
+  "category": {
+    "title": "Wählen Sie einen Fokus",
+    "hint": "Erhalten Sie eine gezielte Lesung für bestimmte Lebensbereiche",
+    "love": "💕 Liebe und Beziehungen",
+    "money": "💰 Geld und Karriere",
+    "health": "💪 Gesundheit und Wohlbefinden",
+    "personal": "🌟 Persönliches Wachstum",
+    "share": "Teilen",
+    "newReading": "Neue Lesung"
+  },
+  "gallery": {
+    "title": "Tarot-Galerie",
+    "subtitle": "Alle 22 Großen Arkana Karten",
+    "upright": "Aufrechte Position",
+    "reversed": "Umgekehrte Position"
+  },
+  "premium": {
+    "badge": "✨ AI Tiefe Lesung",
+    "title": "AI Tiefe Tarot-Analyse",
+    "deepReading": "Tiefe Lesung",
+    "patterns": "Muster und Erkenntnisse",
+    "guidance": "Anleitung",
+    "advice": "Aktionselemente"
+  },
+  "ads": {
+    "banner": "Anzeigenbereich",
+    "interstitial": "Anzeige",
+    "close": "Schließen"
+  },
+  "recommendations": {
+    "title": "Das könnte Ihnen auch gefallen"
+  },
+  "game": {
+    "back": "Zurück zu DopaBrain"
+  }
+}

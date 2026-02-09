@@ -1,0 +1,67 @@
+{
+  "app": {
+    "skipLink": "Pular para o conteúdo principal",
+    "loading": "Carregando..."
+  },
+  "header": {
+    "title": "🔮 Leitura Diária de Tarô",
+    "tagline": "Descubra seu destino com 22 cartas dos Arcanos Maiores"
+  },
+  "tabs": {
+    "reading": "🃏 Leitura Diária",
+    "category": "💕 Categoria",
+    "gallery": "📖 Galeria"
+  },
+  "reading": {
+    "title": "Leitura Diária de Tarô",
+    "hint": "Concentre-se em sua pergunta e retire três cartas: Passado, Presente, Futuro",
+    "freeDaily": "1 leitura gratuita por dia",
+    "startBtn": "Iniciar Leitura",
+    "drawCards": "Retire Suas Cartas",
+    "clickCard": "Clique em uma carta para revelá-la",
+    "past": "Passado",
+    "present": "Presente",
+    "future": "Futuro",
+    "yourReading": "Sua Leitura",
+    "summary": "Mensagem de Hoje",
+    "share": "Compartilhar",
+    "newReading": "Nova Leitura",
+    "limitReached": "Você usou sua leitura gratuita diária. Assistir um anúncio para outra leitura?",
+    "copiedToClipboard": "Copiado para a área de transferência!"
+  },
+  "category": {
+    "title": "Escolha um Foco",
+    "hint": "Obtenha uma leitura direcionada para áreas específicas da vida",
+    "love": "💕 Amor e Relacionamentos",
+    "money": "💰 Dinheiro e Carreira",
+    "health": "💪 Saúde e Bem-estar",
+    "personal": "🌟 Crescimento Pessoal",
+    "share": "Compartilhar",
+    "newReading": "Nova Leitura"
+  },
+  "gallery": {
+    "title": "Galeria de Tarô",
+    "subtitle": "Todos os 22 Arcanos Maiores",
+    "upright": "Posição Direta",
+    "reversed": "Posição Invertida"
+  },
+  "premium": {
+    "badge": "✨ Leitura Profunda IA",
+    "title": "Análise Profunda de Tarô IA",
+    "deepReading": "Leitura Profunda",
+    "patterns": "Padrões e Insights",
+    "guidance": "Orientação",
+    "advice": "Itens de Ação"
+  },
+  "ads": {
+    "banner": "Área de publicidade",
+    "interstitial": "Publicidade",
+    "close": "Fechar"
+  },
+  "recommendations": {
+    "title": "Você também pode gostar"
+  },
+  "game": {
+    "back": "Voltar para DopaBrain"
+  }
+}

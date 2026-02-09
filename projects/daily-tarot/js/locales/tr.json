@@ -1,0 +1,67 @@
+{
+  "app": {
+    "skipLink": "Ana içeriğe atla",
+    "loading": "Yükleniyor..."
+  },
+  "header": {
+    "title": "🔮 Günlük Tarot Okuyuşu",
+    "tagline": "22 Büyük Arkana Kartıyla Kaderinizi Keşfedin"
+  },
+  "tabs": {
+    "reading": "🃏 Günlük Okuyuş",
+    "category": "💕 Kategori",
+    "gallery": "📖 Galeri"
+  },
+  "reading": {
+    "title": "Günlük Tarot Okuyuşu",
+    "hint": "Sorunuza odaklanın ve üç kart çekin: Geçmiş, Şimdi, Gelecek",
+    "freeDaily": "Günde 1 ücretsiz okuyuş",
+    "startBtn": "Okuyuşu Başlat",
+    "drawCards": "Kartlarınızı Çekin",
+    "clickCard": "Kartı ortaya çıkarmak için tıklayın",
+    "past": "Geçmiş",
+    "present": "Şimdi",
+    "future": "Gelecek",
+    "yourReading": "Sizin Okuyuşunuz",
+    "summary": "Bugünün Mesajı",
+    "share": "Paylaş",
+    "newReading": "Yeni Okuyuş",
+    "limitReached": "Günlük ücretsiz okuyuşunuzu kullandınız. Başka bir okuyuş için reklam izlemek ister misiniz?",
+    "copiedToClipboard": "Panoya kopyalandı!"
+  },
+  "category": {
+    "title": "Bir Odak Seçin",
+    "hint": "Hayatın belirli alanları için hedeflenmiş okuyuş alın",
+    "love": "💕 Aşk ve İlişkiler",
+    "money": "💰 Para ve Kariyer",
+    "health": "💪 Sağlık ve Wellness",
+    "personal": "🌟 Kişisel Gelişim",
+    "share": "Paylaş",
+    "newReading": "Yeni Okuyuş"
+  },
+  "gallery": {
+    "title": "Tarot Galerisi",
+    "subtitle": "Tüm 22 Büyük Arkana Kartı",
+    "upright": "Dik Konum",
+    "reversed": "Ters Konum"
+  },
+  "premium": {
+    "badge": "✨ AI Derin Okuyuş",
+    "title": "AI Derin Tarot Analizi",
+    "deepReading": "Derin Okuyuş",
+    "patterns": "Desenler ve İçgörüler",
+    "guidance": "Rehberlik",
+    "advice": "İşlem Öğeleri"
+  },
+  "ads": {
+    "banner": "Reklam alanı",
+    "interstitial": "Reklam",
+    "close": "Kapat"
+  },
+  "recommendations": {
+    "title": "Bunu da sevebilirsiniz"
+  },
+  "game": {
+    "back": "DopaBrain'e Dön"
+  }
+}

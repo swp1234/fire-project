@@ -1,0 +1,67 @@
+{
+  "app": {
+    "skipLink": "Saltar al contenido principal",
+    "loading": "Cargando..."
+  },
+  "header": {
+    "title": "🔮 Lectura Diaria de Tarot",
+    "tagline": "Descubre tu destino con 22 cartas de los Arcanos Mayores"
+  },
+  "tabs": {
+    "reading": "🃏 Lectura Diaria",
+    "category": "💕 Categoría",
+    "gallery": "📖 Galería"
+  },
+  "reading": {
+    "title": "Lectura Diaria de Tarot",
+    "hint": "Enfócate en tu pregunta y extrae tres cartas: Pasado, Presente, Futuro",
+    "freeDaily": "1 lectura gratuita por día",
+    "startBtn": "Iniciar Lectura",
+    "drawCards": "Extrae Tus Cartas",
+    "clickCard": "Haz clic en una carta para revelarla",
+    "past": "Pasado",
+    "present": "Presente",
+    "future": "Futuro",
+    "yourReading": "Tu Lectura",
+    "summary": "Mensaje de Hoy",
+    "share": "Compartir",
+    "newReading": "Nueva Lectura",
+    "limitReached": "Has usado tu lectura gratuita diaria. ¿Ver un anuncio para otra lectura?",
+    "copiedToClipboard": "¡Copiado al portapapeles!"
+  },
+  "category": {
+    "title": "Elige un Enfoque",
+    "hint": "Obtén una lectura específica para áreas particulares de la vida",
+    "love": "💕 Amor y Relaciones",
+    "money": "💰 Dinero y Carrera",
+    "health": "💪 Salud y Bienestar",
+    "personal": "🌟 Crecimiento Personal",
+    "share": "Compartir",
+    "newReading": "Nueva Lectura"
+  },
+  "gallery": {
+    "title": "Galería de Tarot",
+    "subtitle": "Los 22 Arcanos Mayores",
+    "upright": "Posición Recta",
+    "reversed": "Posición Invertida"
+  },
+  "premium": {
+    "badge": "✨ Lectura Profunda IA",
+    "title": "Análisis Profundo de Tarot IA",
+    "deepReading": "Lectura Profunda",
+    "patterns": "Patrones e Insights",
+    "guidance": "Orientación",
+    "advice": "Elementos de Acción"
+  },
+  "ads": {
+    "banner": "Área de publicidad",
+    "interstitial": "Publicidad",
+    "close": "Cerrar"
+  },
+  "recommendations": {
+    "title": "También te puede gustar"
+  },
+  "game": {
+    "back": "Volver a DopaBrain"
+  }
+}
