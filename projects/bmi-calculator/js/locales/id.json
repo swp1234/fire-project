@@ -1,0 +1,55 @@
+{
+  "app": {
+    "loading": "Memuat..."
+  },
+  "header": {
+    "title": "💪 Kalkulator BMI",
+    "subtitle": "Pahami kesehatan Anda sekilas"
+  },
+  "bmi": {
+    "heroTitle": "📊 Analisis Indeks Massa Tubuh",
+    "metricUnit": "KG/CM",
+    "imperialUnit": "LB/FT",
+    "heightLabel": "Tinggi",
+    "weightLabel": "Berat",
+    "calculateBtn": "Hitung BMI",
+    "unit": "BMI",
+    "height": "Tinggi",
+    "weight": "Berat",
+    "bmiValue": "Nilai BMI",
+    "idealWeightTitle": "Rentang Berat Badan Ideal",
+    "idealWeightNote": "Rentang berat badan normal standar WHO (BMI 18,5-24,9)",
+    "min": "Minimum",
+    "max": "Maksimum",
+    "tipsTitle": "💡 Tips Kesehatan",
+    "shareBtn": "📤 Bagikan Hasil",
+    "categoriesTitle": "Kategori BMI",
+    "underweight": "Berat Badan Kurang",
+    "underweightRange": "Kurang dari 18,5",
+    "normal": "Normal",
+    "normalRange": "18,5 - 24,9",
+    "overweight": "Kelebihan Berat Badan",
+    "overweightRange": "25,0 - 29,9",
+    "obese": "Obesitas",
+    "obeseRange": "30,0 atau lebih",
+    "tipsUnderweight": "Untuk berat badan yang sehat, pastikan nutrisi yang cukup dan olahraga teratur. Konsultasikan dengan dokter Anda.",
+    "tipsNormal": "Pertahankan berat badan Anda saat ini! Tetap sehat dengan diet seimbang dan olahraga teratur.",
+    "tipsOverweight": "Penurunan berat badan direkomendasikan untuk kesehatan yang lebih baik. Kurangi asupan kalori dan tingkatkan olahraga.",
+    "tipsObese": "Konsultasikan dengan dokter untuk mengembangkan rencana manajemen berat badan. Panduan profesional sangat penting."
+  },
+  "history": {
+    "title": "📋 Riwayat Perhitungan",
+    "empty": "Belum ada riwayat perhitungan",
+    "clearBtn": "Hapus Semua Riwayat",
+    "confirmClear": "Apakah Anda yakin ingin menghapus?"
+  },
+  "recommendations": {
+    "title": "Coba Ini Juga"
+  },
+  "game": {
+    "back": "Beranda DopaBrain"
+  },
+  "share": {
+    "copied": "Disalin!"
+  }
+}

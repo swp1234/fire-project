@@ -1,0 +1,55 @@
+{
+  "app": {
+    "loading": "로딩 중..."
+  },
+  "header": {
+    "title": "💪 BMI 계산기",
+    "subtitle": "당신의 건강을 한눈에 파악하세요"
+  },
+  "bmi": {
+    "heroTitle": "📊 체질량지수 분석",
+    "metricUnit": "KG/CM",
+    "imperialUnit": "LB/FT",
+    "heightLabel": "키",
+    "weightLabel": "몸무게",
+    "calculateBtn": "BMI 계산",
+    "unit": "BMI",
+    "height": "키",
+    "weight": "몸무게",
+    "bmiValue": "BMI 값",
+    "idealWeightTitle": "이상적 체중 범위",
+    "idealWeightNote": "WHO 기준 정상 체중 범위(BMI 18.5~24.9)",
+    "min": "최소",
+    "max": "최대",
+    "tipsTitle": "💡 건강 팁",
+    "shareBtn": "📤 결과 공유",
+    "categoriesTitle": "BMI 분류",
+    "underweight": "저체중",
+    "underweightRange": "18.5 미만",
+    "normal": "정상",
+    "normalRange": "18.5 - 24.9",
+    "overweight": "과체중",
+    "overweightRange": "25.0 - 29.9",
+    "obese": "비만",
+    "obeseRange": "30.0 이상",
+    "tipsUnderweight": "건강한 체중을 위해 충분한 영양 섭취와 규칙적인 운동을 추천합니다. 의사와 상담하세요.",
+    "tipsNormal": "현재 체중을 유지하세요! 균형 잡힌 식단과 규칙적인 운동으로 건강을 지키세요.",
+    "tipsOverweight": "건강을 위해 체중 감량을 권장합니다. 칼로리 섭취를 줄이고 운동량을 늘리세요.",
+    "tipsObese": "의사와 상담하여 체중 관리 계획을 수립하세요. 전문가의 지도 아래 진행하는 것이 중요합니다."
+  },
+  "history": {
+    "title": "📋 최근 계산 내역",
+    "empty": "아직 계산 내역이 없습니다",
+    "clearBtn": "내역 전체 삭제",
+    "confirmClear": "정말 삭제하시겠습니까?"
+  },
+  "recommendations": {
+    "title": "이것도 해보세요"
+  },
+  "game": {
+    "back": "DopaBrain 홈"
+  },
+  "share": {
+    "copied": "복사되었습니다!"
+  }
+}

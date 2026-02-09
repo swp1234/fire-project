@@ -1,0 +1,55 @@
+{
+  "app": {
+    "loading": "Loading..."
+  },
+  "header": {
+    "title": "💪 BMI Calculator",
+    "subtitle": "Understand your health at a glance"
+  },
+  "bmi": {
+    "heroTitle": "📊 Body Mass Index Analysis",
+    "metricUnit": "KG/CM",
+    "imperialUnit": "LB/FT",
+    "heightLabel": "Height",
+    "weightLabel": "Weight",
+    "calculateBtn": "Calculate BMI",
+    "unit": "BMI",
+    "height": "Height",
+    "weight": "Weight",
+    "bmiValue": "BMI Value",
+    "idealWeightTitle": "Ideal Weight Range",
+    "idealWeightNote": "WHO standard normal weight range (BMI 18.5-24.9)",
+    "min": "Minimum",
+    "max": "Maximum",
+    "tipsTitle": "💡 Health Tips",
+    "shareBtn": "📤 Share Result",
+    "categoriesTitle": "BMI Categories",
+    "underweight": "Underweight",
+    "underweightRange": "Below 18.5",
+    "normal": "Normal",
+    "normalRange": "18.5 - 24.9",
+    "overweight": "Overweight",
+    "overweightRange": "25.0 - 29.9",
+    "obese": "Obese",
+    "obeseRange": "30.0 and above",
+    "tipsUnderweight": "For a healthy weight, ensure adequate nutrition and regular exercise. Consult with your doctor.",
+    "tipsNormal": "Maintain your current weight! Stay healthy with a balanced diet and regular exercise.",
+    "tipsOverweight": "Weight loss is recommended for better health. Reduce calorie intake and increase exercise.",
+    "tipsObese": "Consult with a doctor to develop a weight management plan. Professional guidance is essential."
+  },
+  "history": {
+    "title": "📋 Calculation History",
+    "empty": "No calculation history yet",
+    "clearBtn": "Clear All History",
+    "confirmClear": "Are you sure you want to delete?"
+  },
+  "recommendations": {
+    "title": "Try These Too"
+  },
+  "game": {
+    "back": "DopaBrain Home"
+  },
+  "share": {
+    "copied": "Copied!"
+  }
+}

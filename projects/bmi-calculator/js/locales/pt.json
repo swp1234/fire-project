@@ -1,0 +1,55 @@
+{
+  "app": {
+    "loading": "Carregando..."
+  },
+  "header": {
+    "title": "💪 Calculadora de IMC",
+    "subtitle": "Entenda sua saúde num piscar de olhos"
+  },
+  "bmi": {
+    "heroTitle": "📊 Análise do Índice de Massa Corporal",
+    "metricUnit": "KG/CM",
+    "imperialUnit": "LB/FT",
+    "heightLabel": "Altura",
+    "weightLabel": "Peso",
+    "calculateBtn": "Calcular IMC",
+    "unit": "IMC",
+    "height": "Altura",
+    "weight": "Peso",
+    "bmiValue": "Valor de IMC",
+    "idealWeightTitle": "Faixa de Peso Ideal",
+    "idealWeightNote": "Faixa de peso normal padrão da OMS (IMC 18,5-24,9)",
+    "min": "Mínimo",
+    "max": "Máximo",
+    "tipsTitle": "💡 Dicas de Saúde",
+    "shareBtn": "📤 Compartilhar Resultado",
+    "categoriesTitle": "Categorias de IMC",
+    "underweight": "Peso Baixo",
+    "underweightRange": "Abaixo de 18,5",
+    "normal": "Normal",
+    "normalRange": "18,5 - 24,9",
+    "overweight": "Sobrepeso",
+    "overweightRange": "25,0 - 29,9",
+    "obese": "Obeso",
+    "obeseRange": "30,0 ou mais",
+    "tipsUnderweight": "Para um peso saudável, garanta nutrição adequada e exercício regular. Consulte seu médico.",
+    "tipsNormal": "Mantenha seu peso atual! Permaneça saudável com uma dieta equilibrada e exercício regular.",
+    "tipsOverweight": "A perda de peso é recomendada para melhor saúde. Reduza a ingestão de calorias e aumente o exercício.",
+    "tipsObese": "Consulte um médico para desenvolver um plano de gerenciamento de peso. A orientação profissional é essencial."
+  },
+  "history": {
+    "title": "📋 Histórico de Cálculos",
+    "empty": "Sem histórico de cálculos ainda",
+    "clearBtn": "Limpar Todo o Histórico",
+    "confirmClear": "Tem certeza de que deseja deletar?"
+  },
+  "recommendations": {
+    "title": "Tente Estes Também"
+  },
+  "game": {
+    "back": "DopaBrain Inicial"
+  },
+  "share": {
+    "copied": "Copiado!"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "app": {
+    "loading": "読み込み中..."
+  },
+  "header": {
+    "title": "💪 BMI計算機",
+    "subtitle": "一目で健康状態を把握しましょう"
+  },
+  "bmi": {
+    "heroTitle": "📊 体格指数分析",
+    "metricUnit": "KG/CM",
+    "imperialUnit": "LB/FT",
+    "heightLabel": "身長",
+    "weightLabel": "体重",
+    "calculateBtn": "BMIを計算する",
+    "unit": "BMI",
+    "height": "身長",
+    "weight": "体重",
+    "bmiValue": "BMI値",
+    "idealWeightTitle": "理想体重範囲",
+    "idealWeightNote": "WHO標準正常体重範囲（BMI 18.5-24.9）",
+    "min": "最小",
+    "max": "最大",
+    "tipsTitle": "💡 健康のコツ",
+    "shareBtn": "📤 結果を共有",
+    "categoriesTitle": "BMIカテゴリー",
+    "underweight": "低体重",
+    "underweightRange": "18.5未満",
+    "normal": "標準",
+    "normalRange": "18.5 - 24.9",
+    "overweight": "過体重",
+    "overweightRange": "25.0 - 29.9",
+    "obese": "肥満",
+    "obeseRange": "30.0以上",
+    "tipsUnderweight": "健康的な体重のため、適切な栄養摂取と定期的な運動を心がけてください。医師に相談してください。",
+    "tipsNormal": "現在の体重を維持してください！バランスの取れた食事と定期的な運動で健康を保ちましょう。",
+    "tipsOverweight": "健康のため体重減量をお勧めします。カロリー摂取を減らし、運動を増やしてください。",
+    "tipsObese": "医師に相談して体重管理計画を立ててください。専門家の指導が必須です。"
+  },
+  "history": {
+    "title": "📋 計算履歴",
+    "empty": "計算履歴がまだありません",
+    "clearBtn": "すべての履歴をクリア",
+    "confirmClear": "削除しますか？"
+  },
+  "recommendations": {
+    "title": "これも試してみてください"
+  },
+  "game": {
+    "back": "DopaBrain ホーム"
+  },
+  "share": {
+    "copied": "コピーしました！"
+  }
+}
