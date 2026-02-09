@@ -1,0 +1,39 @@
+{
+  "name": "나의 두뇌 유형 테스트",
+  "short_name": "두뇌 유형",
+  "description": "당신의 두뇌는 어떤 유형인가요? 10개 질문으로 당신의 뇌 유형을 알아보세요.",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f0f1e",
+  "theme_color": "#e040fb",
+  "lang": "ko",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["entertainment", "education"]
+}

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG → PNG 아이콘 변환기</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff; padding: 40px; }
+        h1 { text-align: center; margin-bottom: 10px; }
+        .sub { text-align: center; color: #95a5a6; margin-bottom: 30px; }
+        .app-section { background: rgba(255,255,255,0.05); border-radius: 16px; padding: 24px; margin-bottom: 20px; }
+        .app-title { font-size: 1.2rem; margin-bottom: 16px; }
+        .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+        button { padding: 12px 24px; border: none; border-radius: 8px; font-size: 0.95rem; cursor: pointer; color: #fff; font-weight: 600; transition: all 0.2s; }
+        .btn-all { background: #27ae60; }
+        button:hover { opacity: 0.85; transform: translateY(-1px); }
+        .status { margin-top: 12px; font-size: 0.85rem; color: #95a5a6; }
+        .preview { display: flex; gap: 16px; margin-top: 12px; }
+        .preview canvas { border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+        canvas.hidden { display: none; }
+    </style>
+</head>
+<body>
+    <h1>SVG → PNG 아이콘 변환기</h1>
+    <p class="sub">버튼을 클릭하면 PNG 파일이 자동 다운로드됩니다.<br>다운로드된 파일을 각 프로젝트 폴더에 넣어주세요.</p>
+
+    <div class="app-section">
+        <div class="app-title" style="color:#667eea;">📱 Day 1: 퀴즈 앱 (quiz-app)</div>
+        <div class="btn-row">
+            <button class="btn-all" onclick="convertApp('quiz')">icon-192.png + icon-512.png 다운로드</button>
+        </div>
+        <div class="status" id="status-quiz"></div>
+        <div class="preview" id="preview-quiz"></div>
+    </div>
+
+    <div class="app-section">
+        <div class="app-title" style="color:#f39c12;">💰 Day 2: 쇼핑 계산기 (shopping-calc)</div>
+        <div class="btn-row">
+            <button class="btn-all" onclick="convertApp('shopping')">icon-192.png + icon-512.png 다운로드</button>
+        </div>
+        <div class="status" id="status-shopping"></div>
+        <div class="preview" id="preview-shopping"></div>
+    </div>
+
+    <div class="app-section">
+        <div class="app-title" style="color:#00b894;">🌿 Day 3: 디톡스 타이머 (detox-timer)</div>
+        <div class="btn-row">
+            <button class="btn-all" onclick="convertApp('detox')">icon-192.png + icon-512.png 다운로드</button>
+        </div>
+        <div class="status" id="status-detox"></div>
+        <div class="preview" id="preview-detox"></div>
+    </div>
+
+    <div class="app-section">
+        <div class="app-title" style="color:#9b59b6;">🔮 Day 4: 꿈해몽/운세 (dream-fortune)</div>
+        <div class="btn-row">
+            <button class="btn-all" onclick="convertApp('dreamfortune')">icon-192.png + icon-512.png 다운로드</button>
+        </div>
+        <div class="status" id="status-dreamfortune"></div>
+        <div class="preview" id="preview-dreamfortune"></div>
+    </div>
+
+    <div class="app-section">
+        <div class="app-title" style="color:#e91e63;">💖 Day 5: 긍정 확언 (affirmation)</div>
+        <div class="btn-row">
+            <button class="btn-all" onclick="convertApp('affirmation')">icon-192.png + icon-512.png 다운로드</button>
+        </div>
+        <div class="status" id="status-affirmation"></div>
+        <div class="preview" id="preview-affirmation"></div>
+    </div>
+
+    <div class="app-section">
+        <div class="app-title" style="color:#e74c3c;">🎰 Day 6: 복권 번호 (lottery)</div>
+        <div class="btn-row">
+            <button class="btn-all" onclick="convertApp('lottery')">icon-192.png + icon-512.png 다운로드</button>
+        </div>
+        <div class="status" id="status-lottery"></div>
+        <div class="preview" id="preview-lottery"></div>
+    </div>
+
+    <div class="app-section">
+        <div class="app-title" style="color:#3498db;">📅 Day 7: D-Day 카운터 (dday-counter)</div>
+        <div class="btn-row">
+            <button class="btn-all" onclick="convertApp('dday')">icon-192.png + icon-512.png 다운로드</button>
+        </div>
+        <div class="status" id="status-dday"></div>
+        <div class="preview" id="preview-dday"></div>
+    </div>
+
+    <div class="app-section">
+        <div class="app-title" style="color:#1abc9c;">🧠 Day 8: MBTI 궁합 (mbti-tips)</div>
+        <div class="btn-row">
+            <button class="btn-all" onclick="convertApp('mbti')">icon-192.png + icon-512.png 다운로드</button>
+        </div>
+        <div class="status" id="status-mbti"></div>
+        <div class="preview" id="preview-mbti"></div>
+    </div>
+
+    <div class="app-section">
+        <div class="app-title" style="color:#2c3e50;">🎵 Day 9: 백색소음 (white-noise)</div>
+        <div class="btn-row">
+            <button class="btn-all" onclick="convertApp('whitenoise')">icon-192.png + icon-512.png 다운로드</button>
+        </div>
+        <div class="status" id="status-whitenoise"></div>
+        <div class="preview" id="preview-whitenoise"></div>
+    </div>
+
+    <div class="app-section">
+        <div class="app-title" style="color:#27ae60;">💻 Day 10: 개발자 퀴즈 (dev-quiz)</div>
+        <div class="btn-row">
+            <button class="btn-all" onclick="convertApp('devquiz')">icon-192.png + icon-512.png 다운로드</button>
+        </div>
+        <div class="status" id="status-devquiz"></div>
+        <div class="preview" id="preview-devquiz"></div>
+    </div>
+
+    <script>
+const svgData = {
+quiz: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg512" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+    <linearGradient id="accent512" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb"/>
+      <stop offset="100%" style="stop-color:#f5576c"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="100" fill="url(#bg512)"/>
+  <circle cx="80" cy="80" r="50" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="450" cy="420" r="65" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="420" cy="100" r="30" fill="rgba(255,255,255,0.06)"/>
+  <circle cx="90" cy="400" r="40" fill="rgba(255,255,255,0.05)"/>
+  <rect x="120" y="120" width="272" height="272" rx="50" fill="white"/>
+  <text x="256" y="340" font-family="Arial, sans-serif" font-size="180" font-weight="bold" fill="url(#bg512)" text-anchor="middle">?</text>
+  <polygon points="430,90 436,108 454,108 440,120 446,138 430,126 414,138 420,120 406,108 424,108" fill="url(#accent512)"/>
+  <polygon points="100,400 104,412 116,412 106,420 110,432 100,424 90,432 94,420 84,412 96,412" fill="#ffd93d"/>
+  <polygon points="440,380 443,388 451,388 445,393 447,401 440,396 433,401 435,393 429,388 437,388" fill="#00d26a"/>
+  <polygon points="75,120 77,126 83,126 78,130 80,136 75,132 70,136 72,130 67,126 73,126" fill="rgba(255,255,255,0.8)"/>
+</svg>`,
+
+shopping: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgS" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f39c12"/>
+      <stop offset="100%" style="stop-color:#e67e22"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="100" fill="url(#bgS)"/>
+  <rect x="120" y="90" width="272" height="332" rx="36" fill="white"/>
+  <rect x="148" y="118" width="216" height="80" rx="16" fill="#f39c12" opacity="0.2"/>
+  <circle cx="216" cy="158" r="22" fill="none" stroke="#e67e22" stroke-width="3"/>
+  <line x1="194" y1="158" x2="238" y2="158" stroke="#e67e22" stroke-width="2"/>
+  <line x1="216" y1="136" x2="216" y2="180" stroke="#e67e22" stroke-width="2"/>
+  <ellipse cx="216" cy="158" rx="10" ry="22" fill="none" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="265" y="168" font-family="Arial" font-size="36" font-weight="bold" fill="#e67e22">$</text>
+  <text x="300" y="168" font-family="Arial" font-size="28" font-weight="bold" fill="#e67e22" opacity="0.6">W</text>
+  <rect x="148" y="218" width="52" height="40" rx="8" fill="#f39c12" opacity="0.3"/>
+  <rect x="212" y="218" width="52" height="40" rx="8" fill="#f39c12" opacity="0.3"/>
+  <rect x="276" y="218" width="52" height="40" rx="8" fill="#f39c12" opacity="0.3"/>
+  <rect x="148" y="272" width="52" height="40" rx="8" fill="#f39c12" opacity="0.3"/>
+  <rect x="212" y="272" width="52" height="40" rx="8" fill="#f39c12" opacity="0.3"/>
+  <rect x="276" y="272" width="52" height="40" rx="8" fill="#f39c12" opacity="0.3"/>
+  <rect x="148" y="326" width="52" height="40" rx="8" fill="#f39c12" opacity="0.3"/>
+  <rect x="212" y="326" width="52" height="40" rx="8" fill="#f39c12" opacity="0.3"/>
+  <rect x="276" y="326" width="52" height="40" rx="8" fill="#e67e22" opacity="0.6"/>
+  <rect x="148" y="380" width="116" height="28" rx="6" fill="#f39c12" opacity="0.2"/>
+  <rect x="276" y="380" width="52" height="28" rx="6" fill="#e67e22" opacity="0.5"/>
+</svg>`,
+
+detox: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgD" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="100%" style="stop-color:#1a2f1a"/>
+    </linearGradient>
+    <linearGradient id="ringD" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#55efc4"/>
+      <stop offset="100%" style="stop-color:#00b894"/>
+    </linearGradient>
+    <filter id="glowD">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#bgD)"/>
+  <circle cx="80" cy="100" r="4" fill="#55efc4" opacity="0.6"/>
+  <circle cx="430" cy="90" r="3" fill="#fff" opacity="0.4"/>
+  <circle cx="120" cy="400" r="4" fill="#00b894" opacity="0.5"/>
+  <circle cx="420" cy="380" r="3" fill="#81ecec" opacity="0.4"/>
+  <circle cx="60" cy="260" r="3" fill="#fff" opacity="0.3"/>
+  <circle cx="450" cy="240" r="4" fill="#55efc4" opacity="0.5"/>
+  <circle cx="256" cy="256" r="145" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="16"/>
+  <circle cx="256" cy="256" r="145" fill="none" stroke="url(#ringD)" stroke-width="16" stroke-linecap="round" stroke-dasharray="911" stroke-dashoffset="228" transform="rotate(-90 256 256)" filter="url(#glowD)"/>
+  <g fill="url(#ringD)" opacity="0.9" transform="translate(256, 256)">
+    <circle cx="0" cy="0" r="22"/>
+    <ellipse cx="0" cy="-48" rx="16" ry="32" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-48" rx="16" ry="32" transform="rotate(60)"/>
+    <ellipse cx="0" cy="-48" rx="16" ry="32" transform="rotate(120)"/>
+    <ellipse cx="0" cy="-48" rx="16" ry="32" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-48" rx="16" ry="32" transform="rotate(240)"/>
+    <ellipse cx="0" cy="-48" rx="16" ry="32" transform="rotate(300)"/>
+  </g>
+</svg>`,
+
+dreamfortune: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="bg512" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#9b59b6"/><stop offset="100%" style="stop-color:#3498db"/></linearGradient><radialGradient id="moon512" cx="30%" cy="30%" r="50%"><stop offset="0%" style="stop-color:#fffde7"/><stop offset="100%" style="stop-color:#ffd54f"/></radialGradient></defs><rect width="512" height="512" rx="100" fill="#0a0a1a"/><circle cx="80" cy="80" r="4" fill="white" opacity="0.8"/><circle cx="430" cy="70" r="3" fill="white" opacity="0.6"/><circle cx="120" cy="430" r="3" fill="white" opacity="0.7"/><circle cx="400" cy="400" r="4" fill="white" opacity="0.5"/><circle cx="50" cy="260" r="2" fill="white" opacity="0.8"/><circle cx="470" cy="240" r="3" fill="white" opacity="0.6"/><circle cx="256" cy="190" r="90" fill="url(#moon512)"/><circle cx="230" cy="165" r="12" fill="rgba(255,200,100,0.3)"/><circle cx="280" cy="200" r="8" fill="rgba(255,200,100,0.2)"/><circle cx="256" cy="350" r="80" fill="url(#bg512)" opacity="0.9"/><polygon points="130,130 134,142 146,142 136,150 140,162 130,154 120,162 124,150 114,142 126,142" fill="#f1c40f"/><polygon points="390,120 393,128 401,128 395,134 397,142 390,136 383,142 385,134 379,128 387,128" fill="white" opacity="0.8"/></svg>`,
+
+affirmation: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#e91e63"/><stop offset="100%" style="stop-color:#ff6b9d"/></linearGradient></defs><rect width="512" height="512" rx="100" fill="#0f0f1e"/><path d="M256 430 C256 430, 130 320, 130 230 C130 170, 170 130, 215 130 C235 130, 256 145, 256 145 C256 145, 277 130, 297 130 C342 130, 382 170, 382 230 C382 320, 256 430, 256 430 Z" fill="url(#grad2)"/><circle cx="160" cy="130" r="8" fill="#ffd93d" opacity="0.9"/><circle cx="352" cy="145" r="7" fill="#ffd93d" opacity="0.9"/><circle cx="180" cy="385" r="6" fill="#ffd93d" opacity="0.7"/><circle cx="332" cy="375" r="7" fill="#ffd93d" opacity="0.8"/><path d="M400 200 L405 212 L418 212 L408 220 L412 232 L400 225 L388 232 L392 220 L382 212 L395 212 Z" fill="#ffd93d" opacity="0.95"/><path d="M112 250 L116 260 L126 260 L118 266 L121 276 L112 270 L103 276 L106 266 L98 260 L108 260 Z" fill="#ffd93d" opacity="0.85"/></svg>`,
+
+lottery: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="gradRed2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#e74c3c"/><stop offset="100%" style="stop-color:#c0392b"/></linearGradient><linearGradient id="gradGold2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f1c40f"/><stop offset="100%" style="stop-color:#f39c12"/></linearGradient></defs><rect width="512" height="512" rx="100" fill="#0a0a0a"/><g><ellipse cx="256" cy="190" rx="50" ry="70" fill="url(#gradGold2)"/><ellipse cx="322" cy="256" rx="70" ry="50" fill="url(#gradGold2)"/><ellipse cx="256" cy="322" rx="50" ry="70" fill="url(#gradGold2)"/><ellipse cx="190" cy="256" rx="70" ry="50" fill="url(#gradGold2)"/></g><circle cx="256" cy="256" r="32" fill="url(#gradRed2)"/><rect x="250" y="322" width="12" height="60" fill="#27ae60" rx="6"/><circle cx="160" cy="160" r="8" fill="#f1c40f" opacity="0.9"/><circle cx="352" cy="160" r="7" fill="#f1c40f" opacity="0.9"/><text x="430" y="300" font-size="40" fill="#f39c12" opacity="0.6" font-family="Arial">W</text><text x="70" y="200" font-size="35" fill="#f39c12" opacity="0.5" font-family="Arial">$</text></svg>`,
+
+dday: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="gradBlue2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3498db"/><stop offset="100%" style="stop-color:#2980b9"/></linearGradient></defs><rect width="512" height="512" rx="100" fill="#1a1a1a"/><g><rect x="120" y="150" width="272" height="240" rx="20" fill="url(#gradBlue2)"/><rect x="120" y="150" width="272" height="70" rx="20" fill="#2980b9"/><circle cx="175" cy="135" r="12" fill="#3498db"/><circle cx="256" cy="135" r="12" fill="#3498db"/><circle cx="337" cy="135" r="12" fill="#3498db"/><text x="256" y="330" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">D-7</text></g><circle cx="420" cy="190" r="8" fill="#5dade2" opacity="0.7"/><circle cx="80" cy="240" r="6" fill="#5dade2" opacity="0.5"/></svg>`,
+
+mbti: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="bgM" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#1abc9c"/><stop offset="100%" style="stop-color:#16a085"/></linearGradient></defs><rect width="512" height="512" rx="100" fill="url(#bgM)"/><text x="256" y="180" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white" text-anchor="middle">MBTI</text><circle cx="150" cy="300" r="55" fill="rgba(255,255,255,0.2)"/><circle cx="362" cy="300" r="55" fill="rgba(255,255,255,0.2)"/><text x="150" y="318" font-size="48" fill="white" text-anchor="middle" font-family="Arial">E</text><text x="362" y="318" font-size="48" fill="white" text-anchor="middle" font-family="Arial">I</text><path d="M205 300 L307 300" stroke="white" stroke-width="6" stroke-dasharray="12,8"/></svg>`,
+
+whitenoise: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="bgW" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2c3e50"/><stop offset="100%" style="stop-color:#1a1a2e"/></linearGradient></defs><rect width="512" height="512" rx="100" fill="url(#bgW)"/><circle cx="256" cy="220" r="90" fill="none" stroke="#9b59b6" stroke-width="6"/><circle cx="256" cy="220" r="65" fill="none" stroke="#9b59b6" stroke-width="4" opacity="0.7"/><circle cx="256" cy="220" r="40" fill="none" stroke="#9b59b6" stroke-width="3" opacity="0.5"/><circle cx="256" cy="220" r="15" fill="#9b59b6"/><path d="M130 220 Q193 180, 256 220 Q319 260, 382 220" stroke="#9b59b6" stroke-width="4" fill="none" opacity="0.5"/></svg>`,
+
+devquiz: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="100" fill="#1e1e1e"/><rect x="50" y="90" width="412" height="332" rx="15" fill="#252526" stroke="#3c3c3c" stroke-width="3"/><rect x="50" y="90" width="412" height="60" fill="#323233"/><circle cx="85" cy="120" r="12" fill="#ff5f56"/><circle cx="120" cy="120" r="12" fill="#ffbd2e"/><circle cx="155" cy="120" r="12" fill="#27c93f"/><text x="80" y="200" font-family="monospace" font-size="28" fill="#27ae60">$ ./start_quiz</text><text x="80" y="250" font-family="monospace" font-size="32" fill="#569cd6">&gt;_</text><text x="130" y="250" font-family="monospace" font-size="24" fill="#d4d4d4">Ready to code?</text><text x="80" y="310" font-family="monospace" font-size="20" fill="#6a9955">// Test your dev skills</text></svg>`
+};
+
+function renderAndDownload(svgStr, size, filename) {
+    return new Promise((resolve) => {
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext('2d');
+
+        const img = new Image();
+        const blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+
+        img.onload = () => {
+            ctx.drawImage(img, 0, 0, size, size);
+            canvas.toBlob((pngBlob) => {
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(pngBlob);
+                a.download = filename;
+                a.click();
+                URL.revokeObjectURL(a.href);
+                URL.revokeObjectURL(url);
+                resolve(canvas);
+            }, 'image/png');
+        };
+        img.src = url;
+    });
+}
+
+async function convertApp(appKey) {
+    const statusEl = document.getElementById(`status-${appKey}`);
+    const previewEl = document.getElementById(`preview-${appKey}`);
+    statusEl.textContent = '변환 중...';
+    previewEl.innerHTML = '';
+
+    const svg = svgData[appKey];
+
+    const canvas192 = await renderAndDownload(svg, 192, 'icon-192.png');
+    statusEl.textContent = '✅ icon-192.png 다운로드 완료! 512px 변환 중...';
+
+    await new Promise(r => setTimeout(r, 800));
+
+    const canvas512 = await renderAndDownload(svg, 512, 'icon-512.png');
+    statusEl.textContent = '✅ 두 파일 모두 다운로드 완료! 프로젝트 폴더에 넣어주세요.';
+
+    // 미리보기
+    canvas192.style.width = '64px'; canvas192.style.height = '64px';
+    canvas512.style.width = '96px'; canvas512.style.height = '96px';
+    canvas192.style.borderRadius = '12px';
+    canvas512.style.borderRadius = '16px';
+    previewEl.appendChild(canvas192);
+    previewEl.appendChild(canvas512);
+}
+    </script>
+</body>
+</html>

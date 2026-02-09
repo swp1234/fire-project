@@ -1,0 +1,3 @@
+[submodule "projects/number-puzzle"]
+	path = projects/number-puzzle
+	url = https://github.com/swp1234/number-puzzle.git
