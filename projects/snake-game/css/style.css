@@ -1023,3 +1023,14 @@ input:focus-visible,
     background: #57d68d;
     opacity: 0.8;
 }
+
+/* Selection Color */
+::selection {
+    background: #2ecc71;
+    color: white;
+}
+
+::-moz-selection {
+    background: #2ecc71;
+    color: white;
+}
