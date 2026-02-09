@@ -1,48 +1,20 @@
-<svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="192" height="192" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="snakeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2ecc71;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#27ae60;stop-opacity:1" />
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#27ae60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1f8b4c;stop-opacity:1" />
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
     </filter>
   </defs>
-
-  <!-- Background -->
-  <rect width="192" height="192" fill="#0f0f23"/>
-
-  <!-- Grid pattern -->
-  <g stroke="rgba(46, 204, 113, 0.1)" stroke-width="1">
-    <line x1="0" y1="48" x2="192" y2="48"/>
-    <line x1="0" y1="96" x2="192" y2="96"/>
-    <line x1="0" y1="144" x2="192" y2="144"/>
-    <line x1="48" y1="0" x2="48" y2="192"/>
-    <line x1="96" y1="0" x2="96" y2="192"/>
-    <line x1="144" y1="0" x2="144" y2="192"/>
+  <rect width="512" height="512" fill="url(#grad1)"/>
+  <g transform="translate(256, 256)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="200" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+    <text x="0" y="0" font-size="180" text-anchor="middle" dominant-baseline="central" fill="white" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" opacity="0.95">🐍</text>
   </g>
-
-  <!-- Snake body segments -->
-  <!-- Head -->
-  <circle cx="96" cy="96" r="28" fill="url(#snakeGradient)" filter="url(#glow)"/>
-
-  <!-- Body segments with decreasing opacity -->
-  <circle cx="96" cy="52" r="22" fill="url(#snakeGradient)" opacity="0.8" filter="url(#glow)"/>
-  <circle cx="96" cy="28" r="18" fill="url(#snakeGradient)" opacity="0.6" filter="url(#glow)"/>
-
-  <circle cx="140" cy="52" r="22" fill="url(#snakeGradient)" opacity="0.8" filter="url(#glow)"/>
-  <circle cx="164" cy="52" r="18" fill="url(#snakeGradient)" opacity="0.6" filter="url(#glow)"/>
-
-  <!-- Eyes on head -->
-  <circle cx="88" cy="90" r="3" fill="#fff"/>
-  <circle cx="104" cy="90" r="3" fill="#fff"/>
-
-  <!-- Apple/Food element -->
-  <circle cx="52" cy="140" r="16" fill="#e74c3c" opacity="0.9" filter="url(#glow)"/>
-  <circle cx="52" cy="140" r="14" fill="#f39c12" opacity="0.7"/>
-  <text x="52" y="146" font-size="24" text-anchor="middle" dominant-baseline="middle">🍎</text>
+  <g transform="translate(256, 256)">
+    <circle cx="0" cy="0" r="220" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  </g>
 </svg>
