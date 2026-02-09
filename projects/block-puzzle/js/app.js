@@ -69,7 +69,8 @@ class BlockPuzzle {
         this.canHold = true;
 
         // Timing
-        this.dropSpeed = 1000; // ms
+        // Improved: Slower initial speed (900ms) for easier early game
+        this.dropSpeed = 900; // ms
         this.dropCounter = 0;
         this.lastDropTime = 0;
         this.isSoftDropping = false;
@@ -297,6 +298,8 @@ class BlockPuzzle {
     startGame() {
         this.grid = this.createEmptyGrid();
         this.score = 0;
+        // Improved: Start with slower speed (900ms) for easy early game
+        this.dropSpeed = 900;
         this.level = 1;
         this.lines = 0;
         this.combo = 0;

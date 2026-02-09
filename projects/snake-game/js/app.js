@@ -286,8 +286,9 @@ class SnakeGame {
         this.startTime = Date.now();
         this.hudScore.textContent = '0';
 
-        // Spawn initial foods
-        for (let i = 0; i < 3; i++) {
+        // Improved: Spawn fewer initial foods for easier early game (1 instead of 3)
+        // This gives players more time to learn controls
+        for (let i = 0; i < 1; i++) {
             this.spawnFood();
         }
     }
@@ -302,17 +303,24 @@ class SnakeGame {
             valid = !this.snake.some(seg => seg.x === x && seg.y === y);
         }
 
-        // 70% apple, 20% bonus, 10% diamond
+        // Improved: Better food type distribution
+        // 80% apple (basic), 15% bonus (timed), 5% diamond (rare)
+        // This keeps bonus/diamond special without overwhelming early game
         const rand = Math.random();
-        if (rand < 0.7) {
+        if (rand < 0.80) {
             type = 'apple';
-        } else if (rand < 0.9) {
+        } else if (rand < 0.95) {
             type = 'bonus';
         } else {
             type = 'diamond';
         }
 
-        this.foods.push({ x, y, type, spawnTime: Date.now() });
+        // Improved: Longer timeout for special foods (easier to collect)
+        this.foods.push({
+            x, y, type,
+            spawnTime: Date.now(),
+            timeout: type === 'bonus' ? 8000 : (type === 'diamond' ? 5000 : null)
+        });
     }
 
     update(deltaTime) {
@@ -375,8 +383,12 @@ class SnakeGame {
                     this.stats.foodEaten++;
                     this.hudScore.textContent = this.score;
 
-                    // Increase speed - more gradual curve
-                    this.currentSpeed = Math.max(55, this.baseSpeed - (Math.log(this.snake.length) * this.speedIncrease * 8));
+                    // Improved: More gradual speed curve using logarithm
+                    // Ensures game stays playable at any snake length
+                    // Speed decreases logarithmically but never below 70ms
+                    const snakeLength = this.snake.length;
+                    const speedReduction = Math.log(snakeLength + 1) * 6; // More gentle curve
+                    this.currentSpeed = Math.max(70, this.baseSpeed - speedReduction);
 
                     // Create particle effect
                     this.createParticles(newX, newY, food.type);
@@ -394,12 +406,12 @@ class SnakeGame {
                 this.snake.pop();
             }
 
-            // Remove expired bonus foods
+            // Remove expired bonus foods (improved timeouts for easier collection)
             this.foods = this.foods.filter(food => {
-                if (food.type === 'bonus' && Date.now() - food.spawnTime > 5000) {
+                if (food.type === 'bonus' && Date.now() - food.spawnTime > 8000) {
                     return false;
                 }
-                if (food.type === 'diamond' && Date.now() - food.spawnTime > 3000) {
+                if (food.type === 'diamond' && Date.now() - food.spawnTime > 5000) {
                     return false;
                 }
                 return true;
