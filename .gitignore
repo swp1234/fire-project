@@ -24,3 +24,29 @@ build/
 
 # 의존성
 node_modules/
+
+# 세션 리포트 및 임시 파일
+FAVICON_*.txt
+FAVICON_*.md
+GA4_*.md
+GSC_*.md
+QA_*.md
+VALIDATION_*.txt
+VALIDATION_*.md
+PASSWORD_*.txt
+PASSWORD_*.md
+PASSWORD_*.html
+QR_*.txt
+QR_*.md
+QR_*.html
+SOUND_*.txt
+SOUND_*.md
+NUMEROLOGY_*.md
+ACCESSIBILITY_*.py
+ACCESSIBILITY_*.md
+ACCESSIBILITY_*.txt
+SOUNDSCAPE_*.txt
+*.py
+*.ps1
+*.js
+nul
