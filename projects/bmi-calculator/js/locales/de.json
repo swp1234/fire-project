@@ -1,0 +1,55 @@
+{
+  "app": {
+    "loading": "Wird geladen..."
+  },
+  "header": {
+    "title": "💪 BMI-Rechner",
+    "subtitle": "Verstehen Sie Ihre Gesundheit auf einen Blick"
+  },
+  "bmi": {
+    "heroTitle": "📊 Body-Mass-Index-Analyse",
+    "metricUnit": "KG/CM",
+    "imperialUnit": "LB/FT",
+    "heightLabel": "Höhe",
+    "weightLabel": "Gewicht",
+    "calculateBtn": "BMI berechnen",
+    "unit": "BMI",
+    "height": "Höhe",
+    "weight": "Gewicht",
+    "bmiValue": "BMI-Wert",
+    "idealWeightTitle": "Ideales Gewichtsbereich",
+    "idealWeightNote": "WHO-Standard-Normalgewichtsbereich (BMI 18,5-24,9)",
+    "min": "Minimum",
+    "max": "Maximum",
+    "tipsTitle": "💡 Gesundheitstipps",
+    "shareBtn": "📤 Ergebnis teilen",
+    "categoriesTitle": "BMI-Kategorien",
+    "underweight": "Untergewicht",
+    "underweightRange": "Unter 18,5",
+    "normal": "Normal",
+    "normalRange": "18,5 - 24,9",
+    "overweight": "Übergewicht",
+    "overweightRange": "25,0 - 29,9",
+    "obese": "Fettleibigkeit",
+    "obeseRange": "30,0 und höher",
+    "tipsUnderweight": "Für ein gesundes Gewicht, sorgen Sie für ausreichende Ernährung und regelmäßige Bewegung. Konsultieren Sie Ihren Arzt.",
+    "tipsNormal": "Halten Sie Ihr aktuelles Gewicht! Bleiben Sie mit ausgewogener Ernährung und regelmäßiger Bewegung gesund.",
+    "tipsOverweight": "Gewichtsverlust wird für bessere Gesundheit empfohlen. Reduzieren Sie die Kalorienaufnahme und erhöhen Sie die Bewegung.",
+    "tipsObese": "Konsultieren Sie einen Arzt, um einen Gewichtsmanagemantplan zu entwickeln. Professionelle Anleitung ist erforderlich."
+  },
+  "history": {
+    "title": "📋 Berechnungsverlauf",
+    "empty": "Noch kein Berechnungsverlauf",
+    "clearBtn": "Gesamten Verlauf löschen",
+    "confirmClear": "Möchten Sie wirklich löschen?"
+  },
+  "recommendations": {
+    "title": "Probiere diese auch"
+  },
+  "game": {
+    "back": "DopaBrain Startseite"
+  },
+  "share": {
+    "copied": "Kopiert!"
+  }
+}

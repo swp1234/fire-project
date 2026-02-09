@@ -1,0 +1,55 @@
+{
+  "app": {
+    "loading": "Yükleniyor..."
+  },
+  "header": {
+    "title": "💪 BMI Hesaplayıcı",
+    "subtitle": "Sağlığınızı bir bakışta anlayın"
+  },
+  "bmi": {
+    "heroTitle": "📊 Vücut Kitle İndeksi Analizi",
+    "metricUnit": "KG/CM",
+    "imperialUnit": "LB/FT",
+    "heightLabel": "Boy",
+    "weightLabel": "Ağırlık",
+    "calculateBtn": "BMI Hesapla",
+    "unit": "BMI",
+    "height": "Boy",
+    "weight": "Ağırlık",
+    "bmiValue": "BMI Değeri",
+    "idealWeightTitle": "İdeal Ağırlık Aralığı",
+    "idealWeightNote": "WHO standart normal ağırlık aralığı (BMI 18,5-24,9)",
+    "min": "Minimum",
+    "max": "Maksimum",
+    "tipsTitle": "💡 Sağlık İpuçları",
+    "shareBtn": "📤 Sonucu Paylaş",
+    "categoriesTitle": "BMI Kategorileri",
+    "underweight": "Düşük Kilo",
+    "underweightRange": "18,5 Altında",
+    "normal": "Normal",
+    "normalRange": "18,5 - 24,9",
+    "overweight": "Aşırı Kilo",
+    "overweightRange": "25,0 - 29,9",
+    "obese": "Obez",
+    "obeseRange": "30,0 ve Üzeri",
+    "tipsUnderweight": "Sağlıklı bir ağırlık için yeterli beslenme ve düzenli egzersiz sağlayın. Doktorunuza danışın.",
+    "tipsNormal": "Mevcut kilo korunmalı! Dengeli beslenme ve düzenli egzersiz ile sağlıklı kalın.",
+    "tipsOverweight": "Daha iyi sağlık için kilo kaybı önerilir. Kalori alımını azaltın ve egzersizi artırın.",
+    "tipsObese": "Kilo yönetim planı geliştirmek için bir doktor ile danışın. Profesyonel rehberlik gereklidir."
+  },
+  "history": {
+    "title": "📋 Hesaplama Geçmişi",
+    "empty": "Henüz hesaplama geçmişi yok",
+    "clearBtn": "Tüm Geçmişi Temizle",
+    "confirmClear": "Silmek istediğinizden emin misiniz?"
+  },
+  "recommendations": {
+    "title": "Bunları da Deneyin"
+  },
+  "game": {
+    "back": "DopaBrain Ana Sayfa"
+  },
+  "share": {
+    "copied": "Kopyalandı!"
+  }
+}

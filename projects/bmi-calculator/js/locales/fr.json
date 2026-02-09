@@ -1,0 +1,55 @@
+{
+  "app": {
+    "loading": "Chargement..."
+  },
+  "header": {
+    "title": "💪 Calculatrice IMC",
+    "subtitle": "Comprenez votre santé en un coup d'œil"
+  },
+  "bmi": {
+    "heroTitle": "📊 Analyse de l'Indice de Masse Corporelle",
+    "metricUnit": "KG/CM",
+    "imperialUnit": "LB/FT",
+    "heightLabel": "Taille",
+    "weightLabel": "Poids",
+    "calculateBtn": "Calculer l'IMC",
+    "unit": "IMC",
+    "height": "Taille",
+    "weight": "Poids",
+    "bmiValue": "Valeur IMC",
+    "idealWeightTitle": "Plage de Poids Idéale",
+    "idealWeightNote": "Plage de poids normal standard de l'OMS (IMC 18,5-24,9)",
+    "min": "Minimum",
+    "max": "Maximum",
+    "tipsTitle": "💡 Conseils de Santé",
+    "shareBtn": "📤 Partager le Résultat",
+    "categoriesTitle": "Catégories IMC",
+    "underweight": "Insuffisance Pondérale",
+    "underweightRange": "Moins de 18,5",
+    "normal": "Normal",
+    "normalRange": "18,5 - 24,9",
+    "overweight": "Surpoids",
+    "overweightRange": "25,0 - 29,9",
+    "obese": "Obésité",
+    "obeseRange": "30,0 ou plus",
+    "tipsUnderweight": "Pour un poids sain, assurez une nutrition adéquate et de l'exercice régulier. Consultez votre médecin.",
+    "tipsNormal": "Maintenez votre poids actuel! Restez en bonne santé avec une alimentation équilibrée et de l'exercice régulier.",
+    "tipsOverweight": "La perte de poids est recommandée pour une meilleure santé. Réduisez l'apport calorique et augmentez l'exercice.",
+    "tipsObese": "Consultez un médecin pour développer un plan de gestion du poids. L'orientation professionnelle est essentielle."
+  },
+  "history": {
+    "title": "📋 Historique des Calculs",
+    "empty": "Pas encore d'historique de calculs",
+    "clearBtn": "Effacer tout l'historique",
+    "confirmClear": "Êtes-vous sûr de vouloir supprimer?"
+  },
+  "recommendations": {
+    "title": "Essayez Ceux-ci Aussi"
+  },
+  "game": {
+    "back": "Accueil DopaBrain"
+  },
+  "share": {
+    "copied": "Copié!"
+  }
+}
