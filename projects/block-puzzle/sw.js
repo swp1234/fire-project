@@ -12,7 +12,19 @@ const ASSETS_TO_CACHE = [
     'js/sound-engine.js',
     'manifest.json',
     'icon-192.svg',
-    'icon-512.svg'
+    'icon-512.svg',
+    'js/locales/ko.json',
+    'js/locales/en.json',
+    'js/locales/zh.json',
+    'js/locales/hi.json',
+    'js/locales/ru.json',
+    'js/locales/ja.json',
+    'js/locales/es.json',
+    'js/locales/pt.json',
+    'js/locales/id.json',
+    'js/locales/tr.json',
+    'js/locales/de.json',
+    'js/locales/fr.json'
 ];
 
 // Install event - cache assets

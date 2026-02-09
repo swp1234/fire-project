@@ -534,11 +534,22 @@ class BlockPuzzle {
         this.score += points;
         this.elements.hudScore.textContent = this.score;
 
-        // Level up every 10 lines
+        // Improved difficulty curve: slower early game, faster later
         const newLevel = Math.floor(this.lines / 10) + 1;
         if (newLevel > this.level) {
             this.level = newLevel;
-            this.dropSpeed = Math.max(200, 1000 - (this.level - 1) * 50);
+            // Early game: slow speed increase (lines 1-20 = levels 1-2, stay at 900ms)
+            // Mid game: moderate speed increase (lines 20-60 = levels 2-6, decrease 25ms/level)
+            // Late game: faster speed increase (lines 60+ = levels 6+, decrease 35ms/level)
+            let newSpeed;
+            if (this.level <= 2) {
+                newSpeed = 900;
+            } else if (this.level <= 6) {
+                newSpeed = 900 - ((this.level - 2) * 25);
+            } else {
+                newSpeed = 800 - ((this.level - 6) * 35);
+            }
+            this.dropSpeed = Math.max(200, newSpeed);
             if (window.sfx) window.sfx.play('levelup');
         }
         this.elements.hudLevel.textContent = `Lv. ${this.level}`;

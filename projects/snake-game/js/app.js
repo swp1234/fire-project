@@ -20,9 +20,9 @@ class SnakeGame {
         this.gridSize = 20;
         this.snake = [];
         this.foods = [];
-        this.baseSpeed = 100;
+        this.baseSpeed = 120;
         this.currentSpeed = this.baseSpeed;
-        this.speedIncrease = 2;
+        this.speedIncrease = 1.2;
         this.lastMoveTime = 0;
         this.direction = { x: 1, y: 0 };
         this.nextDirection = { x: 1, y: 0 };
@@ -375,8 +375,8 @@ class SnakeGame {
                     this.stats.foodEaten++;
                     this.hudScore.textContent = this.score;
 
-                    // Increase speed
-                    this.currentSpeed = Math.max(50, this.baseSpeed - (this.snake.length * this.speedIncrease));
+                    // Increase speed - more gradual curve
+                    this.currentSpeed = Math.max(55, this.baseSpeed - (Math.log(this.snake.length) * this.speedIncrease * 8));
 
                     // Create particle effect
                     this.createParticles(newX, newY, food.type);
