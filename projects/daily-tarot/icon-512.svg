@@ -1,0 +1,76 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9b59b6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6c3483;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glowGradient2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#e8c547;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#9b59b6;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#bgGradient2)" rx="120"/>
+
+  <!-- Glow effect -->
+  <circle cx="256" cy="256" r="220" fill="url(#glowGradient2)" opacity="0.6"/>
+
+  <!-- Outer circle -->
+  <circle cx="256" cy="256" r="210" fill="none" stroke="#e8c547" stroke-width="4" opacity="0.6"/>
+
+  <!-- Central tarot card (larger) -->
+  <g transform="translate(256, 256)">
+    <!-- Card background -->
+    <rect x="-80" y="-130" width="160" height="260" fill="#2a1a5e" rx="10" stroke="#e8c547" stroke-width="3"/>
+
+    <!-- Card border pattern -->
+    <rect x="-75" y="-125" width="150" height="250" fill="none" stroke="#e8c547" stroke-width="1" opacity="0.4" rx="8"/>
+
+    <!-- Mystical symbols on card -->
+    <!-- Top: Celestial bodies -->
+    <circle cx="-40" cy="-80" r="18" fill="none" stroke="#e8c547" stroke-width="2"/>
+    <path d="M -40 -98 Q -30 -88 -30 -80 Q -30 -72 -40 -62" fill="#e8c547" opacity="0.8"/>
+
+    <!-- Sun -->
+    <circle cx="40" cy="-80" r="16" fill="#e8c547" opacity="0.9"/>
+    <line x1="40" y1="-100" x2="40" y2="-115" stroke="#e8c547" stroke-width="2" opacity="0.7"/>
+    <line x1="40" y1="-46" x2="40" y2="-31" stroke="#e8c547" stroke-width="2" opacity="0.7"/>
+    <line x1="70" y1="-80" x2="85" y2="-80" stroke="#e8c547" stroke-width="2" opacity="0.7"/>
+    <line x1="10" y1="-80" x2="-5" y2="-80" stroke="#e8c547" stroke-width="2" opacity="0.7"/>
+    <line x1="60" y1="-60" x2="71" y2="-49" stroke="#e8c547" stroke-width="2" opacity="0.5"/>
+    <line x1="20" y1="-100" x2="29" y2="-91" stroke="#e8c547" stroke-width="2" opacity="0.5"/>
+
+    <!-- Large central star -->
+    <path d="M 0 -10 L 4 6 L 22 6 L 8 18 L 12 34 L 0 22 L -12 34 L -8 18 L -22 6 L -4 6 Z" fill="#e8c547" opacity="1"/>
+
+    <!-- Mystical dividing lines -->
+    <line x1="-50" y1="30" x2="50" y2="30" stroke="#e8c547" stroke-width="2" opacity="0.6"/>
+    <line x1="-40" y1="50" x2="40" y2="50" stroke="#e8c547" stroke-width="1.5" opacity="0.5"/>
+
+    <!-- Bottom mystical pattern -->
+    <circle cx="-30" cy="90" r="12" fill="none" stroke="#e8c547" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="30" cy="90" r="12" fill="none" stroke="#e8c547" stroke-width="1.5" opacity="0.7"/>
+    <path d="M 0 75 Q -20 85 -30 100" stroke="#e8c547" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M 0 75 Q 20 85 30 100" stroke="#e8c547" stroke-width="1.5" fill="none" opacity="0.6"/>
+  </g>
+
+  <!-- Mystical corner elements -->
+  <g opacity="0.7">
+    <circle cx="80" cy="80" r="10" fill="#e8c547"/>
+    <circle cx="432" cy="80" r="10" fill="#e8c547"/>
+    <circle cx="80" cy="432" r="10" fill="#e8c547"/>
+    <circle cx="432" cy="432" r="10" fill="#e8c547"/>
+  </g>
+
+  <!-- Inner decorative circle -->
+  <circle cx="256" cy="256" r="160" fill="none" stroke="#e8c547" stroke-width="2" opacity="0.4" stroke-dasharray="15,15"/>
+
+  <!-- Orbiting mystical elements -->
+  <g opacity="0.5">
+    <circle cx="256" cy="120" r="6" fill="#e8c547"/>
+    <circle cx="392" cy="256" r="6" fill="#e8c547"/>
+    <circle cx="256" cy="392" r="6" fill="#e8c547"/>
+    <circle cx="120" cy="256" r="6" fill="#e8c547"/>
+  </g>
+</svg>

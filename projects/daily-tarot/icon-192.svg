@@ -1,0 +1,57 @@
+<svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9b59b6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6c3483;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#e8c547;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#9b59b6;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="192" height="192" fill="url(#bgGradient)" rx="45"/>
+
+  <!-- Glow effect -->
+  <circle cx="96" cy="96" r="85" fill="url(#glowGradient)" opacity="0.6"/>
+
+  <!-- Outer circle -->
+  <circle cx="96" cy="96" r="80" fill="none" stroke="#e8c547" stroke-width="2" opacity="0.6"/>
+
+  <!-- Central tarot card -->
+  <g transform="translate(96, 96)">
+    <!-- Card background -->
+    <rect x="-30" y="-50" width="60" height="100" fill="#2a1a5e" rx="4" stroke="#e8c547" stroke-width="1.5"/>
+
+    <!-- Mystical symbols on card -->
+    <!-- Moon -->
+    <circle cx="-15" cy="-30" r="8" fill="none" stroke="#e8c547" stroke-width="1"/>
+    <path d="M -15 -38 Q -8 -34 -8 -30 Q -8 -26 -15 -22" fill="#e8c547" opacity="0.7"/>
+
+    <!-- Sun -->
+    <circle cx="15" cy="-30" r="6" fill="#e8c547" opacity="0.8"/>
+    <line x1="15" y1="-40" x2="15" y2="-44" stroke="#e8c547" stroke-width="1" opacity="0.7"/>
+    <line x1="15" y1="-16" x2="15" y2="-12" stroke="#e8c547" stroke-width="1" opacity="0.7"/>
+    <line x1="27" y1="-30" x2="31" y2="-30" stroke="#e8c547" stroke-width="1" opacity="0.7"/>
+    <line x1="3" y1="-30" x2="-1" y2="-30" stroke="#e8c547" stroke-width="1" opacity="0.7"/>
+
+    <!-- Star in center -->
+    <path d="M 0 -5 L 2 2 L 10 2 L 4 8 L 6 15 L 0 10 L -6 15 L -4 8 L -10 2 L -2 2 Z" fill="#e8c547" opacity="0.9"/>
+
+    <!-- Mystical lines -->
+    <line x1="-15" y1="20" x2="15" y2="20" stroke="#e8c547" stroke-width="1" opacity="0.5"/>
+    <line x1="-10" y1="30" x2="10" y2="30" stroke="#e8c547" stroke-width="0.8" opacity="0.4"/>
+  </g>
+
+  <!-- Mystical corner elements -->
+  <g opacity="0.6">
+    <circle cx="30" cy="30" r="4" fill="#e8c547"/>
+    <circle cx="162" cy="30" r="4" fill="#e8c547"/>
+    <circle cx="30" cy="162" r="4" fill="#e8c547"/>
+    <circle cx="162" cy="162" r="4" fill="#e8c547"/>
+  </g>
+
+  <!-- Inner decorative circle -->
+  <circle cx="96" cy="96" r="60" fill="none" stroke="#e8c547" stroke-width="1" opacity="0.4" stroke-dasharray="5,5"/>
+</svg>
