@@ -1119,3 +1119,23 @@ html, body {
         display: none;
     }
 }
+
+/* Selection Color */
+::selection {
+    background: #9b59b6;
+    color: white;
+}
+
+::-moz-selection {
+    background: #9b59b6;
+    color: white;
+}
+
+/* Focus Visible - Accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+[role="button"]:focus-visible {
+    outline: 3px solid #9b59b6;
+    outline-offset: 2px;
+}
