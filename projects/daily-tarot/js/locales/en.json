@@ -1,0 +1,67 @@
+{
+  "app": {
+    "skipLink": "Skip to main content",
+    "loading": "Loading..."
+  },
+  "header": {
+    "title": "🔮 Daily Tarot Reading",
+    "tagline": "Discover your destiny with 22 Major Arcana cards"
+  },
+  "tabs": {
+    "reading": "🃏 Daily Reading",
+    "category": "💕 Category",
+    "gallery": "📖 Gallery"
+  },
+  "reading": {
+    "title": "Today's Tarot Reading",
+    "hint": "Focus on your question and draw three cards: Past, Present, Future",
+    "freeDaily": "1 free reading per day",
+    "startBtn": "Start Reading",
+    "drawCards": "Draw Your Cards",
+    "clickCard": "Click on a card to reveal it",
+    "past": "Past",
+    "present": "Present",
+    "future": "Future",
+    "yourReading": "Your Reading",
+    "summary": "Today's Message",
+    "share": "Share Reading",
+    "newReading": "New Reading",
+    "limitReached": "You have used your daily free reading. Watch an ad for another reading?",
+    "copiedToClipboard": "Copied to clipboard!"
+  },
+  "category": {
+    "title": "Choose a Focus",
+    "hint": "Get targeted reading for specific life areas",
+    "love": "💕 Love & Relationships",
+    "money": "💰 Money & Career",
+    "health": "💪 Health & Wellness",
+    "personal": "🌟 Personal Growth",
+    "share": "Share",
+    "newReading": "New Reading"
+  },
+  "gallery": {
+    "title": "Tarot Gallery",
+    "subtitle": "All 22 Major Arcana cards",
+    "upright": "Upright",
+    "reversed": "Reversed"
+  },
+  "premium": {
+    "badge": "✨ AI Deep Reading",
+    "title": "AI Deep Tarot Analysis",
+    "deepReading": "AI Deep Reading",
+    "patterns": "Patterns & Insights",
+    "guidance": "Guidance",
+    "advice": "Action Items"
+  },
+  "ads": {
+    "banner": "Ad area",
+    "interstitial": "Advertisement",
+    "close": "Close"
+  },
+  "recommendations": {
+    "title": "You might also like"
+  },
+  "game": {
+    "back": "Back to DopaBrain"
+  }
+}

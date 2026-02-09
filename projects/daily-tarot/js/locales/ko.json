@@ -1,0 +1,67 @@
+{
+  "app": {
+    "skipLink": "메인 콘텐츠로 건너뛰기",
+    "loading": "로딩 중..."
+  },
+  "header": {
+    "title": "🔮 오늘의 타로 운세",
+    "tagline": "22장 메이저 아르카나 카드로 당신의 운명을 읽어보세요"
+  },
+  "tabs": {
+    "reading": "🃏 오늘의 운세",
+    "category": "💕 카테고리별",
+    "gallery": "📖 카드 갤러리"
+  },
+  "reading": {
+    "title": "오늘의 타로 운세",
+    "hint": "당신의 질문에 집중하고 3장의 카드를 뽑으세요: 과거/현재/미래",
+    "freeDaily": "하루 1회 무료 점사",
+    "startBtn": "운세 보기",
+    "drawCards": "카드를 뽑으세요",
+    "clickCard": "카드를 클릭하면 펼쳐집니다",
+    "past": "과거",
+    "present": "현재",
+    "future": "미래",
+    "yourReading": "당신의 운세",
+    "summary": "오늘의 메시지",
+    "share": "공유하기",
+    "newReading": "새로운 운세",
+    "limitReached": "오늘의 무료 점사를 모두 사용했습니다. 광고를 시청하면 추가 운세를 볼 수 있습니다.",
+    "copiedToClipboard": "클립보드에 복사되었습니다!"
+  },
+  "category": {
+    "title": "운세 카테고리 선택",
+    "hint": "특정 분야의 맞춤 운세를 받아보세요",
+    "love": "💕 연애 운세",
+    "money": "💰 금전 운세",
+    "health": "💪 건강 운세",
+    "personal": "🌟 개인 성장",
+    "share": "공유하기",
+    "newReading": "새로운 운세"
+  },
+  "gallery": {
+    "title": "타로 카드 갤러리",
+    "subtitle": "22장의 메이저 아르카나 카드",
+    "upright": "정방향",
+    "reversed": "역방향"
+  },
+  "premium": {
+    "badge": "✨ AI 심층 리딩",
+    "title": "AI 심층 타로 분석",
+    "deepReading": "AI 심층 리딩 보기",
+    "patterns": "패턴 분석",
+    "guidance": "개인화된 조언",
+    "advice": "실천 과제"
+  },
+  "ads": {
+    "banner": "광고 영역",
+    "interstitial": "광고",
+    "close": "닫기"
+  },
+  "recommendations": {
+    "title": "이것도 해보세요"
+  },
+  "game": {
+    "back": "돌아가기"
+  }
+}

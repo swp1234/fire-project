@@ -1,0 +1,67 @@
+{
+  "app": {
+    "skipLink": "メインコンテンツへスキップ",
+    "loading": "読み込み中..."
+  },
+  "header": {
+    "title": "🔮 今日のタロット占い",
+    "tagline": "22枚のメジャーアルカナカードで運命を発見してください"
+  },
+  "tabs": {
+    "reading": "🃏 今日の占い",
+    "category": "💕 カテゴリー",
+    "gallery": "📖 ギャラリー"
+  },
+  "reading": {
+    "title": "今日のタロット占い",
+    "hint": "質問に集中して3枚のカードを引きます：過去、現在、未来",
+    "freeDaily": "1日1回の無料占い",
+    "startBtn": "占いを始める",
+    "drawCards": "カードを引く",
+    "clickCard": "カードをクリックして表示",
+    "past": "過去",
+    "present": "現在",
+    "future": "未来",
+    "yourReading": "あなたの占い",
+    "summary": "今日のメッセージ",
+    "share": "共有",
+    "newReading": "新しい占い",
+    "limitReached": "本日の無料占いを使い切りました。広告を見てさらに占ってみませんか？",
+    "copiedToClipboard": "クリップボードにコピーしました！"
+  },
+  "category": {
+    "title": "焦点を選択",
+    "hint": "人生の特定の分野に対象を絞った占いを受け取る",
+    "love": "💕 愛と関係",
+    "money": "💰 お金とキャリア",
+    "health": "💪 健康とウェルネス",
+    "personal": "🌟 個人の成長",
+    "share": "共有",
+    "newReading": "新しい占い"
+  },
+  "gallery": {
+    "title": "タロットギャラリー",
+    "subtitle": "全22枚のメジャーアルカナカード",
+    "upright": "正位",
+    "reversed": "逆位"
+  },
+  "premium": {
+    "badge": "✨ AI深読み",
+    "title": "AI深いタロット分析",
+    "deepReading": "深い読み",
+    "patterns": "パターンと洞察",
+    "guidance": "ガイダンス",
+    "advice": "アクションアイテム"
+  },
+  "ads": {
+    "banner": "広告エリア",
+    "interstitial": "広告",
+    "close": "閉じる"
+  },
+  "recommendations": {
+    "title": "こちらもおすすめ"
+  },
+  "game": {
+    "back": "DopaBrainに戻る"
+  }
+}
