@@ -2,7 +2,7 @@
 
 > 이 파일은 매 세션마다 자동으로 업데이트되며, Claude Code와 Cursor가 참조합니다.
 
-**마지막 업데이트:** 2026-02-11 (세션33) - i18n 전수 안정화 17개 앱 + SEO 블로그 2개 + 인덱싱 관리
+**마지막 업데이트:** 2026-02-11 (세션33) - i18n 전수 안정화 17개 앱 + SEO 블로그 3개 + 메타 SEO 최적화 + 인덱싱 관리
 
 ---
 
@@ -42,9 +42,34 @@
 **Google 미등록 (1개):**
 /number-merge/ → 사이트맵 추가 완료
 
-### 사이트맵 업데이트
-- number-merge: root-domain + portal 사이트맵 모두에 추가
-- 블로그 2개 URL portal 사이트맵에 추가
+### SEO 블로그 포스트 추가: Reaction Time Test
+- /portal/blog/en/reaction-time-test-how-fast-are-you.html
+- 타겟: "reaction time test", "test my reflexes"
+- 내부 링크: brain-type, typing-speed, color-memory, hsp-test, emoji-merge, stack-tower
+
+### Meta Description SEO 최적화 (3개 앱)
+| 앱 | 변경 전 길이 | 변경 후 길이 | 개선 |
+|----|------------|------------|------|
+| stack-tower | 96자 | 130자+ | 키워드 추가 (무료, 리더보드, 브라우저) |
+| dream-fortune | 104자 | 130자+ | AI 심층 분석, 무의식 키워드 추가 |
+| sky-runner | 104자 | 130자+ | 30개 스킨, 모바일·PC 키워드 추가 |
+
+### 기타 개선
+- flappy-bird: APP_DATA에 추가 (포털+크로스프로모 노출)
+- number-merge: root-domain + portal 사이트맵에 추가
+
+### GA4 핵심 지표 (2/8~2/9, 세션33 분석)
+
+| 앱 | 사용자 | 참여율 | 바운스 | 상태 |
+|----|--------|--------|--------|------|
+| emoji-merge | 9 | 100% | 0% | 최우수 |
+| stack-tower | 11 | 91% | 9% | 우수 |
+| portal | 15 | 94% | 21% | 우수 |
+| root (/) | 40 | 33% | 67% | 개선필요 |
+| kpop-position | 12 | 0% | 100% | i18n 수정완료 |
+| hsp-test | 13 | 8% | 92% | i18n 수정완료 |
+
+**모든 트래픽 = Direct (100%).** 검색 유입 0건. 사이트 신규로 인덱싱 대기 중.
 
 ---
 
