@@ -2,11 +2,210 @@
 
 > 이 파일은 매 세션마다 자동으로 업데이트되며, Claude Code와 Cursor가 참조합니다.
 
-**마지막 업데이트:** 2026-02-11 04:00 (세션30) - GA4 데이터 기반 버그 수정 + FOUC 일괄 해결
+**마지막 업데이트:** 2026-02-11 (세션32) - i18n 안정화 6개 앱 + 크로스 프로모션 전체 배포
 
 ---
 
-## 🚀 세션30: GA4 데이터 기반 버그 헌팅 + FOUC 일괄 수정 (2026-02-11 04:00)
+## 🚀 세션32: i18n 안정화 + 크로스 프로모션 전체 배포 (2026-02-11)
+
+### i18n 초기화 안정화 (6개 앱)
+
+**문제:** async IIFE에서 i18n.loadTranslations() 실패 시 try-catch 없어서 로더가 영구 표시 or 미처리 Promise rejection
+**수정:** try-catch-finally 패턴 적용 (에러 발생해도 로더 항상 숨김)
+
+| 유형 | 앱 | 영향 |
+|------|-----|------|
+| 로더 stuck (치명적) | kpop-position, hsp-test, love-frequency, unit-converter | 100%/92%/67%/100% 바운스 |
+| 미처리 rejection | affirmation, lottery | 콘솔 에러 방지 |
+
+### 크로스 프로모션 위젯 전체 배포 (57개 앱)
+
+**목적:** 세션당 페이지뷰 증가 → 광고 노출 증가 → 수익 직접 증가
+**구현:**
+- `/portal/js/cross-promo.js` 생성 (자체 CSS 주입, 앱 자동 감지)
+- APP_DATA 활용하여 같은 카테고리 2개 + 인기 앱 2개 추천
+- 다국어 지원 (i18n 연동), GA4 클릭 추적
+- 모든 앱의 `</body>` 앞에 `<script src="/portal/js/cross-promo.js" defer></script>` 추가
+- **총 57개 앱 일괄 적용 완료** (4개 병렬 에이전트로 처리)
+
+### GSC 인덱싱 추가 확인
+
+| 페이지 | 상태 | 변화 |
+|--------|------|------|
+| /idle-clicker/ | ✅ Indexed | 새로 인덱싱 (2/9 크롤) |
+| /brain-type/ | ⏳ Discovered | 대기중 |
+
+---
+
+## 🚀 세션31 (계속2): FOUC 전수 수정 24개 앱 + 포털 성능 최적화 (2026-02-11)
+
+### app-loader FOUC 전수 감사 및 수정 (24개 앱)
+
+**발견:** GA4 데이터 분석에서 hsp-test(92% 바운스), past-life(82%), zigzag-runner(80%), sky-runner(70%) 등 고바운스 앱 조사
+→ app-loader HTML div는 있으나 CSS 스타일 + JS 숨김 로직이 누락되어 로딩 화면이 영구 표시되는 치명적 FOUC 버그 발견
+→ 전수 감사 결과 44개 앱 중 24개에서 동일 문제 확인
+
+**수정 내용 (24개 앱):**
+- `.app-loader` CSS 추가 (fixed 포지션, z-index 10000, 트랜지션 애니메이션)
+- `loader-hide` JS 로직 추가 (앱 초기화 후 `.hidden` 클래스 추가 → 300ms 후 DOM 제거)
+- sky-runner: 중복 i18n.js 로드 제거 (head + body에 2번 로드)
+
+| 배치 | 앱 (5개씩) | 방식 |
+|------|-----------|------|
+| 직접 수정 | hsp-test, past-life, zigzag-runner, sky-runner | 메인 에이전트 |
+| 배치 1 | affirmation, dev-quiz, dream-fortune, emoji-merge, emotion-temp | 병렬 에이전트 |
+| 배치 2 | kpop-position, love-frequency, lottery, mbti-love, mbti-tips | 병렬 에이전트 |
+| 배치 3 | number-puzzle, reaction-test, shopping-calc, stack-tower, tax-refund-preview | 병렬 에이전트 |
+| 배치 4 | unit-converter, valentine, white-noise, animal-personality(JS만), portal(CSS만) | 병렬 에이전트 |
+
+### 포털 카드 애니메이션 최적화
+
+**문제:** 카드 스태거 딜레이 960ms (16카드 × 60ms) → 사용자가 콘텐츠를 보기까지 ~1초 지연
+**수정:**
+- Featured 카드 딜레이: 80ms → 30ms (67% 감소)
+- App 카드 딜레이: 60ms → 20ms (67% 감소)
+- 애니메이션 시간: 0.6s → 0.3s (50% 감소)
+- translateY: 30px → 12px, scale 제거 (GPU 부하 감소)
+- 커밋: `7bf1933`
+
+### GSC 인덱싱 현황 (2/10 확인)
+
+| 페이지 | 상태 | 마지막 크롤 | 리치 결과 |
+|--------|------|-----------|-----------|
+| / (root) | ✅ Indexed | 2/8 | Breadcrumbs |
+| /portal/ | ✅ Indexed | 2/8 | - |
+| /hsp-test/ | ✅ Indexed | 2/9 | Review snippets |
+| /emoji-merge/ | ✅ Indexed | 2/9 | - |
+| /stack-tower/ | ✅ Indexed | 2/8 | - |
+| /word-guess/ | ⏳ Discovered | - | - |
+| /block-puzzle/ | ⏳ Discovered | - | - |
+| /puzzle-2048/ | ⏳ Discovered | - | - |
+
+### idle-clicker 성능 최적화
+
+**문제:** 78% 바운스율 (FOUC는 수정됨, 다른 원인)
+**수정:**
+- 게임 루프 100ms → 50ms (2배 반응성 향상)
+- 360px 소형 폰 몬스터 크기: 90px → 110px (터치 타겟 개선)
+- 커밋: `020c681`
+
+### AdSense 전수 감사 + word-guess 수정
+
+**감사 결과:** 62개 앱 중 60개(96.8%) AdSense+GA4 완전 통합
+- word-guess만 AdSense + GA4 누락 → 즉시 수정 (커밋: `fecf683`)
+- **현재: 62개 앱 100% 수익화 통합 완료**
+
+### GA4 핵심 지표 (2/7~2/9)
+
+| 지표 | 값 |
+|------|-----|
+| 총 사용자 | ~166명 (3일) |
+| 2/8 스파이크 | 128명 |
+| 최우수 앱 | emoji-merge(0% 바운스), number-merge(0%), stack-tower(9%) |
+| 최고 체류시간 | portal(35.7s), love-frequency(35.4s), emotion-temp(24.8s) |
+
+---
+
+## 🚀 세션31 (계속): 사용자 보고 버그 4개 수정 (2026-02-11)
+
+### 사용자 피드백 기반 버그 수정 (4건)
+
+| 앱 | 문제 | 원인 | 수정 | 커밋 |
+|----|------|------|------|------|
+| **word-guess** | 알파벳 클릭 시 세로로 입력됨 | `guesses.length`를 인덱스로 사용 → 매 글자가 새 행 추가 | `currentGuess` 배열 분리, submit 시만 `guesses`에 push | `935d6e1` |
+| **block-puzzle** | 화면 크기 작고 해상도 낮음 | `blockSize` 최대 40px 제한 + DPR 미사용 | 제한 제거 + `devicePixelRatio` 적용 + pixelated 제거 | `137a7fa` |
+| **puzzle-2048** | 숫자가 타일을 채우지 못함 | CSS 고정 `font-size: 32px` | 타일 크기 비례 동적 font-size (45%→28%) | `bcf908f` |
+| **portal 블로그** | 제목/설명 폰트가 카드 대비 과대 | 18px/15px 폰트 + 24px 패딩 | 16→14px 축소 + 28px 패딩 + 중간화면 2열 그리드 | `fecc77d` |
+
+---
+
+## 🚀 세션31: 2048 애니메이션 완전 재작성 + 크래시 버그 3앱 수정 (2026-02-11)
+
+### 2048 퍼즐 게임 완전 재작성
+
+**사용자 피드백:** "이동 애니메이션도 없고 숫자 타일 크기도 이상하고.."
+
+**수정 내용 (app.js 완전 재작성 + CSS 업데이트):**
+
+| 문제 | 수정 |
+|------|------|
+| `updateDisplay()` innerHTML 전체 삭제/재생성 | 타일 오브젝트 트래킹 + `left/top` CSS transition |
+| `moveDown()` `.reverse()` 이중 호출 버그 | 벡터 기반 이동 알고리즘으로 교체 |
+| `position: absolute` + `gridColumn/gridRow` 모순 | `getCellMetrics()`로 실제 셀 위치 계산 |
+| 모든 타일에 `new` 클래스만 적용 | `tile-new` / `tile-merged` 분리 애니메이션 |
+| 타일 크기 불일치 | 그리드 셀 크기 동적 계산으로 정확한 매칭 |
+
+**기술적 변경:**
+- 타일 오브젝트: `{ value, row, col, previousPosition, mergedFrom, savePosition() }`
+- 벡터 기반 이동: `getVector()` → `buildTraversals()` → `findFarthestPosition()`
+- 렌더링: 이전 위치에서 생성 → `requestAnimationFrame` → 현재 위치로 CSS transition
+- 합체 시: 소스 타일 슬라이드 → 결과 타일 팝 애니메이션
+- 터치 이벤트를 `gridBg` (보이는 요소)에 연결
+
+### setupShareButtons 크래시 버그 수정 (3앱)
+
+**발견 경위:** GA4 데이터에서 kpop-position 100% 바운스율 → 코드 분석
+
+**원인:** `setupShareButtons()`가 초기화 시 `getShareText()` 호출 → `resultData`/`myType`이 null/빈값 → 프로퍼티 접근 크래시 → 앱 완전 실패
+
+| 앱 | 사용자 | 바운스율 | 원인 | 수정 |
+|----|--------|---------|------|------|
+| kpop-position | 12명 | 100% | `resultData.emoji` null 접근 | ✅ 각 핸들러에 `if (!resultData) return` 가드 |
+| mbti-love | 7명 | 86% | `STYLES[myType]` 빈문자열 접근 | ✅ 각 핸들러에 `if (!myType) return` 가드 |
+| hsp-test | 13명 | 92% | 버그 아님 (정상, 샘플 부족) | ⏳ 모니터링 |
+
+**전수 스캔 결과 (12개 테스트앱):**
+- 크래시 버그: 2개 (kpop-position, mbti-love) → 모두 수정 완료
+- 안전: 10개 (past-life, animal-personality, color-personality, brain-type, emotion-temp, stress-check, zodiac-match, future-self, mbti-tips, blood-type, iq-test)
+
+### color-palette 상태 검증
+- ✅ FOUC 수정 적용됨
+- ✅ _common 경로 수정됨
+- ✅ i18n 12개 언어 완전
+- ✅ 프로덕션 준비 완료
+
+### GA4 핵심 지표 (2/7~2/9)
+- 총 사용자: ~166명 (3일)
+- 최고 참여: portal(35.7s, 21% 바운스), love-frequency(35.4s), emotion-temp(24.8s)
+- 게임 최우수: emoji-merge(0% 바운스), number-merge(0% 바운스), stack-tower(9% 바운스)
+- 게임 카테고리 전략 재검증: 바운스율 최저, 체류시간 우수
+
+### GSC 현황
+- 오가닉 검색: 0건 (도메인 8일, 정상)
+- 미인덱싱 13개: 모두 "Discovered - currently not indexed" (자연 진행 중)
+- 인덱싱 완료: 21개 유지
+
+### tax-refund-preview 함수 시그니처 버그 수정
+
+**발견:** GA4에서 0% engaged sessions → 코드 분석
+**원인:** `calculateTax(taxableSalary, deductions)` 2개 인자 전달 → 함수는 `calculateTax(input)` 단일 flat 객체 기대 → 계산 완전 실패
+**수정:** nested `getFormData()` 결과를 flat input 객체로 변환 후 전달
+- 커밋: `997f179`
+
+### root 랜딩 페이지 개선 (67% 바운스율 감소 목표)
+
+**문제:** 40명 방문, 67% 바운스 (14명만 engaged)
+
+| 수정 | 설명 |
+|------|------|
+| Static fallback 카드 12개 | app-data.js 로드 실패해도 앱 그리드 표시 |
+| i18n locale 12개 생성 | 기존에 locale 파일 없었음 → 전 언어 번역 |
+| data-i18n-html 지원 | brand-essence HTML 태그 렌더링 |
+| FOUC 안전장치 | readyState 체크 + 1.5s 타임아웃 |
+| 스크립트 에러 핸들링 | onerror + APP_DATA 체크 강화 |
+
+- 커밋: `a87e1f5`
+
+### 커밋 현황
+- puzzle-2048: `df32a7e` - 애니메이션 재작성
+- kpop-position: `80ece43` - 크래시 수정
+- mbti-love: `8b9a9d4` - 크래시 수정
+- tax-refund-preview: `997f179` - 함수 시그니처 수정
+- root-domain: `a87e1f5` - 랜딩 페이지 개선 + i18n
+
+---
+
+## 🚀 세션30: GA4 데이터 기반 버그 헌팅 + 시스템 버그 일괄 수정 (2026-02-11)
 
 ### GA4 분석 → 0초 체류 앱 발견 및 수정
 
@@ -34,7 +233,35 @@
 
 수정 앱 목록: color-palette, daily-tarot, numerology, brain-type, animal-personality, block-puzzle, brick-breaker, dream-fortune, idle-clicker, memory-card, portal, snake-game, stress-check, future-self
 
-### 15개 레포 push 완료
+### 🔴 _common 경로 시스템 버그 일괄 수정 (28개 앱) - 크리티컬
+
+**문제:** 28개 앱이 `../_common/error-handler.js`, `../_common/storage-manager.js` 등을 참조하지만, 각 앱은 별도 GitHub Pages 레포로 배포됨. 따라서 `../_common/` 경로는 배포 환경에서 404 에러 발생 → JS 초기화 실패 → 앱 로딩 안됨
+
+**수정:**
+1. _common 파일 5종 (error-handler.js, storage-manager.js, leaderboard-manager.js, api-wrappers.js, i18n-safe-loader.js)을 각 앱의 `js/` 폴더에 복사
+2. 모든 index.html에서 `../_common/` 경로를 `js/`로 변경
+
+**수정 앱 목록 (28개):**
+animal-personality, block-puzzle, blood-type, brain-type, brick-breaker, color-memory, color-personality, daily-tarot, dream-fortune, emoji-merge, flappy-bird, future-self, hsp-test, idle-clicker, iq-test, maze-runner, mbti-love, mbti-tips, minesweeper, numerology, past-life, pong-game, puzzle-2048, sky-runner, snake-game, stack-tower, stress-check, zigzag-runner, zodiac-match
+
+### 29개 레포 push 완료
+
+### 2048 퍼즐 게임 수정 (진행 중 → 다음 세션)
+
+**사용자 피드백:** "2048은 이동 애니메이션도 없고 숫자 타일 크기도 이상하고.."
+
+**진단 완료:**
+- `updateDisplay()` 메서드가 매번 `innerHTML = ''`로 타일 전부 삭제 후 재생성 → 슬라이드 애니메이션 불가능
+- 타일이 `position: absolute`인데 `gridColumn`/`gridRow` 사용 (모순)
+- 타일에 항상 `new` 클래스만 적용 (pop-in 애니메이션만, slide 없음)
+- `--grid-cell-size` CSS 변수 정의만 있고 실제 타일에 적용 안 됨
+- CSS에 slide/move 애니메이션 키프레임 없음
+
+**수정 방향 (다음 세션에서 구현):**
+1. 타일 위치를 absolute + top/left로 계산하여 CSS transition으로 이동 애니메이션 구현
+2. 타일 ID 추적으로 이동/머지/신규 상태 구분
+3. `--grid-cell-size` 활용하여 타일 크기 정확하게 맞춤
+4. slide 애니메이션 키프레임 추가
 
 ### GA4 핵심 지표 (2/4~2/10)
 - 총 사용자: ~336명 (7일)
