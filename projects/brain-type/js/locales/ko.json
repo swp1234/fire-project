@@ -203,5 +203,12 @@
   "message": {
     "copy_success": "링크가 복사되었습니다!",
     "copy_error": "링크 복사에 실패했습니다."
+  },
+  "share": {
+    "kakaoDesc": "나의 두뇌 유형: {type}",
+    "kakaoBtn": "테스트하기",
+    "twitterText": "나의 두뇌 유형은 {type}({emoji})입니다! 당신의 두뇌 유형은 무엇일까요?",
+    "copyText": "나의 두뇌 유형은 {type}({emoji})입니다! {url}",
+    "canvasTitle": "두뇌 유형 테스트"
   }
 }

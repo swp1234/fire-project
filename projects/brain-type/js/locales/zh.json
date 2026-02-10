@@ -106,6 +106,13 @@
     "strengths": "主要优势",
     "weaknesses": "改进领域"
   },
+  "share": {
+    "kakaoDesc": "我的大脑类型: {type}",
+    "kakaoBtn": "参加测试",
+    "twitterText": "我的大脑类型是 {type}({emoji})!你的大脑类型是什么?",
+    "copyText": "我的大脑类型是 {type}({emoji})!{url}",
+    "canvasTitle": "大脑类型测试"
+  },
   "type": {
     "analyst": "分析型大脑",
     "analyst_compatible": "与学者大脑和战略家大脑相容",

@@ -106,6 +106,13 @@
     "strengths": "Fortalezas Clave",
     "weaknesses": "Áreas de Crecimiento"
   },
+  "share": {
+    "kakaoDesc": "Mi tipo de cerebro: {type}",
+    "kakaoBtn": "Tomar la prueba",
+    "twitterText": "Mi tipo de cerebro es {type}({emoji})! ¿Cuál es tu tipo de cerebro?",
+    "copyText": "Mi tipo de cerebro es {type}({emoji})! {url}",
+    "canvasTitle": "Prueba de Tipo de Cerebro"
+  },
   "type": {
     "analyst": "Cerebro Analista",
     "analyst_compatible": "Compatible con cerebro erudito y estratega",

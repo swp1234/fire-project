@@ -203,5 +203,12 @@
   "message": {
     "copy_success": "Link copied!",
     "copy_error": "Failed to copy link."
+  },
+  "share": {
+    "kakaoDesc": "My brain type: {type}",
+    "kakaoBtn": "Take the test",
+    "twitterText": "My brain type is {type}({emoji})! What is your brain type?",
+    "copyText": "My brain type is {type}({emoji})! {url}",
+    "canvasTitle": "Brain Type Test"
   }
 }

@@ -106,6 +106,13 @@
     "strengths": "Ana Güçler",
     "weaknesses": "Gelişim Alanları"
   },
+  "share": {
+    "kakaoDesc": "Benim beyin tipim: {type}",
+    "kakaoBtn": "Teste katıl",
+    "twitterText": "Benim beyin tipim {type}({emoji})! Senin beyin tipin ne?",
+    "copyText": "Benim beyin tipim {type}({emoji})! {url}",
+    "canvasTitle": "Beyin Tipi Testi"
+  },
   "type": {
     "analyst": "Analitik Beyin",
     "analyst_compatible": "Bilim adamı beyni ve stratejist beyinle uyumlu",

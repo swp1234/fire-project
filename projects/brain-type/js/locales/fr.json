@@ -106,6 +106,13 @@
     "strengths": "Forces Principales",
     "weaknesses": "Domaines de Croissance"
   },
+  "share": {
+    "kakaoDesc": "Mon type de cerveau: {type}",
+    "kakaoBtn": "Faire le test",
+    "twitterText": "Mon type de cerveau est {type}({emoji})! Quel est ton type de cerveau?",
+    "copyText": "Mon type de cerveau est {type}({emoji})! {url}",
+    "canvasTitle": "Test de Type de Cerveau"
+  },
   "type": {
     "analyst": "Cerveau Analytique",
     "analyst_compatible": "Compatible avec cerveau érudit et stratégiste",

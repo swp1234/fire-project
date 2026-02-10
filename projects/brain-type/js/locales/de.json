@@ -88,6 +88,13 @@
     "10_3": "Drücken Sie sich dynamisch aus",
     "10_4": "Drücken Sie sich intuitiv aus"
   },
+  "share": {
+    "kakaoDesc": "Mein Gehirntyp: {type}",
+    "kakaoBtn": "Test absolvieren",
+    "twitterText": "Mein Gehirntyp ist {type}({emoji})! Was ist dein Gehirntyp?",
+    "copyText": "Mein Gehirntyp ist {type}({emoji})! {url}",
+    "canvasTitle": "Gehirntyp-Test"
+  },
   "type": {
     "creator": "Kreatives Gehirn",
     "creator_tagline": "Künstlerischer und intuitiver Schöpfer",

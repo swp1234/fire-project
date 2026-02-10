@@ -329,7 +329,7 @@ class BrainTypeApp {
                 objectType: 'feed',
                 content: {
                     title: i18n.t('app.title'),
-                    description: `나의 두뇌 유형: ${resultType}`,
+                    description: (window.i18n?.t('share.kakaoDesc') || 'My brain type: {type}').replace('{type}', resultType),
                     imageUrl: 'https://dopabrain.com/brain-type/og-image.png',
                     link: {
                         mobileWebUrl: resultUrl,
@@ -338,7 +338,7 @@ class BrainTypeApp {
                 },
                 buttons: [
                     {
-                        title: '테스트하기',
+                        title: window.i18n?.t('share.kakaoBtn') || 'Take the test',
                         link: {
                             mobileWebUrl: resultUrl,
                             webUrl: resultUrl
@@ -354,7 +354,8 @@ class BrainTypeApp {
     shareTwitter() {
         const typeData = BRAIN_TYPES[this.resultType];
         const resultType = i18n.t(typeData.nameKey);
-        const text = `나의 두뇌 유형은 ${resultType}(${typeData.emoji})입니다! 당신의 두뇌 유형은 무엇일까요?`;
+        const shareTemplate = window.i18n?.t('share.twitterText') || 'My brain type is {type}({emoji})! What is your brain type?';
+        const text = shareTemplate.replace('{type}', resultType).replace('{emoji}', typeData.emoji);
         const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
 
         window.open(url, '_blank', 'width=550,height=420');
@@ -380,7 +381,8 @@ class BrainTypeApp {
     shareCopy() {
         const typeData = BRAIN_TYPES[this.resultType];
         const resultType = i18n.t(typeData.nameKey);
-        const text = `나의 두뇌 유형은 ${resultType}(${typeData.emoji})입니다! ${window.location.href}`;
+        const copyTemplate = window.i18n?.t('share.copyText') || 'My brain type is {type}({emoji})! {url}';
+        const text = copyTemplate.replace('{type}', resultType).replace('{emoji}', typeData.emoji).replace('{url}', window.location.href);
 
         navigator.clipboard.writeText(text).then(() => {
             alert(i18n.t('message.copy_success'));
@@ -444,7 +446,7 @@ class BrainTypeApp {
         ctx.fillStyle = '#ffffff';
         ctx.font = 'bold 40px Arial, sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('두뇌 유형 테스트', canvas.width / 2, 80);
+        ctx.fillText(window.i18n?.t('share.canvasTitle') || 'Brain Type Test', canvas.width / 2, 80);
 
         // 이모지
         ctx.font = 'bold 100px Arial';

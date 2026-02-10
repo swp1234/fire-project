@@ -106,6 +106,13 @@
     "strengths": "Главные сильные стороны",
     "weaknesses": "Области для развития"
   },
+  "share": {
+    "kakaoDesc": "Мой тип мозга: {type}",
+    "kakaoBtn": "Пройти тест",
+    "twitterText": "Мой тип мозга {type}({emoji})! Какой у вас тип мозга?",
+    "copyText": "Мой тип мозга {type}({emoji})! {url}",
+    "canvasTitle": "Тест типа мозга"
+  },
   "type": {
     "analyst": "Аналитический мозг",
     "analyst_compatible": "Совместимо с ученым и стратегом",

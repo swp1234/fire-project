@@ -106,6 +106,13 @@
     "strengths": "Kekuatan Utama",
     "weaknesses": "Area Pertumbuhan"
   },
+  "share": {
+    "kakaoDesc": "Tipe otak saya: {type}",
+    "kakaoBtn": "Ikuti tes",
+    "twitterText": "Tipe otak saya adalah {type}({emoji})! Tipe otak Anda apa?",
+    "copyText": "Tipe otak saya adalah {type}({emoji})! {url}",
+    "canvasTitle": "Tes Tipe Otak"
+  },
   "type": {
     "analyst": "Otak Analis",
     "analyst_compatible": "Kompatibel dengan otak sarjana dan strategis",

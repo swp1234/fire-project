@@ -106,6 +106,13 @@
     "strengths": "主要な強み",
     "weaknesses": "改善する点"
   },
+  "share": {
+    "kakaoDesc": "私の脳タイプ: {type}",
+    "kakaoBtn": "テストを受ける",
+    "twitterText": "私の脳タイプは {type}({emoji}) です!あなたの脳タイプは何ですか?",
+    "copyText": "私の脳タイプは {type}({emoji}) です!{url}",
+    "canvasTitle": "脳タイプテスト"
+  },
   "type": {
     "analyst": "分析家脳",
     "analyst_compatible": "学者脳、戦略家脳と相性が良い",
