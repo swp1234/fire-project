@@ -2,7 +2,49 @@
 
 > 이 파일은 매 세션마다 자동으로 업데이트되며, Claude Code와 Cursor가 참조합니다.
 
-**마지막 업데이트:** 2026-02-11 02:30 (세션29 진행중) - SEO 전면 감사 + 깨진 링크 19개 수정 + 내부 링크 강화
+**마지막 업데이트:** 2026-02-11 04:00 (세션30) - GA4 데이터 기반 버그 수정 + FOUC 일괄 해결
+
+---
+
+## 🚀 세션30: GA4 데이터 기반 버그 헌팅 + FOUC 일괄 수정 (2026-02-11 04:00)
+
+### GA4 분석 → 0초 체류 앱 발견 및 수정
+
+**GA4 데이터에서 0초 체류시간 + 100% 바운스율 앱 4개 발견:**
+
+| 앱 | 원인 | 수정 | 영향도 |
+|----|------|------|--------|
+| color-palette | 모달 HTML 5개 요소 누락 → JS 크래시 → 로딩 화면 고정 | ✅ 모달 HTML 추가 | 크리티컬 |
+| reaction-test | sound-engine.js 스크립트 태그 누락 → 앱 초기화 실패 | ✅ 스크립트 태그 추가 | 크리티컬 |
+| memory-card | _common 라이브러리 경로 오류 (별도 레포 배포 시 404) | ✅ 라이브러리 파일 앱 내부 복사 + 경로 수정 | 크리티컬 |
+| daily-tarot | CSS 비동기 로드(FOUC) → 스타일 없는 화면 표시 | ✅ CSS 동기 로드로 변경 | 높음 |
+
+### 극저 체류 앱 3개 조사
+
+| 앱 | 체류(초) | 원인 | 수정 |
+|----|---------|------|------|
+| memory-card | 0.05s | _common 404 → 게임 초기화 완전 실패 | ✅ 위에서 수정 |
+| numerology | 0.15s | CSS 비동기 FOUC + 7개 defer 스크립트 | ✅ CSS 동기 로드 |
+| mbti-career | 0.38s | i18n 비동기 타이밍 (샘플 5명, 결론 보류) | ⏳ 모니터링 |
+
+### CSS 비동기 로드(FOUC) 일괄 수정 (13개 앱)
+
+**문제:** `<link rel="preload" ... onload="this.rel='stylesheet'">`  → CSS가 비동기로 로드되어 화면이 순간 스타일 없이 표시(FOUC)
+**수정:** `<link rel="stylesheet" href="css/style.css">` (동기 로드)
+
+수정 앱 목록: color-palette, daily-tarot, numerology, brain-type, animal-personality, block-puzzle, brick-breaker, dream-fortune, idle-clicker, memory-card, portal, snake-game, stress-check, future-self
+
+### 15개 레포 push 완료
+
+### GA4 핵심 지표 (2/4~2/10)
+- 총 사용자: ~336명 (7일)
+- 최고 체류: portal(34s), love-frequency(32s), password-generator(27s), emotion-temp(25s)
+- 최고 참여: emoji-merge(0% 바운스), number-merge(0% 바운스), stack-tower(9% 바운스)
+- 게임 카테고리 전략 검증: 바운스율 최저
+
+### GSC 현황
+- 오가닉 검색: 0건 (도메인 7일, 정상)
+- 0초 체류 앱 4개: 모두 Discovered - currently not indexed 상태
 
 ---
 
