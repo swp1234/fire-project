@@ -103,9 +103,8 @@
     <link rel="icon" type="image/svg+xml" href="icon-192.svg">
     <link rel="apple-touch-icon" href="icon-192.svg">
 
-    <!-- Critical CSS async loading -->
-    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- Preload critical scripts -->
     <link rel="preload" href="js/sound-engine.js" as="script">
@@ -347,9 +346,9 @@
         </a>
     </footer>
 
-    <script src="../_common/error-handler.js" defer></script>
-    <script src="../_common/storage-manager.js" defer></script>
-    <script src="../_common/leaderboard-manager.js" defer></script>
+    <script src="js/error-handler.js" defer></script>
+    <script src="js/storage-manager.js" defer></script>
+    <script src="js/leaderboard-manager.js" defer></script>
     <script src="js/i18n.js" defer></script>
     <script src="js/sound-engine.js" defer></script>
     <script src="js/app.js" defer></script>
@@ -390,5 +389,6 @@
         .sound-toggle:hover { background: rgba(255,255,255,0.2); }
         .sound-toggle:active { transform: scale(0.95); }
     </style>
+    <script src="/portal/js/cross-promo.js" defer></script>
 </body>
 </html>
