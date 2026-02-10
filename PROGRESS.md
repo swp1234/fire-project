@@ -2,7 +2,38 @@
 
 > 이 파일은 매 세션마다 자동으로 업데이트되며, Claude Code와 Cursor가 참조합니다.
 
-**마지막 업데이트:** 2026-02-11 01:00 (세션28 완료) - i18n 2차 심층 전수검사 + 11개 앱 대규모 콘텐츠 i18n 전환 완료
+**마지막 업데이트:** 2026-02-11 02:30 (세션29 진행중) - SEO 전면 감사 + 깨진 링크 19개 수정 + 내부 링크 강화
+
+---
+
+## 🚀 세션29: SEO 전면 감사 + 내부 링크 강화 (2026-02-11 01:30)
+
+### GSC 인덱싱 전수 조사 결과
+
+| 상태 | 개수 | 페이지 |
+|------|------|--------|
+| ✅ 인덱싱 완료 | 21개 | portal, emotion-temp, love-frequency, hsp-test, stack-tower, kpop-position, past-life, valentine, zigzag-runner, emoji-merge, idle-clicker, mbti-love, affirmation, sky-runner, dream-fortune, quiz-app, mbti-tips, shopping-calc, detox-timer, dday-counter, unit-converter |
+| ⏳ Discovered | 13개 | brain-type, dev-quiz, daily-tarot, reaction-test, number-puzzle, color-memory, typing-speed, mbti-career, maze-runner, lottery, white-noise, stress-check, iq-test |
+| ⭐ Rich Results | 6개 | hsp-test, zigzag-runner, mbti-love, sky-runner, dream-fortune, mbti-tips |
+
+### 깨진 링크 수정 (19건)
+- 3개 블로그 포스트에서 `/projects/` 잘못된 경로 접두사 제거 (17개)
+- 잘못된 앱명 2개 수정: stress-relief-tools→stress-check, daily-affirmation→affirmation
+
+### root-domain 내부 링크 강화
+- 33개 누락 앱 링크 추가 (site directory)
+- 4개 블로그 링크 추가
+- minesweeper 깨진 경로 수정 (/games/minesweeper/ → /minesweeper/)
+- idle-clicker 블로그 깨진 링크 수정
+
+### sitemap.xml 7개 앱 추가
+- maze-runner, pong-game, iq-test, mbti-career, blood-type, zodiac-match, todo-list
+
+### GA4 핵심 지표 (2/4~2/10)
+- 총 사용자: ~200명 (7일)
+- 최고 체류: portal(36s), love-frequency(35s), emotion-temp(25s)
+- 최저 바운스: emoji-merge(0%), stack-tower(9%), portal(21%)
+- 게임 카테고리 우수: 게임 앱 바운스율 평균 < 10% (전략 검증)
 
 ---
 
