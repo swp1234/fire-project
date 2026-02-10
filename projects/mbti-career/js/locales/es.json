@@ -1,7 +1,11 @@
 {
   "app": {
     "title": "Prueba de Compatibilidad de Carrera MBTI",
-    "language": "Seleccionar idioma"
+    "language": "Seleccionar idioma",
+    "mbtiTips": "Compatibilidad MBTI & Consejos",
+    "mbtiTipsDesc": "Análisis de compatibilidad de tipos",
+    "emotionTemp": "Termómetro Emocional",
+    "emotionTempDesc": "Prueba de análisis de emociones"
   },
   "home": {
     "heading": "Encuentra la Carrera Perfecta para tu Personalidad",
@@ -68,7 +72,8 @@
     "deepAnalysisDesc": "Mira un anuncio para desbloquear análisis de carrera personalizado",
     "shareImage": "📸 Guardar Imagen de Resultado",
     "shareLink": "🔗 Compartir Resultados",
-    "linkCopied": "¡Enlace copiado al portapapeles!"
+    "linkCopied": "¡Enlace copiado al portapapeles!",
+    "relatedApps": "Otras aplicaciones que también te encantarán"
   },
   "premium": {
     "title": "Análisis Profundo de Carrera IA",

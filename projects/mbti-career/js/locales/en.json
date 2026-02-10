@@ -1,7 +1,11 @@
 {
   "app": {
     "title": "MBTI Career Compatibility Test",
-    "language": "Select Language"
+    "language": "Select Language",
+    "mbtiTips": "MBTI Compatibility & Tips",
+    "mbtiTipsDesc": "Type compatibility analysis",
+    "emotionTemp": "Emotion Temperature",
+    "emotionTempDesc": "Emotion analysis test"
   },
   "home": {
     "heading": "Find the Perfect Career for Your Personality",
@@ -68,7 +72,8 @@
     "deepAnalysisDesc": "Watch an ad to unlock personalized career insights",
     "shareImage": "📸 Save Result Image",
     "shareLink": "🔗 Share Results",
-    "linkCopied": "Link copied to clipboard!"
+    "linkCopied": "Link copied to clipboard!",
+    "relatedApps": "You might also like"
   },
   "premium": {
     "title": "AI Deep Career Analysis",

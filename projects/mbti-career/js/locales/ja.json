@@ -1,7 +1,11 @@
 {
   "app": {
     "title": "MBTI適職診断テスト",
-    "language": "言語選択"
+    "language": "言語選択",
+    "mbtiTips": "MBTI相性 & ヒント",
+    "mbtiTipsDesc": "タイプ相性分析",
+    "emotionTemp": "感情温度計",
+    "emotionTempDesc": "感情分析テスト"
   },
   "home": {
     "heading": "あなたの性格に最適な職業を見つけましょう",
@@ -68,7 +72,8 @@
     "deepAnalysisDesc": "広告を視聴してカスタマイズされた分析を受けることができます",
     "shareImage": "📸 結果画像保存",
     "shareLink": "🔗 結果共有",
-    "linkCopied": "リンクがクリップボードにコピーされました"
+    "linkCopied": "リンクがクリップボードにコピーされました",
+    "relatedApps": "他にもあなたが好きなアプリ"
   },
   "premium": {
     "title": "AI深掘りキャリア分析",

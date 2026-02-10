@@ -1,7 +1,11 @@
 {
   "app": {
     "title": "Tes Kompatibilitas Karir MBTI",
-    "language": "Pilih Bahasa"
+    "language": "Pilih Bahasa",
+    "mbtiTips": "Kecocokan MBTI & Tips",
+    "mbtiTipsDesc": "Analisis kecocokan tipe",
+    "emotionTemp": "Termometer Emosi",
+    "emotionTempDesc": "Tes analisis emosi"
   },
   "home": {
     "heading": "Temukan Karir Sempurna untuk Kepribadian Anda",
@@ -68,7 +72,8 @@
     "deepAnalysisDesc": "Tonton iklan untuk membuka analisis karir yang dipersonalisasi",
     "shareImage": "📸 Simpan Gambar Hasil",
     "shareLink": "🔗 Bagikan Hasil",
-    "linkCopied": "Link disalin ke clipboard!"
+    "linkCopied": "Link disalin ke clipboard!",
+    "relatedApps": "Aplikasi lain yang mungkin Anda sukai"
   },
   "premium": {
     "title": "Analisis Karir AI Mendalam",

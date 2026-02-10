@@ -1,7 +1,11 @@
 {
   "app": {
     "title": "MBTI职业匹配测试",
-    "language": "选择语言"
+    "language": "选择语言",
+    "mbtiTips": "MBTI相性与建议",
+    "mbtiTipsDesc": "类型相性分析",
+    "emotionTemp": "情绪温度计",
+    "emotionTempDesc": "情绪分析测试"
   },
   "home": {
     "heading": "找到最适合你的职业",
@@ -68,7 +72,8 @@
     "deepAnalysisDesc": "观看广告获取个性化职业分析",
     "shareImage": "📸 保存结果图片",
     "shareLink": "🔗 分享结果",
-    "linkCopied": "链接已复制到剪贴板！"
+    "linkCopied": "链接已复制到剪贴板！",
+    "relatedApps": "其他你可能喜欢的应用"
   },
   "premium": {
     "title": "AI深度职业分析",

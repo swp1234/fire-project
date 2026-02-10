@@ -1,7 +1,11 @@
 {
   "app": {
     "title": "MBTI Kariyer Uyum Testi",
-    "language": "Dil Seçin"
+    "language": "Dil Seçin",
+    "mbtiTips": "MBTI Uyumluluk & İpuçları",
+    "mbtiTipsDesc": "Tip uyumluluk analizi",
+    "emotionTemp": "Duygu Termometresi",
+    "emotionTempDesc": "Duygu analizi testi"
   },
   "home": {
     "heading": "Kişiliğinize Uygun Mükemmel Kariyer Bulun",
@@ -68,7 +72,8 @@
     "deepAnalysisDesc": "Kişiselleştirilmiş kariyer analizi almak için reklam izleyin",
     "shareImage": "📸 Sonuç Görüntüsü Kaydet",
     "shareLink": "🔗 Sonuçları Paylaş",
-    "linkCopied": "Bağlantı panoya kopyalandı!"
+    "linkCopied": "Bağlantı panoya kopyalandı!",
+    "relatedApps": "Ayrıca beğeneceğiniz diğer uygulamalar"
   },
   "premium": {
     "title": "AI Derin Kariyer Analizi",

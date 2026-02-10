@@ -1,7 +1,11 @@
 {
   "app": {
     "title": "Test de Compatibilité Professionnelle MBTI",
-    "language": "Sélectionner une langue"
+    "language": "Sélectionner une langue",
+    "mbtiTips": "Compatibilité MBTI & Conseils",
+    "mbtiTipsDesc": "Analyse de compatibilité des types",
+    "emotionTemp": "Thermomètre Émotionnel",
+    "emotionTempDesc": "Test d'analyse des émotions"
   },
   "home": {
     "heading": "Trouvez la Carrière Parfaite pour Votre Personnalité",
@@ -68,7 +72,8 @@
     "deepAnalysisDesc": "Regardez une annonce pour débloquer une analyse de carrière personnalisée",
     "shareImage": "📸 Enregistrer l'Image des Résultats",
     "shareLink": "🔗 Partager les Résultats",
-    "linkCopied": "Lien copié dans le presse-papiers!"
+    "linkCopied": "Lien copié dans le presse-papiers!",
+    "relatedApps": "Autres applications que vous aimerez aussi"
   },
   "premium": {
     "title": "Analyse Approfondie de Carrière IA",
