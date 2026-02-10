@@ -27,7 +27,8 @@
     "share": "分享运势",
     "newReading": "新运势",
     "limitReached": "你已使用今日免费运势。观看广告获取额外运势？",
-    "copiedToClipboard": "已复制到剪贴板！"
+    "copiedToClipboard": "已复制到剪贴板！",
+    "summaryTemplate": "过去: {past}\n\n现在: {present}\n\n未来: {future}\n\n你的今天充满了神秘的信息。深入思考每张卡片的含义。"
   },
   "category": {
     "title": "选择焦点",
@@ -37,13 +38,26 @@
     "health": "💪 健康与保健",
     "personal": "🌟 个人成长",
     "share": "分享",
-    "newReading": "新运势"
+    "newReading": "新运势",
+    "categoryLove": "爱情",
+    "categoryMoney": "金钱",
+    "categoryHealth": "健康",
+    "categoryPersonal": "个人"
   },
   "gallery": {
     "title": "塔罗牌画廊",
     "subtitle": "所有22张大阿卡那牌",
     "upright": "正位",
     "reversed": "逆位"
+  },
+  "deepReading": {
+    "patterns": "分析三张卡之间的深层联系，你当前的状况处于变化和成长的过程中。你的现在决定正在决定你的未来方向，基于你的过去基础。",
+    "guidance": "明智的指导：当下的小行动创造未来的大变化。无惧地相信你的直觉，拥抱变化，有意识地生活。",
+    "advice": [
+      "每天早上冥想5分钟，聆听你内心的声音",
+      "面对你的恐惧，但一次迈一步",
+      "与值得信任的人分享你的想法，寻求他们的建议"
+    ]
   },
   "premium": {
     "badge": "✨ 人工智能深度阅读",

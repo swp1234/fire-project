@@ -27,7 +27,8 @@
     "share": "Teilen",
     "newReading": "Neue Lesung",
     "limitReached": "Sie haben Ihre kostenlose Tageslesung verwendet. Möchten Sie eine Anzeige ansehen, um noch eine Lesung zu erhalten?",
-    "copiedToClipboard": "In die Zwischenablage kopiert!"
+    "copiedToClipboard": "In die Zwischenablage kopiert!",
+    "summaryTemplate": "Vergangenheit: {past}\n\nGegenwart: {present}\n\nZukunft: {future}\n\nIhr Tag ist voller mystischer Botschaften. Denken Sie tief über die Bedeutung jeder Karte nach."
   },
   "category": {
     "title": "Wählen Sie einen Fokus",
@@ -37,13 +38,26 @@
     "health": "💪 Gesundheit und Wohlbefinden",
     "personal": "🌟 Persönliches Wachstum",
     "share": "Teilen",
-    "newReading": "Neue Lesung"
+    "newReading": "Neue Lesung",
+    "categoryLove": "Liebe",
+    "categoryMoney": "Geld",
+    "categoryHealth": "Gesundheit",
+    "categoryPersonal": "Personal"
   },
   "gallery": {
     "title": "Tarot-Galerie",
     "subtitle": "Alle 22 Großen Arkana Karten",
     "upright": "Aufrechte Position",
     "reversed": "Umgekehrte Position"
+  },
+  "deepReading": {
+    "patterns": "Bei der Analyse der tiefen Verbindungen zwischen den drei Karten befindet sich Ihre aktuelle Situation in einem Prozess der Veränderung und des Wachstums. Ihre aktuelle Entscheidung bestimmt die Richtung Ihrer Zukunft auf der Grundlage Ihrer bisherigen Grundlagen.",
+    "guidance": "Weise Anleitung: Kleine Handlungen in der Gegenwart führen zu großen Veränderungen in der Zukunft. Vertrauen Sie Ihrer Intuition ohne Angst, akzeptieren Sie Veränderungen und leben Sie jeden Moment bewusst.",
+    "advice": [
+      "Meditieren Sie jeden Morgen 5 Minuten lang und hören Sie auf Ihre innere Stimme",
+      "Stellen Sie sich Ihren Ängsten, aber machen Sie einen Schritt nach dem anderen",
+      "Teilen Sie Ihre Gedanken mit vertrauenswürdigen Menschen und bitten Sie um Rat"
+    ]
   },
   "premium": {
     "badge": "✨ AI Tiefe Lesung",

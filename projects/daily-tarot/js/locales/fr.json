@@ -27,7 +27,8 @@
     "share": "Partager",
     "newReading": "Nouvelle Lecture",
     "limitReached": "Vous avez utilisé votre lecture gratuite quotidienne. Regarder une publicité pour une autre lecture ?",
-    "copiedToClipboard": "Copié dans le presse-papiers !"
+    "copiedToClipboard": "Copié dans le presse-papiers !",
+    "summaryTemplate": "Passé: {past}\n\nPrésent: {present}\n\nAvenir: {future}\n\nVotre jour est rempli de messages mystiques. Réfléchissez profondément au sens de chaque carte."
   },
   "category": {
     "title": "Choisissez un Domaine",
@@ -37,13 +38,26 @@
     "health": "💪 Santé et Bien-être",
     "personal": "🌟 Croissance Personnelle",
     "share": "Partager",
-    "newReading": "Nouvelle Lecture"
+    "newReading": "Nouvelle Lecture",
+    "categoryLove": "Amour",
+    "categoryMoney": "Argent",
+    "categoryHealth": "Santé",
+    "categoryPersonal": "Personne"
   },
   "gallery": {
     "title": "Galerie de Tarot",
     "subtitle": "Les 22 Arcanes Majeurs",
     "upright": "Position Droite",
     "reversed": "Position Inversée"
+  },
+  "deepReading": {
+    "patterns": "En analysant les connexions profondes entre les trois cartes, votre situation actuelle est dans un processus de changement et de croissance. Votre décision présente détermine la direction de votre avenir en fonction de votre fondation passée.",
+    "guidance": "Conseil Sage: Les petites actions dans le présent créent de grands changements dans l'avenir. Faites confiance à votre intuition sans crainte, acceptez le changement et vivez chaque moment consciemment.",
+    "advice": [
+      "Méditez 5 minutes chaque matin et écoutez votre voix intérieure",
+      "Affrontez vos peurs mais allez un pas à la fois",
+      "Partagez vos pensées avec des personnes de confiance et demandez leurs conseils"
+    ]
   },
   "premium": {
     "badge": "✨ Lecture Profonde IA",

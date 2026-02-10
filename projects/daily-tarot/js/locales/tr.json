@@ -27,7 +27,8 @@
     "share": "Paylaş",
     "newReading": "Yeni Okuyuş",
     "limitReached": "Günlük ücretsiz okuyuşunuzu kullandınız. Başka bir okuyuş için reklam izlemek ister misiniz?",
-    "copiedToClipboard": "Panoya kopyalandı!"
+    "copiedToClipboard": "Panoya kopyalandı!",
+    "summaryTemplate": "Geçmiş: {past}\n\nŞimdi: {present}\n\nGelecek: {future}\n\nGünün mistik mesajlarla dolu. Her kartın anlamını derin düşün."
   },
   "category": {
     "title": "Bir Odak Seçin",
@@ -37,13 +38,26 @@
     "health": "💪 Sağlık ve Wellness",
     "personal": "🌟 Kişisel Gelişim",
     "share": "Paylaş",
-    "newReading": "Yeni Okuyuş"
+    "newReading": "Yeni Okuyuş",
+    "categoryLove": "Aşk",
+    "categoryMoney": "Para",
+    "categoryHealth": "Sağlık",
+    "categoryPersonal": "Kişi"
   },
   "gallery": {
     "title": "Tarot Galerisi",
     "subtitle": "Tüm 22 Büyük Arkana Kartı",
     "upright": "Dik Konum",
     "reversed": "Ters Konum"
+  },
+  "deepReading": {
+    "patterns": "Üç kart arasındaki derin bağlantıları analiz ederek, mevcut durumunuz değişim ve büyüme sürecindedir. Mevcut kararınız, geçmiş temellerinize bağlı olarak geleceğinizin yönünü belirliyor.",
+    "guidance": "Bilge Rehberlik: Şimdideki küçük eylemler gelecekte büyük değişiklikler yaratır. Sezginize korkmadan güvenin, değişimi benimseyin ve her anı bilinçli bir şekilde yaşayın.",
+    "advice": [
+      "Her sabah 5 dakika meditasyon yapın ve iç sesinizi dinleyin",
+      "Korkularınızla yüzleşin ama bir seferde bir adım atın",
+      "Güvenilir insanlarla düşüncelerinizi paylaşın ve tavsiye isteyin"
+    ]
   },
   "premium": {
     "badge": "✨ AI Derin Okuyuş",

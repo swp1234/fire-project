@@ -27,7 +27,8 @@
     "share": "공유하기",
     "newReading": "새로운 운세",
     "limitReached": "오늘의 무료 점사를 모두 사용했습니다. 광고를 시청하면 추가 운세를 볼 수 있습니다.",
-    "copiedToClipboard": "클립보드에 복사되었습니다!"
+    "copiedToClipboard": "클립보드에 복사되었습니다!",
+    "summaryTemplate": "과거: {past}\n\n현재: {present}\n\n미래: {future}\n\n당신의 오늘은 신비로운 메시지로 가득합니다. 각 카드의 의미를 깊이 생각해보세요."
   },
   "category": {
     "title": "운세 카테고리 선택",
@@ -37,13 +38,26 @@
     "health": "💪 건강 운세",
     "personal": "🌟 개인 성장",
     "share": "공유하기",
-    "newReading": "새로운 운세"
+    "newReading": "새로운 운세",
+    "categoryLove": "연애",
+    "categoryMoney": "금전",
+    "categoryHealth": "건강",
+    "categoryPersonal": "개인"
   },
   "gallery": {
     "title": "타로 카드 갤러리",
     "subtitle": "22장의 메이저 아르카나 카드",
     "upright": "정방향",
     "reversed": "역방향"
+  },
+  "deepReading": {
+    "patterns": "세 카드 사이의 깊은 연결고리를 분석한 결과, 당신의 현재 상황은 변화와 성장의 과정에 있습니다. 과거의 기초 위에 현재의 결정이 미래의 방향을 결정하고 있음을 알 수 있습니다.",
+    "guidance": "지혜로운 조언: 현재의 작은 행동이 미래의 큰 변화를 만듭니다. 두려움 없이 당신의 직관을 믿고, 변화를 수용하며, 매 순간을 의식적으로 살아가세요.",
+    "advice": [
+      "매일 아침 5분간 명상하고 당신의 내면의 목소리에 귀 기울이세요",
+      "두려움을 마주하되, 한 번에 한 발씩 나아가세요",
+      "신뢰할 수 있는 사람과 당신의 생각을 나누고 조언을 구하세요"
+    ]
   },
   "premium": {
     "badge": "✨ AI 심층 리딩",

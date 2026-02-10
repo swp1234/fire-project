@@ -27,7 +27,8 @@
     "share": "Share Reading",
     "newReading": "New Reading",
     "limitReached": "You have used your daily free reading. Watch an ad for another reading?",
-    "copiedToClipboard": "Copied to clipboard!"
+    "copiedToClipboard": "Copied to clipboard!",
+    "summaryTemplate": "Past: {past}\n\nPresent: {present}\n\nFuture: {future}\n\nYour day is filled with mystical messages. Reflect on the meaning of each card."
   },
   "category": {
     "title": "Choose a Focus",
@@ -37,13 +38,26 @@
     "health": "💪 Health & Wellness",
     "personal": "🌟 Personal Growth",
     "share": "Share",
-    "newReading": "New Reading"
+    "newReading": "New Reading",
+    "categoryLove": "Love",
+    "categoryMoney": "Money",
+    "categoryHealth": "Health",
+    "categoryPersonal": "Personal"
   },
   "gallery": {
     "title": "Tarot Gallery",
     "subtitle": "All 22 Major Arcana cards",
     "upright": "Upright",
     "reversed": "Reversed"
+  },
+  "deepReading": {
+    "patterns": "Analyzing the deep connections between the three cards, your current situation is in a process of change and growth. Your present decision is determining the direction of your future based on your past foundation.",
+    "guidance": "Wise Guidance: Small actions in the present create big changes in the future. Trust your intuition without fear, embrace change, and live each moment consciously.",
+    "advice": [
+      "Meditate for 5 minutes every morning and listen to your inner voice",
+      "Face your fears but take one step at a time",
+      "Share your thoughts with trustworthy people and seek their advice"
+    ]
   },
   "premium": {
     "badge": "✨ AI Deep Reading",

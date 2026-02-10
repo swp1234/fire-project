@@ -27,7 +27,8 @@
     "share": "Bagikan",
     "newReading": "Bacaan Baru",
     "limitReached": "Anda telah menggunakan bacaan gratis harian Anda. Tonton iklan untuk bacaan lagi?",
-    "copiedToClipboard": "Disalin ke papan klip!"
+    "copiedToClipboard": "Disalin ke papan klip!",
+    "summaryTemplate": "Masa lalu: {past}\n\nMasa kini: {present}\n\nMasa depan: {future}\n\nHari Anda penuh dengan pesan mistis. Renungkan makna setiap kartu."
   },
   "category": {
     "title": "Pilih Fokus",
@@ -37,13 +38,26 @@
     "health": "💪 Kesehatan dan Kesejahteraan",
     "personal": "🌟 Pertumbuhan Pribadi",
     "share": "Bagikan",
-    "newReading": "Bacaan Baru"
+    "newReading": "Bacaan Baru",
+    "categoryLove": "Cinta",
+    "categoryMoney": "Uang",
+    "categoryHealth": "Kesehatan",
+    "categoryPersonal": "Pribadi"
   },
   "gallery": {
     "title": "Galeri Tarot",
     "subtitle": "Semua 22 Arcana Besar",
     "upright": "Posisi Tegak",
     "reversed": "Posisi Terbalik"
+  },
+  "deepReading": {
+    "patterns": "Menganalisis koneksi mendalam antara tiga kartu, situasi Anda saat ini berada dalam proses perubahan dan pertumbuhan. Keputusan Anda saat ini menentukan arah masa depan Anda berdasarkan fondasi masa lalu Anda.",
+    "guidance": "Panduan Bijak: Tindakan kecil di masa kini menciptakan perubahan besar di masa depan. Percayai intuisi Anda tanpa takut, terima perubahan, dan hidup setiap saat dengan sadar.",
+    "advice": [
+      "Bermeditasi selama 5 menit setiap pagi dan dengarkan suara batin Anda",
+      "Hadapi ketakutan Anda tetapi ambil satu langkah pada satu waktu",
+      "Bagikan pemikiran Anda dengan orang-orang terpercaya dan minta saran mereka"
+    ]
   },
   "premium": {
     "badge": "✨ Bacaan Mendalam AI",

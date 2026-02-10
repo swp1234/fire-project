@@ -27,7 +27,8 @@
     "share": "共有",
     "newReading": "新しい占い",
     "limitReached": "本日の無料占いを使い切りました。広告を見てさらに占ってみませんか？",
-    "copiedToClipboard": "クリップボードにコピーしました！"
+    "copiedToClipboard": "クリップボードにコピーしました！",
+    "summaryTemplate": "過去: {past}\n\n現在: {present}\n\n未来: {future}\n\nあなたの今日は神秘的なメッセージに満ちています。各カードの意味を深く考えてください。"
   },
   "category": {
     "title": "焦点を選択",
@@ -37,13 +38,26 @@
     "health": "💪 健康とウェルネス",
     "personal": "🌟 個人の成長",
     "share": "共有",
-    "newReading": "新しい占い"
+    "newReading": "新しい占い",
+    "categoryLove": "恋愛",
+    "categoryMoney": "金銭",
+    "categoryHealth": "健康",
+    "categoryPersonal": "個人"
   },
   "gallery": {
     "title": "タロットギャラリー",
     "subtitle": "全22枚のメジャーアルカナカード",
     "upright": "正位",
     "reversed": "逆位"
+  },
+  "deepReading": {
+    "patterns": "3つのカード間の深い繋がりを分析すると、あなたの現在の状況は変化と成長の過程にあります。あなたの現在の決定があなたの過去の基盤に基づいてあなたの未来の方向を決定しています。",
+    "guidance": "賢明なガイダンス：現在の小さな行動が未来の大きな変化を生み出します。恐れずあなたの直感を信じ、変化を受け入れ、各瞬間を意識的に生きてください。",
+    "advice": [
+      "毎朝5分間瞑想し、内なる声に耳を傾けてください",
+      "あなたの恐れに直面してください。ただし一度に一歩ずつ",
+      "信頼できる人とあなたの考えを共有し、彼らのアドバイスを求めてください"
+    ]
   },
   "premium": {
     "badge": "✨ AI深読み",

@@ -27,7 +27,8 @@
     "share": "Compartir",
     "newReading": "Nueva Lectura",
     "limitReached": "Has usado tu lectura gratuita diaria. ¿Ver un anuncio para otra lectura?",
-    "copiedToClipboard": "¡Copiado al portapapeles!"
+    "copiedToClipboard": "¡Copiado al portapapeles!",
+    "summaryTemplate": "Pasado: {past}\n\nPresente: {present}\n\nFuturo: {future}\n\nTu día está lleno de mensajes místicos. Reflexiona sobre el significado de cada carta."
   },
   "category": {
     "title": "Elige un Enfoque",
@@ -37,13 +38,26 @@
     "health": "💪 Salud y Bienestar",
     "personal": "🌟 Crecimiento Personal",
     "share": "Compartir",
-    "newReading": "Nueva Lectura"
+    "newReading": "Nueva Lectura",
+    "categoryLove": "Amor",
+    "categoryMoney": "Dinero",
+    "categoryHealth": "Salud",
+    "categoryPersonal": "Personal"
   },
   "gallery": {
     "title": "Galería de Tarot",
     "subtitle": "Los 22 Arcanos Mayores",
     "upright": "Posición Recta",
     "reversed": "Posición Invertida"
+  },
+  "deepReading": {
+    "patterns": "Analizando las conexiones profundas entre las tres cartas, tu situación actual está en un proceso de cambio y crecimiento. Tu decisión presente está determinando la dirección de tu futuro basado en tu fundación pasada.",
+    "guidance": "Orientación sabia: Las pequeñas acciones en el presente crean grandes cambios en el futuro. Confía en tu intuición sin miedo, acepta el cambio y vive cada momento conscientemente.",
+    "advice": [
+      "Medita 5 minutos cada mañana y escucha tu voz interior",
+      "Enfrenta tus miedos pero da un paso a la vez",
+      "Comparte tus pensamientos con personas de confianza y busca sus consejos"
+    ]
   },
   "premium": {
     "badge": "✨ Lectura Profunda IA",
