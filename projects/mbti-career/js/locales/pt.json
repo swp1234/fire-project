@@ -168,5 +168,11 @@
     "esfp": "Artista energético e alegre",
     "enfp": "Ativista apaixonado e criativo",
     "entp": "Debatedor inteligente e desafiante"
+  },
+  "canvas": {
+    "title": "Compatibilidade de Carreira MBTI"
+  },
+  "share": {
+    "text": "Minha Compatibilidade de Carreira MBTI"
   }
 }

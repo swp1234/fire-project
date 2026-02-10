@@ -154,8 +154,16 @@ class SnakeGame {
             }
         });
 
-        // Canvas click to start (improved - also works for continuing paused game)
+        // Canvas click/tap to start (improved - works for click, tap, and touch)
         this.canvas.addEventListener('click', () => {
+            if (!this.gameRunning && this.gameState === 'playing') {
+                this.gameRunning = true;
+                this.tapHint.style.display = 'none';
+            }
+        });
+
+        // Canvas touch end for mobile tap
+        this.canvas.addEventListener('touchend', () => {
             if (!this.gameRunning && this.gameState === 'playing') {
                 this.gameRunning = true;
                 this.tapHint.style.display = 'none';
@@ -274,20 +282,20 @@ class SnakeGame {
                 <span class="stat-value">${this.stats.totalScore}</span>
             </div>
             <div class="stat-item">
-                <span class="stat-label">최고 점수</span>
+                <span class="stat-label">${window.i18n?.t('stats_detail.highScore') || 'High Score'}</span>
                 <span class="stat-value">${this.highScore}</span>
             </div>
             <div class="stat-item">
-                <span class="stat-label">게임 플레이</span>
+                <span class="stat-label">${window.i18n?.t('stats_detail.gamesPlayed') || 'Games Played'}</span>
                 <span class="stat-value">${this.stats.gamesPlayed}</span>
             </div>
             <div class="stat-item">
-                <span class="stat-label">먹이 먹음</span>
+                <span class="stat-label">${window.i18n?.t('stats_detail.foodEaten') || 'Food Eaten'}</span>
                 <span class="stat-value">${this.stats.foodEaten}</span>
             </div>
             <div class="stat-item">
-                <span class="stat-label">총 생존시간</span>
-                <span class="stat-value">${Math.floor(this.stats.survivalTime / 60)}분</span>
+                <span class="stat-label">${window.i18n?.t('stats_detail.survivalTime') || 'Total Survival'}</span>
+                <span class="stat-value">${Math.floor(this.stats.survivalTime / 60)}${window.i18n?.t('stats_detail.minuteUnit') || 'min'}</span>
             </div>
         `;
     }
@@ -615,7 +623,8 @@ class SnakeGame {
 
     shareScore() {
         const rank = this.getRank(this.score);
-        const text = `뱀 게임에서 ${this.score}점을 얻었습니다! ${rank.icon} ${rank.title} 🐍\n당신도 플레이해보세요: dopabrain.com/snake-game/`;
+        const shareTemplate = window.i18n?.t('share_msg.text') || 'I scored {score} in Snake! {icon} {title} 🐍\nPlay: dopabrain.com/snake-game/';
+        const text = shareTemplate.replace('{score}', this.score).replace('{icon}', rank.icon).replace('{title}', rank.title);
 
         if (navigator.share) {
             navigator.share({
@@ -626,7 +635,8 @@ class SnakeGame {
         } else {
             // Fallback
             const url = `https://dopabrain.com/snake-game/?score=${this.score}`;
-            alert(`공유하기: ${url}`);
+            const alertMsg = window.i18n?.t('share_msg.alert') || 'Share: {url}';
+            alert(alertMsg.replace('{url}', url));
         }
     }
 

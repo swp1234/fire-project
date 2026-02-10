@@ -168,5 +168,11 @@
     "esfp": "Energetic and joyful entertainer",
     "enfp": "Passionate and creative campaigner",
     "entp": "Intelligent and challenging debater"
+  },
+  "canvas": {
+    "title": "MBTI Career Compatibility"
+  },
+  "share": {
+    "text": "My MBTI Career Compatibility"
   }
 }

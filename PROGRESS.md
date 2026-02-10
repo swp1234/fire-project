@@ -2,7 +2,93 @@
 
 > 이 파일은 매 세션마다 자동으로 업데이트되며, Claude Code와 Cursor가 참조합니다.
 
-**마지막 업데이트:** 2026-02-10 17:00 (세션26+) - block-puzzle 게임시작 버튼 버그 수정
+**마지막 업데이트:** 2026-02-10 23:30 (세션27 최종) - 전체 60개 앱 i18n 전수검사 + 수정 완료
+
+---
+
+## 🚀 세션27: 안정화 완료 + i18n 전수조사 (2026-02-10 22:00)
+
+### 안정화 모드 해제
+- **상태 전환:** 안정화 모드 PAUSED → 전면 재개
+- 모든 기존 앱 HTML 무결성 재검증 (60개)
+- 추가 손상 발견 및 복원: kpop-position, tax-refund-preview
+
+### 복원 완료 (세션26~27 누적 8개)
+| 앱 | 원인 | 복원 방법 |
+|----|------|-----------|
+| pong-game | HTML 손상 | 전체 재빌드 |
+| word-scramble | HTML 손상 | git checkout |
+| lottery | HTML 손상 | git checkout |
+| dday-counter | HTML 손상 | git checkout |
+| white-noise | HTML 손상 | git checkout |
+| flappy-bird | start-screen 누락 | DOM 요소 추가 |
+| kpop-position | HTML 손상 (99줄) | git checkout fc13815 |
+| tax-refund-preview | HTML 손상 (78줄) | git checkout c55fef0 |
+
+### 버그 수정 (5건)
+| 버그 | 수정 내용 |
+|------|-----------|
+| snake-game 탭 미작동 | touchend 이벤트 추가 |
+| minesweeper 404 | root-domain에 링크 추가 |
+| block-puzzle 시작 버튼 | 중복 i18n.js 제거 + NULL 체크 |
+| word-guess 세로 입력 | CSS grid minmax(0, 1fr) 수정 |
+| 블로그 UX 가독성 | 패딩/폰트/줄간격 증가 |
+
+### i18n 전수조사 및 수정
+- **검사 대상:** 전체 60개 앱
+- **하드코딩 한국어 발견:** 20개 앱
+- **수정 완료 (에이전트 8개 병렬):**
+  - emotion-temp, hsp-test, kpop-position, love-frequency
+  - lottery, emoji-merge, mbti-love, mbti-tips, mbti-career, iq-test
+  - future-self, idle-clicker, numerology
+  - password-generator, stress-check, tax-refund-preview
+  - unit-converter, word-scramble, zigzag-runner
+- **수정 패턴:** `window.i18n?.t('key') || 'fallback'` + locale JSON 키 추가
+
+### 접근성 수정
+- snake-game `.lang-btn` 40px → 44px (WCAG 2.1 준수)
+- 전체 게임 접근성 감사 (9/10 통과)
+
+### flappy-bird 파이프 간격 수정
+- 초기값: 120px → 140px
+- 최소값: 100px → 110px (레벨 난이도 조절)
+
+### sitemap 수정
+- portal sitemap: minesweeper URL `/games/minesweeper/` → `/minesweeper/`
+- root-domain sitemap: 동일 URL 수정
+- portal sitemap: mbti-career 항목 추가
+
+### GSC 인덱싱 현황 (개선됨)
+| 항목 | 이전(세션26) | 현재(세션27) |
+|------|-------------|-------------|
+| 인덱싱 확인 | 2개 | 6개+ (portal, hsp-test, emotion-temp, love-frequency, stack-tower 등) |
+| 미인덱싱 | snake-game, minesweeper, 블로그 등 | 사이트맵 통해 크롤링 진행 중 |
+| 오가닉 검색 | 0% | 0% (도메인 나이 6일, 정상) |
+
+### GA4 트래픽 (2026-02-03~10)
+| 지표 | 값 |
+|------|-----|
+| 주간 사용자 | 166명 |
+| 상위 참여 페이지 | portal(33초), love-frequency(32초), emotion-temp(25초) |
+| 직접 유입 | 96.5% |
+| 모바일 | 13% |
+
+### i18n 전수검사 최종 결과 (세션27)
+| 구분 | 앱 수 | 상세 |
+|------|------|------|
+| 완전 클린 | 25개 | 하드코딩 한국어 없음 (코드 주석 제외) |
+| 에이전트 수정 | 20개+ | 공유 텍스트, Canvas, fallback → English 전환 |
+| 직접 수정 | 6개 | snake-game, block-puzzle, dday-counter, dev-quiz, white-noise, stress-check |
+| 잔여 (low priority) | detox-timer | 명언 콘텐츠 배열 (에이전트 처리 완료) |
+
+### P0 미해결 → 해결 현황
+| 이슈 | 상태 |
+|------|------|
+| ~~pong-game HTML 복원~~ | ✅ 해결 (재빌드 완료) |
+| ~~flappy-bird 파이프 간격~~ | ✅ 해결 (140px) |
+| ~~i18n 전수검사~~ | ✅ 해결 (60개 앱 전체 검사/수정) |
+| GSC 0% 오가닉 검색 | ⏳ 도메인 나이 제약 (정상 진행) |
+| AdSense 미작동 | ⏳ 승인 대기 중 |
 
 ---
 

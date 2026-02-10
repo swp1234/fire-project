@@ -168,5 +168,11 @@
     "esfp": "Enerjik ve neşeli oyuncu",
     "enfp": "Tutkulı ve yaratıcı aktivist",
     "entp": "Zeki ve meydan okuyan münazırveya"
+  },
+  "canvas": {
+    "title": "MBTI Kariyer Uyumluluğu"
+  },
+  "share": {
+    "text": "Benim MBTI Kariyer Uyumluluğum"
   }
 }

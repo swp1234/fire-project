@@ -168,5 +168,11 @@
     "esfp": "Energischer und fröhlicher Unterhalter",
     "enfp": "Leidenschaftlicher und kreativer Aktivist",
     "entp": "Intelligenter und herausfordernder Debattierer"
+  },
+  "canvas": {
+    "title": "MBTI Karrierekompatibilität"
+  },
+  "share": {
+    "text": "Meine MBTI Karrierekompatibilität"
   }
 }
