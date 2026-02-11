@@ -119,7 +119,8 @@ html, body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    z-index: 1;
+    z-index: 100;
+    background: var(--bg-dark);
 }
 
 .screen {
@@ -133,6 +134,7 @@ html, body {
     transition: opacity 0.3s ease;
     opacity: 0;
     pointer-events: none;
+    background: var(--bg-dark);
 }
 
 .screen.active {
@@ -145,6 +147,43 @@ html, body {
     display: none;
     opacity: 0;
     pointer-events: none;
+}
+
+/* === THEME TOGGLE === */
+.theme-toggle {
+    position: fixed;
+    top: 12px;
+    right: 56px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+[data-theme="light"] .theme-toggle {
+    background: rgba(155, 89, 182, 0.1);
+    border-color: rgba(155, 89, 182, 0.2);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+    background: rgba(155, 89, 182, 0.15);
 }
 
 /* === LANGUAGE SELECTOR === */
@@ -245,6 +284,7 @@ html, body {
     justify-content: flex-start;
     padding-top: 40px;
     overflow-y: auto;
+    background: var(--bg-dark);
 }
 
 .menu-content {
@@ -472,22 +512,21 @@ html, body {
 .game-container {
     flex: 1;
     display: flex;
-    padding: 8px;
-    gap: 8px;
+    justify-content: center;
+    padding: 12px;
+    gap: 16px;
     overflow: hidden;
 }
 
 .game-main {
-    flex: 3;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 12px;
-    border: 1px solid rgba(155, 89, 182, 0.2);
+    border: 1px solid rgba(155, 89, 182, 0.3);
     overflow: hidden;
-    min-width: 0;
 }
 
 #game-canvas {
@@ -516,7 +555,7 @@ html, body {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    width: 140px;
+    width: 200px;
     max-height: 100%;
     overflow-y: auto;
 }
@@ -633,8 +672,8 @@ html, body {
 @media (max-width: 600px) {
     .game-container {
         flex-direction: column;
-        padding: 4px;
-        gap: 4px;
+        padding: 6px;
+        gap: 6px;
     }
 
     .game-main {
@@ -1100,7 +1139,143 @@ html, body {
     }
 }
 
-/* Light Mode disabled - dark mode only for this game */
+/* Light Mode */
+[data-theme="light"] {
+    --bg-dark: #f5f5fa;
+    --bg-card: #ffffff;
+    --text-primary: #1a1a2e;
+    --text-secondary: #5a5a70;
+}
+
+[data-theme="light"] body {
+    background: var(--bg-dark);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .bg-grid {
+    background-image:
+        linear-gradient(rgba(155, 89, 182, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(155, 89, 182, 0.02) 1px, transparent 1px);
+}
+
+[data-theme="light"] .app-loader {
+    background: var(--bg-dark);
+}
+
+[data-theme="light"] .game-wrapper {
+    background: var(--bg-dark);
+}
+
+[data-theme="light"] .screen {
+    background: var(--bg-dark);
+}
+
+[data-theme="light"] .menu-screen {
+    background: var(--bg-dark);
+}
+
+[data-theme="light"] .lang-btn {
+    background: rgba(155, 89, 182, 0.1);
+    border-color: rgba(155, 89, 182, 0.2);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .lang-menu {
+    background: var(--bg-card);
+    border-color: rgba(155, 89, 182, 0.2);
+}
+
+[data-theme="light"] .lang-option {
+    color: var(--text-primary);
+    border-bottom-color: rgba(155, 89, 182, 0.1);
+}
+
+[data-theme="light"] .lang-option:hover {
+    background: rgba(155, 89, 182, 0.1);
+}
+
+[data-theme="light"] .high-score-display {
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.08), rgba(0, 212, 255, 0.05));
+    border-color: rgba(155, 89, 182, 0.2);
+}
+
+[data-theme="light"] .btn-secondary {
+    background: rgba(155, 89, 182, 0.1);
+    border-color: rgba(155, 89, 182, 0.2);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .btn-secondary:hover {
+    background: rgba(155, 89, 182, 0.15);
+}
+
+[data-theme="light"] .game-screen {
+    background: var(--bg-dark);
+}
+
+[data-theme="light"] .game-hud {
+    background: rgba(255, 255, 255, 0.5);
+    border-bottom-color: rgba(155, 89, 182, 0.15);
+}
+
+[data-theme="light"] .game-main {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(155, 89, 182, 0.2);
+}
+
+[data-theme="light"] .next-preview,
+[data-theme="light"] .hold-preview {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(155, 89, 182, 0.15);
+}
+
+[data-theme="light"] .game-controls {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(155, 89, 182, 0.15);
+}
+
+[data-theme="light"] .overlay-card,
+[data-theme="light"] .gameover-card,
+[data-theme="light"] .interstitial-card {
+    background: linear-gradient(135deg, var(--bg-card), rgba(255, 255, 255, 0.9));
+    border-color: rgba(155, 89, 182, 0.2);
+}
+
+[data-theme="light"] .gameover-screen {
+    background: var(--bg-dark);
+}
+
+[data-theme="light"] .stats-screen {
+    background: var(--bg-dark);
+}
+
+[data-theme="light"] .stats-header {
+    border-bottom-color: rgba(155, 89, 182, 0.15);
+}
+
+[data-theme="light"] .stat-item {
+    background: rgba(155, 89, 182, 0.05);
+    border-color: rgba(155, 89, 182, 0.15);
+}
+
+[data-theme="light"] .ad-banner {
+    background: rgba(155, 89, 182, 0.05);
+    border-color: rgba(155, 89, 182, 0.15);
+}
+
+[data-theme="light"] .rec-card {
+    background: rgba(155, 89, 182, 0.05);
+    border-color: rgba(155, 89, 182, 0.15);
+}
+
+[data-theme="light"] .rec-card:hover {
+    background: rgba(155, 89, 182, 0.1);
+}
+
+[data-theme="light"] .game-footer {
+    background: rgba(255, 255, 255, 0.5);
+    border-top-color: rgba(155, 89, 182, 0.15);
+}
 
 /* Scrollbar Styling */
 ::-webkit-scrollbar {

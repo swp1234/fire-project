@@ -11,7 +11,7 @@
 > 수익화를 향해 지속적으로 전진. 멈추지 않는다.
 
 ### 우선순위
-1. **유지보수 (Stability):** 26개 프로젝트 인프라 정합성
+1. **유지보수 (Stability):** 전체 프로젝트 인프라 정합성
 2. **성장 (Growth):** SEO + 인덱싱 + 콘텐츠 확장
 3. **최적화 (Optimization):** GA4 데이터 기반 UX 개선
 4. **확장 (Scalability):** 다국어 + 새 앱/게임
@@ -44,32 +44,31 @@
 
 - [ ] '도파민 증대'라는 서비스 본질에 기여했는가?
 - [ ] 수동 반복 작업 중 자동화한 부분은?
-- [ ] 26개 앱 전체의 일관성을 유지하는가?
+- [ ] 전체 앱의 일관성을 유지하는가?
 - [ ] 다음 에이전트가 이 로그로 바로 이어갈 수 있는가?
 
 ## 5. 기술 스택
 
 | 역할 | 현재 |
 |------|------|
-| Brain | Claude Code (Opus 4.6) |
+| AI | Claude (Opus) via Cursor |
 | Monitoring | GA4 + GSC (MCP 연동) |
 | Hosting | GitHub Pages |
 | Domain | dopabrain.com (Cloudflare) |
-| Ads | AdSense (심사중) |
+| Ads | AdSense (심사중), AdMob (예정) |
 
-## 6. 프로젝트 목록 (26개)
+## 6. 프로젝트 현황 (61개)
 
-### 게임 (5)
-sky-runner, stack-tower, zigzag-runner, emoji-merge, idle-clicker
+> **정확한 앱 목록/메타데이터:** `portal/js/app-data.js` 참조
 
-### 바이럴 테스트 (7)
-hsp-test, kpop-position, mbti-love, emotion-temp, past-life, valentine, love-frequency
+### 카테고리별 분류
 
-### 유틸 앱 (12)
-quiz-app, shopping-calc, detox-timer, dream-fortune, affirmation, lottery, dday-counter, mbti-tips, white-noise, dev-quiz, tax-refund-preview, unit-converter
-
-### 인프라 (2)
-portal, root-domain
+| 카테고리 | 수량 | 주요 앱 |
+|---------|------|---------|
+| 게임 | 18 | idle-clicker, emoji-merge, puzzle-2048, flappy-bird, snake-game, maze-runner, sky-runner, stack-tower, zigzag-runner, pong-game, block-puzzle, brick-breaker, minesweeper, number-puzzle, memory-card, color-memory, word-guess, word-scramble |
+| 바이럴 테스트 | 19 | hsp-test, kpop-position, mbti-love, mbti-tips, mbti-career, animal-personality, color-personality, brain-type, blood-type, emotion-temp, future-self, iq-test, numerology, past-life, stress-check, valentine, zodiac-match, love-frequency, daily-tarot |
+| 유틸/도구 | 22 | quiz-app, shopping-calc, detox-timer, dream-fortune, affirmation, lottery, dday-counter, white-noise, dev-quiz, tax-refund-preview, unit-converter, bmi-calculator, color-palette, habit-tracker, password-generator, pomodoro-timer, qr-generator, reaction-test, typing-speed, todo-list, routine-planner, biorhythm |
+| 인프라 | 2 | portal, root-domain |
 
 ## 7. 핵심 구현 원칙
 

@@ -11,8 +11,9 @@
     <meta property="og:title" content="MBTI 직업 궁합 테스트">
     <meta property="og:description" content="당신의 MBTI 유형에 맞는 최고의 직업을 찾아보세요. 성격 강점, 약점, 적합 직업 TOP 10을 분석합니다.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mbti-career.dopabrain.com">
-    <meta property="og:image" content="https://mbti-career.dopabrain.com/icon-512.svg">
+    <meta property="og:url" content="https://dopabrain.com/mbti-career/">
+    <link rel="canonical" href="https://dopabrain.com/mbti-career/">
+    <meta property="og:image" content="https://dopabrain.com/mbti-career/icon-512.svg">
     <meta property="og:locale" content="ko_KR">
 
     <!-- Twitter Card -->
@@ -56,11 +57,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- App Loader -->
+    <div class="app-loader" id="app-loader">
+        <div class="loader-spinner"></div>
+    </div>
+
     <!-- Header with Language Selector -->
     <header class="header">
         <div class="container header-content">
             <h1 data-i18n="app.title">MBTI 직업 궁합 테스트</h1>
             <div class="header-right">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☀️</button>
                 <button id="lang-toggle" class="lang-toggle" title="언어 선택" data-i18n-title="app.language">🌐</button>
                 <div id="lang-menu" class="lang-menu hidden">
                     <button class="lang-option" data-lang="ko">🇰🇷 한국어</button>
@@ -298,9 +305,9 @@
     </script>
 
     <!-- App Scripts -->
-    <script src="js/i18n.js"></script>
-    <script src="js/mbti-data.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/i18n.js" defer></script>
+    <script src="js/mbti-data.js" defer></script>
+    <script src="js/app.js" defer></script>
     <script src="/portal/js/cross-promo.js" defer></script>
 </body>
 </html>

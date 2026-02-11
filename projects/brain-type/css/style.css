@@ -32,6 +32,101 @@
     --text-secondary: #666666;
 }
 
+[data-theme="light"] .loader-spinner {
+    border-color: rgba(224,64,251,0.15);
+    border-top-color: var(--primary-color);
+}
+[data-theme="light"] .option {
+    background: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.1);
+    color: var(--text-primary);
+}
+[data-theme="light"] .option:hover {
+    background: rgba(224,64,251,0.06);
+    border-color: rgba(224,64,251,0.25);
+}
+[data-theme="light"] .option.selected {
+    background: rgba(224,64,251,0.1);
+    border-color: var(--primary-color);
+}
+[data-theme="light"] .type-badge {
+    background: rgba(0,0,0,0.04);
+    border-color: rgba(0,0,0,0.1);
+}
+[data-theme="light"] .result-description {
+    background: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.08);
+}
+[data-theme="light"] .strengths,
+[data-theme="light"] .weaknesses {
+    background: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.08);
+}
+[data-theme="light"] .compatibility {
+    background: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.08);
+}
+[data-theme="light"] .type-item {
+    background: rgba(224,64,251,0.06);
+}
+[data-theme="light"] .famous-examples {
+    background: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.08);
+}
+[data-theme="light"] .premium-analysis {
+    background: linear-gradient(135deg, rgba(224,64,251,0.08), rgba(0,212,255,0.08));
+    border-color: rgba(224,64,251,0.2);
+}
+[data-theme="light"] .premium-content {
+    background: rgba(0,0,0,0.03);
+}
+[data-theme="light"] .share-section {
+    background: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.08);
+}
+[data-theme="light"] .recommended-apps {
+    background: rgba(0,0,0,0.03);
+}
+[data-theme="light"] .app-card {
+    background: rgba(255,255,255,0.8);
+    border-color: rgba(0,0,0,0.1);
+}
+[data-theme="light"] .app-card:hover {
+    background: rgba(224,64,251,0.06);
+    border-color: rgba(224,64,251,0.2);
+}
+[data-theme="light"] .ad-container {
+    background: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.08);
+}
+[data-theme="light"] .lang-btn,
+[data-theme="light"] .theme-toggle {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.1);
+    color: var(--text-primary);
+}
+[data-theme="light"] .lang-btn:hover,
+[data-theme="light"] .theme-toggle:hover {
+    background: rgba(224,64,251,0.08);
+}
+[data-theme="light"] .lang-menu {
+    background: rgba(245,245,250,0.98);
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+[data-theme="light"] .lang-option:hover {
+    background: rgba(224,64,251,0.06);
+}
+[data-theme="light"] .app-loader {
+    background: #f5f5f5;
+}
+[data-theme="light"] ::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.15);
+}
+
 /* Dark mode (기본) */
 body.light-mode {
     --secondary-color: #ffffff;

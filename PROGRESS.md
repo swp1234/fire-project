@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-11 (세션42)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-11 (세션45)
 
 ---
 
@@ -25,11 +25,11 @@
 | AdSense | ca-pub-3600813755953882, 심사 중(2/8), 자동광고, 62앱 적용 |
 | GA4 | 속성 523606964, MCP 연동 |
 | GSC | siteUrl: `https://dopabrain.com/`, MCP 연동 |
-| 크로스프로모 | 57앱 cross-promo.js 적용 |
-| i18n 안정화 | 32앱 try-catch 적용 (세션41: +animal-personality) |
-| FOUC 수정 | 26앱 app-loader CSS+JS (세션41: +zodiac-match) |
+| 크로스프로모 | 58앱 cross-promo.js 적용 |
+| i18n 안정화 | **전체 완료** — i18n.js 초기화 코드 있는 모든 앱 try-catch 적용 (세션45) |
+| FOUC 수정 | **60앱 app-loader 적용** (세션45: +9앱으로 전체 완료) |
 | SW network-first | 16앱+ 전환 완료 |
-| 라이트모드 감사 | 9앱 완료 (세션41) |
+| 라이트모드 | **60앱 토글+CSS+JS 완전 적용** (세션45 QA: 토글 9앱+CSS 1앱 보완) |
 | 커스텀 명령어 | /analyze, /validate, /new-app, /session-wrap |
 
 **URL 구조:** `/` 랜딩 → `/portal/` 포털 → `/[앱]/` 개별 앱 → `/portal/blog/{lang}/` 블로그
@@ -42,66 +42,72 @@
 
 **Discovered (18):** color-memory, typing-speed, pong-game, snake-game, biorhythm, animal-personality, bmi-calculator, stress-check, future-self, zodiac-match, habit-tracker, minesweeper, qr-generator, pomodoro-timer, white-noise, lottery, color-palette, blood-type
 
-**Unknown (3):** flappy-bird, brick-breaker, dev-quiz | **404:** number-merge (사이트맵 제거 필요)
+**Unknown (3):** flappy-bird, brick-breaker, dev-quiz
 
 ---
 
-## GA4 (2/4~2/10)
+## GA4 (2/5~2/11)
 
 | 지표 | 값 |
 |------|-----|
-| 주간 사용자 | 426명 (2/10 스파이크 260명), 100% Direct |
+| 주간 트래픽 | 59페이지 활성, GSC 노출 극초기(3건) |
 | TOP5 | /(48), portal(22), idle-clicker(15), past-life(14), hsp-test(13) |
-| 최우수 참여 | emoji-merge(0%), brain-type(0%), stack-tower(9%) |
-| 100% 이탈 | kpop-position, animal-personality, habit-tracker, number-puzzle, biorhythm |
+| 최우수 참여 | emoji-merge(0%), brain-type(0%), color-personality(0%), minesweeper(0%), stack-tower(9%) |
+| 100% 이탈 (5+세션) | kpop-position(12), animal-personality(8), habit-tracker(8), number-puzzle(8), biorhythm(7), mbti-career(7), numerology(7), qr-generator(7), color-memory(6), color-palette(5), tax-refund(5), todo-list(5) |
+| 85%+ 이탈 | hsp-test(92%), reaction-test(89%), stress-check(89%), bmi-calculator(88%), memory-card(88%), zodiac-match(88%) |
 
 ---
 
 ## 세션 기록
 
-### 세션42 (2/11) - Claude Code statusline 토큰/비용 표시 설정
+### 세션45 (2/11) - 라이트모드 QA + FOUC 전체 완료 + 고이탈 수정 + i18n 안정화
 
-- **statusline 설정:** ~/.claude/statusline.sh — 모델명, 토큰, 비용, 컨텍스트% 표시
+- **라이트모드 QA 전수 점검 → 10앱 보완:**
+  - 토글 버튼+JS 누락 9앱 추가: hsp-test, past-life, emoji-merge, stack-tower, color-palette, emotion-temp, iq-test, sky-runner, zigzag-runner
+  - CSS 누락 1앱(reaction-test) 라이트모드 CSS 규칙 추가
+  - 결과: **60앱 3요소(HTML토글+CSS+JS) 완전 적용** (root-domain 제외)
+- **FOUC app-loader 9앱 추가 → 60앱 전체 완료:** iq-test, puzzle-2048, routine-planner, blood-type, quiz-app, flappy-bird, pong-game, word-guess, pomodoro-timer
+- **고이탈 6앱 근본 원인 수정:** color-memory(FATAL 문법오류), mbti-career(app-loader+i18n), animal-personality(i18n.init미존재), number-puzzle(i18n race condition), qr-generator(HEAD 동기로드), biorhythm(try-catch 누락)
+- **i18n try-catch 4앱 추가 → 전체 완료:** maze-runner, todo-list, puzzle-2048, word-guess
+- **GA4/GSC 분석:** 주간 59페이지 트래픽, 100% 이탈 12앱 식별, GSC 노출 극초기(3건)
+- 총 15개+ 서브모듈 수정
 
-### 세션41 (2/11) - 이탈률 수정 + 라이트모드 감사 + BMAD 도구
+### 세션44/Cursor (2/11) - 라이트모드 전수 완료 + SEO + 사이트맵 + UX 개선
 
-- **idle-clicker HP 버그 수정:** NG+ 사이클 전환 시 HP 급감 → floor HP 선형보간으로 항상 증가 보장
-- **포털 누락앱 3개 추가:** reaction-test, animal-personality, color-personality
-- **이탈률 수정 4앱:** animal-personality(로더 try-finally), zodiac-match(app-loader 전체), stress-check(HTML+rec-grid+CSS), bmi-calculator(한국어 locale 3곳)
-- **라이트모드 감사 9앱:** root-domain, portal, past-life, hsp-test, zigzag-runner, sky-runner, emotion-temp, stack-tower, emoji-merge
-- **memory-card:** 한국어 공유 텍스트 → i18n 전환
-- **CLAUDE.md 최적화:** 92→54줄 / **BMAD 커스텀 명령어 4개 생성**
-- **GSC 인덱싱:** 15→37페이지 (60%) 확인
+- **라이트모드 전체 완료 (52앱):** B그룹 6앱 CSS 보완 + C그룹 46앱 신규 추가
+- **canonical 태그 10앱 + og:url 4앱 수정**
+- **고이탈 5앱 UX 개선:** numerology, qr-generator, habit-tracker, number-puzzle, biorhythm
+- **사이트맵 정리:** number-merge 404 제거, biorhythm 추가, 60앱 동기화
+- **내부링크 검증 + GSC 인덱싱 촉진:** cross-promo에 Discovered 18+Unknown 3앱 포함 확인
+- **지침 최적화:** .cursorrules 599→68줄(-88.6%)
 
-### 세션40 (2/10) - 고이탈 8앱 + i18n 전수 안정화 + 포털 정비
+### 세션43 (2/11) - GA4 이탈률 추적 + 5앱 이탈 원인 수정
 
-- 고이탈 3앱 근본 수정 + 7앱 SW network-first + i18n 13앱 추가 (총31)
-- 포털 UI 수정 + 누락앱 3개 추가 + biorhythm SW
+- **GA4 이탈률 분석:** 100% 이탈 13앱 근본 원인 조사
+- **4앱 수정:** habit-tracker(app-loader+i18n), todo-list(app-loader+i18n), numerology(catch loader), animal-personality(데드코드)
 
 ### 이전 세션
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 42 | 2/11 | Claude Code statusline 설정 |
+| 41 | 2/11 | idle-clicker HP 버그, 이탈률 4앱, 라이트모드 감사 9앱, BMAD |
+| 40 | 2/10 | 고이탈 8앱 + i18n 전수 안정화 + 포털 정비 |
 | 39 | 2/10 | 게임 버그 + 43앱 정리 + SEO 블로그 16개 |
-| 38 | 2/10 | idle-clicker 보스타이머, portal버그, maze-runner 재설계 |
-| 37 | 2/10 | word-guess+emoji-merge+pong-game 전면수정 |
-| 36 | 2/10 | zigzag/emoji 비차단토스트, minesweeper 다크 |
-| 35 | 2/10 | snake-game 치명적 버그(화면겹침) |
-| 34 | 2/11 | block-puzzle/maze-runner/typing-speed |
-| 33 | 2/11 | i18n 11앱, SEO 블로그 3개, 메타 SEO |
-| 32 | 2/11 | i18n 6앱, 크로스프로모 57앱 배포 |
-| 31 | 2/11 | FOUC 24앱, 포털 최적화, AdSense 감사 |
-| 30 | 2/11 | GA4 버그헌팅, _common 28앱, FOUC 13앱 |
+| 37-38 | 2/10 | idle-clicker, portal, maze-runner, word-guess, emoji-merge, pong-game |
+| 30-36 | 2/10-11 | FOUC 37앱, i18n 17앱, 크로스프로모 57앱, snake-game, zigzag, minesweeper |
 | 1-29 | 2/4~10 | 앱 62개 개발, 포털, 도메인, 인프라, i18n, SEO |
 
 ---
 
 ## 다음 우선순위
 
-1. **GSC 수동 인덱싱** - Discovered 18개 + Unknown 3개 수동 제출
-2. **나머지 앱 라이트모드** - 9앱 완료, 50+ 앱 남음
-3. **이탈률 재추적** - 세션41 수정 효과 확인 (zodiac-match, stress-check, animal-personality)
-4. **내부링크 강화** - flappy-bird, brick-breaker, dev-quiz (Unknown to Google)
-5. **number-merge 404** - 사이트맵 제거
-6. **Google Play** - 상위 게임 APK/AAB
-7. **신규** - biorhythm 완성
+1. **랜딩페이지(/) 이탈률 개선** - 95% 이탈(19세션), CTA·첫인상 UX 강화 필요
+2. **GSC Discovered→Indexed 전환** - 18개 앱 수동 제출 + 인덱싱 대기
+3. ~~고이탈 앱 UX 개선~~ ✅ **완료** (세션44+45)
+4. ~~FOUC app-loader~~ ✅ **60앱 전체 완료** (세션45)
+5. ~~i18n 안정화~~ ✅ **전체 완료** (세션45)
+6. ~~number-merge 404~~ ✅ 사이트맵 제거 완료 (세션44)
+7. ~~라이트모드 QA~~ ✅ **60앱 완전 적용 확인** (세션45 QA: 토글 9앱+CSS 1앱 보완)
+8. **Google Play** - 상위 게임 APK/AAB
+9. **신규** - biorhythm i18n 12개 언어 분리 (현재 인라인)

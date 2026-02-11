@@ -47,6 +47,26 @@
     }
 }
 
+/* Light mode override via data-theme */
+[data-theme="light"] {
+    --bg-dark: #f5f5fa;
+    --bg-darker: #efeff5;
+    --surface: #ffffff;
+    --surface-light: #f9f9fa;
+    --text-primary: #1a1a2e;
+    --text-secondary: #5a5a70;
+    --glass-bg: rgba(155, 89, 182, 0.05);
+    --glass-border: rgba(155, 89, 182, 0.2);
+}
+
+[data-theme="light"] body {
+    background-color: var(--bg-dark);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+    background: rgba(155, 89, 182, 0.1);
+}
+
 /* ============================================================ */
 /* RESET & BASE STYLES */
 /* ============================================================ */

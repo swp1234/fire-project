@@ -311,6 +311,9 @@ class SnakeGame {
         // Update HUD
         this.hudMode.textContent = mode === 'wall' ? 'WALL MODE' : 'INFINITE MODE';
 
+        // Resize canvas now that game screen is visible
+        this.resizeCanvas();
+
         // Initialize game
         this.reset();
         this.gameRunning = false;
@@ -344,6 +347,8 @@ class SnakeGame {
     }
 
     spawnFood() {
+        if (this.cols <= 0 || this.rows <= 0) return;
+
         let x, y, type;
         let valid = false;
 
@@ -787,15 +792,17 @@ class SnakeGame {
 
 // Initialize game when DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
-    // Wait for i18n to load
-    await new Promise(resolve => {
-        const checkI18n = setInterval(() => {
-            if (window.i18n && window.i18n.translations[window.i18n.currentLang]) {
-                clearInterval(checkI18n);
-                resolve();
-            }
-        }, 100);
-    });
+    // Initialize i18n safely
+    try {
+        if (window.i18n && window.i18n.init) {
+            await window.i18n.init();
+        } else if (window.i18n && window.i18n.loadTranslations) {
+            await window.i18n.loadTranslations(window.i18n.currentLang || 'en');
+            if (window.i18n.updateUI) window.i18n.updateUI();
+        }
+    } catch (e) {
+        console.warn('i18n initialization failed, continuing:', e);
+    }
 
     // Start game
     window.game = new SnakeGame();
@@ -882,3 +889,18 @@ SnakeGame.prototype.showNotification = function(notification) {
         setTimeout(() => notifEl.remove(), 300);
     }, 3000);
 };
+
+// Theme Toggle
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    themeToggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+    themeToggle.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        themeToggle.textContent = next === 'light' ? '🌙' : '☀️';
+    });
+}

@@ -70,12 +70,27 @@
 - [Game Design Patterns](https://game-designpatterns.com/) - Positive Feedback Loop, Risk vs Reward
 - [Machinations.io](https://machinations.io/articles/) - 게임 경제/밸런스 수학적 설계
 
-## 9. 현재 게임 현황 (5개)
+## 9. 현재 게임 현황 (18개)
+
+> 4-Layer 분석 기준 현황. 대부분 Core Loop만 완성, Meta/Retention/Monetization 미구현.
 
 | 게임 | Core Loop | Meta | Retention | Monetization |
 |------|-----------|------|-----------|-------------|
-| Sky Runner | ✅ | ❌ | ❌ | ❌ |
-| Stack Tower | ✅ | ❌ | ❌ | ❌ |
-| Zigzag Runner | ✅ | ❌ | ❌ | ❌ |
-| Emoji Merge | ✅ | ❌ | ❌ | ❌ |
-| Idle Clicker | ✅ | ⚠️ | ❌ | ❌ |
+| idle-clicker | ✅ | ⚠️ | ❌ | ❌ |
+| emoji-merge | ✅ | ❌ | ❌ | ❌ |
+| puzzle-2048 | ✅ | ❌ | ❌ | ❌ |
+| flappy-bird | ✅ | ❌ | ❌ | ❌ |
+| snake-game | ✅ | ❌ | ❌ | ❌ |
+| maze-runner | ✅ | ❌ | ❌ | ❌ |
+| sky-runner | ✅ | ❌ | ❌ | ❌ |
+| stack-tower | ✅ | ❌ | ❌ | ❌ |
+| zigzag-runner | ✅ | ❌ | ❌ | ❌ |
+| pong-game | ✅ | ❌ | ❌ | ❌ |
+| block-puzzle | ✅ | ❌ | ❌ | ❌ |
+| brick-breaker | ✅ | ❌ | ❌ | ❌ |
+| minesweeper | ✅ | ❌ | ❌ | ❌ |
+| number-puzzle | ✅ | ❌ | ❌ | ❌ |
+| memory-card | ✅ | ❌ | ❌ | ❌ |
+| color-memory | ✅ | ❌ | ❌ | ❌ |
+| word-guess | ✅ | ❌ | ❌ | ❌ |
+| word-scramble | ✅ | ❌ | ❌ | ❌ |

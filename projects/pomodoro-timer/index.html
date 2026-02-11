@@ -13,7 +13,8 @@
   <meta property="og:title" content="Pomodoro Timer - 생산성 향상 앱">
   <meta property="og:description" content="포모도로 타이머로 집중력을 높이고 생산성을 극대화하세요">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://dopabrain.com/pomodoro-timer">
+  <meta property="og:url" content="https://dopabrain.com/pomodoro-timer/">
+  <link rel="canonical" href="https://dopabrain.com/pomodoro-timer/">
   <meta property="og:image" content="icon-512.svg">
     <meta property="og:site_name" content="DopaBrain">
   <meta property="og:image:width" content="512">
@@ -68,6 +69,10 @@
   <title>Pomodoro Timer - 포모도로 타이머</title>
 </head>
 <body>
+  <div class="app-loader" id="app-loader">
+      <div class="loader-spinner"></div>
+  </div>
+
   <!-- 헤더 -->
   <header>
     <div class="header-content">
@@ -76,6 +81,8 @@
     </div>
 
     <div class="header-controls">
+      <!-- Theme Toggle -->
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☀️</button>
       <!-- 언어 선택기 -->
       <div class="language-selector">
         <button id="lang-toggle" title="Select Language" aria-label="Select Language">🌐</button>
@@ -321,46 +328,6 @@
         <button id="goal-save" class="btn btn-primary" style="flex: 1;" data-i18n="goals.save">저장</button>
         <button class="btn btn-secondary modal-close" style="flex: 1;" data-i18n="buttons.exit">취소</button>
       </div>
-    </div>
-  </div>
-
-  <!-- Recommendations -->
-  <div class="recommendations-section">
-    <div class="rec-title" data-i18n="recommendations.title">이것도 해보세요</div>
-    <div class="rec-grid">
-
-                    <a href="https://dopabrain.com/shopping-calc/" class="rec-card" target="_blank">
-                        <span class="rec-icon">💱</span>
-                        <span class="rec-info">
-                            <span class="rec-name">환율 계산기</span>
-                        </span>
-                    </a>
-                    <a href="https://dopabrain.com/detox-timer/" class="rec-card" target="_blank">
-                        <span class="rec-icon">⏱️</span>
-                        <span class="rec-info">
-                            <span class="rec-name">디지털 해독</span>
-                        </span>
-                    </a>
-                    <a href="https://dopabrain.com/lottery/" class="rec-card" target="_blank">
-                        <span class="rec-icon">🎲</span>
-                        <span class="rec-info">
-                            <span class="rec-name">로또 생성기</span>
-                        </span>
-                    </a>
-                    <a href="https://dopabrain.com/idle-clicker/" class="rec-card" target="_blank">
-                        <span class="rec-icon">⚔️</span>
-                        <span class="rec-info">
-                            <span class="rec-name">던전 클리커</span>
-                        </span>
-                    </a>
-                    <a href="https://dopabrain.com/zigzag-runner/" class="rec-card" target="_blank">
-                        <span class="rec-icon">🏃</span>
-                        <span class="rec-info">
-                            <span class="rec-name">지그재그 러너</span>
-                        </span>
-                    </a>
-
-
     </div>
   </div>
 
