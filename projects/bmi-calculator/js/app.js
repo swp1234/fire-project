@@ -5,7 +5,11 @@ let bmiData = null;
 
 // 초기화
 document.addEventListener('DOMContentLoaded', async () => {
-    await i18n.initI18n();
+    try {
+        await i18n.initI18n();
+    } catch (e) {
+        console.warn('i18n init failed:', e);
+    }
     hideLoader();
     setupEventListeners();
     loadHistory();
@@ -133,7 +137,7 @@ function calculateBMI() {
         height: height,
         weight: weight,
         unit: currentUnit,
-        timestamp: new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' })
+        timestamp: new Date().toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })
     };
 
     displayResults(bmi, height, weight);
@@ -304,7 +308,7 @@ function addToHistory(bmi, height, weight) {
         height: height,
         weight: weight,
         unit: currentUnit,
-        date: new Date().toLocaleString('ko-KR')
+        date: new Date().toLocaleString()
     };
 
     history.unshift(entry);
@@ -332,7 +336,7 @@ function loadHistory() {
                     BMI: <strong>${entry.bmi.toFixed(1)}</strong>
                     (${entry.height.toFixed(1)} ${unit.split('/')[0]} / ${entry.weight.toFixed(1)} ${unit.split('/')[1]})
                 </span>
-                <span class="history-item-time">${new Date(entry.date).toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' })}</span>
+                <span class="history-item-time">${new Date(entry.date).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}</span>
             </div>
         `;
     }).join('');
