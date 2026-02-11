@@ -36,13 +36,11 @@
 
 ---
 
-## GSC 인덱싱 (2/11)
+## GSC 인덱싱 (2/11 재확인)
 
-**Indexed (37/62, 60%):** /, portal, hsp-test, emoji-merge, stack-tower, idle-clicker, mbti-tips, dream-fortune, past-life, kpop-position, sky-runner, zigzag-runner, tax-refund-preview, valentine, love-frequency, block-puzzle, word-guess, puzzle-2048, brain-type, reaction-test, emotion-temp, mbti-love, memory-card, password-generator, maze-runner, number-puzzle, color-personality, numerology, quiz-app, daily-tarot, dday-counter, detox-timer, iq-test, shopping-calc, unit-converter, word-scramble, affirmation
+**Indexed (47/62, 76%):** /, portal, hsp-test, emoji-merge, stack-tower, idle-clicker, mbti-tips, dream-fortune, past-life, kpop-position, sky-runner, zigzag-runner, tax-refund-preview, valentine, love-frequency, block-puzzle, word-guess, puzzle-2048, brain-type, reaction-test, emotion-temp, mbti-love, memory-card, password-generator, maze-runner, number-puzzle, color-personality, numerology, quiz-app, daily-tarot, dday-counter, detox-timer, iq-test, shopping-calc, unit-converter, word-scramble, affirmation, **color-memory, typing-speed, pong-game, snake-game, biorhythm, animal-personality, bmi-calculator, stress-check, future-self, zodiac-match**
 
-**Discovered (18):** color-memory, typing-speed, pong-game, snake-game, biorhythm, animal-personality, bmi-calculator, stress-check, future-self, zodiac-match, habit-tracker, minesweeper, qr-generator, pomodoro-timer, white-noise, lottery, color-palette, blood-type
-
-**Unknown (3):** flappy-bird, brick-breaker, dev-quiz
+**Discovered (13):** habit-tracker, minesweeper, flappy-bird, brick-breaker, dev-quiz, qr-generator, pomodoro-timer, white-noise, lottery, color-palette, blood-type, routine-planner, todo-list
 
 ---
 
@@ -74,6 +72,8 @@
   - Brand Essence 섹션 제거 (중복 콘텐츠)
 - **GA4/GSC 분석:** 62세션 랜딩 76% 이탈, 100% 이탈 12앱 구조 분석 (코드 정상, UX 이슈)
 - **고이탈 앱 4개 심층 분석:** qr-generator, todo-list, numerology, kpop-position — 구조적 크래시 없음 확인
+- **고이탈 3앱 UX 개선:** kpop-position(미리보기 질문+CTA pulse), mbti-career(히어로 리디자인+참여 추적), habit-tracker(i18n 8언어 추가)
+- **GSC 인덱싱 대폭 개선:** 37→47 인덱싱 (10개 신규), Discovered 18→13으로 감소
 
 ### 세션45 (2/11) - 라이트모드 QA + FOUC 전체 완료 + 고이탈 수정 + i18n 안정화
 
