@@ -1,3 +1,6 @@
 [submodule "projects/number-puzzle"]
 	path = projects/number-puzzle
 	url = https://github.com/swp1234/number-puzzle.git
+[submodule "projects/biorhythm"]
+	path = projects/biorhythm
+	url = https://github.com/swp1234/biorhythm.git
