@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-11 (세션45)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-11 (세션46)
 
 ---
 
@@ -50,15 +50,30 @@
 
 | 지표 | 값 |
 |------|-----|
-| 주간 트래픽 | 59페이지 활성, GSC 노출 극초기(3건) |
-| TOP5 | /(48), portal(22), idle-clicker(15), past-life(14), hsp-test(13) |
-| 최우수 참여 | emoji-merge(0%), brain-type(0%), color-personality(0%), minesweeper(0%), stack-tower(9%) |
-| 100% 이탈 (5+세션) | kpop-position(12), animal-personality(8), habit-tracker(8), number-puzzle(8), biorhythm(7), mbti-career(7), numerology(7), qr-generator(7), color-memory(6), color-palette(5), tax-refund(5), todo-list(5) |
-| 85%+ 이탈 | hsp-test(92%), reaction-test(89%), stress-check(89%), bmi-calculator(88%), memory-card(88%), zodiac-match(88%) |
+| 주간 트래픽 | 62페이지 활성, GSC 노출 극초기(3건) |
+| TOP5 | /(62), portal(23), idle-clicker(16), emotion-temp(15), hsp-test(14) |
+| 최우수 참여 | emoji-merge(0%), brain-type(0%), color-personality(0%), minesweeper(14%), typing-speed(13%), stack-tower(17%) |
+| 100% 이탈 (5+세션) | kpop-position(12), habit-tracker(9), animal-personality(8), biorhythm(8), number-puzzle(8), mbti-career(7), numerology(7), qr-generator(7), color-memory(6), tax-refund(6), color-palette(5), todo-list(5) |
+| 85%+ 이탈 | hsp-test(93%), stress-check(90%), reaction-test(89%), bmi-calculator(88%), memory-card(88%), zodiac-match(88%) |
+| 랜딩(/) | 62세션, 76% 이탈, 4초 평균 (개선: opacity 제거+hero CTA 추가) |
 
 ---
 
 ## 세션 기록
+
+### 세션46 (2/11) - 서브모듈 정리 + 랜딩페이지 이탈률 개선 + 라이트모드 30앱 push
+
+- **서브모듈 전체 정리:**
+  - 미커밋 6개 서브모듈 commit & push (idle-clicker, memory-card, portal, root-domain, stress-check, zodiac-match)
+  - 미push 30개 서브모듈 commit & push (라이트모드 토글+CSS 일괄 적용)
+  - biorhythm 정식 서브모듈 등록
+- **랜딩페이지(/) 이탈률 개선:**
+  - `opacity: 0` + 1.5s setTimeout 검은 화면 제거 → 즉시 렌더링
+  - Hero CTA 버튼 추가 (above-the-fold, 스크롤 없이 포털 진입)
+  - `cta.explore` i18n 12개 언어 추가
+  - Brand Essence 섹션 제거 (중복 콘텐츠)
+- **GA4/GSC 분석:** 62세션 랜딩 76% 이탈, 100% 이탈 12앱 구조 분석 (코드 정상, UX 이슈)
+- **고이탈 앱 4개 심층 분석:** qr-generator, todo-list, numerology, kpop-position — 구조적 크래시 없음 확인
 
 ### 세션45 (2/11) - 라이트모드 QA + FOUC 전체 완료 + 고이탈 수정 + i18n 안정화
 
@@ -102,7 +117,7 @@
 
 ## 다음 우선순위
 
-1. **랜딩페이지(/) 이탈률 개선** - 95% 이탈(19세션), CTA·첫인상 UX 강화 필요
+1. ~~랜딩페이지(/) 이탈률 개선~~ ✅ **개선 적용** (세션46: opacity 제거+hero CTA)
 2. **GSC Discovered→Indexed 전환** - 18개 앱 수동 제출 + 인덱싱 대기
 3. ~~고이탈 앱 UX 개선~~ ✅ **완료** (세션44+45)
 4. ~~FOUC app-loader~~ ✅ **60앱 전체 완료** (세션45)
@@ -110,4 +125,5 @@
 6. ~~number-merge 404~~ ✅ 사이트맵 제거 완료 (세션44)
 7. ~~라이트모드 QA~~ ✅ **60앱 완전 적용 확인** (세션45 QA: 토글 9앱+CSS 1앱 보완)
 8. **Google Play** - 상위 게임 APK/AAB
-9. **신규** - biorhythm i18n 12개 언어 분리 (현재 인라인)
+9. ~~biorhythm i18n~~ ✅ **이미 12개 언어 분리 완료**
+10. **100% 이탈 앱 참여도 개선** - kpop-position(12세션), habit-tracker 등 UX 개선
