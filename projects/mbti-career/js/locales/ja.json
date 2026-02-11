@@ -8,16 +8,19 @@
     "emotionTempDesc": "感情分析テスト"
   },
   "home": {
-    "heading": "あなたの性格に最適な職業を見つけましょう",
-    "subtitle": "MBTI診断であなたの強みと理想なキャリアパスを発見します",
-    "quickTest": "クイックテスト（12問題）",
-    "directSelect": "直接選択（16タイプ）",
+    "heading": "あなたにぴったりの職業は？",
+    "subtitle": "MBTI性格分析でおすすめ職業TOP 10をチェック",
+    "quickTest": "今すぐテスト開始",
+    "directSelect": "MBTIを既に知っている方",
+    "timeBadge": "約2分で完了",
+    "or": "または",
     "feature1Title": "正確な分析",
     "feature1Desc": "12問であなたのMBTIタイプを正確に診断",
     "feature2Title": "職業マッチング",
     "feature2Desc": "TOP 10推奨職業と適性スコアを提供",
     "feature3Title": "深掘り分析",
-    "feature3Desc": "強み、弱み、チーム構成提案を含む完全ガイド"
+    "feature3Desc": "強み、弱み、チーム構成提案を含む完全ガイド",
+    "socialProof": "10,000人以上が理想の職業を発見しました"
   },
   "test": {
     "title": "MBTI性格タイプテスト",

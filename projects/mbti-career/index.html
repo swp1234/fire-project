@@ -104,31 +104,44 @@
         <!-- Home Screen -->
         <section id="home-screen" class="screen active">
             <div class="hero">
-                <h2 data-i18n="home.heading">당신의 성격에 맞는 완벽한 직업을 찾아보세요</h2>
-                <p data-i18n="home.subtitle">MBTI 테스트로 당신의 강점과 적합한 커리어 경로를 발견하세요</p>
+                <div class="hero-icon">💼</div>
+                <h2 data-i18n="home.heading">나에게 딱 맞는 직업은?</h2>
+                <p class="hero-subtitle" data-i18n="home.subtitle">MBTI 성격 분석으로 추천 직업 TOP 10을 확인하세요</p>
+                <div class="hero-badge">
+                    <span class="badge-icon">⏱</span>
+                    <span data-i18n="home.timeBadge">약 2분 소요</span>
+                </div>
             </div>
 
             <div class="home-buttons">
-                <button id="quick-test-btn" class="btn btn-primary" data-i18n="home.quickTest">빠른 테스트 (12문제)</button>
-                <button id="direct-select-btn" class="btn btn-secondary" data-i18n="home.directSelect">직접 선택 (16가지)</button>
+                <button id="quick-test-btn" class="btn btn-primary btn-cta-pulse" data-i18n="home.quickTest">지금 테스트 시작</button>
             </div>
 
-            <div class="info-cards">
-                <div class="info-card">
-                    <div class="info-icon">📊</div>
-                    <h3 data-i18n="home.feature1Title">정확한 분석</h3>
-                    <p data-i18n="home.feature1Desc">12개 질문으로 당신의 MBTI 유형을 정확히 파악</p>
+            <div class="home-divider">
+                <span data-i18n="home.or">또는</span>
+            </div>
+
+            <div class="home-buttons">
+                <button id="direct-select-btn" class="btn btn-secondary" data-i18n="home.directSelect">MBTI를 이미 알고 있다면</button>
+            </div>
+
+            <div class="info-strip">
+                <div class="info-strip-item">
+                    <span class="info-strip-icon">📊</span>
+                    <span data-i18n="home.feature1Title">정확한 분석</span>
                 </div>
-                <div class="info-card">
-                    <div class="info-icon">💼</div>
-                    <h3 data-i18n="home.feature2Title">직업 매칭</h3>
-                    <p data-i18n="home.feature2Desc">TOP 10 추천 직업과 적합도 점수 제공</p>
+                <div class="info-strip-item">
+                    <span class="info-strip-icon">💼</span>
+                    <span data-i18n="home.feature2Title">직업 매칭</span>
                 </div>
-                <div class="info-card">
-                    <div class="info-icon">🌟</div>
-                    <h3 data-i18n="home.feature3Title">심층 분석</h3>
-                    <p data-i18n="home.feature3Desc">강점, 약점, 팀 구성 제안으로 완벽한 가이드 제공</p>
+                <div class="info-strip-item">
+                    <span class="info-strip-icon">🌟</span>
+                    <span data-i18n="home.feature3Title">심층 분석</span>
                 </div>
+            </div>
+
+            <div class="social-proof">
+                <p data-i18n="home.socialProof">10,000+ 명이 자신에게 맞는 직업을 발견했습니다</p>
             </div>
         </section>
 

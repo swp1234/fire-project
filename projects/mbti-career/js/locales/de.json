@@ -8,16 +8,19 @@
     "emotionTempDesc": "Emotionsanalyse-Test"
   },
   "home": {
-    "heading": "Finden Sie die perfekte Karriere für Ihre Persönlichkeit",
-    "subtitle": "Entdecken Sie Ihren MBTI-Typ und erhalten Sie personalisierte Karriereempfehlungen",
-    "quickTest": "Schnelltest (12 Fragen)",
-    "directSelect": "Direktes Auswahlverfahren (16 Typen)",
+    "heading": "Was ist Ihre ideale Karriere?",
+    "subtitle": "Entdecken Sie Ihre TOP 10 Karriereempfehlungen basierend auf MBTI-Persoenlichkeitsanalyse",
+    "quickTest": "Test Jetzt Starten",
+    "directSelect": "Ich kenne meinen MBTI bereits",
+    "timeBadge": "Dauert ca. 2 Min.",
+    "or": "oder",
     "feature1Title": "Genaue Analyse",
     "feature1Desc": "12 Fragen identifizieren Ihren MBTI-Typ genau",
     "feature2Title": "Karriereabgleich",
-    "feature2Desc": "Erhalten Sie TOP 10 Karriereempfehlungen mit Kompatibilitätswerten",
+    "feature2Desc": "Erhalten Sie TOP 10 Karriereempfehlungen mit Kompatibilitaetswerten",
     "feature3Title": "Tiefgreifende Analyse",
-    "feature3Desc": "Vollständiger Leitfaden mit Stärken, Schwächen und Teamzusammenstellungsvorschlägen"
+    "feature3Desc": "Vollstaendiger Leitfaden mit Staerken, Schwaechen und Teamzusammenstellungsvorschlaegen",
+    "socialProof": "Ueber 10.000 Menschen haben ihre ideale Karriere entdeckt"
   },
   "test": {
     "title": "MBTI-Persönlichkeitstyptest",

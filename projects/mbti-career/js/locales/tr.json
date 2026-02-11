@@ -8,16 +8,19 @@
     "emotionTempDesc": "Duygu analizi testi"
   },
   "home": {
-    "heading": "Kişiliğinize Uygun Mükemmel Kariyer Bulun",
-    "subtitle": "MBTI türünüzü keşfedin ve kişiselleştirilmiş kariyer önerileri alın",
-    "quickTest": "Hızlı Test (12 Soru)",
-    "directSelect": "Doğrudan Seçim (16 Tip)",
-    "feature1Title": "Doğru Analiz",
-    "feature1Desc": "12 soru MBTI türünüzü doğru şekilde belirler",
-    "feature2Title": "Kariyer Eşleştirme",
-    "feature2Desc": "TOP 10 kariyer önerileri ve uyum puanları alın",
+    "heading": "Ideal kariyeriniz nedir?",
+    "subtitle": "MBTI kisilik analiziyle TOP 10 kariyer onerinizi kesfet",
+    "quickTest": "Simdi Teste Basla",
+    "directSelect": "MBTI'mi Zaten Biliyorum",
+    "timeBadge": "Yaklasik 2 dakika",
+    "or": "veya",
+    "feature1Title": "Dogru Analiz",
+    "feature1Desc": "12 soru MBTI turunuzu dogru sekilde belirler",
+    "feature2Title": "Kariyer Eslestirme",
+    "feature2Desc": "TOP 10 kariyer onerileri ve uyum puanlari alin",
     "feature3Title": "Derinlemesine Analiz",
-    "feature3Desc": "Güçlü yönler, zayıf yönler ve takım bileşimi önerileriyle tam rehber"
+    "feature3Desc": "Guclu yonler, zayif yonler ve takim bilesimi onerileriyle tam rehber",
+    "socialProof": "10.000+ kisi ideal kariyerini kesfetti"
   },
   "test": {
     "title": "MBTI Kişilik Tipi Testi",

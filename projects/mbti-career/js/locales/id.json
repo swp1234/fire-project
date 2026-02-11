@@ -8,16 +8,19 @@
     "emotionTempDesc": "Tes analisis emosi"
   },
   "home": {
-    "heading": "Temukan Karir Sempurna untuk Kepribadian Anda",
-    "subtitle": "Temukan tipe MBTI Anda dan dapatkan rekomendasi karir yang dipersonalisasi",
-    "quickTest": "Tes Cepat (12 Pertanyaan)",
-    "directSelect": "Pilihan Langsung (16 Tipe)",
+    "heading": "Apa karir ideal Anda?",
+    "subtitle": "Dapatkan TOP 10 rekomendasi karir berdasarkan analisis kepribadian MBTI",
+    "quickTest": "Mulai Tes Sekarang",
+    "directSelect": "Saya Sudah Tahu MBTI Saya",
+    "timeBadge": "Sekitar 2 menit",
+    "or": "atau",
     "feature1Title": "Analisis Akurat",
     "feature1Desc": "12 pertanyaan mengidentifikasi tipe MBTI Anda dengan akurat",
     "feature2Title": "Pencocokan Karir",
     "feature2Desc": "Terima TOP 10 rekomendasi karir dengan skor kompatibilitas",
     "feature3Title": "Analisis Mendalam",
-    "feature3Desc": "Panduan lengkap dengan kekuatan, kelemahan, dan saran komposisi tim"
+    "feature3Desc": "Panduan lengkap dengan kekuatan, kelemahan, dan saran komposisi tim",
+    "socialProof": "10.000+ orang telah menemukan karir ideal mereka"
   },
   "test": {
     "title": "Tes Tipe Kepribadian MBTI",

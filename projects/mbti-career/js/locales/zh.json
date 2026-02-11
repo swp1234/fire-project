@@ -8,16 +8,19 @@
     "emotionTempDesc": "情绪分析测试"
   },
   "home": {
-    "heading": "找到最适合你的职业",
-    "subtitle": "通过MBTI测试发现你的优势和理想的职业道路",
-    "quickTest": "快速测试（12道题）",
-    "directSelect": "直接选择（16种类型）",
+    "heading": "最适合你的职业是什么？",
+    "subtitle": "通过MBTI性格分析，查看推荐职业TOP 10",
+    "quickTest": "立即开始测试",
+    "directSelect": "我已经知道我的MBTI",
+    "timeBadge": "约2分钟完成",
+    "or": "或者",
     "feature1Title": "准确分析",
     "feature1Desc": "通过12道题准确确定你的MBTI类型",
     "feature2Title": "职业匹配",
     "feature2Desc": "提供TOP 10推荐职业和匹配评分",
     "feature3Title": "深度分析",
-    "feature3Desc": "提供强点、弱点和团队组成建议的完整指南"
+    "feature3Desc": "提供强点、弱点和团队组成建议的完整指南",
+    "socialProof": "已有10,000+人找到了理想职业"
   },
   "test": {
     "title": "MBTI性格类型测试",

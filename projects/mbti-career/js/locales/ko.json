@@ -8,16 +8,19 @@
     "emotionTempDesc": "감정 분석 테스트"
   },
   "home": {
-    "heading": "당신의 성격에 맞는 완벽한 직업을 찾아보세요",
-    "subtitle": "MBTI 테스트로 당신의 강점과 적합한 커리어 경로를 발견하세요",
-    "quickTest": "빠른 테스트 (12문제)",
-    "directSelect": "직접 선택 (16가지)",
+    "heading": "나에게 딱 맞는 직업은?",
+    "subtitle": "MBTI 성격 분석으로 추천 직업 TOP 10을 확인하세요",
+    "quickTest": "지금 테스트 시작",
+    "directSelect": "MBTI를 이미 알고 있다면",
+    "timeBadge": "약 2분 소요",
+    "or": "또는",
     "feature1Title": "정확한 분석",
     "feature1Desc": "12개 질문으로 당신의 MBTI 유형을 정확히 파악",
     "feature2Title": "직업 매칭",
     "feature2Desc": "TOP 10 추천 직업과 적합도 점수 제공",
     "feature3Title": "심층 분석",
-    "feature3Desc": "강점, 약점, 팀 구성 제안으로 완벽한 가이드 제공"
+    "feature3Desc": "강점, 약점, 팀 구성 제안으로 완벽한 가이드 제공",
+    "socialProof": "10,000+ 명이 자신에게 맞는 직업을 발견했습니다"
   },
   "test": {
     "title": "MBTI 성격 유형 테스트",

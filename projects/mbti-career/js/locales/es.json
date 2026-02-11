@@ -8,16 +8,19 @@
     "emotionTempDesc": "Prueba de análisis de emociones"
   },
   "home": {
-    "heading": "Encuentra la Carrera Perfecta para tu Personalidad",
-    "subtitle": "Descubre tu tipo MBTI y obtén recomendaciones de carrera personalizadas",
-    "quickTest": "Prueba Rápida (12 Preguntas)",
-    "directSelect": "Selección Directa (16 Tipos)",
-    "feature1Title": "Análisis Preciso",
-    "feature1Desc": "12 preguntas identifican con precisión tu tipo MBTI",
+    "heading": "Cual es tu carrera ideal?",
+    "subtitle": "Descubre tu TOP 10 carreras recomendadas con analisis de personalidad MBTI",
+    "quickTest": "Empezar el Test Ahora",
+    "directSelect": "Ya conozco mi MBTI",
+    "timeBadge": "Tarda unos 2 min",
+    "or": "o",
+    "feature1Title": "Analisis Preciso",
+    "feature1Desc": "12 preguntas identifican con precision tu tipo MBTI",
     "feature2Title": "Compatibilidad Profesional",
     "feature2Desc": "Recibe TOP 10 carreras recomendadas con puntuaciones de compatibilidad",
-    "feature3Title": "Análisis Profundo",
-    "feature3Desc": "Guía completa con fortalezas, debilidades y sugerencias de composición de equipo"
+    "feature3Title": "Analisis Profundo",
+    "feature3Desc": "Guia completa con fortalezas, debilidades y sugerencias de composicion de equipo",
+    "socialProof": "Mas de 10,000 personas han descubierto su carrera ideal"
   },
   "test": {
     "title": "Prueba de Tipo de Personalidad MBTI",

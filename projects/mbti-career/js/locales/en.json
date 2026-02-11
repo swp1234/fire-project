@@ -8,16 +8,19 @@
     "emotionTempDesc": "Emotion analysis test"
   },
   "home": {
-    "heading": "Find the Perfect Career for Your Personality",
-    "subtitle": "Discover your MBTI type and get personalized career recommendations that match your strengths",
-    "quickTest": "Quick Test (12 Questions)",
-    "directSelect": "Direct Selection (16 Types)",
+    "heading": "What's Your Ideal Career?",
+    "subtitle": "Get your TOP 10 career recommendations based on MBTI personality analysis",
+    "quickTest": "Start the Test Now",
+    "directSelect": "I Already Know My MBTI",
+    "timeBadge": "Takes about 2 min",
+    "or": "or",
     "feature1Title": "Accurate Analysis",
     "feature1Desc": "12 questions accurately identify your MBTI type",
     "feature2Title": "Career Matching",
     "feature2Desc": "Receive TOP 10 career recommendations with compatibility scores",
     "feature3Title": "Deep Analysis",
-    "feature3Desc": "Complete guide with strengths, weaknesses, and team composition suggestions"
+    "feature3Desc": "Complete guide with strengths, weaknesses, and team composition suggestions",
+    "socialProof": "10,000+ people have discovered their ideal career"
   },
   "test": {
     "title": "MBTI Personality Type Test",

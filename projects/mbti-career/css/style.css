@@ -65,14 +65,13 @@
     border-bottom-color: var(--border-color);
 }
 
-[data-theme="light"] .info-card {
-    background: rgba(255, 255, 255, 0.8);
-    border-color: var(--border-color);
+[data-theme="light"] .hero-badge {
+    background: rgba(52, 152, 219, 0.1);
+    border-color: rgba(52, 152, 219, 0.2);
 }
 
-[data-theme="light"] .info-card:hover {
-    background: rgba(52, 152, 219, 0.1);
-    border-color: var(--theme-accent);
+[data-theme="light"] .home-divider {
+    color: var(--text-secondary);
 }
 
 [data-theme="light"] .btn-secondary {
@@ -344,26 +343,110 @@ body {
 
 .hero {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.hero-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+    animation: bounceIn 0.6s ease-out;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    60% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 .hero h2 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     line-height: 1.3;
 }
 
-.hero p {
-    font-size: 1.125rem;
+.hero-subtitle {
+    font-size: 1rem;
     color: var(--text-secondary);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(52, 152, 219, 0.15);
+    border: 1px solid rgba(52, 152, 219, 0.3);
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    color: var(--theme-accent);
+    font-weight: 500;
+}
+
+.badge-icon {
+    font-size: 0.9rem;
 }
 
 .home-buttons {
     display: flex;
     gap: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 0.75rem;
+}
+
+.home-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.home-divider::before,
+.home-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
+/* Info strip: compact horizontal feature list */
+.info-strip {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1.5rem 0 1rem;
+    flex-wrap: wrap;
+}
+
+.info-strip-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.info-strip-icon {
+    font-size: 1rem;
+}
+
+/* Social proof */
+.social-proof {
+    text-align: center;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.social-proof p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    opacity: 0.7;
 }
 
 .btn {
@@ -376,7 +459,7 @@ body {
     cursor: pointer;
     transition: var(--transition);
     touch-action: manipulation;
-    min-height: 44px;
+    min-height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -396,6 +479,18 @@ body {
 
 .btn-primary:active {
     transform: translateY(0);
+}
+
+/* CTA pulse animation */
+.btn-cta-pulse {
+    animation: ctaPulse 2s ease-in-out infinite;
+    font-size: 1.1rem;
+    padding: 1.1rem 1.5rem;
+}
+
+@keyframes ctaPulse {
+    0%, 100% { box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3); }
+    50% { box-shadow: 0 4px 25px rgba(52, 152, 219, 0.5); }
 }
 
 .btn-secondary {
@@ -434,45 +529,6 @@ body {
 
 .btn-close:hover {
     background: var(--bg-tertiary);
-}
-
-/* Info Cards */
-.info-cards {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-}
-
-.info-card {
-    background: rgba(44, 62, 80, 0.2);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: var(--transition);
-    backdrop-filter: blur(10px);
-}
-
-.info-card:hover {
-    background: rgba(44, 62, 80, 0.3);
-    border-color: var(--theme-accent);
-    transform: translateY(-4px);
-}
-
-.info-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.info-card h3 {
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.info-card p {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
 }
 
 /* ============================================
@@ -1078,12 +1134,16 @@ body {
         font-size: 1.5rem;
     }
 
-    .hero p {
-        font-size: 1rem;
+    .hero-subtitle {
+        font-size: 0.95rem;
     }
 
-    .home-buttons {
-        flex-direction: column;
+    .info-strip {
+        gap: 1rem;
+    }
+
+    .info-strip-item {
+        font-size: 0.8rem;
     }
 
     .mbti-grid {
@@ -1115,10 +1175,6 @@ body {
 @media (min-width: 768px) {
     .container {
         max-width: 700px;
-    }
-
-    .info-cards {
-        grid-template-columns: 1fr 1fr 1fr;
     }
 
     .team-list {
