@@ -471,6 +471,15 @@ body {
     width: 100%;
 }
 
+/* CTA pulse animation for start button */
+.btn-cta-pulse {
+    animation: ctaPulse 2.5s ease-in-out 0.5s infinite;
+}
+@keyframes ctaPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0, 200, 83, 0.3); }
+    50% { transform: scale(1.03); box-shadow: 0 6px 25px rgba(0, 200, 83, 0.5); }
+}
+
 /* 게임 화면 */
 .game-area {
     width: 100%;

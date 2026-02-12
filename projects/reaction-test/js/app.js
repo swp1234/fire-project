@@ -12,6 +12,15 @@ class ReactionTest {
         this.initElements();
         this.initEventListeners();
         this.initI18n();
+
+        // Safety timeout: hide loader after 3s even if i18n fails
+        setTimeout(() => {
+            const loader = document.getElementById('app-loader');
+            if (loader && !loader.classList.contains('hidden')) {
+                loader.classList.add('hidden');
+                setTimeout(() => loader.remove(), 300);
+            }
+        }, 3000);
     }
 
     initElements() {
@@ -122,6 +131,13 @@ class ReactionTest {
             console.warn('i18n init failed:', e.message);
         }
         this.updateLanguageButton();
+
+        // Hide app loader after i18n is ready
+        const loader = document.getElementById('app-loader');
+        if (loader) {
+            loader.classList.add('hidden');
+            setTimeout(() => loader.remove(), 300);
+        }
     }
 
     updateLanguageButton() {
@@ -453,13 +469,6 @@ class ReactionTest {
 document.addEventListener('DOMContentLoaded', () => {
     const app = new ReactionTest();
     initSoundToggle();
-
-    // Hide app loader
-    const loader = document.getElementById('app-loader');
-    if (loader) {
-        loader.classList.add('hidden');
-        setTimeout(() => loader.remove(), 300);
-    }
 });
 
 // Sound toggle functionality
