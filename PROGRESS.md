@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-12 (세션49)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-12 (세션50)
 
 ---
 
@@ -25,11 +25,14 @@
 | AdSense | ca-pub-3600813755953882, 심사 중(2/8), 자동광고, 62앱 적용 |
 | GA4 | 속성 523606964, MCP 연동 |
 | GSC | siteUrl: `https://dopabrain.com/`, MCP 연동 |
-| 크로스프로모 | 58앱 cross-promo.js 적용 |
+| 크로스프로모 | 58앱 cross-promo.js 적용, **라이트모드+a11y 개선** (세션50) |
 | i18n 안정화 | **전체 완료** — i18n.js 초기화 코드 있는 모든 앱 try-catch 적용 (세션45) |
 | FOUC 수정 | **60앱 app-loader 적용** (세션45: +9앱으로 전체 완료) |
 | SW network-first | 16앱+ 전환 완료 |
-| 라이트모드 | **60앱 토글+CSS+JS 완전 적용** (세션45 QA: 토글 9앱+CSS 1앱 보완) |
+| 라이트모드 | **63앱 토글+CSS+JS 완전 적용** (세션50: maze-runner, snake-game, typing-speed 보완) |
+| 접근성(a11y) | skip-link 26앱, prefers-reduced-motion 49앱, focus-visible 전체 (세션50) |
+| PWA 설치 | pwa-install.js 5개 인기앱 적용 (세션50) |
+| 404 페이지 | **커스텀 404** 다크/라이트 + i18n 12개 언어 (세션50) |
 | 커스텀 명령어 | /analyze, /validate, /new-app, /session-wrap |
 
 **URL 구조:** `/` 랜딩 → `/portal/` 포털 → `/[앱]/` 개별 앱 → `/portal/blog/{lang}/` 블로그
@@ -62,6 +65,28 @@
 ---
 
 ## 세션 기록
+
+### 세션50 (2/12) - 접근성(a11y) + PWA + 크로스프로모 + 404 페이지
+
+- **prefers-reduced-motion 추가 (8개 앱):**
+  - cta-pulse 애니메이션이 있는 앱에 모션 감소 미디어 쿼리 적용
+  - 대상: block-puzzle, bmi-calculator, future-self, stress-check, reaction-test, color-memory, animal-personality, mbti-career
+- **skip-to-main link + `<main>` 태그 추가 (7개 앱):**
+  - 스크린리더/키보드 내비게이션 개선
+  - 대상: sky-runner, zigzag-runner, block-puzzle, word-guess, bmi-calculator, animal-personality, emoji-merge
+- **PWA 커스텀 설치 프롬프트:**
+  - `/portal/js/pwa-install.js` 공유 유틸리티 생성 (beforeinstallprompt 처리)
+  - 30초 참여 후 글래스모피즘 배너 표시, 10초 후 자동 숨김, localStorage 기억
+  - 5개 인기 앱 적용: idle-clicker, hsp-test, emoji-merge, emotion-temp, brain-type
+- **크로스프로모(cross-promo.js) 개선:**
+  - 라이트모드 CSS 추가 (58개 앱에 즉시 반영)
+  - `<nav>` 시맨틱 태그 + `aria-label` + `focus-visible` 스타일
+- **커스텀 404 페이지 생성:**
+  - 다크/라이트 모드 자동 대응 (prefers-color-scheme)
+  - 12개 언어 자동 감지 (navigator.language)
+  - 인기 앱 바로가기 + GA4 page_not_found 이벤트 추적
+- **누락 테마 토글 3앱 보완:** maze-runner, snake-game, typing-speed (라이트모드 CSS+JS+토글)
+- **총 20개+ 서브모듈/디렉토리 수정 및 push**
 
 ### 세션49 (2/12) - 수익최적화 + 성능개선 + UX (다양한 유형 작업)
 
