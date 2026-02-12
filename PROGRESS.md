@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-12 (세션48)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-12 (세션49)
 
 ---
 
@@ -62,6 +62,17 @@
 ---
 
 ## 세션 기록
+
+### 세션49 (2/12) - 수익최적화 + 성능개선 + UX (다양한 유형 작업)
+
+- **AdSense ad-slot 플레이스홀더 일괄 수정 (18개 앱):**
+  - 플레이스홀더 슬롯 ID ("1234567890" 등) → "auto"로 통일
+  - 대상: animal-personality, blood-type, brain-type, color-memory, color-personality, flappy-bird, future-self, habit-tracker, iq-test, mbti-career, memory-card, minesweeper, pong-game, puzzle-2048, qr-generator, routine-planner, word-guess, portal/blog
+- **BMI 계산기 자동 계산:** 페이지 로드 시 기본값(170cm, 70kg)으로 즉시 결과 표시 + pulse CTA
+- **block-puzzle GA4 이벤트:** game_start, game_over 추가 + 시작 버튼 pulse CTA
+- **랜딩 페이지 성능:** preconnect 힌트 추가 (GTM, AdSense, GA 도메인)
+- **Discovered 9개 앱 기술 점검:** 전체 SEO 마크업 정상 확인 (인덱싱 지연은 Google 크롤 대기)
+- **총 20개 서브모듈/디렉토리 수정 및 push**
 
 ### 세션48 (2/12) - GSC 인덱싱 50개 확인 + GA4 이벤트 확대 + 고이탈 UX 개선
 
