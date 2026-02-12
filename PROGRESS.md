@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-11 (세션46)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-12 (세션47)
 
 ---
 
@@ -44,20 +44,38 @@
 
 ---
 
-## GA4 (2/5~2/11)
+## GA4 (2/5~2/11, 세션47 기준)
 
-| 지표 | 값 |
-|------|-----|
-| 주간 트래픽 | 62페이지 활성, GSC 노출 극초기(3건) |
-| TOP5 | /(62), portal(23), idle-clicker(16), emotion-temp(15), hsp-test(14) |
-| 최우수 참여 | emoji-merge(0%), brain-type(0%), color-personality(0%), minesweeper(14%), typing-speed(13%), stack-tower(17%) |
-| 100% 이탈 (5+세션) | kpop-position(12), habit-tracker(9), animal-personality(8), biorhythm(8), number-puzzle(8), mbti-career(7), numerology(7), qr-generator(7), color-memory(6), tax-refund(6), color-palette(5), todo-list(5) |
-| 85%+ 이탈 | hsp-test(93%), stress-check(90%), reaction-test(89%), bmi-calculator(88%), memory-card(88%), zodiac-match(88%) |
-| 랜딩(/) | 62세션, 76% 이탈, 4초 평균 (개선: opacity 제거+hero CTA 추가) |
+| 지표 | 값 | 변화 |
+|------|-----|------|
+| 활성 페이지 | 63개 | +1 |
+| TOP5 | /(58), portal(22), idle-clicker(16), emotion-temp(14), hsp-test(14) | |
+| 최우수 참여 | emoji-merge(0%), brain-type(0%), color-personality(0%), minesweeper(0%), stack-tower(8%), typing-speed(11%) | 개선 |
+| 100% 이탈 (5+세션) | **8개:** animal-personality(8), biorhythm(8), number-puzzle(8), mbti-career(7), numerology(7), color-memory(6), color-palette(5), todo-list(5) | **12→8 개선** |
+| 85%+ 이탈 | kpop-position(92%), habit-tracker(89%), reaction-test(89%), hsp-test(86%), bmi-calculator(88%), memory-card(88%), zodiac-match(88%) | |
+| 랜딩(/) | 58세션, **66% 이탈** (76%→66%, -10pp 개선!), 4.5초 평균 | **개선됨** |
+| GSC 주간 노출 | 총 61건 (pyeongsu-calculator blog 33건 선두) | 성장 중 |
 
 ---
 
 ## 세션 기록
+
+### 세션47 (2/12) - 100% 이탈앱 8개 UX 개선 + 블로그 CTR 최적화
+
+- **랜딩(/) 이탈률 76%→66% 확인** (세션46 CTA 추가 효과 입증)
+- **100% 이탈 앱 8개 수정 (12→8개로 이미 개선, 추가 UX 개선):**
+  - color-palette: HEAD 동기 i18n.js 제거(렌더링 차단 해소) + 라이트모드 CSS + 테마토글 추가
+  - todo-list: 첫 방문 시 샘플 할일 3개 자동 추가 (빈 화면 해소)
+  - numerology: 첫 방문 시 샘플 날짜(1995-06-15)로 자동 계산 결과 표시
+  - biorhythm: 첫 방문 시 데모 날짜로 바이오리듬 그래프 자동 표시
+  - mbti-career: CTA pulse 애니메이션 + MBTI 미리보기 + i18n 12언어 보완
+  - animal-personality: 시작 버튼 pulse 애니메이션 추가
+  - color-memory: 시작 버튼 pulse 애니메이션 추가
+- **85%+ 이탈 앱 추가 수정:**
+  - reaction-test: pulse CTA + 라이트모드 CSS 추가 (89% 이탈 개선 목표)
+- **블로그 CTR 최적화:**
+  - pyeongsu-calculator blog: title/meta에 구체적 숫자 추가 (59m²=17.8평, 84m²=25.4평) — 33 impressions, position 10.6
+- **총 8개 서브모듈 + 1개 일반 디렉토리 수정 및 push**
 
 ### 세션46 (2/11) - 서브모듈 정리 + 랜딩페이지 이탈률 개선 + 라이트모드 30앱 push
 
