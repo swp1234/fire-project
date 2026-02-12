@@ -75,6 +75,12 @@
   - reaction-test: pulse CTA + 라이트모드 CSS 추가 (89% 이탈 개선 목표)
 - **블로그 CTR 최적화:**
   - pyeongsu-calculator blog: title/meta에 구체적 숫자 추가 (59m²=17.8평, 84m²=25.4평) — 33 impressions, position 10.6
+- **GA4 engagement 이벤트 5개 앱 추가:**
+  - todo-list: add_todo, complete_todo
+  - numerology: calculate_life_path, calculate_expression
+  - biorhythm: calculate_biorhythm
+  - color-memory: game_start, game_over
+  - color-palette: generate_palette
 - **총 8개 서브모듈 + 1개 일반 디렉토리 수정 및 push**
 
 ### 세션46 (2/11) - 서브모듈 정리 + 랜딩페이지 이탈률 개선 + 라이트모드 30앱 push
