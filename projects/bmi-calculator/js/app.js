@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     hideLoader();
     setupEventListeners();
     loadHistory();
+    calculateBMI();
 });
 
 // 이벤트 리스너 설정

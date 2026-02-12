@@ -378,7 +378,7 @@ class BlockPuzzle {
     }
 
     startGame() {
-        console.log('startGame() called');
+        if(typeof gtag!=='undefined') gtag('event','game_start');
         try {
             this.grid = this.createEmptyGrid();
             this.score = 0;
@@ -653,6 +653,7 @@ class BlockPuzzle {
     }
 
     gameOver() {
+        if(typeof gtag!=='undefined') gtag('event','game_over',{score:this.score});
         this.gameRunning = false;
 
         // Add score to leaderboard
