@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-12 (세션50)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-12 (세션51)
 
 ---
 
@@ -30,9 +30,10 @@
 | FOUC 수정 | **60앱 app-loader 적용** (세션45: +9앱으로 전체 완료) |
 | SW network-first | 16앱+ 전환 완료 |
 | 라이트모드 | **63앱 토글+CSS+JS 완전 적용** (세션50: maze-runner, snake-game, typing-speed 보완) |
-| 접근성(a11y) | skip-link 26앱, prefers-reduced-motion 49앱, focus-visible 전체 (세션50) |
+| 접근성(a11y) | skip-link 26앱, prefers-reduced-motion 49앱, **키보드 단축키 4게임** (세션51) |
 | PWA 설치 | pwa-install.js 5개 인기앱 적용 (세션50) |
 | 404 페이지 | **커스텀 404** 다크/라이트 + i18n 12개 언어 (세션50) |
+| SW network-first | **28앱+ 전환 완료** (세션51: cache-first 16앱 전환) |
 | 커스텀 명령어 | /analyze, /validate, /new-app, /session-wrap |
 
 **URL 구조:** `/` 랜딩 → `/portal/` 포털 → `/[앱]/` 개별 앱 → `/portal/blog/{lang}/` 블로그
@@ -65,6 +66,24 @@
 ---
 
 ## 세션 기록
+
+### 세션51 (2/12) - SEO + 바이럴 + 게임UX + SW전략 (다양한 유형)
+
+- **JSON-LD structured data:** flappy-bird 추가 → 전체 60/61앱 완료 (100%)
+- **소셜 공유 버튼 3개 퀴즈앱:**
+  - biorhythm, daily-tarot, dev-quiz에 Twitter/X 공유 + URL 복사 버튼 추가
+  - 결과 표시 후 공유 섹션 노출 → 바이럴 잠재력 확대
+- **게임 키보드 단축키 4개 앱:**
+  - block-puzzle: P/Esc 일시정지, R 재시작
+  - minesweeper: 화살표 셀 이동, Space/Enter 열기, F 깃발, R 재시작
+  - puzzle-2048: WASD 대체키, R 새 게임, U 실행취소
+  - word-scramble: A-Z 글자 선택, Enter 제출, Backspace 삭제, Esc 초기화
+  - 데스크톱 전용 `<kbd>` 힌트 UI 추가
+- **SW cache-first→network-first 전환 (16개 앱):**
+  - 캐시 우선 전략으로 최근 업데이트(라이트모드, a11y 등)가 기존 방문자에게 안 보이던 문제 해결
+  - 캐시 버전 v1→v2 범프 포함
+  - 대상: block-puzzle, blood-type, color-memory, emoji-merge, future-self, habit-tracker, iq-test, maze-runner, mbti-career, mbti-love, numerology, pong-game, todo-list, typing-speed, word-guess, zodiac-match
+- **총 24개+ 서브모듈/디렉토리 수정 및 push**
 
 ### 세션50 (2/12) - 접근성(a11y) + PWA + 크로스프로모 + 404 페이지
 
