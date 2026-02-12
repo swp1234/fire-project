@@ -384,6 +384,12 @@ body::after {
     100% { transform: scale(1); box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .btn-primary {
+        animation: none !important;
+    }
+}
+
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0, 184, 148, 0.4);
