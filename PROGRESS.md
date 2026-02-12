@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-12 (세션47)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-12 (세션48)
 
 ---
 
@@ -36,29 +36,49 @@
 
 ---
 
-## GSC 인덱싱 (2/11 재확인)
+## GSC 인덱싱 (2/12 재확인)
 
-**Indexed (47/62, 76%):** /, portal, hsp-test, emoji-merge, stack-tower, idle-clicker, mbti-tips, dream-fortune, past-life, kpop-position, sky-runner, zigzag-runner, tax-refund-preview, valentine, love-frequency, block-puzzle, word-guess, puzzle-2048, brain-type, reaction-test, emotion-temp, mbti-love, memory-card, password-generator, maze-runner, number-puzzle, color-personality, numerology, quiz-app, daily-tarot, dday-counter, detox-timer, iq-test, shopping-calc, unit-converter, word-scramble, affirmation, **color-memory, typing-speed, pong-game, snake-game, biorhythm, animal-personality, bmi-calculator, stress-check, future-self, zodiac-match**
+**Indexed (50/62, 81%):** /, portal, hsp-test, emoji-merge, stack-tower, idle-clicker, mbti-tips, dream-fortune, past-life, kpop-position, sky-runner, zigzag-runner, tax-refund-preview, valentine, love-frequency, block-puzzle, word-guess, puzzle-2048, brain-type, reaction-test, emotion-temp, mbti-love, memory-card, password-generator, maze-runner, number-puzzle, color-personality, numerology, quiz-app, daily-tarot, dday-counter, detox-timer, iq-test, shopping-calc, unit-converter, word-scramble, affirmation, color-memory, typing-speed, pong-game, snake-game, biorhythm, animal-personality, bmi-calculator, stress-check, future-self, zodiac-match, **habit-tracker, pomodoro-timer, white-noise**
 
-**Discovered (13):** habit-tracker, minesweeper, flappy-bird, brick-breaker, dev-quiz, qr-generator, pomodoro-timer, white-noise, lottery, color-palette, blood-type, routine-planner, todo-list
+**Discovered (9):** minesweeper, flappy-bird, dev-quiz, qr-generator, lottery, color-palette, blood-type, routine-planner, todo-list
+
+**Unknown (1):** brick-breaker (사이트맵 포함, 크롤 대기)
 
 ---
 
-## GA4 (2/5~2/11, 세션47 기준)
+## GA4 (2/6~2/12, 세션48 기준)
 
 | 지표 | 값 | 변화 |
 |------|-----|------|
-| 활성 페이지 | 63개 | +1 |
-| TOP5 | /(58), portal(22), idle-clicker(16), emotion-temp(14), hsp-test(14) | |
-| 최우수 참여 | emoji-merge(0%), brain-type(0%), color-personality(0%), minesweeper(0%), stack-tower(8%), typing-speed(11%) | 개선 |
-| 100% 이탈 (5+세션) | **8개:** animal-personality(8), biorhythm(8), number-puzzle(8), mbti-career(7), numerology(7), color-memory(6), color-palette(5), todo-list(5) | **12→8 개선** |
-| 85%+ 이탈 | kpop-position(92%), habit-tracker(89%), reaction-test(89%), hsp-test(86%), bmi-calculator(88%), memory-card(88%), zodiac-match(88%) | |
-| 랜딩(/) | 58세션, **66% 이탈** (76%→66%, -10pp 개선!), 4.5초 평균 | **개선됨** |
-| GSC 주간 노출 | 총 61건 (pyeongsu-calculator blog 33건 선두) | 성장 중 |
+| 활성 페이지 | 63개 | 유지 |
+| TOP5 | /(58), portal(22), idle-clicker(16), emotion-temp(14), hsp-test(14) | 유지 |
+| 최우수 참여 | emoji-merge(0%), brain-type(0%), color-personality(0%), minesweeper(0%), stack-tower(8%), typing-speed(11%) | 유지 |
+| 100% 이탈 (5+세션) | **8개:** animal-personality(8), biorhythm(8), number-puzzle(8), mbti-career(7), numerology(7), color-memory(6), color-palette(5), todo-list(5) | 세션47 수정 대기 |
+| 85%+ 이탈 | kpop-position(92%), habit-tracker(89%), reaction-test(89%), bmi-calculator(88%), memory-card(88%), zodiac-match(88%), hsp-test(86%) | |
+| 신규 고이탈 | future-self(82%,11세션), stress-check(80%,10세션) | 세션48 개선 |
+| 랜딩(/) | 58세션, **66% 이탈** 유지, 4.5초 평균 | 안정 |
+| GSC 주간 노출 | 총 61건 (pyeongsu-calculator 33건, top-10-browser-games 6건) | 블로그 성장 |
 
 ---
 
 ## 세션 기록
+
+### 세션48 (2/12) - GSC 인덱싱 50개 확인 + GA4 이벤트 확대 + 고이탈 UX 개선
+
+- **GSC 인덱싱 47→50개 (81%):** habit-tracker, pomodoro-timer, white-noise 신규 인덱싱 확인
+  - Discovered 13→9개, brick-breaker 1개 Unknown (사이트맵 포함, 크롤 대기)
+- **GA4 engagement 이벤트 5개 앱 추가:**
+  - future-self: quiz_start, quiz_complete
+  - habit-tracker: add_habit, complete_habit
+  - qr-generator: generate_qr, download_qr
+  - memory-card: game_start, game_over
+  - stress-check: (기존 이벤트 있음, CTA만 추가)
+- **Pulse CTA 2개 앱 추가:**
+  - stress-check: 시작 버튼 cta-pulse 애니메이션 (80% 이탈 개선)
+  - future-self: 시작 버튼 cta-pulse 애니메이션 (82% 이탈 개선)
+- **number-puzzle AdSense 수정:** 플레이스홀더 ID → 실제 ca-pub 교체 (세션47 후반)
+- **영문 블로그 SEO:** top-10-browser-games title/meta 60/155자 이내 최적화
+- **총 6개 서브모듈 수정 및 push**
 
 ### 세션47 (2/12) - 100% 이탈앱 8개 UX 개선 + 블로그 CTR 최적화
 
