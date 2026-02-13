@@ -4,6 +4,23 @@
    2026 UI/UX Trends: Glassmorphism, Microinteractions
    ============================================ */
 
+/* Skip link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent, #2c3e50);
+    color: #fff;
+    padding: 8px 16px;
+    z-index: 10000;
+    transition: top 0.2s;
+    font-size: 14px;
+    border-radius: 0 0 4px 0;
+}
+.skip-link:focus {
+    top: 0;
+}
+
 :root {
     --bg-primary: #0f0f23;
     --bg-secondary: #1a1a3e;
