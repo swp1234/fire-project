@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | 62개 (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | 121개+ (EN 20+, FR 2) |
+| 블로그 | 124개+ (EN 20+, FR 2, JA 3, PT 2, ZH 2) |
 | i18n JSON | 660개+ |
 
 **앱 목록:** 유틸 12 / 바이럴 테스트 16 / 게임 19 / 도구 10 / 웹 2 / 신규(biorhythm) 1
@@ -25,15 +25,15 @@
 | AdSense | ca-pub-3600813755953882, 심사 중(2/8), 자동광고+ad-slot auto 통일 |
 | GA4 | 속성 523606964, MCP 연동 |
 | GSC | siteUrl: `https://dopabrain.com/`, MCP 연동 |
-| 크로스프로모 | 58앱 적용, 라이트모드+a11y 개선 (세션50) |
+| 크로스프로모 | 58앱 적용, 라이트모드+a11y 개선 |
 | i18n 안정화 | **전체 완료** — try-catch 전앱 적용 |
 | FOUC 수정 | **60앱 app-loader 적용 완료** |
-| SW network-first | **28앱+ 전환 완료** (세션51: cache-first 16앱 전환) |
+| SW network-first | **28앱+ 전환 완료** |
 | 라이트모드 | **63앱 토글+CSS+JS 완전 적용** |
-| 접근성(a11y) | skip-link 26앱, prefers-reduced-motion 49앱, 키보드단축키 4게임 |
-| PWA 설치 | pwa-install.js 5개 인기앱 적용 |
+| 접근성(a11y) | **skip-link 56앱(92%)**, **prefers-reduced-motion 61앱(100%)**, 키보드단축키 4게임 |
+| PWA 설치 | **pwa-install.js 13앱 적용** (세션52: +8앱) |
 | 404 페이지 | 커스텀 404 다크/라이트 + i18n 12개 언어 |
-| 소셜 공유 | 38앱 적용 (세션51: +3앱) |
+| 소셜 공유 | **50앱 적용** (세션52: +12앱) |
 | 구조화 데이터 | JSON-LD 60/61앱 (98%+) |
 
 **URL 구조:** `/` 랜딩 → `/portal/` 포털 → `/[앱]/` 개별 앱 → `/portal/blog/{lang}/` 블로그
@@ -55,9 +55,8 @@
 | 지표 | 값 |
 |------|-----|
 | TOP5 | /(61), portal(22), idle-clicker(17), emotion-temp(14), hsp-test(14) |
-| 최우수 참여 | emoji-merge(0%), brain-type(0%), color-personality(0%), minesweeper(0%), stack-tower(8%), typing-speed(11%) |
-| 100% 이탈 (5+세션) | 7개: animal-personality, biorhythm, number-puzzle, mbti-career, numerology, color-memory, todo-list → **세션52에서 전체 GA4 engagement 이벤트 추가** |
-| 85%+ 이탈 | 9개: kpop-position(92%), habit-tracker/qr-generator/reaction-test(89%), bmi/iq/memory-card/zodiac-match(88%), block-puzzle(86%) → **세션52에서 수정** |
+| 최우수 참여 | emoji-merge(0%), brain-type(0%), minesweeper(0%), stack-tower(8%), typing-speed(11%) |
+| 고이탈 앱 | 100%×7 + 85%+×9 = 16앱 → **세션52에서 전체 GA4 engagement 이벤트 추가** |
 | 랜딩(/) | 61users, 66% 이탈, 4.7초 평균 |
 | GSC 주간 노출 | **150건** (전주 61건 대비 2.5배↑, pyeongsu-calculator 49건) |
 | GSC 클릭 | 3건 (fr/jeux-navigateur 33% CTR 최고성과) |
@@ -66,50 +65,31 @@
 
 ## 세션 기록
 
-### 세션52 (2/13) - 고이탈 22앱 UX + 블로그 SEO + 신규 FR 블로그
+### 세션52 (2/13) - 고이탈 22앱 UX + 블로그 SEO 4개 + a11y 100%
 
-- **100% 이탈 7앱 전체 수정:** todo-list(자동포커스+pulse), numerology(pulse-glow), color-memory(시작버튼pulse), animal-personality(CTA ring), biorhythm(CTA pulse), number-puzzle(CTA pulse), mbti-career(GA4 engagement)
-- **85%+ 이탈 9앱 수정:** kpop-position(92%), reaction-test(best score+retry), zodiac-match(CTA pulse), bmi-calculator, iq-test(CTA pulse), memory-card(CTA pulse), habit-tracker(Add pulse), qr-generator(입력강조+pulse), hsp-test(질문 미리보기)
-- **추가 6앱:** block-puzzle(engagement), blood-type(순차pulse+힌트), daily-tarot(pulse-glow)
-- **공통:** GA4 engagement 이벤트 + scroll/timer 트래킹 22앱
-- **블로그 SEO CTR:** en/free-games(pos4.2), en/top-10-browser-games(pos6.3), pyeongsu-calculator(49노출) title/meta 최적화
-- **신규 FR 블로그:** tests-personnalite-gratuits-2026.html (성격테스트 7개 소개, JSON-LD)
-- **사이트맵:** 신규 블로그 URL 추가
+- **고이탈 22앱 GA4 engagement:** 100% 이탈 7앱 + 85%+ 이탈 9앱 + 추가 6앱 전체에 CTA pulse + GA4 engagement/scroll/timer 이벤트
+- **블로그 SEO CTR:** en/free-games, en/top-10-browser-games, pyeongsu-calculator title/meta 최적화
+- **다국어 블로그 4개 신규:** FR(성격테스트), JA(性格診断), PT(personalidade), ZH(心理测试) + 사이트맵
+- **소셜 공유 +12앱:** block-puzzle, brick-breaker, color-memory 등 → 총 50/62앱
+- **PWA 설치 +8앱:** past-life, puzzle-2048, zigzag-runner 등 → 총 13앱
+- **a11y:** prefers-reduced-motion +8앱(→100%), skip-link +15앱(→92%)
 
 ### 세션51 (2/12) - SEO + 바이럴 + 게임UX + SW전략
 
-- **JSON-LD:** flappy-bird 추가 → 60/61앱 완료
-- **소셜 공유:** biorhythm, daily-tarot, dev-quiz에 Twitter/X + URL 복사 추가
-- **키보드 단축키 4게임:** block-puzzle(P/R), minesweeper(화살표/Space/F), puzzle-2048(WASD/R/U), word-scramble(A-Z/Enter/Backspace)
-- **SW network-first 전환 16앱:** cache-first→network-first + 캐시 버전 범프
-
-### 세션50 (2/12) - 접근성 + PWA + 크로스프로모 + 404
-
-- **prefers-reduced-motion 8앱** + **skip-link+main 태그 7앱**
-- **PWA 설치 프롬프트:** pwa-install.js 생성, 5개 인기앱 적용
-- **크로스프로모:** 라이트모드 CSS + nav 시맨틱 + aria-label (58앱 반영)
-- **커스텀 404 페이지:** 다크/라이트 + i18n 12언어 + GA4 추적
-- **누락 테마토글 3앱 보완:** maze-runner, snake-game, typing-speed
-
-### 세션49 (2/12) - 수익최적화 + 성능개선
-
-- **AdSense ad-slot 플레이스홀더 18앱 수정** (→ auto 통일)
-- **BMI 자동계산** + **block-puzzle GA4 이벤트** + **랜딩 preconnect**
-
-### 세션48 (2/12) - GSC 50개 + GA4 이벤트 + 고이탈 UX
-
-- **GSC 47→50개 인덱싱**, GA4 이벤트 5앱, pulse CTA 2앱, 블로그 SEO
+- JSON-LD flappy-bird → 60/61앱, 소셜 공유 +3앱, 키보드단축키 4게임, SW network-first 16앱
 
 ### 이전 세션
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 50 | 2/12 | 접근성(motion 8+skip 7) + PWA 5앱 + 크로스프로모 58앱 + 404 |
+| 49 | 2/12 | AdSense ad-slot 18앱 + BMI 자동계산 + 랜딩 preconnect |
+| 48 | 2/12 | GSC 47→50 인덱싱 + GA4 이벤트 5앱 + pulse CTA 2앱 |
 | 47 | 2/12 | 100% 이탈 8앱 UX + 블로그 CTR + GA4 이벤트 5앱 |
 | 46 | 2/11 | 서브모듈 정리 + 랜딩 이탈률 76→66% + GSC 37→47 |
 | 45 | 2/11 | 라이트모드 QA 60앱 + FOUC 60앱 + i18n 안정화 전체 완료 |
 | 44 | 2/11 | 라이트모드 52앱 + canonical/og + 사이트맵 정리 |
-| 43 | 2/11 | GA4 이탈률 분석 + 5앱 수정 |
-| 40-42 | 2/10-11 | 고이탈 8앱 + i18n 전수 + 포털 정비 + statusline |
+| 40-43 | 2/10-11 | 고이탈 8앱 + i18n 전수 + 포털 + GA4 분석 + statusline |
 | 37-39 | 2/10 | 게임 버그 + 43앱 정리 + SEO 블로그 16개 |
 | 30-36 | 2/10-11 | FOUC 37앱, i18n 17앱, 크로스프로모 57앱 |
 | 1-29 | 2/4~10 | 앱 62개 개발, 포털, 도메인, 인프라, i18n, SEO |
@@ -118,10 +98,9 @@
 
 ## 다음 우선순위
 
-1. **세션52 이탈률 효과 모니터링** - 22앱 GA4 engagement 이벤트 효과 확인 (2-3일 후)
-2. **GSC Discovered→Indexed 전환** - 9개 앱 크롤 대기 (기술적 이슈 없음)
-3. **GSC 노출 150건→클릭 전환** - 블로그 CTR 개선 효과 모니터링
-4. **Google Play** - 상위 게임 APK/AAB
-5. **AdSense 심사 통과 후** - 광고 위치 최적화
-6. **다국어 블로그 확대** - FR 33% CTR 성과 기반 JA/PT/ZH 블로그 추가
-7. **소셜 공유 확대** - 공유 없는 유틸/게임 앱 추가
+1. **세션52 효과 모니터링** - 22앱 이탈률 + 블로그 CTR 변화 (2-3일 후 GA4/GSC 확인)
+2. **GSC Discovered→Indexed** - 9앱 크롤 대기 (기술적 이슈 없음)
+3. **Google Play** - 상위 게임 APK/AAB
+4. **AdSense 심사 통과 후** - 광고 위치 최적화
+5. **소셜 공유 잔여 12앱** - 나머지 앱 추가
+6. **skip-link 잔여 5앱** - routine-planner, snake-game, todo-list, zodiac-match, root-domain
