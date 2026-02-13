@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-12 (세션51)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-13 (세션52)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | 62개 (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | 120개+ (EN 20+) |
+| 블로그 | 121개+ (EN 20+, FR 2) |
 | i18n JSON | 660개+ |
 
 **앱 목록:** 유틸 12 / 바이럴 테스트 16 / 게임 19 / 도구 10 / 웹 2 / 신규(biorhythm) 1
@@ -54,15 +54,27 @@
 
 | 지표 | 값 |
 |------|-----|
-| TOP5 | /(58), portal(22), idle-clicker(16), emotion-temp(14), hsp-test(14) |
-| 최우수 참여 | emoji-merge(0%), brain-type(0%), color-personality(0%), minesweeper(0%) |
-| 100% 이탈 (5+세션) | 8개: animal-personality, biorhythm, number-puzzle, mbti-career, numerology, color-memory, color-palette, todo-list |
-| 랜딩(/) | 58세션, 66% 이탈, 4.5초 평균 |
-| GSC 주간 노출 | 61건 (pyeongsu-calculator 33건) |
+| TOP5 | /(61), portal(22), idle-clicker(17), emotion-temp(14), hsp-test(14) |
+| 최우수 참여 | emoji-merge(0%), brain-type(0%), color-personality(0%), minesweeper(0%), stack-tower(8%), typing-speed(11%) |
+| 100% 이탈 (5+세션) | 7개: animal-personality, biorhythm, number-puzzle, mbti-career, numerology, color-memory, todo-list → **세션52에서 전체 GA4 engagement 이벤트 추가** |
+| 85%+ 이탈 | 9개: kpop-position(92%), habit-tracker/qr-generator/reaction-test(89%), bmi/iq/memory-card/zodiac-match(88%), block-puzzle(86%) → **세션52에서 수정** |
+| 랜딩(/) | 61users, 66% 이탈, 4.7초 평균 |
+| GSC 주간 노출 | **150건** (전주 61건 대비 2.5배↑, pyeongsu-calculator 49건) |
+| GSC 클릭 | 3건 (fr/jeux-navigateur 33% CTR 최고성과) |
 
 ---
 
 ## 세션 기록
+
+### 세션52 (2/13) - 고이탈 22앱 UX + 블로그 SEO + 신규 FR 블로그
+
+- **100% 이탈 7앱 전체 수정:** todo-list(자동포커스+pulse), numerology(pulse-glow), color-memory(시작버튼pulse), animal-personality(CTA ring), biorhythm(CTA pulse), number-puzzle(CTA pulse), mbti-career(GA4 engagement)
+- **85%+ 이탈 9앱 수정:** kpop-position(92%), reaction-test(best score+retry), zodiac-match(CTA pulse), bmi-calculator, iq-test(CTA pulse), memory-card(CTA pulse), habit-tracker(Add pulse), qr-generator(입력강조+pulse), hsp-test(질문 미리보기)
+- **추가 6앱:** block-puzzle(engagement), blood-type(순차pulse+힌트), daily-tarot(pulse-glow)
+- **공통:** GA4 engagement 이벤트 + scroll/timer 트래킹 22앱
+- **블로그 SEO CTR:** en/free-games(pos4.2), en/top-10-browser-games(pos6.3), pyeongsu-calculator(49노출) title/meta 최적화
+- **신규 FR 블로그:** tests-personnalite-gratuits-2026.html (성격테스트 7개 소개, JSON-LD)
+- **사이트맵:** 신규 블로그 URL 추가
 
 ### 세션51 (2/12) - SEO + 바이럴 + 게임UX + SW전략
 
@@ -106,9 +118,10 @@
 
 ## 다음 우선순위
 
-1. **GSC Discovered→Indexed 전환** - 9개 앱 크롤 대기 (기술적 이슈 없음)
-2. **Google Play** - 상위 게임 APK/AAB
-3. **100% 이탈 앱 효과 확인** - 세션47-49 수정 효과 GA4 모니터링
-4. **AdSense 심사 통과 후** - 광고 위치 최적화
-5. **PWA 설치 프롬프트 확대** - 나머지 인기앱으로 확장
-6. **소셜 공유 확대** - 공유 없는 유틸/게임 앱 추가
+1. **세션52 이탈률 효과 모니터링** - 22앱 GA4 engagement 이벤트 효과 확인 (2-3일 후)
+2. **GSC Discovered→Indexed 전환** - 9개 앱 크롤 대기 (기술적 이슈 없음)
+3. **GSC 노출 150건→클릭 전환** - 블로그 CTR 개선 효과 모니터링
+4. **Google Play** - 상위 게임 APK/AAB
+5. **AdSense 심사 통과 후** - 광고 위치 최적화
+6. **다국어 블로그 확대** - FR 33% CTR 성과 기반 JA/PT/ZH 블로그 추가
+7. **소셜 공유 확대** - 공유 없는 유틸/게임 앱 추가

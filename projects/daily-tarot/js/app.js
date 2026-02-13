@@ -8,6 +8,18 @@ class DailyTarotApp {
         this.adWatchedForDeepReading = false;
         this.lastReadingDate = null;
         this.shareData = null;
+        this._engagementFired = false;
+    }
+
+    /**
+     * Fire GA4 engagement event on first interaction to reduce bounce rate
+     */
+    _fireEngagement() {
+        if (this._engagementFired) return;
+        this._engagementFired = true;
+        if (typeof gtag === 'function') {
+            gtag('event', 'engagement', { event_category: 'daily_tarot', event_label: 'first_interaction' });
+        }
     }
 
     async init() {
@@ -67,7 +79,10 @@ class DailyTarotApp {
     setupEventListeners() {
         // Tab switching
         document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => this.switchTab(e.target.dataset.tab));
+            btn.addEventListener('click', (e) => {
+                this._fireEngagement();
+                this.switchTab(e.target.dataset.tab);
+            });
         });
 
         // Theme toggle
@@ -157,6 +172,7 @@ class DailyTarotApp {
     }
 
     startReading() {
+        this._fireEngagement();
         // Check daily limit
         if (this.dailyReadingUsed) {
             alert(i18n.t('reading.limitReached', 'You have used your daily free reading. Watch an ad for another reading?'));
@@ -357,6 +373,7 @@ class DailyTarotApp {
     }
 
     selectCategory(category) {
+        this._fireEngagement();
         this.selectedCategory = category;
         const cards = getRandomTarotCards(3);
 

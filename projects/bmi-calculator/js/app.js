@@ -69,9 +69,20 @@ function setupEventListeners() {
         }
     });
 
+    // GA4 engagement on first user input change
+    let engageFired = false;
+    function fireEngagement() {
+        if (!engageFired) {
+            engageFired = true;
+            if (typeof gtag === 'function') {
+                gtag('event', 'engagement', { event_category: 'bmi_calculator', event_label: 'first_interaction' });
+            }
+        }
+    }
+
     // 실시간 계산 (입력 변경 시)
-    document.getElementById('height-input').addEventListener('input', calculateBMI);
-    document.getElementById('weight-input').addEventListener('input', calculateBMI);
+    document.getElementById('height-input').addEventListener('input', function() { fireEngagement(); calculateBMI(); });
+    document.getElementById('weight-input').addEventListener('input', function() { fireEngagement(); calculateBMI(); });
 }
 
 // 단위 전환
@@ -431,3 +442,17 @@ function recordGA4Event(eventName, params = {}) {
         gtag('event', eventName, params);
     }
 }
+
+// GA4 engagement tracking (scroll + timer)
+(function() {
+    let scrollFired = false;
+    window.addEventListener('scroll', function() {
+        if (!scrollFired && window.scrollY > 100) {
+            scrollFired = true;
+            if (typeof gtag === 'function') gtag('event', 'scroll_engagement', { engagement_type: 'scroll' });
+        }
+    }, { passive: true });
+    setTimeout(function() {
+        if (typeof gtag === 'function') gtag('event', 'timer_engagement', { engagement_time_msec: 5000 });
+    }, 5000);
+})();
