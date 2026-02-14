@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | 62개 (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | 124개+ (EN 20+, FR 2, JA 3, PT 2, ZH 2) |
+| 블로그 | 130개+ (EN 56, FR 17, JA 27, PT 2, ZH 2) |
 | i18n JSON | 660개+ |
 
 **앱 목록:** 유틸 12 / 바이럴 테스트 16 / 게임 19 / 도구 10 / 웹 2 / 신규(biorhythm) 1
@@ -25,7 +25,7 @@
 | AdSense | ca-pub-3600813755953882, 심사 중(2/8), 자동광고+ad-slot auto 통일 |
 | GA4 | 속성 523606964, MCP 연동 |
 | GSC | siteUrl: `https://dopabrain.com/`, MCP 연동 |
-| 크로스프로모 | 58앱 적용, 라이트모드+a11y 개선 |
+| 크로스프로모 | 59앱 적용(+white-noise), 라이트모드+a11y 개선 |
 | i18n 안정화 | **전체 완료** — try-catch 전앱 적용 |
 | FOUC 수정 | **60앱 app-loader 적용 완료** |
 | SW network-first | **28앱+ 전환 완료** |
@@ -33,7 +33,7 @@
 | 접근성(a11y) | **skip-link 61앱(100%)**, **prefers-reduced-motion 61앱(100%)**, 키보드단축키 4게임 |
 | PWA 설치 | **pwa-install.js 13앱 적용** |
 | 404 페이지 | 커스텀 404 다크/라이트 + i18n 12개 언어 |
-| 소셜 공유 | **50앱 적용** |
+| 소셜 공유 | **62앱 적용 (100%)** |
 | 구조화 데이터 | JSON-LD 60/61앱 (98%+), FAQPage pyeongsu-calculator |
 
 **URL 구조:** `/` 랜딩 → `/portal/` 포털 → `/[앱]/` 개별 앱 → `/portal/blog/{lang}/` 블로그
@@ -80,6 +80,8 @@
   - free-games: "Best Free Browser Games 2026 - No Download" 최적화
   - top-10-browser-games: "10 Best Free Browser Games 2026 - Adventure" 최적화
 - **skip-link 5앱 추가:** routine-planner, snake-game, todo-list, zodiac-match, root-domain → **61앱(100%)**
+- **소셜 공유 12앱 추가:** maze-runner, number-puzzle, password-generator, pomodoro-timer, pong-game, puzzle-2048, qr-generator, quiz-app, shopping-calc, tax-refund-preview, unit-converter, white-noise → **62앱(100%)**
+- **블로그 4개 신규:** FR HSP 테스트(test-hsp-personne-hypersensible), FR 동물 성격(test-personnalite-animal), JA K-POPポジション(kpop-position-shindan), JA カラー性格(color-personality-shindan)
 
 ### 세션52 (2/13) - 고이탈 22앱 UX + 블로그 SEO 4개 + a11y 100%
 
@@ -106,9 +108,8 @@
 
 ## 다음 우선순위
 
-1. **세션53 효과 모니터링** - 6앱 이탈률 변화 + pyeongsu CTR (2-3일 후 GA4/GSC)
-2. **FR/JA 블로그 추가** - FR 33% CTR, JA 14% CTR 언어 확장
-3. **소셜 공유 잔여 12앱** - maze-runner, password-generator 등
-4. **GSC Discovered→Indexed** - 9앱 크롤 대기
-5. **Google Play** - 상위 게임 APK/AAB
-6. **AdSense 심사 통과 후** - 광고 위치 최적화
+1. **세션53 효과 모니터링** - 6앱 이탈률 변화 + pyeongsu CTR + 4블로그 인덱싱 (2-3일 후 GA4/GSC)
+2. **GSC Discovered→Indexed** - 9앱 크롤 대기
+3. **Google Play** - 상위 게임 APK/AAB
+4. **AdSense 심사 통과 후** - 광고 위치 최적화
+5. **FR/JA 블로그 확장** - EN 56개 대비 FR 17/JA 27, 추가 커버리지 필요
