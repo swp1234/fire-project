@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-14 (세션53)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-14 (세션54)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | 62개 (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | 130개+ (EN 56, FR 17, JA 27, PT 2, ZH 2) |
+| 블로그 | 245개+ (EN 56, JA 27, ZH 22, ES 20, HI 18, RU 18, KO 17, FR 17, PT 13, ID 13, TR 13, DE 11) |
 | i18n JSON | 660개+ |
 
 **앱 목록:** 유틸 12 / 바이럴 테스트 16 / 게임 19 / 도구 10 / 웹 2 / 신규(biorhythm) 1
@@ -34,6 +34,7 @@
 | PWA 설치 | **pwa-install.js 13앱 적용** |
 | 404 페이지 | 커스텀 404 다크/라이트 + i18n 12개 언어 |
 | 소셜 공유 | **62앱 적용 (100%)** |
+| 블로그 인덱스 | **12개 언어 index.html 완료** (swp1234/portal 레포) |
 | 구조화 데이터 | JSON-LD 60/61앱 (98%+), FAQPage pyeongsu-calculator |
 
 **URL 구조:** `/` 랜딩 → `/portal/` 포털 → `/[앱]/` 개별 앱 → `/portal/blog/{lang}/` 블로그
@@ -66,22 +67,20 @@
 
 ## 세션 기록
 
-### 세션53 (2/14) - 고이탈 6앱 인트로 UX + Blog CTR 최적화 + skip-link 100%
+### 세션54 (2/14) - 블로그 11개 언어 404 수정 + hreflang/사이트맵 보완
 
-- **고이탈 6앱 인트로 UX 개선:**
-  - animal-personality(100%): CTA를 설명 위로, 광고 숨김, 소셜 프루프 추가
-  - biorhythm(100%): theme-toggle CSS 추가, 자동 샘플 결과 제거
-  - kpop-position(92%): 스크롤힌트/광고 제거, CTA "나의 포지션 찾기", 소셜 프루프
-  - hsp-test(86%): discover preview를 CTA 위로 이동, 시간+분석 비주얼
-  - future-self(83%): 타입 프리뷰 collapsible, 광고 숨김, 소셜 프루프
-  - stress-check(80%): i18n finally 블록 수정, 카테고리 칩 추가, 광고 숨김
-- **Blog CTR 최적화 3페이지:**
-  - pyeongsu-calculator: title에 28·32·75·82·90㎡ 포함 + FAQ 섹션 8개 + FAQPage Schema
-  - free-games: "Best Free Browser Games 2026 - No Download" 최적화
-  - top-10-browser-games: "10 Best Free Browser Games 2026 - Adventure" 최적화
-- **skip-link 5앱 추가:** routine-planner, snake-game, todo-list, zodiac-match, root-domain → **61앱(100%)**
-- **소셜 공유 12앱 추가:** maze-runner, number-puzzle, password-generator, pomodoro-timer, pong-game, puzzle-2048, qr-generator, quiz-app, shopping-calc, tax-refund-preview, unit-converter, white-noise → **62앱(100%)**
-- **블로그 4개 신규:** FR HSP 테스트(test-hsp-personne-hypersensible), FR 동물 성격(test-personnalite-animal), JA K-POPポジション(kpop-position-shindan), JA カラー性格(color-personality-shindan)
+- **블로그 404 수정:** 11개 언어 index.html 생성 (ko/ja/zh/hi/ru/es/pt/id/tr/de/fr) → 배포 레포 `swp1234/portal`에 push, 라이브 확인 완료
+- **hreflang 보완:** 메인 블로그 인덱스에 8개 언어 hreflang 추가, EN 인덱스에 10개+x-default 추가
+- **EN 블로그 언어 링크:** pt/id/tr/de/fr 5개 누락 링크 추가
+- **블로그 사이트맵:** 12개 언어 인덱스 URL 추가 (84→96 URLs)
+- **발견:** 배포 레포가 `swp1234/portal` (로컬 서브모듈 `dopabrain-portal`과 별도), 블로그 실제 245개+ (PROGRESS.md 수치 보정)
+
+### 세션53 (2/14) - 고이탈 6앱 인트로 UX + Blog CTR + skip-link/소셜 공유 100%
+
+- 고이탈 6앱 인트로 UX 개선 (animal-personality, biorhythm, kpop-position, hsp-test, future-self, stress-check)
+- Blog CTR 최적화 3페이지 (pyeongsu-calculator, free-games, top-10-browser-games)
+- skip-link 5앱 → **61앱(100%)**, 소셜 공유 12앱 → **62앱(100%)**
+- 블로그 4개 신규 (FR 2, JA 2)
 
 ### 세션52 (2/13) - 고이탈 22앱 UX + 블로그 SEO 4개 + a11y 100%
 
@@ -108,8 +107,8 @@
 
 ## 다음 우선순위
 
-1. **세션53 효과 모니터링** - 6앱 이탈률 변화 + pyeongsu CTR + 4블로그 인덱싱 (2-3일 후 GA4/GSC)
-2. **GSC Discovered→Indexed** - 9앱 크롤 대기
-3. **Google Play** - 상위 게임 APK/AAB
-4. **AdSense 심사 통과 후** - 광고 위치 최적화
-5. **FR/JA 블로그 확장** - EN 56개 대비 FR 17/JA 27, 추가 커버리지 필요
+1. **세션53-54 효과 모니터링** - 6앱 이탈률 + pyeongsu CTR + 11개 언어 블로그 인덱싱 (2-3일 후 GA4/GSC)
+2. **로컬 서브모듈 동기화** - `dopabrain-portal` ↔ `portal` 레포 불일치 해결 (로컬 16파일 vs 배포 245+)
+3. **GSC Discovered→Indexed** - 9앱 크롤 대기
+4. **Google Play** - 상위 게임 APK/AAB
+5. **AdSense 심사 통과 후** - 광고 위치 최적화
