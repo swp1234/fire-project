@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-15 (세션61)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-15 (세션62)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | 63개 (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **345개** (EN 88, JA 43, ZH 37, ES 34, FR 23, KO 20, PT 19, HI 19, RU 19, ID 15, TR 15, DE 13) |
+| 블로그 | **380개** (EN 88, JA 58, ZH 49, ES 41, FR 26, KO 20, PT 22, HI 18, RU 18, ID 14, TR 14, DE 12) |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 17 / 게임 19 / 도구 10 / 웹 2 / 신규 1
 
@@ -30,7 +30,7 @@
 | 구조화 데이터 | JSON-LD 60/61앱 (98%+) |
 | PWA/SW | pwa-install 13앱, SW network-first 28앱+ |
 | 내부 링크 | 8앱 포털백링크+블로그링크, 4블로그→Discovered앱 링크 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 146 URLs |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 405 URLs |
 
 **URL:** `/` 랜딩 → `/portal/` 포털 → `/[앱]/` 개별 앱 → `/portal/blog/{lang}/` 블로그
 
@@ -56,6 +56,12 @@
 ---
 
 ## 세션 기록
+
+### 세션62 (2/15) - Discovered 앱 블로그 +6개 + FR/PT 확장 +8개 (380개)
+- **Discovered 앱 블로그 6개**: JA(color-palette, dev-quiz), ZH(lottery, color-palette, dev-quiz), ES(quiz-desarrollador)
+- **FR +4**: guide-flappy-bird, guide-jeu-serpent, guide-lecture-aura, guide-quiz-developpeur
+- **PT +4**: guia-flappy-bird, guia-jogo-cobra, guia-leitura-aura, guia-quiz-desenvolvedor
+- 블로그 인덱스 대량 업데이트 (JA/ZH/ES/FR/PT), 사이트맵 +14 URLs (총 405)
 
 ### 세션61 (2/15) - 포털 SEO 최적화 + 다국어 블로그 +12개 (345개) + 신규 앱
 - **포털 SEO**: BreadcrumbList schema, FAQPage schema (Featured Snippet 대응), cross-promo.js 추가
@@ -83,23 +89,11 @@
 - Discovered앱 인덱싱 지원: lottery(JA), color-palette(ES) 전용 블로그 생성
 - 사이트맵 +14 URLs (총 114), 블로그 인덱스 JA/ZH/ES 업데이트
 
-### 세션58 (2/15) - 내부 링크 강화 + 다국어 블로그 4개
-- **8앱 포털 백링크+블로그 링크 추가**: minesweeper, blood-type, puzzle-2048, flappy-bird, qr-generator, color-palette, routine-planner, todo-list
-- **4개 고트래픽 블로그→Discovered 앱 링크 추가**: EN free-games, EN casual-games, FR jeux-navigateur, KO free-browser-games
-- **JA casual-games-for-breaks** 신규: 休憩用カジュアルゲーム7選
-- **JA hsp-test-guide** 신규: HSP（繊細さん）テスト ガイド
-- **ZH casual-games-for-breaks** 신규: 工作休息休闲游戏7款
-- **ES juegos-casuales-para-descansos** 신규: 7 Juegos Casuales para Descansos
-- 사이트맵 +4 URLs, 블로그 인덱스 JA/ZH/ES 업데이트
-
-### 세션57 (2/15) - GSC기반 SEO 최적화 + 블로그 4개 신규
-
-### 세션56 (2/15) - 랜딩+포탈 Neon Aurora 리디자인
-
 ### 이전 세션
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 56-61 | 2/15 | Neon Aurora 리디자인, GSC SEO최적화, 내부링크강화, 다국어 블로그 +54개, 포털SEO, aura-reading 앱 |
 | 52-55 | 2/13-14 | UX개선 22앱, EN+32블로그, 소셜공유100%, a11y100% |
 | 46-51 | 2/11-12 | JSON-LD, AdSense, GSC 37→50, SW+PWA, 크로스프로모 |
 | 30-45 | 2/10-11 | i18n 전수, FOUC 60앱, 라이트모드, 게임 버그, 블로그 16개 |
@@ -109,8 +103,8 @@
 
 ## 다음 우선순위
 
-1. **Aura Reading 앱 배포** - 서브모듈 설정 + commit/push
-2. **다국어 블로그 확장** - JA 43→50, ZH 37→45, ES 34→40
-3. **SEO 효과 모니터링** - 내부링크+CTR+FAQ schema 효과 확인 (2/17~)
-4. **GSC Discovered→Indexed** - 9앱 크롤 대기
+1. **다국어 블로그 확장** - HI/RU/DE/ID/TR 등 소규모 언어 확대
+2. **SEO 효과 모니터링** - 내부링크+CTR+FAQ schema 효과 확인 (2/17~)
+3. **GSC Discovered→Indexed** - 9앱 크롤 대기 (블로그 지원 완료)
+4. **주간 리뷰** - 2/15~2/21 데이터로 다음 일요일 실시
 5. **Google Play** - 상위 게임 APK/AAB
