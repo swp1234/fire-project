@@ -4,3 +4,6 @@
 [submodule "projects/biorhythm"]
 	path = projects/biorhythm
 	url = https://github.com/swp1234/biorhythm.git
+[submodule "projects/aura-reading"]
+	path = projects/aura-reading
+	url = https://github.com/swp1234/aura-reading.git
