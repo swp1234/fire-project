@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-15 (세션60)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-15 (세션61)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | 62개 (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **333개** (EN 88, JA 39, ZH 33, ES 30, FR 23, KO 20, PT 19, HI 19, RU 19, ID 15, TR 15, DE 13) |
+| 블로그 | **345개** (EN 88, JA 43, ZH 37, ES 34, FR 23, KO 20, PT 19, HI 19, RU 19, ID 15, TR 15, DE 13) |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 16 / 게임 19 / 도구 10 / 웹 2 / 신규 1
 
@@ -30,7 +30,7 @@
 | 구조화 데이터 | JSON-LD 60/61앱 (98%+) |
 | PWA/SW | pwa-install 13앱, SW network-first 28앱+ |
 | 내부 링크 | 8앱 포털백링크+블로그링크, 4블로그→Discovered앱 링크 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 134 URLs |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 146 URLs |
 
 **URL:** `/` 랜딩 → `/portal/` 포털 → `/[앱]/` 개별 앱 → `/portal/blog/{lang}/` 블로그
 
@@ -56,6 +56,15 @@
 ---
 
 ## 세션 기록
+
+### 세션61 (2/15) - 포털 SEO 최적화 + 다국어 블로그 +12개 (345개) + 신규 앱
+- **포털 SEO**: BreadcrumbList schema, FAQPage schema (Featured Snippet 대응), cross-promo.js 추가
+- **랜딩 SEO**: FAQPage schema + cross-promo.js 추가
+- **JA +4**: flappy-bird-guide, habit-tracker-guide, snake-game-guide, block-puzzle-guide
+- **ZH +4**: routine-planner-guide, todo-list-guide, qr-code-guide, brick-breaker-guide
+- **ES +4**: planificador-rutinas-guia, lista-tareas-guia, generador-qr-guia, rastreador-habitos-guia
+- 사이트맵 +12 URLs (총 146), JA/ZH/ES 블로그 인덱스 업데이트
+- **신규 앱**: aura-reading (Cosmos Persona 스타일 바이럴 성격 테스트)
 
 ### 세션60 (2/15) - 주간 리뷰 + EN 메타 최적화 + 다국어 블로그 20개 (333개)
 - **주간 리뷰 (2/8~2/14)**: 6클릭, 270노출, FR 17%CTR 최고 성과
@@ -84,52 +93,24 @@
 - 사이트맵 +4 URLs, 블로그 인덱스 JA/ZH/ES 업데이트
 
 ### 세션57 (2/15) - GSC기반 SEO 최적화 + 블로그 4개 신규
-- **EN free-games.html** CTR 최적화: title/meta/H1 리라이트 (pos 4.8, 22노출→0클릭 해결)
-- **EN blood-type-personality** SEO 리라이트: title/meta/H1/schema 전면 개편 (pos 53, 32노출)
-- **KO sqm-pyeong-converter-guide** 신규: 제곱미터↔평수 변환 가이드 (GSC 검색어 대응)
-- **KO free-browser-games-2026** 신규: 무료 브라우저 게임 TOP 10 (FR 성공 패턴 복제)
-- **EN quick-casual-games-for-breaks** 신규: 업무 휴식용 캐주얼 게임 7선
-- **FR jeux-puzzle-gratuits-2026** 신규: 무료 퍼즐 게임 8선 (FR 최고 성과 확장)
-- **Blood-type personality** 4개 언어 신규: DE/PT/ID/TR (전 12개 언어 완성)
-- Blood-type 앱 OG/Twitter Card 태그 최적화
-- 사이트맵 +8 URLs, 블로그 인덱스 7개 언어 업데이트
-- **소셜 마케팅 콘텐츠 팩** 생성 (docs/SOCIAL-MEDIA-PACK.md)
-- **자율 운영 가이드** 업데이트 (docs/OPERATIONS.md)
 
 ### 세션56 (2/15) - 랜딩+포탈 Neon Aurora 리디자인
-- **랜딩 페이지** (`dopabrain.com/`) 전면 리디자인: aurora 배경, Syne/Outfit 폰트, 멀티 네온 팔레트
-- **포탈 페이지** (`/portal/`) 동일 테마 적용: CSS 변수 + 배경 + 폰트 + 색상 통일
-- 색상: 모노크롬 퍼플 → 5색 네온 (cyan/purple/pink/lime/amber)
-- Glass morphism 중성화 (퍼플→화이트 알파), 셀렉션 시안, IntersectionObserver 애니메이션
-
-### 세션55 (2/14) - EN 블로그 대량 생성 + 서브모듈 동기화
-- **EN 블로그 +32개** (56→88), 사이트맵 +32 URLs
-
-### 세션54 (2/14) - 블로그 11개 언어 404 수정 + hreflang/사이트맵
-
-### 세션53 (2/14) - 고이탈 6앱 UX + Blog CTR + 소셜공유 100%
-
-### 세션52 (2/13) - 고이탈 22앱 UX + 블로그 4개 + a11y 100%
 
 ### 이전 세션
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
-| 51 | 2/12 | JSON-LD 60앱, 키보드단축키 4게임, SW 16앱 |
-| 50 | 2/12 | 접근성 + PWA 5앱 + 크로스프로모 58앱 + 404 |
-| 48-49 | 2/12 | AdSense 18앱 + GSC 47→50 + GA4 이벤트 |
-| 46-47 | 2/11-12 | 이탈률 개선 + 서브모듈 정리 + GSC 37→47 |
-| 44-45 | 2/11 | 라이트모드 60앱 QA + FOUC 60앱 + i18n 전체 완료 |
-| 37-43 | 2/10-11 | 게임 버그 + i18n 전수 + 포털 + SEO 블로그 16개 |
-| 30-36 | 2/10-11 | FOUC 37앱, i18n 17앱, 크로스프로모 57앱 |
+| 52-55 | 2/13-14 | UX개선 22앱, EN+32블로그, 소셜공유100%, a11y100% |
+| 46-51 | 2/11-12 | JSON-LD, AdSense, GSC 37→50, SW+PWA, 크로스프로모 |
+| 30-45 | 2/10-11 | i18n 전수, FOUC 60앱, 라이트모드, 게임 버그, 블로그 16개 |
 | 1-29 | 2/4~10 | 앱 62개 개발, 포털, 도메인, 인프라 |
 
 ---
 
 ## 다음 우선순위
 
-1. **SEO 효과 모니터링** - 내부링크+CTR 최적화 효과 확인 (2/17~ GSC 데이터)
-2. **다국어 블로그 확장** - JA 39→50, ZH 33→40, ES 30→40 (유틸+성격테스트 우선)
-3. **GSC Discovered→Indexed** - 9앱 내부링크+전용블로그 완료, 크롤 대기
-4. **Google Play** - 상위 게임 APK/AAB
-5. **AdSense 심사 통과 후** - 광고 위치 최적화
+1. **Aura Reading 앱 배포** - 서브모듈 설정 + commit/push
+2. **다국어 블로그 확장** - JA 43→50, ZH 37→45, ES 34→40
+3. **SEO 효과 모니터링** - 내부링크+CTR+FAQ schema 효과 확인 (2/17~)
+4. **GSC Discovered→Indexed** - 9앱 크롤 대기
+5. **Google Play** - 상위 게임 APK/AAB
