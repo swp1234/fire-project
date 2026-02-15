@@ -78,19 +78,19 @@
 
 ## 5. 현재 블로그 현황
 
-> **최신 수치는 PROGRESS.md 참조.** 아래는 Session 59 기준.
+> **최신 수치는 PROGRESS.md 참조.** 아래는 Session 60 기준.
 
 | 언어 | 개수 | 주요 성과 |
 |------|------|----------|
 | EN | 88 | 최다 — free-games, blood-type 등 GSC 노출 |
-| JA | 35 | 2048 GSC 클릭, +게임가이드/HSP/로또/sky-runner |
-| ZH | 29 | HSP, 조디악, 게임 가이드, habit-tracker |
-| ES | 26 | PAS(HSP), Pong, 색상팔레트, serpiente |
+| JA | 39 | 2048 GSC 클릭, +zodiac/QR/routine/todo (Discovered앱 지원) |
+| ZH | 33 | +2048/tarot/color/flappy-bird, HSP, 조디악 |
+| ES | 30 | +MBTI/IMC/color/flappy-bird, PAS, Pong |
+| FR | 23 | **CTR 12-20% 최고 성과** — +MBTI/2048/IMC/couleur |
 | KO | 20 | 제곱미터 평수 검색어 대응 블로그 |
-| FR | 19 | **CTR 12-20% 최고 성과** — jeux-navigateur 3클릭 |
 | HI | 19 | |
 | RU | 19 | |
-| PT | 15 | |
+| PT | 19 | **BRA 신규시장** — +MBTI/IMC/색상/HSP |
 | ID | 15 | |
 | TR | 15 | |
 | DE | 13 | |

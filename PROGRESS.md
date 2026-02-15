@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-15 (세션59)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-15 (세션60)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | 62개 (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **313개** (EN 88, JA 35, ZH 29, ES 26, KO 20, FR 19, HI 19, RU 19, PT 15, ID 15, TR 15, DE 13) |
+| 블로그 | **333개** (EN 88, JA 39, ZH 33, ES 30, FR 23, KO 20, PT 19, HI 19, RU 19, ID 15, TR 15, DE 13) |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 16 / 게임 19 / 도구 10 / 웹 2 / 신규 1
 
@@ -30,7 +30,7 @@
 | 구조화 데이터 | JSON-LD 60/61앱 (98%+) |
 | PWA/SW | pwa-install 13앱, SW network-first 28앱+ |
 | 내부 링크 | 8앱 포털백링크+블로그링크, 4블로그→Discovered앱 링크 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 114 URLs |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 134 URLs |
 
 **URL:** `/` 랜딩 → `/portal/` 포털 → `/[앱]/` 개별 앱 → `/portal/blog/{lang}/` 블로그
 
@@ -42,19 +42,30 @@
 
 ---
 
-## GSC (2/8~2/15)
+## GSC 주간 리뷰 (2/8~2/14)
 
 | 지표 | 값 |
 |------|-----|
-| 주간 클릭 | **6건** (전주 3 → 2배) |
-| 주간 노출 | **170+건** |
-| TOP 페이지 | FR jeux-navigateur(3클릭/12%CTR), FR entrainement-cerebral(1/20%), JA 2048(1/10%) |
-| 기회 | EN free-games(22노출, pos4.8, 0클릭→meta최적화), EN blood-type(32노출, pos53→리라이트) |
-| KO 검색어 | "제곱미터 평수" 다수 → KO 블로그 신규 생성 |
+| 주간 클릭 | **6건** |
+| 주간 노출 | **~270건** |
+| TOP 국가 | FR 4클릭(17%CTR) > JPN 1 > USA 1 |
+| 클릭 페이지 | FR jeux-navigateur(3/12%/pos4.5), FR cerebral(1/20%/6.2), JA 2048(1/10%/7.5), EN valentine(1/25%/7.5) |
+| 기회 | EN blood-type(32노출,pos53), EN mbti-compat(25,pos36), EN free-games(22,pos4.8), EN browser-games(22,pos6.4) |
+| 신규시장 | BRA(PT) 15노출 pos6.7 → PT 확장, KO 제곱미터 인덱싱 대기 |
 
 ---
 
 ## 세션 기록
+
+### 세션60 (2/15) - 주간 리뷰 + EN 메타 최적화 + 다국어 블로그 20개 (333개)
+- **주간 리뷰 (2/8~2/14)**: 6클릭, 270노출, FR 17%CTR 최고 성과
+- **EN 메타 최적화**: browser-games(pos6.4), mbti-compat(pos36) title/desc/OG/schema 리라이트
+- **FR +4**: guide-compatibilite-mbti, guide-strategie-2048, calculateur-imc-guide, test-personnalite-couleur-guide
+- **PT +4**: guia-compatibilidade-mbti, calculadora-imc-guia, teste-personalidade-cor-guia, teste-pas-pessoa-altamente-sensivel
+- **JA +4**: zodiac-compatibility-guide, qr-code-guide, routine-planner-guide, todo-list-guide (Discovered앱 3개 지원)
+- **ZH +4**: 2048-strategy-guide, tarot-reading-guide, color-personality-guide, flappy-bird-guide
+- **ES +4**: guia-compatibilidad-mbti, calculadora-imc-guia, test-personalidad-color-guia, flappy-bird-guia
+- 사이트맵 +20 URLs (총 134), JA/ZH/ES/FR/PT 블로그 인덱스 업데이트
 
 ### 세션59 (2/15) - 다국어 블로그 대량 확장 (JA/ZH/ES +14개, 313개)
 - **JA +5**: word-guess, brick-breaker, pong, lottery-number, sky-runner-game-guide
@@ -118,7 +129,7 @@
 ## 다음 우선순위
 
 1. **SEO 효과 모니터링** - 내부링크+CTR 최적화 효과 확인 (2/17~ GSC 데이터)
-2. **다국어 블로그 확장** - JA 34→50, ZH 28→40, ES 25→40 (유틸+성격테스트 우선)
+2. **다국어 블로그 확장** - JA 39→50, ZH 33→40, ES 30→40 (유틸+성격테스트 우선)
 3. **GSC Discovered→Indexed** - 9앱 내부링크+전용블로그 완료, 크롤 대기
 4. **Google Play** - 상위 게임 APK/AAB
 5. **AdSense 심사 통과 후** - 광고 위치 최적화
