@@ -7,3 +7,15 @@
 [submodule "projects/aura-reading"]
 	path = projects/aura-reading
 	url = https://github.com/swp1234/aura-reading.git
+[submodule "projects/mental-age"]
+	path = projects/mental-age
+	url = https://github.com/swp1234/mental-age.git
+[submodule "projects/seollal-fortune"]
+	path = projects/seollal-fortune
+	url = https://github.com/swp1234/seollal-fortune.git
+[submodule "projects/sebatdon-calc"]
+	path = projects/sebatdon-calc
+	url = https://github.com/swp1234/sebatdon-calc.git
+[submodule "projects/seollal-greetings"]
+	path = projects/seollal-greetings
+	url = https://github.com/swp1234/seollal-greetings.git
