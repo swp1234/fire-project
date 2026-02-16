@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-16 (세션63)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-16 (세션64)
 
 ---
 
@@ -30,9 +30,9 @@
 | 구조화 데이터 | JSON-LD 60/61앱 (98%+) |
 | PWA/SW | pwa-install 13앱, SW network-first 28앱+ |
 | 내부 링크 | 8앱 포털백링크+블로그링크, 4블로그→Discovered앱 링크 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 429 URLs |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 431 URLs |
 
-**URL:** `/` 랜딩 → `/portal/` 포털 → `/[앱]/` 개별 앱 → `/portal/blog/{lang}/` 블로그
+**URL:** `/` 랜딩 → `/portal/` 포털 → `/[앱]/` 개별 앱 → `/portal/blog/{lang}/` 블로그 → `/portal/games/` 게임 허브 → `/portal/mbti/` MBTI 궁합
 
 ---
 
@@ -56,6 +56,15 @@
 ---
 
 ## 세션 기록
+
+### 세션64 (2/16) - 트래픽 다변화: Games Hub + MBTI Compatibility Matrix
+- **새 시도 (블로그 외 콘텐츠)**: 카테고리 랜딩페이지 + 인터랙티브 도구
+- **Games Hub** (`/portal/games/`): 19개 게임 카탈로그, 카테고리 필터, FAQ Schema, CollectionPage+ItemList Schema
+  - 타겟 키워드: "free browser games", "online games no download", "brain games free"
+- **MBTI Compatibility Matrix** (`/portal/mbti/`): 16×16 인터랙티브 궁합 차트, 256개 조합 상세 데이터
+  - 타겟 키워드: "MBTI compatibility chart", "INFJ ENFP compatibility", "personality type compatibility"
+  - 모달 클릭 → 궁합 상세 (점수, 강점, 도전), GA4 이벤트 추적
+- Neon Aurora 디자인, 다크/라이트 모드, 반응형, Schema.org, 사이트맵 +2 URLs (총 431)
 
 ### 세션63 (2/16) - DE/TR/ID 블로그 +12개 + EN/FR CTR 최적화 (392개)
 - **DE +4**: gehirntraining-spiele-kostenlos, persoenlichkeitstest-tier, stressabbau-digitale-entgiftung, browser-spiele-ohne-download
@@ -113,8 +122,9 @@
 
 ## 다음 우선순위
 
-1. **SEO 효과 모니터링** - CTR 최적화(EN/FR) 효과 확인 (2/18~)
-2. **GSC Discovered→Indexed** - 9앱 크롤 대기 (블로그 지원 완료)
-3. **주간 리뷰** - 2/15~2/21 데이터로 2/22(일) 실시
-4. **BRA 시장 공략** - PT 블로그 26개, pos6.7 → 클릭 전환 모니터링
-5. **Google Play** - 상위 게임 APK/AAB
+1. **랜딩페이지 효과 모니터링** - Games Hub, MBTI Matrix 노출/클릭 추적 (2/18~)
+2. **Programmatic SEO** - MBTI 16타입 개별 페이지, Zodiac 궁합 매트릭스 등 확장
+3. **외부 백링크** - 도구 디렉토리 등록 (ProductHunt, AlternativeTo 등)
+4. **주간 리뷰** - 2/15~2/21 데이터로 2/22(일) 실시
+5. **GSC Discovered→Indexed** - 9앱 크롤 대기
+6. **Google Play** - 상위 게임 APK/AAB
