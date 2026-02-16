@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-17 (세션66)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-17 (세션67)
 
 ---
 
@@ -24,15 +24,15 @@
 | 수익화 | AdSense ca-pub-3600813755953882, 심사 중(2/8) |
 | 분석 | GA4 523606964 + GSC `https://dopabrain.com/` (MCP 연동) |
 | 크로스프로모 | 59앱, 라이트모드+a11y |
-| i18n/FOUC/라이트모드 | **전앱 완료** (포털+랜딩 i18n 전면 수정 완료) |
+| i18n/FOUC/라이트모드 | **전앱+허브 완료** (포털+랜딩+허브4페이지 i18n 전면 수정) |
 | 접근성 | skip-link 61앱, reduced-motion 61앱, 키보드 4게임 **(100%)** |
 | 소셜 공유 | **62앱 (100%)** |
 | 구조화 데이터 | JSON-LD 60/61앱 (98%+) |
 | PWA/SW | pwa-install 13앱, SW network-first 28앱+ |
 | 내부 링크 | 8앱 포털백링크+블로그링크, 4블로그→Discovered앱 링크 |
 | 카테고리 허브 | Games, Tests, Tools, MBTI (4개 랜딩페이지) |
-| MBTI Programmatic | 4/16 타입 페이지 완료 (Analysts: INTJ, INTP, ENTJ, ENTP) |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 437 URLs, .gitattributes 전체 |
+| MBTI Programmatic | **16/16 타입 페이지 완료** + 사이트맵 반영 (453 URLs) |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 453 URLs, .gitattributes 전체 |
 
 **URL:** `/` 랜딩 → `/portal/` 포털 → `/[앱]/` 개별 앱 → `/portal/blog/{lang}/` 블로그 → `/portal/games/` 게임 허브 → `/portal/mbti/` MBTI 궁합 → `/portal/mbti/{type}.html` 타입별 페이지
 
@@ -58,11 +58,14 @@
 
 ## 세션 기록
 
+### 세션67 (2/17) - MBTI 16타입 완성 + 허브 i18n 완료
+- **MBTI Programmatic SEO 완성**: 나머지 12타입 (Diplomats+Sentinels+Explorers) 커밋/푸시 + 사이트맵 16 URL 추가 (총 453)
+- **허브 4페이지 i18n 완전 적용**: games/tests/tools/mbti → i18n.js+app-data.js 로드, data-i18n 160+요소, APP_DATA 앱이름 동적 렌더링
+- **12개 locale 파일**: hub/hub_games/hub_tests/hub_tools/hub_mbti 5개 namespace +35키/namespace 추가
+- **i18n.js 절대경로 수정**: `js/locales/` → `/portal/js/locales/` (서브디렉토리 페이지 호환)
+
 ### 세션66 (2/17) - i18n 전면 수정 + MBTI Programmatic SEO 착수
-- **CRLF 방지**: 65개 프로젝트 `.gitattributes` (`* text=auto eol=lf`) 일괄 추가 + commit/push
-- **포털 i18n 전면 수정**: 태그라인, 브랜드스토리, 정렬버튼 3개, 카테고리필터 8개, 설날배너 8요소, 푸터링크 4개, 블로그 no-results 12언어 → 12개 locale 파일 +32키/파일
-- **랜딩페이지 i18n**: pick 카드 6개 + 사이트디렉토리 62개 링크 → APP_DATA 기반 동적 렌더링, 언어 변경 시 자동 갱신
-- **MBTI Programmatic SEO**: Analyst 4타입 개별 페이지 생성 (intj, intp, entj, entp) — SEO 최적화, JSON-LD, FAQ, 호환성 차트
+- CRLF 방지 65개 프로젝트, 포털+랜딩 i18n 전면 수정, MBTI Analyst 4타입 페이지
 
 ### 세션65 (2/16) - 설날 특화 앱 3개 + Mental Age Test (67개 프로젝트)
 - 설날 운세(`/seollal-fortune/`), 세뱃돈 계산기(`/sebatdon-calc/`), 설날 인사말(`/seollal-greetings/`), 정신 나이 테스트(`/mental-age/`)
@@ -91,8 +94,7 @@
 
 ## 다음 우선순위
 
-1. **MBTI Programmatic SEO 완성** - 나머지 12타입 페이지 (Diplomats, Sentinels, Explorers) + 사이트맵 반영
-2. **허브 페이지 i18n** - games/tests/tools/mbti 허브 페이지 다국어 미적용 (영문 고정)
-3. **주간 리뷰** - 2/15~2/21 데이터로 2/22(일) 실시
-4. **신규 앱 인덱싱** - mental-age, seollal-fortune, sebatdon-calc, seollal-greetings + Discovered 9앱
-5. **Google Play** - 상위 게임 APK/AAB
+1. **주간 리뷰** - 2/15~2/21 데이터로 2/22(일) 실시
+2. **신규 앱 인덱싱** - mental-age, seollal-fortune, sebatdon-calc, seollal-greetings + Discovered 9앱
+3. **내부 링크 강화** - Discovered/미인덱싱 앱들에 블로그→앱 링크 추가
+4. **Google Play** - 상위 게임 APK/AAB
