@@ -30,7 +30,8 @@
 | 구조화 데이터 | JSON-LD 60/61앱 (98%+) |
 | PWA/SW | pwa-install 13앱, SW network-first 28앱+ |
 | 내부 링크 | 8앱 포털백링크+블로그링크, 4블로그→Discovered앱 링크 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 431 URLs |
+| 카테고리 허브 | Games, Tests, Tools, MBTI (4개 랜딩페이지) |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 433 URLs |
 
 **URL:** `/` 랜딩 → `/portal/` 포털 → `/[앱]/` 개별 앱 → `/portal/blog/{lang}/` 블로그 → `/portal/games/` 게임 허브 → `/portal/mbti/` MBTI 궁합
 
@@ -57,14 +58,15 @@
 
 ## 세션 기록
 
-### 세션64 (2/16) - 트래픽 다변화: Games Hub + MBTI Compatibility Matrix
-- **새 시도 (블로그 외 콘텐츠)**: 카테고리 랜딩페이지 + 인터랙티브 도구
-- **Games Hub** (`/portal/games/`): 19개 게임 카탈로그, 카테고리 필터, FAQ Schema, CollectionPage+ItemList Schema
-  - 타겟 키워드: "free browser games", "online games no download", "brain games free"
-- **MBTI Compatibility Matrix** (`/portal/mbti/`): 16×16 인터랙티브 궁합 차트, 256개 조합 상세 데이터
-  - 타겟 키워드: "MBTI compatibility chart", "INFJ ENFP compatibility", "personality type compatibility"
-  - 모달 클릭 → 궁합 상세 (점수, 강점, 도전), GA4 이벤트 추적
-- Neon Aurora 디자인, 다크/라이트 모드, 반응형, Schema.org, 사이트맵 +2 URLs (총 431)
+### 세션64 (2/16) - 트래픽 다변화: 4개 카테고리 허브 + MBTI 인터랙티브 매트릭스
+- **새 시도 (블로그 외 콘텐츠)**: 카테고리 랜딩페이지 4개 + 인터랙티브 도구
+- **Games Hub** (`/portal/games/`): 19개 게임, 카테고리 필터, CollectionPage+ItemList+FAQ Schema
+- **Tests Hub** (`/portal/tests/`): 17개 성격 테스트, Psychology/MBTI/Fortune/Fun 필터
+- **Tools Hub** (`/portal/tools/`): 15+ 유틸리티, Calculator/Timer/Generator/Wellness 필터
+- **MBTI Compatibility Matrix** (`/portal/mbti/`): 16×16 인터랙티브 차트, 256개 조합 데이터, 모달 상세
+- **포털 내비게이션**: 메인 포털 하단에 4개 허브 카드 추가, 푸터 링크 확장
+- 타겟: "free browser games", "personality tests online", "free online tools", "MBTI compatibility chart"
+- 사이트맵 +4 URLs (총 433)
 
 ### 세션63 (2/16) - DE/TR/ID 블로그 +12개 + EN/FR CTR 최적화 (392개)
 - **DE +4**: gehirntraining-spiele-kostenlos, persoenlichkeitstest-tier, stressabbau-digitale-entgiftung, browser-spiele-ohne-download
