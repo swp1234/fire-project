@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-15 (세션62)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-16 (세션63)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | 63개 (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **380개** (EN 88, JA 58, ZH 49, ES 41, FR 26, KO 20, PT 22, HI 18, RU 18, ID 14, TR 14, DE 12) |
+| 블로그 | **404개** (EN 88, JA 58, ZH 49, ES 41, FR 26, PT 26, HI 22, RU 22, KO 20, ID 18, TR 18, DE 16) |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 17 / 게임 19 / 도구 10 / 웹 2 / 신규 1
 
@@ -30,7 +30,7 @@
 | 구조화 데이터 | JSON-LD 60/61앱 (98%+) |
 | PWA/SW | pwa-install 13앱, SW network-first 28앱+ |
 | 내부 링크 | 8앱 포털백링크+블로그링크, 4블로그→Discovered앱 링크 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 405 URLs |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 429 URLs |
 
 **URL:** `/` 랜딩 → `/portal/` 포털 → `/[앱]/` 개별 앱 → `/portal/blog/{lang}/` 블로그
 
@@ -56,6 +56,16 @@
 ---
 
 ## 세션 기록
+
+### 세션63 (2/16) - DE/TR/ID 블로그 +12개 + EN/FR CTR 최적화 (392개)
+- **DE +4**: gehirntraining-spiele-kostenlos, persoenlichkeitstest-tier, stressabbau-digitale-entgiftung, browser-spiele-ohne-download
+- **TR +4**: ucretsiz-tarayici-oyunlari, kisilik-testi-hayvan, stres-azaltma-dijital-detoks, beyin-egzersizi-oyunlari
+- **ID +4**: game-browser-gratis-terbaik, tes-kepribadian-hewan, tips-mengurangi-stres-digital-detox, latihan-otak-game-asah-otak
+- **CTR 최적화**: EN free-games(pos4.8→title/meta rewrite), EN blood-type(pos53→title/meta), FR jeux-navigateur(pos5.1→title/meta)
+- **HI +4**: free-browser-games, personality-test-animal, stress-relief-digital-detox, brain-training-games-free
+- **RU +4**: besplatnye-brauzernye-igry, test-lichnosti-zhivotnoe, snyatie-stressa-detoks, besplatnye-igry-mozga
+- **PT +4**: jogos-navegador-gratis, teste-personalidade-animal, como-reduzir-estresse-detox-digital, jogos-treino-cerebral
+- 사이트맵 +24 URLs (총 429), DE/TR/ID/HI/RU/PT 블로그 인덱스 업데이트
 
 ### 세션62 (2/15) - Discovered 앱 블로그 +6개 + FR/PT 확장 +8개 (380개)
 - **Discovered 앱 블로그 6개**: JA(color-palette, dev-quiz), ZH(lottery, color-palette, dev-quiz), ES(quiz-desarrollador)
@@ -103,8 +113,8 @@
 
 ## 다음 우선순위
 
-1. **다국어 블로그 확장** - HI/RU/DE/ID/TR 등 소규모 언어 확대
-2. **SEO 효과 모니터링** - 내부링크+CTR+FAQ schema 효과 확인 (2/17~)
-3. **GSC Discovered→Indexed** - 9앱 크롤 대기 (블로그 지원 완료)
-4. **주간 리뷰** - 2/15~2/21 데이터로 다음 일요일 실시
+1. **SEO 효과 모니터링** - CTR 최적화(EN/FR) 효과 확인 (2/18~)
+2. **GSC Discovered→Indexed** - 9앱 크롤 대기 (블로그 지원 완료)
+3. **주간 리뷰** - 2/15~2/21 데이터로 2/22(일) 실시
+4. **BRA 시장 공략** - PT 블로그 26개, pos6.7 → 클릭 전환 모니터링
 5. **Google Play** - 상위 게임 APK/AAB
