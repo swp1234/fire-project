@@ -19,3 +19,6 @@
 [submodule "projects/seollal-greetings"]
 	path = projects/seollal-greetings
 	url = https://github.com/swp1234/seollal-greetings.git
+[submodule "projects/road-shooter"]
+	path = projects/road-shooter
+	url = https://github.com/swp1234/road-shooter.git
