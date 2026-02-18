@@ -22,3 +22,6 @@
 [submodule "projects/road-shooter"]
 	path = projects/road-shooter
 	url = https://github.com/swp1234/road-shooter.git
+[submodule "projects/portal"]
+	path = projects/portal
+	url = https://github.com/swp1234/portal.git
