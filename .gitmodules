@@ -120,7 +120,7 @@
 	url = https://github.com/swp1234/quiz-app.git
 [submodule "projects/root-domain"]
 	path = projects/root-domain
-	url = https://github.com/swp1234/root-domain.git
+	url = https://github.com/swp1234/swp1234.github.io.git
 [submodule "projects/routine-planner"]
 	path = projects/routine-planner
 	url = https://github.com/swp1234/routine-planner.git
