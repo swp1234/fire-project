@@ -25,3 +25,141 @@
 [submodule "projects/portal"]
 	path = projects/portal
 	url = https://github.com/swp1234/portal.git
+[submodule "projects/affirmation"]
+	path = projects/affirmation
+	url = https://github.com/swp1234/affirmation.git
+[submodule "projects/animal-personality"]
+	path = projects/animal-personality
+	url = https://github.com/swp1234/animal-personality.git
+[submodule "projects/blood-type"]
+	path = projects/blood-type
+	url = https://github.com/swp1234/blood-type.git
+[submodule "projects/brick-breaker"]
+	path = projects/brick-breaker
+	url = https://github.com/swp1234/brick-breaker.git
+[submodule "projects/color-memory"]
+	path = projects/color-memory
+	url = https://github.com/swp1234/color-memory.git
+[submodule "projects/color-personality"]
+	path = projects/color-personality
+	url = https://github.com/swp1234/color-personality.git
+[submodule "projects/dday-counter"]
+	path = projects/dday-counter
+	url = https://github.com/swp1234/dday-counter.git
+[submodule "projects/detox-timer"]
+	path = projects/detox-timer
+	url = https://github.com/swp1234/detox-timer.git
+[submodule "projects/dev-quiz"]
+	path = projects/dev-quiz
+	url = https://github.com/swp1234/dev-quiz.git
+[submodule "projects/dream-fortune"]
+	path = projects/dream-fortune
+	url = https://github.com/swp1234/dream-fortune.git
+[submodule "projects/emoji-merge"]
+	path = projects/emoji-merge
+	url = https://github.com/swp1234/emoji-merge.git
+[submodule "projects/emotion-temp"]
+	path = projects/emotion-temp
+	url = https://github.com/swp1234/emotion-temp.git
+[submodule "projects/flappy-bird"]
+	path = projects/flappy-bird
+	url = https://github.com/swp1234/flappy-bird.git
+[submodule "projects/future-self"]
+	path = projects/future-self
+	url = https://github.com/swp1234/future-self.git
+[submodule "projects/hsp-test"]
+	path = projects/hsp-test
+	url = https://github.com/swp1234/hsp-test.git
+[submodule "projects/idle-clicker"]
+	path = projects/idle-clicker
+	url = https://github.com/swp1234/idle-clicker.git
+[submodule "projects/iq-test"]
+	path = projects/iq-test
+	url = https://github.com/swp1234/iq-test.git
+[submodule "projects/kpop-position"]
+	path = projects/kpop-position
+	url = https://github.com/swp1234/kpop-position.git
+[submodule "projects/lottery"]
+	path = projects/lottery
+	url = https://github.com/swp1234/lottery.git
+[submodule "projects/love-frequency"]
+	path = projects/love-frequency
+	url = https://github.com/swp1234/love-frequency.git
+[submodule "projects/mbti-love"]
+	path = projects/mbti-love
+	url = https://github.com/swp1234/mbti-love.git
+[submodule "projects/mbti-tips"]
+	path = projects/mbti-tips
+	url = https://github.com/swp1234/mbti-tips.git
+[submodule "projects/memory-card"]
+	path = projects/memory-card
+	url = https://github.com/swp1234/memory-card.git
+[submodule "projects/minesweeper"]
+	path = projects/minesweeper
+	url = https://github.com/swp1234/minesweeper.git
+[submodule "projects/numerology"]
+	path = projects/numerology
+	url = https://github.com/swp1234/numerology.git
+[submodule "projects/password-generator"]
+	path = projects/password-generator
+	url = https://github.com/swp1234/password-generator.git
+[submodule "projects/past-life"]
+	path = projects/past-life
+	url = https://github.com/swp1234/past-life.git
+[submodule "projects/pong-game"]
+	path = projects/pong-game
+	url = https://github.com/swp1234/pong-game.git
+[submodule "projects/puzzle-2048"]
+	path = projects/puzzle-2048
+	url = https://github.com/swp1234/puzzle-2048.git
+[submodule "projects/qr-generator"]
+	path = projects/qr-generator
+	url = https://github.com/swp1234/qr-generator.git
+[submodule "projects/quiz-app"]
+	path = projects/quiz-app
+	url = https://github.com/swp1234/quiz-app.git
+[submodule "projects/root-domain"]
+	path = projects/root-domain
+	url = https://github.com/swp1234/root-domain.git
+[submodule "projects/routine-planner"]
+	path = projects/routine-planner
+	url = https://github.com/swp1234/routine-planner.git
+[submodule "projects/shopping-calc"]
+	path = projects/shopping-calc
+	url = https://github.com/swp1234/shopping-calc.git
+[submodule "projects/sky-runner"]
+	path = projects/sky-runner
+	url = https://github.com/swp1234/sky-runner.git
+[submodule "projects/stack-tower"]
+	path = projects/stack-tower
+	url = https://github.com/swp1234/stack-tower.git
+[submodule "projects/stress-check"]
+	path = projects/stress-check
+	url = https://github.com/swp1234/stress-check.git
+[submodule "projects/tax-refund-preview"]
+	path = projects/tax-refund-preview
+	url = https://github.com/swp1234/tax-refund-preview.git
+[submodule "projects/todo-list"]
+	path = projects/todo-list
+	url = https://github.com/swp1234/todo-list.git
+[submodule "projects/unit-converter"]
+	path = projects/unit-converter
+	url = https://github.com/swp1234/unit-converter.git
+[submodule "projects/valentine"]
+	path = projects/valentine
+	url = https://github.com/swp1234/valentine.git
+[submodule "projects/white-noise"]
+	path = projects/white-noise
+	url = https://github.com/swp1234/white-noise.git
+[submodule "projects/word-guess"]
+	path = projects/word-guess
+	url = https://github.com/swp1234/word-guess.git
+[submodule "projects/word-scramble"]
+	path = projects/word-scramble
+	url = https://github.com/swp1234/word-scramble.git
+[submodule "projects/zigzag-runner"]
+	path = projects/zigzag-runner
+	url = https://github.com/swp1234/zigzag-runner.git
+[submodule "projects/zodiac-match"]
+	path = projects/zodiac-match
+	url = https://github.com/swp1234/zodiac-match.git
