@@ -50,5 +50,9 @@
   },
   "recommendations": {
     "title": "You might also like"
+  },
+  "nav": {
+    "relatedArticles": "📖 Related Articles",
+    "backHome": "← DopaBrain Home"
   }
 }

@@ -50,6 +50,8 @@
     "back": "DopaBrain Startseite"
   },
   "share": {
-    "copied": "Kopiert!"
+    "copied": "Kopiert!",
+    "twitterText": "Mein BMI ist {bmi}! Kostenlos auf DopaBrain messen",
+    "linkCopied": "Link kopiert!"
   }
 }

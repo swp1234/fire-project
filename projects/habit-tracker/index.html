@@ -45,6 +45,12 @@
     </script>
 
     <title data-i18n="app.title">Habit Tracker</title>
+    <style>
+        .social-share-section { text-align: center; margin: 16px 0 24px; padding: 0 16px; }
+        .share-btn { background: var(--primary-color, #7c3aed); color: white; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; margin: 4px; transition: opacity 0.2s, transform 0.2s; }
+        .share-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+        .twitter-btn { background: #1da1f2; }
+    </style>
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="icon-192.svg">
     <link rel="apple-touch-icon" href="icon-192.svg">
@@ -186,7 +192,7 @@
                 <h2 data-i18n="heatmap.title">Annual Heatmap</h2>
                 <div class="heatmap-controls">
                     <select id="heatmap-habit" class="select">
-                        <option value="">All Habits</option>
+                        <option value="" data-i18n="habit.allHabits">All Habits</option>
                     </select>
                     <button id="share-btn" class="btn btn-secondary" data-i18n="heatmap.share">📸 Share</button>
                 </div>
@@ -195,6 +201,16 @@
                 </div>
             </div>
         </section>
+
+        <!-- Social Share Section -->
+        <div class="social-share-section">
+            <button class="share-btn" onclick="shareApp()">
+                <span>🔗</span> <span data-i18n="share.button">Share</span>
+            </button>
+            <button class="share-btn twitter-btn" onclick="shareTwitter()">
+                <span>𝕏</span> <span>Twitter</span>
+            </button>
+        </div>
     </div>
 
     <!-- Add/Edit Habit Modal -->
@@ -207,7 +223,7 @@
             <form id="habit-form">
                 <div class="form-group">
                     <label data-i18n="form.name">Habit Name</label>
-                    <input type="text" id="habit-name" required placeholder="e.g., Morning Exercise">
+                    <input type="text" id="habit-name" required data-i18n-placeholder="habit.placeholder" placeholder="e.g., Morning Exercise">
                 </div>
                 <div class="form-group">
                     <label data-i18n="form.icon">Icon</label>
@@ -288,6 +304,25 @@
     <!-- i18n and App Scripts -->
     <script src="js/i18n.js"></script>
     <script src="js/app.js"></script>
+
+    <script>
+        function shareApp() {
+            const url = window.location.href;
+            const title = document.title;
+            if (navigator.share) {
+                navigator.share({ title, url }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(url).then(() => {
+                    typeof showToast === 'function' ? showToast('링크 복사됨!') : alert('링크가 복사되었습니다!');
+                }).catch(() => { prompt('Copy:', url); });
+            }
+        }
+        function shareTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(document.title + ' - DopaBrain');
+            window.open('https://twitter.com/intent/tweet?url=' + url + '&text=' + text, '_blank');
+        }
+    </script>
     <script src="/portal/js/cross-promo.js" defer></script>
 </body>
 </html>

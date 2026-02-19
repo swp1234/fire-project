@@ -50,6 +50,8 @@
     "back": "DopaBrain Ana Sayfa"
   },
   "share": {
-    "copied": "Kopyalandı!"
+    "copied": "Kopyalandı!",
+    "twitterText": "BMI'm {bmi}! DopaBrain'de ücretsiz ölçün",
+    "linkCopied": "Bağlantı kopyalandı!"
   }
 }

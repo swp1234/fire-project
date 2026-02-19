@@ -50,6 +50,8 @@
     "back": "DopaBrain होम"
   },
   "share": {
-    "copied": "कॉपी किया गया!"
+    "copied": "कॉपी किया गया!",
+    "twitterText": "मेरा BMI {bmi} है! DopaBrain पर मुफ्त में मापें",
+    "linkCopied": "लिंक कॉपी किया गया!"
   }
 }

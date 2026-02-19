@@ -50,6 +50,8 @@
     "back": "DopaBrain主页"
   },
   "share": {
-    "copied": "已复制！"
+    "copied": "已复制！",
+    "twitterText": "我的BMI是{bmi}！在DopaBrain免费测量",
+    "linkCopied": "链接已复制！"
   }
 }

@@ -50,5 +50,9 @@
   },
   "recommendations": {
     "title": "이것도 해보세요"
+  },
+  "nav": {
+    "relatedArticles": "📖 관련 글",
+    "backHome": "← DopaBrain 홈"
   }
 }

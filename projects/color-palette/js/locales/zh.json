@@ -50,5 +50,9 @@
   },
   "recommendations": {
     "title": "你也可能喜欢"
+  },
+  "nav": {
+    "relatedArticles": "📖 相关文章",
+    "backHome": "← DopaBrain 首页"
   }
 }

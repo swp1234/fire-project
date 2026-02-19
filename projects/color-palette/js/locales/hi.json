@@ -50,5 +50,9 @@
   },
   "recommendations": {
     "title": "आपको भी पसंद आ सकता है"
+  },
+  "nav": {
+    "relatedArticles": "📖 संबंधित लेख",
+    "backHome": "← DopaBrain होम"
   }
 }

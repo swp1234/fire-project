@@ -50,5 +50,9 @@
   },
   "recommendations": {
     "title": "Bunları da beğenebilirsiniz"
+  },
+  "nav": {
+    "relatedArticles": "📖 İlgili makaleler",
+    "backHome": "← DopaBrain Ana Sayfa"
   }
 }

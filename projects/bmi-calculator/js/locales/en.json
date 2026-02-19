@@ -50,6 +50,8 @@
     "back": "DopaBrain Home"
   },
   "share": {
-    "copied": "Copied!"
+    "copied": "Copied!",
+    "twitterText": "My BMI is {bmi}! Measure yours free at DopaBrain",
+    "linkCopied": "Link copied!"
   }
 }

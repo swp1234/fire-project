@@ -50,6 +50,8 @@
     "back": "Главная DopaBrain"
   },
   "share": {
-    "copied": "Скопировано!"
+    "copied": "Скопировано!",
+    "twitterText": "Мой ИМТ: {bmi}! Измерьте свой бесплатно на DopaBrain",
+    "linkCopied": "Ссылка скопирована!"
   }
 }

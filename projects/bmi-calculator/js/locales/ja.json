@@ -50,6 +50,8 @@
     "back": "DopaBrain ホーム"
   },
   "share": {
-    "copied": "コピーしました！"
+    "copied": "コピーしました！",
+    "twitterText": "私のBMIは{bmi}です！DopaBrainで無料計測",
+    "linkCopied": "リンクをコピーしました！"
   }
 }

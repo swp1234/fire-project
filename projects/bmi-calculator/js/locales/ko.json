@@ -50,6 +50,8 @@
     "back": "DopaBrain 홈"
   },
   "share": {
-    "copied": "복사되었습니다!"
+    "copied": "복사되었습니다!",
+    "twitterText": "내 BMI는 {bmi}입니다! DopaBrain에서 무료로 측정하세요",
+    "linkCopied": "링크가 복사되었습니다!"
   }
 }

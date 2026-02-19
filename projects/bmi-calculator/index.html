@@ -225,8 +225,9 @@
                 </div>
 
                 <!-- 결과 공유 -->
-                <div class="share-section">
-                    <button class="btn btn-secondary" id="share-btn" data-i18n="bmi.shareBtn">📤 결과 공유</button>
+                <div class="share-section" style="text-align:center;margin:16px 0;">
+                    <button class="btn btn-secondary" id="share-btn" data-i18n="bmi.shareBtn" onclick="shareApp()">📤 결과 공유</button>
+                    <button class="btn" onclick="shareTwitter()" style="background:#1da1f2;color:white;border:none;padding:10px 18px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;margin:4px;">𝕏 Twitter</button>
                 </div>
             </div>
 
@@ -285,6 +286,38 @@
 
     <script src="js/i18n.js"></script>
     <script src="js/app.js"></script>
+
+    <script>
+        function shareApp() {
+            const url = window.location.href;
+            const bmiVal = document.getElementById('bmi-value') ? document.getElementById('bmi-value').textContent : '';
+            const statusText = document.getElementById('status-text') ? document.getElementById('status-text').textContent : '';
+            const shareTitle = bmiVal ? 'BMI ' + bmiVal + ' - ' + statusText + ' | DopaBrain BMI 계산기' : document.title;
+            if (navigator.share) {
+                navigator.share({ title: shareTitle, url }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(url).then(() => {
+                    typeof showToast === 'function' ? showToast('링크 복사됨!') : alert(window.i18n && i18n.t ? (i18n.t('share.linkCopied') || '링크가 복사되었습니다!') : '링크가 복사되었습니다!');
+                }).catch(() => { prompt('Copy:', url); });
+            }
+        }
+        function shareTwitter() {
+            const bmiVal = document.getElementById('bmi-value') ? document.getElementById('bmi-value').textContent : '';
+            const statusText = document.getElementById('status-text') ? document.getElementById('status-text').textContent : '';
+            let tweetText;
+            if (bmiVal && window.i18n && i18n.t) {
+                const template = i18n.t('share.twitterText');
+                tweetText = template && template !== 'share.twitterText'
+                    ? template.replace('{bmi}', bmiVal)
+                    : 'My BMI is ' + bmiVal + ' (' + statusText + ') - DopaBrain BMI Calculator';
+            } else {
+                tweetText = document.title + ' - DopaBrain';
+            }
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(tweetText);
+            window.open('https://twitter.com/intent/tweet?url=' + url + '&text=' + text, '_blank');
+        }
+    </script>
 
     <!-- Service Worker 등록 -->
     <script>

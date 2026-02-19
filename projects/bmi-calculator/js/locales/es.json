@@ -50,6 +50,8 @@
     "back": "Inicio de DopaBrain"
   },
   "share": {
-    "copied": "¡Copiado!"
+    "copied": "¡Copiado!",
+    "twitterText": "Mi IMC es {bmi}! Mídelo gratis en DopaBrain",
+    "linkCopied": "¡Enlace copiado!"
   }
 }
