@@ -244,7 +244,7 @@
 
         <!-- Bottom Ad Banner -->
         <div class="ad-banner bottom-ad"></div>
-            <div class="rec-title">이것도 해보세요</div>
+            <div class="rec-title" data-i18n="rec.title">이것도 해보세요</div>
             <div class="rec-grid">
                 <a href="https://dopabrain.com/word-scramble/" class="rec-card" target="_blank">
                     <span class="rec-icon">🔤</span>
@@ -297,5 +297,12 @@
     <script src="js/word-data.js" defer></script>
     <script src="js/app.js" defer></script>
     <script src="/portal/js/cross-promo.js" defer></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+</script>
 </body>
 </html>
