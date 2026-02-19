@@ -28,7 +28,9 @@
     "newReading": "Yeni Okuyuş",
     "limitReached": "Günlük ücretsiz okuyuşunuzu kullandınız. Başka bir okuyuş için reklam izlemek ister misiniz?",
     "copiedToClipboard": "Panoya kopyalandı!",
-    "summaryTemplate": "Geçmiş: {past}\n\nŞimdi: {present}\n\nGelecek: {future}\n\nGünün mistik mesajlarla dolu. Her kartın anlamını derin düşün."
+    "summaryTemplate": "Geçmiş: {past}\n\nŞimdi: {present}\n\nGelecek: {future}\n\nGünün mistik mesajlarla dolu. Her kartın anlamını derin düşün.",
+    "reversed": "(Ters)",
+    "upright": "(Düz)"
   },
   "category": {
     "title": "Bir Odak Seçin",
@@ -77,5 +79,9 @@
   },
   "game": {
     "back": "DopaBrain'e Dön"
+  },
+  "share": {
+    "copied": "✅ Kopyalandı!",
+    "copyUrl": "📋 URL Kopyala"
   }
 }

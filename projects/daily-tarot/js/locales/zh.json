@@ -28,7 +28,9 @@
     "newReading": "新运势",
     "limitReached": "你已使用今日免费运势。观看广告获取额外运势？",
     "copiedToClipboard": "已复制到剪贴板！",
-    "summaryTemplate": "过去: {past}\n\n现在: {present}\n\n未来: {future}\n\n你的今天充满了神秘的信息。深入思考每张卡片的含义。"
+    "summaryTemplate": "过去: {past}\n\n现在: {present}\n\n未来: {future}\n\n你的今天充满了神秘的信息。深入思考每张卡片的含义。",
+    "reversed": "(逆位)",
+    "upright": "(正位)"
   },
   "category": {
     "title": "选择焦点",
@@ -77,5 +79,9 @@
   },
   "game": {
     "back": "返回DopaBrain"
+  },
+  "share": {
+    "copied": "✅ 已复制!",
+    "copyUrl": "📋 复制链接"
   }
 }

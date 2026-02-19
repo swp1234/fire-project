@@ -28,7 +28,9 @@
     "newReading": "New Reading",
     "limitReached": "You have used your daily free reading. Watch an ad for another reading?",
     "copiedToClipboard": "Copied to clipboard!",
-    "summaryTemplate": "Past: {past}\n\nPresent: {present}\n\nFuture: {future}\n\nYour day is filled with mystical messages. Reflect on the meaning of each card."
+    "summaryTemplate": "Past: {past}\n\nPresent: {present}\n\nFuture: {future}\n\nYour day is filled with mystical messages. Reflect on the meaning of each card.",
+    "reversed": "(Reversed)",
+    "upright": "(Upright)"
   },
   "category": {
     "title": "Choose a Focus",
@@ -77,5 +79,9 @@
   },
   "game": {
     "back": "Back to DopaBrain"
+  },
+  "share": {
+    "copied": "✅ Copied!",
+    "copyUrl": "📋 Copy URL"
   }
 }

@@ -28,7 +28,9 @@
     "newReading": "Nueva Lectura",
     "limitReached": "Has usado tu lectura gratuita diaria. ¿Ver un anuncio para otra lectura?",
     "copiedToClipboard": "¡Copiado al portapapeles!",
-    "summaryTemplate": "Pasado: {past}\n\nPresente: {present}\n\nFuturo: {future}\n\nTu día está lleno de mensajes místicos. Reflexiona sobre el significado de cada carta."
+    "summaryTemplate": "Pasado: {past}\n\nPresente: {present}\n\nFuturo: {future}\n\nTu día está lleno de mensajes místicos. Reflexiona sobre el significado de cada carta.",
+    "reversed": "(Invertida)",
+    "upright": "(Derecha)"
   },
   "category": {
     "title": "Elige un Enfoque",
@@ -77,5 +79,9 @@
   },
   "game": {
     "back": "Volver a DopaBrain"
+  },
+  "share": {
+    "copied": "✅ ¡Copiado!",
+    "copyUrl": "📋 Copiar URL"
   }
 }

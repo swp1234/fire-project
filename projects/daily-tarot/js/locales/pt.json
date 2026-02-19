@@ -28,7 +28,9 @@
     "newReading": "Nova Leitura",
     "limitReached": "Você usou sua leitura gratuita diária. Assistir um anúncio para outra leitura?",
     "copiedToClipboard": "Copiado para a área de transferência!",
-    "summaryTemplate": "Passado: {past}\n\nPresente: {present}\n\nFuturo: {future}\n\nSeu dia está cheio de mensagens místicas. Reflita sobre o significado de cada carta."
+    "summaryTemplate": "Passado: {past}\n\nPresente: {present}\n\nFuturo: {future}\n\nSeu dia está cheio de mensagens místicas. Reflita sobre o significado de cada carta.",
+    "reversed": "(Invertida)",
+    "upright": "(Direita)"
   },
   "category": {
     "title": "Escolha um Foco",
@@ -77,5 +79,9 @@
   },
   "game": {
     "back": "Voltar para DopaBrain"
+  },
+  "share": {
+    "copied": "✅ Copiado!",
+    "copyUrl": "📋 Copiar URL"
   }
 }

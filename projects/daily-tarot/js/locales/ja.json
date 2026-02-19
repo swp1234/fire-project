@@ -28,7 +28,9 @@
     "newReading": "新しい占い",
     "limitReached": "本日の無料占いを使い切りました。広告を見てさらに占ってみませんか？",
     "copiedToClipboard": "クリップボードにコピーしました！",
-    "summaryTemplate": "過去: {past}\n\n現在: {present}\n\n未来: {future}\n\nあなたの今日は神秘的なメッセージに満ちています。各カードの意味を深く考えてください。"
+    "summaryTemplate": "過去: {past}\n\n現在: {present}\n\n未来: {future}\n\nあなたの今日は神秘的なメッセージに満ちています。各カードの意味を深く考えてください。",
+    "reversed": "(逆位置)",
+    "upright": "(正位置)"
   },
   "category": {
     "title": "焦点を選択",
@@ -77,5 +79,9 @@
   },
   "game": {
     "back": "DopaBrainに戻る"
+  },
+  "share": {
+    "copied": "✅ コピー済み!",
+    "copyUrl": "📋 URLコピー"
   }
 }

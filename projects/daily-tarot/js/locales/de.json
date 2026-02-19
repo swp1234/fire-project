@@ -28,7 +28,9 @@
     "newReading": "Neue Lesung",
     "limitReached": "Sie haben Ihre kostenlose Tageslesung verwendet. Möchten Sie eine Anzeige ansehen, um noch eine Lesung zu erhalten?",
     "copiedToClipboard": "In die Zwischenablage kopiert!",
-    "summaryTemplate": "Vergangenheit: {past}\n\nGegenwart: {present}\n\nZukunft: {future}\n\nIhr Tag ist voller mystischer Botschaften. Denken Sie tief über die Bedeutung jeder Karte nach."
+    "summaryTemplate": "Vergangenheit: {past}\n\nGegenwart: {present}\n\nZukunft: {future}\n\nIhr Tag ist voller mystischer Botschaften. Denken Sie tief über die Bedeutung jeder Karte nach.",
+    "reversed": "(Umgekehrt)",
+    "upright": "(Aufrecht)"
   },
   "category": {
     "title": "Wählen Sie einen Fokus",
@@ -77,5 +79,9 @@
   },
   "game": {
     "back": "Zurück zu DopaBrain"
+  },
+  "share": {
+    "copied": "✅ Kopiert!",
+    "copyUrl": "📋 URL kopieren"
   }
 }

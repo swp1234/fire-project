@@ -28,7 +28,9 @@
     "newReading": "Nouvelle Lecture",
     "limitReached": "Vous avez utilisé votre lecture gratuite quotidienne. Regarder une publicité pour une autre lecture ?",
     "copiedToClipboard": "Copié dans le presse-papiers !",
-    "summaryTemplate": "Passé: {past}\n\nPrésent: {present}\n\nAvenir: {future}\n\nVotre jour est rempli de messages mystiques. Réfléchissez profondément au sens de chaque carte."
+    "summaryTemplate": "Passé: {past}\n\nPrésent: {present}\n\nAvenir: {future}\n\nVotre jour est rempli de messages mystiques. Réfléchissez profondément au sens de chaque carte.",
+    "reversed": "(Renversée)",
+    "upright": "(Droit)"
   },
   "category": {
     "title": "Choisissez un Domaine",
@@ -77,5 +79,9 @@
   },
   "game": {
     "back": "Retour à DopaBrain"
+  },
+  "share": {
+    "copied": "✅ Copié!",
+    "copyUrl": "📋 Copier URL"
   }
 }

@@ -28,7 +28,9 @@
     "newReading": "Bacaan Baru",
     "limitReached": "Anda telah menggunakan bacaan gratis harian Anda. Tonton iklan untuk bacaan lagi?",
     "copiedToClipboard": "Disalin ke papan klip!",
-    "summaryTemplate": "Masa lalu: {past}\n\nMasa kini: {present}\n\nMasa depan: {future}\n\nHari Anda penuh dengan pesan mistis. Renungkan makna setiap kartu."
+    "summaryTemplate": "Masa lalu: {past}\n\nMasa kini: {present}\n\nMasa depan: {future}\n\nHari Anda penuh dengan pesan mistis. Renungkan makna setiap kartu.",
+    "reversed": "(Terbalik)",
+    "upright": "(Tegak)"
   },
   "category": {
     "title": "Pilih Fokus",
@@ -77,5 +79,9 @@
   },
   "game": {
     "back": "Kembali ke DopaBrain"
+  },
+  "share": {
+    "copied": "✅ Disalin!",
+    "copyUrl": "📋 Salin URL"
   }
 }

@@ -124,8 +124,8 @@ class DailyTarotApp {
         document.getElementById('shareUrlBtn')?.addEventListener('click', () => {
             navigator.clipboard.writeText(window.location.href).then(() => {
                 const btn = document.getElementById('shareUrlBtn');
-                btn.textContent = '✅ Copied!';
-                setTimeout(() => { btn.innerHTML = '📋 Copy URL'; }, 2000);
+                btn.textContent = i18n.t('share.copied') || '✅ Copied!';
+                setTimeout(() => { btn.innerHTML = i18n.t('share.copyUrl') || '📋 Copy URL'; }, 2000);
             });
             if (typeof gtag !== 'undefined') gtag('event', 'share', { method: 'url_copy' });
         });
@@ -246,7 +246,7 @@ class DailyTarotApp {
             document.getElementById(`result-card-${index}`).textContent = card.emoji;
             document.getElementById(`result-meaning-${index}`).textContent = meaning;
             document.getElementById(`result-direction-${index}`).textContent =
-                cardData.reversed ? '(Reversed)' : '(Upright)';
+                cardData.reversed ? (i18n.t('reading.reversed') || '(Reversed)') : (i18n.t('reading.upright') || '(Upright)');
 
             summaryMessages.push(`${card.name[i18n.getCurrentLanguage()]}: ${meaning}`);
         });
