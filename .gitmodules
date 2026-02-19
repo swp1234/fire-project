@@ -169,3 +169,9 @@
 [submodule "projects/eq-test"]
 	path = projects/eq-test
 	url = https://github.com/swp1234/eq-test.git
+[submodule "projects/stress-type"]
+	path = projects/stress-type
+	url = https://github.com/swp1234/stress-type.git
+[submodule "projects/work-style"]
+	path = projects/work-style
+	url = https://github.com/swp1234/work-style.git
