@@ -163,3 +163,9 @@
 [submodule "projects/zodiac-match"]
 	path = projects/zodiac-match
 	url = https://github.com/swp1234/zodiac-match.git
+[submodule "projects/love-language"]
+	path = projects/love-language
+	url = https://github.com/swp1234/love-language.git
+[submodule "projects/eq-test"]
+	path = projects/eq-test
+	url = https://github.com/swp1234/eq-test.git
