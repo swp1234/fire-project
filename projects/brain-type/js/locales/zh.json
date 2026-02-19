@@ -11,6 +11,7 @@
     "loading": "",
     "mbti_love": "MBTI 配对",
     "reaction_test": "",
+    "skipLink": "跳到内容",
     "title": "大脑类型测试"
   },
   "button": {
@@ -28,7 +29,19 @@
     "description_2": "在 8 种类型中发现最能代表你的类型!",
     "subtitle": "你的大脑属于哪种类型?",
     "time_estimate": "耗时:约 2 分钟",
-    "title": "大脑类型测试"
+    "title": "大脑类型测试",
+    "type_creator": "🎨 创意者",
+    "type_analyst": "🧮 分析家",
+    "type_empath": "🌈 共情者",
+    "type_speedster": "⚡ 快速者",
+    "type_intuitive": "🔮 直觉者",
+    "type_scholar": "📚 学者",
+    "type_strategist": "🎯 战略家",
+    "type_spirit": "🌊 自由精神"
+  },
+  "theme": {
+    "toLightMode": "切换到浅色模式",
+    "toDarkMode": "切换到深色模式"
   },
   "message": {
     "copy_error": "链接复制失败。",

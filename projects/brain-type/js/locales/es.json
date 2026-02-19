@@ -11,6 +11,7 @@
     "loading": "",
     "mbti_love": "Compatibilidad MBTI",
     "reaction_test": "",
+    "skipLink": "Ir al contenido",
     "title": "Prueba de Tipo de Cerebro"
   },
   "button": {
@@ -28,7 +29,19 @@
     "description_2": "¡Descubre cuál de los 8 tipos te representa mejor!",
     "subtitle": "¿Qué tipo de cerebro tienes?",
     "time_estimate": "Tiempo: aproximadamente 2 minutos",
-    "title": "Prueba de Tipo de Cerebro"
+    "title": "Prueba de Tipo de Cerebro",
+    "type_creator": "🎨 Creador",
+    "type_analyst": "🧮 Analista",
+    "type_empath": "🌈 Empático",
+    "type_speedster": "⚡ Veloz",
+    "type_intuitive": "🔮 Intuitivo",
+    "type_scholar": "📚 Erudito",
+    "type_strategist": "🎯 Estratega",
+    "type_spirit": "🌊 Libre"
+  },
+  "theme": {
+    "toLightMode": "Cambiar a modo claro",
+    "toDarkMode": "Cambiar a modo oscuro"
   },
   "message": {
     "copy_error": "Error al copiar el enlace.",

@@ -2,6 +2,7 @@
   "app": {
     "title": "Brain Type Test",
     "loading": "Loading...",
+    "skipLink": "Skip to content",
     "reaction_test": "Reaction Speed Test",
     "dream_fortune": "Dream Interpretation",
     "mbti_love": "MBTI Compatibility",
@@ -22,7 +23,19 @@
     "subtitle": "What type of brain do you have?",
     "description": "Analyze your brain type with 10 questions.",
     "description_2": "Discover which of 8 types best represents you!",
-    "time_estimate": "Time: approximately 2 minutes"
+    "time_estimate": "Time: approximately 2 minutes",
+    "type_creator": "🎨 Creator",
+    "type_analyst": "🧮 Analyst",
+    "type_empath": "🌈 Empath",
+    "type_speedster": "⚡ Speedster",
+    "type_intuitive": "🔮 Intuitive",
+    "type_scholar": "📚 Scholar",
+    "type_strategist": "🎯 Strategist",
+    "type_spirit": "🌊 Free Spirit"
+  },
+  "theme": {
+    "toLightMode": "Switch to light mode",
+    "toDarkMode": "Switch to dark mode"
   },
   "button": {
     "start": "Start Test",

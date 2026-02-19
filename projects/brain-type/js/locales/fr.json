@@ -11,6 +11,7 @@
     "loading": "",
     "mbti_love": "",
     "reaction_test": "",
+    "skipLink": "Aller au contenu",
     "title": "Test de Type de Cerveau"
   },
   "button": {
@@ -28,7 +29,19 @@
     "description_2": "Découvrez lequel des 8 types vous représente le mieux!",
     "subtitle": "Quel est votre type de cerveau?",
     "time_estimate": "Temps: environ 2 minutes",
-    "title": "Test de Type de Cerveau"
+    "title": "Test de Type de Cerveau",
+    "type_creator": "🎨 Créateur",
+    "type_analyst": "🧮 Analyste",
+    "type_empath": "🌈 Empathique",
+    "type_speedster": "⚡ Rapide",
+    "type_intuitive": "🔮 Intuitif",
+    "type_scholar": "📚 Érudit",
+    "type_strategist": "🎯 Stratégiste",
+    "type_spirit": "🌊 Esprit Libre"
+  },
+  "theme": {
+    "toLightMode": "Passer au mode clair",
+    "toDarkMode": "Passer au mode sombre"
   },
   "message": {
     "copy_error": "Erreur lors de la copie du lien.",

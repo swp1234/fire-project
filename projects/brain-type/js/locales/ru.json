@@ -11,6 +11,7 @@
     "loading": "",
     "mbti_love": "",
     "reaction_test": "",
+    "skipLink": "Перейти к содержанию",
     "title": "Тест типа мозга"
   },
   "button": {
@@ -28,7 +29,19 @@
     "description_2": "Найдите один из 8 типов, который лучше всего вас представляет!",
     "subtitle": "Какой у вас тип мозга?",
     "time_estimate": "Время: около 2 минут",
-    "title": "Тест типа мозга"
+    "title": "Тест типа мозга",
+    "type_creator": "🎨 Творец",
+    "type_analyst": "🧮 Аналитик",
+    "type_empath": "🌈 Эмпат",
+    "type_speedster": "⚡ Быстрый",
+    "type_intuitive": "🔮 Интуит",
+    "type_scholar": "📚 Учёный",
+    "type_strategist": "🎯 Стратег",
+    "type_spirit": "🌊 Свободный"
+  },
+  "theme": {
+    "toLightMode": "Переключить на светлую тему",
+    "toDarkMode": "Переключить на тёмную тему"
   },
   "message": {
     "copy_error": "Ошибка при копировании ссылки.",

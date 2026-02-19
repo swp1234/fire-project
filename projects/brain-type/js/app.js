@@ -551,7 +551,7 @@ class BrainTypeApp {
         const themeToggle = document.getElementById('theme-toggle');
         if (themeToggle) {
             themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
-            themeToggle.title = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+            themeToggle.title = theme === 'dark' ? (window.i18n?.t('theme.toLightMode') || 'Switch to light mode') : (window.i18n?.t('theme.toDarkMode') || 'Switch to dark mode');
         }
     }
 }

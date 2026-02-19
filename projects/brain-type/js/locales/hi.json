@@ -11,6 +11,7 @@
     "loading": "",
     "mbti_love": "",
     "reaction_test": "",
+    "skipLink": "सामग्री पर जाएं",
     "title": "मस्तिष्क प्रकार परीक्षण"
   },
   "button": {
@@ -28,7 +29,19 @@
     "description_2": "8 प्रकारों में से आपको सबसे अच्छी तरह प्रतिनिधित्व करने वाले को खोजें!",
     "subtitle": "आपका मस्तिष्क प्रकार क्या है?",
     "time_estimate": "समय: लगभग 2 मिनट",
-    "title": "मस्तिष्क प्रकार परीक्षण"
+    "title": "मस्तिष्क प्रकार परीक्षण",
+    "type_creator": "🎨 क्रिएटर",
+    "type_analyst": "🧮 विश्लेषक",
+    "type_empath": "🌈 सहानुभूति",
+    "type_speedster": "⚡ स्पीड",
+    "type_intuitive": "🔮 सहज",
+    "type_scholar": "📚 विद्वान",
+    "type_strategist": "🎯 रणनीतिकार",
+    "type_spirit": "🌊 स्वतंत्र"
+  },
+  "theme": {
+    "toLightMode": "लाइट मोड पर स्विच करें",
+    "toDarkMode": "डार्क मोड पर स्विच करें"
   },
   "message": {
     "copy_error": "लिंक कॉपी करने में विफल।",

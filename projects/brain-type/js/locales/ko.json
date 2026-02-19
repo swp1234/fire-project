@@ -2,6 +2,7 @@
   "app": {
     "title": "나의 두뇌 유형 테스트",
     "loading": "로딩 중...",
+    "skipLink": "본문으로 이동",
     "reaction_test": "반응속도 테스트",
     "dream_fortune": "꿈 해몽",
     "mbti_love": "MBTI 궁합",
@@ -22,7 +23,19 @@
     "subtitle": "당신의 두뇌는 어떤 유형인가요?",
     "description": "10개의 질문으로 당신의 뇌 유형을 분석합니다.",
     "description_2": "8가지 유형 중 당신을 가장 잘 나타내는 유형을 발견해보세요!",
-    "time_estimate": "소요 시간: 약 2분"
+    "time_estimate": "소요 시간: 약 2분",
+    "type_creator": "🎨 크리에이터",
+    "type_analyst": "🧮 분석가",
+    "type_empath": "🌈 공감각",
+    "type_speedster": "⚡ 스피드",
+    "type_intuitive": "🔮 직관",
+    "type_scholar": "📚 탐구",
+    "type_strategist": "🎯 전략가",
+    "type_spirit": "🌊 자유"
+  },
+  "theme": {
+    "toLightMode": "라이트 모드로 전환",
+    "toDarkMode": "다크 모드로 전환"
   },
   "button": {
     "start": "테스트 시작",

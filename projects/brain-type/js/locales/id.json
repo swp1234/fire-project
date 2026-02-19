@@ -11,6 +11,7 @@
     "loading": "",
     "mbti_love": "Kompatibilitas MBTI",
     "reaction_test": "",
+    "skipLink": "Lewati ke konten",
     "title": "Tes Tipe Otak"
   },
   "button": {
@@ -28,7 +29,19 @@
     "description_2": "Temukan salah satu dari 8 tipe yang paling mewakili Anda!",
     "subtitle": "Apa tipe otak Anda?",
     "time_estimate": "Waktu: sekitar 2 menit",
-    "title": "Tes Tipe Otak"
+    "title": "Tes Tipe Otak",
+    "type_creator": "🎨 Kreator",
+    "type_analyst": "🧮 Analis",
+    "type_empath": "🌈 Empath",
+    "type_speedster": "⚡ Speedster",
+    "type_intuitive": "🔮 Intuitif",
+    "type_scholar": "📚 Sarjana",
+    "type_strategist": "🎯 Strategis",
+    "type_spirit": "🌊 Roh Bebas"
+  },
+  "theme": {
+    "toLightMode": "Beralih ke mode terang",
+    "toDarkMode": "Beralih ke mode gelap"
   },
   "message": {
     "copy_error": "Gagal menyalin tautan.",

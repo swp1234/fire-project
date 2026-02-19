@@ -11,6 +11,7 @@
     "loading": "",
     "mbti_love": "MBTI相性テスト",
     "reaction_test": "",
+    "skipLink": "コンテンツへ移動",
     "title": "脳のタイプテスト"
   },
   "button": {
@@ -28,7 +29,19 @@
     "description_2": "8つのタイプの中からあなたを最もよく表すタイプを発見してください!",
     "subtitle": "あなたの脳はどのタイプですか?",
     "time_estimate": "所要時間:約2分",
-    "title": "脳のタイプテスト"
+    "title": "脳のタイプテスト",
+    "type_creator": "🎨 クリエイター",
+    "type_analyst": "🧮 アナリスト",
+    "type_empath": "🌈 エンパス",
+    "type_speedster": "⚡ スピード",
+    "type_intuitive": "🔮 直感型",
+    "type_scholar": "📚 学者",
+    "type_strategist": "🎯 戦略家",
+    "type_spirit": "🌊 自由人"
+  },
+  "theme": {
+    "toLightMode": "ライトモードに切り替え",
+    "toDarkMode": "ダークモードに切り替え"
   },
   "message": {
     "copy_error": "リンクのコピーに失敗しました。",

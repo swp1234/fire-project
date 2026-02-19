@@ -2,6 +2,7 @@
   "app": {
     "title": "Gehirntyp-Test",
     "loading": "Loading...",
+    "skipLink": "Zum Inhalt",
     "reaction_test": "Reaction Speed Test",
     "dream_fortune": "Dream Interpretation",
     "mbti_love": "MBTI Compatibility",
@@ -22,7 +23,19 @@
     "subtitle": "Was ist Ihr Gehirntyp?",
     "description": "Analysieren Sie Ihren Gehirntyp mit 10 Fragen.",
     "description_2": "Entdecken Sie, welcher der 8 Typen Sie am besten repräsentiert!",
-    "time_estimate": "Zeit: etwa 2 Minuten"
+    "time_estimate": "Zeit: etwa 2 Minuten",
+    "type_creator": "🎨 Kreativer",
+    "type_analyst": "🧮 Analytiker",
+    "type_empath": "🌈 Empath",
+    "type_speedster": "⚡ Schneller",
+    "type_intuitive": "🔮 Intuitiver",
+    "type_scholar": "📚 Gelehrter",
+    "type_strategist": "🎯 Stratege",
+    "type_spirit": "🌊 Freier Geist"
+  },
+  "theme": {
+    "toLightMode": "Zum Hellmodus wechseln",
+    "toDarkMode": "Zum Dunkelmodus wechseln"
   },
   "button": {
     "start": "Test starten",

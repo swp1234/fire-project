@@ -11,6 +11,7 @@
     "loading": "",
     "mbti_love": "",
     "reaction_test": "",
+    "skipLink": "İçeriğe geç",
     "title": "Beyin Tipi Testi"
   },
   "button": {
@@ -28,7 +29,19 @@
     "description_2": "8 tipe arasında sizi en iyi temsil eden tipi bulun!",
     "subtitle": "Beyin tipiniz nedir?",
     "time_estimate": "Süre: yaklaşık 2 dakika",
-    "title": "Beyin Tipi Testi"
+    "title": "Beyin Tipi Testi",
+    "type_creator": "🎨 Yaratıcı",
+    "type_analyst": "🧮 Analitik",
+    "type_empath": "🌈 Empatik",
+    "type_speedster": "⚡ Hızlı",
+    "type_intuitive": "🔮 Sezgisel",
+    "type_scholar": "📚 Bilim",
+    "type_strategist": "🎯 Stratejist",
+    "type_spirit": "🌊 Özgür"
+  },
+  "theme": {
+    "toLightMode": "Açık moda geç",
+    "toDarkMode": "Karanlık moda geç"
   },
   "message": {
     "copy_error": "Bağlantı kopyalama başarısız oldu.",
