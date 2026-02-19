@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-19 (세션90)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-19 (세션91)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **74개** (projects/) |
+| 총 프로젝트 | **77개** (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
 | 블로그 | **442개** (EN 108, JA 58, ZH 50, ES 45, FR 29, PT 31, HI 28, RU 26, KO 24, ID 22, TR 23, DE 18) |
 
-**앱 분류:** 유틸 12 / 바이럴 테스트 **24** / 게임 **20** / 도구 12 / 웹 2 / 운세 2 / 신규 2
+**앱 분류:** 유틸 12 / 바이럴 테스트 **25** / 게임 **21** / 도구 12 / 웹 2 / 운세 **3** / 신규 2
 
 ---
 
@@ -57,9 +57,14 @@
 
 ## 세션 기록
 
-### 세션90 (2/19) - lottery 대규모 i18n + love-language locale 보완
-- **lottery**: 시뮬레이션/프리미엄/공유 등 ~45개 i18n 키 추가 (12개 언어), HTML option tag·aria-label·share 버튼 수정, JS app.js 6개 메서드 i18n화, i18n.js에 data-i18n-aria-label 지원 추가
-- **love-language**: 10개 locale에 quiz.questionPrefix 추가, zh.json 깨진 따옴표 수정, 9개 locale에 footer.privacy/about 추가
+### 세션91 (2/19) - 도파민 바이럴 앱 3개 신규 생성
+- **name-match** (이름 궁합💕): 두 이름→5카테고리 점수 분석, i18n 12언어, 공유 기능
+- **fortune-cookie** (포춘 쿠키🥠): 쿠키 탭→운세 공개, 30개 운세×12언어(360개), 크래킹 애니메이션
+- **would-you-rather** (이것아니면저것🤔): 20개 딜레마 선택, 커뮤니티 비율 표시, i18n 12언어
+- 3개 모두 GitHub Pages 배포 + 포털 등록 + 서브모듈 완료
+
+### 세션90 (2/19) - lottery i18n + love-language locale 보완
+- lottery ~45개 i18n 키 추가, love-language zh.json 수정
 
 ### 세션89 (2/19) - i18n 하드코딩 잔여 전량 수정 (3라운드, 20개 앱)
 - 14개 앱 직접 수정 + 6개 앱 이미 완료 확인 (blood-type, color-personality, affirmation 등)
