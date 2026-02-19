@@ -54,5 +54,9 @@
   "nav": {
     "relatedArticles": "📖 관련 글",
     "backHome": "← DopaBrain 홈"
+  },
+  "share": {
+    "copied": "✅ 복사됨!",
+    "copyUrl": "📋 URL 복사"
   }
 }

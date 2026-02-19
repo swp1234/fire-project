@@ -54,5 +54,9 @@
   "nav": {
     "relatedArticles": "📖 Artículos relacionados",
     "backHome": "← Inicio DopaBrain"
+  },
+  "share": {
+    "copied": "✅ ¡Copiado!",
+    "copyUrl": "📋 Copiar URL"
   }
 }
