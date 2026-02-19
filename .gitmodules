@@ -184,3 +184,6 @@
 [submodule "projects/would-you-rather"]
 	path = projects/would-you-rather
 	url = https://github.com/swp1234/would-you-rather.git
+[submodule "projects/color-blindness"]
+	path = projects/color-blindness
+	url = https://github.com/swp1234/color-blindness.git

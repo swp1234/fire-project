@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-19 (세션91)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-20 (세션92)
 
 ---
 
@@ -8,7 +8,7 @@
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **77개** (projects/) |
+| 총 프로젝트 | **78개** (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
 | 블로그 | **442개** (EN 108, JA 58, ZH 50, ES 45, FR 29, PT 31, HI 28, RU 26, KO 24, ID 22, TR 23, DE 18) |
 
@@ -56,6 +56,14 @@
 ---
 
 ## 세션 기록
+
+### 세션92 (2/20) - 포털 i18n 버그 수정 + color-blindness 신규 앱
+- **포털 i18n race condition 수정**: 번역 로딩 완료 후 init() 실행되도록 변경 (filter.game/badge.popular/search.loadMore 등 raw 키 노출 해결)
+- **포털 배지 CSS 오버플로우**: max-width, text-overflow 추가
+- **color-blindness** (색각 테스트🎨): 25레벨 색 구별 게임, HSL 색상 차이 감소, 3목숨+10초타이머, 감수성 점수 0-100, i18n 12언어
+- **detox-timer i18n**: 누락 키 6개 추가 (socialProof, heroBadge, skipMain, share.*) + 인라인 JS 하드코딩 수정
+- **biorhythm i18n**: noCriticalDays, share.copied, share.copyUrl 키 추가
+- **eq-test/flappy-bird/future-self/hsp-test**: 에이전트 i18n 수정 완료 확인
 
 ### 세션91 (2/19) - 도파민 바이럴 앱 3개 신규 생성
 - **name-match** (이름 궁합💕): 두 이름→5카테고리 점수 분석, i18n 12언어, 공유 기능
