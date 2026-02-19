@@ -181,3 +181,6 @@
 [submodule "projects/fortune-cookie"]
 	path = projects/fortune-cookie
 	url = https://github.com/swp1234/fortune-cookie.git
+[submodule "projects/would-you-rather"]
+	path = projects/would-you-rather
+	url = https://github.com/swp1234/would-you-rather.git
