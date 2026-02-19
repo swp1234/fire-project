@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-20 (세션92)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-20 (세션93)
 
 ---
 
@@ -56,6 +56,10 @@
 ---
 
 ## 세션 기록
+
+### 세션93 (2/20) - git 정리 + 세션 마무리
+- idle-clicker i18n: share.twitter/copyUrl 키 추가 (11개 로케일)
+- 루트 커밋: color-blindness 서브모듈, biorhythm/detox-timer/portal/idle-clicker 동기화
 
 ### 세션92 (2/20) - 포털 i18n 버그 수정 + color-blindness 신규 앱
 - **포털 i18n race condition 수정**: 번역 로딩 완료 후 init() 실행되도록 변경 (filter.game/badge.popular/search.loadMore 등 raw 키 노출 해결)
@@ -127,10 +131,8 @@
 
 ## 다음 우선순위
 
-1. **신규 앱 GSC URL 검사 요청** — love-language, eq-test 색인 요청
-2. **Road Shooter 브라우저 테스트** — 3D 카메라 뷰포트 수정 검증, 게임필+밸런스 최종 확인
-3. **Road Shooter 추가 폴리시** — 3D 파티클 효과, 유닛 언락 시스템, 프레스티지 메타
-4. **주간 리뷰** — 2/15~2/21 데이터로 2/22(일) 실시
-5. **발견됨-미색인 앱 내부링크 강화** — blood-type, brick-breaker, flappy-bird, minesweeper 등
-6. **도파민 자극 바이럴 앱 추가** — 신규 테스트/게임 지속 추가
-7. **biorhythm i18n 표준화** — 기술부채
+1. **GSC URL 검사 요청** — color-blindness, name-match, fortune-cookie, would-you-rather 색인 요청
+2. **주간 리뷰** — 2/15~2/21 데이터로 2/22(일) 실시
+3. **도파민 자극 바이럴 앱 추가** — 신규 테스트/게임 지속 추가
+4. **발견됨-미색인 앱 내부링크 강화** — blood-type, brick-breaker, flappy-bird, minesweeper 등
+5. **Road Shooter 추가 폴리시** — 3D 파티클 효과, 유닛 언락 시스템, 프레스티지 메타
