@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-19 (세션83)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-19 (세션86)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **69개** (projects/) |
+| 총 프로젝트 | **72개** (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
 | 블로그 | **442개** (EN 108, JA 58, ZH 50, ES 45, FR 29, PT 31, HI 28, RU 26, KO 24, ID 22, TR 23, DE 18) |
 
-**앱 분류:** 유틸 12 / 바이럴 테스트 **19** / 게임 **20** / 도구 12 / 웹 2 / 운세 2 / 신규 2
+**앱 분류:** 유틸 12 / 바이럴 테스트 **22** / 게임 **20** / 도구 12 / 웹 2 / 운세 2 / 신규 2
 
 ---
 
@@ -23,7 +23,7 @@
 | 호스팅 | dopabrain.com (Cloudflare, HTTPS, GitHub Pages) |
 | 수익화 | AdSense ca-pub-3600813755953882, 심사 중(2/8) — terms/about 페이지 추가 |
 | 분석 | GA4 523606964 + GSC `https://dopabrain.com/` (MCP 연동) |
-| 크로스프로모 | 59앱, 라이트모드+a11y |
+| 크로스프로모 | 61앱, 라이트모드+a11y |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
 | 접근성 | skip-link 61앱, reduced-motion 61앱, 키보드 4게임 **(100%)** |
 | 소셜 공유 | **62앱 (100%)** |
@@ -56,6 +56,33 @@
 ---
 
 ## 세션 기록
+
+### 세션86 (2/19) - 전앱 i18n 하드코딩 전수 검수 및 수정 (2라운드)
+- **포탈 app.js**: 카테고리 레이블·배지·검색결과·더보기 → i18n 적용, badge/search 키 12언어 추가
+- **앱별 수정 (19개 앱, ~200개 locale 키 추가)**:
+  - snake-game: WALL/INFINITE MODE → i18n, skip link
+  - typing-speed: "Top %", rec.title → i18n
+  - reaction-test: Best label → i18n
+  - daily-tarot: (Reversed)/(Upright), share.copied/copyUrl → i18n
+  - mbti-career: ko.json 중복 키 제거 (조직성·변화수용·대면충돌)
+  - maze-runner: lang="en"→"ko", accessibility.skipToMain 12언어
+  - routine-planner: defaultQuote·noneSelected·weeklyGoal·none → data-i18n
+  - todo-list: weekday labels (Mon-Sun), share toast → i18n
+  - unit-converter: 21개 단위 레이블 전체 data-i18n 적용
+  - block-puzzle: skip link, share buttons, Lv. prefix → i18n
+  - brain-type: 8 타입 배지, theme toggle title → i18n
+  - pomodoro-timer: Mon-Sun, 종합, goal tip → i18n
+  - habit-tracker: placeholder (English), All Habits, 알람 → i18n
+  - bmi-calculator: 트윗 본문, 클립보드 알림 → i18n
+  - minesweeper: keyboard hints, share buttons, related articles → i18n
+  - word-scramble: keyboard hints, category badge → i18n
+  - color-palette: related articles heading, back-link → i18n
+
+### 세션84 (2/19) - love-language, eq-test 포털 등록
+- **portal/js/app-data.js**: love-language(💗 #e91e8c), eq-test(🧠 #00bcd4) 2개 앱 추가 (test 카테고리, i18n 12언어)
+- **portal/sitemap.xml**: 두 앱 URL 추가 (priority 0.8, changefreq monthly)
+- portal git commit & push 완료
+- **다음**: love-language, eq-test GitHub repo 생성 후 서브모듈 등록 필요
 
 ### 세션83 (2/19) - GSC 404 대규모 수정 + 다국어 블로그 38개 생성
 - **404 완전 해결 (68개)**: 26개 redirect (ru/ru/ 경로 오류, 잘못된 파일명, lang 폴더 오류 등) + 38개 신규 블로그 포스트
@@ -110,9 +137,10 @@
 
 ## 다음 우선순위
 
-1. **GSC 재크롤 요청** — 수정된 404 URL 들을 Search Console에서 URL 검사 → 재크롤 요청
-2. **발견됨-미색인 앱 내부링크 강화** — blood-type, brick-breaker, flappy-bird, minesweeper 등 191개
-3. **도파민 자극 휘발성 컨텐츠 대폭 추가** — 짧고 자극적인 바이럴 콘텐츠로 트래픽 확보
+1. **신규 앱 GSC URL 검사 요청** — love-language, eq-test 색인 요청
+2. **Road Shooter 브라우저 테스트** — 3D 카메라 뷰포트 수정 검증, 게임필+밸런스 최종 확인
+3. **Road Shooter 추가 폴리시** — 3D 파티클 효과, 유닛 언락 시스템, 프레스티지 메타
 4. **주간 리뷰** — 2/15~2/21 데이터로 2/22(일) 실시
-5. **EN free-games CTR 최적화** — 20노출 pos4.6 0클릭 → Meta Title/Description 개선
-6. **Road Shooter 브라우저 테스트** — 3D 카메라 뷰포트 수정 검증
+5. **발견됨-미색인 앱 내부링크 강화** — blood-type, brick-breaker, flappy-bird, minesweeper 등
+6. **도파민 자극 바이럴 앱 추가** — 신규 테스트/게임 지속 추가
+7. **biorhythm i18n 표준화** — 기술부채
