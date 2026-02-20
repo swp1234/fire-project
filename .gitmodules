@@ -196,3 +196,48 @@
 [submodule "projects/toxic-trait"]
 	path = projects/toxic-trait
 	url = https://github.com/swp1234/toxic-trait.git
+[submodule "projects/attachment-style"]
+	path = projects/attachment-style
+	url = https://github.com/swp1234/attachment-style.git
+[submodule "projects/brainrot-score"]
+	path = projects/brainrot-score
+	url = https://github.com/swp1234/brainrot-score.git
+[submodule "projects/social-battery"]
+	path = projects/social-battery
+	url = https://github.com/swp1234/social-battery.git
+[submodule "projects/block-puzzle"]
+	path = projects/block-puzzle
+	url = https://github.com/swp1234/block-puzzle.git
+[submodule "projects/bmi-calculator"]
+	path = projects/bmi-calculator
+	url = https://github.com/swp1234/bmi-calculator.git
+[submodule "projects/brain-type"]
+	path = projects/brain-type
+	url = https://github.com/swp1234/brain-type.git
+[submodule "projects/color-palette"]
+	path = projects/color-palette
+	url = https://github.com/swp1234/color-palette.git
+[submodule "projects/daily-tarot"]
+	path = projects/daily-tarot
+	url = https://github.com/swp1234/daily-tarot.git
+[submodule "projects/habit-tracker"]
+	path = projects/habit-tracker
+	url = https://github.com/swp1234/habit-tracker.git
+[submodule "projects/maze-runner"]
+	path = projects/maze-runner
+	url = https://github.com/swp1234/maze-runner.git
+[submodule "projects/mbti-career"]
+	path = projects/mbti-career
+	url = https://github.com/swp1234/mbti-career.git
+[submodule "projects/pomodoro-timer"]
+	path = projects/pomodoro-timer
+	url = https://github.com/swp1234/pomodoro-timer.git
+[submodule "projects/reaction-test"]
+	path = projects/reaction-test
+	url = https://github.com/swp1234/reaction-test.git
+[submodule "projects/snake-game"]
+	path = projects/snake-game
+	url = https://github.com/swp1234/snake-game.git
+[submodule "projects/typing-speed"]
+	path = projects/typing-speed
+	url = https://github.com/swp1234/typing-speed.git
