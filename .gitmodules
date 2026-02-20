@@ -241,3 +241,12 @@
 [submodule "projects/typing-speed"]
 	path = projects/typing-speed
 	url = https://github.com/swp1234/typing-speed.git
+[submodule "projects/villain-type"]
+	path = projects/villain-type
+	url = https://github.com/swp1234/villain-type.git
+[submodule "projects/rizz-score"]
+	path = projects/rizz-score
+	url = https://github.com/swp1234/rizz-score.git
+[submodule "projects/sleep-animal"]
+	path = projects/sleep-animal
+	url = https://github.com/swp1234/sleep-animal.git
