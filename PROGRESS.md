@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-20 (세션97)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-21 (세션98)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **87개** (projects/) |
+| 총 프로젝트 | **90개** (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
 | 블로그 | **442개** (EN 108, JA 58, ZH 50, ES 45, FR 29, PT 31, HI 28, RU 26, KO 24, ID 22, TR 23, DE 18) |
 
-**앱 분류:** 유틸 12 / 바이럴 테스트 **33** / 게임 **21** / 도구 12 / 웹 2 / 운세 **4** / 신규 2
+**앱 분류:** 유틸 12 / 바이럴 테스트 **36** / 게임 **21** / 도구 12 / 웹 2 / 운세 **4** / 신규 2
 
 ---
 
@@ -21,7 +21,7 @@
 | 항목 | 상태 |
 |------|------|
 | 호스팅 | dopabrain.com (Cloudflare, HTTPS, GitHub Pages) |
-| 수익화 | **AdSense 승인완료(2/20)** ca-pub-3600813755953882 — 세금/본인인증/은행 설정 필요 |
+| 수익화 | **AdSense 승인완료(2/20)** ca-pub-3600813755953882 — 전앱 스크립트 확인완료(83/83) |
 | 분석 | GA4 523606964 + GSC `https://dopabrain.com/` (MCP 연동) |
 | 크로스프로모 | 61앱, 라이트모드+a11y |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
@@ -31,7 +31,7 @@
 | PWA/SW | pwa-install 13앱, SW network-first 28앱+ |
 | 카테고리 허브 | Games(20), Tests, Tools, MBTI (4개 랜딩페이지) |
 | MBTI Programmatic | **16/16 타입 페이지 완료** |
-| 서브모듈 | **69/70** (tree→submodule 12개 변환 완료, _common만 tree) |
+| 서브모듈 | **72/73** (tree→submodule 12개 변환 완료, _common만 tree) |
 | 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 457 URLs, .gitattributes 전체 |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/mbti/` → `/road-shooter/`
@@ -56,7 +56,28 @@
 
 ---
 
+## GA4 주간 리뷰 (2/14~2/20)
+
+| 지표 | 이번 주 | 지난 주 | 변화 |
+|------|---------|---------|------|
+| 주간 사용자 | **309명** | 184명 | **+68%** |
+| 주간 PV | **680** | 369 | **+84%** |
+| 2/20 스파이크 | **134명** | - | 역대 최고 |
+| TOP 국가 | US137, NL63, IL17, DE12 | US68, NL48 | US 2배 |
+| TOP 앱 | mental-age(26), color-blindness(14), stress-type(14), fortune-cookie(13) | | |
+| 스파이크 원인 | Direct 120명 — US 커뮤니티(Discord/Reddit) 공유 추정, 84개 페이지 분산 | | |
+
+---
+
 ## 세션 기록
+
+### 세션98 (2/21) - AdSense 전수 점검 + 바이럴 앱 3개
+- **GA4 (2/14~20)**: 주간309명(**+68%**), PV680(**+84%**), 2/20 역대 스파이크 134명(US 커뮤니티 Direct)
+- **AdSense 전수 점검**: 83앱 중 81OK, 2누락 수정(habit-tracker, mbti-career) + 블로그 3개 잘못된 publisher ID 수정
+- **aura-score** (아우라 점수✨): 12문항 사회적 상황→아우라 포인트 계산, 5티어(NPC Energy/Background/Side/Main/Aura God), 아우라 미터+글로우, i18n 12언어
+- **npc-test** (NPC 테스트🎮): 12문항 일상/사교→NPC~메인캐릭터 스펙트럼, 5단계(Full NPC/Background Extra/Side Character/Main Character/Final Boss), 게임UI풍, i18n 12언어
+- **delulu-score** (델루루 점수💭): 12문항 로맨스/커리어/자아→망상력 %, 5단계(Grounded/Slightly Delulu/Solulu/Professional Daydreamer/Living in a Movie), 원형미터, i18n 12언어
+- 3개 앱 GitHub Pages 배포 + 포털 등록(app-data) + 서브모듈 완료
 
 ### 세션97 (2/20) - 블로그 내부링크 + 바이럴 앱 3개
 - **블로그 내부링크 (Priority 4)**: personality-tests 라운드업 11개 언어 x 7앱 = 77링크, free-games 11언어 x 2앱 = 22링크, 개별 블로그 3개 추가
@@ -89,21 +110,11 @@
 - **toxic-trait** (독성특성탐지기☠️): 12문항→8아키타입(오버씽커/수동공격/메인캐릭터 등), 독성미터, i18n 12언어
 - **zodiac-match SEO**: title/desc/hreflang/Schema.org 최적화, 12개 로케일 meta키 추가 (pos4 "별자리 궁합")
 
-### 세션93 (2/20) - git 정리 + 세션 마무리
-- idle-clicker i18n: share.twitter/copyUrl 키 추가 (11개 로케일)
-- 루트 커밋: color-blindness 서브모듈, biorhythm/detox-timer/portal/idle-clicker 동기화
-
-### 세션92 (2/20) - 포털 i18n 버그 수정 + color-blindness 신규 앱
-- **포털 i18n race condition 수정**: 번역 로딩 완료 후 init() 실행되도록 변경
-- **color-blindness** (색각 테스트🎨): 25레벨 색 구별 게임, i18n 12언어
-
-### 세션91 (2/19) - 도파민 바이럴 앱 3개 신규 생성
-- **name-match**(💕), **fortune-cookie**(🥠), **would-you-rather**(🤔) — 3개 모두 배포+포털+서브모듈 완료
-
 ### 이전 세션
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 91-93 | 2/19-20 | name-match/fortune-cookie/would-you-rather, color-blindness, 포털 i18n 수정 |
 | 88-90 | 2/19 | idle-clicker SEO, RS 폴리시, EN 블로그 12개, i18n 3라운드 전수검수 |
 | 83-87 | 2/19 | GSC 404 수정(68개), 블로그 38개, stress-type+work-style, i18n 2라운드 |
 | 82 | 2/19 | love-language 신규 앱(5가지 사랑의 언어, 30문항, i18n 12언어) |
@@ -119,8 +130,8 @@
 
 ## 다음 우선순위
 
-1. **주간 리뷰** — 2/15~2/21 데이터로 2/22(일) 실시
-2. **바이럴 앱 추가** — dark-personality, sleep-type 등 트렌드 앱
-3. **GSC 신규앱 색인 대기** — 10개 앱 (세션91-95 신규 앱들)
-4. **발견됨-미색인 앱 내부링크 강화** — blood-type, brick-breaker, flappy-bird 등
+1. **주간 리뷰 (2/22 일)** — 2/15~2/21 전체 데이터 비교, 스파이크 후속 분석
+2. **AdSense 수익 모니터링** — 승인 후 첫 수익 데이터 확인
+3. **바이럴 앱 추가** — dark-core, soul-age 등 트렌드 앱
+4. **GSC 신규앱 색인 대기** — 13+개 앱 (세션91-98 신규)
 5. **Road Shooter 추가 폴리시** — 3D 파티클 효과, 유닛 언락 시스템

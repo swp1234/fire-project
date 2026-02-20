@@ -250,3 +250,12 @@
 [submodule "projects/sleep-animal"]
 	path = projects/sleep-animal
 	url = https://github.com/swp1234/sleep-animal.git
+[submodule "projects/aura-score"]
+	path = projects/aura-score
+	url = https://github.com/swp1234/aura-score.git
+[submodule "projects/npc-test"]
+	path = projects/npc-test
+	url = https://github.com/swp1234/npc-test.git
+[submodule "projects/delulu-score"]
+	path = projects/delulu-score
+	url = https://github.com/swp1234/delulu-score.git
