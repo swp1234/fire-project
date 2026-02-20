@@ -64,6 +64,8 @@
 - **affirmation 앱 수정**: 누락 `</main>`, 6개 DOM요소 추가, 카테고리 i18n키 매핑, skipMain키, deepAffirmation 10언어 추가
 - **라이트모드 전사이트 감사+수정 (10개 앱)**: lottery, dday-counter, detox-timer, future-self, dev-quiz, affirmation, brainrot-score, idle-clicker, unit-converter, toxic-trait
 - daily-tarot 라이트모드 CSS 227줄 추가
+- **SEO 메타 최적화 (5개 페이지)**: blood-type `lang="ko"`→`"en"` 치명적 버그 수정, games hub/idle-clicker/FR jeux/JA 2048 title+desc 리라이팅
+- **내부링크 강화**: 6개 신규앱 app-data.js 추가(크로스프로모 활성화), 포털 SEO디렉토리 11개 앱 추가, tests허브 8개+games허브 2개 카드 추가
 
 ### 세션95 (2/20) - 바이럴 앱 3개 + tree→서브모듈 12개 변환
 - **attachment-style** (애착유형💔): 10문항→안정형/불안형/회피형/혼란형, 애착미터, i18n 12언어
