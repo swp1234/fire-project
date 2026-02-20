@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-20 (세션93)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-20 (세션96)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **78개** (projects/) |
+| 총 프로젝트 | **84개** (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
 | 블로그 | **442개** (EN 108, JA 58, ZH 50, ES 45, FR 29, PT 31, HI 28, RU 26, KO 24, ID 22, TR 23, DE 18) |
 
-**앱 분류:** 유틸 12 / 바이럴 테스트 **25** / 게임 **21** / 도구 12 / 웹 2 / 운세 **3** / 신규 2
+**앱 분류:** 유틸 12 / 바이럴 테스트 **30** / 게임 **21** / 도구 12 / 웹 2 / 운세 **4** / 신규 2
 
 ---
 
@@ -21,7 +21,7 @@
 | 항목 | 상태 |
 |------|------|
 | 호스팅 | dopabrain.com (Cloudflare, HTTPS, GitHub Pages) |
-| 수익화 | AdSense ca-pub-3600813755953882, 심사 중(2/8) — terms/about 페이지 추가 |
+| 수익화 | **AdSense 승인완료(2/20)** ca-pub-3600813755953882 — 세금/본인인증/은행 설정 필요 |
 | 분석 | GA4 523606964 + GSC `https://dopabrain.com/` (MCP 연동) |
 | 크로스프로모 | 61앱, 라이트모드+a11y |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
@@ -31,7 +31,8 @@
 | PWA/SW | pwa-install 13앱, SW network-first 28앱+ |
 | 카테고리 허브 | Games(20), Tests, Tools, MBTI (4개 랜딩페이지) |
 | MBTI Programmatic | **16/16 타입 페이지 완료** |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 454 URLs, .gitattributes 전체 |
+| 서브모듈 | **69/70** (tree→submodule 12개 변환 완료, _common만 tree) |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 457 URLs, .gitattributes 전체 |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/mbti/` → `/road-shooter/`
 
@@ -57,73 +58,51 @@
 
 ## 세션 기록
 
+### 세션96 (2/20) - 전사이트 버그 수정 + 라이트모드 가시성 개선
+- **버그 수정 라운드1 (6개)**: unit-converter 중복스크립트, routine-planner 무한로딩, dream-fortune SW캐시, emotion-temp i18n누락, zodiac-match SVG파괴, daily-tarot 문법오류15개
+- **버그 수정 라운드2 (6개)**: cross-promo 셀렉터 불일치(`html.light-mode`→`[data-theme="light"]`), quiz-app HTML전면재작성, would-you-rather 텍스트색상, aura-reading Pages활성화, todo-list i18n+라이트모드, zodiac-match 12언어 동적번역
+- **affirmation 앱 수정**: 누락 `</main>`, 6개 DOM요소 추가, 카테고리 i18n키 매핑, skipMain키, deepAffirmation 10언어 추가
+- **라이트모드 전사이트 감사+수정 (10개 앱)**: lottery, dday-counter, detox-timer, future-self, dev-quiz, affirmation, brainrot-score, idle-clicker, unit-converter, toxic-trait
+- daily-tarot 라이트모드 CSS 227줄 추가
+
+### 세션95 (2/20) - 바이럴 앱 3개 + tree→서브모듈 12개 변환
+- **attachment-style** (애착유형💔): 10문항→안정형/불안형/회피형/혼란형, 애착미터, i18n 12언어
+- **brainrot-score** (브레인롯🧠): 12문항(언어별 현지 밈!), 0-100% 점수+5단계, 글리치 효과, i18n 12언어
+- **social-battery** (소셜배터리🔋): 10문항→배터리잔량%, 솔라패널/충전식/절전/비상 4유형, i18n 12언어
+- **tree→submodule 변환 12개**: block-puzzle, bmi-calculator, brain-type, color-palette, daily-tarot, habit-tracker, maze-runner, mbti-career, pomodoro-timer, reaction-test, snake-game, typing-speed
+- 3개 앱 GitHub Pages 배포 + 포털 등록 + 서브모듈 완료
+
+### 세션94 (2/20) - 바이럴 앱 3개 + zodiac-match SEO
+- **GA4 (2/13~19)**: 주간184명(↑24%), PV369↑16%, US68/NL48/KR6(127PV). 신규앱 잘작동(fortune-cookie8, love-language8)
+- **GSC (2/13~19)**: 1클릭(KOR), zodiac-match pos4 "별자리 궁합" 기회 발견
+- **luck-meter** (운 측정기🍀): 원탭 행운점수0-100, 5카테고리 별점, 럭키아이템/컬러, i18n 12언어
+- **red-green-flag** (레드/그린플래그🚩): 15문항→레드/옐로/그린 비율+8아키타입, 4차원 분석, i18n 12언어
+- **toxic-trait** (독성특성탐지기☠️): 12문항→8아키타입(오버씽커/수동공격/메인캐릭터 등), 독성미터, i18n 12언어
+- **zodiac-match SEO**: title/desc/hreflang/Schema.org 최적화, 12개 로케일 meta키 추가 (pos4 "별자리 궁합")
+
 ### 세션93 (2/20) - git 정리 + 세션 마무리
 - idle-clicker i18n: share.twitter/copyUrl 키 추가 (11개 로케일)
 - 루트 커밋: color-blindness 서브모듈, biorhythm/detox-timer/portal/idle-clicker 동기화
 
 ### 세션92 (2/20) - 포털 i18n 버그 수정 + color-blindness 신규 앱
-- **포털 i18n race condition 수정**: 번역 로딩 완료 후 init() 실행되도록 변경 (filter.game/badge.popular/search.loadMore 등 raw 키 노출 해결)
-- **포털 배지 CSS 오버플로우**: max-width, text-overflow 추가
-- **color-blindness** (색각 테스트🎨): 25레벨 색 구별 게임, HSL 색상 차이 감소, 3목숨+10초타이머, 감수성 점수 0-100, i18n 12언어
-- **detox-timer i18n**: 누락 키 6개 추가 (socialProof, heroBadge, skipMain, share.*) + 인라인 JS 하드코딩 수정
-- **biorhythm i18n**: noCriticalDays, share.copied, share.copyUrl 키 추가
-- **eq-test/flappy-bird/future-self/hsp-test**: 에이전트 i18n 수정 완료 확인
+- **포털 i18n race condition 수정**: 번역 로딩 완료 후 init() 실행되도록 변경
+- **color-blindness** (색각 테스트🎨): 25레벨 색 구별 게임, i18n 12언어
 
 ### 세션91 (2/19) - 도파민 바이럴 앱 3개 신규 생성
-- **name-match** (이름 궁합💕): 두 이름→5카테고리 점수 분석, i18n 12언어, 공유 기능
-- **fortune-cookie** (포춘 쿠키🥠): 쿠키 탭→운세 공개, 30개 운세×12언어(360개), 크래킹 애니메이션
-- **would-you-rather** (이것아니면저것🤔): 20개 딜레마 선택, 커뮤니티 비율 표시, i18n 12언어
-- 3개 모두 GitHub Pages 배포 + 포털 등록 + 서브모듈 완료
-
-### 세션90 (2/19) - lottery i18n + love-language locale 보완
-- lottery ~45개 i18n 키 추가, love-language zh.json 수정
-
-### 세션89 (2/19) - i18n 하드코딩 잔여 전량 수정 (3라운드, 20개 앱)
-- 14개 앱 직접 수정 + 6개 앱 이미 완료 확인 (blood-type, color-personality, affirmation 등)
-- **GA4 (2/12~18)**: 7d users ~139, sessions ~157, pageviews ~317
-- **GSC (2/12~18)**: 4clicks, FR jeux 1click/20imp/pos5, EN blood-type 33imp/pos54
-
-### 세션88 (2/19) - idle-clicker SEO, Road Shooter 폴리시, EN 블로그 12개
-- **idle-clicker**: VideoGame+FAQPage JSON-LD, EN title/desc 최적화, lang="en", 내부링크 5개 (pos9.7 → Top3 공략)
-- **Road Shooter**: 적 타입별 사망 파티클, 머즐플래시 30%, 콤보 마일스톤 강화(3x/5x/10x/25x), 보스HP 펄스
-- **EN 블로그 12개 추가**: stress-type 3개 + work-style 3개 + love-language 3개 + eq-test 3개 (1400~2000 단어)
-
-### 세션87 (2/19) - 미색인 앱 내부링크 강화, stress-type + work-style 신규 앱 추가
-- **portal/js/app-data.js**: stress-type(🔥 #ff6b35), work-style(👑 #6366f1) 2개 앱 추가 (test 카테고리, i18n 12언어)
-- **portal/sitemap.xml**: stress-type, work-style URL 추가 (priority 0.8, changefreq monthly)
-- portal git commit & push 완료
-
-### 세션86 (2/19) - 전앱 i18n 하드코딩 전수 검수 및 수정 (2라운드)
-- **포탈 app.js**: 카테고리 레이블·배지·검색결과·더보기 → i18n 적용
-- **앱별 수정 (19개 앱, ~200개 locale 키 추가)**: snake-game, typing-speed, reaction-test, daily-tarot, mbti-career, maze-runner, routine-planner, todo-list, unit-converter, block-puzzle, brain-type, pomodoro-timer, habit-tracker, bmi-calculator, minesweeper, word-scramble, color-palette
-
-### 세션84 (2/19) - love-language, eq-test 포털 등록
-- **portal/js/app-data.js**: love-language(💗 #e91e8c), eq-test(🧠 #00bcd4) 2개 앱 추가 (test 카테고리, i18n 12언어)
-- **portal/sitemap.xml**: 두 앱 URL 추가 (priority 0.8, changefreq monthly)
-- portal git commit & push 완료
-- **다음**: love-language, eq-test GitHub repo 생성 후 서브모듈 등록 필요
-
-### 세션83 (2/19) - GSC 404 대규모 수정 + 다국어 블로그 38개 생성
-- **404 완전 해결 (68개)**: 26개 redirect (ru/ru/ 경로 오류, 잘못된 파일명, lang 폴더 오류 등) + 38개 신규 블로그 포스트
-- **루트 URL 수정**: `/privacy.html` redirect(→/portal/privacy-policy), `/aura-reading/`, `/number-merge/` 삭제 앱 redirect
-- **신규 블로그 38개**: snake-game/todo-list/lottery/color-palette/habit-tracker/aura-reading (ko/hi/pt/fr/tr/ru/id/es/zh/de)
-- **크롤링됨-미색인(30개)**: `/portal/tools/` canonical 이미 설정됨 — 시간 해결 예정
-- **발견됨-미색인(191개)**: 크롤 예산 부족 — 내부 링크 강화로 개선 예정
-- GSC 현황: 300 비색인 → 향후 대폭 감소 기대, 블로그 442개 달성
+- **name-match**(💕), **fortune-cookie**(🥠), **would-you-rather**(🤔) — 3개 모두 배포+포털+서브모듈 완료
 
 ### 이전 세션
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 88-90 | 2/19 | idle-clicker SEO, RS 폴리시, EN 블로그 12개, i18n 3라운드 전수검수 |
+| 83-87 | 2/19 | GSC 404 수정(68개), 블로그 38개, stress-type+work-style, i18n 2라운드 |
 | 82 | 2/19 | love-language 신규 앱(5가지 사랑의 언어, 30문항, i18n 12언어) |
 | 81 | 2/19 | 68개 앱 버그/개선 감사 (P0~P4: skip-link14개, 소셜공유14개, SW8개) |
 | 80 | 2/18 | 3D카메라, AdSense terms/about, .gitmodules 44개 추가, 설날 철거 |
-| 79 | 2/18 | RS 밸런스+3D메시+연출 라운드5-9, rapidFire→발사속도40%↑ |
-| 78 | 2/18 | RS 대규모 오버홀: 신규적2+무기2, 게임필5종, 스크린이펙트 |
-| 73-77 | 2/18 | Three.js 3D, 크로스리뷰, 볼류메트릭 메시, i18n검수 |
-| 68-72 | 2/17-18 | Road Shooter GDD→MVP→사운드→업그레이드→보스→3D도로→파워업 |
-| 65-67 | 2/16-17 | i18n 전면수정, MBTI 16타입, 설날앱 3개 |
-| 59-64 | 2/15-16 | 블로그+80, 카테고리허브 4개, SEO최적화 |
+| 73-79 | 2/18 | RS 대규모: Three.js 3D, 게임필5종, 밸런스, 3D메시, 볼류메트릭 |
+| 68-72 | 2/17-18 | Road Shooter GDD→MVP→사운드→업그레이드→보스→3D도로 |
+| 59-67 | 2/15-17 | i18n 전면수정, MBTI 16타입, 설날앱, 블로그+80, 카테고리허브 |
 | 46-58 | 2/11-15 | JSON-LD, AdSense, 소셜공유100%, a11y100%, UX개선 |
 | 1-45 | 2/4~11 | 앱 62개 개발, 포털, 인프라, i18n 전수, 라이트모드 |
 
@@ -131,8 +110,8 @@
 
 ## 다음 우선순위
 
-1. **GSC URL 검사 요청** — color-blindness, name-match, fortune-cookie, would-you-rather 색인 요청
-2. **주간 리뷰** — 2/15~2/21 데이터로 2/22(일) 실시
-3. **도파민 자극 바이럴 앱 추가** — 신규 테스트/게임 지속 추가
-4. **발견됨-미색인 앱 내부링크 강화** — blood-type, brick-breaker, flappy-bird, minesweeper 등
-5. **Road Shooter 추가 폴리시** — 3D 파티클 효과, 유닛 언락 시스템, 프레스티지 메타
+1. **주간 리뷰** — 2/15~2/21 데이터로 2/22(일) 실시
+2. **바이럴 앱 추가** — dark-personality, sleep-type 등 트렌드 앱
+3. **GSC 신규앱 색인 대기** — 10개 앱 (세션91-95 신규 앱들)
+4. **발견됨-미색인 앱 내부링크 강화** — blood-type, brick-breaker, flappy-bird 등
+5. **Road Shooter 추가 폴리시** — 3D 파티클 효과, 유닛 언락 시스템
