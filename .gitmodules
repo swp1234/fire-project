@@ -187,3 +187,12 @@
 [submodule "projects/color-blindness"]
 	path = projects/color-blindness
 	url = https://github.com/swp1234/color-blindness.git
+[submodule "projects/luck-meter"]
+	path = projects/luck-meter
+	url = https://github.com/swp1234/luck-meter.git
+[submodule "projects/red-green-flag"]
+	path = projects/red-green-flag
+	url = https://github.com/swp1234/red-green-flag.git
+[submodule "projects/toxic-trait"]
+	path = projects/toxic-trait
+	url = https://github.com/swp1234/toxic-trait.git
