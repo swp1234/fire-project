@@ -259,3 +259,12 @@
 [submodule "projects/delulu-score"]
 	path = projects/delulu-score
 	url = https://github.com/swp1234/delulu-score.git
+[submodule "projects/dark-core"]
+	path = projects/dark-core
+	url = https://github.com/swp1234/dark-core.git
+[submodule "projects/soul-age"]
+	path = projects/soul-age
+	url = https://github.com/swp1234/soul-age.git
+[submodule "projects/pick-me"]
+	path = projects/pick-me
+	url = https://github.com/swp1234/pick-me.git
