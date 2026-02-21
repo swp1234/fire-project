@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-02-21 (세션98)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-02-22 (세션100)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **90개** (projects/) |
+| 총 프로젝트 | **96개** (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
 | 블로그 | **442개** (EN 108, JA 58, ZH 50, ES 45, FR 29, PT 31, HI 28, RU 26, KO 24, ID 22, TR 23, DE 18) |
 
-**앱 분류:** 유틸 12 / 바이럴 테스트 **36** / 게임 **21** / 도구 12 / 웹 2 / 운세 **4** / 신규 2
+**앱 분류:** 유틸 12 / 바이럴 테스트 **42** / 게임 **21** / 도구 12 / 웹 2 / 운세 **4** / 신규 2
 
 ---
 
@@ -71,6 +71,21 @@
 
 ## 세션 기록
 
+### 세션100 (2/22) - 차별화 메카닉 앱 3개 + 인프라 정리 + CLAUDE.md 개선
+- **CLAUDE.md 대폭 개선** (insights 기반): Session Management(wrap 시 API 금지), Parallel Agents(카나리 패턴, 5-8개 제한), Checkpoint(대규모 작업 자동 저장), Code Changes, Game Dev 섹션 추가
+- **인프라 정리**: 고아 레포 `portal/`(dopabrain-portal) 삭제, 루트 git index 정리, `projects/portal` 서브모듈 포인터 갱신, 더보기 버튼 수정 올바른 레포에 반영
+- **emotional-age** (감정 나이😢): **시나리오 슬라이더** — 10개 감정 상황에 연속 슬라이더(0-100)로 반응, 5단계(Child/Teen/Young Adult/Mature/Elder), 레이더 차트, i18n 12언어
+- **villain-origin** (빌런 오리진🦹‍♂️): **이진 래피드파이어** — 16개 이진 선택(두 카드 탭), 6아키타입(Betrayed/Mastermind/Anarchist/Fallen Hero/Phantom/Conqueror), 콤보 카운터, i18n 12언어
+- **ick-factor** (ick 테스트😬): **스와이프 카드** — 틴더 스타일 20장 행동 카드 좌우 스와이프, 4카테고리(위생/사교/성격/연애), 5단계 ick 감도, i18n 12언어
+- 3개 앱 GitHub Pages 배포 + 포털 등록(app-data+tests허브) + 서브모듈 완료
+- **기존 테스트 전수 감사**: ~30개 앱이 동일 "N문항×4보기" 패턴 확인 → 인기앱 우선 메카닉 차별화 계획
+
+### 세션99 (2/21) - 바이럴 앱 3개 (dark-core, soul-age, pick-me)
+- **dark-core** (다크코어 테스트🖤): 12문항 다크 트라이어드(나르시시즘/마키아벨리즘/사이코패시/사디즘) 측정, 5티어(Pure Light/Grey Zone/Shadow Walker/Dark Architect/Abyss Dweller), 4트레이트 분석바, i18n 12언어
+- **soul-age** (영혼 나이 테스트🔮): 12문항 영적 성숙도→영혼 나이(500~100,000+년), 5단계(Infant/Young/Mature/Old/Transcendent Soul), 타임라인 시각화, i18n 12언어
+- **pick-me** (픽미 테스트🙋): 12문항 인정욕구/피플플리징→픽미 에너지 %, 5단계(Main Character Secure/Chill/Mild/Certified/Ultimate Pick Me), 핑크 미터, i18n 12언어
+- 3개 앱 GitHub Pages 배포 + 포털 등록(app-data+tests허브) + 서브모듈 완료
+
 ### 세션98 (2/21) - AdSense 전수 점검 + 바이럴 앱 3개
 - **GA4 (2/14~20)**: 주간309명(**+68%**), PV680(**+84%**), 2/20 역대 스파이크 134명(US 커뮤니티 Direct)
 - **AdSense 전수 점검**: 83앱 중 81OK, 2누락 수정(habit-tracker, mbti-career) + 블로그 3개 잘못된 publisher ID 수정
@@ -95,43 +110,23 @@
 - **SEO 메타 최적화 (5개 페이지)**: blood-type `lang="ko"`→`"en"` 치명적 버그 수정, games hub/idle-clicker/FR jeux/JA 2048 title+desc 리라이팅
 - **내부링크 강화**: 6개 신규앱 app-data.js 추가(크로스프로모 활성화), 포털 SEO디렉토리 11개 앱 추가, tests허브 8개+games허브 2개 카드 추가
 
-### 세션95 (2/20) - 바이럴 앱 3개 + tree→서브모듈 12개 변환
-- **attachment-style** (애착유형💔): 10문항→안정형/불안형/회피형/혼란형, 애착미터, i18n 12언어
-- **brainrot-score** (브레인롯🧠): 12문항(언어별 현지 밈!), 0-100% 점수+5단계, 글리치 효과, i18n 12언어
-- **social-battery** (소셜배터리🔋): 10문항→배터리잔량%, 솔라패널/충전식/절전/비상 4유형, i18n 12언어
-- **tree→submodule 변환 12개**: block-puzzle, bmi-calculator, brain-type, color-palette, daily-tarot, habit-tracker, maze-runner, mbti-career, pomodoro-timer, reaction-test, snake-game, typing-speed
-- 3개 앱 GitHub Pages 배포 + 포털 등록 + 서브모듈 완료
-
-### 세션94 (2/20) - 바이럴 앱 3개 + zodiac-match SEO
-- **GA4 (2/13~19)**: 주간184명(↑24%), PV369↑16%, US68/NL48/KR6(127PV). 신규앱 잘작동(fortune-cookie8, love-language8)
-- **GSC (2/13~19)**: 1클릭(KOR), zodiac-match pos4 "별자리 궁합" 기회 발견
-- **luck-meter** (운 측정기🍀): 원탭 행운점수0-100, 5카테고리 별점, 럭키아이템/컬러, i18n 12언어
-- **red-green-flag** (레드/그린플래그🚩): 15문항→레드/옐로/그린 비율+8아키타입, 4차원 분석, i18n 12언어
-- **toxic-trait** (독성특성탐지기☠️): 12문항→8아키타입(오버씽커/수동공격/메인캐릭터 등), 독성미터, i18n 12언어
-- **zodiac-match SEO**: title/desc/hreflang/Schema.org 최적화, 12개 로케일 meta키 추가 (pos4 "별자리 궁합")
-
 ### 이전 세션
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 94-95 | 2/20 | luck-meter/red-green-flag/toxic-trait, attachment-style/brainrot-score/social-battery, tree→sub 12개, zodiac SEO |
 | 91-93 | 2/19-20 | name-match/fortune-cookie/would-you-rather, color-blindness, 포털 i18n 수정 |
 | 88-90 | 2/19 | idle-clicker SEO, RS 폴리시, EN 블로그 12개, i18n 3라운드 전수검수 |
 | 83-87 | 2/19 | GSC 404 수정(68개), 블로그 38개, stress-type+work-style, i18n 2라운드 |
-| 82 | 2/19 | love-language 신규 앱(5가지 사랑의 언어, 30문항, i18n 12언어) |
-| 81 | 2/19 | 68개 앱 버그/개선 감사 (P0~P4: skip-link14개, 소셜공유14개, SW8개) |
-| 80 | 2/18 | 3D카메라, AdSense terms/about, .gitmodules 44개 추가, 설날 철거 |
-| 73-79 | 2/18 | RS 대규모: Three.js 3D, 게임필5종, 밸런스, 3D메시, 볼류메트릭 |
-| 68-72 | 2/17-18 | Road Shooter GDD→MVP→사운드→업그레이드→보스→3D도로 |
-| 59-67 | 2/15-17 | i18n 전면수정, MBTI 16타입, 설날앱, 블로그+80, 카테고리허브 |
-| 46-58 | 2/11-15 | JSON-LD, AdSense, 소셜공유100%, a11y100%, UX개선 |
-| 1-45 | 2/4~11 | 앱 62개 개발, 포털, 인프라, i18n 전수, 라이트모드 |
+| 80-82 | 2/18-19 | love-language, 68앱감사, AdSense, 3D카메라, .gitmodules |
+| 59-79 | 2/15-18 | RS MVP→3D, i18n전면, MBTI16, 설날, 블로그+80, 카테고리허브 |
+| 1-58 | 2/4-15 | 앱62개, 포털, JSON-LD, AdSense, a11y100%, UX개선 |
 
 ---
 
 ## 다음 우선순위
 
-1. **주간 리뷰 (2/22 일)** — 2/15~2/21 전체 데이터 비교, 스파이크 후속 분석
-2. **AdSense 수익 모니터링** — 승인 후 첫 수익 데이터 확인
-3. **바이럴 앱 추가** — dark-core, soul-age 등 트렌드 앱
-4. **GSC 신규앱 색인 대기** — 13+개 앱 (세션91-98 신규)
-5. **Road Shooter 추가 폴리시** — 3D 파티클 효과, 유닛 언락 시스템
+1. **기존 테스트 메카닉 차별화** — 인기앱(mental-age, stress-type, eq-test 등) 우선 리디자인
+2. **주간 리뷰 (2/22)** — 2/15~2/21 전체 데이터 비교
+3. **GSC 신규앱 색인 촉진** — 19+개 앱
+4. **Road Shooter 폴리시**
