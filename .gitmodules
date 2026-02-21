@@ -268,3 +268,12 @@
 [submodule "projects/pick-me"]
 	path = projects/pick-me
 	url = https://github.com/swp1234/pick-me.git
+[submodule "projects/emotional-age"]
+	path = projects/emotional-age
+	url = https://github.com/swp1234/emotional-age.git
+[submodule "projects/villain-origin"]
+	path = projects/villain-origin
+	url = https://github.com/swp1234/villain-origin.git
+[submodule "projects/ick-factor"]
+	path = projects/ick-factor
+	url = https://github.com/swp1234/ick-factor.git
