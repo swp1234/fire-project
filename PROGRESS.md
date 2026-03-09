@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션118)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션119)
 
 ---
 
@@ -45,6 +45,20 @@
 ---
 
 ## 세션 기록
+
+### 세션119 (3/10) - 전 게임 Monetization 레이어 — 4-Layer 완성
+- **공통 모듈**: `_common/js/game-ads.js` — H5 Games Ads (Ad Placement API) 래퍼
+  - `adBreak()` interstitial (매 3게임), `adBreak(reward)` rewarded ad 지원
+  - 광고 미로드 시 graceful fallback (게임 진행 차단 없음)
+- **Road Shooter Monetization ✅**:
+  - Interstitial: 스테이지/엔들리스 결과 전 매 3게임
+  - Rewarded: "Watch Ad for 2x Gold" 펄스 버튼 (결과/엔들리스결과)
+  - 12개 언어 i18n (ad_2x_gold 키)
+- **20개 게임 Monetization ⚠️** (4개 병렬 에이전트):
+  - Interstitial 광고 매 3게임 game-over 시점에 삽입
+  - snake, stack-tower, flappy, brick, block, puzzle-2048, emoji, maze, sky, zigzag, pong, minesweeper, number-puzzle, memory-card, color-memory, word-guess, word-scramble, reaction, typing, idle-clicker
+- **GAME-SPEC**: Monetization ✅1/⚠️20 (전 게임 광고 시스템 탑재)
+- **4-Layer 달성 현황**: Core✅21 | Meta✅21 | Retention✅21 | Monetization✅1⚠️20
 
 ### 세션118 (3/10) - 전 게임 업적 시스템 — Retention ✅ 21/21 달성
 - **Road Shooter 업적 시스템** (`js/achievements.js`, `js/scenes/achieve.js`):
@@ -176,7 +190,7 @@
 
 ## 다음 우선순위
 
-1. **Monetization 레이어** — 21개 게임 Rewarded Ad (부활/2배) + Interstitial (3레벨) 구현 시작
+1. **Monetization ⚠️→✅ 확산** — 20개 게임에 Rewarded Ad 버튼 추가 (부활/2배 점수)
 2. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적, 내부링크 강화
 3. **GSC 재확인** — 세션104~113 수정사항 반영 확인 (1~2주 후)
 4. **기존 앱 품질 개선** — Stop Criteria 기반 성과 점검 후 저성과 앱 개선/정리
