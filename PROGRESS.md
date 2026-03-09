@@ -8,7 +8,7 @@
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **99개** (projects/ 실측) |
+| 총 프로젝트 | **98개** (projects/ 98 디렉토리, 앱 96 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
 | 블로그 | **547개** 실측 (EN 103, JA 65, ZH 54, ES 52, FR 36, PT 34, HI 32, RU 31, KO 31, DE 27, TR 26, ID 25, 루트 31) |
 
