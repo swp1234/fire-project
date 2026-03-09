@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **99개** (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **~472개** (EN 111, JA 61, ZH 51, ES 48, FR 32, PT 32, HI 29, RU 27, KO 27, ID 23, TR 24, DE 21 + emotion-iceberg 6개 진행중) |
+| 블로그 | **478개** (EN 113, JA 63, ZH 52, ES 50, FR 34, PT 33, HI 30, RU 28, KO 29, ID 24, TR 25, DE 23) |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **44** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 3
 
@@ -49,7 +49,7 @@
 ### 세션109 (3/10) - mbti-coffee 신규 앱 + 보조 블로그 12개 + emotion-iceberg 블로그 확장
 - **신규 앱**: **mbti-coffee** (MBTI 커피 테스트) — 8 카페 시나리오 질문, 16 MBTI×커피 매칭, 커피컵 프로그레스 SVG, 스팀 애니메이션, 12개 언어, #6F4E37 커피 브라운
 - **hsp/stress 보조 블로그 12개**: 6개 언어(ko/en/ja/de/es/fr) × 2앱(hsp-test, stress-check) — GSC pos 90s 개선 목적
-- **emotion-iceberg 블로그 확장**: 6개 언어 추가 진행 중 (es/pt/id/tr/de/fr)
+- **emotion-iceberg 블로그**: 12개 언어 전체 완료 (에이전트 자동 생성)
 - **사이트맵**: mbti-coffee + hsp/stress 블로그 URL 추가
 
 ### 세션108 (3/10) - 신규 앱 + 블로그 12개 언어 + SEO 강화
@@ -99,8 +99,7 @@
 
 ## 다음 우선순위
 
-1. **emotion-iceberg 블로그 완료** — 6개 언어(es/pt/id/tr/de/fr) 진행 중
-2. **mbti-coffee 블로그** — 12개 언어 SEO 블로그 생성
+1. **mbti-coffee 블로그** — 12개 언어 SEO 블로그 생성
 3. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적, 추가 보조 블로그
 4. **GSC 재확인** — 세션104~109 수정사항 반영 확인 (1~2주 후)
 5. **신규 앱** — MBTI×OS, MBTI×도시 등 메타포 시리즈
