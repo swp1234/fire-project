@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션108)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션109)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **98개** (projects/) |
+| 총 프로젝트 | **99개** (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **454개** (EN 109, JA 59, ZH 51, ES 46, FR 30, PT 32, HI 29, RU 27, KO 25, ID 23, TR 24, DE 19) |
+| 블로그 | **~472개** (EN 111, JA 61, ZH 51, ES 48, FR 32, PT 32, HI 29, RU 27, KO 27, ID 23, TR 24, DE 21 + emotion-iceberg 6개 진행중) |
 
-**앱 분류:** 유틸 12 / 바이럴 테스트 **43** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 3
+**앱 분류:** 유틸 12 / 바이럴 테스트 **44** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 3
 
 ---
 
@@ -40,11 +40,17 @@
 
 ## GSC 인덱싱 (3/9 업데이트)
 
-**Indexed 60/62 (97%)** | 이전 미색인 10개 모두 indexed | **Unknown 7+1:** dark-core, soul-age, pick-me, emotional-age, villain-origin, ick-factor, life-in-numbers, emotion-iceberg — 사이트맵 등록 완료, 크롤링 대기
+**Indexed 60/62 (97%)** | 이전 미색인 10개 모두 indexed | **Unknown 7+2:** dark-core, soul-age, pick-me, emotional-age, villain-origin, ick-factor, life-in-numbers, emotion-iceberg, mbti-coffee — 사이트맵 등록 완료, 크롤링 대기
 
 ---
 
 ## 세션 기록
+
+### 세션109 (3/10) - mbti-coffee 신규 앱 + 보조 블로그 12개 + emotion-iceberg 블로그 확장
+- **신규 앱**: **mbti-coffee** (MBTI 커피 테스트) — 8 카페 시나리오 질문, 16 MBTI×커피 매칭, 커피컵 프로그레스 SVG, 스팀 애니메이션, 12개 언어, #6F4E37 커피 브라운
+- **hsp/stress 보조 블로그 12개**: 6개 언어(ko/en/ja/de/es/fr) × 2앱(hsp-test, stress-check) — GSC pos 90s 개선 목적
+- **emotion-iceberg 블로그 확장**: 6개 언어 추가 진행 중 (es/pt/id/tr/de/fr)
+- **사이트맵**: mbti-coffee + hsp/stress 블로그 URL 추가
 
 ### 세션108 (3/10) - 신규 앱 + 블로그 12개 언어 + SEO 강화
 - **GA4/GSC 분석**: Organic 55%(32%→55%↑), 블로그 pos 7~10 근접, 0 clicks/33 imp
@@ -93,8 +99,9 @@
 
 ## 다음 우선순위
 
-1. **emotion-iceberg 블로그** — 12개 언어 SEO 블로그 생성
-2. **소셜 트렌드 기반 신규 앱** — "MBTI×라이프스타일 메타포"(커피/OS/도시) 등
-3. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적, hsp-test/stress-check 보조 블로그
-4. **GSC 재확인** — 세션104~108 수정사항 반영 확인 (1~2주 후)
-5. **Road Shooter 폴리시**
+1. **emotion-iceberg 블로그 완료** — 6개 언어(es/pt/id/tr/de/fr) 진행 중
+2. **mbti-coffee 블로그** — 12개 언어 SEO 블로그 생성
+3. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적, 추가 보조 블로그
+4. **GSC 재확인** — 세션104~109 수정사항 반영 확인 (1~2주 후)
+5. **신규 앱** — MBTI×OS, MBTI×도시 등 메타포 시리즈
+6. **Road Shooter 폴리시**
