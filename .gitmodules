@@ -283,3 +283,6 @@
 [submodule "projects/emotion-iceberg"]
 	path = projects/emotion-iceberg
 	url = https://github.com/swp1234/emotion-iceberg.git
+[submodule "projects/mbti-coffee"]
+	path = projects/mbti-coffee
+	url = https://github.com/swp1234/mbti-coffee.git
