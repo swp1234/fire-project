@@ -277,3 +277,6 @@
 [submodule "projects/ick-factor"]
 	path = projects/ick-factor
 	url = https://github.com/swp1234/ick-factor.git
+[submodule "projects/life-in-numbers"]
+	path = projects/life-in-numbers
+	url = https://github.com/swp1234/life-in-numbers.git
