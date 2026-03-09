@@ -46,16 +46,16 @@
 
 ## 세션 기록
 
-### 세션118 (3/10) - Road Shooter 업적 시스템
-- **업적 시스템 구현** (`js/achievements.js`, `js/scenes/achieve.js`):
+### 세션118 (3/10) - 전 게임 업적 시스템 — Retention ✅ 21/21 달성
+- **Road Shooter 업적 시스템** (`js/achievements.js`, `js/scenes/achieve.js`):
   - 20개 마일스톤: 출격(4), 처치(4), 분대(4), 보스(3), 스테이지(2), 엔들리스(2), 골드(1)
-  - 골드 보상 (50~5000) — 업적 달성 시 자동 지급
-  - 토스트 알림 (게임/결과 화면에서 슬라이드 인/아웃)
-  - 트로피 화면 (스크롤 가능, 진행도 바, 카드 리스트)
-  - 메뉴 트로피 버튼 (좌상단, 달성/총 표시)
-- **save.js 확장**: `achievements` 객체 + `totalGoldEarned` 통계 추가
-- **12개 언어 i18n**: 23개 업적 키 × 12개 언어 = 276개 번역
-- **SW 캐시 v2**: 새 파일 2개 추가
+  - 골드 보상 (50~5000), 토스트 알림, 트로피 화면, 메뉴 트로피 버튼
+  - 12개 언어 i18n (23키 × 12언어), SW 캐시 v2
+- **범용 업적 모듈** (`_common/js/achievements.js`): DOM 토스트, Haptic 연동, localStorage 기반
+- **9개 아케이드 게임 업적 통합** (3개 병렬 에이전트):
+  - snake(7), stack-tower(9), flappy-bird(7), sky-runner(7), zigzag-runner(9), pong(8), color-memory(6), reaction-test(6), typing-speed(7)
+- **idle-clicker**: 기존 자체 업적+일일미션 확인 → Retention ✅ 승격
+- **GAME-SPEC 업데이트**: **Retention ✅ 21/21** (전 게임 완료!)
 
 ### 세션117 (3/10) - 게임 상태 저장/복원 확산 — Retention ✅ 12/21
 - **6개 게임 상태 저장 추가** (병렬 에이전트):
@@ -176,8 +176,8 @@
 
 ## 다음 우선순위
 
-1. **게임 Retention ✅ 확산** — 나머지 9개 실시간 게임 업적/챌린지 추가로 ⚠️→✅
-2. **Road Shooter Monetization** — Rewarded Ad 부활, Interstitial 레벨 간
-3. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적, 내부링크 강화
-4. **GSC 재확인** — 세션104~113 수정사항 반영 확인 (1~2주 후)
-5. **기존 앱 품질 개선** — Stop Criteria 기반 성과 점검 후 저성과 앱 개선/정리
+1. **Monetization 레이어** — 21개 게임 Rewarded Ad (부활/2배) + Interstitial (3레벨) 구현 시작
+2. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적, 내부링크 강화
+3. **GSC 재확인** — 세션104~113 수정사항 반영 확인 (1~2주 후)
+4. **기존 앱 품질 개선** — Stop Criteria 기반 성과 점검 후 저성과 앱 개선/정리
+5. **Road Shooter 추가 폴리시** — 스킨 시스템, 랭킹 보드
