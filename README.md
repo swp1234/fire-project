@@ -1,14 +1,14 @@
 # DopaBrain — dopabrain.com
 
-AI(Claude Code)로 구축한 글로벌 무료 웹앱/게임 포털. 98개 앱/게임, 535+ 다국어 블로그, 12개 언어 지원.
+AI(Claude Code)로 구축한 글로벌 무료 웹앱/게임 포털. 12개 언어 지원.
 
-> **정확한 수치는 `PROGRESS.md`가 단일 소스.**
+> **앱 수/블로그 수/KPI 등 모든 수치는 [`PROGRESS.md`](PROGRESS.md)가 단일 소스.**
+> README에는 수치를 하드코딩하지 않는다.
 
 ## 현황
-- **앱:** 98개 (바이럴 테스트 44 / 게임 21 / 유틸 12 / 도구 13 등)
-- **블로그:** 535개+ (12개 언어)
 - **인프라:** AdSense 승인완료, i18n, a11y, 소셜 공유, JSON-LD 전앱 완료
-- **Phase:** Phase 2→3 전환 준비 (게임 고도화 + SEO 개선)
+- **Phase:** Phase 2→3 전환 준비 (게임 고도화 70% + SEO 20% + 실험 10%)
+- **상세:** `PROGRESS.md` 참조
 
 ## 구조
 ```
@@ -16,7 +16,7 @@ Fire Project/
 ├── CLAUDE.md          # AI 작업 규칙
 ├── PROGRESS.md        # 진행 상황 (단일 소스, 매 세션 업데이트)
 ├── docs/              # 전략/운영/디자인/SEO 문서
-└── projects/          # 98개 앱 (각각 독립 Git 서브모듈)
+└── projects/          # 앱/게임 (각각 독립 Git 서브모듈)
 ```
 
 ## 핵심 문서

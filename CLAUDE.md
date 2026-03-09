@@ -74,11 +74,13 @@ Windows + Git Bash. **Windows 명령어 절대 금지.**
 - [ ] `.gitattributes` (`* text=auto eol=lf`)
 - [ ] 배포: `git init` → commit → `gh repo create` → Pages → 루트에서 `git submodule add`
 - [ ] 12개 언어 블로그 생성 (`blog-writer` 에이전트 위임)
+- [ ] **품질 게이트 통과:** `bash scripts/quality-gate.sh projects/<name>` → PASS 필수
 - [ ] 상세: `docs/VALIDATION.md`
 
 ## 작업 방식
 
-- 우선순위: **유지보수 → SEO → UX → 확장**
+- 리소스 배분: **게임 고도화 70% → SEO/CTR 20% → 신규 실험 10%**
+- 우선순위: **유지보수 → 게임 고도화 → SEO → 확장**
 - 세션 시작: `PROGRESS.md` 읽기 → (작업재개 시만) GA4/GSC → 작업 → `PROGRESS.md` 업데이트
 
 ## Project Context

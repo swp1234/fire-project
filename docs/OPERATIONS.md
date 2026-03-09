@@ -95,7 +95,9 @@
 - [ ] app-loader + cross-promo + GA4 포함
 - [ ] JSON-LD 구조화 데이터 유효
 
-> 자동화 목표: 위 항목을 pre-deploy 스크립트로 검증 (향후 구현)
+> **자동 검증:** `bash scripts/quality-gate.sh projects/<app-name>`
+> 14개 항목 자동 체크 (i18n 12개, GA4, AdSense, JSON-LD, app-loader, JSON 유효성 등)
+> 배포 전 반드시 실행. FAIL 시 배포 금지.
 
 ## 9. 프로젝트 현황 (98개)
 
