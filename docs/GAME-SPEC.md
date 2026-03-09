@@ -78,12 +78,12 @@
 |------|-----------|------|-----------|-------------|
 | road-shooter | ✅ | ✅ | ✅ | ⚠️ |
 | idle-clicker | ✅ | ✅ | ⚠️ | ❌ |
-| snake-game | ✅ | ⚠️ | ❌ | ❌ |
+| snake-game | ✅ | ⚠️ | ⚠️ | ❌ |
 | stack-tower | ✅ | ⚠️ | ❌ | ❌ |
 | brick-breaker | ✅ | ⚠️ | ❌ | ❌ |
 | block-puzzle | ✅ | ⚠️ | ❌ | ❌ |
-| flappy-bird | ✅ | ⚠️ | ❌ | ❌ |
-| puzzle-2048 | ✅ | ⚠️ | ❌ | ❌ |
+| flappy-bird | ✅ | ⚠️ | ⚠️ | ❌ |
+| puzzle-2048 | ✅ | ⚠️ | ⚠️ | ❌ |
 | emoji-merge | ✅ | ⚠️ | ❌ | ❌ |
 | maze-runner | ✅ | ⚠️ | ❌ | ❌ |
 | sky-runner | ✅ | ⚠️ | ❌ | ❌ |
@@ -93,7 +93,7 @@
 | number-puzzle | ✅ | ⚠️ | ❌ | ❌ |
 | memory-card | ✅ | ⚠️ | ❌ | ❌ |
 | color-memory | ✅ | ⚠️ | ❌ | ❌ |
-| word-guess | ✅ | ⚠️ | ❌ | ❌ |
+| word-guess | ✅ | ⚠️ | ✅ | ❌ |
 | word-scramble | ✅ | ⚠️ | ❌ | ❌ |
 | reaction-test | ✅ | ⚠️ | ❌ | ❌ |
-| typing-speed | ✅ | ⚠️ | ❌ | ❌ |
+| typing-speed | ✅ | ⚠️ | ⚠️ | ❌ |
