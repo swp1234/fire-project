@@ -286,3 +286,6 @@
 [submodule "projects/mbti-coffee"]
 	path = projects/mbti-coffee
 	url = https://github.com/swp1234/mbti-coffee.git
+[submodule "projects/mbti-city"]
+	path = projects/mbti-city
+	url = https://github.com/swp1234/mbti-city.git
