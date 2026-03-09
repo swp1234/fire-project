@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션107)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션108)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **97개** (projects/) |
+| 총 프로젝트 | **98개** (projects/) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **442개** (EN 108, JA 58, ZH 50, ES 45, FR 29, PT 31, HI 28, RU 26, KO 24, ID 22, TR 23, DE 18) |
+| 블로그 | **454개** (EN 109, JA 59, ZH 51, ES 46, FR 30, PT 32, HI 29, RU 27, KO 25, ID 23, TR 24, DE 19) |
 
-**앱 분류:** 유틸 12 / 바이럴 테스트 **42** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 3
+**앱 분류:** 유틸 12 / 바이럴 테스트 **43** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 3
 
 ---
 
@@ -40,11 +40,18 @@
 
 ## GSC 인덱싱 (3/9 업데이트)
 
-**Indexed 60/62 (97%)** | 이전 미색인 10개 모두 indexed | **Unknown 6+1 (신규앱):** dark-core, soul-age, pick-me, emotional-age, villain-origin, ick-factor, life-in-numbers → 사이트맵 추가 필요
+**Indexed 60/62 (97%)** | 이전 미색인 10개 모두 indexed | **Unknown 7+1:** dark-core, soul-age, pick-me, emotional-age, villain-origin, ick-factor, life-in-numbers, emotion-iceberg — 사이트맵 등록 완료, 크롤링 대기
 
 ---
 
 ## 세션 기록
+
+### 세션108 (3/10) - 신규 앱 + 블로그 12개 언어 + SEO 강화
+- **GA4/GSC 분석**: Organic 55%(32%→55%↑), 블로그 pos 7~10 근접, 0 clicks/33 imp
+- **신규 앱**: **emotion-iceberg** (감정 빙산 테스트) — 10 시나리오×2단계 답변, 6 결과유형, SVG 빙산 시각화, 12개 언어
+- **life-in-numbers 블로그**: 12개 언어 SEO 블로그 생성 + 사이트맵/인덱스 업데이트
+- **고성과 블로그 내부링크 강화**: digital-detox (pos7), numerology (pos10) — 앱 링크 섹션 추가
+- **사이트맵**: life-in-numbers + emotion-iceberg URL 추가
 
 ### 세션107 (3/10) - 쿠키커터 리디자인 완료 + 신규 앱 + 트렌드 스캔
 - **루트 정리**: 미커밋 파일 64개 일괄 정리 (CLAUDE.md, PROGRESS.md, docs/*, _common/ 추가, .gitignore 수정, 57개 서브모듈 포인터, data-check-log.md 루트 삭제)
@@ -86,8 +93,8 @@
 
 ## 다음 우선순위
 
-1. **life-in-numbers 블로그** — 12개 언어 SEO 블로그 생성 + 사이트맵 추가
-2. **소셜 트렌드 기반 신규 앱** — "MBTI×라이프스타일 메타포"(커피/OS/도시), "감정 빙산" 등
-3. **Organic 가속** — 블로그 SEO 최적화 효과 추적, 고볼륨 키워드 타겟 콘텐츠
-4. **GSC 재확인** — 세션104/106/107 수정사항 반영 확인 (1~2주 후)
+1. **emotion-iceberg 블로그** — 12개 언어 SEO 블로그 생성
+2. **소셜 트렌드 기반 신규 앱** — "MBTI×라이프스타일 메타포"(커피/OS/도시) 등
+3. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적, hsp-test/stress-check 보조 블로그
+4. **GSC 재확인** — 세션104~108 수정사항 반영 확인 (1~2주 후)
 5. **Road Shooter 폴리시**
