@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션109)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션110)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **98개** (projects/ 실측) |
+| 총 프로젝트 | **99개** (projects/ 실측) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **535개** 실측 (EN 102, JA 64, ZH 53, ES 51, FR 35, PT 33, HI 31, RU 30, KO 30, DE 26, TR 25, ID 24, 루트 31) |
+| 블로그 | **547개** 실측 (EN 103, JA 65, ZH 54, ES 52, FR 36, PT 34, HI 32, RU 31, KO 31, DE 27, TR 26, ID 25, 루트 31) |
 
-**앱 분류:** 유틸 12 / 바이럴 테스트 **44** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 2
+**앱 분류:** 유틸 12 / 바이럴 테스트 **45** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 2
 
 ---
 
@@ -40,11 +40,19 @@
 
 ## GSC 인덱싱 (3/9 업데이트)
 
-**Indexed 60/62 (97%)** | 이전 미색인 10개 모두 indexed | **Unknown 7+2:** dark-core, soul-age, pick-me, emotional-age, villain-origin, ick-factor, life-in-numbers, emotion-iceberg, mbti-coffee — 사이트맵 등록 완료, 크롤링 대기
+**Indexed 60/62 (97%)** | 이전 미색인 10개 모두 indexed | **Unknown 7+3:** dark-core, soul-age, pick-me, emotional-age, villain-origin, ick-factor, life-in-numbers, emotion-iceberg, mbti-coffee, mbti-city — 사이트맵 등록 완료, 크롤링 대기
 
 ---
 
 ## 세션 기록
+
+### 세션110 (3/10) - 방향성 수정 + mbti-city 완성 + mbti-coffee 블로그
+- **방향성 수정** (Codex 평가 기반):
+  - STRATEGY.md: 70/20/10 리소스 배분 (게임70/SEO20/실험10), Phase 2→3 전환 기준 추가, Stop Criteria 신설
+  - OPERATIONS.md: "새 앱 양산" → "성과 기반 선별 확장", 품질 게이트 섹션 추가
+  - README.md: PROGRESS.md 단일 소스 명시, 수치 동기화
+- **신규 앱 완성**: **mbti-city** (MBTI 도시 테스트) — 8 여행 시나리오, 16 MBTI×세계도시 매칭, 12개 언어 완료, 서브모듈+Pages+사이트맵
+- **mbti-coffee 블로그**: 12개 언어 SEO 블로그 커밋+푸시 (에이전트 생성분)
 
 ### 세션109 (3/10) - mbti-coffee 신규 앱 + 보조 블로그 12개 + emotion-iceberg 블로그 확장
 - **신규 앱**: **mbti-coffee** (MBTI 커피 테스트) — 8 카페 시나리오 질문, 16 MBTI×커피 매칭, 커피컵 프로그레스 SVG, 스팀 애니메이션, 12개 언어, #6F4E37 커피 브라운
@@ -99,8 +107,8 @@
 
 ## 다음 우선순위
 
-1. **mbti-coffee 블로그** — 12개 언어 SEO 블로그 생성
-3. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적, 추가 보조 블로그
-4. **GSC 재확인** — 세션104~109 수정사항 반영 확인 (1~2주 후)
-5. **신규 앱** — MBTI×OS, MBTI×도시 등 메타포 시리즈
-6. **Road Shooter 폴리시**
+1. **mbti-city 블로그** — 12개 언어 SEO 블로그 생성
+2. **게임 고도화 (Phase 3 준비)** — Road Shooter 폴리시, 기존 게임 체류시간 개선
+3. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적, 내부링크 강화
+4. **GSC 재확인** — 세션104~110 수정사항 반영 확인 (1~2주 후)
+5. **기존 앱 품질 개선** — Stop Criteria 기반 성과 점검 후 저성과 앱 개선/정리
