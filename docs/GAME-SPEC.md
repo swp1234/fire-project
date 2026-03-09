@@ -78,8 +78,8 @@
 |------|-----------|------|-----------|-------------|
 | idle-clicker | ✅ | ⚠️ | ❌ | ❌ |
 | emoji-merge | ✅ | ❌ | ❌ | ❌ |
-| puzzle-2048 | ✅ | ❌ | ❌ | ❌ |
-| flappy-bird | ✅ | ❌ | ❌ | ❌ |
+| puzzle-2048 | ✅ | ⚠️ | ❌ | ❌ |
+| flappy-bird | ✅ | ⚠️ | ❌ | ❌ |
 | snake-game | ✅ | ❌ | ❌ | ❌ |
 | maze-runner | ✅ | ❌ | ❌ | ❌ |
 | sky-runner | ✅ | ❌ | ❌ | ❌ |
@@ -87,7 +87,7 @@
 | zigzag-runner | ✅ | ❌ | ❌ | ❌ |
 | pong-game | ✅ | ❌ | ❌ | ❌ |
 | block-puzzle | ✅ | ❌ | ❌ | ❌ |
-| brick-breaker | ✅ | ❌ | ❌ | ❌ |
+| brick-breaker | ✅ | ⚠️ | ❌ | ❌ |
 | minesweeper | ✅ | ❌ | ❌ | ❌ |
 | number-puzzle | ✅ | ❌ | ❌ | ❌ |
 | memory-card | ✅ | ❌ | ❌ | ❌ |
