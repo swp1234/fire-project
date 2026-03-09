@@ -46,15 +46,12 @@
 
 ## 세션 기록
 
-### 세션114 (3/10) - Retention 확산 — 6개 게임 일일 스트릭/챌린지 추가
+### 세션114 (3/10) - Retention 전면 확산 — 19개 게임 일일 스트릭/챌린지 추가
 - **공통 모듈**: `_common/js/daily-streak.js` — 범용 일일 스트릭+목표 시스템 (자동 위젯, 목표 달성 연출)
 - **word-guess Retention ✅**: 일일 상태 저장/복원, 재도전 방지, 최대 스트릭 기록, maxStreak i18n 12개 언어
-- **4개 게임 일일 스트릭 통합** (병렬 에이전트):
-  - **snake-game**: daily-streak 통합 (endGame → report)
-  - **flappy-bird**: daily-streak 통합 (gameOver → report)
-  - **puzzle-2048**: daily-streak 통합 (showGameOverModal → report)
-  - **typing-speed**: daily-streak + WPM 베스트 트래킹 (calculateResults → report)
-- **GAME-SPEC 업데이트**: word-guess Retention ✅, snake/flappy/2048/typing Retention ⚠️
+- **18개 게임 daily-streak 통합** (14개 병렬 에이전트):
+  - snake-game, flappy-bird, puzzle-2048, typing-speed, stack-tower, brick-breaker, block-puzzle, emoji-merge, maze-runner, sky-runner, zigzag-runner, pong-game, minesweeper, number-puzzle, memory-card, color-memory, word-scramble, reaction-test
+- **GAME-SPEC 업데이트**: 21/21 Retention ⚠️ 이상 (road-shooter ✅, word-guess ✅, idle-clicker ⚠️, 나머지 18개 ⚠️)
 
 ### 세션113 (3/10) - Meta 완성 + Road Shooter 일일챌린지 Retention
 - **Meta ⚠️ 완성 (21/21):**
