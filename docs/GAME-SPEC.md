@@ -76,7 +76,7 @@
 
 | 게임 | Core Loop | Meta | Retention | Monetization |
 |------|-----------|------|-----------|-------------|
-| road-shooter | ✅ | ✅ | ⚠️ | ⚠️ |
+| road-shooter | ✅ | ✅ | ✅ | ⚠️ |
 | idle-clicker | ✅ | ✅ | ⚠️ | ❌ |
 | snake-game | ✅ | ⚠️ | ❌ | ❌ |
 | stack-tower | ✅ | ⚠️ | ❌ | ❌ |
@@ -84,16 +84,16 @@
 | block-puzzle | ✅ | ⚠️ | ❌ | ❌ |
 | flappy-bird | ✅ | ⚠️ | ❌ | ❌ |
 | puzzle-2048 | ✅ | ⚠️ | ❌ | ❌ |
-| emoji-merge | ✅ | ❌ | ❌ | ❌ |
-| maze-runner | ✅ | ❌ | ❌ | ❌ |
-| sky-runner | ✅ | ❌ | ❌ | ❌ |
-| zigzag-runner | ✅ | ❌ | ❌ | ❌ |
+| emoji-merge | ✅ | ⚠️ | ❌ | ❌ |
+| maze-runner | ✅ | ⚠️ | ❌ | ❌ |
+| sky-runner | ✅ | ⚠️ | ❌ | ❌ |
+| zigzag-runner | ✅ | ⚠️ | ❌ | ❌ |
 | pong-game | ✅ | ⚠️ | ❌ | ❌ |
 | minesweeper | ✅ | ⚠️ | ❌ | ❌ |
 | number-puzzle | ✅ | ⚠️ | ❌ | ❌ |
 | memory-card | ✅ | ⚠️ | ❌ | ❌ |
 | color-memory | ✅ | ⚠️ | ❌ | ❌ |
 | word-guess | ✅ | ⚠️ | ❌ | ❌ |
-| word-scramble | ✅ | ❌ | ❌ | ❌ |
+| word-scramble | ✅ | ⚠️ | ❌ | ❌ |
 | reaction-test | ✅ | ⚠️ | ❌ | ❌ |
 | typing-speed | ✅ | ⚠️ | ❌ | ❌ |

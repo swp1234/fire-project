@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션112)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션113)
 
 ---
 
@@ -45,6 +45,15 @@
 ---
 
 ## 세션 기록
+
+### 세션113 (3/10) - Meta 완성 + Road Shooter 일일챌린지 Retention
+- **Meta ⚠️ 완성 (21/21):**
+  - **word-scramble**: 스크린 쉐이크(오답), 콤보 플로팅 텍스트(3x+), 파티클 버스트(5x+)
+  - emoji-merge, sky-runner, zigzag-runner, maze-runner: 이미 Meta 구현 확인 → 표 ⚠️ 업데이트
+- **Road Shooter Retention ✅:**
+  - `js/daily.js`: 일일 챌린지 시스템 (5종류×3난이도, 날짜 시드 기반 결정론적 생성)
+  - 메뉴 위젯(canvas), 결과/엔들리스 결과 배너, save 연동, 12개 언어 i18n
+  - GAME-SPEC: Retention ⚠️→✅
 
 ### 세션112 (3/10) - 게임 고도화 7개 — Meta 시스템 대규모 추가
 - **게임 고도화 (7개):**
@@ -129,8 +138,8 @@
 
 ## 다음 우선순위
 
-1. **게임 고도화 계속** — 나머지 Meta ❌ 게임(word-scramble, emoji-merge, sky-runner, zigzag-runner) 추가
+1. **게임 Retention 확산** — idle-clicker 등 다른 게임에 일일챌린지/업적 시스템 추가
 2. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적, 내부링크 강화
 3. **GSC 재확인** — 세션104~111 수정사항 반영 확인 (1~2주 후)
 4. **기존 앱 품질 개선** — Stop Criteria 기반 성과 점검 후 저성과 앱 개선/정리
-5. **Road Shooter 폴리시** — Retention 레이어 추가(일일 챌린지, 업적 시스템)
+5. **Road Shooter 폴리시** — 업적 시스템, Monetization 레이어 강화
