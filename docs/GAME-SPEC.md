@@ -86,7 +86,7 @@
 | stack-tower | ✅ | ❌ | ❌ | ❌ |
 | zigzag-runner | ✅ | ❌ | ❌ | ❌ |
 | pong-game | ✅ | ❌ | ❌ | ❌ |
-| block-puzzle | ✅ | ❌ | ❌ | ❌ |
+| block-puzzle | ✅ | ⚠️ | ❌ | ❌ |
 | brick-breaker | ✅ | ⚠️ | ❌ | ❌ |
 | minesweeper | ✅ | ❌ | ❌ | ❌ |
 | number-puzzle | ✅ | ❌ | ❌ | ❌ |
