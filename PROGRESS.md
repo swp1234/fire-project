@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션111)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션112)
 
 ---
 
@@ -45,6 +45,17 @@
 ---
 
 ## 세션 기록
+
+### 세션112 (3/10) - 게임 고도화 7개 — Meta 시스템 대규모 추가
+- **게임 고도화 (7개):**
+  - **pong-game**: 캔버스 스크린 쉐이크(패들 히트/득점), 플로팅 스코어 텍스트, 랠리 카운터(5회마다)
+  - **word-guess**: 보드 쉐이크(오답/무효단어), 승리 시 confetti 파티클, 연승 플로팅 텍스트
+  - **minesweeper**: 지뢰 폭발 시 쉐이크, 대규모 플러드필 시 플로팅 클리어 텍스트(10칸마다)
+  - **number-puzzle**: 128+ 머지 시 쉐이크, 플로팅 점수 텍스트
+  - **color-memory**: 오답 쉐이크, 5라운드마다 스트릭 플로팅 텍스트
+  - **reaction-test**: 너무 빠른 탭 쉐이크, 플로팅 반응시간 텍스트, 200ms 이하 파티클 버스트
+  - **typing-speed**: 10초 경고 쉐이크, 결과 시 confetti(60WPM+) + 플로팅 WPM
+- **GAME-SPEC 업데이트**: Meta ❌→⚠️ 8개 게임 (pong/minesweeper/number-puzzle/memory-card/color-memory/word-guess/reaction-test/typing-speed)
 
 ### 세션111 (3/10) - 게임 고도화 4개 + mbti-city 블로그 12개 언어
 - **게임 고도화 (4개):**
@@ -118,7 +129,7 @@
 
 ## 다음 우선순위
 
-1. **게임 고도화 계속** — 나머지 게임(maze-runner, minesweeper 등) Meta 시스템 추가
+1. **게임 고도화 계속** — 나머지 Meta ❌ 게임(word-scramble, emoji-merge, sky-runner, zigzag-runner) 추가
 2. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적, 내부링크 강화
 3. **GSC 재확인** — 세션104~111 수정사항 반영 확인 (1~2주 후)
 4. **기존 앱 품질 개선** — Stop Criteria 기반 성과 점검 후 저성과 앱 개선/정리
