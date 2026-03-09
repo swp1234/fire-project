@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "__APP_TITLE__ - DopaBrain",
+    "description": "__APP_DESCRIPTION__"
+  },
+  "loader": {
+    "loading": "로딩 중..."
+  },
+  "a11y": {
+    "skipToContent": "본문으로 건너뛰기"
+  },
+  "app": {
+    "title": "__APP_TITLE__"
+  },
+  "share": {
+    "title": "공유하기",
+    "twitter": "트위터에 공유",
+    "facebook": "페이스북에 공유",
+    "copyLink": "링크 복사",
+    "copied": "복사됨!"
+  }
+}

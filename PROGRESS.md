@@ -38,28 +38,40 @@
 
 ---
 
-## GSC 인덱싱 (2/12)
+## GSC 인덱싱 (3/9 업데이트)
 
-**Indexed 50/62 (81%)** | **Discovered 9:** minesweeper, flappy-bird, dev-quiz, qr-generator, lottery, color-palette, blood-type, routine-planner, todo-list | **Unknown 1:** brick-breaker
+**Indexed 60/62 (97%)** | 이전 미색인 10개 모두 indexed | **Unknown 6 (신규앱):** dark-core, soul-age, pick-me, emotional-age, villain-origin, ick-factor → 사이트맵 추가 완료, 색인 대기
 
 ---
 
-## 주간 리뷰 (2/15~2/21 vs 2/8~2/14)
+## 휴가 기간 리뷰 (2/22~3/8, 15일 공백)
 
-| 지표 | 이번 주 | 지난 주 | 변화 |
-|------|---------|---------|------|
-| 사용자 | **359명** | 473명 | -24% (스파이크 차이) |
-| PV | **750** | 645 | **+16%** |
-| PV/세션 | **1.95** | 1.34 | **+46%** |
-| TOP 국가 | US174, NL54, IL22, DE15 | US방문 비슷 | |
-| TOP 앱 | social-battery(15), luck-meter(14), mental-age(13) | | 다변화 |
-| 채널 | Direct 347(97%), Organic 3 | | |
-| GSC | 1클릭/11노출 (lag 가능) | 6클릭/270노출 | 재확인 필요 |
-| 인사이트 | 베이스라인 유사, 참여도↑, 2/20 스파이크(136명) 지속력 높음(2/21: 71명) | | |
+| 지표 | 2/22~3/8 (15일) | 이전 주 (2/15~21) | 비고 |
+|------|-----------------|-------------------|------|
+| 사용자 | **~79명** (일 ~5명) | 359명 (일 ~51명) | 프로모션 부재 효과 |
+| PV | **232** | 750 | |
+| TOP 국가 | **Russia(17)**, US(15), Armenia/Canada/DE(5) | US(174) | 러시아 자연유입 증가 |
+| TOP 앱 | stack-tower(12), color-personality(10), emoji-merge(10) | social-battery, luck-meter | 게임↑ |
+| 채널 | Direct 67%, **Organic 32%** | Direct 97%, Organic <1% | **Organic 급성장** |
+| GSC | 1클릭/55노출 | 1클릭/11노출 | 노출 5배↑ |
+| 인사이트 | 콘텐츠 업데이트 없이도 Organic 자연 성장, 블로그 4편 pos1~7 진입 | | |
 
 ---
 
 ## 세션 기록
+
+### 세션106 (3/9) - 복귀 리뷰 + 쿠키커터 리디자인 5개 + SEO + 인덱싱
+- **2주 공백 복귀**: GA4/GSC 전면 리뷰 — Organic 32% 성장 (이전 <1%), 일평균 5명 자연유입
+- **블로그 SEO**: 10개 포스트 title/meta CTR 최적화, 깨진 링크 9+2개 수정, 고아 ru/ru 리다이렉트 제거
+- **GSC 인덱싱**: 이전 미색인 10개 모두 indexed 확인, 신규 6개+19개 사이트맵 추가
+- **소셜 트렌드**: Reddit/Twitter/TikTok 스캔 — MBTI×라이프스타일 메타포, 개인데이터 계산기, 뇌다양성 트렌드 확인
+- **쿠키커터 리디자인 5개 완료**:
+  - **color-personality**: 4지선다 → **컬러 믹싱 랩** (3단계 색 선택+조합, 고유 HEX 생성)
+  - **brain-type**: 4지선다 → **뇌 경로 스캐너** (10개 3초 타이머 바이너리, SVG 뇌 시각화)
+  - **toxic-trait**: 4지선다 → **문자 메시지 재판** (8개 채팅+4개 SNS 반응, 독성도 미터)
+  - **animal-personality**: 4지선다 → **야생 생존 여행** (4바이옴 선택+6 생존 시나리오)
+  - **past-life**: 4지선다 → **시간 포탈 여행** (6개 역사 시대 바이너리, 시대별 CSS 테마)
+- 총 리디자인: **13/~20개 완료** (이번 세션 +5)
 
 ### 세션105 (3/9) - 인프라 자동화 + Claude Code 최적화 + 전앱 OG/SW/MD 정리
 - **Claude Code 최적화**: agents 5개, rules 3개, hooks, skills, statusline 워크트리 표시
@@ -114,7 +126,8 @@
 
 ## 다음 우선순위
 
-1. **기존 테스트 메카닉 차별화** — ~18개 쿠키커터 리디자인 (8개 완료)
-2. **소셜 트렌드 기반 신규 앱** — "personality guide" 바이럴 트렌드 활용
-3. **GSC 재확인** — 세션104 수정사항 반영 확인 (1~2주 후)
-4. **Road Shooter 폴리시**
+1. **쿠키커터 리디자인 잔여** — ~7개 (sleep-animal, kpop-position, villain-type, work-style + 미검증 3~4개)
+2. **소셜 트렌드 기반 신규 앱** — "MBTI×라이프스타일 메타포"(커피/OS/도시), "Your Life in Numbers" 계산기, "감정 빙산" 등
+3. **Organic 가속** — 블로그 SEO 최적화 효과 추적, 고볼륨 키워드 타겟 콘텐츠
+4. **GSC 재확인** — 세션104/106 수정사항 반영 확인 (1~2주 후)
+5. **Road Shooter 폴리시**

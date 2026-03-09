@@ -60,7 +60,7 @@
 | 진행상황 확인 | `PROGRESS.md` |
 
 ### 병렬 실행 규칙
-- 최대 4개 동시 실행 (비용 관리)
+- 최대 5~8개 동시 실행 (CLAUDE.md 기준)
 - 같은 파일 수정하는 에이전트 동시 실행 금지
 - 각 에이전트는 자신의 참조 문서만 읽으면 됨
 - 완료 후 PROGRESS.md 업데이트
@@ -80,20 +80,12 @@
 | Monitoring | GA4 + GSC (MCP 연동) |
 | Hosting | GitHub Pages |
 | Domain | dopabrain.com (Cloudflare) |
-| Ads | AdSense (심사중), AdMob (예정) |
+| Ads | AdSense (승인완료, ca-pub-3600813755953882), AdMob (예정) |
 
-## 8. 프로젝트 현황 (62개)
+## 8. 프로젝트 현황 (96개)
 
 > **정확한 앱 목록/메타데이터:** `portal/js/app-data.js` 참조
-
-### 카테고리별 분류
-
-| 카테고리 | 수량 | 주요 앱 |
-|---------|------|---------|
-| 게임 | 19 | idle-clicker, emoji-merge, puzzle-2048, flappy-bird, snake-game, maze-runner, sky-runner, stack-tower, zigzag-runner, pong-game, block-puzzle, brick-breaker, minesweeper, number-puzzle, memory-card, color-memory, word-guess, word-scramble |
-| 바이럴 테스트 | 16 | hsp-test, kpop-position, mbti-love, mbti-tips, mbti-career, animal-personality, color-personality, brain-type, blood-type, emotion-temp, future-self, iq-test, numerology, past-life, stress-check, valentine, zodiac-match, love-frequency, daily-tarot |
-| 유틸/도구 | 12 | quiz-app, shopping-calc, detox-timer, dream-fortune, affirmation, lottery, dday-counter, white-noise, dev-quiz, tax-refund-preview, unit-converter, bmi-calculator, color-palette, habit-tracker, password-generator, pomodoro-timer, qr-generator, reaction-test, typing-speed, todo-list, routine-planner, biorhythm |
-| 인프라 | 2 | portal, root-domain |
+> 앱 수/분류는 PROGRESS.md 기준으로 관리. 여기는 참조용.
 
 ## 9. 주간 리뷰 (매주 일요일)
 

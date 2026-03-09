@@ -49,4 +49,8 @@ SOUNDSCAPE_*.txt
 *.py
 *.ps1
 *.js
+!_common/**/*.js
 nul
+
+# MCP 서버 (로컬 전용)
+.mcp-servers/
