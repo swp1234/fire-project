@@ -280,3 +280,6 @@
 [submodule "projects/life-in-numbers"]
 	path = projects/life-in-numbers
 	url = https://github.com/swp1234/life-in-numbers.git
+[submodule "projects/emotion-iceberg"]
+	path = projects/emotion-iceberg
+	url = https://github.com/swp1234/emotion-iceberg.git
