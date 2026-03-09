@@ -48,9 +48,11 @@
 
 ### 세션110 (3/10) - 방향성 수정 + mbti-city 완성 + mbti-coffee 블로그
 - **방향성 수정** (Codex 평가 기반):
-  - STRATEGY.md: 70/20/10 리소스 배분 (게임70/SEO20/실험10), Phase 2→3 전환 기준 추가, Stop Criteria 신설
-  - OPERATIONS.md: "새 앱 양산" → "성과 기반 선별 확장", 품질 게이트 섹션 추가
-  - README.md: PROGRESS.md 단일 소스 명시, 수치 동기화
+  - STRATEGY.md: 70/20/10 리소스 배분, Phase 2→3 전환 기준 3개, Stop Criteria 신설
+  - OPERATIONS.md: "새 앱 양산" → "성과 기반 선별 확장", 품질 게이트 섹션
+  - CLAUDE.md: 우선순위 + 품질 게이트 필수화
+  - README.md: 수치 하드코딩 완전 제거 → "PROGRESS.md 참조"로 단순화
+- **품질 게이트 자동화**: `scripts/quality-gate.sh` — 14개 항목 자동 검증 (i18n/GA4/AdSense/JSON-LD/app-loader 등)
 - **신규 앱 완성**: **mbti-city** (MBTI 도시 테스트) — 8 여행 시나리오, 16 MBTI×세계도시 매칭, 12개 언어 완료, 서브모듈+Pages+사이트맵
 - **mbti-coffee 블로그**: 12개 언어 SEO 블로그 커밋+푸시 (에이전트 생성분)
 
