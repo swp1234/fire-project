@@ -1,6 +1,8 @@
 # Agent Env Sync
 
-This project now has an MCP sync script so Claude and Codex stay aligned.
+This project supports two modes:
+- default: isolated Codex mode (no Claude impact)
+- optional: one-way MCP import from Claude to Codex
 
 ## Current parity status
 
@@ -19,7 +21,7 @@ What cannot be made truly identical:
 
 ## Sync command
 
-Run this in a normal terminal (not sandbox):
+Run this only when you intentionally want to import MCP from Claude:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\sync-claude-codex-mcp.ps1 -WorkspacePath "E:\Fire Project"
@@ -39,23 +41,25 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\sync-claude-codex-
 
 ## Team rule
 
-When MCP settings change in Claude:
+When MCP settings change in Claude and you want the same MCP in Codex:
 1. Update Claude MCP first.
 2. Run the sync script once.
 3. Start a new Codex session to load updated MCP tools.
 
-## Always-on workflow
+## Isolation-first workflow
 
-Use this launcher so sync runs before every Codex session:
+Use this launcher for daily Codex work:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start-codex-isolated.ps1
+```
+
+## Optional sync launcher
+
+If you explicitly want Claude -> Codex MCP sync on launch:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start-codex-synced.ps1
-```
-
-Optional with cleanup:
-
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start-codex-synced.ps1 -Prune
 ```
 
 Preview only:

@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션122)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션124)
 
 ---
 
@@ -23,13 +23,13 @@
 | 호스팅 | dopabrain.com (Cloudflare, HTTPS, GitHub Pages) |
 | 수익화 | **AdSense 승인완료(2/20)** ca-pub-3600813755953882 — 전앱 스크립트 확인완료(83/83) |
 | 분석 | GA4 + GSC + **Reddit + Twitter + YouTube + Trends(TikTok/IG) + Gemini** MCP 8개 연동 |
-| 크로스프로모 | 61앱, 라이트모드+a11y |
+| 크로스프로모 | **101앱**, 라이트모드+a11y |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
 | 접근성 | skip-link 61앱, reduced-motion 61앱, 키보드 4게임 **(100%)** |
 | 소셜 공유 | **62앱 (100%)** |
 | 구조화 데이터 | JSON-LD 60/61앱 (98%+), Quiz→SoftwareApplication 3앱 수정 |
 | PWA/SW | pwa-install 13앱, SW network-first **93/94앱** |
-| 카테고리 허브 | Games(20), Tests, Tools, MBTI (4개 랜딩페이지) |
+| 카테고리 허브 | Games(21), Tests, Tools, MBTI (4개 랜딩페이지) |
 | MBTI Programmatic | **16/16 타입 페이지 완료** |
 | 서브모듈 | **73/74** (_common만 tree) |
 | 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 785 URLs, .gitattributes 전체 |
@@ -46,10 +46,33 @@
 
 ## 세션 기록
 
+### 세션124 (3/10) - 에셋 투명도 전수 수정 + 온보딩 UX + SEO 메타 최적화
+- **스프라이트 투명도 전수 수정** — Pillow flood-fill로 17개 PNG 에셋 배경 제거 (8개 게임):
+  - flappy-bird(3), snake-game(3), brick-breaker(2), pong-game(2), sky-runner(1), maze-runner(2), minesweeper(2), reaction-test(1)
+  - 원인: Gemini 생성 이미지가 불투명 배경/가짜 체커보드 패턴 포함
+- **Road Shooter 튜토리얼** — 첫 플레이 시 HOW TO PLAY 오버레이 + ? 버튼 (12개 언어 i18n)
+- **게임 온보딩 개선** — 5개 게임에 목표 설명 텍스트 추가 (color-memory, flappy-bird, sky-runner, zigzag-runner, brick-breaker)
+- **SEO 메타 최적화** — 10개 앱 title/description 개선 (50-60자 + CTA + "Free Online" + DopaBrain 브랜드)
+- **Share Score 버튼** — 6개 게임에 점수 공유 추가 (puzzle-2048, pong-game, minesweeper, maze-runner, number-puzzle, word-scramble)
+- **Games Hub 업데이트** — typing-speed 추가, 게임 수 20→21, JSON-LD/FAQ 카운트 수정
+- **미커밋 에셋 정리** — 5개 게임 bg-opt.jpg 커밋 (color-blindness, emoji-merge, number-puzzle, word-guess, word-scramble)
+- **SW 캐시 범프** — 6개 게임 (flappy-bird v4, sky-runner v4, brick-breaker v3, color-memory v3, zigzag-runner v2, road-shooter v5)
+- **QA 전수 통과**: PASS 96 / WARN 0 / FAIL 0
+
+### 세션123 (3/10) - Gemini 에셋 UX 업그레이드 + QA 전수 통과 + Cross-promo 확장
+- **Gemini 이미지 에셋 생성 + 통합 — 18개 게임/앱, 31개 에셋**:
+  - 스프라이트: flappy-bird(4), snake-game(3), brick-breaker(3), pong-game(3), sky-runner(2), maze-runner(2), minesweeper(2), memory-card(1), reaction-test(1)
+  - 배경: block-puzzle, stack-tower, puzzle-2048, idle-clicker, word-guess, word-scramble, emoji-merge, number-puzzle, color-blindness
+  - 모든 에셋 Pillow 압축 (5~8MB → 1~113KB), 기존 Canvas/CSS 렌더링 폴백 유지
+- **Light mode --text 수정** — 8개 앱 (blood-type, bmi-calculator, color-memory, memory-card, routine-planner, todo-list, word-guess, white-noise)
+- **live-check.sh 대폭 개선** — sed 기반 CSS 블록 추출 + 변수명 패턴 확장 → **PASS 34→96, WARN 62→0, FAIL 0**
+- **SW 캐시 업데이트** — 11개 게임 서비스워커 버전 범프 + 에셋 캐시 등록
+- **Cross-promo 확장** — 12개 누락 앱 app-data.js에 추가 (89→101개)
+
 ### 세션121-122 (3/10) - 공통 모듈 404 긴급 수정 + QA 자동화 + 11앱 버그 수정 + Gemini MCP
 - **긴급 버그 수정** — `/_common/js/` → `/portal/js/` 경로 수정 (21개 게임) + typeof 가드 추가
 - **사용자 보고 11앱 전수 수정** — 로드 오류 5개 + 라이트모드 불가시 6개
-- **QA 자동화** — `scripts/live-check.sh` (7가지 체크) + `.claude/rules/post-deploy-qa.md` → **PASS 34 / WARN 62 / FAIL 0**
+- **QA 자동화** — `scripts/live-check.sh` (7가지 체크) + `.claude/rules/post-deploy-qa.md`
 - **블로그 ~48개** — road-shooter, stack-tower, reaction-test, zigzag-runner × 12개 언어 (총 603개)
 - **Gemini MCP 연동** — `@fre4x/gemini` (Imagen 이미지생성, Veo 비디오생성) `.mcp.json` 설정
 
@@ -89,40 +112,19 @@
 - **idle-clicker**: 기존 자체 업적+일일미션 확인 → Retention ✅ 승격
 - **GAME-SPEC 업데이트**: **Retention ✅ 21/21** (전 게임 완료!)
 
-### 세션117 (3/10) - 게임 상태 저장/복원 확산 — Retention ✅ 12/21
-- **6개 게임 상태 저장 추가** (병렬 에이전트):
-  - emoji-merge, number-puzzle, brick-breaker (스테이지/라이프), memory-card, maze-runner (레벨 진행), word-scramble (24h 만료)
-- **GAME-SPEC 업데이트**: 6개 Retention ⚠️→✅ (총 12/21 ✅)
-- 나머지 9개(실시간 아케이드)는 상태 저장 부적합 → daily-streak으로 ⚠️ 유지
-
-### 세션116 (3/10) - 게임 상태 저장/복원 — Retention ✅ 승격 3개
-- **puzzle-2048**: 그리드+점수 상태 저장, 재방문 시 이어하기, 새 게임 시 초기화
-- **minesweeper**: 보드+깃발+타이머 상태 저장, 재방문 시 이어하기
-- **block-puzzle**: 그리드+현재블록+다음블록+홀드 상태 저장, 자동 복원
-- **GAME-SPEC 업데이트**: puzzle-2048/minesweeper/block-puzzle Retention ⚠️→✅ (총 6/21 ✅)
-
-### 세션111-115 (3/10) - 게임 고도화 전면 완성 (Meta+Retention+Haptic)
-- **Meta 완성 21/21**: 11개 게임 고도화 (파티클/쉐이크/플로팅텍스트/콤보)
-- **Retention 확산**: daily-streak 19개 게임, Road Shooter 일일챌린지, 상태저장 6개
-- **Haptic 21개 게임 통합**: `_common/js/haptic.js` 4단계 진동
-- **mbti-city 블로그 12개 언어**
-
-### 세션107-110 (3/10) - 쿠키커터 완료 + 신규 앱 3개 + 방향성 수정
-- **쿠키커터 리디자인 8개 → 24개 전량 완료** (sleep-animal, npc-test, delulu-score, brainrot-score, rizz-score, pick-me, dark-core, aura-score)
-- **신규 앱 3개**: life-in-numbers, emotion-iceberg, mbti-coffee, mbti-city
-- **방향성 수정**: 70/20/10 배분, `quality-gate.sh` 14항목, Stop Criteria
-- **블로그**: life-in-numbers + emotion-iceberg + mbti-coffee + mbti-city × 12개 언어
+### 세션111-117 (3/10) - 게임 고도화 전면 완성 + 상태저장
+- **Meta 완성 21/21** + Haptic 21개 + Retention(상태저장 9개+daily-streak 19개) 21/21
+- 쿠키커터 24개 전량 완료, 신규 앱 4개, 방향성 수정(70/20/10)
 
 ### 이전 세션
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 107-110 | 3/10 | 쿠키커터 24개 완료, 신규 앱 4개, quality-gate, 블로그 48개 |
 | 104-106 | 3/9 | 복귀, GSC 수정, 인프라 자동화(agents/rules/hooks), 리디자인 5개 |
-| 100-103 | 2/22 | 쿠키커터 리디자인 7개, MCP 5개 추가, 주간 리뷰, 인프라 정리 |
-| 96-99 | 2/20-21 | 버그수정12+, 라이트모드10앱, 바이럴앱9개, AdSense전수, 내부링크 |
-| 91-95 | 2/19-20 | 바이럴앱6개, color-blindness, tree→sub 12개, zodiac SEO, 포털 i18n |
-| 83-90 | 2/19 | GSC 404(68개), 블로그50개, RS폴리시, i18n 3라운드 |
-| 59-82 | 2/15-19 | RS MVP→3D, i18n전면, MBTI16, 설날, 블로그+80, 카테고리허브, AdSense |
+| 100-103 | 2/22 | 쿠키커터 7개, MCP 5개, 주간 리뷰, 인프라 정리 |
+| 96-99 | 2/20-21 | 버그12+, 라이트모드10앱, 바이럴9개, AdSense전수, 내부링크 |
+| 59-95 | 2/15-20 | RS MVP→3D, 바이럴앱, i18n전면, MBTI16, 블로그130+, GSC404수정 |
 | 1-58 | 2/4-15 | 앱62개, 포털, JSON-LD, a11y100%, UX개선 |
 
 ---

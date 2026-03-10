@@ -65,9 +65,12 @@ check_app() {
     local CSS_FILE="$APP_DIR/css/style.css"
     if [ -f "$CSS_FILE" ]; then
       if grep -q 'data-theme.*light\|\.light-mode\|\.light-theme' "$CSS_FILE" 2>/dev/null; then
-        # Check key light mode variables
+        # Search for dark text variables in light mode sections
+        # Extract everything from [data-theme="light"] onward and check for --text variants
+        local LIGHT_BLOCK
+        LIGHT_BLOCK=$(sed -n '/data-theme.*light/,/^}/p' "$CSS_FILE" 2>/dev/null || true)
         local LIGHT_TEXT
-        LIGHT_TEXT=$(grep -A5 'data-theme.*light' "$CSS_FILE" | grep -o '\-\-text:[^;]*' | head -1 || true)
+        LIGHT_TEXT=$(echo "$LIGHT_BLOCK" | grep -oE '\-\-(text|text-primary|text-light|text-color|color-text|fg|foreground):[^;]*' | head -1 || true)
         if [ -n "$LIGHT_TEXT" ]; then
           # Check if text color is too light for light mode
           if echo "$LIGHT_TEXT" | grep -qiE '#[ef][ef][ef]|#fff|rgba.*255.*255.*255|transparent'; then
