@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션139)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션140)
 
 ---
 
@@ -45,6 +45,19 @@
 ---
 
 ## 세션 기록
+
+### 세션140 (3/10) - Maze Runner 순찰 적 + 쉴드 파워업
+- **순찰 적 시스템 (stage 3+)**
+  - BFS 기반 경로탐색 AI로 복도 순찰하는 유령 적
+  - 적 수: 1~5마리 (스테이지별 증가), 속도도 스테이지별 증가
+  - 접촉 시 시작점 워프 + 타이머 모드 5초 패널티
+  - 유령 비주얼: 웨이브 바디, 플레이어 추적 눈동자, 글로우 이펙트
+  - 미니맵에 적 위치 표시 (fog 모드에서는 탐색된 영역만)
+- **쉴드 파워업 (stage 5+)**: 적/함정 1회 방어, 녹색 글로우 인디케이터
+- **함정 쉴드 연동**: 함정 접촉 시 쉴드 소모로 방어 + BLOCKED 이펙트
+- **i18n 12개 언어 업데이트**: shieldActive, shieldBroken, enemyCaught 토스트
+- **SW 캐시 bump**: maze-runner v6
+- **QA PASS 96 / WARN 0 / FAIL 0**
 
 ### 세션139 (3/10) - Brick Breaker 폭발 브릭 + 프로시저럴 스테이지
 - **Brick Breaker 게임플레이 확장**
@@ -101,21 +114,11 @@
 - **도파민 피드백 완성**: SFX 21/21, Haptic 21/21, Confetti 21/21
 - **QA PASS 96 / WARN 0 / FAIL 0**
 
-### 세션133 (3/10) - SEO 내부링크 전앱 완료 (95/95)
-- **SEO 내부링크 100%** — 세션132(26앱) + 세션133(48앱) = **95/95 앱 완료** (root-domain 제외)
-  - 세션133 Batch1: mbti-coffee, mbti-city, mbti-tips, dream-fortune, numerology
-  - 세션133 Batch2: villain-type, aura-score, future-self, past-life, animal-personality
-  - 세션133 Batch3: color-personality, emotion-temp, emotion-iceberg, sleep-animal, life-in-numbers
-  - 세션133 Batch4: name-match, love-frequency, valentine, red-green-flag, would-you-rather
-  - 세션133 Batch5: luck-meter, aura-reading, kpop-position, blood-type, biorhythm
-  - 세션133 Batch6-10: affirmation, bmi-calculator, color-blindness, color-palette, dday-counter, detox-timer, habit-tracker, lottery, password-generator, pomodoro-timer, qr-generator, quiz-app, routine-planner, sebatdon-calc, seollal-fortune, seollal-greetings, shopping-calc, stress-check, tax-refund-preview, todo-list, unit-converter, white-noise, work-style
-- **QA PASS 96 / WARN 0 / FAIL 0**
-
-### 이전 세션 (~138)
+### 이전 세션 (~139)
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
-| 135-138 | 3/10 | GameAchievements 10게임, Flappy 무빙파이프+코인, Pong 트레일, RS Frost Wraith+골드스케일 |
+| 133-139 | 3/10 | Brick Breaker 폭발브릭, SEO 내부링크 95/95, GameAchievements, Flappy/Pong/RS 고도화 |
 | 130-134 | 3/10 | 도파민피드백 21/21, SEO 내부링크 95/95, Snake 파워업, typing-speed HUD |
 | 125-129 | 3/10 | SEO 내부링크, RS 적 2종+보스, SFX 21/21, English-first 96앱 |
 | 118-124 | 3/10 | 에셋/온보딩/업적/Monetization 완성, 크로스프로모 101앱 |
