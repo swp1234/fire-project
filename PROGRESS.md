@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션138)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션139)
 
 ---
 
@@ -45,6 +45,15 @@
 ---
 
 ## 세션 기록
+
+### 세션139 (3/10) - Brick Breaker 폭발 브릭 + 프로시저럴 스테이지
+- **Brick Breaker 게임플레이 확장**
+  - EXPLOSIVE 브릭: 파괴 시 반경 70px 내 인접 브릭 연쇄 폭발 (레이저도 적용)
+  - 폭발 비주얼: 20 파티클, 화면 흔들림, 햅틱 heavy, BOOM 텍스트
+  - 프로시저럴 스테이지 12~20: 가중치 기반 브릭 배치 (난이도 점진 증가)
+  - Stage 11에 EXPLOSIVE 브릭 배치 (기존 SPECIAL → EXPLOSIVE 교체)
+- **SW 캐시 bump**: brick-breaker v5
+- **QA PASS 96 / WARN 0 / FAIL 0**
 
 ### 세션138 (3/10) - 3게임 고도화 (Flappy Bird + Pong + RS 밸런스)
 - **Flappy Bird 게임플레이 확장**
@@ -102,23 +111,12 @@
   - 세션133 Batch6-10: affirmation, bmi-calculator, color-blindness, color-palette, dday-counter, detox-timer, habit-tracker, lottery, password-generator, pomodoro-timer, qr-generator, quiz-app, routine-planner, sebatdon-calc, seollal-fortune, seollal-greetings, shopping-calc, stress-check, tax-refund-preview, todo-list, unit-converter, white-noise, work-style
 - **QA PASS 96 / WARN 0 / FAIL 0**
 
-### 이전 세션 (~134)
+### 이전 세션 (~138)
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
-| 135 | 3/10 | GameAchievements 10게임 + DailyStreak word-guess + SW bump 15게임 |
-| 137 | 3/10 | RS 보스 골드 스케일링 + Frost Wraith 이동 + 밸런스 감사 |
-| 136 | 3/10 | Frost Wraith 5번째 보스 + endless.js infernoDragon 충돌 수정 |
-| 134 | 3/10 | Confetti 8게임 + Haptic idle-clicker (도파민 피드백 21/21 완성) |
-| 133 | 3/10 | SEO 내부링크 48앱 → 전앱 완료 (95/95) |
-| 132 | 3/10 | SEO 내부링크 26앱 (심리/바이럴/MBTI/운세/퀴즈 클러스터) |
-| 131 | 3/10 | typing-speed 라이브HUD/콤보 + dev-quiz/quiz-app SFX/햅틱/confetti |
-| 130 | 3/10 | Snake 파워업 4종 + Flappy 메달 시스템 + daily-tarot 빌드 수정 |
-
-### 이전 세션 (~129)
-
-| 세션 | 날짜 | 주요 작업 |
-|------|------|----------|
+| 135-138 | 3/10 | GameAchievements 10게임, Flappy 무빙파이프+코인, Pong 트레일, RS Frost Wraith+골드스케일 |
+| 130-134 | 3/10 | 도파민피드백 21/21, SEO 내부링크 95/95, Snake 파워업, typing-speed HUD |
 | 125-129 | 3/10 | SEO 내부링크, RS 적 2종+보스, SFX 21/21, English-first 96앱 |
 | 118-124 | 3/10 | 에셋/온보딩/업적/Monetization 완성, 크로스프로모 101앱 |
 | 104-110 | 3/9-10 | 복귀+인프라 자동화, 쿠키커터 24개, 신규앱 4개 |
