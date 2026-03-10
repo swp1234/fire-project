@@ -52,10 +52,9 @@
   - 원인: Gemini 생성 이미지가 불투명 배경/가짜 체커보드 패턴 포함
 - **Road Shooter 튜토리얼** — 첫 플레이 시 HOW TO PLAY 오버레이 + ? 버튼 (12개 언어 i18n)
 - **게임 온보딩 개선** — 5개 게임에 목표 설명 텍스트 추가 (color-memory, flappy-bird, sky-runner, zigzag-runner, brick-breaker)
-- **SEO 전면 최적화**:
-  - title/OG 영문화 11개 게임 (English-first + "Free Online" + DopaBrain)
-  - meta description 영문화 8개 게임
-  - JSON-LD 스키마 강화 5개 게임 (aggregateRating, featureList, publisher)
+- **SEO 전면 최적화** — 21개 게임 English-first 완료:
+  - title/OG/Twitter 영문화 + meta description + JSON-LD name 영문화
+  - JSON-LD 스키마 강화 5개 (aggregateRating, featureList, publisher)
   - Hreflang 11개 앱 (12언어 + x-default)
 - **NEW BEST Flash** — **20/21 게임 완료** (road-shooter 제외 전체 — 자체 랭킹 시스템 보유)
 - **Share Score 버튼** — 6개 게임 (puzzle-2048, pong-game, minesweeper, maze-runner, number-puzzle, word-scramble)
