@@ -52,12 +52,15 @@
   - 원인: Gemini 생성 이미지가 불투명 배경/가짜 체커보드 패턴 포함
 - **Road Shooter 튜토리얼** — 첫 플레이 시 HOW TO PLAY 오버레이 + ? 버튼 (12개 언어 i18n)
 - **게임 온보딩 개선** — 5개 게임에 목표 설명 텍스트 추가 (color-memory, flappy-bird, sky-runner, zigzag-runner, brick-breaker)
-- **SEO 메타 최적화** — 10개 앱 title/description 개선 (50-60자 + CTA + "Free Online" + DopaBrain 브랜드)
-- **Share Score 버튼** — 6개 게임에 점수 공유 추가 (puzzle-2048, pong-game, minesweeper, maze-runner, number-puzzle, word-scramble)
-- **Games Hub 업데이트** — typing-speed 추가, 게임 수 20→21, JSON-LD/FAQ 카운트 수정
-- **미커밋 에셋 정리** — 5개 게임 bg-opt.jpg 커밋 (color-blindness, emoji-merge, number-puzzle, word-guess, word-scramble)
-- **Dopamine Juice 추가** — 4개 게임 (puzzle-2048, number-puzzle, memory-card, color-memory): floating text, NEW BEST flash, combo, shake
-- **SW 캐시 범프** — 6개 게임 (flappy-bird v4, sky-runner v4, brick-breaker v3, color-memory v3, zigzag-runner v2, road-shooter v5)
+- **SEO 전면 최적화**:
+  - title/OG 영문화 11개 게임 (English-first + "Free Online" + DopaBrain)
+  - meta description 영문화 8개 게임
+  - JSON-LD 스키마 강화 5개 게임 (aggregateRating, featureList, publisher)
+  - Hreflang 11개 앱 (12언어 + x-default)
+- **NEW BEST Flash** — 13/21 게임 완료 (sky-runner, zigzag-runner, reaction-test 추가)
+- **Share Score 버튼** — 6개 게임 (puzzle-2048, pong-game, minesweeper, maze-runner, number-puzzle, word-scramble)
+- **Dopamine Juice** — 4개 게임 (puzzle-2048, number-puzzle, memory-card, color-memory)
+- **SW 캐시 범프** — 6개 게임 + road-shooter v5
 - **QA 전수 통과**: PASS 96 / WARN 0 / FAIL 0
 
 ### 세션123 (3/10) - Gemini 에셋 UX 업그레이드 + QA 전수 통과 + Cross-promo 확장
@@ -113,11 +116,7 @@
 - **idle-clicker**: 기존 자체 업적+일일미션 확인 → Retention ✅ 승격
 - **GAME-SPEC 업데이트**: **Retention ✅ 21/21** (전 게임 완료!)
 
-### 세션111-117 (3/10) - 게임 고도화 전면 완성 + 상태저장
-- **Meta 완성 21/21** + Haptic 21개 + Retention(상태저장 9개+daily-streak 19개) 21/21
-- 쿠키커터 24개 전량 완료, 신규 앱 4개, 방향성 수정(70/20/10)
-
-### 이전 세션
+### 이전 세션 (~117)
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
