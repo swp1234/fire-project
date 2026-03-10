@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션120)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션121)
 
 ---
 
@@ -45,6 +45,19 @@
 ---
 
 ## 세션 기록
+
+### 세션121 (3/10) - 공통 모듈 404 긴급 수정 + QA 자동화 + 11앱 버그 수정
+- **긴급 버그 수정** — `/_common/js/` 파일 전체 404 (21개 게임 영향):
+  - 원인: `_common`은 루트 tree로만 존재, 미배포 → haptic/daily-streak/game-ads/achievements 모두 404
+  - 수정: 4개 공통 모듈을 `portal/js/`에 복사 배포 + 21개 게임 HTML 경로 수정 (`/_common/js/` → `/portal/js/`)
+  - typeof 가드 추가: `DailyStreak.init()`, `GameAchievements.init()/report()` 호출에 안전 체크
+- **사용자 보고 11앱 전수 수정:**
+  - 1차(5앱): would-you-rather(텍스트 불가시), stack-tower/sky-runner/zigzag-runner/maze-runner(로딩 멈춤)
+  - 2차(6앱): unit-converter/dream-fortune/routine-planner(로드 오류), todo-list/daily-tarot/typing-speed(라이트모드 불가시)
+- **QA 자동화** — `scripts/live-check.sh` + `.claude/rules/post-deploy-qa.md`:
+  - 7가지 런타임 체크: 스크립트 참조, /_common/js/, 라이트모드, app-loader, typeof 가드, i18n try-catch, console.log
+  - 전체 스캔 결과: **PASS 34 / WARN 62 / FAIL 0**
+- **블로그 확장** — 4개 게임 12개 언어 SEO 블로그 생성 (에이전트)
 
 ### 세션120 (3/10) - Road Shooter 스킨 시스템 + 랭킹 보드
 - **스킨 시스템** (`js/skins.js`, `js/scenes/skin.js`):
