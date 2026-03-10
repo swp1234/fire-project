@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션135)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션136)
 
 ---
 
@@ -46,6 +46,17 @@
 
 ## 세션 기록
 
+### 세션136 (3/10) - Road Shooter Frost Wraith 5번째 보스 + endless.js 버그 수정
+- **Frost Wraith 보스 추가** — HP 200, 아이스 테마, 3 phase 공격
+  - Phase 1: ice_shard (6발 부채꼴 빙하 탄막)
+  - Phase 2: blizzard (4초 눈보라 + 빙하 비)
+  - Phase 3: frost_nova (확산 링 + 탄환 링 + 냉동 구역)
+  - 풀 비주얼: 유령 형태, 얼음 왕관, 궤도 빙결정, 서리 아크, 냉동 구역 이펙트
+- **Boss rotation 4→5**: zombieTitan → warMachine → stormColossus → infernoDragon → frostWraith
+- **endless.js 버그 수정** — infernoDragon 공격(flame breath, fire trail, meteor)의 충돌 판정 누락 수정
+- **SW 캐시 v7→v8**
+- **QA PASS 96 / WARN 0 / FAIL 0**
+
 ### 세션135 (3/10) - GameAchievements 전게임 통합 + DailyStreak 보완
 - **GameAchievements 10게임 신규 통합** — block-puzzle, brick-breaker, memory-card, puzzle-2048, word-scramble, maze-runner, number-puzzle, minesweeper, word-guess, emoji-merge
   - 게임별 6개 업적 정의 (점수/게임수/콤보/스테이지 등)
@@ -76,6 +87,7 @@
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 135 | 3/10 | GameAchievements 10게임 + DailyStreak word-guess + SW bump 15게임 |
 | 134 | 3/10 | Confetti 8게임 + Haptic idle-clicker (도파민 피드백 21/21 완성) |
 | 133 | 3/10 | SEO 내부링크 48앱 → 전앱 완료 (95/95) |
 | 132 | 3/10 | SEO 내부링크 26앱 (심리/바이럴/MBTI/운세/퀴즈 클러스터) |
@@ -108,5 +120,5 @@
 1. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적, ~~내부링크 강화~~ ✅ 95/95 완료
 2. **GSC 재확인** — 세션104~119 수정사항 반영 확인 (1~2주 후)
 3. **기존 앱 품질 개선** — Stop Criteria 기반 성과 점검 후 저성과 앱 개선/정리
-4. **Road Shooter 추가 폴리시** — ~~스킨, 랭킹, 새 보스, 새 적~~ ✅ → 밸런스 미세조정, 추가 콘텐츠
+4. **Road Shooter 추가 폴리시** — ~~스킨, 랭킹, 새 보스, 새 적~~ ✅ → ~~5번째 보스~~ ✅ → 밸런스 미세조정, 추가 콘텐츠
 5. **신규 게임/앱** — 트렌드 기반 실험 (10% 할당)
