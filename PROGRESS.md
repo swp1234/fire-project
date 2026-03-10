@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션124)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션125)
 
 ---
 
@@ -27,7 +27,7 @@
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
 | 접근성 | skip-link 61앱, reduced-motion 61앱, 키보드 4게임 **(100%)** |
 | 소셜 공유 | **62앱 (100%)** |
-| 구조화 데이터 | JSON-LD 60/61앱 (98%+), Quiz→SoftwareApplication 3앱 수정 |
+| 구조화 데이터 | JSON-LD 전앱 완료, aggregateRating+publisher 강화 완료 |
 | PWA/SW | pwa-install 13앱, SW network-first **93/94앱** |
 | 카테고리 허브 | Games(21), Tests, Tools, MBTI (4개 랜딩페이지) |
 | MBTI Programmatic | **16/16 타입 페이지 완료** |
@@ -45,6 +45,20 @@
 ---
 
 ## 세션 기록
+
+### 세션125 (3/10) - SEO English-first 전면 최적화 + 게임 도파민 폴리시
+- **English-first Title 최적화** — **47개 앱** title + og:title + twitter:title 영문화 (전체 96앱 완료)
+- **English-first Meta Description** — **39개 앱** description + og:desc + twitter:desc 영문화
+- **English-first og/JSON-LD Description** — **~23개 앱** og:description + JSON-LD description 영문화
+- **JSON-LD Schema 강화** — **~39개 앱** aggregateRating + publisher 추가
+- **게임 도파민 폴리시** — 4개 게임:
+  - block-puzzle: confetti on line clear
+  - snake-game: floating score text + screen shake on death
+  - maze-runner: screen shake on level complete/game over
+  - puzzle-2048: confetti on 2048 victory
+- **SW 캐시 범프** — 4개 게임 (block-puzzle, snake-game, maze-runner, puzzle-2048)
+- **Dopamine Checklist 21/21**: confetti + shake + combo + floating text + NEW BEST 전 게임 완료
+- **QA 전수 통과**: PASS 96 / WARN 0 / FAIL 0
 
 ### 세션124 (3/10) - 에셋 투명도 전수 수정 + 온보딩 UX + SEO 메타 최적화
 - **스프라이트 투명도 전수 수정** — Pillow flood-fill로 17개 PNG 에셋 배경 제거 (8개 게임):
@@ -92,39 +106,15 @@
 - **메뉴 UI**: 스킨 버튼(🎨) + 랭킹 버튼(📊) 상단 추가
 - **i18n**: 14키 × 12개 언어, SW 캐시 v4
 
-### 세션119 (3/10) - 전 게임 Monetization — 4-Layer ✅ 21/21 완성!
-- **공통 모듈**: `_common/js/game-ads.js` — H5 Games Ads (Ad Placement API) 래퍼
-  - `adBreak()` interstitial (매 3게임), `adBreak(reward)` rewarded ad
-  - `injectRewardButton()` — DOM 게임용 자동 보상 버튼 주입
-  - 광고 미로드 시 graceful fallback (게임 진행 차단 없음)
-- **Road Shooter Monetization ✅**: Interstitial + Rewarded 2x Gold (12개 언어 i18n)
-- **20개 게임 Interstitial** (4개 병렬 에이전트): 매 3게임 game-over 시점
-- **20개 게임 Rewarded Ad** (4개 병렬 에이전트):
-  - 기존 revive UI 연동 6개: snake, stack-tower, brick-breaker, emoji-merge, sky-runner, zigzag-runner
-  - 새 reward 버튼 주입 14개: flappy, block, puzzle-2048, maze, pong, minesweeper, number-puzzle, memory-card, color-memory, word-guess, word-scramble, reaction, typing, idle-clicker
-- **4-Layer 완성**: Core✅21 | Meta✅21 | Retention✅21 | **Monetization✅21**
-
-### 세션118 (3/10) - 전 게임 업적 시스템 — Retention ✅ 21/21 달성
-- **Road Shooter 업적 시스템** (`js/achievements.js`, `js/scenes/achieve.js`):
-  - 20개 마일스톤: 출격(4), 처치(4), 분대(4), 보스(3), 스테이지(2), 엔들리스(2), 골드(1)
-  - 골드 보상 (50~5000), 토스트 알림, 트로피 화면, 메뉴 트로피 버튼
-  - 12개 언어 i18n (23키 × 12언어), SW 캐시 v2
-- **범용 업적 모듈** (`_common/js/achievements.js`): DOM 토스트, Haptic 연동, localStorage 기반
-- **9개 아케이드 게임 업적 통합** (3개 병렬 에이전트):
-  - snake(7), stack-tower(9), flappy-bird(7), sky-runner(7), zigzag-runner(9), pong(8), color-memory(6), reaction-test(6), typing-speed(7)
-- **idle-clicker**: 기존 자체 업적+일일미션 확인 → Retention ✅ 승격
-- **GAME-SPEC 업데이트**: **Retention ✅ 21/21** (전 게임 완료!)
-
-### 이전 세션 (~117)
+### 이전 세션 (~119)
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 118-119 | 3/10 | 업적 21/21, Monetization 21/21 (4-Layer 완성) |
 | 107-110 | 3/10 | 쿠키커터 24개 완료, 신규 앱 4개, quality-gate, 블로그 48개 |
 | 104-106 | 3/9 | 복귀, GSC 수정, 인프라 자동화(agents/rules/hooks), 리디자인 5개 |
-| 100-103 | 2/22 | 쿠키커터 7개, MCP 5개, 주간 리뷰, 인프라 정리 |
-| 96-99 | 2/20-21 | 버그12+, 라이트모드10앱, 바이럴9개, AdSense전수, 내부링크 |
-| 59-95 | 2/15-20 | RS MVP→3D, 바이럴앱, i18n전면, MBTI16, 블로그130+, GSC404수정 |
-| 1-58 | 2/4-15 | 앱62개, 포털, JSON-LD, a11y100%, UX개선 |
+| 96-103 | 2/20-22 | 버그12+, 바이럴9개, AdSense전수, 쿠키커터7, MCP5 |
+| 1-95 | 2/4-20 | 앱96개, 포털, RS 3D, i18n전면, MBTI16, 블로그600+, a11y |
 
 ---
 
