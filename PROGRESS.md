@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션125)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션126)
 
 ---
 
@@ -45,6 +45,18 @@
 ---
 
 ## 세션 기록
+
+### 세션126 (3/10) - SFX 시스템 3게임 + typing-speed 난이도 시스템
+- **SFX 시스템 추가** — 3개 게임 (Web Audio API + 토글 버튼):
+  - number-puzzle: 10 SFX (slide, merge, bigmerge, combo, newtile, win, gameover, newbest, undo)
+  - typing-speed: 8 SFX (key, tick, warning, correct, wrong, complete, grade_s, newbest)
+  - word-scramble: 11 SFX (select, deselect, correct, wrong, combo, skip, hint, levelup, gameover, newbest, tick)
+- **SFX 커버리지 21/21 게임** — 전 게임 사운드 시스템 완료
+- **typing-speed 난이도 시스템** — Easy(90s/20w), Normal(60s/30w), Hard(30s/40w) + i18n 12개 언어
+- **typing-speed SW 경로 수정** — `/sw.js` → `sw.js` (상대 경로)
+- **SW 캐시 범프** — 3개 게임 (number-puzzle v3, typing-speed v3, word-scramble v3)
+- **JSON-LD featureList 업데이트** — 3개 게임 Sound Effects/Difficulty 추가
+- **QA 전수 통과**: PASS 96 / WARN 0 / FAIL 0
 
 ### 세션125 (3/10) - SEO English-first 전면 최적화 + 게임 도파민 폴리시
 - **English-first Title 최적화** — **47개 앱** title + og:title + twitter:title 영문화 (전체 96앱 완료)
@@ -95,23 +107,11 @@
 - **블로그 ~48개** — road-shooter, stack-tower, reaction-test, zigzag-runner × 12개 언어 (총 603개)
 - **Gemini MCP 연동** — `@fre4x/gemini` (Imagen 이미지생성, Veo 비디오생성) `.mcp.json` 설정
 
-### 세션120 (3/10) - Road Shooter 스킨 시스템 + 랭킹 보드
-- **스킨 시스템** (`js/skins.js`, `js/scenes/skin.js`):
-  - 6종 스킨: Standard(무료), Desert Storm(800g), Arctic Ops(1500g), Neon Strike(2500g), Shadow Force(4000g), Gold Legion(100회 업적)
-  - Canvas filter 기반 (hue-rotate/saturate/brightness), 3D 렌더러 CSS filter 지원
-  - 갤러리 씬: 캐릭터 프리뷰, 구매/장착/잠금 표시, 피드백 토스트
-  - 골드 싱크: 총 8,800g 소모 가능 → 플레이 동기 + 광고 시청 유도
-- **로컬 랭킹 보드** (`js/ranking.js`, `js/scenes/rank.js`):
-  - Stage Top 10 + Endless Top 10, 탭 전환
-  - 메달(금/은/동) + 날짜/처치/골드 표시, 스크롤 지원
-  - 매 스테이지 클리어/엔들리스 종료 시 자동 저장
-- **메뉴 UI**: 스킨 버튼(🎨) + 랭킹 버튼(📊) 상단 추가
-- **i18n**: 14키 × 12개 언어, SW 캐시 v4
-
-### 이전 세션 (~119)
+### 이전 세션 (~120)
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 120 | 3/10 | RS 스킨 6종 + 랭킹 보드 (Stage/Endless Top10) |
 | 118-119 | 3/10 | 업적 21/21, Monetization 21/21 (4-Layer 완성) |
 | 107-110 | 3/10 | 쿠키커터 24개 완료, 신규 앱 4개, quality-gate, 블로그 48개 |
 | 104-106 | 3/9 | 복귀, GSC 수정, 인프라 자동화(agents/rules/hooks), 리디자인 5개 |
