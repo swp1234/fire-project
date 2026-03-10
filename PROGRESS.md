@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션134)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션135)
 
 ---
 
@@ -46,6 +46,14 @@
 
 ## 세션 기록
 
+### 세션135 (3/10) - GameAchievements 전게임 통합 + DailyStreak 보완
+- **GameAchievements 10게임 신규 통합** — block-puzzle, brick-breaker, memory-card, puzzle-2048, word-scramble, maze-runner, number-puzzle, minesweeper, word-guess, emoji-merge
+  - 게임별 6개 업적 정의 (점수/게임수/콤보/스테이지 등)
+  - 전 게임 통합 완료: 18/19 (idle-clicker 자체 시스템)
+- **DailyStreak word-guess 추가** — 19/19 게임 완료
+- **게임 공유 모듈 통합률**: SFX 21/21, Haptic 21/21, Confetti 21/21, DailyStreak 19/19, GameAds 19/19, GameAchievements 18/19
+- **QA PASS 96 / WARN 0 / FAIL 0**
+
 ### 세션134 (3/10) - 도파민 피드백 21/21 게임 완성
 - **Confetti 8게임 추가** — pong-game, brick-breaker, memory-card, flappy-bird, snake-game, word-scramble, maze-runner, reaction-test
   - 승리/레벨클리어/NEW BEST 시 confetti 축하 효과
@@ -63,10 +71,11 @@
   - 세션133 Batch6-10: affirmation, bmi-calculator, color-blindness, color-palette, dday-counter, detox-timer, habit-tracker, lottery, password-generator, pomodoro-timer, qr-generator, quiz-app, routine-planner, sebatdon-calc, seollal-fortune, seollal-greetings, shopping-calc, stress-check, tax-refund-preview, todo-list, unit-converter, white-noise, work-style
 - **QA PASS 96 / WARN 0 / FAIL 0**
 
-### 이전 세션 (~133)
+### 이전 세션 (~134)
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 134 | 3/10 | Confetti 8게임 + Haptic idle-clicker (도파민 피드백 21/21 완성) |
 | 133 | 3/10 | SEO 내부링크 48앱 → 전앱 완료 (95/95) |
 | 132 | 3/10 | SEO 내부링크 26앱 (심리/바이럴/MBTI/운세/퀴즈 클러스터) |
 | 131 | 3/10 | typing-speed 라이브HUD/콤보 + dev-quiz/quiz-app SFX/햅틱/confetti |
