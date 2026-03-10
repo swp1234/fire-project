@@ -52,6 +52,7 @@
   - 전 게임 통합 완료: 18/19 (idle-clicker 자체 시스템)
 - **DailyStreak word-guess 추가** — 19/19 게임 완료
 - **게임 공유 모듈 통합률**: SFX 21/21, Haptic 21/21, Confetti 21/21, DailyStreak 19/19, GameAds 19/19, GameAchievements 18/19
+- **SW 캐시 버전 bump** — 15게임 (세션134-135 변경분 반영)
 - **QA PASS 96 / WARN 0 / FAIL 0**
 
 ### 세션134 (3/10) - 도파민 피드백 21/21 게임 완성
