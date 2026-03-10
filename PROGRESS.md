@@ -28,7 +28,7 @@
 | 접근성 | skip-link 61앱, reduced-motion 61앱, 키보드 4게임 **(100%)** |
 | 소셜 공유 | **62앱 (100%)** |
 | 구조화 데이터 | JSON-LD 전앱 완료, aggregateRating+publisher 강화 완료 |
-| PWA/SW | pwa-install 13앱, SW network-first **93/94앱** |
+| PWA/SW | pwa-install 13앱, SW 등록 완료 **전앱** |
 | 카테고리 허브 | Games(21), Tests, Tools, MBTI (4개 랜딩페이지) |
 | MBTI Programmatic | **16/16 타입 페이지 완료** |
 | 서브모듈 | **73/74** (_common만 tree) |
@@ -57,6 +57,8 @@
   - maze-runner: screen shake on level complete/game over
   - puzzle-2048: confetti on 2048 victory
 - **SW 캐시 범프** — 4개 게임 (block-puzzle, snake-game, maze-runner, puzzle-2048)
+- **SW 등록 누락 수정** — **21개 앱** (sw.js 존재하나 register 미호출)
+- **English featureList** — **14개 앱** JSON-LD featureList 영문화
 - **Dopamine Checklist 21/21**: confetti + shake + combo + floating text + NEW BEST 전 게임 완료
 - **QA 전수 통과**: PASS 96 / WARN 0 / FAIL 0
 
