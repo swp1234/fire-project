@@ -56,6 +56,7 @@
 - **Share Score 버튼** — 6개 게임에 점수 공유 추가 (puzzle-2048, pong-game, minesweeper, maze-runner, number-puzzle, word-scramble)
 - **Games Hub 업데이트** — typing-speed 추가, 게임 수 20→21, JSON-LD/FAQ 카운트 수정
 - **미커밋 에셋 정리** — 5개 게임 bg-opt.jpg 커밋 (color-blindness, emoji-merge, number-puzzle, word-guess, word-scramble)
+- **Dopamine Juice 추가** — 4개 게임 (puzzle-2048, number-puzzle, memory-card, color-memory): floating text, NEW BEST flash, combo, shake
 - **SW 캐시 범프** — 6개 게임 (flappy-bird v4, sky-runner v4, brick-breaker v3, color-memory v3, zigzag-runner v2, road-shooter v5)
 - **QA 전수 통과**: PASS 96 / WARN 0 / FAIL 0
 
