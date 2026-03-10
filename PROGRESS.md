@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션132)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션133)
 
 ---
 
@@ -46,19 +46,21 @@
 
 ## 세션 기록
 
-### 세션132 (3/10) - SEO 내부링크 대량 추가 (26앱)
-- **SEO 내부링크** — 26개 앱에 category-aware 내부링크 섹션 추가 (47/96 완료)
-  - 심리테스트 클러스터: eq-test, stress-type, mental-age, love-language, brain-type, attachment-style, hsp-test, emotional-age, social-battery, toxic-trait
-  - 바이럴 테스트 클러스터: brainrot-score, rizz-score, delulu-score, pick-me, ick-factor, villain-origin, dark-core, npc-test
-  - MBTI 클러스터: mbti-love, mbti-career
-  - 운세 클러스터: daily-tarot, fortune-cookie, zodiac-match, soul-age
-  - 게임/퀴즈: iq-test, dev-quiz
-- **dev-quiz 추가**: sound-engine.js 이전 세션에서 추가 후 내부링크 보완
+### 세션133 (3/10) - SEO 내부링크 전앱 완료 (95/95)
+- **SEO 내부링크 100%** — 세션132(26앱) + 세션133(48앱) = **95/95 앱 완료** (root-domain 제외)
+  - 세션133 Batch1: mbti-coffee, mbti-city, mbti-tips, dream-fortune, numerology
+  - 세션133 Batch2: villain-type, aura-score, future-self, past-life, animal-personality
+  - 세션133 Batch3: color-personality, emotion-temp, emotion-iceberg, sleep-animal, life-in-numbers
+  - 세션133 Batch4: name-match, love-frequency, valentine, red-green-flag, would-you-rather
+  - 세션133 Batch5: luck-meter, aura-reading, kpop-position, blood-type, biorhythm
+  - 세션133 Batch6-10: affirmation, bmi-calculator, color-blindness, color-palette, dday-counter, detox-timer, habit-tracker, lottery, password-generator, pomodoro-timer, qr-generator, quiz-app, routine-planner, sebatdon-calc, seollal-fortune, seollal-greetings, shopping-calc, stress-check, tax-refund-preview, todo-list, unit-converter, white-noise, work-style
+- **QA PASS 96 / WARN 0 / FAIL 0**
 
-### 이전 세션 (~131)
+### 이전 세션 (~132)
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 132 | 3/10 | SEO 내부링크 26앱 (심리/바이럴/MBTI/운세/퀴즈 클러스터) |
 | 131 | 3/10 | typing-speed 라이브HUD/콤보 + dev-quiz/quiz-app SFX/햅틱/confetti |
 | 130 | 3/10 | Snake 파워업 4종 + Flappy 메달 시스템 + daily-tarot 빌드 수정 |
 
@@ -85,7 +87,7 @@
 
 ## 다음 우선순위
 
-1. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적, 내부링크 강화
+1. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적, ~~내부링크 강화~~ ✅ 95/95 완료
 2. **GSC 재확인** — 세션104~119 수정사항 반영 확인 (1~2주 후)
 3. **기존 앱 품질 개선** — Stop Criteria 기반 성과 점검 후 저성과 앱 개선/정리
 4. **Road Shooter 추가 폴리시** — ~~스킨, 랭킹, 새 보스, 새 적~~ ✅ → 밸런스 미세조정, 추가 콘텐츠
