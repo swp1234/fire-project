@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션131)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션132)
 
 ---
 
@@ -46,22 +46,26 @@
 
 ## 세션 기록
 
-### 세션131 (3/10) - 도파민 피드백 일괄 강화 (typing-speed, dev-quiz, quiz-app)
-- **typing-speed** — Live WPM/accuracy HUD + 콤보 스트릭 (3x부터 표시, 10x fire) + 시작화면 stats 로드
-  - updateLiveStats(): 실시간 WPM/정확도 계산, updateCombo(): 연속 정답 추적
-  - i18n 12개 언어 "result.combo" 키 추가, SW v4
-- **dev-quiz** — SFX 사운드 엔진 + 햅틱 + 정답 스트릭 카운터 + 오답 shake + 고득점 confetti
-  - sound-engine.js 신규 생성 (correct/wrong/combo/complete/grade_s)
-  - SW v2
-- **quiz-app** — SFX + 햅틱 + 오답 shake + 7점+ confetti
-  - sound-engine.js 복사, SW v4
-- **QA**: PASS 96 / WARN 0 / FAIL 0
+### 세션132 (3/10) - SEO 내부링크 대량 추가 (26앱)
+- **SEO 내부링크** — 26개 앱에 category-aware 내부링크 섹션 추가 (47/96 완료)
+  - 심리테스트 클러스터: eq-test, stress-type, mental-age, love-language, brain-type, attachment-style, hsp-test, emotional-age, social-battery, toxic-trait
+  - 바이럴 테스트 클러스터: brainrot-score, rizz-score, delulu-score, pick-me, ick-factor, villain-origin, dark-core, npc-test
+  - MBTI 클러스터: mbti-love, mbti-career
+  - 운세 클러스터: daily-tarot, fortune-cookie, zodiac-match, soul-age
+  - 게임/퀴즈: iq-test, dev-quiz
+- **dev-quiz 추가**: sound-engine.js 이전 세션에서 추가 후 내부링크 보완
 
-### 이전 세션 (~130)
+### 이전 세션 (~131)
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 131 | 3/10 | typing-speed 라이브HUD/콤보 + dev-quiz/quiz-app SFX/햅틱/confetti |
 | 130 | 3/10 | Snake 파워업 4종 + Flappy 메달 시스템 + daily-tarot 빌드 수정 |
+
+### 이전 세션 (~129)
+
+| 세션 | 날짜 | 주요 작업 |
+|------|------|----------|
 | 129 | 3/10 | SEO 내부링크 21게임 + priceCurrency 55앱 + 에셋개선계획 |
 | 128 | 3/10 | RS Healer+Splitter 적 2종 + AI 타겟팅 + 접촉충돌 |
 | 127 | 3/10 | RS Inferno Dragon 보스 (4종 완성) + 보스 도로범위 clamp |
