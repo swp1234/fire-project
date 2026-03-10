@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션136)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션137)
 
 ---
 
@@ -46,6 +46,13 @@
 
 ## 세션 기록
 
+### 세션137 (3/10) - RS 보스 골드 스케일링 + 밸런스 감사
+- **보스 골드 보상 난이도 비례** — 기존 고정 200골드 → `200 * bossMul`로 스케일링 (Stage 10에서 ~650골드)
+- **Frost Wraith 이동 개선** — 더 빠르고 불규칙한 부유 이동 패턴
+- **endless.js infernoDragon 충돌 누락 수정** — flame breath/fire trail/meteor 충돌 판정 추가 (세션136 커밋에 포함)
+- **전체 밸런스 감사 완료** — 5보스 rotation HP 곡선, 골드 보상, stage difficulty 검증
+- **QA PASS 96 / WARN 0 / FAIL 0**
+
 ### 세션136 (3/10) - Road Shooter Frost Wraith 5번째 보스 + endless.js 버그 수정
 - **Frost Wraith 보스 추가** — HP 200, 아이스 테마, 3 phase 공격
   - Phase 1: ice_shard (6발 부채꼴 빙하 탄막)
@@ -88,6 +95,7 @@
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
 | 135 | 3/10 | GameAchievements 10게임 + DailyStreak word-guess + SW bump 15게임 |
+| 136 | 3/10 | Frost Wraith 5번째 보스 + endless.js infernoDragon 충돌 수정 |
 | 134 | 3/10 | Confetti 8게임 + Haptic idle-clicker (도파민 피드백 21/21 완성) |
 | 133 | 3/10 | SEO 내부링크 48앱 → 전앱 완료 (95/95) |
 | 132 | 3/10 | SEO 내부링크 26앱 (심리/바이럴/MBTI/운세/퀴즈 클러스터) |
