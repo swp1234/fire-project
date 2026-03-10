@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션130)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션131)
 
 ---
 
@@ -46,23 +46,22 @@
 
 ## 세션 기록
 
-### 세션130 (3/10) - 게임 피처 추가 (snake/flappy) + daily-tarot 빌드 수정
-- **Snake Game 파워업 시스템** — 4종 파워업 추가
-  - Slow (감속 5s), Ghost (자기통과 5s), Double (2배점수 8s), Shield (충돌1회방어)
-  - 12% 확률로 먹이 수집 후 스폰, 필드 최대 1개, 10초 타임아웃
-  - Ghost: 자기충돌 무시 / Shield: 벽/자기 충돌 시 방향 반전으로 구해줌
-  - HUD 배지 (활성 파워업 + 남은 시간 표시)
-  - i18n 12개 언어 파워업명 추가, SW v4
-- **Flappy Bird 메달 시스템** — Bronze(10+)/Silver(20+)/Gold(40+)/Platinum(100+)
-  - 게임오버 화면에 메달 배지 표시 + 진입 애니메이션
-  - SW v5
-- **daily-tarot Pages 빌드 수정** — GitHub 인프라 타임아웃 → 워크플로우 재실행
-- **QA 전수 통과**: PASS 96 / WARN 0 / FAIL 0
+### 세션131 (3/10) - 도파민 피드백 일괄 강화 (typing-speed, dev-quiz, quiz-app)
+- **typing-speed** — Live WPM/accuracy HUD + 콤보 스트릭 (3x부터 표시, 10x fire) + 시작화면 stats 로드
+  - updateLiveStats(): 실시간 WPM/정확도 계산, updateCombo(): 연속 정답 추적
+  - i18n 12개 언어 "result.combo" 키 추가, SW v4
+- **dev-quiz** — SFX 사운드 엔진 + 햅틱 + 정답 스트릭 카운터 + 오답 shake + 고득점 confetti
+  - sound-engine.js 신규 생성 (correct/wrong/combo/complete/grade_s)
+  - SW v2
+- **quiz-app** — SFX + 햅틱 + 오답 shake + 7점+ confetti
+  - sound-engine.js 복사, SW v4
+- **QA**: PASS 96 / WARN 0 / FAIL 0
 
-### 이전 세션 (~129)
+### 이전 세션 (~130)
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 130 | 3/10 | Snake 파워업 4종 + Flappy 메달 시스템 + daily-tarot 빌드 수정 |
 | 129 | 3/10 | SEO 내부링크 21게임 + priceCurrency 55앱 + 에셋개선계획 |
 | 128 | 3/10 | RS Healer+Splitter 적 2종 + AI 타겟팅 + 접촉충돌 |
 | 127 | 3/10 | RS Inferno Dragon 보스 (4종 완성) + 보스 도로범위 clamp |
