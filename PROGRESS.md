@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션127)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션128)
 
 ---
 
@@ -46,83 +46,29 @@
 
 ## 세션 기록
 
-### 세션127 (3/10) - Road Shooter 신규 보스 + SEO 강화
-- **Inferno Dragon 보스** — 4번째 보스 타입 추가:
-  - Phase 1: flame_breath (화염 부채꼴 스윕)
-  - Phase 2: fire_trail (이동하며 화염 지대 생성)
-  - Phase 3: meteor_rain (5개 유성 + 총알 링)
-  - 180HP, 42px, 전용 드래곤 렌더링 (날개/뿔/발광 눈)
-- **보스 순환 확장** — 3종 → 4종 (zombieTitan → warMachine → stormColossus → infernoDragon)
-- **보스 이동 제한** — 도로 범위 clamp 추가 (모든 보스)
-- **Road Shooter JSON-LD 강화** — name/description/featureList 영문화 + 4 Boss Types
-- **SW 캐시 범프** — road-shooter v6
+### 세션128 (3/10) - Road Shooter 신규 적 2종 + AI 타겟팅
+- **Healer 적** — 초록 십자 형태, 주변 적 HP 회복 (healRate 2.0, range 120px)
+  - 회복 펄스 시각효과 (확장 링 + 궤도 파티클)
+  - minStage 5 등장
+- **Splitter 적** — 청록 육각형, 사망 시 splitterMini 2체 분열
+  - 지그재그 이동, 접촉 시 즉사 (rusher 패턴)
+  - minStage 6 등장, splitterMini는 자연 스폰 불가 (minStage 99)
+- **분대 AI 타겟팅 개선** — Healer 우선 타겟 로직 (사거리 내 힐러 최우선 공격)
+- **접촉 충돌 확장** — splitter/splitterMini → rusher 패턴 (접촉 즉사+데미지)
+- **featureList 업데이트** — 11 Enemy Types 추가
+- **SW 캐시 범프** — road-shooter v7
 - **QA 전수 통과**: PASS 96 / WARN 0 / FAIL 0
 
-### 세션126 (3/10) - SFX 시스템 3게임 + typing-speed 난이도 시스템
-- **SFX 시스템 추가** — 3개 게임 (Web Audio API + 토글 버튼):
-  - number-puzzle: 10 SFX (slide, merge, bigmerge, combo, newtile, win, gameover, newbest, undo)
-  - typing-speed: 8 SFX (key, tick, warning, correct, wrong, complete, grade_s, newbest)
-  - word-scramble: 11 SFX (select, deselect, correct, wrong, combo, skip, hint, levelup, gameover, newbest, tick)
-- **SFX 커버리지 21/21 게임** — 전 게임 사운드 시스템 완료
-- **typing-speed 난이도 시스템** — Easy(90s/20w), Normal(60s/30w), Hard(30s/40w) + i18n 12개 언어
-- **typing-speed SW 경로 수정** — `/sw.js` → `sw.js` (상대 경로)
-- **SW 캐시 범프** — 3개 게임 (number-puzzle v3, typing-speed v3, word-scramble v3)
-- **JSON-LD featureList 업데이트** — 3개 게임 Sound Effects/Difficulty 추가
-- **QA 전수 통과**: PASS 96 / WARN 0 / FAIL 0
-
-### 세션125 (3/10) - SEO English-first 전면 최적화 + 게임 도파민 폴리시
-- **English-first Title 최적화** — **47개 앱** title + og:title + twitter:title 영문화 (전체 96앱 완료)
-- **English-first Meta Description** — **39개 앱** description + og:desc + twitter:desc 영문화
-- **English-first og/JSON-LD Description** — **~23개 앱** og:description + JSON-LD description 영문화
-- **JSON-LD Schema 강화** — **~39개 앱** aggregateRating + publisher 추가
-- **게임 도파민 폴리시** — 4개 게임:
-  - block-puzzle: confetti on line clear
-  - snake-game: floating score text + screen shake on death
-  - maze-runner: screen shake on level complete/game over
-  - puzzle-2048: confetti on 2048 victory
-- **SW 캐시 범프** — 4개 게임 (block-puzzle, snake-game, maze-runner, puzzle-2048)
-- **SW 등록 누락 수정** — **21개 앱** (sw.js 존재하나 register 미호출)
-- **English featureList** — **14개 앱** JSON-LD featureList 영문화
-- **Dopamine Checklist 21/21**: confetti + shake + combo + floating text + NEW BEST 전 게임 완료
-- **QA 전수 통과**: PASS 96 / WARN 0 / FAIL 0
-
-### 세션124 (3/10) - 에셋 투명도 전수 수정 + 온보딩 UX + SEO 메타 최적화
-- **스프라이트 투명도 전수 수정** — Pillow flood-fill로 17개 PNG 에셋 배경 제거 (8개 게임):
-  - flappy-bird(3), snake-game(3), brick-breaker(2), pong-game(2), sky-runner(1), maze-runner(2), minesweeper(2), reaction-test(1)
-  - 원인: Gemini 생성 이미지가 불투명 배경/가짜 체커보드 패턴 포함
-- **Road Shooter 튜토리얼** — 첫 플레이 시 HOW TO PLAY 오버레이 + ? 버튼 (12개 언어 i18n)
-- **게임 온보딩 개선** — 5개 게임에 목표 설명 텍스트 추가 (color-memory, flappy-bird, sky-runner, zigzag-runner, brick-breaker)
-- **SEO 전면 최적화** — 21개 게임 English-first 완료:
-  - title/OG/Twitter 영문화 + meta description + JSON-LD name 영문화
-  - JSON-LD 스키마 강화 5개 (aggregateRating, featureList, publisher)
-  - Hreflang 11개 앱 (12언어 + x-default)
-- **NEW BEST Flash** — **20/21 게임 완료** (road-shooter 제외 전체 — 자체 랭킹 시스템 보유)
-- **Share Score 버튼** — 6개 게임 (puzzle-2048, pong-game, minesweeper, maze-runner, number-puzzle, word-scramble)
-- **Dopamine Juice** — 4개 게임 (puzzle-2048, number-puzzle, memory-card, color-memory)
-- **SW 캐시 범프** — 6개 게임 + road-shooter v5
-- **QA 전수 통과**: PASS 96 / WARN 0 / FAIL 0
-
-### 세션123 (3/10) - Gemini 에셋 UX 업그레이드 + QA 전수 통과 + Cross-promo 확장
-- **Gemini 이미지 에셋 생성 + 통합 — 18개 게임/앱, 31개 에셋**:
-  - 스프라이트: flappy-bird(4), snake-game(3), brick-breaker(3), pong-game(3), sky-runner(2), maze-runner(2), minesweeper(2), memory-card(1), reaction-test(1)
-  - 배경: block-puzzle, stack-tower, puzzle-2048, idle-clicker, word-guess, word-scramble, emoji-merge, number-puzzle, color-blindness
-  - 모든 에셋 Pillow 압축 (5~8MB → 1~113KB), 기존 Canvas/CSS 렌더링 폴백 유지
-- **Light mode --text 수정** — 8개 앱 (blood-type, bmi-calculator, color-memory, memory-card, routine-planner, todo-list, word-guess, white-noise)
-- **live-check.sh 대폭 개선** — sed 기반 CSS 블록 추출 + 변수명 패턴 확장 → **PASS 34→96, WARN 62→0, FAIL 0**
-- **SW 캐시 업데이트** — 11개 게임 서비스워커 버전 범프 + 에셋 캐시 등록
-- **Cross-promo 확장** — 12개 누락 앱 app-data.js에 추가 (89→101개)
-
-### 세션121-122 (3/10) - 공통 모듈 404 긴급 수정 + QA 자동화 + 11앱 버그 수정 + Gemini MCP
-- **긴급 버그 수정** — `/_common/js/` → `/portal/js/` 경로 수정 (21개 게임) + typeof 가드 추가
-- **사용자 보고 11앱 전수 수정** — 로드 오류 5개 + 라이트모드 불가시 6개
-- **QA 자동화** — `scripts/live-check.sh` (7가지 체크) + `.claude/rules/post-deploy-qa.md`
-- **블로그 ~48개** — road-shooter, stack-tower, reaction-test, zigzag-runner × 12개 언어 (총 603개)
-- **Gemini MCP 연동** — `@fre4x/gemini` (Imagen 이미지생성, Veo 비디오생성) `.mcp.json` 설정
-
-### 이전 세션 (~120)
+### 이전 세션 (~127)
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 127 | 3/10 | RS Inferno Dragon 보스 (4종 완성) + 보스 도로범위 clamp |
+| 126 | 3/10 | SFX 21/21 완료 (number-puzzle, typing-speed, word-scramble) + typing-speed 난이도 |
+| 125 | 3/10 | English-first 96앱 완료 + 도파민 4게임 + SW 등록 21앱 수정 |
+| 124 | 3/10 | 에셋 투명도 17PNG + 온보딩 6게임 + SEO 21게임 + NEW BEST 20/21 |
+| 123 | 3/10 | Gemini 에셋 31개 + QA PASS 96 + Cross-promo 101앱 |
+| 121-122 | 3/10 | /_common/js/ 404 수정 21게임 + QA 자동화 + 블로그 603개 + Gemini MCP |
 | 120 | 3/10 | RS 스킨 6종 + 랭킹 보드 (Stage/Endless Top10) |
 | 118-119 | 3/10 | 업적 21/21, Monetization 21/21 (4-Layer 완성) |
 | 107-110 | 3/10 | 쿠키커터 24개 완료, 신규 앱 4개, quality-gate, 블로그 48개 |
@@ -137,5 +83,5 @@
 1. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적, 내부링크 강화
 2. **GSC 재확인** — 세션104~119 수정사항 반영 확인 (1~2주 후)
 3. **기존 앱 품질 개선** — Stop Criteria 기반 성과 점검 후 저성과 앱 개선/정리
-4. **Road Shooter 추가 폴리시** — ~~스킨, 랭킹, 새 보스~~ ✅ → 밸런스 미세조정, 새 적 타입
+4. **Road Shooter 추가 폴리시** — ~~스킨, 랭킹, 새 보스, 새 적~~ ✅ → 밸런스 미세조정, 추가 콘텐츠
 5. **신규 게임/앱** — 트렌드 기반 실험 (10% 할당)
