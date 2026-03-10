@@ -57,7 +57,7 @@
   - meta description 영문화 8개 게임
   - JSON-LD 스키마 강화 5개 게임 (aggregateRating, featureList, publisher)
   - Hreflang 11개 앱 (12언어 + x-default)
-- **NEW BEST Flash** — 13/21 게임 완료 (sky-runner, zigzag-runner, reaction-test 추가)
+- **NEW BEST Flash** — **20/21 게임 완료** (road-shooter 제외 전체 — 자체 랭킹 시스템 보유)
 - **Share Score 버튼** — 6개 게임 (puzzle-2048, pong-game, minesweeper, maze-runner, number-puzzle, word-scramble)
 - **Dopamine Juice** — 4개 게임 (puzzle-2048, number-puzzle, memory-card, color-memory)
 - **SW 캐시 범프** — 6개 게임 + road-shooter v5
