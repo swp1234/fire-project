@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션128)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션129)
 
 ---
 
@@ -45,6 +45,16 @@
 ---
 
 ## 세션 기록
+
+### 세션129 (3/10) - SEO 내부링크 전면 확장 + priceCurrency 수정
+- **Related Games 내부링크** — **21개 게임** 모두에 5개씩 관련 게임 링크 추가
+  - 테마별 그룹핑: Action/Runner, Puzzle, Word, Memory, Classic
+  - idle-clicker 기존 보유 → 총 **21/21 게임 완료**
+- **priceCurrency 수정** — **55개 앱** KRW → USD (국제 표준 일관성)
+- **에셋 개선 계획 수립** — `memory/asset-improvement-plan.md` 작성
+  - P1: OG 이미지 10개 게임 (Nano Banana 프롬프트 제시)
+  - P2: 배경 5개 게임 / P3: 스프라이트 4개 / P4: UI 아이콘 (추후)
+- **QA 전수 통과**: PASS 96 / WARN 0 / FAIL 0
 
 ### 세션128 (3/10) - Road Shooter 신규 적 2종 + AI 타겟팅
 - **Healer 적** — 초록 십자 형태, 주변 적 HP 회복 (healRate 2.0, range 120px)
