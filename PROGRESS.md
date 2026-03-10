@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션126)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션127)
 
 ---
 
@@ -45,6 +45,18 @@
 ---
 
 ## 세션 기록
+
+### 세션127 (3/10) - Road Shooter 신규 보스 + SEO 강화
+- **Inferno Dragon 보스** — 4번째 보스 타입 추가:
+  - Phase 1: flame_breath (화염 부채꼴 스윕)
+  - Phase 2: fire_trail (이동하며 화염 지대 생성)
+  - Phase 3: meteor_rain (5개 유성 + 총알 링)
+  - 180HP, 42px, 전용 드래곤 렌더링 (날개/뿔/발광 눈)
+- **보스 순환 확장** — 3종 → 4종 (zombieTitan → warMachine → stormColossus → infernoDragon)
+- **보스 이동 제한** — 도로 범위 clamp 추가 (모든 보스)
+- **Road Shooter JSON-LD 강화** — name/description/featureList 영문화 + 4 Boss Types
+- **SW 캐시 범프** — road-shooter v6
+- **QA 전수 통과**: PASS 96 / WARN 0 / FAIL 0
 
 ### 세션126 (3/10) - SFX 시스템 3게임 + typing-speed 난이도 시스템
 - **SFX 시스템 추가** — 3개 게임 (Web Audio API + 토글 버튼):
@@ -125,5 +137,5 @@
 1. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적, 내부링크 강화
 2. **GSC 재확인** — 세션104~119 수정사항 반영 확인 (1~2주 후)
 3. **기존 앱 품질 개선** — Stop Criteria 기반 성과 점검 후 저성과 앱 개선/정리
-4. **Road Shooter 추가 폴리시** — ~~스킨 시스템, 랭킹 보드~~ ✅ → 밸런스 조정, 새 보스
+4. **Road Shooter 추가 폴리시** — ~~스킨, 랭킹, 새 보스~~ ✅ → 밸런스 미세조정, 새 적 타입
 5. **신규 게임/앱** — 트렌드 기반 실험 (10% 할당)
