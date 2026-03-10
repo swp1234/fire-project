@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션129)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-10 (세션130)
 
 ---
 
@@ -46,33 +46,25 @@
 
 ## 세션 기록
 
-### 세션129 (3/10) - SEO 내부링크 전면 확장 + priceCurrency 수정
-- **Related Games 내부링크** — **21개 게임** 모두에 5개씩 관련 게임 링크 추가
-  - 테마별 그룹핑: Action/Runner, Puzzle, Word, Memory, Classic
-  - idle-clicker 기존 보유 → 총 **21/21 게임 완료**
-- **priceCurrency 수정** — **55개 앱** KRW → USD (국제 표준 일관성)
-- **에셋 개선 계획 수립** — `memory/asset-improvement-plan.md` 작성
-  - P1: OG 이미지 10개 게임 (Nano Banana 프롬프트 제시)
-  - P2: 배경 5개 게임 / P3: 스프라이트 4개 / P4: UI 아이콘 (추후)
+### 세션130 (3/10) - 게임 피처 추가 (snake/flappy) + daily-tarot 빌드 수정
+- **Snake Game 파워업 시스템** — 4종 파워업 추가
+  - Slow (감속 5s), Ghost (자기통과 5s), Double (2배점수 8s), Shield (충돌1회방어)
+  - 12% 확률로 먹이 수집 후 스폰, 필드 최대 1개, 10초 타임아웃
+  - Ghost: 자기충돌 무시 / Shield: 벽/자기 충돌 시 방향 반전으로 구해줌
+  - HUD 배지 (활성 파워업 + 남은 시간 표시)
+  - i18n 12개 언어 파워업명 추가, SW v4
+- **Flappy Bird 메달 시스템** — Bronze(10+)/Silver(20+)/Gold(40+)/Platinum(100+)
+  - 게임오버 화면에 메달 배지 표시 + 진입 애니메이션
+  - SW v5
+- **daily-tarot Pages 빌드 수정** — GitHub 인프라 타임아웃 → 워크플로우 재실행
 - **QA 전수 통과**: PASS 96 / WARN 0 / FAIL 0
 
-### 세션128 (3/10) - Road Shooter 신규 적 2종 + AI 타겟팅
-- **Healer 적** — 초록 십자 형태, 주변 적 HP 회복 (healRate 2.0, range 120px)
-  - 회복 펄스 시각효과 (확장 링 + 궤도 파티클)
-  - minStage 5 등장
-- **Splitter 적** — 청록 육각형, 사망 시 splitterMini 2체 분열
-  - 지그재그 이동, 접촉 시 즉사 (rusher 패턴)
-  - minStage 6 등장, splitterMini는 자연 스폰 불가 (minStage 99)
-- **분대 AI 타겟팅 개선** — Healer 우선 타겟 로직 (사거리 내 힐러 최우선 공격)
-- **접촉 충돌 확장** — splitter/splitterMini → rusher 패턴 (접촉 즉사+데미지)
-- **featureList 업데이트** — 11 Enemy Types 추가
-- **SW 캐시 범프** — road-shooter v7
-- **QA 전수 통과**: PASS 96 / WARN 0 / FAIL 0
-
-### 이전 세션 (~127)
+### 이전 세션 (~129)
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 129 | 3/10 | SEO 내부링크 21게임 + priceCurrency 55앱 + 에셋개선계획 |
+| 128 | 3/10 | RS Healer+Splitter 적 2종 + AI 타겟팅 + 접촉충돌 |
 | 127 | 3/10 | RS Inferno Dragon 보스 (4종 완성) + 보스 도로범위 clamp |
 | 126 | 3/10 | SFX 21/21 완료 (number-puzzle, typing-speed, word-scramble) + typing-speed 난이도 |
 | 125 | 3/10 | English-first 96앱 완료 + 도파민 4게임 + SW 등록 21앱 수정 |
