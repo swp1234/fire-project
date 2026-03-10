@@ -54,3 +54,4 @@ nul
 
 # MCP 서버 (로컬 전용)
 .mcp-servers/
+.mcp.json
