@@ -105,15 +105,12 @@ Windows + Git Bash. **Windows 명령어 절대 금지.**
 - **자동 위임:** 작업 유형 판단 → Agent tool `name` 파라미터로 에이전트 스폰
 - **스킬:** `/submodule-check` `/team` `/session-wrap` `/validate` `/analyze`
 
-## MCP Tool Aliases
+## MCP Servers
 
-| Alias | MCP Server | Usage |
-|-------|-----------|-------|
-| **NanoBanana** | `mcp__gemini-image__` | Gemini image generation. query/generate_image/search/fetch |
-| **Gemini** | `mcp__gemini__` | Gemini text query/search/fetch |
-
-- `generate_image`: saves to `.nano-banana/` directory (file output)
-- `query`: inline display only (no file save)
+- **상시:** ga4, gsc (local scope — 항상 활성)
+- **On-demand:** `bash scripts/mcp-restore.sh [social|media|all]` 로 활성화
+  - `social`: reddit, twitter, trends, youtube
+  - `media`: gemini, gemini-image (NanoBanana)
 - Image output dir: `E:/Fire Project/.nano-banana/`
 
 ## Docs

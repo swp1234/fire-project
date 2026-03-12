@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# Pre-push hook: runs quality-gate.sh before allowing push
+# Installed via: git config core.hooksPath /path/to/.githooks
+# Or: bash scripts/install-hooks.sh
+
+# Find the root project directory (where quality-gate.sh lives)
+ROOT_DIR="E:/Fire Project"
+SCRIPT="$ROOT_DIR/scripts/quality-gate.sh"
+
+# Determine which app this submodule is
+REPO_DIR="$(git rev-parse --show-toplevel 2>/dev/null)"
+APP_NAME="$(basename "$REPO_DIR")"
+
+# Skip if not a projects/ submodule (e.g., portal, or root repo)
+if [ "$REPO_DIR" = "$ROOT_DIR" ]; then
+  exit 0
+fi
+
+# Skip if quality-gate.sh doesn't exist
+if [ ! -f "$SCRIPT" ]; then
+  echo "[hook] quality-gate.sh not found, skipping"
+  exit 0
+fi
+
+APP_DIR="$ROOT_DIR/projects/$APP_NAME"
+
+# Skip if app dir doesn't match (safety check)
+if [ ! -d "$APP_DIR" ]; then
+  exit 0
+fi
+
+echo ""
+echo "========================================"
+echo " Pre-push Quality Gate: $APP_NAME"
+echo "========================================"
+
+bash "$SCRIPT" "$APP_DIR"
+EXIT_CODE=$?
+
+if [ $EXIT_CODE -ne 0 ]; then
+  echo ""
+  echo "[BLOCKED] Push rejected — quality gate FAILED"
+  echo "Fix issues above, then push again."
+  exit 1
+fi
+
+echo ""
+echo "[PASS] Quality gate passed, pushing..."
+exit 0

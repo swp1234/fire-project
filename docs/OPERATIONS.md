@@ -45,69 +45,27 @@
 
 ## 4. 기술적 불변의 법칙
 
-- **디자인:** Neon Aurora 변수, Syne/Outfit 폰트, Glassmorphism(White Alpha)
-- **성능:** Lighthouse 90점+ 유지, i18n + a11y 표준 준수
+> 디자인/Git/i18n/병렬 에이전트 규칙은 **CLAUDE.md** 참조 (Single Source of Truth).
+> 아래는 OPERATIONS 고유 항목만.
+
+- **성능:** Lighthouse 90점+ 유지
 - **구조:** 신규 앱은 `projects/` 내 기존 템플릿 복제, 데이터는 `data.json` 분리
-- **Git:** Co-authored-by 금지, 간결한 커밋 메시지
 
-## 5. 병렬 에이전트 운영
-
-### 에이전트별 참조 문서
-| 에이전트 유형 | 참조 문서 |
-|-------------|-----------|
-| 게임 개발/개선 | `docs/GAME-SPEC.md` |
-| 블로그/SEO | `docs/BLOG-SEO.md` |
-| UX/UI 개선 | `docs/UX-DESIGN.md` |
-| 소셜 마케팅 | `docs/SOCIAL-MEDIA-PACK.md` |
-| 운영/코디네이션 | `docs/OPERATIONS.md` |
-| 진행상황 확인 | `PROGRESS.md` |
-
-### 병렬 실행 규칙
-- 최대 5~8개 동시 실행 (CLAUDE.md 기준)
-- 같은 파일 수정하는 에이전트 동시 실행 금지
-- 각 에이전트는 자신의 참조 문서만 읽으면 됨
-- 완료 후 PROGRESS.md 업데이트
-
-## 6. 자가 점검 (작업 완료 시)
+## 5. 자가 점검 (작업 완료 시)
 
 - [ ] '도파민 증대'라는 서비스 본질에 기여했는가?
 - [ ] 수익화(AdSense/트래픽)에 직접 기여하는 작업이었는가?
 - [ ] 전체 앱의 일관성을 유지하는가?
 - [ ] 다음 에이전트가 이 로그로 바로 이어갈 수 있는가?
 
-## 7. 기술 스택
-
-| 역할 | 현재 |
-|------|------|
-| AI | Claude (Opus) via Claude Code |
-| Monitoring | GA4 + GSC (MCP 연동) |
-| Hosting | GitHub Pages |
-| Domain | dopabrain.com (Cloudflare) |
-| Ads | AdSense (승인완료, ca-pub-3600813755953882), AdMob (예정) |
-
-## 8. 품질 게이트 (Quality Gate)
-
-배포 전 필수 체크리스트:
-- [ ] i18n 12개 언어 키 누락 없음
-- [ ] 콘솔 에러 0개
-- [ ] 내부 링크 깨짐 없음
-- [ ] Lighthouse 접근성 90+
-- [ ] app-loader + cross-promo + GA4 포함
-- [ ] JSON-LD 구조화 데이터 유효
+## 6. 품질 게이트 (Quality Gate)
 
 > **자동 검증:** `bash scripts/quality-gate.sh projects/<app-name>`
-> 14개 항목 자동 체크 (i18n 12개, GA4, AdSense, JSON-LD, app-loader, JSON 유효성 등)
-> 배포 전 반드시 실행. FAIL 시 배포 금지.
+> 14개 항목 자동 체크. 배포 전 반드시 실행. FAIL 시 배포 금지.
 
-## 9. 프로젝트 현황 (98개)
+## 7. 주간 리뷰 (매주 일요일)
 
-> **정확한 앱 목록/메타데이터:** `portal/js/app-data.js` 참조
-> 앱 수/분류는 PROGRESS.md 기준으로 관리. 여기는 참조용.
-
-## 10. 주간 리뷰 (매주 일요일)
-
-매주 일요일 세션에서는 다음을 수행한다:
 1. **주간 GSC/GA4 성과 비교** — 전주 대비 클릭/노출/사용자 변화 확인
 2. **투자 대비 효과 평가** — 어떤 작업이 실제 트래픽/수익에 기여했는가?
-3. **방향 보완** — 유의미한 성과가 없으면 전략 방향 수정 (예: SEO→소셜, 블로그→앱)
+3. **방향 보완** — 유의미한 성과가 없으면 전략 방향 수정
 4. **다음 주 우선순위 설정** — 구체적 액션 아이템 3~5개
