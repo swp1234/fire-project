@@ -36,6 +36,13 @@ Windows + Git Bash. **Windows 명령어 절대 금지.**
 - 에이전트가 실패하면 **같은 방법 재시도 금지** → 접근법 변경 또는 메인에서 직접 실행
 - Background agents false positive 가능 → 항상 직접 검증
 
+## Failure Logging (CRITICAL)
+
+- 에이전트/도구 실패 시 **반드시** 기록: `bash scripts/log-failure.sh <agent> <app> <category> "<description>"`
+- Categories: `build` | `deploy` | `test` | `mcp` | `edit` | `hook` | `other`
+- 주간 리뷰 시 분석: `bash scripts/analyze-failures.sh`
+- 반복 패턴 발견 시 → CLAUDE.md에 방지 규칙 추가 (하네스 피드백 루프)
+
 ## Checkpoint (대규모 작업 시)
 
 - 10+ 파일 또는 5+ 에이전트 작업 시 **체크포인트 모드** 활성화
