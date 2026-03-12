@@ -117,8 +117,11 @@ Windows + Git Bash. **Windows 명령어 절대 금지.**
 - **상시:** ga4, gsc (local scope — 항상 활성)
 - **On-demand:** `bash scripts/mcp-restore.sh [social|media|all]` 로 활성화
   - `social`: reddit, twitter, trends, youtube
-  - `media`: gemini, gemini-image (NanoBanana)
+  - `media`: gemini (텍스트, gemini-2.5-flash), gemini-image (이미지, gemini-2.5-flash-image)
+- **별칭:** NanoBanana = `mcp__gemini-image__` (query: 인라인 표시 / generate_image: 파일 저장)
+- **Gemini = `mcp__gemini__`** (query/search/fetch — 텍스트 전용)
 - Image output dir: `E:/Fire Project/.nano-banana/`
+- GCP: `pubg-platform-ai` / Location: `global` / ADC 인증
 
 ## Docs
 

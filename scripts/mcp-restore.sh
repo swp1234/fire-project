@@ -15,21 +15,23 @@ add_social() {
 
 add_media() {
   echo "Adding media MCP servers..."
-  claude mcp add -s user \
+  # Text-only server (gemini-2.5-flash)
+  claude mcp add gemini -s user \
     -e GOOGLE_CLOUD_PROJECT=pubg-platform-ai \
     -e GOOGLE_CLOUD_LOCATION=global \
     -e GEMINI_MODEL=gemini-2.5-flash \
     -e GEMINI_ENABLE_CONVERSATIONS=true \
     -e GEMINI_ALLOW_FILE_URIS=true \
-    gemini -- npx -y github:mnthe/gemini-mcp-server
-  claude mcp add -s user \
+    -- npx -y github:mnthe/gemini-mcp-server
+  # Image generation server (gemini-2.5-flash-image)
+  claude mcp add gemini-image -s user \
     -e GOOGLE_CLOUD_PROJECT=pubg-platform-ai \
     -e GOOGLE_CLOUD_LOCATION=global \
     -e GEMINI_MODEL=gemini-2.5-flash-image \
     -e GEMINI_ENABLE_CONVERSATIONS=true \
     -e GEMINI_ALLOW_FILE_URIS=true \
     -e GEMINI_IMAGE_OUTPUT_DIR="E:/Fire Project/.nano-banana" \
-    gemini-image -- npx -y github:mnthe/gemini-mcp-server
+    -- npx -y github:mnthe/gemini-mcp-server
 }
 
 case "$GROUP" in
