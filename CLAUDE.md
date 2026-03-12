@@ -87,17 +87,34 @@ Windows + Git Bash. **Windows 명령어 절대 금지.**
 
 **dopabrain.com** — 96개 앱/게임 (projects/), AdSense 수익화
 
-## Agents & Rules
+## Agents, Teams & Rules
 
 - **전문 에이전트** (`.claude/agents/`):
+  - `team-lead` — 팀 조율 (TeamCreate → TaskCreate → Agent 스폰 → 모니터링)
   - `redesigner` — 쿠키커터 리디자인 (worktree 격리)
   - `seo-analyst` — GA4/GSC 분석 (worktree 격리)
   - `builder` — 신규 앱 생성 (worktree 격리)
   - `blog-writer` — 12개 언어 SEO 블로그 생성 (worktree 격리)
   - `trend-scout` — 소셜 트렌드 스캔 (Reddit/Twitter/TikTok/YouTube)
+- **Teams** (`/team` 스킬):
+  - `/team launch <app>` — 풀사이클 앱 출시 (build → blog → seo)
+  - `/team growth` — 성장 스프린트 (trend + seo → action items)
+  - `/team redesign <apps>` — 배치 리디자인
+  - `/team content <apps>` — 배치 블로그 생성
 - **조건부 규칙** (`.claude/rules/`): 게임/블로그/리디자인 경로 자동 로드
 - **자동 위임:** 작업 유형 판단 → Agent tool `name` 파라미터로 에이전트 스폰
-- **스킬:** `/submodule-check` — 96개 서브모듈 상태 일괄 점검
+- **스킬:** `/submodule-check` `/team` `/session-wrap` `/validate` `/analyze`
+
+## MCP Tool Aliases
+
+| Alias | MCP Server | Usage |
+|-------|-----------|-------|
+| **NanoBanana** | `mcp__gemini-image__` | Gemini image generation. query/generate_image/search/fetch |
+| **Gemini** | `mcp__gemini__` | Gemini text query/search/fetch |
+
+- `generate_image`: saves to `.nano-banana/` directory (file output)
+- `query`: inline display only (no file save)
+- Image output dir: `E:/Fire Project/.nano-banana/`
 
 ## Docs
 
