@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-13 (세션146)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-13 (세션147)
 
 ---
 
@@ -46,18 +46,18 @@
 
 ## 세션 기록
 
-### 세션146 (3/13) - 하네스 엔지니어링 + 게임 3종 폴리시 + MCP 가이드
+### 세션147 (3/13) - 자율 활동: 게임 폴리시 + SEO + AI 에셋
 
-- **하네스 엔지니어링 감사** — 6개 소스 기반 감사, `docs/HARNESS-AUDIT.md` 작성
-  - pre-push quality gate 훅 (97서브모듈), failure logging (JSONL+분석), MEMORY.md/OPERATIONS.md 중복 제거
-- **바운스율 개선** — emotion-iceberg/mbti-coffee/mbti-city: 소셜프루프 배지+시간예상+i18n 로더 타이밍 수정
-- **color-memory** — 3-라이프 시스템 + 3색 시작 (3.6초 세션 문제 해결)
-- **puzzle-2048** — 머지 파티클 버스트 + 128+ 타일 글로우 + 이동 카운터 + 게임오버 상세 스탯
-- **memory-card** — 3-라이프 시스템 (긴장감 추가, 미스매치 시 생명 소모)
-- **reaction-test** — 챌린지 모드 (20라운드 지속, 점진적 난이도)
-- **AI 배경 생성** — NanoBanana(gemini-3.1-flash)로 3개 게임 배경 생성 및 적용
-- **hsp-test SEO** — 메타 최적화 (pos 95 → top 50 타겟)
-- **Gemini MCP 가이드 적용** — gemini-2.5-flash/flash-image, ADC 인증, on-demand 패턴
+- **GA4/GSC 분석** — 77u/335pv(안정), HSP 25+imp/pos98, stress 7imp, color-memory pos48(첫진입), 0clicks
+- **stress-check SEO** — 키워드 최적화 (title/meta/JSON-LD/12 locales, "stress test" 타겟)
+- **sky-runner** — 쉴드+슬로모 파워업 시스템 추가
+- **emoji-merge** — 게임오버 시 "이어하기" 버튼 (무료 undo 1회, 8s→60s 세션 타겟)
+- **AI 배경 생성** — NanoBanana로 memory-card 코스믹 별자리 배경
+
+### 세션146 (3/13) - 하네스 엔지니어링 + 게임 3종 폴리시 + MCP 가이드
+- 하네스 감사 + pre-push hook + failure logging + 바운스율 3앱 개선
+- color-memory 3-life + puzzle-2048 파티클/글로우 + memory-card lives + reaction-test 챌린지
+- hsp-test SEO + Gemini MCP 가이드 + AI 배경 3개
 
 ### 세션145 (3/11) - 게임 5종 시각 고도화
 - zigzag-runner 크럼블 + brick-breaker 3D + stack-tower 스웨이 + maze-runner 질감 + flappy-bird 코인
@@ -77,8 +77,8 @@
 
 ## 다음 우선순위
 
-1. **게임 폴리시 계속** — number-puzzle(2048 중복?), idle-clicker, sky-runner 등 저참여 게임 개선
-2. **Organic 가속** — 블로그 pos 7~10 → top 5 진입 추적
-3. **GSC 재확인** — 세션104~146 수정사항 반영 확인
-4. **NanoBanana 에셋 추가** — quota 회복 후 나머지 게임 배경/스프라이트 생성
+1. **바운스율/세션 모니터링** — 3앱 bounce fix + emoji-merge continue 효과 확인 (3/14~)
+2. **게임 폴리시 계속** — idle-clicker 진행바, number-puzzle 차별화, stack-tower 세션 개선
+3. **Organic 가속** — hsp-test/stress-check SEO 반영 확인, pos 향상 추적
+4. **NanoBanana 에셋** — quota 회복 후 나머지 게임 배경 생성
 5. **신규 게임/앱** — 트렌드 기반 실험 (10% 할당)
