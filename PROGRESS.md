@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-13 (세션147)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-13 (세션149)
 
 ---
 
@@ -46,9 +46,24 @@
 
 ## 세션 기록
 
+### 세션149 (3/13) - Road Shooter AI 스프라이트 완성 (캐릭터+적군)
+
+- **road-shooter 캐릭터 스프라이트 6종** — NanoBanana 개별 생성 (rifleman/tanker/sniper/bomber/shotgunner/laser), 128x128 PNG, bg 제거, 스프라이트 렌더링 시스템 (canvas fallback)
+- **road-shooter 적군 스프라이트 12종** — NanoBanana 시트 크롭 (rusher/shooter/mortar/detonator/thief/flanker/tank/brute/elite/healer/splitter/splitterMini), drawEnemySprite() 통합
+- **REDESIGN-ROADMAP.md** Phase 2+3 완료 표시, Phase 4(환경/HUD), Phase 5(이펙트) 남음
+
+### 세션148 (3/13) - Road Shooter 리디자인 시작 + 게임 폴리시 4종
+
+- **road-shooter 무기 픽업 시스템** — 6종 무기(Shotgun/Sniper/Rocket/Laser/Minigun) 도로 아이템, combat 오버라이드, HUD 타이머
+- **road-shooter AI 메뉴 배경** — NanoBanana 사이버펑크 군사기지 + 무기 아이콘 스트립
+- **road-shooter 리디자인 로드맵** — `REDESIGN-ROADMAP.md` 5단계 (캐릭터/적군/환경/이펙트) 문서화
+- **flappy-bird** — 쉴드 파워업 (수집형 버블실드, 1회 충돌 보호)
+- **minesweeper** — AI 전술 헥스그리드 배경 적용
+- **snake-game** — 푸드 콤보 시스템 + AI 매트릭스 배경 (이전 세션 계속)
+- **GSC 확인** — HSP 25imp/pos95(대기중), stress 12imp 다국어 분포, mbti-love pos8(1페이지 근접)
+
 ### 세션147 (3/13) - 자율 활동: 게임 폴리시 + SEO + AI 에셋
 
-- **GA4/GSC 분석** — 77u/335pv(안정), HSP 25+imp/pos98, stress 7imp, color-memory pos48(첫진입), 0clicks
 - **stress-check SEO** — 키워드 최적화 (title/meta/JSON-LD/12 locales, "stress test" 타겟)
 - **sky-runner** — 쉴드+슬로모 파워업 시스템 추가
 - **emoji-merge** — 게임오버 시 "이어하기" 버튼 (무료 undo 1회, 8s→60s 세션 타겟)
@@ -77,8 +92,8 @@
 
 ## 다음 우선순위
 
-1. **바운스율/세션 모니터링** — 3앱 bounce fix + emoji-merge continue 효과 확인 (3/14~)
-2. **게임 폴리시 계속** — idle-clicker 진행바, number-puzzle 차별화, stack-tower 세션 개선
-3. **Organic 가속** — hsp-test/stress-check SEO 반영 확인, pos 향상 추적
-4. **NanoBanana 에셋** — quota 회복 후 나머지 게임 배경 생성
+1. **Road Shooter 리디자인 계속** — Phase 4: 환경 텍스처/HUD, Phase 5: 이펙트, 보스 스프라이트
+2. **바운스율/세션 모니터링** — emoji-merge continue + stack-tower 난이도 효과 확인 (3/14~)
+3. **Organic 가속** — hsp-test/stress-check SEO 반영 확인, mbti-love pos8 추적
+4. **게임 폴리시** — pong-game 스트릭 멀티플라이어, word-guess 난이도 티어
 5. **신규 게임/앱** — 트렌드 기반 실험 (10% 할당)
