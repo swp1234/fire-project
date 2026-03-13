@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-13 (세션150)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-13 (세션151)
 
 ---
 
@@ -47,29 +47,22 @@
 
 ## 세션 기록
 
+### 세션151 (3/13) - 게임 10종 대규모 폴리시 (자율 10세션)
+
+- **Road Shooter Phase 4+5** — 글래스모피즘 HUD/도로 텍스처(Phase 4), 결과화면 리디자인+무기별 히트 이펙트+스크린 셰이크(Phase 5)
+- **게임 신기능 4종** — pong-game 스트릭 멀티플라이어, word-guess 난이도 4티어, maze-runner 안개 시스템, color-memory 패턴 프리뷰
+- **게임 폴리시 6종** — snake-game 장애물(무한모드), block-puzzle 착지+테트리스 이펙트, zigzag-runner 니어미스 보너스, minesweeper 힌트 시스템, flappy-bird 궤적 파티클, stack-tower 파편 이펙트
+- **애니메이션 강화 2종** — emoji-merge 바운스 머지/스폰, idle-clicker 콤보 3단계 시각 피드백
+
 ### 세션150 (3/13) - i18n 하드코딩 전수조사 + 대규모 수정 (40+ 앱)
 
-- **road-shooter i18n** — Gold/보스이름/업그레이드효과/SLOWED/run_gameover 등 전면 현지화 (12개 locale)
-- **게임 5종 i18n** — sky-runner(콤보/마일스톤/스테이지), snake-game(newBest/reset), flappy-bird(메달/공유), brick-breaker(콤보/스테이지/리더보드) 하드코딩 수정
-- **error-handler.js 일괄 수정** — 25개 앱 공통 한국어 에러 메시지 → i18n 전환 (12개 언어)
-- **테스트/퀴즈 앱 6종** — iq-test(캔버스/공유), reaction-test(AI분석 한국어), blood-type(캔버스), love-frequency, npc-test, quiz-app
-- **게임 데이터 구조적 i18n** — stack-tower(테마/칭호), zigzag-runner(테마/스킨/칭호), idle-clicker(장비등급), emoji-merge(진화체인/칭호/스테이지)
-- **대형 데이터 레이어 리팩토링** — dev-quiz, emotion-temp(퀴즈데이터), mbti-career(강점레이더), dream-fortune(해몽/조언), mbti-love(전체), mbti-tips(전체)
-- **포털 i18n** — 테마토글/검색결과/더보기/일일목표/광고 버튼 현지화
+- road-shooter/게임 5종/error-handler 25개/테스트 6종/게임 데이터 4종/대형 데이터 리팩토링 6종/포털 i18n
 
-### 세션149 (3/13) - Road Shooter AI 스프라이트 완성 (캐릭터+적군)
-
-- road-shooter 캐릭터 6종 + 적군 12종 AI 스프라이트, REDESIGN-ROADMAP Phase 2+3 완료
-
-### 세션148 (3/13) - Road Shooter 리디자인 시작 + 게임 폴리시 4종
-
-- road-shooter 무기 픽업 + AI 메뉴 배경 + 리디자인 로드맵
-- flappy-bird 쉴드 + minesweeper AI 배경 + snake-game 콤보
-
-### 이전 세션 (~147)
+### 이전 세션 (~149)
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 148-149 | 3/13 | Road Shooter 리디자인 시작(무기+AI스프라이트 캐릭터6+적군12), 게임 폴리시 4종 |
 | 145-147 | 3/11-13 | 게임 5종 시각 고도화, 하네스 감사, stress-check SEO, sky-runner 파워업, emoji-merge 이어하기 |
 | 143-144 | 3/11 | Teams 통합, Nano Banana 에셋 54개, emoji-merge 힌트, block-puzzle 3D |
 | 140-142 | 3/10 | Minesweeper 코드클릭, Word Guess 스코어링, Maze Runner 순찰적 |
@@ -82,8 +75,8 @@
 
 ## 다음 우선순위
 
-1. **Road Shooter 리디자인 계속** — Phase 4: 환경 텍스처/HUD, Phase 5: 이펙트, 보스 스프라이트
+1. **Road Shooter 리디자인 계속** — Phase 6: 보스 AI 스프라이트, 승리/패배 연출 강화
 2. **바운스율/세션 모니터링** — emoji-merge continue + stack-tower 난이도 효과 확인 (3/14~)
 3. **Organic 가속** — hsp-test/stress-check SEO 반영 확인, mbti-love pos8 추적
-4. **게임 폴리시** — pong-game 스트릭 멀티플라이어, word-guess 난이도 티어
+4. **게임 폴리시 추가** — brick-breaker 파워업 확장, sky-runner 시각 피드백
 5. **신규 게임/앱** — 트렌드 기반 실험 (10% 할당)
