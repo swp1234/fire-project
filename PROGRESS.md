@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-13 (세션152)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-13 (세션157)
 
 ---
 
@@ -23,7 +23,7 @@
 | 호스팅 | dopabrain.com (Cloudflare, HTTPS, GitHub Pages) |
 | 수익화 | **AdSense 승인완료(2/20)** — 전앱 스크립트 확인완료(83/83) |
 | 분석 | GA4 + GSC + MCP 8개 (on-demand: gemini/gemini-image/reddit/twitter/youtube/trends) |
-| 크로스프로모 | **101앱** 기본 + **22앱 관련 카드**(2x2 그리드) |
+| 크로스프로모 | **95/95앱** 2x2 그리드 카드 완료 (CSS class 57 + inline 38) |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
 | 접근성 | skip-link 61앱, reduced-motion 61앱, 키보드 4게임 **(100%)** |
 | 소셜 공유 | **62앱 (100%)** |
@@ -46,13 +46,18 @@
 
 ## 세션 기록
 
+### 세션153-157 (3/13) - 크로스프로모 95/95 + 게임 폴리시 3종
+
+- **크로스프로모 2x2 그리드 전앱 확장** — 22→95/95앱 (73앱 추가), 8개 병렬 에이전트 활용
+- **Road Shooter Phase 6** — 승리 confetti, 보스 폭발 링 파티클, NEW BEST 배지, 극적 플래시
+- **Brick Breaker 파워업 3종 추가** — Fireball(관통+2x데미지), Shield(하단 방어막), Magnet(흡착)
+- **Sky Runner 스피드라인** — 고속 시 시각적 속도감 라인 이펙트
+- **i18n 12개 언어 관련 키** — 모든 앱 locale 파일에 related.title + 앱명 키
+
 ### 세션152 (3/13) - 수익 최적화: 22앱 크로스프로모 네트워크 구축
 
-- **고바운스 앱 5종 결과페이지 강화** — emotion-iceberg·mbti-coffee·mbti-city·hsp-test·stress-check에 관련 테스트 카드(2x2) + 퍼센타일 소셜 증거 추가
-- **고세션 게임 5종 크로스프로모** — flappy-bird·idle-clicker·stack-tower·emoji-merge·snake-game에 관련 게임 카드 추가
-- **테스트 앱 7종 관련 테스트 카드** — eq-test·emotion-temp·social-battery·mbti-love·dark-core·brain-type·emotional-age·mental-age·iq-test·love-language에 패턴 적용
-- **게임 2종 크로스프로모** — zigzag-runner·block-puzzle에 관련 게임 카드 추가
-- **인라인 SEO 링크 교체** — 기존 inline-style 관련앱 섹션 → 정형화된 2x2 그리드 카드 (i18n 12개 언어)
+- 고바운스 앱 5종 결과페이지 강화, 고세션 게임 5종·테스트 10종 크로스프로모 카드
+- 인라인 SEO 링크 → 정형화 2x2 그리드 (i18n 12언어)
 
 ### 세션151 (3/13) - 게임 10종 대규모 폴리시 (자율 10세션)
 
@@ -74,8 +79,8 @@
 
 ## 다음 우선순위
 
-1. **크로스프로모 확장** — 나머지 ~70앱에도 관련 카드 패턴 적용 (배치 자동화)
-2. **바운스율/세션 모니터링** — 22앱 크로스프로모 효과 측정 (3/14~)
-3. **Road Shooter Phase 6** — 보스 AI 스프라이트, 승리/패배 연출 강화
-4. **Organic 가속** — hsp-test/stress-check SEO 반영 확인, mbti-love pos8 추적
-5. **게임 폴리시 추가** — brick-breaker 파워업 확장, sky-runner 시각 피드백
+1. **바운스율/세션 모니터링** — 95앱 크로스프로모 효과 측정 (3/14~)
+2. **Organic 가속** — hsp-test/stress-check SEO 반영 확인, mbti-love pos8 추적
+3. **게임 폴리시 추가** — flappy-bird 난이도 곡선, snake-game 특수 아이템
+4. **SEO 콘텐츠** — 고트래픽 앱 블로그 업데이트, 신규 롱테일 키워드 타겟
+5. **Road Shooter Phase 7** — 보스 AI 스프라이트 비주얼, 무기별 이펙트 차별화
