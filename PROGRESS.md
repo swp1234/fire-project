@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-13 (세션149)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-13 (세션150)
 
 ---
 
@@ -25,6 +25,7 @@
 | 분석 | GA4 + GSC + MCP 8개 (on-demand: gemini/gemini-image/reddit/twitter/youtube/trends) |
 | 크로스프로모 | **101앱**, 라이트모드+a11y |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
+| i18n 하드코딩 검수 | **게임 21종 + 테스트 40종 + 포털 완료** (세션150) |
 | 접근성 | skip-link 61앱, reduced-motion 61앱, 키보드 4게임 **(100%)** |
 | 소셜 공유 | **62앱 (100%)** |
 | 구조화 데이터 | JSON-LD 전앱 완료, aggregateRating+publisher 강화 완료 |
@@ -46,41 +47,30 @@
 
 ## 세션 기록
 
+### 세션150 (3/13) - i18n 하드코딩 전수조사 + 대규모 수정 (40+ 앱)
+
+- **road-shooter i18n** — Gold/보스이름/업그레이드효과/SLOWED/run_gameover 등 전면 현지화 (12개 locale)
+- **게임 5종 i18n** — sky-runner(콤보/마일스톤/스테이지), snake-game(newBest/reset), flappy-bird(메달/공유), brick-breaker(콤보/스테이지/리더보드) 하드코딩 수정
+- **error-handler.js 일괄 수정** — 25개 앱 공통 한국어 에러 메시지 → i18n 전환 (12개 언어)
+- **테스트/퀴즈 앱 6종** — iq-test(캔버스/공유), reaction-test(AI분석 한국어), blood-type(캔버스), love-frequency, npc-test, quiz-app
+- **게임 데이터 구조적 i18n** — stack-tower(테마/칭호), zigzag-runner(테마/스킨/칭호), idle-clicker(장비등급), emoji-merge(진화체인/칭호/스테이지)
+- **대형 데이터 레이어 리팩토링** — dev-quiz, emotion-temp(퀴즈데이터), mbti-career(강점레이더), dream-fortune(해몽/조언), mbti-love(전체), mbti-tips(전체)
+- **포털 i18n** — 테마토글/검색결과/더보기/일일목표/광고 버튼 현지화
+
 ### 세션149 (3/13) - Road Shooter AI 스프라이트 완성 (캐릭터+적군)
 
-- **road-shooter 캐릭터 스프라이트 6종** — NanoBanana 개별 생성 (rifleman/tanker/sniper/bomber/shotgunner/laser), 128x128 PNG, bg 제거, 스프라이트 렌더링 시스템 (canvas fallback)
-- **road-shooter 적군 스프라이트 12종** — NanoBanana 시트 크롭 (rusher/shooter/mortar/detonator/thief/flanker/tank/brute/elite/healer/splitter/splitterMini), drawEnemySprite() 통합
-- **REDESIGN-ROADMAP.md** Phase 2+3 완료 표시, Phase 4(환경/HUD), Phase 5(이펙트) 남음
+- road-shooter 캐릭터 6종 + 적군 12종 AI 스프라이트, REDESIGN-ROADMAP Phase 2+3 완료
 
 ### 세션148 (3/13) - Road Shooter 리디자인 시작 + 게임 폴리시 4종
 
-- **road-shooter 무기 픽업 시스템** — 6종 무기(Shotgun/Sniper/Rocket/Laser/Minigun) 도로 아이템, combat 오버라이드, HUD 타이머
-- **road-shooter AI 메뉴 배경** — NanoBanana 사이버펑크 군사기지 + 무기 아이콘 스트립
-- **road-shooter 리디자인 로드맵** — `REDESIGN-ROADMAP.md` 5단계 (캐릭터/적군/환경/이펙트) 문서화
-- **flappy-bird** — 쉴드 파워업 (수집형 버블실드, 1회 충돌 보호)
-- **minesweeper** — AI 전술 헥스그리드 배경 적용
-- **snake-game** — 푸드 콤보 시스템 + AI 매트릭스 배경 (이전 세션 계속)
-- **GSC 확인** — HSP 25imp/pos95(대기중), stress 12imp 다국어 분포, mbti-love pos8(1페이지 근접)
+- road-shooter 무기 픽업 + AI 메뉴 배경 + 리디자인 로드맵
+- flappy-bird 쉴드 + minesweeper AI 배경 + snake-game 콤보
 
-### 세션147 (3/13) - 자율 활동: 게임 폴리시 + SEO + AI 에셋
-
-- **stress-check SEO** — 키워드 최적화 (title/meta/JSON-LD/12 locales, "stress test" 타겟)
-- **sky-runner** — 쉴드+슬로모 파워업 시스템 추가
-- **emoji-merge** — 게임오버 시 "이어하기" 버튼 (무료 undo 1회, 8s→60s 세션 타겟)
-- **AI 배경 생성** — NanoBanana로 memory-card 코스믹 별자리 배경
-
-### 세션146 (3/13) - 하네스 엔지니어링 + 게임 3종 폴리시 + MCP 가이드
-- 하네스 감사 + pre-push hook + failure logging + 바운스율 3앱 개선
-- color-memory 3-life + puzzle-2048 파티클/글로우 + memory-card lives + reaction-test 챌린지
-- hsp-test SEO + Gemini MCP 가이드 + AI 배경 3개
-
-### 세션145 (3/11) - 게임 5종 시각 고도화
-- zigzag-runner 크럼블 + brick-breaker 3D + stack-tower 스웨이 + maze-runner 질감 + flappy-bird 코인
-
-### 이전 세션 (~144)
+### 이전 세션 (~147)
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 145-147 | 3/11-13 | 게임 5종 시각 고도화, 하네스 감사, stress-check SEO, sky-runner 파워업, emoji-merge 이어하기 |
 | 143-144 | 3/11 | Teams 통합, Nano Banana 에셋 54개, emoji-merge 힌트, block-puzzle 3D |
 | 140-142 | 3/10 | Minesweeper 코드클릭, Word Guess 스코어링, Maze Runner 순찰적 |
 | 133-139 | 3/10 | Brick Breaker 폭발브릭, SEO 내부링크 95/95, GameAchievements |
