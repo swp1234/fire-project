@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-13 (세션151)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-13 (세션152)
 
 ---
 
@@ -23,9 +23,8 @@
 | 호스팅 | dopabrain.com (Cloudflare, HTTPS, GitHub Pages) |
 | 수익화 | **AdSense 승인완료(2/20)** — 전앱 스크립트 확인완료(83/83) |
 | 분석 | GA4 + GSC + MCP 8개 (on-demand: gemini/gemini-image/reddit/twitter/youtube/trends) |
-| 크로스프로모 | **101앱**, 라이트모드+a11y |
+| 크로스프로모 | **101앱** 기본 + **22앱 관련 카드**(2x2 그리드) |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
-| i18n 하드코딩 검수 | **게임 21종 + 테스트 40종 + 포털 완료** (세션150) |
 | 접근성 | skip-link 61앱, reduced-motion 61앱, 키보드 4게임 **(100%)** |
 | 소셜 공유 | **62앱 (100%)** |
 | 구조화 데이터 | JSON-LD 전앱 완료, aggregateRating+publisher 강화 완료 |
@@ -47,36 +46,36 @@
 
 ## 세션 기록
 
+### 세션152 (3/13) - 수익 최적화: 22앱 크로스프로모 네트워크 구축
+
+- **고바운스 앱 5종 결과페이지 강화** — emotion-iceberg·mbti-coffee·mbti-city·hsp-test·stress-check에 관련 테스트 카드(2x2) + 퍼센타일 소셜 증거 추가
+- **고세션 게임 5종 크로스프로모** — flappy-bird·idle-clicker·stack-tower·emoji-merge·snake-game에 관련 게임 카드 추가
+- **테스트 앱 7종 관련 테스트 카드** — eq-test·emotion-temp·social-battery·mbti-love·dark-core·brain-type·emotional-age·mental-age·iq-test·love-language에 패턴 적용
+- **게임 2종 크로스프로모** — zigzag-runner·block-puzzle에 관련 게임 카드 추가
+- **인라인 SEO 링크 교체** — 기존 inline-style 관련앱 섹션 → 정형화된 2x2 그리드 카드 (i18n 12개 언어)
+
 ### 세션151 (3/13) - 게임 10종 대규모 폴리시 (자율 10세션)
 
-- **Road Shooter Phase 4+5** — 글래스모피즘 HUD/도로 텍스처(Phase 4), 결과화면 리디자인+무기별 히트 이펙트+스크린 셰이크(Phase 5)
-- **게임 신기능 4종** — pong-game 스트릭 멀티플라이어, word-guess 난이도 4티어, maze-runner 안개 시스템, color-memory 패턴 프리뷰
-- **게임 폴리시 6종** — snake-game 장애물(무한모드), block-puzzle 착지+테트리스 이펙트, zigzag-runner 니어미스 보너스, minesweeper 힌트 시스템, flappy-bird 궤적 파티클, stack-tower 파편 이펙트
-- **애니메이션 강화 2종** — emoji-merge 바운스 머지/스폰, idle-clicker 콤보 3단계 시각 피드백
+- RS Phase 4+5, 게임 신기능 4종, 폴리시 6종, 애니메이션 강화 2종
 
 ### 세션150 (3/13) - i18n 하드코딩 전수조사 + 대규모 수정 (40+ 앱)
-
-- road-shooter/게임 5종/error-handler 25개/테스트 6종/게임 데이터 4종/대형 데이터 리팩토링 6종/포털 i18n
 
 ### 이전 세션 (~149)
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
-| 148-149 | 3/13 | Road Shooter 리디자인 시작(무기+AI스프라이트 캐릭터6+적군12), 게임 폴리시 4종 |
-| 145-147 | 3/11-13 | 게임 5종 시각 고도화, 하네스 감사, stress-check SEO, sky-runner 파워업, emoji-merge 이어하기 |
-| 143-144 | 3/11 | Teams 통합, Nano Banana 에셋 54개, emoji-merge 힌트, block-puzzle 3D |
-| 140-142 | 3/10 | Minesweeper 코드클릭, Word Guess 스코어링, Maze Runner 순찰적 |
-| 133-139 | 3/10 | Brick Breaker 폭발브릭, SEO 내부링크 95/95, GameAchievements |
-| 125-134 | 3/10 | 도파민피드백 21/21, Snake 파워업, RS 적+보스, SFX 21/21, English-first |
-| 104-124 | 3/9-10 | 인프라 자동화, 쿠키커터 24개, 신규앱 4개, 에셋/온보딩/업적/크로스프로모 |
+| 148-149 | 3/13 | Road Shooter 리디자인 시작(무기+AI스프라이트), 게임 폴리시 4종 |
+| 143-147 | 3/11-13 | Teams 통합, 게임 시각 고도화, emoji-merge 힌트, block-puzzle 3D |
+| 133-142 | 3/10 | Brick Breaker, SEO 내부링크 95/95, GameAchievements, 게임 시스템 |
+| 104-134 | 3/9-10 | 인프라 자동화, 쿠키커터 24개, 신규앱 4개, 도파민피드백 21/21, SFX |
 | 1-103 | 2/4-22 | 앱96개, 포털, RS 3D, i18n, MBTI16, 블로그600+, AdSense |
 
 ---
 
 ## 다음 우선순위
 
-1. **Road Shooter 리디자인 계속** — Phase 6: 보스 AI 스프라이트, 승리/패배 연출 강화
-2. **바운스율/세션 모니터링** — emoji-merge continue + stack-tower 난이도 효과 확인 (3/14~)
-3. **Organic 가속** — hsp-test/stress-check SEO 반영 확인, mbti-love pos8 추적
-4. **게임 폴리시 추가** — brick-breaker 파워업 확장, sky-runner 시각 피드백
-5. **신규 게임/앱** — 트렌드 기반 실험 (10% 할당)
+1. **크로스프로모 확장** — 나머지 ~70앱에도 관련 카드 패턴 적용 (배치 자동화)
+2. **바운스율/세션 모니터링** — 22앱 크로스프로모 효과 측정 (3/14~)
+3. **Road Shooter Phase 6** — 보스 AI 스프라이트, 승리/패배 연출 강화
+4. **Organic 가속** — hsp-test/stress-check SEO 반영 확인, mbti-love pos8 추적
+5. **게임 폴리시 추가** — brick-breaker 파워업 확장, sky-runner 시각 피드백
