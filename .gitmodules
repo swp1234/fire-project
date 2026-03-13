@@ -289,3 +289,6 @@
 [submodule "projects/mbti-city"]
 	path = projects/mbti-city
 	url = https://github.com/swp1234/mbti-city.git
+[submodule "projects/ai-personality"]
+	path = projects/ai-personality
+	url = https://github.com/swp1234/ai-personality.git
