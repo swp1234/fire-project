@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-13 (세션162)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-13 (세션172)
 
 ---
 
@@ -46,21 +46,21 @@
 
 ## 세션 기록
 
-### 세션158-162 (3/13) - 게임 13종 대규모 폴리시 (자율 10세션 완료)
+### 세션163-172 (3/13) - 9개 앱/게임 UX 폴리시 (자율 10세션 완료)
 
-- **Flappy Bird** — 부드러운 난이도 곡선 + 바람 메카닉 + 파이프 간격 변동
-- **Snake Game** — 황금 사과(3개 추가 스폰) + 독 사과(방향 반전) 특수 아이템
-- **Maze Runner** — 5개 스테이지 테마(에메랄드/아메시스트/사파이어/루비/골드) 색상 순환
-- **Road Shooter Phase 7** — 무기별 고유 총알 비주얼 + 히트 스파크 차별화 (6종)
-- **Block Puzzle** — Back-to-Back 테트리스 보너스 스코어링
-- **Puzzle 2048** — 최초 타일 마일스톤 축하 (512~8192)
-- **Minesweeper** — 승률 표시 + i18n 12개 언어
-- **Memory Card** — 퍼펙트 클리어 보너스 + 정확도 표시 + i18n
-- **Color Memory** — 난이도 티어 배지 (Easy→Legend)
-- **Stack Tower** — 사쿠라 테마 추가 (75층 언락) + i18n
-- **Brick Breaker** — 브릭 클리어 프로그레스 바
-- **Reaction Test** — 라운드별 개인 최고 기록 표시
-- **Sky Runner** — 점수 마일스톤 축하 (500/1K/2K/5K/10K)
+- **Pong Game** — 파워업 시스템 3종 (Big Paddle, Shrink Opponent, Speed Ball) + 랠리 마일스톤
+- **Zigzag Runner** — 점수 마일스톤 축하 (50~2000) + 컨페티 + 화면 효과
+- **Word Guess** — 첫 추측 정확도 등급 + 퍼펙트 게임 인디케이터
+- **Word Scramble** — 스피드 솔브 보너스 + 퍼펙트 레벨 배지
+- **Typing Speed** — 실시간 WPM 마일스톤 (30~120) + 이전 결과 대비 개선 델타
+- **Fortune Cookie** — 운세 등급 시스템 (Common→Legendary) + 일일 스트릭 추적
+- **Would You Rather** — 성격 유형 시스템 6종 (선택 패턴 기반)
+- **Quiz App** — 연속 정답 스트릭 시스템 + 컨페티 + 결과 최고 스트릭
+- **Dev Quiz** — 5+/10+ 스트릭 컨페티 + 개발자 레벨 배지 (Intern→Staff Engineer)
+
+### 세션158-162 (3/13) - 게임 13종 대규모 폴리시
+
+- Flappy Bird 난이도곡선+바람, Snake 특수아이템, Maze Runner 5테마, RS Phase7 총알비주얼, Block Puzzle B2B, Puzzle 2048 마일스톤, Minesweeper 승률, Memory Card 퍼펙트, Color Memory 티어, Stack Tower 사쿠라, Brick Breaker 프로그레스바, Reaction Test PB, Sky Runner 마일스톤
 
 ### 세션153-157 (3/13) - 크로스프로모 95/95 + 게임 폴리시 3종
 
