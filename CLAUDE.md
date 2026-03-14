@@ -54,6 +54,9 @@ Windows + Git Bash. **Windows 명령어 절대 금지.**
 - **수정 전 반드시 현재 상태 확인** — 이전 세션/에이전트가 이미 적용했을 수 있음
 - 파일 Read → 이해 → Edit (추측 금지)
 - 불필요한 작업 금지: 요청받지 않은 리팩토링, 주석 추가, 타입 어노테이션 금지
+- **가이드/설정 정확 재현**: 사용자 제공 가이드/설정을 따를 때 project ID, server name 등 식별자를 **절대 변경 금지** — 명시적 요청 없이는 그대로 복사
+- **환경 이슈 우선순위**: git/TortoiseGit 아이콘 문제 → overlay cache 먼저 확인 (`git status` 반복 금지)
+- **npx 호환성**: Windows에서 npx 명령 실패 시 `cmd /c npx ...` 래핑 시도
 
 ## GSC / Language
 
