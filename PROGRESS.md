@@ -25,7 +25,7 @@
 | 분석 | GA4 + GSC + MCP 8개 (on-demand: gemini/gemini-image/reddit/twitter/youtube/trends) |
 | 크로스프로모 | **99/99앱** 2x2 그리드 카드 완료 + cross-promo.js 동적 위젯 |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
-| SEO 스키마 | FAQPage **99/99앱 (100%)**, BreadcrumbList **90/99앱**, JSON-LD 전앱 |
+| SEO 스키마 | FAQPage **99/99 (100%)**, BreadcrumbList **99/99 (100%)**, JSON-LD 전앱 |
 | 카테고리 허브 | Games(21), **Tests(31)**, Tools, MBTI (4개 랜딩페이지) |
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **18/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, runtime-check.sh |
@@ -129,6 +129,6 @@
 
 1. **첫 Organic 클릭 확보** — pos3-7 앱 CTR 최적화 효과 모니터링
 2. **바운스 추적** — emotion-iceberg/mbti-city/mbti-coffee CTA+pulse 효과 GA4 확인
-3. **BreadcrumbList 나머지 9앱** — 90/99 완료
+3. **dopamine-type (100번째 앱)** — 빌드 중 (dopamine quiz pos53 타겟)
 4. **바이럴 테스트 신규** — dopamine-type 테스트 (brand keyword "dopamine quiz" pos53 활용)
 5. **블로그 퍼널 확장** — blood-type/HSP 다국어 롱테일 추가

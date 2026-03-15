@@ -298,3 +298,6 @@
 [submodule "projects/red-flag-test"]
 	path = projects/red-flag-test
 	url = https://github.com/swp1234/red-flag-test.git
+[submodule "projects/dopamine-type"]
+	path = projects/dopamine-type
+	url = https://github.com/swp1234/dopamine-type.git
