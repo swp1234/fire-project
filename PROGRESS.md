@@ -56,7 +56,8 @@
 - SEO: SoftwareApplication + FAQPage(5Q) + BreadcrumbList JSON-LD
 - CTA pulse 애니메이션, 컨페티, 분석 스텝 애니메이션
 - 배포 완료: GitHub Pages + 서브모듈 + portal 등록 + Tests 허브(32개) + 사이트맵
-- 12개 언어 블로그 생성 중 (에이전트)
+- 내부 링크: 7개 앱에 dopamine-type 관련 링크 추가 (brain-type, hsp-test, stress-check, sleep-animal, eq-test, stress-type, animal-personality)
+- 12개 언어 블로그 생성 중 (에이전트, 2/12 완료)
 
 ### 세션209-218 (3/15) - 대규모 SEO 스키마 + CTR 최적화 + 바운스 개선
 
