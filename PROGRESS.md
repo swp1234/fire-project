@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-15 (세션208)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-15 (세션218)
 
 ---
 
@@ -23,9 +23,9 @@
 | 호스팅 | dopabrain.com (Cloudflare, HTTPS, GitHub Pages) |
 | 수익화 | **AdSense 승인완료** — 전앱 스크립트 + **10개 인기앱 결과페이지 수동 배치** |
 | 분석 | GA4 + GSC + MCP 8개 (on-demand: gemini/gemini-image/reddit/twitter/youtube/trends) |
-| 크로스프로모 | **97/97앱** 2x2 그리드 카드 완료 + cross-promo.js 동적 위젯 |
+| 크로스프로모 | **99/99앱** 2x2 그리드 카드 완료 + cross-promo.js 동적 위젯 |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
-| SEO 스키마 | FAQPage **36+앱**, BreadcrumbList **36+앱**, JSON-LD 전앱 |
+| SEO 스키마 | FAQPage **66앱**, BreadcrumbList **50+앱**, JSON-LD 전앱 |
 | 카테고리 허브 | Games(21), **Tests(31)**, Tools, MBTI (4개 랜딩페이지) |
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **18/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, runtime-check.sh |
@@ -45,6 +45,29 @@
 ---
 
 ## 세션 기록
+
+### 세션209-218 (3/15) - 대규모 SEO 스키마 + CTR 최적화 + 바운스 개선
+
+**GA4/GSC 분석 기반 액션:**
+- 주간: 92u/400pv, Direct77/Organic19, 0clicks (CTR 전환 필요)
+- 신규 GSC 진입: minesweeper(pos6), idle-clicker(pos7)
+- HSP 다국어 20+imp, stress-check 193s 체류
+
+**CTR 최적화 (pos3-7 앱):**
+- numerology/affirmation/biorhythm/minesweeper/idle-clicker title+description 개선 (에이전트)
+
+**바운스율 추가 개선 (3개 앱):**
+- emotion-iceberg: 모바일 히어로 압축, CTA pulse 애니메이션
+- mbti-city: CTA를 fold 위로 이동, 모바일 샘플 숨김, CTA pulse
+- mbti-coffee: 모바일 히어로 압축, 샘플 숨김, CTA pulse
+
+**FAQPage 대규모 추가 (30개 앱, 36→66앱):**
+- 직접: color-blindness, sleep-animal, delulu-score, brainrot-score, work-style
+- 에이전트 배치1: mental-age, animal-personality, eq-test, iq-test, reaction-test
+- 에이전트 배치2: dark-core, npc-test, toxic-trait, rizz-score, villain-type
+- 기타: hsp-test +3Q(8Q), stress-check +3Q(8Q)
+
+**인프라:** 서브모듈 20개 일괄 업데이트
 
 ### 세션189-208 (3/15) - 신규 앱 2개 + SEO + 블로그 + 인프라
 
@@ -104,8 +127,8 @@
 
 ## 다음 우선순위
 
-1. **Organic 클릭 확보** — numerology(pos3), affirmation(pos4), biorhythm(pos5) 모니터링
-2. **바운스 추적** — emotion-iceberg/mbti-city/mbti-coffee 개선 효과 GA4 모니터링
-3. **바이럴 테스트 추가** — overthinker/red-flag 성과 기반 1-2개 더 (트렌드 심리)
-4. **블로그 퍼널 확장** — 고노출 테스트별 롱테일 키워드 블로그 추가
-5. **게임 try-catch 완성** — 남은 3개 게임 (sky-runner, snake-game, word-guess 확인)
+1. **첫 Organic 클릭 확보** — pos3-7 앱 CTR 최적화 효과 모니터링
+2. **바운스 추적** — emotion-iceberg/mbti-city/mbti-coffee CTA+pulse 효과 GA4 확인
+3. **FAQPage 나머지 32개 앱** — 66/98 완료, 나머지 게임/유틸 앱 확장
+4. **바이럴 테스트 신규** — dopamine-type 테스트 (brand keyword "dopamine quiz" pos53 활용)
+5. **블로그 퍼널 확장** — blood-type/HSP 다국어 롱테일 추가
