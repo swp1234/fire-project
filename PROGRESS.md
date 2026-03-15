@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-15 (세션218)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-15 (세션219)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **100개** (projects/ 100 디렉토리, 앱 100 + portal + _common) |
+| 총 프로젝트 | **101개** (projects/ 101 디렉토리, 앱 101 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **644개** |
+| 블로그 | **644개** (dopamine-type 12개 블로그 진행 중) |
 
-**앱 분류:** 유틸 12 / 바이럴 테스트 **49** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 3 (ai-personality, overthinker-test, red-flag-test)
+**앱 분류:** 유틸 12 / 바이럴 테스트 **50** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 4 (ai-personality, overthinker-test, red-flag-test, dopamine-type)
 
 ---
 
@@ -26,10 +26,10 @@
 | 크로스프로모 | **99/99앱** 2x2 그리드 카드 완료 + cross-promo.js 동적 위젯 |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
 | SEO 스키마 | FAQPage **99/99 (100%)**, BreadcrumbList **99/99 (100%)**, JSON-LD 전앱 |
-| 카테고리 허브 | Games(21), **Tests(31)**, Tools, MBTI (4개 랜딩페이지) |
-| 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **18/21** 게임 |
+| 카테고리 허브 | Games(21), **Tests(32)**, Tools, MBTI (4개 랜딩페이지) |
+| 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, runtime-check.sh |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **624 URLs** |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **625+ URLs** |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -45,6 +45,18 @@
 ---
 
 ## 세션 기록
+
+### 세션219 (3/15) - dopamine-type (100번째 앱) 빌드 + 배포
+
+**dopamine-type (100번째 앱):**
+- "What's Your Dopamine Type?" 뇌과학 기반 바이럴 테스트
+- 8문항, 6유형 (Thrill Seeker/Deep Diver/Social Spark/Comfort Creator/Challenge Chaser/Novelty Hunter)
+- --primary: #f59e0b (앰버/골드), 12개 언어, quality gate PASS
+- 신경전달물질 메트릭 (도파민/세로토닌/아드레날린/옥시토신/엔도르핀)
+- SEO: SoftwareApplication + FAQPage(5Q) + BreadcrumbList JSON-LD
+- CTA pulse 애니메이션, 컨페티, 분석 스텝 애니메이션
+- 배포 완료: GitHub Pages + 서브모듈 + portal 등록 + Tests 허브(32개) + 사이트맵
+- 12개 언어 블로그 생성 중 (에이전트)
 
 ### 세션209-218 (3/15) - 대규모 SEO 스키마 + CTR 최적화 + 바운스 개선
 
@@ -87,7 +99,7 @@
 **인프라:**
 - Tests 허브: overthinker-test + red-flag-test 추가 (31개 테스트)
 - 블로그 인덱스 12개 언어 갱신 (EN +6, 기타 +2 each)
-- 사이트맵 624 URLs (+31: 앱 3 + 블로그 28)
+- 사이트맵 625+ URLs (+31: 앱 3 + 블로그 28)
 - 서브모듈 refs 업데이트 (portal, minesweeper, puzzle-2048)
 - app-data.js에 overthinker-test + red-flag-test 등록 완료
 
@@ -127,8 +139,8 @@
 
 ## 다음 우선순위
 
-1. **첫 Organic 클릭 확보** — pos3-7 앱 CTR 최적화 효과 모니터링
+1. **첫 Organic 클릭 확보** — pos3-7 앱 CTR 최적화 + dopamine-type 인덱싱 모니터링
 2. **바운스 추적** — emotion-iceberg/mbti-city/mbti-coffee CTA+pulse 효과 GA4 확인
-3. **dopamine-type (100번째 앱)** — 빌드 중 (dopamine quiz pos53 타겟)
-4. **바이럴 테스트 신규** — dopamine-type 테스트 (brand keyword "dopamine quiz" pos53 활용)
+3. **dopamine-type 블로그** — 12개 언어 블로그 완료 대기 중
+4. **바이럴 테스트 신규** — 다음 타겟 키워드 발굴 (GSC 기반)
 5. **블로그 퍼널 확장** — blood-type/HSP 다국어 롱테일 추가
