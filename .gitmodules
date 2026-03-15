@@ -295,3 +295,6 @@
 [submodule "projects/overthinker-test"]
 	path = projects/overthinker-test
 	url = https://github.com/swp1234/overthinker-test.git
+[submodule "projects/red-flag-test"]
+	path = projects/red-flag-test
+	url = https://github.com/swp1234/red-flag-test.git
