@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **100개** (projects/ 100 디렉토리, 앱 98 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **615개** (ai-personality 12개 추가) |
+| 블로그 | **627개** (overthinker-test 12개 추가) |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **47** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 2 (ai-personality, overthinker-test)
 
