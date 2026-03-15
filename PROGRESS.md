@@ -25,7 +25,7 @@
 | 분석 | GA4 + GSC + MCP 8개 (on-demand: gemini/gemini-image/reddit/twitter/youtube/trends) |
 | 크로스프로모 | **99/99앱** 2x2 그리드 카드 완료 + cross-promo.js 동적 위젯 |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
-| SEO 스키마 | FAQPage **66앱**, BreadcrumbList **50+앱**, JSON-LD 전앱 |
+| SEO 스키마 | FAQPage **99/99앱 (100%)**, BreadcrumbList **90/99앱**, JSON-LD 전앱 |
 | 카테고리 허브 | Games(21), **Tests(31)**, Tools, MBTI (4개 랜딩페이지) |
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **18/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, runtime-check.sh |
@@ -61,11 +61,11 @@
 - mbti-city: CTA를 fold 위로 이동, 모바일 샘플 숨김, CTA pulse
 - mbti-coffee: 모바일 히어로 압축, 샘플 숨김, CTA pulse
 
-**FAQPage 대규모 추가 (30개 앱, 36→66앱):**
-- 직접: color-blindness, sleep-animal, delulu-score, brainrot-score, work-style
-- 에이전트 배치1: mental-age, animal-personality, eq-test, iq-test, reaction-test
-- 에이전트 배치2: dark-core, npc-test, toxic-trait, rizz-score, villain-type
-- 기타: hsp-test +3Q(8Q), stress-check +3Q(8Q)
+**FAQPage 전앱 완료 (36→99/99, 100%):**
+- 직접: color-blindness, sleep-animal, delulu-score, brainrot-score, work-style + brain-type dopamine keyword
+- 에이전트 4배치: 나머지 63개 앱 (테스트/게임/유틸 전체)
+- FAQ 확장: hsp-test +3Q(8Q), stress-check +3Q(8Q)
+- BreadcrumbList: 90/99앱
 
 **인프라:** 서브모듈 20개 일괄 업데이트
 
@@ -129,6 +129,6 @@
 
 1. **첫 Organic 클릭 확보** — pos3-7 앱 CTR 최적화 효과 모니터링
 2. **바운스 추적** — emotion-iceberg/mbti-city/mbti-coffee CTA+pulse 효과 GA4 확인
-3. **FAQPage 나머지 32개 앱** — 66/98 완료, 나머지 게임/유틸 앱 확장
+3. **BreadcrumbList 나머지 9앱** — 90/99 완료
 4. **바이럴 테스트 신규** — dopamine-type 테스트 (brand keyword "dopamine quiz" pos53 활용)
 5. **블로그 퍼널 확장** — blood-type/HSP 다국어 롱테일 추가
