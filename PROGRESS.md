@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-17 (세션220-240 자율 진행중)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-17 (세션220-240 자율 완료)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **102개** (projects/ 102 디렉토리, 앱 102 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **649개+** (dopamine-type 5/12, burnout-test 블로그 대기) |
+| 블로그 | **664개** (dopamine-type 12/12, burnout-test 5/12 진행중) |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **51** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 5 (ai-personality, overthinker-test, red-flag-test, dopamine-type, burnout-test)
 
@@ -29,7 +29,7 @@
 | 카테고리 허브 | Games(21), **Tests(33)**, Tools, MBTI (4개 랜딩페이지) |
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, runtime-check.sh |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **625+ URLs** |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **650 URLs** |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -71,7 +71,15 @@
 - mbti-city, mbti-coffee, emotion-iceberg, ai-personality, red-flag-test에 인기 테스트 크로스링크 추가
 - blood-type, future-self EN 블로그에 hsp-test/dopamine-type/red-flag-test 링크
 
-**dopamine-type 블로그:** 5/12 완료 (en,ko,zh,hi,ru), 7개 생성 중
+**dopamine-type 블로그:** 12/12 완료
+
+**burnout-test 블로그:** 5/12 완료 (en,ko,zh,hi,ru), 7개 에이전트 생성 중
+
+**내부 링크 대량 추가 (12개 앱):**
+- burnout-test 크로스링크: hsp-test, stress-type, eq-test, animal-personality, mbti-city, emotion-temp, social-battery, attachment-style + 기존 4개
+- burnoutTest i18n 키: 8개 앱 x 12개 언어 추가
+- EN 블로그 6개에 dopamine-type + burnout-test 관련 링크 추가
+- 블로그 인덱스 12개 언어 dopamine-type + burnout-test 엔트리 추가
 
 ### 세션219 (3/15) - dopamine-type (100번째 앱) 빌드 + 배포
 
@@ -167,8 +175,7 @@
 
 ## 다음 우선순위
 
-1. **dopamine-type 블로그 완료** — 7개 언어 생성 중 (ja,es,pt,id,tr,de,fr)
-2. **burnout-test 블로그** — 12개 언어 생성 필요
-3. **첫 Organic 클릭 확보** — pos3-7 앱 CTR + dopamine-type/burnout-test 인덱싱 모니터링
+1. **burnout-test 블로그 완료** — 7개 언어 남음 (ja,es,pt,id,tr,de,fr)
+2. **첫 Organic 클릭 확보** — pos3-7 앱 CTR + dopamine-type/burnout-test 인덱싱 모니터링
+3. **블로그 퍼널 확장** — 인기 테스트 중심 다국어 롱테일
 4. **swp1234.github.io** — 리디렉션 포함 페이지 이슈 확인 (예상 동작)
-5. **블로그 퍼널 확장** — 인기 테스트 중심 다국어 롱테일
