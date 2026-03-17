@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-17 (세션220-240 자율 완료)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-17 (세션241+ stress-response 배포)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **102개** (projects/ 102 디렉토리, 앱 102 + portal + _common) |
+| 총 프로젝트 | **103개** (projects/ 103 디렉토리, 앱 103 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **670개** (dopamine-type 12/12, burnout-test 12/12) |
+| 블로그 | **674개** (dopamine-type 12/12, burnout-test 12/12, EN 롱테일 +4) |
 
-**앱 분류:** 유틸 12 / 바이럴 테스트 **51** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 5 (ai-personality, overthinker-test, red-flag-test, dopamine-type, burnout-test)
+**앱 분류:** 유틸 12 / 바이럴 테스트 **52** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 6 (ai-personality, overthinker-test, red-flag-test, dopamine-type, burnout-test, stress-response)
 
 ---
 
@@ -26,10 +26,10 @@
 | 크로스프로모 | **99/99앱** 2x2 그리드 카드 완료 + cross-promo.js 동적 위젯 |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
 | SEO 스키마 | FAQPage **99/99 (100%)**, BreadcrumbList **99/99 (100%)**, JSON-LD 전앱 |
-| 카테고리 허브 | Games(21), **Tests(33)**, Tools, MBTI (4개 랜딩페이지) |
+| 카테고리 허브 | Games(21), **Tests(34)**, Tools, MBTI (4개 랜딩페이지) |
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, runtime-check.sh |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **650 URLs** |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **655 URLs** |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -45,6 +45,23 @@
 ---
 
 ## 세션 기록
+
+### 세션241+ (3/17) - stress-response 배포 + EN 롱테일 블로그 + 내부링크
+
+**stress-response (103번째 앱):**
+- "What's Your Stress Response Type?" Fight/Flight/Freeze/Fawn 진단
+- 8문항, 4유형 (Fighter/Flighter/Freezer/Fawner), 5차원 레이더 차트
+- --primary: #6366f1 (인디고), 12개 언어, quality gate PASS, 배포 완료
+- SoftwareApplication + FAQPage(5Q) + BreadcrumbList JSON-LD
+- Tests 허브(34개) + app-data.js + 사이트맵 등록
+
+**EN 롱테일 블로그 4개:**
+- fight-flight-freeze-fawn-test, dopamine-detox-quiz, burnout-recovery-guide, hsp-empath-difference-test
+- 전부 Article + FAQPage JSON-LD, 사이트맵 + 블로그 인덱스 등록
+
+**내부 링크 강화 (4개 앱):**
+- stress-check, burnout-test, overthinker-test, hsp-test에 stress-response 크로스링크
+- stressResponse i18n 키: 4개 앱 x 12개 언어 = 48 locale files 업데이트
 
 ### 세션220-240 (3/17) - 자율 20세션: 인기 콘텐츠 확장 + burnout-test
 
@@ -175,7 +192,7 @@
 
 ## 다음 우선순위
 
-1. ~~dopamine-type 블로그 번역~~ — ✅ 12/12 전부 완료
-2. ~~burnout-test 로케일 번역~~ — ✅ 12/12 전부 완료
-3. **첫 Organic 클릭 확보** — pos3-7 앱 CTR + dopamine-type/burnout-test 인덱싱 모니터링
-4. **블로그 퍼널 확장** — 인기 테스트 중심 다국어 롱테일
+1. **stress-response 블로그 12개 언어** — 신규 앱 SEO 콘텐츠
+2. **첫 Organic 클릭 확보** — pos3-7 앱 CTR + 신규 3앱 인덱싱 모니터링
+3. **블로그 퍼널 확장** — 인기 테스트 중심 다국어 롱테일
+4. **신규 바이럴 테스트** — GSC 트렌드 기반 키워드 발굴
