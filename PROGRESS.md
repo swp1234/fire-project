@@ -175,7 +175,7 @@
 
 ## 다음 우선순위
 
-1. **dopamine-type 블로그 번역 마무리** — ja, es 2개 언어 (에이전트 진행중)
-2. ~~burnout-test 로케일 번역~~ — ✅ 12개 언어 전부 완료
+1. ~~dopamine-type 블로그 번역~~ — ✅ 12/12 전부 완료
+2. ~~burnout-test 로케일 번역~~ — ✅ 12/12 전부 완료
 3. **첫 Organic 클릭 확보** — pos3-7 앱 CTR + dopamine-type/burnout-test 인덱싱 모니터링
 4. **블로그 퍼널 확장** — 인기 테스트 중심 다국어 롱테일
