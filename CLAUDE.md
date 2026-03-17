@@ -85,6 +85,7 @@ Windows + Git Bash. **Windows 명령어 절대 금지.**
 - [ ] 배포: `git init` → commit → `gh repo create` → Pages → 루트에서 `git submodule add`
 - [ ] 12개 언어 블로그 생성 (`blog-writer` 에이전트 위임)
 - [ ] **품질 게이트 통과:** `bash scripts/quality-gate.sh projects/<name>` → PASS 필수
+- [ ] **테스트 스위트 통과:** `bash scripts/app-test-suite.sh projects/<name>` → ALL PASS 필수
 - [ ] 상세: `docs/VALIDATION.md`
 
 ## 작업 방식
@@ -106,6 +107,7 @@ Windows + Git Bash. **Windows 명령어 절대 금지.**
   - `builder` — 신규 앱 생성 (worktree 격리)
   - `blog-writer` — 12개 언어 SEO 블로그 생성 (worktree 격리)
   - `trend-scout` — 소셜 트렌드 스캔 (Reddit/Twitter/TikTok/YouTube)
+  - `supervisor` — 자가 치유 파이프라인 (에이전트 모니터링 + 실패 자동 재시도)
 - **Teams** (`/team` 스킬):
   - `/team launch <app>` — 풀사이클 앱 출시 (build → blog → seo)
   - `/team growth` — 성장 스프린트 (trend + seo → action items)
