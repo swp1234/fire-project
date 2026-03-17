@@ -59,9 +59,14 @@
 **stress-response 블로그 12/12 완료:**
 - 이전 세션에서 en+ko 생성, 이번 세션에서 나머지 10개 언어 번역 완료
 
-**내부 링크 강화 (6개 앱):**
-- stress-response, stress-check, burnout-test, overthinker-test, hsp-test, stress-type에 anxiety-type 크로스링크
-- anxietyType i18n 키: 6개 앱 x 12개 언어 = 72 locale files 업데이트
+**anxiety-type 블로그 en+ko 생성:**
+- EN/KO anxiety-type-guide 블로그 생성, 블로그 인덱스 12개 언어 등록, 사이트맵 +2
+
+**내부 링크 강화 (12개 앱):**
+- 6개 앱: stress-response, stress-check, burnout-test, overthinker-test, hsp-test, stress-type
+- 6개 앱 추가: eq-test, animal-personality, social-battery, emotion-temp, attachment-style, mbti-city
+- anxietyType i18n 키: 12개 앱 x 12개 언어 = 144 locale files 업데이트
+- EN 블로그 5개에 anxiety-type 링크 추가
 
 ### 세션241+ (3/17) - stress-response 배포 + EN 롱테일 블로그 + 내부링크
 
@@ -210,7 +215,7 @@
 
 ## 다음 우선순위
 
-1. **anxiety-type 블로그 12개 언어** — 신규 앱 SEO 콘텐츠
-2. **첫 Organic 클릭 확보** — pos3-7 앱 CTR + 신규 앱 인덱싱 모니터링
-3. **블로그 퍼널 확장** — 인기 테스트 중심 다국어 롱테일
+1. **anxiety-type 블로그 나머지 10개 언어** — zh/hi/ru/ja/es/pt/id/tr/de/fr 번역
+2. **EN 롱테일 블로그 3개 대기** — social-anxiety-signs-test, perfectionism-anxiety-quiz, anxiety-types-explained (에이전트 실행 중)
+3. **첫 Organic 클릭 확보** — pos3-7 앱 CTR + 신규 앱 인덱싱 모니터링
 4. **신규 바이럴 테스트** — GSC 트렌드 기반 키워드 발굴
