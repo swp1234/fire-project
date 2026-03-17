@@ -59,9 +59,10 @@
 - fight-flight-freeze-fawn-test, dopamine-detox-quiz, burnout-recovery-guide, hsp-empath-difference-test
 - 전부 Article + FAQPage JSON-LD, 사이트맵 + 블로그 인덱스 등록
 
-**내부 링크 강화 (4개 앱):**
-- stress-check, burnout-test, overthinker-test, hsp-test에 stress-response 크로스링크
-- stressResponse i18n 키: 4개 앱 x 12개 언어 = 48 locale files 업데이트
+**내부 링크 강화 (11개 앱 + 3개 블로그):**
+- stress-check, burnout-test, overthinker-test, hsp-test, stress-type, eq-test, animal-personality, social-battery, emotion-temp, attachment-style, mbti-city에 stress-response 크로스링크
+- stressResponse i18n 키: 11개 앱 x 12개 언어 = 132 locale files 업데이트
+- EN 블로그 3개(stress-vs-anxiety, overthinking, stress-check-guide)에 stress-response 링크 추가
 
 ### 세션220-240 (3/17) - 자율 20세션: 인기 콘텐츠 확장 + burnout-test
 
