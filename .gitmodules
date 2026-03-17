@@ -304,3 +304,6 @@
 [submodule "projects/burnout-test"]
 	path = projects/burnout-test
 	url = https://github.com/swp1234/burnout-test.git
+[submodule "projects/stress-response"]
+	path = projects/stress-response
+	url = https://github.com/swp1234/stress-response.git
