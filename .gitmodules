@@ -307,3 +307,6 @@
 [submodule "projects/stress-response"]
 	path = projects/stress-response
 	url = https://github.com/swp1234/stress-response.git
+[submodule "projects/anxiety-type"]
+	path = projects/anxiety-type
+	url = https://github.com/swp1234/anxiety-type.git
