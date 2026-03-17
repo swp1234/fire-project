@@ -301,3 +301,6 @@
 [submodule "projects/dopamine-type"]
 	path = projects/dopamine-type
 	url = https://github.com/swp1234/dopamine-type.git
+[submodule "projects/burnout-test"]
+	path = projects/burnout-test
+	url = https://github.com/swp1234/burnout-test.git
