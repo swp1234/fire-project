@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **102개** (projects/ 102 디렉토리, 앱 102 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **664개** (dopamine-type 12/12, burnout-test 5/12 진행중) |
+| 블로그 | **670개** (dopamine-type 12/12, burnout-test 12/12) |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **51** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 5 (ai-personality, overthinker-test, red-flag-test, dopamine-type, burnout-test)
 
@@ -73,7 +73,7 @@
 
 **dopamine-type 블로그:** 12/12 완료
 
-**burnout-test 블로그:** 5/12 완료 (en,ko,zh,hi,ru), 7개 에이전트 생성 중
+**burnout-test 블로그:** 12/12 완료
 
 **내부 링크 대량 추가 (12개 앱):**
 - burnout-test 크로스링크: hsp-test, stress-type, eq-test, animal-personality, mbti-city, emotion-temp, social-battery, attachment-style + 기존 4개
@@ -175,7 +175,7 @@
 
 ## 다음 우선순위
 
-1. **burnout-test 블로그 완료** — 7개 언어 남음 (ja,es,pt,id,tr,de,fr)
-2. **첫 Organic 클릭 확보** — pos3-7 앱 CTR + dopamine-type/burnout-test 인덱싱 모니터링
-3. **블로그 퍼널 확장** — 인기 테스트 중심 다국어 롱테일
-4. **swp1234.github.io** — 리디렉션 포함 페이지 이슈 확인 (예상 동작)
+1. **dopamine-type 블로그 번역 마무리** — de, fr 2개 언어 영문 → 번역 필요
+2. **burnout-test 로케일 번역** — 7개 언어 (ja,es,pt,id,tr,de,fr) 영문 → 번역 필요
+3. **첫 Organic 클릭 확보** — pos3-7 앱 CTR + dopamine-type/burnout-test 인덱싱 모니터링
+4. **블로그 퍼널 확장** — 인기 테스트 중심 다국어 롱테일
