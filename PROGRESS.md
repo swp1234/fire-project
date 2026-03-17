@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-17 (세션241+ stress-response 배포)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-17 (세션242 anxiety-type 배포)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **103개** (projects/ 103 디렉토리, 앱 103 + portal + _common) |
+| 총 프로젝트 | **104개** (projects/ 104 디렉토리, 앱 104 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **674개** (dopamine-type 12/12, burnout-test 12/12, EN 롱테일 +4) |
+| 블로그 | **686개** (stress-response 12/12, dopamine-type 12/12, burnout-test 12/12, EN 롱테일 +8) |
 
-**앱 분류:** 유틸 12 / 바이럴 테스트 **52** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 6 (ai-personality, overthinker-test, red-flag-test, dopamine-type, burnout-test, stress-response)
+**앱 분류:** 유틸 12 / 바이럴 테스트 **53** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 7 (ai-personality, overthinker-test, red-flag-test, dopamine-type, burnout-test, stress-response, anxiety-type)
 
 ---
 
@@ -26,10 +26,10 @@
 | 크로스프로모 | **99/99앱** 2x2 그리드 카드 완료 + cross-promo.js 동적 위젯 |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
 | SEO 스키마 | FAQPage **99/99 (100%)**, BreadcrumbList **99/99 (100%)**, JSON-LD 전앱 |
-| 카테고리 허브 | Games(21), **Tests(34)**, Tools, MBTI (4개 랜딩페이지) |
+| 카테고리 허브 | Games(21), **Tests(35)**, Tools, MBTI (4개 랜딩페이지) |
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, runtime-check.sh |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **655 URLs** |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **668 URLs** |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -45,6 +45,23 @@
 ---
 
 ## 세션 기록
+
+### 세션242 (3/17) - anxiety-type (104번째 앱) + stress-response 블로그 완료
+
+**anxiety-type (104번째 앱):**
+- "What's Your Anxiety Type?" 6유형 불안 진단 테스트
+- 8문항, 6유형 (Overthinker/Perfectionist/Social Worrier/Body Alarm/Future Dreader/Control Seeker)
+- 5차원 레이더 차트 (cognitive/physical/social/anticipatory/control)
+- --primary: #10b981 (에메랄드), 12개 언어, quality gate PASS, 배포 완료
+- SoftwareApplication + FAQPage(5Q) + BreadcrumbList JSON-LD
+- Tests 허브(35개) + app-data.js + 사이트맵 등록
+
+**stress-response 블로그 12/12 완료:**
+- 이전 세션에서 en+ko 생성, 이번 세션에서 나머지 10개 언어 번역 완료
+
+**내부 링크 강화 (6개 앱):**
+- stress-response, stress-check, burnout-test, overthinker-test, hsp-test, stress-type에 anxiety-type 크로스링크
+- anxietyType i18n 키: 6개 앱 x 12개 언어 = 72 locale files 업데이트
 
 ### 세션241+ (3/17) - stress-response 배포 + EN 롱테일 블로그 + 내부링크
 
@@ -193,7 +210,7 @@
 
 ## 다음 우선순위
 
-1. **stress-response 블로그 12개 언어** — 신규 앱 SEO 콘텐츠
-2. **첫 Organic 클릭 확보** — pos3-7 앱 CTR + 신규 3앱 인덱싱 모니터링
+1. **anxiety-type 블로그 12개 언어** — 신규 앱 SEO 콘텐츠
+2. **첫 Organic 클릭 확보** — pos3-7 앱 CTR + 신규 앱 인덱싱 모니터링
 3. **블로그 퍼널 확장** — 인기 테스트 중심 다국어 롱테일
 4. **신규 바이럴 테스트** — GSC 트렌드 기반 키워드 발굴
