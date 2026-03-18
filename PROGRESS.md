@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-18 (세션243 eq-test 바이럴 대응 + 블로그 대량 생성)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-19 (세션244 성장 앱 SEO + EQ 롱테일 + 포털 메타)
 
 ---
 
@@ -29,7 +29,7 @@
 | 카테고리 허브 | Games(21), **Tests(35)**, Tools, MBTI (4개 랜딩페이지) |
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **692 URLs** |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **694 URLs** |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -45,6 +45,23 @@
 ---
 
 ## 세션 기록
+
+### 세션244 (3/19) - 성장 앱 SEO 강화 + EQ 롱테일 블로그 + 포털 메타 업데이트
+
+**GA4/GSC (3/12~18):**
+- 7일: 251u/528pv, stress-response 13u↑, anxiety-type 9u↑, burnout-test 10u↑ (성장 확인)
+- 홈페이지 GSC pos1 (신규!), numerology pos3/affirmation pos4 유지, 0clicks 지속
+
+**성장 앱 키워드 확장 (3개):**
+- stress-response, anxiety-type, burnout-test — 롱테일 키워드 추가 (각 5-9개)
+
+**포털 메타 현대화:**
+- title/description EN으로 전환 + "100+ Apps" 표기 (기존 한국어/30개)
+- OG/Twitter meta 업데이트
+
+**EQ 롱테일 EN 블로그 2개 (에이전트):**
+- how-to-improve-emotional-intelligence, eq-vs-iq-which-matters-more
+- 블로그 인덱스 + 사이트맵 등록 (694 URLs)
 
 ### 세션243 (3/18) - eq-test 바이럴 대응 + 블로그 24개 생성 + HTML 버그 일괄 수정
 
