@@ -115,6 +115,7 @@ Windows + Git Bash. **Windows 명령어 절대 금지.**
   - `/team content <apps>` — 배치 블로그 생성
 - **조건부 규칙** (`.claude/rules/`): 게임/블로그/리디자인 경로 자동 로드
 - **자동 위임:** 작업 유형 판단 → Agent tool `name` 파라미터로 에이전트 스폰
+- **도구:** TeamCreate/TaskCreate/SendMessage (팀 조율), CronCreate (배치 모니터링)
 - **스킬:** `/submodule-check` `/team` `/session-wrap` `/validate` `/analyze`
 
 ## MCP Servers
