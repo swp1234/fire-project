@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-19 (세션244 성장 앱 SEO + EQ 롱테일 + 포털 메타)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-20 (세션270+ 자율: 대규모 블로그 번역 + mental-age 블로그 + 사이트맵 755)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **104개** (projects/ 104 디렉토리, 앱 104 + portal + _common) |
+| 총 프로젝트 | **105개** (projects/ 105 디렉토리, 앱 105 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **712개** (eq-test 12/12, anxiety-type 12/12, EQ 롱테일 EN +2) |
+| 블로그 | **773개** (dopamine-detox 12/12, hsp-coping 12/12, stress-mgmt 8/12) |
 
-**앱 분류:** 유틸 12 / 바이럴 테스트 **53** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 7
+**앱 분류:** 유틸 12 / 바이럴 테스트 **54** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 8
 
 ---
 
@@ -26,10 +26,10 @@
 | 크로스프로모 | **99/99앱** 2x2 그리드 카드 완료 + cross-promo.js 동적 위젯 |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
 | SEO 스키마 | FAQPage **104/104 (100%)**, BreadcrumbList **104/104 (100%)**, JSON-LD 전앱 |
-| 카테고리 허브 | Games(21), **Tests(35)**, Tools, MBTI (4개 랜딩페이지) |
+| 카테고리 허브 | Games(21), **Tests(36)**, Tools, MBTI (4개 랜딩페이지) |
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **694 URLs** |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **755 URLs**, 피드백 페이지 |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -46,98 +46,98 @@
 
 ## 세션 기록
 
-### 세션244 (3/19) - 성장 앱 SEO 강화 + EQ 롱테일 블로그 + 포털 메타 업데이트
+### 세션270+ (3/20) - 자율: 대규모 블로그 번역 + mental-age 블로그 + SEO
+
+**dopamine-detox 블로그 12/12 완성:**
+- EN (이전) + ko/zh/hi/ja/ru/es/pt/id/tr/de/fr 번역 완료
+
+**hsp-coping 블로그 12/12 완성:**
+- EN (이전) + ko/ja/zh/es/hi/ru/pt/id/de/tr/fr 전체 완료
+
+**stress-management 블로그 8/12:**
+- EN (이전) + ko/ja/zh/id/tr/de 완료, es/pt/fr/hi/ru 미완
+
+**mental-age EN 블로그 신규:**
+- mental-age-test-brain-quiz-guide.html (500줄, FAQ 6Q, cyan #06b6d4)
+- GSC pos87 앱에 대한 콘텐츠 지원
+
+**EN 블로그 크로스링크 강화:**
+- dopamine-detox: mental-age + anxiety-type 추가
+- hsp-coping: mental-age + toxic-trait 추가, hreflang 12개 언어 추가
+- stress-management: mental-age + hsp-test 추가
+
+**KO 블로그 인덱스 업데이트:**
+- toxic-trait, hsp-coping, dopamine-detox 3개 항목 추가
+
+**기타:**
+- about 페이지: 770+ blogs, 54+ tests 업데이트
+- EN blog index: 135+ guides, mental-age 항목 추가, hsp-coping 중복 제거
+- 사이트맵 **755 URLs** (+32)
+
+### 세션265-269 (3/20) - 자율: toxic-trait 12/12 + red-flag 12/12 + 내부링크
+
+- toxic-trait 블로그 12/12, red-flag 블로그 11/11 번역 완료
+- DE QR 블로그 실번역 (redirect→363줄), 내부링크 대규모 추가
+- 홈페이지/MBTI/Games 허브 크로스링크, RU/JA 내부링크 네트워크
+- mental-age/stress-response SEO 키워드 확장, 사이트맵 723 URLs
+
+### 세션245-264 (3/19) - 자율 20세션: toxic-trait-test + 블로그 + 크로스링크 + SEO
 
 **GA4/GSC (3/12~18):**
-- 7일: 251u/528pv, stress-response 13u↑, anxiety-type 9u↑, burnout-test 10u↑ (성장 확인)
-- 홈페이지 GSC pos1 (신규!), numerology pos3/affirmation pos4 유지, 0clicks 지속
+- 7일: 253u/521pv, eq-test 108u (바이럴 유지), overthinker-test 20u/90%bounce
+- 신규 앱 성장: stress-response 13u, burnout 10u, red-flag 10u, anxiety 9u, dopamine 8u
+- Organic 시작: blood-type blog 12u, mbti/ 8u, brain-type/dark-core 각 1u
+- GSC: homepage pos1, numerology pos3, habit-tracker blog pos2, 0clicks 지속
 
-**성장 앱 키워드 확장 (3개):**
-- stress-response, anxiety-type, burnout-test — 롱테일 키워드 추가 (각 5-9개)
+**신규 앱 — toxic-trait-test (105번째):**
+- "What's Your Toxic Trait?" 6유형 (Ghoster/Over-Promiser/Passive-Aggressor/Main Character/Serial Canceler/Chronic Comparer)
+- --primary: #e11d48, 12개 언어, 배포+Pages+서브모듈 완료
 
-**포털 메타 현대화:**
-- title/description EN으로 전환 + "100+ Apps" 표기 (기존 한국어/30개)
-- OG/Twitter meta 업데이트
+**포탈 개선:**
+- 건의사항 페이지 (feedback.html) 12개 언어, footer 링크 추가
+- about 페이지 통계 업데이트 (105+ apps, 710+ blogs, 53+ tests)
+- tests 허브에 toxic-trait-test 추가 (36개)
+- app-data.js에 toxic-trait-test 등록
 
-**EQ 롱테일 EN 블로그 2개 (에이전트):**
-- how-to-improve-emotional-intelligence, eq-vs-iq-which-matters-more
-- 블로그 인덱스 + 사이트맵 등록 (694 URLs)
+**overthinker-test 바운스 수정 (90%→):**
+- 로더 딜레이 제거, hook question 추가, eq-test/dopamine 크로스링크
 
-### 세션243 (3/18) - eq-test 바이럴 대응 + 블로그 24개 생성 + HTML 버그 일괄 수정
+**EN 블로그 3개:**
+- toxic-trait-test-quiz-guide, red-flag-test-relationship-warning-signs, dopamine-detox-guide-reset-brain
 
-**GA4/GSC 분석 (3/11~17):**
-- 7일: 231u/496pv (↑60%!), 3/17 역대 최고 128u/293pv
-- **eq-test 108u/7.8%bounce/194s** — Direct 유입 바이럴!
-- 신규 앱 5개 전부 0% bounce (dopamine 8u, burnout 6u, stress-response 5u, anxiety 3u)
-- Organic 21u/197s, 0clicks 지속, numerology pos3/affirmation pos4 유지
+**크로스링크 강화 (6개 앱):**
+- eq-test, stress-response, burnout-test, red-flag-test, dopamine-type, anxiety-type → toxic-trait-test 링크 추가
 
-**eq-test 바이럴 최적화:**
-- FAQ 5Q → 8Q 확장 (EQ dimensions, test duration, trainability)
-- title/description/keywords SEO 최적화 + OG/Twitter meta 소셜 최적화
-- eq-test 블로그 12/12 언어 생성 (EN 카나리 → 11개 번역)
-- eq-test 크로스링크: 4개 앱에 추가 (hsp-test, anxiety-type, stress-check, social-battery, emotion-temp)
-- EN 블로그 5개에 eq-test 내부 링크 추가
+**SEO 키워드 확장:**
+- hsp-test: JP/ZH 롱테일 키워드 추가 (GSC 10 impressions)
+- stress-check: 롱테일 키워드 추가 (GSC 7 impressions)
+- numerology: EN 키워드 추가 (GSC pos3)
 
-**anxiety-type 블로그 12/12 완성:**
-- 나머지 10개 언어 번역 완료 (zh/hi/ru/ja/es/pt/id/tr/de/fr)
+### 세션243-244 (3/18-19) - eq-test 바이럴 대응 + 블로그 + HTML 버그
 
-**HTML 버그 일괄 수정 (9개 앱):**
-- 중첩 `<a>` 태그 (anxiety-type inside stress-response) 수정
-- hsp-test, stress-check, social-battery, emotion-temp, animal-personality, attachment-style, eq-test, mbti-city, stress-type
-
-**인프라:**
-- 하네스 업그레이드: TeamCreate/TaskCreate/CronCreate 도구 통합
-- 블로그 인덱스 12개 언어에 eq-test 엔트리 추가
-- 사이트맵 692 URLs (+24)
-
-### 세션242 (3/17) - anxiety-type (104번째 앱) + stress-response 블로그 완료
-
-**anxiety-type (104번째 앱):**
-- "What's Your Anxiety Type?" 6유형 불안 진단, --primary: #10b981, 배포 완료
-
-**stress-response 블로그 12/12 + anxiety-type 블로그 en+ko + 내부 링크 12개 앱**
-
-### 세션241+ (3/17) - stress-response 배포 + EN 롱테일 블로그 + 내부링크
-
-**stress-response (103번째 앱):** Fight/Flight/Freeze/Fawn, --primary: #6366f1, 배포 완료
-**EN 롱테일 4개 + 내부 링크 11개 앱 + 3개 블로그**
-
-### 세션220-240 (3/17) - 자율 20세션: burnout-test + JSON-LD 수정 + 내부링크
-
-**burnout-test (101번째 앱):** 6유형, --primary: #ef4444, 배포 완료
-**JSON-LD 수정 4개** + dopamine-type/burnout-test 블로그 24/24 + 내부링크 12+앱
-
-### 세션219 (3/15) - dopamine-type (100번째 앱)
-
-8문항 6유형 뇌과학 테스트, --primary: #f59e0b, 배포 완료
-
-### 세션209-218 (3/15) - SEO 스키마 + CTR 최적화 + 바운스 개선
-
-FAQPage 전앱 100%, BreadcrumbList 90/99, CTR pos3-7 최적화, 바운스 3개 앱
-
-### 세션188-208 (3/15) - 신규 앱 2개 + SEO + 블로그
-
-overthinker-test(98) + red-flag-test(99), 블로그 24개, SEO 텍스트, 게임 try-catch
-
-### 세션173-187 (3/14) - 전략 전환 + 대규모 테스트 SEO + 신규 앱
-
-ai-personality(97), FAQPage 대규모 적용, 게임 참여도 8개, 바운스 감소 4개
+- eq-test FAQ 8Q 확장, SEO 최적화, 블로그 12/12, 크로스링크 5개 앱
+- anxiety-type 블로그 12/12, HTML 버그 9개 앱 수정, 하네스 업그레이드
 
 ### 이전 세션
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 241-242 | 3/17 | stress-response(103)+anxiety-type(104) 배포, 블로그 24개 |
+| 220-240 | 3/17 | burnout-test(101) 배포, JSON-LD 수정, 내부링크 대규모 |
+| 219 | 3/15 | dopamine-type(100) 배포 |
+| 209-218 | 3/15 | FAQPage 100%, BreadcrumbList, CTR/바운스 최적화 |
+| 188-208 | 3/15 | overthinker-test(98)+red-flag-test(99), 블로그 24개 |
+| 173-187 | 3/14 | 전략 전환, ai-personality(97), FAQPage 대규모 |
 | 163-172 | 3/13 | 9개 앱/게임 UX 폴리시 (자율 10세션) |
-| 153-162 | 3/13 | 크로스프로모 95/95, 게임 13종 폴리시 |
-| 143-152 | 3/11-13 | Teams, i18n 전수조사, RS 리디자인 |
-| 104-142 | 3/9-10 | Brick Breaker, 내부링크, 쿠키커터 24개, 신규앱 4개 |
-| 1-103 | 2/4-22 | 앱96개, 포털, RS 3D, i18n, MBTI16, 블로그600+, AdSense |
+| 143-162 | 3/11-13 | 크로스프로모 95/95, Teams, i18n 전수조사 |
+| 1-142 | 2/4-3/10 | 앱96개→, 포털, RS 3D, i18n, 블로그600+, AdSense |
 
 ---
 
 ## 다음 우선순위
 
-1. **eq-test 모멘텀 유지** — 소셜 공유 경로 분석, 추가 EQ 관련 롱테일 블로그
-2. **첫 Organic 클릭 확보** — pos3-7 앱 CTR 모니터링 + 인덱싱 대기
-3. **신규 바이럴 테스트** — GSC 트렌드 기반 키워드 발굴
-4. **EN 롱테일 블로그** — EQ/anxiety/stress 관련 추가 콘텐츠
+1. **첫 Organic 클릭 확보** — habit-tracker pos2, DE qr-code pos4, RU mbti-coffee pos5
+2. **stress-management 나머지 번역** — es/pt/fr/hi/ru (5개 언어)
+3. **mental-age 다국어 블로그** — EN만 존재, 11개 언어 번역 필요
+4. **stress-response 성장 가속** — 8u, 콘텐츠 확대
+5. **각 언어 블로그 인덱스 업데이트** — 신규 블로그 항목 추가
