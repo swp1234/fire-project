@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **105개** (projects/ 105 디렉토리, 앱 105 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **773개** (dopamine-detox 12/12, hsp-coping 12/12, stress-mgmt 8/12) |
+| 블로그 | **775개** (dopamine-detox 12/12, hsp-coping 12/12, stress-mgmt 9/12) |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **54** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 8
 
@@ -54,8 +54,8 @@
 **hsp-coping 블로그 12/12 완성:**
 - EN (이전) + ko/ja/zh/es/hi/ru/pt/id/de/tr/fr 전체 완료
 
-**stress-management 블로그 8/12:**
-- EN (이전) + ko/ja/zh/id/tr/de 완료, es/pt/fr/hi/ru 미완
+**stress-management 블로그 9/12:**
+- EN (이전) + ko/ja/zh/es/pt/id/tr/de 완료, fr/hi/ru 미완
 
 **mental-age EN 블로그 신규:**
 - mental-age-test-brain-quiz-guide.html (500줄, FAQ 6Q, cyan #06b6d4)
@@ -137,7 +137,7 @@
 ## 다음 우선순위
 
 1. **첫 Organic 클릭 확보** — habit-tracker pos2, DE qr-code pos4, RU mbti-coffee pos5
-2. **stress-management 나머지 번역** — es/pt/fr/hi/ru (5개 언어)
+2. **stress-management 나머지 번역** — fr/hi/ru (3개 언어)
 3. **mental-age 다국어 블로그** — EN만 존재, 11개 언어 번역 필요
 4. **stress-response 성장 가속** — 8u, 콘텐츠 확대
 5. **각 언어 블로그 인덱스 업데이트** — 신규 블로그 항목 추가
