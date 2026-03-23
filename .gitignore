@@ -1,5 +1,7 @@
-# Claude Code 설정
-.claude/
+# Claude Code 설정 (로컬 전용)
+.claude/settings.local.json
+.claude/usage.json
+.claude/worktrees/
 
 # 개인 설정 파일
 .vscode/

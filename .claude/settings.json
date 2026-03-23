@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Edit",
+      "Write"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'echo \"[HOOK] PROGRESS.md 업데이트 확인 필요 — /session-wrap 실행 권장\"'"
+          }
+        ]
+      }
+    ]
+  }
+}
