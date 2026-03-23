@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **105개** (projects/ 105 디렉토리, 앱 105 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1008개** |
+| 블로그 | **1019개** |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **54** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 8
 
@@ -29,7 +29,7 @@
 | 카테고리 허브 | Games(21), **Tests(36)**, Tools, MBTI (4개 랜딩페이지) |
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1167 URLs**, 피드백 페이지 |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1178 URLs**, 피드백 페이지 |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -59,7 +59,7 @@
 - eq-test에서 cross-link 추가 (social-battery → attachment-style 교체)
 - stress-response/burnout-test/hsp-test/mbti-love에서 cross-link 추가 (5개 앱)
 - attachment-style EN 블로그 생성 (FAQPage + HowTo 스키마)
-- 사이트맵 1167 URLs
+- 사이트맵 1178 URLs, 블로그 1019개
 
 **#3 배포:** eq-test(2회) + stress-response + burnout-test + hsp-test + mbti-love + portal — 전부 push 완료
 
@@ -176,7 +176,7 @@
 
 ## 다음 우선순위
 
-1. **attachment-style 11개 언어 블로그 번역** — EN 완료, 나머지 11언어 blog-writer 에이전트 위임
+1. **~~attachment-style 블로그 12/12 완료~~** → Shadow Work Quiz 신규 앱 개발 검토
 2. **stress-management 블로그 pos 추적** — 내부링크 9개 효과 1-2주 후 확인 (현재 pos10.4)
 3. **eq-test AI 프리미엄 효과 모니터링** — ai_analysis_unlock 이벤트 추적
 4. **toxic-trait UX 리프레이밍 효과** — 3/22 변경 후 1-2주 데이터 확인
