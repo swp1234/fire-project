@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-23 (세션283: eq-test AI프리미엄 + attachment-style 프로모션 + 크로스링크)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-23 (세션284: 루트 GitHub 동기화 + 멀티디바이스 환경 구축)
 
 ---
 
@@ -29,6 +29,7 @@
 | 카테고리 허브 | Games(21), **Tests(36)**, Tools, MBTI (4개 랜딩페이지) |
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
+| 멀티디바이스 | 루트 repo GitHub private (`swp1234/fire-project`) — 데스크톱↔노트북 동기화 |
 | 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1178 URLs**, 피드백 페이지 |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
@@ -45,6 +46,13 @@
 ---
 
 ## 세션 기록
+
+### 세션284 (3/23) - 루트 GitHub 동기화 + 멀티디바이스 환경 구축
+
+- 루트 repo를 GitHub에 push (`swp1234/fire-project`, private)
+- 서브모듈 포인터 16개 업데이트 + push
+- 노트북 환경 구축 가이드 제공 (clone → submodule init → claude code)
+- 데스크톱↔노트북 번갈아 사용 가능한 워크플로우 확립
 
 ### 세션283 (3/23) - eq-test AI 프리미엄 + attachment-style 프로모션
 
@@ -88,82 +96,24 @@
 
 **#5 모니터링:** GSC 0clicks 유지, toxic-trait 봇50%+, 대기
 
-### 세션281 (3/22) - 버그 수정 + UX 개선 + SEO 강화
+### 세션281 (3/22) - 버그 수정 + UX 개선 + SEO 강화 + 대규모 번역
 
-**버그 수정:**
-- emotion-temp 결과 화면 빈 박스 버그 — i18n fallback 미동기화 + CSS overflow hidden 수정 (3파일)
-- 다른 7개 테스트 앱 점검 → 동일 버그 없음 확인
-
-**toxic-trait-test UX 개선 (85% → 목표 30% 바운스):**
-- 제목 "Toxic Trait" → "Self-Awareness Pattern Test" 리프레이밍
-- 버튼 "Expose My Toxic Trait" → "Discover My Pattern"
-- 시작 버튼 above-the-fold로 이동, 유형 카드 접기(details)
-- 12개 언어 i18n 전체 업데이트
-
-**SEO 강화 — 첫 클릭 확보 캠페인:**
-- stress-management 블로그 (pos 10.4): title/desc 최적화 + featured snippet TL;DR 추가 + 내부링크 3개 (stress-response/stress-check/burnout-test→블로그)
-- 5개 상위 블로그 CTR 최적화: animal-personality(pos2), decision-making(pos4), psychology-test-best(pos4.7), FR mbti(pos9), snake-game(pos10)
-- hsp-test 내부링크 6개 언어 stress-management 블로그에 추가
-- mental-age 내부링크: eq-test + dopamine-type에서 추가
-
-**번역 + 사이트맵 (1차):**
-- bmi(12/12), free-iq(12/12), block-puzzle(12/12 + 4재번역), minesweeper(12/12) 완료
-- 11개 언어 블로그 인덱스 +230항목 + 신규 번역 4종 반영
-- 사이트맵 932→**1100 URLs** (+168)
-
-**번역 (2차):**
-- stress-check 12/12, zodiac 12/12, reaction-time 12/12, mini-games 12/12, favorite-color 12/12, spirit-animal 12/12 — 전부 완료
-- 사이트맵 932→**1166 URLs**, 블로그 913→**1007개** (+94)
+- emotion-temp 결과 버그 수정, toxic-trait UX 리프레이밍 (12언어)
+- SEO 첫 클릭 캠페인: stress-management 블로그 + 5개 상위 블로그 CTR 최적화
+- 10개 앱 12언어 번역 완료, 사이트맵 932→1166 URLs, 블로그 1007개
 
 ### 세션280 (3/20-21) - 대규모 번역 + Sonnet 에이전트 속도 최적화
 
-**속도 최적화 적용:**
-- Sonnet 에이전트 전환 (Opus→Sonnet, ~5배 비용 절감)
-- 배치 크기 3-4개 언어/에이전트, 메인은 조율만
-
-**블로그 번역 완료 (15개 블로그 신규/보완):**
-- dopamine-detox-quiz 12/12, hsp-empath-difference-test 12/12
-- perfectionism-anxiety-quiz 12/12, anxiety-types-explained 12/12
-- am-i-highly-sensitive-person-signs 12/12 (이전 세션 잔여분)
-- relationship-red-flags-quiz 12/12, social-anxiety-signs-test 12/12
-- eq-vs-iq-which-matters-more 12/12, how-to-improve-emotional-intelligence 12/12
-- habit-tracker-guide 12/12 (ko/id/tr/fr 보완)
-- snake-game-guide 11/11, todo-list-guide 11/11 (보완)
-- lottery-number-guide 12/12, color-palette-generator 12/12, personality-tests 12/12
-- free-games/ko 보완
-
-**인덱스 수정:** 11개 언어 블로그 인덱스 잘못된 파일명 4개 수정 + 중복 제거
-**사이트맵:** 810→**932 URLs** (+122)
-**about 페이지:** 832→900+ blogs 업데이트
-
-### 세션275+ (3/20) - 자율: 10개 블로그 x12언어 번역 + SEO 강화
-
-**대규모 블로그 번역 (10개 x 11언어):**
-- burnout-recovery-guide, stress-vs-anxiety-difference-test, overthinking-at-night-how-to-stop
-- fight-flight-freeze-fawn-test, mental-age-test-brain-quiz-guide
-- dopamine-detox/hsp-coping/stress-management 각 12/12
-
-**SEO 강화:**
-- habit-tracker: hreflang 12언어, 키워드 8개, 크로스링크 3개
-- DE qr-code/RU mbti-coffee: hreflang+키워드 확장
-- eq-test 블로그 크로스링크, qr-code hreflang 수정
-
-### 세션265-269 (3/20) - 자율: toxic-trait 12/12 + red-flag 12/12 + 내부링크
-
-- toxic-trait 블로그 12/12, red-flag 블로그 11/11 번역 완료
-- DE QR 블로그 실번역, 내부링크 대규모 추가
-- 사이트맵 723 URLs
-
-### 세션245-264 (3/19) - 자율 20세션: toxic-trait-test + 블로그 + 크로스링크 + SEO
-
-- toxic-trait-test (105번째 앱) 배포
-- 건의사항 페이지, overthinker-test 바운스 수정
-- EN 블로그 3개, 크로스링크 6개 앱, SEO 키워드 확장
+- Sonnet 에이전트 전환 (5배 비용 절감), 15개 블로그 x12언어 번역 완료
+- 사이트맵 810→932 URLs, 인덱스 수정, about 페이지 업데이트
 
 ### 이전 세션
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 275+ | 3/20 | 10개 블로그 x12언어 번역 + SEO 강화 (hreflang, 크로스링크) |
+| 265-269 | 3/20 | toxic-trait 12/12 + red-flag 12/12 블로그 번역 + 내부링크 |
+| 245-264 | 3/19 | toxic-trait-test(105번째 앱) + 블로그 + 크로스링크 + SEO |
 | 243-244 | 3/18-19 | eq-test 바이럴 대응, anxiety-type 12/12, HTML 버그 수정 |
 | 241-242 | 3/17 | stress-response(103)+anxiety-type(104) 배포, 블로그 24개 |
 | 220-240 | 3/17 | burnout-test(101) 배포, JSON-LD 수정, 내부링크 대규모 |
