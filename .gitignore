@@ -58,3 +58,7 @@ nul
 .mcp-servers/
 .mcp.json
 .nano-banana-config.json
+.nano-banana/
+
+# 백업 (기기별 로컬 전용)
+fire-project-backup-*/
