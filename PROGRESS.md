@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-23 (세션288: 로컬 설정 백업 + MCP 수정)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-23 (세션289: trauma-response 빌드 + $1/day 전략)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **107개** (projects/ 107 디렉토리, 앱 107 + portal + _common) |
+| 총 프로젝트 | **108개** (projects/ 108 디렉토리, 앱 108 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1043개** |
+| 블로그 | **1045개** |
 
-**앱 분류:** 유틸 12 / 바이럴 테스트 **56** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
+**앱 분류:** 유틸 12 / 바이럴 테스트 **57** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
 ---
 
@@ -26,11 +26,11 @@
 | 크로스프로모 | **99/99앱** 2x2 그리드 카드 완료 + cross-promo.js 동적 위젯 |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
 | SEO 스키마 | FAQPage **104/104 (100%)**, BreadcrumbList **104/104 (100%)**, JSON-LD 전앱 |
-| 카테고리 허브 | Games(21), **Tests(38)**, Tools, MBTI (4개 랜딩페이지) |
+| 카테고리 허브 | Games(21), **Tests(39)**, Tools, MBTI (4개 랜딩페이지) |
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
 | 멀티디바이스 | 루트 repo GitHub private (`swp1234/fire-project`) — 데스크톱↔노트북 동기화 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1205 URLs**, 피드백 페이지 |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1207 URLs**, 피드백 페이지 |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -46,6 +46,31 @@
 ---
 
 ## 세션 기록
+
+### 세션289 (3/23) - Trauma Response 빌드 + $1/day 수익 전략 실행
+
+**#1 Trauma Response Test (108번째 앱) 풀빌드:**
+- 4F 프레임워크 (Fight/Flight/Freeze/Fawn), 5차원, 8문항, 레이더 차트
+- 12개 언어 i18n, primary color: #e11d48, 배포 완료
+
+**#2 $1/day 수익 전략 — 세션 깊이 + 한국어 SEO:**
+- 심리 생태계 크로스링크 대폭 강화: stress-response, hsp-test, overthinker-test, attachment-style, burnout-test — 각 앱에 shadow-work/inner-child/trauma-response 링크 추가 (5앱 push)
+- 한국어 블로그 6개에 생태계 크로스링크 추가 (eq-test, toxic-trait, attachment, anxiety, burnout, fight-flight 블로그)
+- eq-test 한국어 블로그에 cross-promo.js + 생태계 링크 11개 추가
+
+**#3 바이럴 엔진 — 개인화 결과 카드 이미지:**
+- `/portal/js/result-card.js` 공통 모듈 생성 (Canvas → PNG 다운로드)
+- eq-test 파일럿: "Save Result" 버튼 추가, 1080×1350 Instagram 비율 카드 생성
+- GA4 이벤트: `result_card_download` 추적
+
+**#4 Trauma Response 블로그 (EN+KO):**
+- KO: 트라우마 반응 유형 가이드 (23KB, 네이티브 한국어)
+- EN: Trauma Response Test Guide (35KB)
+- 블로그 인덱스 (KO+EN) + 사이트맵 2개 URL 추가
+
+**#5 에러 패턴 기록:** `memory/error-patterns.md` 생성 — 7가지 에러 패턴과 예방법
+
+**배포:** trauma-response(신규) + portal + eq-test + stress-response + hsp-test + overthinker-test + attachment-style + burnout-test — 전부 push 완료
 
 ### 세션288 (3/23) - 로컬 설정 백업 스크립트 + MCP 수정
 
@@ -123,8 +148,8 @@
 
 ## 다음 우선순위
 
-1. **stress-management 블로그 pos 추적** — 내부링크 11개 앱에서 연결, 1-2주 후 확인 (현재 pos10.4)
-2. **shadow-work + inner-child-test 모니터링** — 신규 2개 앱 유입/체류 추적
-3. **eq-test AI 프리미엄 효과 모니터링** — ai_analysis_unlock 이벤트 데이터 수집
-4. **toxic-trait bounce 추적** — 크로스링크 8개 + SEO 섹션 추가 효과 확인
-5. **다음 신규 앱 검토** — 트렌드 기반 (Ego Death Test, Trauma Response Test 등)
+1. **result-card.js 전앱 확산** — eq-test 파일럿 검증 후 top 10 앱에 적용 (바이럴 CTR 핵심)
+2. **롱테일 키워드 클러스터** — 20개 세부 키워드 클러스터 블로그 발행 (도메인 권위)
+3. **trauma-response 블로그 10개 언어** — EN+KO 완료, 나머지 10개 언어 번역
+4. **stress-management pos 추적** — 내부링크 11개 앱 연결, 현재 pos10.4
+5. **신규 3개 앱 모니터링** — shadow-work + inner-child + trauma-response 유입/체류 추적
