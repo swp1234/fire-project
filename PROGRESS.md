@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-23 (세션289: trauma-response 빌드 + $1/day 전략)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-23 (세션290: result-card 전앱 + canonical 대수술 + bounce 개선)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **108개** (projects/ 108 디렉토리, 앱 108 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1045개** |
+| 블로그 | **1055개** |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **57** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
@@ -30,7 +30,7 @@
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
 | 멀티디바이스 | 루트 repo GitHub private (`swp1234/fire-project`) — 데스크톱↔노트북 동기화 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1207 URLs**, 피드백 페이지 |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1217 URLs**, 피드백 페이지 |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -46,6 +46,29 @@
 ---
 
 ## 세션 기록
+
+### 세션290 (3/23) - Result Card 전앱 + Canonical 대수술 + Bounce 개선
+
+**#1 result-card.js 바이럴 이미지 전앱 확산:**
+- eq-test 파일럿 → 총 10개 앱 적용 완료 (shadow-work, inner-child, trauma-response, attachment-style, stress-response, anxiety-type, burnout-test, hsp-test, toxic-trait-test)
+- 모든 앱에 "Save Result" 버튼 추가, Canvas→PNG 다운로드
+
+**#2 toxic-trait-test bounce 85% 개선:**
+- 분석 중간 화면 추가 (4단계 프로그레스 바 "Analyzing patterns...")
+- 6가지 유형 dimension bars 추가 (결과 시각화)
+- result-card 다운로드 버튼 추가
+
+**#3 Canonical URL 대수술:**
+- 10개 언어 블로그 21개 파일의 잘못된 canonical URL 수정 (모두 /en/을 가리키고 있었음)
+- KO 블로그 3개의 영어-only meta keywords → 한국어로 교체
+- error-patterns.md에 예방법 기록
+
+**#4 trauma-response 블로그 12개 언어 완성:**
+- EN+KO 기존 + ja/zh/es/pt/hi/ru/id/tr/de/fr 10개 번역 완료
+- 사이트맵 10개 URL 추가 (1217 URLs)
+- 블로그 1055개
+
+**배포:** portal + toxic-trait-test + 8개 앱(result-card) — 전부 push 완료
 
 ### 세션289 (3/23) - Trauma Response 빌드 + $1/day 수익 전략 실행
 
@@ -148,8 +171,8 @@
 
 ## 다음 우선순위
 
-1. **result-card.js 전앱 확산** — eq-test 파일럿 검증 후 top 10 앱에 적용 (바이럴 CTR 핵심)
-2. **롱테일 키워드 클러스터** — 20개 세부 키워드 클러스터 블로그 발행 (도메인 권위)
-3. **trauma-response 블로그 10개 언어** — EN+KO 완료, 나머지 10개 언어 번역
-4. **stress-management pos 추적** — 내부링크 11개 앱 연결, 현재 pos10.4
-5. **신규 3개 앱 모니터링** — shadow-work + inner-child + trauma-response 유입/체류 추적
+1. **롱테일 키워드 클러스터** — 20개 세부 키워드 블로그 발행 (도메인 권위)
+2. **블로그 OG 이미지 개별화** — 전앱 icon-512.svg → 앱별 고유 1200x630 이미지
+3. **stress-management pos 추적** — 내부링크 11개 앱 연결, 현재 pos10.4
+4. **신규 4개 앱 모니터링** — shadow-work + inner-child + trauma-response + toxic-trait bounce 효과
+5. **AI 프리미엄 이탈 구간 분석** — eq-test ai_analysis_unlock 이벤트 데이터
