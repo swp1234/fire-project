@@ -313,3 +313,6 @@
 [submodule "projects/toxic-trait-test"]
 	path = projects/toxic-trait-test
 	url = https://github.com/swp1234/toxic-trait-test.git
+[submodule "projects/shadow-work"]
+	path = projects/shadow-work
+	url = https://github.com/swp1234/shadow-work.git
