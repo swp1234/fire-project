@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **108개** (projects/ 108 디렉토리, 앱 108 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1127개** |
+| 블로그 | **1132개** |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **57** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
@@ -31,7 +31,7 @@
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
 | 멀티디바이스 | 루트 repo GitHub private (`swp1234/fire-project`) — 데스크톱↔노트북 동기화 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1257 URLs**, 피드백 페이지 |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1262 URLs**, 피드백 페이지 |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -68,11 +68,17 @@
 - 사이트맵 +10 URL (1257 URLs)
 - EN 블로그 인덱스 10개 항목 추가 (159개)
 
-**#6 OG 이미지 31개 추가 (29→60개):**
-- 배치1(11): emotion-temp, dark-core, brain-type, brainrot-score, color-personality, past-life, animal-personality, stress-check, idle-clicker, sky-runner, color-memory
-- 배치2(20): emotional-age, love-language, social-battery, npc-test, villain-type, delulu-score, rizz-score, pick-me, ick-factor, soul-age, flappy-bird, puzzle-2048, block-puzzle, maze-runner, word-guess, brick-breaker, stack-tower, pong-game, road-shooter, zigzag-runner
+**#6 OG 이미지 전앱 완료 (29→107개, +78):**
+- 배치1(11): emotion-temp 외 10개
+- 배치2(20): emotional-age 외 19개
+- 배치3(24): affirmation~numerology
+- 배치4(23): password-generator~would-you-rather
+- 전 107개 앱 og:image + twitter:image 메타태그 업데이트 + push 완료
 
-**배포:** inner-child-test, toxic-trait-test, trauma-response, shadow-work, portal + 31개 앱 전부 push 완료
+**#7 JA 롱테일 블로그 5개 완료:**
+- emotional-regulation, avoidant-attachment, self-esteem, toxic-relationship, workplace-stress
+
+**배포:** inner-child-test, toxic-trait-test, trauma-response, shadow-work, portal + 전앱 push 완료
 
 ### 세션294 (3/23) - EN 롱테일 블로그 10개 (KO→EN 확장)
 
@@ -127,4 +133,4 @@
 2. **bounce 효과 모니터링** — inner-child GA4 수정 + 3앱 engagement 이벤트 효과 확인
 3. **AI 프리미엄 이탈 구간 분석** — eq-test ai_analysis_unlock 이벤트 데이터
 4. ~~나머지 앱 OG 이미지~~ — **107/107 전앱 완료** ✓
-5. **다국어 롱테일 확장** — EN 20/20 완료 → 타 언어(zh/ja/es 등) 확장 검토
+5. **다국어 롱테일 확장** — EN 20/20 + JA 5개 완료 → 타 언어(zh/es/pt 등) 확장 검토
