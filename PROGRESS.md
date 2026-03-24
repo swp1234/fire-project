@@ -131,8 +131,8 @@
 
 ## 다음 우선순위
 
-1. **stress-management pos 추적** — 내부링크 12개 연결 완료, pos10.4 → 첫 클릭 대기
-2. **bounce 효과 모니터링** — inner-child GA4 수정 + 3앱 engagement 이벤트 효과 확인
-3. **AI 프리미엄 이탈 구간 분석** — eq-test ai_analysis_unlock 이벤트 데이터
-4. ~~나머지 앱 OG 이미지~~ — **107/107 전앱 완료** ✓
-5. ~~다국어 롱테일 확장~~ — **EN 20 + 10개 언어×5 = 70개 완료** ✓
+1. **stress-management pos 추적** — 내부링크 12개, pos10.4 → 첫 클릭 대기 (모니터링)
+2. **bounce 효과 모니터링** — inner-child/toxic-trait/trauma/shadow 수정 효과 확인
+3. **KO 롱테일 추가 확장** — KO 20개 완료 → 추가 토픽 검토 (emotional-neglect, burnout-symptoms 등)
+4. ~~OG 이미지~~ — **107/107 전앱 완료** ✓
+5. ~~다국어 롱테일~~ — **EN 20 + 10개 언어×5 = 70개 완료** ✓
