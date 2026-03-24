@@ -27,7 +27,7 @@
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
 | SEO 스키마 | FAQPage **104/104 (100%)**, BreadcrumbList **104/104 (100%)**, JSON-LD 전앱 |
 | 카테고리 허브 | Games(21), **Tests(39)**, Tools, MBTI (4개 랜딩페이지) |
-| OG 이미지 | **40개 앱별 1200×630 PNG** + 470+블로그 교체 완료 |
+| OG 이미지 | **107개 앱별 1200×630 PNG** (전앱 완료) + 470+블로그 교체 완료 |
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
 | 멀티디바이스 | 루트 repo GitHub private (`swp1234/fire-project`) — 데스크톱↔노트북 동기화 |
@@ -68,10 +68,11 @@
 - 사이트맵 +10 URL (1257 URLs)
 - EN 블로그 인덱스 10개 항목 추가 (159개)
 
-**#6 OG 이미지 11개 추가 (29→40개):**
-- emotion-temp, dark-core, brain-type, brainrot-score, color-personality, past-life, animal-personality, stress-check, idle-clicker, sky-runner, color-memory
+**#6 OG 이미지 31개 추가 (29→60개):**
+- 배치1(11): emotion-temp, dark-core, brain-type, brainrot-score, color-personality, past-life, animal-personality, stress-check, idle-clicker, sky-runner, color-memory
+- 배치2(20): emotional-age, love-language, social-battery, npc-test, villain-type, delulu-score, rizz-score, pick-me, ick-factor, soul-age, flappy-bird, puzzle-2048, block-puzzle, maze-runner, word-guess, brick-breaker, stack-tower, pong-game, road-shooter, zigzag-runner
 
-**배포:** inner-child-test, toxic-trait-test, trauma-response, shadow-work, portal + 11개 앱 전부 push 완료
+**배포:** inner-child-test, toxic-trait-test, trauma-response, shadow-work, portal + 31개 앱 전부 push 완료
 
 ### 세션294 (3/23) - EN 롱테일 블로그 10개 (KO→EN 확장)
 
@@ -125,5 +126,5 @@
 1. **stress-management pos 추적** — 내부링크 12개 연결 완료, pos10.4 → 첫 클릭 대기
 2. **bounce 효과 모니터링** — inner-child GA4 수정 + 3앱 engagement 이벤트 효과 확인
 3. **AI 프리미엄 이탈 구간 분석** — eq-test ai_analysis_unlock 이벤트 데이터
-4. **나머지 앱 OG 이미지** — 게임/도구 등 나머지 앱별 생성 (40/108 완료)
+4. ~~나머지 앱 OG 이미지~~ — **107/107 전앱 완료** ✓
 5. **다국어 롱테일 확장** — EN 20/20 완료 → 타 언어(zh/ja/es 등) 확장 검토
