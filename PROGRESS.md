@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-24 (세션296: EN 롱테일 30/30 + cross-promo 전블로그)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-24 (세션296: EN 롱테일 30 + 다국어 53 + cross-promo 전블로그)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **108개** (projects/ 108 디렉토리, 앱 108 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1187개** |
+| 블로그 | **1240개** |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **57** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
@@ -31,7 +31,7 @@
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
 | 멀티디바이스 | 루트 repo GitHub private (`swp1234/fire-project`) — 데스크톱↔노트북 동기화 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1317 URLs**, 피드백 페이지 |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1372 URLs**, 피드백 페이지 |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -68,6 +68,12 @@
 **#4 인프라 업데이트:**
 - 사이트맵 +10 URL (1317 URLs)
 - EN 블로그 인덱스 10개 항목 추가 + 카운트 업데이트 (165+, tests 50)
+
+**#5 다국어 롱테일 블로그 53개 (5토픽 x 11언어, TR 2개 보류):**
+- 토픽: people-pleasing-fawn, gaslighting-signs, shadow-work-journal-prompts, self-sabotage-patterns, inner-child-wounds-types
+- KO5 + ZH5 + JA5 + ES5 + PT5 + DE5 + FR5 + RU5 + HI5 + TR3 + ID5 = 53개
+- 사이트맵 +55 URL (1372 URLs)
+- TR self-sabotage-patterns, inner-child-wounds-types 2개 다음 세션 처리
 
 **배포:** portal push 완료
 
@@ -157,6 +163,6 @@
 1. **stress-management pos 추적** — 내부링크 12개, pos10.4 → 첫 클릭 대기 (모니터링)
 2. **bounce 효과 모니터링** — inner-child/toxic-trait/trauma/shadow 수정 효과 확인
 3. **KO 롱테일 추가 확장** — KO 20개 완료 → 추가 토픽 검토
-4. **다국어 롱테일 확장** — EN 30 완료, 신규 10개 토픽 다국어 번역 가능
+4. **TR 블로그 2개 보류** — self-sabotage-patterns, inner-child-wounds-types (다음 세션)
 5. ~~OG 이미지~~ — **107/107 전앱 완료** ✓
 6. ~~cross-promo 전블로그~~ — **991개 블로그 적용 완료** ✓
