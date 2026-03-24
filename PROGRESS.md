@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **108개** (projects/ 108 디렉토리, 앱 108 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1240개** |
+| 블로그 | **1241개** |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **57** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
@@ -71,9 +71,9 @@
 
 **#5 다국어 롱테일 블로그 53개 (5토픽 x 11언어, TR 2개 보류):**
 - 토픽: people-pleasing-fawn, gaslighting-signs, shadow-work-journal-prompts, self-sabotage-patterns, inner-child-wounds-types
-- KO5 + ZH5 + JA5 + ES5 + PT5 + DE5 + FR5 + RU5 + HI5 + TR3 + ID5 = 53개
+- KO5 + ZH5 + JA5 + ES5 + PT5 + DE5 + FR5 + RU5 + HI5 + TR4 + ID5 = 54개
 - 사이트맵 +55 URL (1372 URLs)
-- TR self-sabotage-patterns, inner-child-wounds-types 2개 다음 세션 처리
+- TR inner-child-wounds-types 1개 다음 세션 처리
 
 **배포:** portal push 완료
 
@@ -163,6 +163,6 @@
 1. **stress-management pos 추적** — 내부링크 12개, pos10.4 → 첫 클릭 대기 (모니터링)
 2. **bounce 효과 모니터링** — inner-child/toxic-trait/trauma/shadow 수정 효과 확인
 3. **KO 롱테일 추가 확장** — KO 20개 완료 → 추가 토픽 검토
-4. **TR 블로그 2개 보류** — self-sabotage-patterns, inner-child-wounds-types (다음 세션)
+4. **TR 블로그 1개 보류** — inner-child-wounds-types (다음 세션)
 5. ~~OG 이미지~~ — **107/107 전앱 완료** ✓
 6. ~~cross-promo 전블로그~~ — **991개 블로그 적용 완료** ✓
