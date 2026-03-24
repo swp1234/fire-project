@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1200px;
+  height: 630px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+}
+.card {
+  width: 1200px;
+  height: 630px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: #fff;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+}
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+.emoji {
+  font-size: 80px;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+}
+.title {
+  font-size: 52px;
+  font-weight: 800;
+  text-align: center;
+  max-width: 900px;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  letter-spacing: -0.5px;
+}
+.subtitle {
+  font-size: 24px;
+  margin-top: 16px;
+  opacity: 0.85;
+  font-weight: 400;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+.brand {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  font-size: 22px;
+  font-weight: 700;
+  opacity: 0.7;
+  letter-spacing: 1px;
+}
+.badge {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+</style>
+</head>
+<body>
+<div class="card" id="card">
+  <div class="badge" id="badge">Free Online Test</div>
+  <div class="emoji" id="emoji"></div>
+  <div class="title" id="title"></div>
+  <div class="subtitle" id="subtitle"></div>
+  <div class="brand">DOPABRAIN.COM</div>
+</div>
+<script>
+const params = new URLSearchParams(window.location.search);
+const color = params.get('color') || '#00bcd4';
+const emoji = decodeURIComponent(params.get('emoji') || '🧠');
+const title = decodeURIComponent(params.get('title') || 'Test');
+const subtitle = decodeURIComponent(params.get('subtitle') || '');
+const badge = decodeURIComponent(params.get('badge') || 'Free Online Test');
+
+// Generate darker shade for gradient
+function darken(hex, amount) {
+  const num = parseInt(hex.replace('#',''), 16);
+  const r = Math.max(0, (num >> 16) - amount);
+  const g = Math.max(0, ((num >> 8) & 0xFF) - amount);
+  const b = Math.max(0, (num & 0xFF) - amount);
+  return `#${(r << 16 | g << 8 | b).toString(16).padStart(6,'0')}`;
+}
+
+const card = document.getElementById('card');
+card.style.setProperty('--bg1', color);
+card.style.setProperty('--bg2', darken(color, 60));
+document.getElementById('emoji').textContent = emoji;
+document.getElementById('title').textContent = title;
+document.getElementById('subtitle').textContent = subtitle;
+document.getElementById('badge').textContent = badge;
+</script>
+</body>
+</html>
