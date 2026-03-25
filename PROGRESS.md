@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션302: 다국어번역30+내부링크12+깨진링크수정)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션303: 다국어30/30완료+깨진링크158개수정=0잔여)
 
 ---
 
@@ -67,12 +67,13 @@
 - people-pleasing → anxious-attachment
 - social-anxiety → RSD+cognitive-distortions
 
-**#3 깨진 내부 링크 91개 수정 (EN 12 + 다국어 79):**
+**#3 깨진 내부 링크 158개 수정 (EN 12 + 다국어 146, 잔여 0개):**
 - attachment-style-test-guide → test-quiz, avoidant-dating-guide → dating-patterns
 - emotional-neglect-childhood → signs-healing, inner-child-healing → healing-guide
 - red-flag-test-dating → test-guide, shadow-work-guide → quiz-guide
 - toxic-relationship-patterns → patterns-signs, toxic-trait-test-guide → quiz-guide
 - trauma-response-guide → test-guide, hsp-test-ko-slug → en-slug
+- +다국어 146개: HSP/iceberg/attachment/perfectionism/cbt/jung 등 언어별 올바른 슬러그로 교정
 
 **#4 블로그 인덱스 업데이트:**
 - ZH/JA/ES/PT/DE/FR/RU/HI/ID/TR 10개 언어 인덱스에 5개 카드 추가
