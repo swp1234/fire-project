@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션309: SEO 강화 + bounce 개선)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션309: SEO 강화 + bounce 개선 + HI 번역)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **108개** (projects/ 108 디렉토리, 앱 108 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1404개** |
+| 블로그 | **1405개** |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **57** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
@@ -66,7 +66,11 @@
 - 12개 언어 i18n 번역
 - CSS 애니메이션 효과
 
-**배포:** toxic-trait-test + inner-child-test + portal push 완료
+**#4 trauma-bonding HI 번역 완료** (배치6 미완 1개 마무리, 블로그 1405개)
+
+**#5 stress-management 추가 역링크 +5개** (anxiety-type-guide, stress-vs-anxiety, burnout-test-guide, stress-check-test-guide, perfectionism-anxiety-quiz)
+
+**배포:** toxic-trait-test + inner-child-test + portal 5회 push 완료
 
 ### 세션304-307 (3/25) - EN배치5+6(10개) + KO10 + 다국어50/50 + 내부링크13
 
