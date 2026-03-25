@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **108개** (projects/ 108 디렉토리, 앱 108 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1330+개** |
+| 블로그 | **1325개** |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **57** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
@@ -52,8 +52,8 @@
 
 **#1 다국어 번역 4차 (6언어×5토픽=30개, 18/30 완료 중):**
 - 5개 토픽: anxious-attachment, cognitive-distortions, flashbacks, love-bombing, RSD
-- DE 5/5 ✓, FR 4/5, RU 5/5 ✓, HI 3/5, ID 4/5, TR 3/5
-- 24/30 완료, 나머지 6개: FR RSD, HI flashbacks+RSD, ID flashbacks, TR flashbacks+RSD
+- DE 5/5 ✓, FR 5/5 ✓, RU 5/5 ✓, HI 5/5 ✓, ID 5/5 ✓, TR 5/5 ✓
+- **30/30 전량 완료** ✓, 전체 canonical 검증 통과
 
 **#2 내부링크 강화 +12개:**
 - attachment-4types → anxious-attachment+disorganized
@@ -67,7 +67,7 @@
 - people-pleasing → anxious-attachment
 - social-anxiety → RSD+cognitive-distortions
 
-**#3 깨진 내부 링크 12개 수정:**
+**#3 깨진 내부 링크 91개 수정 (EN 12 + 다국어 79):**
 - attachment-style-test-guide → test-quiz, avoidant-dating-guide → dating-patterns
 - emotional-neglect-childhood → signs-healing, inner-child-healing → healing-guide
 - red-flag-test-dating → test-guide, shadow-work-guide → quiz-guide
@@ -151,7 +151,7 @@
 
 ## 다음 우선순위
 
-1. **다국어 4차 마무리** — 6/30 파일 남음 (FR RSD, HI flashbacks+RSD, ID flashbacks, TR flashbacks+RSD)
+1. ~~다국어 4차~~ — **30/30 전량 완료** ✓
 2. **page_engage bounce 효과 모니터링** — 107/107 전앱 적용
 3. **stress-management pos 추적** — pos10.45, 첫 클릭 임박
 4. **EI 블로그 성장 추적** — 12imp/pos89.7
