@@ -55,9 +55,10 @@
 - emotional-intelligence-relationships, emotional-triggers-understanding
 - nervous-system-regulation-techniques
 
-**#2 다국어 롱테일 50개 (10언어 × 5토픽, 진행중):**
+**#2 다국어 롱테일 50개 (10언어 × 5토픽, 26/50 완료):**
 - 사이트맵 +50 URL (1427 URLs), 10개 언어 인덱스 카드 추가
-- Sonnet 에이전트 5개 병렬 번역 (ZH+JA, ES+PT, DE+FR, RU+HI, ID+TR)
+- ZH 5/5 ✓, DE 5/5 ✓, JA 3/5, FR 3/5, RU 3/5, ES 2/5, PT 2/5, HI 1/5, ID 1/5, TR 1/5
+- 에이전트 2차 배치 (1토픽×2~4언어) 진행중, 나머지 다음 세션
 
 **#3 EN 블로그 내부링크 강화:**
 - codependency +4링크, disorganized-attachment +4링크
