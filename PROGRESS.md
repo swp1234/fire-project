@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션303: 다국어30/30완료+깨진링크158개수정=0잔여)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션305: EN5+KO3+내부링크7+인덱스11+사이트맵1547+다국어에이전트진행중)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **108개** (projects/ 108 디렉토리, 앱 108 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1325개** |
+| 블로그 | **1333개** |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **57** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
@@ -31,7 +31,7 @@
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
 | 멀티디바이스 | 루트 repo GitHub private (`swp1234/fire-project`) — 데스크톱↔노트북 동기화 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1487 URLs**, 피드백 페이지 |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1547 URLs**, 피드백 페이지 |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -47,6 +47,30 @@
 ---
 
 ## 세션 기록
+
+### 세션304-305 (3/25) - EN 롱테일5 + KO 번역3/5 + 다국어 에이전트 진행중
+
+**#1 EN 롱테일 블로그 5개 (배치5, 총 40개):**
+- imposter-syndrome-signs-overcoming, emotional-numbness-causes-healing
+- narcissistic-abuse-signs-recovery, abandonment-issues-attachment-healing
+- self-compassion-mental-health-guide
+
+**#2 KO 번역 3/5 완료:**
+- imposter-syndrome ✓, narcissistic-abuse ✓, self-compassion ✓
+- emotional-numbness, abandonment — 에이전트 진행중
+
+**#3 내부링크 강화 +7개:**
+- self-esteem → imposter+self-compassion, codependency → narcissistic-abuse
+- anxious-attachment → abandonment, trauma-response → emotional-numbness
+- gaslighting → narcissistic-abuse, inner-child → self-compassion+imposter
+
+**#4 블로그 인덱스 업데이트:** 11개 언어 (KO/ZH/JA/ES/PT/DE/FR/RU/HI/ID/TR) +5카드
+
+**#5 사이트맵:** +55 URL (1547 URLs)
+
+**#6 다국어 에이전트 진행중:** DE/FR/RU/ZH/JA/ES/PT/HI/ID/TR × 2토픽(imposter+numbness)
+
+**배포:** portal 4회 push 완료
 
 ### 세션302 (3/25) - 다국어 번역 4차 30개 + 내부링크 강화 + 깨진 링크 수정
 
@@ -152,7 +176,7 @@
 
 ## 다음 우선순위
 
-1. ~~다국어 4차~~ — **30/30 전량 완료** ✓
-2. **page_engage bounce 효과 모니터링** — 107/107 전앱 적용
-3. **stress-management pos 추적** — pos10.45, 첫 클릭 임박
-4. **EI 블로그 성장 추적** — 12imp/pos89.7
+1. **다국어 5차 진행중** — KO 2/5 잔여 + 10언어×5토픽=50개 (에이전트 진행중, imposter+numbness 2토픽 10개 먼저)
+2. **다국어 5차 나머지** — 10언어×3토픽(narcissistic+abandonment+compassion)=30개
+3. **page_engage bounce 효과 모니터링** — 107/107 전앱 적용
+4. **stress-management pos 추적** — pos10.45, 첫 클릭 임박
