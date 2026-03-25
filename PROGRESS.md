@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션305: EN5+KO5/5+다국어12/50+내부링크7+인덱스11+사이트맵1547)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션308: 다국어trauma-bonding9/10+블로그1404)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **108개** (projects/ 108 디렉토리, 앱 108 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1333개** |
+| 블로그 | **1404개** |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **57** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
@@ -31,7 +31,7 @@
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
 | 멀티디바이스 | 루트 repo GitHub private (`swp1234/fire-project`) — 데스크톱↔노트북 동기화 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1547 URLs**, 피드백 페이지 |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1607 URLs**, 피드백 페이지 |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -48,22 +48,21 @@
 
 ## 세션 기록
 
-### 세션304-305 (3/25) - EN 롱테일5 + KO 5/5 + 다국어 12/50
+### 세션304-307 (3/25) - EN배치5+6(10개) + KO10 + 다국어50/50 + 내부링크13
 
-**#1 EN 롱테일 블로그 5개 (배치5, 총 40개):**
-- imposter-syndrome, emotional-numbness, narcissistic-abuse, abandonment-issues, self-compassion
+**#1 EN 롱테일 블로그 10개 (배치5+6, 총 45개):**
+- 배치5: imposter-syndrome, emotional-numbness, narcissistic-abuse, abandonment-issues, self-compassion
+- 배치6: trauma-bonding, emotional-dysregulation, dissociation, hypervigilance, codependency-recovery
 
-**#2 KO 번역 5/5 완료** ✓
+**#2 KO 번역 10/10 완료** ✓
 
-**#3 다국어 12/50 완료:**
-- imposter: DE✓ FR✓ RU✓ ZH✓ JA✓ ES✓ PT✓ HI✓ ID✓ (9/10, TR 미완)
-- narcissistic: DE✓ FR✓ (2/10)
-- abandonment: FR✓ (1/10)
-- numbness/compassion: 0/10
+**#3 다국어 50/50 전량 완료** ✓ (배치5 토픽 × 10언어)
 
-**#4 내부링크 +7개 + 블로그 인덱스 11개 언어 +5카드 + 사이트맵 1547 URLs**
+**#4 배치6 다국어 시작:** trauma-bonding 9/10 완료 (HI 미완)
 
-**배포:** portal 8회 push 완료
+**#5 내부링크 +13개 + EN/KO 블로그 인덱스 +5카드 + 사이트맵 1607 URLs**
+
+**배포:** portal 35+ push, 블로그 1404개
 
 ### 세션302 (3/25) - 다국어 번역 4차 30개 + 내부링크 강화 + 깨진 링크 수정
 
@@ -169,6 +168,7 @@
 
 ## 다음 우선순위
 
-1. **다국어 5차 잔여 38/50** — TR imposter + numbness×10 + narcissistic×8 + abandonment×9 + compassion×10
-2. **page_engage bounce 효과 모니터링** — 107/107 전앱 적용
-3. **stress-management pos 추적** — pos10.45, 첫 클릭 임박
+1. **배치6 다국어 잔여** — HI trauma-bonding(1) + dysregulation/dissociation/hypervigilance/codependency-recovery × 10언어(40) = 41개
+2. **EN 롱테일 블로그 배치7** — 새 토픽 5개
+3. **page_engage bounce 효과 모니터링** — 107/107 전앱 적용
+4. **stress-management pos 추적** — pos10.45, 첫 클릭 임박
