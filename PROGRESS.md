@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션308: 다국어trauma-bonding9/10+블로그1404)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션309: SEO 강화 + bounce 개선)
 
 ---
 
@@ -47,6 +47,26 @@
 ---
 
 ## 세션 기록
+
+### 세션309 (3/25) - SEO 강화 + bounce 개선 (데스크탑 재개)
+
+**#1 GA4/GSC 분석:**
+- 7일 171u, Direct 78%/Organic 10%, eq-test 51세션 86s 체류
+- stress-management 블로그 pos 10.45 (20imp) — 페이지1 진입 임박
+- 신규 shadow-work(0% bounce), inner-child(88% bounce)
+
+**#2 stress-management 블로그 SEO 강화:**
+- 새 FAQ "Can overthinking cause stress?" + FAQPage 스키마 추가
+- overthinker-test, toxic-trait-test, shadow-work, inner-child-test 내부링크 추가
+- 7개 관련 EN 블로그에서 stress-management 역링크 추가 (overthinker, digital-detox, sleep-science 등)
+- dateModified 업데이트
+
+**#3 toxic-trait-test + inner-child-test bounce 개선:**
+- 인트로에 hook question 추가 (호기심 유발 카피)
+- 12개 언어 i18n 번역
+- CSS 애니메이션 효과
+
+**배포:** toxic-trait-test + inner-child-test + portal push 완료
 
 ### 세션304-307 (3/25) - EN배치5+6(10개) + KO10 + 다국어50/50 + 내부링크13
 
