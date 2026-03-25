@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션305: EN5+KO3+내부링크7+인덱스11+사이트맵1547+다국어에이전트진행중)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션305: EN5+KO5/5+다국어12/50+내부링크7+인덱스11+사이트맵1547)
 
 ---
 
@@ -48,29 +48,22 @@
 
 ## 세션 기록
 
-### 세션304-305 (3/25) - EN 롱테일5 + KO 번역3/5 + 다국어 에이전트 진행중
+### 세션304-305 (3/25) - EN 롱테일5 + KO 5/5 + 다국어 12/50
 
 **#1 EN 롱테일 블로그 5개 (배치5, 총 40개):**
-- imposter-syndrome-signs-overcoming, emotional-numbness-causes-healing
-- narcissistic-abuse-signs-recovery, abandonment-issues-attachment-healing
-- self-compassion-mental-health-guide
+- imposter-syndrome, emotional-numbness, narcissistic-abuse, abandonment-issues, self-compassion
 
-**#2 KO 번역 3/5 완료:**
-- imposter-syndrome ✓, narcissistic-abuse ✓, self-compassion ✓
-- emotional-numbness, abandonment — 에이전트 진행중
+**#2 KO 번역 5/5 완료** ✓
 
-**#3 내부링크 강화 +7개:**
-- self-esteem → imposter+self-compassion, codependency → narcissistic-abuse
-- anxious-attachment → abandonment, trauma-response → emotional-numbness
-- gaslighting → narcissistic-abuse, inner-child → self-compassion+imposter
+**#3 다국어 12/50 완료:**
+- imposter: DE✓ FR✓ RU✓ ZH✓ JA✓ ES✓ PT✓ HI✓ ID✓ (9/10, TR 미완)
+- narcissistic: DE✓ FR✓ (2/10)
+- abandonment: FR✓ (1/10)
+- numbness/compassion: 0/10
 
-**#4 블로그 인덱스 업데이트:** 11개 언어 (KO/ZH/JA/ES/PT/DE/FR/RU/HI/ID/TR) +5카드
+**#4 내부링크 +7개 + 블로그 인덱스 11개 언어 +5카드 + 사이트맵 1547 URLs**
 
-**#5 사이트맵:** +55 URL (1547 URLs)
-
-**#6 다국어 에이전트 진행중:** DE/FR/RU/ZH/JA/ES/PT/HI/ID/TR × 2토픽(imposter+numbness)
-
-**배포:** portal 4회 push 완료
+**배포:** portal 8회 push 완료
 
 ### 세션302 (3/25) - 다국어 번역 4차 30개 + 내부링크 강화 + 깨진 링크 수정
 
@@ -176,7 +169,6 @@
 
 ## 다음 우선순위
 
-1. **다국어 5차 진행중** — KO 2/5 잔여 + 10언어×5토픽=50개 (에이전트 진행중, imposter+numbness 2토픽 10개 먼저)
-2. **다국어 5차 나머지** — 10언어×3토픽(narcissistic+abandonment+compassion)=30개
-3. **page_engage bounce 효과 모니터링** — 107/107 전앱 적용
-4. **stress-management pos 추적** — pos10.45, 첫 클릭 임박
+1. **다국어 5차 잔여 38/50** — TR imposter + numbness×10 + narcissistic×8 + abandonment×9 + compassion×10
+2. **page_engage bounce 효과 모니터링** — 107/107 전앱 적용
+3. **stress-management pos 추적** — pos10.45, 첫 클릭 임박
