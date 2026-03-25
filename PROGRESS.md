@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션298: KO롱테일5+다국어50+품질수정)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션302: 다국어번역30+내부링크12+깨진링크수정)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **108개** (projects/ 108 디렉토리, 앱 108 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1270+개** |
+| 블로그 | **1330+개** |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **57** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
@@ -31,7 +31,7 @@
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
 | 멀티디바이스 | 루트 repo GitHub private (`swp1234/fire-project`) — 데스크톱↔노트북 동기화 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1427 URLs**, 피드백 페이지 |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1487 URLs**, 피드백 페이지 |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -48,158 +48,101 @@
 
 ## 세션 기록
 
-### 세션298 (3/25) - KO롱테일5 + 다국어50 + 블로그 품질 대수술
+### 세션302 (3/25) - 다국어 번역 4차 30개 + 내부링크 강화 + 깨진 링크 수정
 
-**#1 KO 롱테일 블로그 5개 생성 (25개 완료):**
-- codependency-signs-relationship, disorganized-attachment-style
-- emotional-intelligence-relationships, emotional-triggers-understanding
-- nervous-system-regulation-techniques
+**#1 다국어 번역 4차 (6언어×5토픽=30개, 18/30 완료 중):**
+- 5개 토픽: anxious-attachment, cognitive-distortions, flashbacks, love-bombing, RSD
+- DE 5/5 ✓, FR 4/5, RU 5/5 ✓, HI 3/5, ID 4/5, TR 3/5
+- 24/30 완료, 나머지 6개: FR RSD, HI flashbacks+RSD, ID flashbacks, TR flashbacks+RSD
 
-**#2 다국어 롱테일 50개 (10언어 × 5토픽, 34/50 완료):**
-- 사이트맵 +50 URL (1427 URLs), 10개 언어 인덱스 카드 추가
-- ZH 5/5 ✓, DE 5/5 ✓, FR 5/5 ✓, JA 4/5, ES 4/5, PT 4/5, RU 3/5, HI 2/5, ID 1/5, TR 1/5
-- 나머지 16개 다음 세션에서 완료 예정
+**#2 내부링크 강화 +12개:**
+- attachment-4types → anxious-attachment+disorganized
+- cbt-overthinking → cognitive-distortions
+- trauma-4f → emotional-flashbacks
+- gaslighting → love-bombing
+- anxiety-types → RSD+cognitive-distortions
+- dating-red-flags → love-bombing
+- toxic-relationship → love-bombing+gaslighting
+- inner-child-wounds → emotional-flashbacks
+- people-pleasing → anxious-attachment
+- social-anxiety → RSD+cognitive-distortions
 
-**#3 EN 블로그 내부링크 강화:**
-- codependency +4링크, disorganized-attachment +4링크
-- emotional-triggers +3링크, nervous-system +3링크
-- emotional-intelligence-relationships +3링크
-- stress-management → nervous-system +2링크
-- burnout-recovery → nervous-system/triggers/dopamine +3링크
+**#3 깨진 내부 링크 12개 수정:**
+- attachment-style-test-guide → test-quiz, avoidant-dating-guide → dating-patterns
+- emotional-neglect-childhood → signs-healing, inner-child-healing → healing-guide
+- red-flag-test-dating → test-guide, shadow-work-guide → quiz-guide
+- toxic-relationship-patterns → patterns-signs, toxic-trait-test-guide → quiz-guide
+- trauma-response-guide → test-guide, hsp-test-ko-slug → en-slug
 
-**#4 블로그 품질 대수술:**
-- **44개 블로그 stray footer 링크 수정** (12언어 × 4블로그)
-- **18개 블로그 GA4 추가** (추적 누락 수정)
-- **9개 EN 블로그 AdSense 추가** (수익화 누락 수정)
-- EN 블로그 인덱스 카운트 165→170+ 업데이트
+**#4 블로그 인덱스 업데이트:**
+- ZH/JA/ES/PT/DE/FR/RU/HI/ID/TR 10개 언어 인덱스에 5개 카드 추가
 
-**배포:** portal 4회 push 완료
+**#5 사이트맵:** +30 URL (1487 URLs)
 
-### 세션297 (3/25) - page_engage 전앱 배치 + EI블로그 내부링크 강화
+**배포:** portal 3회 push 완료
 
-**#1 GA4/GSC 데이터 분석 (3/18~24):**
-- 171u/349pv/7d (↓40% — 스파이크 정상화 + 봇 감소)
-- Direct 77% / Organic 10% (145s 체류!) / Unassigned 8% (봇)
-- trauma-response 0% bounce ✓, shadow-work 0% bounce ✓ (수정 성공)
-- eq-test 14u/82% bounce (바이럴 종료 + 소수 트래픽), inner-child 88% bounce (미해결)
-- GSC 0 clicks, stress-management 블로그 20imp/pos10.45 (유지!), EI블로그 12imp/pos89.7 (성장)
+### 세션300-301 (3/25) - EN 롱테일5 + KO 번역5 + 내부링크 강화
 
-**#2 page_engage 전앱 배치 적용 (107/107):**
-- 5초 page_engage 이벤트로 false bounce 방지
-- eq-test, inner-child-test 개별 수정 + 나머지 105개 배치 스크립트
-- 전량 commit & push 완료
+**#1 GA4/GSC 분석 (3/19~25):**
+- 146u/293pv/7d, Organic 16u/145s체류/37.5%bounce
+- stress-management pos10.45 유지, EI 12imp/pos89.7
+- trauma-response/shadow-work 0% bounce (page_engage 효과 확인!)
 
-**#3 EI 블로그 내부링크 강화:**
-- 본문 내 contextual 링크 추가 (shadow-work, attachment-style, emotional-regulation, anxiety, burnout)
-- Related Tests 4개 추가 (shadow-work, inner-child, attachment, trauma)
-- Related Reading 4개 추가 (emotional-regulation, shadow-work-journal, self-sabotage, avoidant-attachment)
-- 역방향 링크 3개 블로그에서 EI 블로그로 (shadow-work-journal, self-sabotage, inner-child-wounds)
+**#2 EN 롱테일 블로그 5개 (배치4, 총 35개):**
+- anxious-attachment-style-relationships, cognitive-distortions-list
+- emotional-flashbacks-cptsd, love-bombing-signs-narcissist
+- rejection-sensitivity-dysphoria
 
-**배포:** 107개 앱 + portal push 완료
+**#3 내부링크 강화:**
+- stress-management 역방향 링크 +5개 (anxiety-types, dopamine-detox, self-esteem, emotional-triggers, healthy-boundaries)
+- EI 블로그 역방향 링크 +2개 (codependency, avoidant-attachment)
 
-### 세션296 (3/24) - EN 롱테일 30/30 + cross-promo 전블로그 적용
+**#4 KO 번역 5개 진행중:**
+- 5개 새 블로그 KO 번역 에이전트 실행중
 
-**#1 전체 품질 검증:**
-- quality-gate: 107/107 PASS
-- live-check: 107/107 PASS (0 FAIL, 0 WARN)
-
-**#2 EN 롱테일 블로그 10개 (배치3, 심리 롱테일):**
-- people-pleasing-fawn, codependency, emotional-intelligence-relationships
-- nervous-system-regulation, shadow-work-journal-prompts
-- inner-child-wounds-types, gaslighting-signs, disorganized-attachment
-- emotional-triggers-understanding, self-sabotage-patterns
-- EN 롱테일 총 **30/30** 완료
-
-**#3 cross-promo.js 전블로그 적용:**
-- EN 136개 + 다국어 855개 = **991개 블로그**에 cross-promo.js 추가
-- 이전에 누락되어 있던 블로그 전량 수정
-
-**#4 인프라 업데이트:**
-- 사이트맵 +10 URL (1317 URLs)
-- EN 블로그 인덱스 10개 항목 추가 + 카운트 업데이트 (165+, tests 50)
-
-**#5 다국어 롱테일 블로그 53개 (5토픽 x 11언어, TR 2개 보류):**
-- 토픽: people-pleasing-fawn, gaslighting-signs, shadow-work-journal-prompts, self-sabotage-patterns, inner-child-wounds-types
-- KO5 + ZH5 + JA5 + ES5 + PT5 + DE5 + FR5 + RU5 + HI5 + TR5 + ID5 = **55개 전량 완료**
-- 사이트맵 +55 URL (1372 URLs)
+**#5 인프라:**
+- 사이트맵 +10 URL (1437 URLs)
+- EN/KO 블로그 인덱스 업데이트
 
 **배포:** portal push 완료
 
-### 세션295 (3/24) - EN 롱테일 20/20 완료 + bounce 수정 + 내부링크 강화
+### 세션299 (3/25) - 다국어 롱테일 3차 50/50 완료 + JSON-LD 조사
 
-**#1 inner-child-test 100% bounce 수정:**
-- GA4 page_view/quiz_start 이벤트 누락 → 추가
-- 스크립트 defer 통일 + app-loader hide를 app.js로 이동
+**#1 다국어 롱테일 3차 완료 (50/50 ✓):**
+- 13개 누락 번역 전량 완료: JA×1, PT×1, RU×1, HI×2, ID×4, TR×4
+- 10개 언어 × 5토픽 = 50개 전량 완료
+- Canonical URL 전량 검증 통과
 
-**#2 engagement 이벤트 추가 (false bounce 방지):**
-- toxic-trait-test, trauma-response, shadow-work에 5초 page_engage 이벤트 추가
+**#2 레거시 JSON-LD 조사:**
+- 9개 EN 블로그 JSON-LD 누락 확인 → 전부 17줄 리다이렉트 스텁 → 추가 불필요
 
-**#3 EN 롱테일 블로그 10개 (2배치 병렬, 총 20/20 완료):**
-- 배치A: avoidant-attachment, emotional-neglect, inner-child-healing, toxic-relationship, trauma-4f
-- 배치B: workplace-stress, top-10-stress-relief, hsp-workplace, stress-self-diagnosis, dopamine-detox-practical
-
-**#4 stress-management 내부링크 강화 (pos10.4→페이지1 돌파 목표):**
-- burnout-symptoms, cbt-overthinking, emotional-regulation, perfectionism-anxiety에 크로스링크 추가 (8→12개)
-
-**#5 인프라 업데이트:**
-- 사이트맵 +10 URL (1257 URLs)
-- EN 블로그 인덱스 10개 항목 추가 (159개)
-
-**#6 OG 이미지 전앱 완료 (29→107개, +78):**
-- 배치1(11): emotion-temp 외 10개
-- 배치2(20): emotional-age 외 19개
-- 배치3(24): affirmation~numerology
-- 배치4(23): password-generator~would-you-rather
-- 전 107개 앱 og:image + twitter:image 메타태그 업데이트 + push 완료
-
-**#7 다국어 롱테일 블로그 50개 완료 (10개 언어 × 5토픽 = 전체 완료):**
-- 토픽: emotional-regulation, avoidant-attachment, self-esteem, toxic-relationship, workplace-stress
-- JA5 + ZH5 + ES5 + PT5 + DE5 + FR5 + RU5 + ID5 + HI5 + TR5 = 50개
-- 사이트맵 +50 URL (1307 URLs)
-
-**배포:** inner-child-test, toxic-trait-test, trauma-response, shadow-work, portal + 전앱 push 완료
-
-### 세션294 (3/23) - EN 롱테일 블로그 10개 (KO→EN 확장)
-
-**#1 영어 롱테일 블로그 10개 생성 (2배치 병렬):**
-- 배치A: emotional-regulation, attachment-4types, self-esteem, dating-red-flags, cbt-overthinking
-- 배치B: burnout-symptoms, anxiety-disorders, healthy-boundaries, perfectionism-anxiety, carl-jung-shadow
-
-**#2 전체 인프라 업데이트:**
-- 10개 블로그 앱별 OG 이미지 적용
-- 사이트맵 +10 URL (1247 URLs)
-- EN 블로그 인덱스 10개 항목 추가 (149개)
+**#3 기타:**
+- ID disorganized-attachment 에이전트 실수 삭제 → git checkout 복원
+- Portal 4회 push 완료
 
 **배포:** portal push 완료
 
-### 세션293 (3/23) - 롱테일 클러스터 20/20 완료 + OG 이미지 확대
+### 세션294-298 (3/23-25) 요약
 
-- KO 롱테일 배치3 (자존감, 감정적방치, 건강한경계, 회피형애착, 완벽주의불안)
-- OG 이미지 15개 추가 (14→29개) + 169개 블로그 교체
-- 역방향 크로스링크 6개 + 롱테일 클러스터 **20/20 완료**
-
-### 세션292 (3/23) - 롱테일 키워드 클러스터 배치2 (10개 블로그)
-
-- 한국어 롱테일 블로그 10개 (감정조절~MBTI궁합)
-
-### 세션291 (3/23) - 롱테일 클러스터 + OG 이미지 개별화
-
-- KO 롱테일 5개 + OG 이미지 Playwright 자동 생성 14개 + 300+ 블로그 교체
-
-### 세션290 (3/23) - Result Card 전앱 + Canonical 대수술
-
-- result-card.js 10개 앱, toxic-trait bounce 개선, canonical 대수술, trauma-response 블로그 12언어
+| 세션 | 주요 작업 |
+|------|----------|
+| 298 | KO롱테일5 + 다국어50 + 블로그품질대수술(GA4+AdSense+footer수정) |
+| 297 | page_engage 107/107 전앱 + EI 내부링크 강화 + GA4/GSC 분석 |
+| 296 | EN롱테일30/30 + cross-promo 991블로그 + 다국어55 |
+| 295 | EN롱테일20 + bounce수정 + OG이미지107개 + 다국어50 |
+| 294 | EN롱테일10 + OG이미지 + 사이트맵 |
 
 ### 이전 세션
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
+| 293-295 | 3/23-24 | KO롱테일20/20 + OG이미지107개 + EN롱테일20 + 다국어50 + bounce수정 |
+| 290-292 | 3/23 | result-card전앱 + canonical대수술 + KO롱테일15 + OG이미지29개 |
 | 289 | 3/23 | trauma-response(108번째앱) + $1/day 전략 + result-card.js |
 | 285-288 | 3/23 | shadow-work(106)+inner-child(107) 풀빌드 + 블로그 + 백업 |
 | 282-284 | 3/23 | 전략 재점검 + 홈/포털 재설계 + 멀티디바이스 + AI 프리미엄 |
 | 280-281 | 3/20-22 | 대규모 번역 + 버그 수정 + SEO 첫 클릭 캠페인 |
-| 265-275 | 3/20 | toxic-trait/red-flag 블로그 번역 + 10개 블로그 x12언어 |
-| 245-264 | 3/19 | toxic-trait-test(105번째 앱) + 블로그 + 크로스링크 |
+| 245-275 | 3/19-20 | toxic-trait(105)+red-flag 블로그 번역 + 10개 블로그 x12언어 |
 | 209-244 | 3/15-19 | dopamine(100)+burnout(101)+stress(103)+anxiety(104) + FAQPage 100% |
 | 173-208 | 3/14-15 | 전략 전환 + ai-personality(97)+overthinker(98)+red-flag(99) |
 | 1-172 | 2/4-3/13 | 앱96개→, 포털, i18n, 블로그600+, AdSense, 크로스프로모 |
@@ -208,12 +151,7 @@
 
 ## 다음 우선순위
 
-1. **page_engage bounce 효과 모니터링** — 107/107 전앱 적용, 다음 데이터로 효과 확인
-2. **stress-management pos 추적** — pos10.45 유지, 첫 클릭 임박 (모니터링)
-3. **EI 블로그 성장 추적** — 12imp/pos89.7, 내부링크 강화 완료
-4. **다국어 롱테일 3차 완료 확인** — 50개 번역 에이전트 진행중 (9/50)
-5. **레거시 9개 블로그 JSON-LD 추가** — 구형 블로그 스키마 누락
-6. ~~KO 롱테일 추가 확장~~ — **KO 25개 완료** ✓
-7. ~~다국어 롱테일 2차~~ — **EN 30 + 11언어×5 = 85개 완료** ✓
-8. ~~블로그 GA4/AdSense 누락~~ — **18+9개 수정 완료** ✓
-9. ~~stray footer 링크~~ — **44개 수정 완료** ✓
+1. **다국어 4차 마무리** — 6/30 파일 남음 (FR RSD, HI flashbacks+RSD, ID flashbacks, TR flashbacks+RSD)
+2. **page_engage bounce 효과 모니터링** — 107/107 전앱 적용
+3. **stress-management pos 추적** — pos10.45, 첫 클릭 임박
+4. **EI 블로그 성장 추적** — 12imp/pos89.7
