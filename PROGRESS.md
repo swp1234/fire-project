@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-24 (세션296: EN 롱테일 30 + 다국어 53 + cross-promo 전블로그)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션297: page_engage 전앱 + EI블로그 내부링크)
 
 ---
 
@@ -47,6 +47,28 @@
 ---
 
 ## 세션 기록
+
+### 세션297 (3/25) - page_engage 전앱 배치 + EI블로그 내부링크 강화
+
+**#1 GA4/GSC 데이터 분석 (3/18~24):**
+- 171u/349pv/7d (↓40% — 스파이크 정상화 + 봇 감소)
+- Direct 77% / Organic 10% (145s 체류!) / Unassigned 8% (봇)
+- trauma-response 0% bounce ✓, shadow-work 0% bounce ✓ (수정 성공)
+- eq-test 14u/82% bounce (바이럴 종료 + 소수 트래픽), inner-child 88% bounce (미해결)
+- GSC 0 clicks, stress-management 블로그 20imp/pos10.45 (유지!), EI블로그 12imp/pos89.7 (성장)
+
+**#2 page_engage 전앱 배치 적용 (107/107):**
+- 5초 page_engage 이벤트로 false bounce 방지
+- eq-test, inner-child-test 개별 수정 + 나머지 105개 배치 스크립트
+- 전량 commit & push 완료
+
+**#3 EI 블로그 내부링크 강화:**
+- 본문 내 contextual 링크 추가 (shadow-work, attachment-style, emotional-regulation, anxiety, burnout)
+- Related Tests 4개 추가 (shadow-work, inner-child, attachment, trauma)
+- Related Reading 4개 추가 (emotional-regulation, shadow-work-journal, self-sabotage, avoidant-attachment)
+- 역방향 링크 3개 블로그에서 EI 블로그로 (shadow-work-journal, self-sabotage, inner-child-wounds)
+
+**배포:** 107개 앱 + portal push 완료
 
 ### 세션296 (3/24) - EN 롱테일 30/30 + cross-promo 전블로그 적용
 
@@ -159,9 +181,11 @@
 
 ## 다음 우선순위
 
-1. **stress-management pos 추적** — 내부링크 12개, pos10.4 → 첫 클릭 대기 (모니터링)
-2. **bounce 효과 모니터링** — inner-child/toxic-trait/trauma/shadow 수정 효과 확인
-3. **KO 롱테일 추가 확장** — KO 20개 완료 → 추가 토픽 검토
-4. ~~다국어 롱테일 2차~~ — **EN 30 + 11언어×5 = 85개 완료** ✓
-5. ~~OG 이미지~~ — **107/107 전앱 완료** ✓
-6. ~~cross-promo 전블로그~~ — **991개 블로그 적용 완료** ✓
+1. **page_engage bounce 효과 모니터링** — 107/107 전앱 적용, 다음 데이터로 효과 확인
+2. **stress-management pos 추적** — pos10.45 유지, 첫 클릭 임박 (모니터링)
+3. **EI 블로그 성장 추적** — 12imp/pos89.7, 내부링크 강화 완료
+4. **KO 롱테일 추가 확장** — KO 20개 완료 → 추가 토픽 검토
+5. ~~다국어 롱테일 2차~~ — **EN 30 + 11언어×5 = 85개 완료** ✓
+6. ~~OG 이미지~~ — **107/107 전앱 완료** ✓
+7. ~~cross-promo 전블로그~~ — **991개 블로그 적용 완료** ✓
+8. ~~page_engage~~ — **107/107 전앱 완료** ✓
