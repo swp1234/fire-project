@@ -88,102 +88,23 @@
 
 **배포:** portal 35+ push, 블로그 1404개
 
-### 세션302 (3/25) - 다국어 번역 4차 30개 + 내부링크 강화 + 깨진 링크 수정
-
-**#1 다국어 번역 4차 (6언어×5토픽=30개, 18/30 완료 중):**
-- 5개 토픽: anxious-attachment, cognitive-distortions, flashbacks, love-bombing, RSD
-- DE 5/5 ✓, FR 5/5 ✓, RU 5/5 ✓, HI 5/5 ✓, ID 5/5 ✓, TR 5/5 ✓
-- **30/30 전량 완료** ✓, 전체 canonical 검증 통과
-
-**#2 내부링크 강화 +12개:**
-- attachment-4types → anxious-attachment+disorganized
-- cbt-overthinking → cognitive-distortions
-- trauma-4f → emotional-flashbacks
-- gaslighting → love-bombing
-- anxiety-types → RSD+cognitive-distortions
-- dating-red-flags → love-bombing
-- toxic-relationship → love-bombing+gaslighting
-- inner-child-wounds → emotional-flashbacks
-- people-pleasing → anxious-attachment
-- social-anxiety → RSD+cognitive-distortions
-
-**#3 깨진 내부 링크 158개 수정 (EN 12 + 다국어 146, 잔여 0개):**
-- attachment-style-test-guide → test-quiz, avoidant-dating-guide → dating-patterns
-- emotional-neglect-childhood → signs-healing, inner-child-healing → healing-guide
-- red-flag-test-dating → test-guide, shadow-work-guide → quiz-guide
-- toxic-relationship-patterns → patterns-signs, toxic-trait-test-guide → quiz-guide
-- trauma-response-guide → test-guide, hsp-test-ko-slug → en-slug
-- +다국어 146개: HSP/iceberg/attachment/perfectionism/cbt/jung 등 언어별 올바른 슬러그로 교정
-
-**#4 블로그 인덱스 업데이트:**
-- ZH/JA/ES/PT/DE/FR/RU/HI/ID/TR 10개 언어 인덱스에 5개 카드 추가
-
-**#5 사이트맵:** +30 URL (1487 URLs)
-
-**배포:** portal 3회 push 완료
-
-### 세션300-301 (3/25) - EN 롱테일5 + KO 번역5 + 내부링크 강화
-
-**#1 GA4/GSC 분석 (3/19~25):**
-- 146u/293pv/7d, Organic 16u/145s체류/37.5%bounce
-- stress-management pos10.45 유지, EI 12imp/pos89.7
-- trauma-response/shadow-work 0% bounce (page_engage 효과 확인!)
-
-**#2 EN 롱테일 블로그 5개 (배치4, 총 35개):**
-- anxious-attachment-style-relationships, cognitive-distortions-list
-- emotional-flashbacks-cptsd, love-bombing-signs-narcissist
-- rejection-sensitivity-dysphoria
-
-**#3 내부링크 강화:**
-- stress-management 역방향 링크 +5개 (anxiety-types, dopamine-detox, self-esteem, emotional-triggers, healthy-boundaries)
-- EI 블로그 역방향 링크 +2개 (codependency, avoidant-attachment)
-
-**#4 KO 번역 5개 진행중:**
-- 5개 새 블로그 KO 번역 에이전트 실행중
-
-**#5 인프라:**
-- 사이트맵 +10 URL (1437 URLs)
-- EN/KO 블로그 인덱스 업데이트
-
-**배포:** portal push 완료
-
-### 세션299 (3/25) - 다국어 롱테일 3차 50/50 완료 + JSON-LD 조사
-
-**#1 다국어 롱테일 3차 완료 (50/50 ✓):**
-- 13개 누락 번역 전량 완료: JA×1, PT×1, RU×1, HI×2, ID×4, TR×4
-- 10개 언어 × 5토픽 = 50개 전량 완료
-- Canonical URL 전량 검증 통과
-
-**#2 레거시 JSON-LD 조사:**
-- 9개 EN 블로그 JSON-LD 누락 확인 → 전부 17줄 리다이렉트 스텁 → 추가 불필요
-
-**#3 기타:**
-- ID disorganized-attachment 에이전트 실수 삭제 → git checkout 복원
-- Portal 4회 push 완료
-
-**배포:** portal push 완료
-
-### 세션294-298 (3/23-25) 요약
+### 세션299-302 (3/25) 요약
 
 | 세션 | 주요 작업 |
 |------|----------|
-| 298 | KO롱테일5 + 다국어50 + 블로그품질대수술(GA4+AdSense+footer수정) |
-| 297 | page_engage 107/107 전앱 + EI 내부링크 강화 + GA4/GSC 분석 |
-| 296 | EN롱테일30/30 + cross-promo 991블로그 + 다국어55 |
-| 295 | EN롱테일20 + bounce수정 + OG이미지107개 + 다국어50 |
-| 294 | EN롱테일10 + OG이미지 + 사이트맵 |
+| 302 | 다국어4차 30/30 + 내부링크+12 + 깨진링크158개수정 + 사이트맵1487 |
+| 300-301 | EN롱테일배치4(5개) + KO5 + 내부링크+7 + 사이트맵1437 |
+| 299 | 다국어3차 50/50완료 + JSON-LD조사 + canonical검증 |
 
 ### 이전 세션
 
 | 세션 | 날짜 | 주요 작업 |
 |------|------|----------|
-| 293-295 | 3/23-24 | KO롱테일20/20 + OG이미지107개 + EN롱테일20 + 다국어50 + bounce수정 |
-| 290-292 | 3/23 | result-card전앱 + canonical대수술 + KO롱테일15 + OG이미지29개 |
-| 289 | 3/23 | trauma-response(108번째앱) + $1/day 전략 + result-card.js |
+| 294-298 | 3/23-25 | EN롱테일30 + page_engage107앱 + OG이미지107 + 다국어155 + cross-promo991블로그 |
+| 289-293 | 3/23-24 | trauma-response(108앱) + result-card전앱 + canonical대수술 + KO롱테일20 |
 | 285-288 | 3/23 | shadow-work(106)+inner-child(107) 풀빌드 + 블로그 + 백업 |
 | 282-284 | 3/23 | 전략 재점검 + 홈/포털 재설계 + 멀티디바이스 + AI 프리미엄 |
-| 280-281 | 3/20-22 | 대규모 번역 + 버그 수정 + SEO 첫 클릭 캠페인 |
-| 245-275 | 3/19-20 | toxic-trait(105)+red-flag 블로그 번역 + 10개 블로그 x12언어 |
+| 245-281 | 3/19-22 | toxic-trait(105)+red-flag + 대규모 번역 + SEO 첫 클릭 |
 | 209-244 | 3/15-19 | dopamine(100)+burnout(101)+stress(103)+anxiety(104) + FAQPage 100% |
 | 173-208 | 3/14-15 | 전략 전환 + ai-personality(97)+overthinker(98)+red-flag(99) |
 | 1-172 | 2/4-3/13 | 앱96개→, 포털, i18n, 블로그600+, AdSense, 크로스프로모 |
@@ -192,7 +113,8 @@
 
 ## 다음 우선순위
 
-1. **배치6 다국어 잔여** — HI trauma-bonding(1) + dysregulation/dissociation/hypervigilance/codependency-recovery × 10언어(40) = 41개
-2. **EN 롱테일 블로그 배치7** — 새 토픽 5개
-3. **page_engage bounce 효과 모니터링** — 107/107 전앱 적용
-4. **stress-management pos 추적** — pos10.45, 첫 클릭 임박
+1. **배치6 다국어 잔여 40개** — dysregulation/dissociation/hypervigilance/codependency × 10언어
+2. **stress-management pos 추적** — pos10.45 + 역링크 12개 추가 효과 확인 (1주 후)
+3. **bounce 개선 효과 확인** — toxic-trait(86%→?) + inner-child(88%→?) hook question 효과
+4. **EN 롱테일 블로그 배치7** — 새 토픽 5개
+5. **page_engage bounce 효과 모니터링** — 107/107 전앱 적용
