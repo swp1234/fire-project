@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션297: page_engage 전앱 + EI블로그 내부링크)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션298: KO롱테일5+다국어50+품질수정)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **108개** (projects/ 108 디렉토리, 앱 108 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1242개** |
+| 블로그 | **1270+개** |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **57** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
@@ -31,7 +31,7 @@
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
 | 멀티디바이스 | 루트 repo GitHub private (`swp1234/fire-project`) — 데스크톱↔노트북 동기화 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1372 URLs**, 피드백 페이지 |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1427 URLs**, 피드백 페이지 |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -47,6 +47,32 @@
 ---
 
 ## 세션 기록
+
+### 세션298 (3/25) - KO롱테일5 + 다국어50 + 블로그 품질 대수술
+
+**#1 KO 롱테일 블로그 5개 생성 (25개 완료):**
+- codependency-signs-relationship, disorganized-attachment-style
+- emotional-intelligence-relationships, emotional-triggers-understanding
+- nervous-system-regulation-techniques
+
+**#2 다국어 롱테일 50개 (10언어 × 5토픽, 진행중):**
+- 사이트맵 +50 URL (1427 URLs), 10개 언어 인덱스 카드 추가
+- Sonnet 에이전트 5개 병렬 번역 (ZH+JA, ES+PT, DE+FR, RU+HI, ID+TR)
+
+**#3 EN 블로그 내부링크 강화:**
+- codependency +4링크, disorganized-attachment +4링크
+- emotional-triggers +3링크, nervous-system +3링크
+- emotional-intelligence-relationships +3링크
+- stress-management → nervous-system +2링크
+- burnout-recovery → nervous-system/triggers/dopamine +3링크
+
+**#4 블로그 품질 대수술:**
+- **44개 블로그 stray footer 링크 수정** (12언어 × 4블로그)
+- **18개 블로그 GA4 추가** (추적 누락 수정)
+- **9개 EN 블로그 AdSense 추가** (수익화 누락 수정)
+- EN 블로그 인덱스 카운트 165→170+ 업데이트
+
+**배포:** portal 4회 push 완료
 
 ### 세션297 (3/25) - page_engage 전앱 배치 + EI블로그 내부링크 강화
 
@@ -184,8 +210,9 @@
 1. **page_engage bounce 효과 모니터링** — 107/107 전앱 적용, 다음 데이터로 효과 확인
 2. **stress-management pos 추적** — pos10.45 유지, 첫 클릭 임박 (모니터링)
 3. **EI 블로그 성장 추적** — 12imp/pos89.7, 내부링크 강화 완료
-4. **KO 롱테일 추가 확장** — KO 20개 완료 → 추가 토픽 검토
-5. ~~다국어 롱테일 2차~~ — **EN 30 + 11언어×5 = 85개 완료** ✓
-6. ~~OG 이미지~~ — **107/107 전앱 완료** ✓
-7. ~~cross-promo 전블로그~~ — **991개 블로그 적용 완료** ✓
-8. ~~page_engage~~ — **107/107 전앱 완료** ✓
+4. **다국어 롱테일 3차 완료 확인** — 50개 번역 에이전트 진행중 (9/50)
+5. **레거시 9개 블로그 JSON-LD 추가** — 구형 블로그 스키마 누락
+6. ~~KO 롱테일 추가 확장~~ — **KO 25개 완료** ✓
+7. ~~다국어 롱테일 2차~~ — **EN 30 + 11언어×5 = 85개 완료** ✓
+8. ~~블로그 GA4/AdSense 누락~~ — **18+9개 수정 완료** ✓
+9. ~~stray footer 링크~~ — **44개 수정 완료** ✓
