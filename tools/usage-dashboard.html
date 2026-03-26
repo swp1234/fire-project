@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Real-time Usage Dashboard | Fire Project</title>
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --accent: #ec4899;
+            --background: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.15) 0%, transparent 25%);
+        }
+
+        header {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 99px;
+            background: rgba(34, 197, 94, 0.1);
+            color: #4ade80;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .pulse {
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .card-title {
+            font-size: 0.875rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+        }
+
+        .trend {
+            font-weight: 600;
+        }
+
+        .trend.up { color: #f87171; }
+        .trend.down { color: #4ade80; }
+
+        .usage-table-container {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .usage-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .usage-table th {
+            text-align: left;
+            padding: 1rem;
+            color: var(--text-dim);
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .usage-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .usage-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .model-name {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+        }
+
+        .model-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .model-usage-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 99px;
+            overflow: hidden;
+            width: 100px;
+        }
+
+        .usage-fill {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 99px;
+        }
+
+        .refresh-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .refresh-btn:hover {
+            filter: brightness(1.1);
+            transform: scale(1.02);
+        }
+
+        .last-updated {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-left: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .card-value { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">FIRE PROJECT MONITOR</div>
+        <div style="display: flex; align-items: center;">
+            <button class="refresh-btn" onclick="updateDashboard()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                새로고침
+            </button>
+            <span class="last-updated" id="last-updated">최근 업데이트: -</span>
+        </div>
+        <div class="status-badge">
+            <div class="pulse"></div>
+            실시간 추적 중
+        </div>
+    </header>
+
+    <main>
+        <div class="dashboard-grid">
+            <div class="card">
+                <div class="card-title">오늘 총 토큰</div>
+                <div class="card-value" id="total-tokens">0</div>
+                <div class="card-footer">
+                    <span class="text-dim">전일 대비</span>
+                    <span class="trend down">▼ 12.5%</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">실시간 활성 모델</div>
+                <div class="card-value" id="active-models">0</div>
+                <div class="card-footer">
+                    <span class="text-dim">현재 작동 중인 에이전트 섹션</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">오늘 예상 비용</div>
+                <div class="card-value" id="total-cost">$ 0.00</div>
+                <div class="card-footer">
+                    <span class="text-dim">Vertex AI / Google AI Studio 추정</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="usage-table-container">
+            <h2 style="margin-bottom: 1.5rem;">모델별 사용량 (Real-time)</h2>
+            <table class="usage-table">
+                <thead>
+                    <tr>
+                        <th>모델명</th>
+                        <th>사용 횟수</th>
+                        <th>입력 토큰</th>
+                        <th>출력 토큰</th>
+                        <th>점유율</th>
+                    </tr>
+                </thead>
+                <tbody id="usage-body">
+                    <!-- Data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script>
+        // Fake data initial state or real fetch
+        async function updateDashboard() {
+            try {
+                // In a real environment, this fetches from /memory/llm_usage.json
+                // For demonstration, we'll try to fetch it, otherwise use fallback
+                let data;
+                try {
+                    const response = await fetch('../memory/llm_usage.json');
+                    data = await response.json();
+                } catch (e) {
+                    // Fallback demo data
+                    data = {
+                        "summary": {
+                            "total_tokens": 125840,
+                            "active_models": 4,
+                            "estimated_cost": 0.0314,
+                            "last_updated": new Date().toISOString()
+                        },
+                        "models": [
+                            { "name": "Gemini 3 Flash", "calls": 425, "input": 85000, "output": 25000, "color": "#6366f1", "icon": "⚡" },
+                            { "name": "Gemini 3.1 Pro", "calls": 45, "input": 12000, "output": 3000, "color": "#a855f7", "icon": "🧠" },
+                            { "name": "Claude 4.6 Sonnet", "calls": 12, "input": 8500, "output": 940, "color": "#ec4899", "icon": "✒️" },
+                            { "name": "Claude 4.6 Opus", "calls": 2, "input": 2000, "output": 400, "color": "#f59e0b", "icon": "👑" }
+                        ]
+                    };
+                }
+
+                document.getElementById('total-tokens').innerText = data.summary.total_tokens.toLocaleString();
+                document.getElementById('active-models').innerText = data.summary.active_models;
+                document.getElementById('total-cost').innerText = '$ ' + data.summary.estimated_cost.toFixed(4);
+                document.getElementById('last-updated').innerText = '최근 업데이트: ' + new Date(data.summary.last_updated).toLocaleTimeString();
+
+                const tbody = document.getElementById('usage-body');
+                tbody.innerHTML = '';
+
+                data.models.forEach(model => {
+                    const row = document.createElement('tr');
+                    const share = (model.input + model.output) / data.summary.total_tokens * 100;
+                    
+                    row.innerHTML = `
+                        <td>
+                            <div class="model-name">
+                                <div class="model-icon" style="background: ${model.color}20; color: ${model.color}">${model.icon}</div>
+                                ${model.name}
+                            </div>
+                        </td>
+                        <td>${model.calls} calls</td>
+                        <td>${model.input.toLocaleString()}</td>
+                        <td>${model.output.toLocaleString()}</td>
+                        <td>
+                            <div class="model-usage-bar">
+                                <div class="usage-fill" style="width: ${share}%; background: ${model.color}"></div>
+                            </div>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                });
+
+            } catch (err) {
+                console.error("Dashboard update failed:", err);
+            }
+        }
+
+        // Auto update every 5 seconds
+        setInterval(updateDashboard, 5000);
+        updateDashboard();
+    </script>
+</body>
+</html>

@@ -22,7 +22,7 @@ add_media() {
     -e GEMINI_MODEL=gemini-2.5-flash \
     -e GEMINI_ENABLE_CONVERSATIONS=true \
     -e GEMINI_ALLOW_FILE_URIS=true \
-    -- npx -y github:mnthe/gemini-mcp-server
+    -- node "E:/Fire Project/.mcp-servers/gemini-mcp-server/build/index.js"
   # Image generation server (gemini-2.5-flash-image)
   claude mcp add gemini-image -s user \
     -e GOOGLE_CLOUD_PROJECT=pubg-platform-ai \
@@ -31,7 +31,7 @@ add_media() {
     -e GEMINI_ENABLE_CONVERSATIONS=true \
     -e GEMINI_ALLOW_FILE_URIS=true \
     -e GEMINI_IMAGE_OUTPUT_DIR="E:/Fire Project/.nano-banana" \
-    -- npx -y github:mnthe/gemini-mcp-server
+    -- node "E:/Fire Project/.mcp-servers/gemini-mcp-server/build/index.js"
 }
 
 case "$GROUP" in
