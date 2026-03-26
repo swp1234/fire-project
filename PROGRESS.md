@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-25 (세션309: SEO 강화 + bounce 개선 + HI 번역)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-26 (세션309: 배치6완료+배치7EN5+KO5+다국어48/50+CTR최적화)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **108개** (projects/ 108 디렉토리, 앱 108 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1405개** |
+| 블로그 | **1536개** |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **57** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
@@ -31,7 +31,7 @@
 | 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
 | 멀티디바이스 | 루트 repo GitHub private (`swp1234/fire-project`) — 데스크톱↔노트북 동기화 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1607 URLs**, 피드백 페이지 |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1667 URLs**, 피드백 페이지 |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -48,23 +48,35 @@
 
 ## 세션 기록
 
-### 세션309 (3/25) - SEO 강화 + bounce 개선 (데스크탑 재개)
+### 세션309 (3/26) - 배치6완료 + 배치7 풀사이클 + CTR 최적화
 
-**#1 GA4/GSC 분석:**
-- 7일 171u, Direct 78%/Organic 10%, eq-test 51세션 86s 체류
-- stress-management 블로그 pos 10.45 (20imp) — 페이지1 진입 임박
-- 신규 shadow-work(0% bounce), inner-child(88% bounce)
+**#1 GA4/GSC 분석 (3/19-25):**
+- 153u/183s/311pv, Organic 17u/143s체류/36%bounce
+- 3/23 스파이크 53u (바이럴 추정)
+- stress-management pos10.45/20imp, blood-type pos2, habit-building pos1
+- Top: eq-test(13u/51s), toxic-trait(14u), trauma-response(12u)
 
-**#2 stress-management 블로그 SEO 강화:**
-- 새 FAQ "Can overthinking cause stress?" + FAQPage 스키마 추가
-- overthinker-test, toxic-trait-test, shadow-work, inner-child-test 내부링크 추가
-- 7개 관련 EN 블로그에서 stress-management 역링크 추가 (overthinker, digital-detox, sleep-science 등)
-- dateModified 업데이트
+**#2 배치6 다국어 잔여 40/40 완료:**
+- dysregulation/dissociation/hypervigilance/codependency × 10언어 전량
 
-**#3 toxic-trait-test + inner-child-test bounce 개선:**
-- 인트로에 hook question 추가 (호기심 유발 카피)
-- 12개 언어 i18n 번역
-- CSS 애니메이션 효과
+**#3 EN 배치7 블로그 5개 신규:**
+- complex-ptsd-symptoms-recovery, emotional-unavailability-signs-dating
+- sensory-overload-hsp-coping, rumination-repetitive-thinking-stop
+- somatic-anxiety-body-symptoms
+
+**#4 KO 배치7 5/5 완료**
+
+**#5 다국어 배치7 48/50** (ja/es rumination 2개 잔여)
+
+**#6 stress-management CTR 최적화:**
+- 내부링크 +4개 (dysregulation, dissociation, trauma-bonding, codependency → stress-management)
+- 키워드 강화 (dive reflex, fight flight freeze fawn)
+
+**#7 인프라:** 사이트맵 1667 URLs, EN/KO 블로그 인덱스 +5카드, 사이트맵 구조 수정
+
+**배포:** portal 5+ push, 블로그 1536개
+
+### 세션308 (3/25) - SEO 강화 + bounce 개선 (데스크탑 재개)
 
 **#4 trauma-bonding HI 번역 완료** (배치6 미완 1개 마무리, 블로그 1405개)
 
@@ -113,8 +125,8 @@
 
 ## 다음 우선순위
 
-1. **배치6 다국어 잔여 40개** — dysregulation/dissociation/hypervigilance/codependency × 10언어
-2. **stress-management pos 추적** — pos10.45 + 역링크 12개 추가 효과 확인 (1주 후)
-3. **bounce 개선 효과 확인** — toxic-trait(86%→?) + inner-child(88%→?) hook question 효과
-4. **EN 롱테일 블로그 배치7** — 새 토픽 5개
-5. **page_engage bounce 효과 모니터링** — 107/107 전앱 적용
+1. **배치7 다국어 잔여 2개** — ja/es rumination-repetitive-thinking-stop
+2. **stress-management pos 추적** — pos10.45 + 역링크 16개 추가 효과 확인
+3. **EN 롱테일 블로그 배치8** — 새 토픽 5개
+4. **10개 언어 블로그 인덱스 업데이트** — 배치7 카드 추가
+5. **blood-type(pos2) / habit-building(pos1) CTR 모니터링** — 첫 클릭 임박
