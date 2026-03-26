@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-26 (세션309: 배치6완료+배치7EN5+KO5+다국어48/50+CTR최적화)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-26 (세션309: 배치6완료+배치7EN5+KO5+다국어50/50+CTR최적화)
 
 ---
 
@@ -66,7 +66,7 @@
 
 **#4 KO 배치7 5/5 완료**
 
-**#5 다국어 배치7 48/50** (ja/es rumination 2개 잔여)
+**#5 다국어 배치7 50/50 전량 완료**
 
 **#6 stress-management CTR 최적화:**
 - 내부링크 +4개 (dysregulation, dissociation, trauma-bonding, codependency → stress-management)
@@ -125,8 +125,7 @@
 
 ## 다음 우선순위
 
-1. **배치7 다국어 잔여 2개** — ja/es rumination-repetitive-thinking-stop
-2. **stress-management pos 추적** — pos10.45 + 역링크 16개 추가 효과 확인
+1. **stress-management pos 추적** — pos10.45 + 역링크 16개 추가 효과 확인
 3. **EN 롱테일 블로그 배치8** — 새 토픽 5개
 4. **10개 언어 블로그 인덱스 업데이트** — 배치7 카드 추가
 5. **blood-type(pos2) / habit-building(pos1) CTR 모니터링** — 첫 클릭 임박
