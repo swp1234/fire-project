@@ -49,6 +49,7 @@ ACCESSIBILITY_*.md
 ACCESSIBILITY_*.txt
 SOUNDSCAPE_*.txt
 *.py
+!scripts/update_batch9_indexes.py
 *.ps1
 *.js
 !_common/**/*.js
