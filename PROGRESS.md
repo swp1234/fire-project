@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-27 (세션311: 실시간 모델 사용량 대시보드 커스텀 완료)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-27 (세션312: GA4/GSC + digital-detox 역링크 + 배치9 EN/KO 블로그)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **108개** (projects/ 108 디렉토리, 앱 108 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1536개** |
+| 블로그 | **1561개** |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **57** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
@@ -47,6 +47,34 @@
 ---
 
 ## 세션 기록
+
+### 세션312 (3/27) - GA4/GSC 분석 + digital-detox 역링크 + 배치9 EN/KO 블로그
+
+**#1 GA4/GSC 분석 (3/20-26):**
+- 138u/266pv/7d, Direct79%/Organic12%(124s체류/29%bounce 우수)
+- 3/23 스파이크 53u, trauma-response 12u/0%bounce, eq-test 11u/76s
+- **GSC 1click! digital-detox(pos4/CTR100%)**, stress-management 23imp/pos10.5
+- "dive reflex" 9imp/pos10.6, habit-building pos1, blood-type pos2
+
+**#2 digital-detox 내부링크 강화 (14→21개):**
+- dopamine-type, overthinking-at-night, rumination, functional-freeze, nervous-system-regulation, self-compassion, stress-management 7개 블로그에 링크 추가
+
+**#3 배치8 사이트맵 누락 수정 (+60 URLs):**
+- maladaptive-daydreaming, burnout-vs-depression, decision-fatigue, functional-freeze, doom-scrolling × 12언어
+
+**#4 배치9 EN 블로그 5개 신규 생성:**
+- attachment-style-quiz-guide, people-pleasing-fawn-response-guide, emotional-exhaustion-signs-recovery, boundaries-setting-complete-guide, gaslighting-signs-recovery-guide
+
+**#5 배치9 KO 번역 5/5 완료**
+
+**#6 배치9 다국어 번역 (진행 중 15/20):**
+- ZH 4/5, JA 4/5, ES 4/5, HI 3/5 (각 gaslighting 미완 — 파일 대형)
+- RU/PT/ID/TR/DE/FR 6개 언어 미시작
+
+**#7 인덱스 업데이트:**
+- EN index +5카드, KO index +5카드, ZH index +5카드
+
+**배포:** portal 8+ push, 사이트맵 **1732 URLs** (+65), 블로그 **1551+개**
 
 ### 세션311 (3/27) - 실시간 모델 사용량 모니터링 시스템 구축
 
@@ -154,7 +182,8 @@
 
 ## 다음 우선순위
 
-1. **배치8 다국어 잔여 확장 (45/60)** — hi, ru, ja, es, pt, id, tr, de, fr 9개 언어 번역 및 배포
-2. **배치8 인덱스 업데이트 (전 언어)** — 나머지 9개 언어별 index.html 카드 추가
-3. **stress-management pos 추적** — pos10.45 + 역링크 16개 추가 효과 확인
-5. **blood-type(pos2) / habit-building(pos1) CTR 모니터링** — 첫 클릭 임박
+1. **배치9 다국어 번역 (10언어 × 5토픽 = 50개)** — KO 완료 후 zh,hi,ru,ja,es,pt,id,tr,de,fr
+2. **배치9 블로그 인덱스 9개 언어 업데이트** — hi,ru,ja,es,pt,id,tr,de,fr 인덱스 카드 추가
+3. **stress-management pos10.5 → 페이지1 돌파 추적** — 23imp, 49개 내부링크
+4. **digital-detox pos4 클릭 유지/확대** — 21개 내부링크 추가됨, CTR 모니터링
+5. **blood-type(pos2) / habit-building(pos1) CTR 모니터링** — 클릭 임박
