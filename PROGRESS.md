@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-27 (세션314: GSC/GA4 점검 + stress-management SEO 보강)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-27 (세션319: stress cluster 링크 강화 + portal skip-link 보강)
 
 ---
 
@@ -47,6 +47,57 @@
 ---
 
 ## 세션 기록
+
+### 세션319 (3/27) - portal skip-link 보강 + quality gate 경고 해소
+
+**#1 portal 홈 접근성 보강:**
+- `projects/portal/index.html`에 skip-link 추가
+- 기존 CSS에 맞춰 `#app-grid`로 바로 이동 가능하게 연결
+
+**#2 품질 게이트 재검증:**
+- `projects/portal` quality gate 재실행
+- 기존 warning이던 `Skip-link (a11y) missing` 해소
+- portal quality gate 결과 `PASS / 0 warning`
+
+### 세션318 (3/27) - blood-type 페이지 체류 경로 보강
+
+**#1 blood-type personality guide 보강:**
+- `projects/portal/blog/en/blood-type-personality-guide.html`에 심리 기반 후속 탐색 문단 추가
+- `attachment-style-quiz-guide` + `EQ test` 연결로 pop-culture → psychology 흐름 강화
+
+**#2 related content 확장:**
+- Related Content에 `Attachment Style Guide`, `Healthy Boundaries Guide` 추가
+- 혈액형 글 유입을 관계/성격 클러스터로 분산되도록 보강
+
+### 세션317 (3/27) - digital-detox / habit-building 전환 동선 강화
+
+**#1 digital-detox 후속 행동 설계:**
+- `projects/portal/blog/en/digital-detox.html` 본문에 `habit-building` 연결 문장 추가
+- Related Articles에 `How to Build Better Habits`, `Nervous System Regulation Techniques` 카드 추가
+
+**#2 habit-building 유지율 보강:**
+- `projects/portal/blog/en/habit-building.html`에 digital-detox + stress-management 연결 문단 추가
+- Related Articles에 `Nervous System Regulation Techniques` 카드 추가
+
+### 세션316 (3/27) - sensory / fawn / somatic 링크망 확장
+
+**#1 sensory-overload 허브 확장:**
+- `projects/portal/blog/en/sensory-overload-hsp-coping.html`에 `digital-detox` 연결 문장 추가
+- related links에 `Somatic Anxiety Guide`, `Digital Detox Guide` 추가
+
+**#2 people-pleasing / somatic 보강:**
+- `projects/portal/blog/en/people-pleasing-fawn-response-guide.html` related resources에 `Nervous System Regulation`, `Somatic Anxiety` 추가
+- `projects/portal/blog/en/somatic-anxiety-body-symptoms.html` related reading에 `sensory-overload`, `people-pleasing` 추가
+
+### 세션315 (3/27) - nervous-system 허브 강화
+
+**#1 dive reflex 허브 연결:**
+- `projects/portal/blog/en/nervous-system-regulation-techniques.html` cold exposure 섹션에 stress-management 연결 문단 추가
+- `dive reflex` 의도 검색이 stress-management와 상호 보강되도록 연결
+
+**#2 stress cluster 상호링크 확대:**
+- Related Reading에 `sensory-overload-hsp-coping`, `somatic-anxiety-body-symptoms`, `people-pleasing-fawn-response-guide` 추가
+- nervous-system 글을 stress cluster 허브 역할로 강화
 
 ### 세션314 (3/27) - GSC/GA4 점검 + stress-management SEO 보강
 
@@ -214,8 +265,8 @@
 
 ## 다음 우선순위
 
-1. **stress-management pos10.5 → 페이지1 돌파 추적** — `dive reflex` / `escape-avoidance coping` 보강 반영 후 재확인
-2. **digital-detox CTR/체류 모니터링** — 최근 GA4 76.8초 체류, GSC 쿼리 축적 대기
-3. **blood-type / habit-building CTR 모니터링** — GA4 유입 유지 여부와 GSC 노출 증가 확인
-4. **stress cluster 내부링크 추가 점검** — stress-management / nervous-system / sensory-overload / people-pleasing 상호 연결 강화
-5. **접근성 보강 후보** — portal quality gate warning인 skip-link 추후 정리
+1. **stress cluster 재크롤링 효과 모니터링** — stress-management / nervous-system / sensory-overload / people-pleasing / somatic 링크 보강 반영 추적
+2. **digital-detox → habit-building 전환 추적** — detox 유입이 habit-building과 regulation 글로 이어지는지 확인
+3. **blood-type 체류/후속 클릭 모니터링** — attachment-style / EQ 쪽 내부 이동 증가 여부 확인
+4. **stress-management pos10.5 후속 확인** — `dive reflex` / `escape-avoidance coping` 보강 반영 후 페이지1 진입 재점검
+5. **portal 홈 structured data/문구 정리 후보** — 허브는 quality gate 경고 해소 완료, 다음은 메타/문구 청소 검토
