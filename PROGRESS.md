@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-27 (세션313: 배치9 JA/ES 인덱스 카드 + 자동화 스크립트)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-27 (세션314: GSC/GA4 점검 + stress-management SEO 보강)
 
 ---
 
@@ -47,6 +47,23 @@
 ---
 
 ## 세션 기록
+
+### 세션314 (3/27) - GSC/GA4 점검 + stress-management SEO 보강
+
+**#1 배치9 진행 상태 재점검:**
+- portal 최신 상태 기준 배치9 12언어 5토픽 번역 완료
+- 배치9 인덱스 12언어 반영 완료 확인
+
+**#2 GA4/GSC 점검 (3/21-27):**
+- `stress-management-techniques-guide` 쿼리 `"dive reflex" "escape-avoidance"` 9imp / pos10.56
+- GA4 최근 7일: `digital-detox` 1세션 / 76.8초, `blood-type-personality-guide` 2세션
+- 최근 윈도우 기준 digital-detox / habit-building / blood-type는 GSC 쿼리 데이터 제한적
+
+**#3 stress-management SEO 보강:**
+- `projects/portal/blog/en/stress-management-techniques-guide.html` 인코딩 깨짐 문구 정리
+- meta description / keywords에 `dive reflex stress relief` 강화
+- FAQ JSON-LD + 본문 FAQ에 `dive reflex` / `escape-avoidance coping` 추가
+- Fleer 섹션에 escape-avoidance coping 설명 + digital-detox 내부링크 추가
 
 ### 세션313 (3/27) - 배치9 JA/ES 인덱스 카드 반영 + 자동화 스크립트
 
@@ -197,8 +214,8 @@
 
 ## 다음 우선순위
 
-1. **배치9 다국어 번역 (10언어 × 5토픽 = 50개)** — KO 완료 후 zh,hi,ru,ja,es,pt,id,tr,de,fr
-2. **배치9 블로그 인덱스 7개 언어 업데이트** — hi,ru,pt,id,tr,de,fr 인덱스 카드 추가
-3. **stress-management pos10.5 → 페이지1 돌파 추적** — 23imp, 49개 내부링크
-4. **digital-detox pos4 클릭 유지/확대** — 21개 내부링크 추가됨, CTR 모니터링
-5. **blood-type(pos2) / habit-building(pos1) CTR 모니터링** — 클릭 임박
+1. **stress-management pos10.5 → 페이지1 돌파 추적** — `dive reflex` / `escape-avoidance coping` 보강 반영 후 재확인
+2. **digital-detox CTR/체류 모니터링** — 최근 GA4 76.8초 체류, GSC 쿼리 축적 대기
+3. **blood-type / habit-building CTR 모니터링** — GA4 유입 유지 여부와 GSC 노출 증가 확인
+4. **stress cluster 내부링크 추가 점검** — stress-management / nervous-system / sensory-overload / people-pleasing 상호 연결 강화
+5. **접근성 보강 후보** — portal quality gate warning인 skip-link 추후 정리
