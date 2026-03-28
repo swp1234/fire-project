@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-27 (세션319: stress cluster 링크 강화 + portal skip-link 보강)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-29 (세션330: 10세션 수익화 설계 구현 완료)
 
 ---
 
@@ -47,6 +47,72 @@
 ---
 
 ## 세션 기록
+
+### 세션330 (3/29) - 10세션 수익화 설계 구현 완료
+
+**#1 광고/프리미엄 노출 구현:**
+- `projects/portal/index.html` + `projects/portal/css/style.css`에 실제 AdSense top/bottom slot 적용, 고정형 placeholder는 inline bottom slot으로 전환
+- `projects/portal/tests/index.html`, `projects/portal/mbti/index.html`에 본문형 ad slot 추가 및 AdSense init 적용
+- `projects/portal/blog/en/digital-detox.html`, `habit-building.html`, `stress-management-techniques-guide.html`, `blood-type-personality-guide.html`에 winner 페이지용 중간/다음행동 직전 광고 구간 추가
+- `projects/eq-test/index.html` result screen에 inline ad slot 추가, hidden result 화면 전환 시 1회만 초기화되도록 조정
+
+**#2 저효율 자산 freeze 반영:**
+- `projects/portal/index.html` EN blog feed 상단을 `stress-management`, `blood-type`, `digital-detox`, `habit-building`, `personality-tests`, `mbti`, `habit-tracker`, `pomodoro` 중심으로 재정렬
+- portal blog category 순서를 `tests/wellness/tools/love` 우선으로 재배치해 게임 노출 비중을 낮춤
+
+**#3 허브 품질 정리:**
+- `projects/portal/tests/index.html` JSON-LD item list 중복/누락 정리
+- tests hub 메타/배지 수량을 실제 39개 기준으로 보정
+
+**#4 런타임 검증:**
+- 임시 정적 서버 기준 `eq-test`, `portal`, `portal/tests`, `portal/mbti`, winner blog 4개 페이지 로딩/JS 에러 스모크 PASS
+- 외부 AdSense/서드파티 리소스 400/403은 검증에서 제외하고, 페이지 자체 pageerror/치명적 console error 없음 확인
+
+### 세션322-329 (3/28) - 10세션 수익화 rollout 실행 완료
+
+**#1 허브 퍼널 재정렬 + 이벤트 rollout:**
+- `projects/portal/js/app.js` featured 기준을 `eq-test`, `stress-response`, `blood-type` 중심으로 재정렬
+- `projects/portal/index.html`에 `hub_view`, `hub_filter_select`, `hub_featured_click`, `hub_test_card_click`, `hub_cta_click` 추가
+- `projects/portal/tests/index.html` featured/카드 순서를 수익 우선 테스트 기준으로 재정렬
+- `projects/portal/mbti/index.html`에 다음 테스트 섹션과 hub event tracking 추가
+
+**#2 focus / stress / relationship 클러스터 연결 강화:**
+- `projects/portal/blog/en/digital-detox.html`에 `habit-tracker`, `pomodoro-timer`, `habit-building` 중심 CTA/related/tool 동선 추가
+- `projects/portal/blog/en/habit-building.html`에 tracker 진입 CTA와 `digital-detox` / `stress-management` 연결 강화
+- `projects/portal/blog/en/stress-management-techniques-guide.html`를 `stress-response`, `stress-check`, `burnout-test`, `digital-detox` 축으로 재정렬
+- `projects/portal/blog/en/blood-type-personality-guide.html`를 `attachment-style`, `mbti-love`, `zodiac-match` 관계 퍼널로 연결
+
+**#3 eq-test premium v2 적용:**
+- `projects/eq-test/index.html`에 AI preview teaser + unlock 버튼 상태 복구 로직 추가
+- `premium_cta_view`, `premium_unlock_click`, `premium_unlock_complete`, `eq_related_click` 이벤트 추가
+- related cards를 `blood-type`, `mbti-love` 기준으로 재정렬해 premium 이후 다음 클릭을 설계
+
+**#4 10세션 설계 정리:**
+- 320-329 설계/기준선은 `PROGRESS.md` 기준으로 통합 유지
+- 임시 revenue 브리프 문서 정리 완료
+
+### 세션321 (3/28) - Session 2 instrumentation canary on portal/tests
+
+**#1 instrumentation audit:**
+- `eq-test`는 기존 이벤트가 충분하고, `portal/tests`/`portal` 허브는 funnel event가 거의 없음을 확인
+- Session 2 taxonomy와 rollout 기준 정리
+
+**#2 portal/tests canary 구현:**
+- `projects/portal/tests/index.html`에 `hub_view`, `hub_filter_select`, `hub_featured_click`, `hub_test_card_click`, `hub_cta_click`, `hub_faq_open` 추가
+- `hub_name=tests` 기준으로 filter/card/CTA 사용 흐름을 측정 가능하게 구성
+
+### 세션320 (3/28) - 10세션 수익화 스프린트 설계 + baseline 확정
+
+**#1 수익화 운영 설계 문서화:**
+- Sessions 320-329 기준 KPI, winner URL, 자동진행 규칙, 토큰 효율 규칙 고정
+
+**#2 Session 1 baseline 확정 (3/21-27):**
+- GA4 기준 `eq-test` 43세션 / 76.4초, `/portal/` 10세션 / 75.5초, `/portal/mbti/` 8세션 / 1027초 확인
+- GSC 기준 `digital-detox` 1클릭 pos4, `stress-management` 16imp pos10.56, `blood-type` pos2, `habit-building` pos1 확인
+
+**#3 sprint 작업 범위 고정:**
+- winner URL 15개 및 cluster 3개 고정
+- Session 2 진입조건과 target files 정리
 
 ### 세션319 (3/27) - portal skip-link 보강 + quality gate 경고 해소
 
@@ -265,8 +331,8 @@
 
 ## 다음 우선순위
 
-1. **stress cluster 재크롤링 효과 모니터링** — stress-management / nervous-system / sensory-overload / people-pleasing / somatic 링크 보강 반영 추적
-2. **digital-detox → habit-building 전환 추적** — detox 유입이 habit-building과 regulation 글로 이어지는지 확인
-3. **blood-type 체류/후속 클릭 모니터링** — attachment-style / EQ 쪽 내부 이동 증가 여부 확인
-4. **stress-management pos10.5 후속 확인** — `dive reflex` / `escape-avoidance coping` 보강 반영 후 페이지1 진입 재점검
-5. **portal 홈 structured data/문구 정리 후보** — 허브는 quality gate 경고 해소 완료, 다음은 메타/문구 청소 검토
+1. **GA4 수집 확인** — `/portal/`, `/portal/tests/`, `/portal/mbti/`, `/eq-test/`, winner blog 4개 페이지의 `hub_*`, `content_*`, premium 이벤트 실제 수집 여부 확인
+2. **Ad slot 효과 관찰** — portal/tests/mbti/winner blog/eq-test의 세션 깊이와 광고 가시 구간 이탈 변화 체크
+3. **winner URL 재측정** — `digital-detox`, `habit-building`, `stress-management`, `blood-type`의 다음 클릭률과 내부 링크 흐름 재비교
+4. **eq-test premium 2차 실험** — `premium_cta_view → premium_unlock_click → premium_unlock_complete` 전환율 기준 CTA 카피/위치 조정
+5. **확장 여부 판단** — 상위 winner URL 개선폭이 확인되면 같은 패턴을 adjacent winner 페이지로만 제한 확장
