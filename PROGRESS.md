@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-29 (세션331: analytics event smoke harness 검증 완료)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-29 (세션332: revenue rollout live deploy + analytics validation)
 
 ---
 
@@ -47,6 +47,23 @@
 ---
 
 ## 세션 기록
+
+### 세션332 (3/29) - revenue rollout live deploy + analytics validation
+
+**#1 라이브 배포 정리 완료:**
+- `projects/portal` 수익화 커밋을 `origin/main` 최신 7커밋 위로 rebase 후 `83f00fd`로 push
+- `projects/eq-test` detached HEAD에 있던 `b37bcb3` premium rollout 커밋을 `master`에 반영 후 push
+- 루트 repo는 서브모듈 포인터를 최신 배포 SHA로 갱신하고 `master`에 push
+
+**#2 운영 도메인 반영 확인:**
+- `https://dopabrain.com/portal/tests/`에 `hub_view` 포함된 최신 tests hub HTML 반영 확인
+- `https://dopabrain.com/portal/mbti/`에 `hub_view` / `next-tests` 포함된 최신 MBTI hub HTML 반영 확인
+- `https://dopabrain.com/eq-test/`에 `premium_cta_view` / `btn-ai-unlock` 포함된 최신 premium HTML 반영 확인
+
+**#3 라이브 analytics 검증:**
+- 운영 도메인 Playwright 상호작용 기준 `hub_view`, `hub_cta_click`, `hub_faq_open`, `hub_test_card_click`, `content_cta_click`, `content_related_click` 커스텀 GA 요청 실제 발생 확인
+- `eq-test`는 headless live page에서 `premium_cta_view`, `premium_unlock_click`, `premium_unlock_complete`가 `window.dataLayer`에 실제 push 되는 것 확인
+- 단, GA4 Data API(2026-03-29 조회)에는 새 custom event가 아직 반영되지 않아 집계 지연 여부를 재확인 필요
 
 ### 세션331 (3/29) - analytics event smoke harness 검증 완료
 
@@ -346,8 +363,8 @@
 
 ## 다음 우선순위
 
-1. **실제 GA4 수집 확인** — local analytics smoke PASS 기준으로 `/portal/`, `/portal/tests/`, `/portal/mbti/`, `/eq-test/`, winner blog 4개 페이지의 `hub_*`, `content_*`, premium 이벤트 라이브 수집 여부만 최종 확인
-2. **Ad slot 효과 관찰** — portal/tests/mbti/winner blog/eq-test의 세션 깊이와 광고 가시 구간 이탈 변화 체크
-3. **winner URL 재측정** — `digital-detox`, `habit-building`, `stress-management`, `blood-type`의 다음 클릭률과 내부 링크 흐름 재비교
-4. **eq-test premium 2차 실험** — `premium_cta_view → premium_unlock_click → premium_unlock_complete` 전환율 기준 CTA 카피/위치 조정
-5. **확장 여부 판단** — 상위 winner URL 개선폭이 확인되면 같은 패턴을 adjacent winner 페이지로만 제한 확장
+1. **GA4 custom event 재확인** — 2026-03-30 이후 Data API에서 `hub_*`, `content_*`, `premium_*` 집계 반영 여부 재조회
+2. **eq-test premium 전송 경로 점검** — headless에서는 `dataLayer` push 확인, 필요 시 DebugView 또는 실브라우저에서 beacon/collect 반영 확인
+3. **Ad slot 효과 관찰** — portal/tests/mbti/winner blog/eq-test의 세션 깊이와 광고 가시 구간 이탈 변화 체크
+4. **winner URL 재측정** — `digital-detox`, `habit-building`, `stress-management`, `blood-type`의 다음 클릭률과 내부 링크 흐름 재비교
+5. **eq-test premium 2차 실험** — `premium_cta_view → premium_unlock_click → premium_unlock_complete` 전환율 기준 CTA 카피/위치 조정
