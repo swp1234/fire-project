@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-29 (세션330: 10세션 수익화 설계 구현 완료)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-29 (세션331: analytics event smoke harness 검증 완료)
 
 ---
 
@@ -28,7 +28,7 @@
 | SEO 스키마 | FAQPage **104/104 (100%)**, BreadcrumbList **104/104 (100%)**, JSON-LD 전앱 |
 | 카테고리 허브 | Games(21), **Tests(39)**, Tools, MBTI (4개 랜딩페이지) |
 | OG 이미지 | **107개 앱별 1200×630 PNG** (전앱 완료) + 470+블로그 교체 완료 |
-| 런타임 검증 | **Playwright 스모크 테스트** + 게임 루프 try-catch **21/21** 게임 |
+| 런타임 검증 | **Playwright 스모크 테스트 + analytics event harness** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
 | 멀티디바이스 | 루트 repo GitHub private (`swp1234/fire-project`) — 데스크톱↔노트북 동기화 |
 | 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1667 URLs**, 피드백 페이지 |
@@ -47,6 +47,21 @@
 ---
 
 ## 세션 기록
+
+### 세션331 (3/29) - analytics event smoke harness 검증 완료
+
+**#1 로컬 이벤트 검증 하네스 구축:**
+- `scripts/analytics-event-check.js` 추가
+- `projects/` 정적 서버 + Playwright + `window.dataLayer`/`gtag` stub 조합으로 외부 GA4 전송 없이 이벤트 발생 여부만 검증
+- Google tag / AdSense / 웹폰트 요청은 local smoke 용도로 차단 또는 빈 응답 처리
+
+**#2 winner URL / hub 이벤트 스모크 PASS:**
+- `/portal/`, `/portal/tests/`, `/portal/mbti/`, `/eq-test/`, winner blog 4개 페이지 총 **8개 시나리오 PASS**
+- `hub_*`, `content_*`, `premium_*`, `eq_related_click` 이벤트가 의도한 사용자 상호작용에서 모두 발생하는 것 확인
+
+**#3 하네스 안정화:**
+- tests hub는 `emotion` 필터 적용 후 visible featured 카드만 클릭하도록 수정
+- mbti hub는 matrix modal CTA 클릭 뒤 modal close → FAQ → next tests 순으로 재현해 실제 흐름과 동일하게 정리
 
 ### 세션330 (3/29) - 10세션 수익화 설계 구현 완료
 
@@ -331,7 +346,7 @@
 
 ## 다음 우선순위
 
-1. **GA4 수집 확인** — `/portal/`, `/portal/tests/`, `/portal/mbti/`, `/eq-test/`, winner blog 4개 페이지의 `hub_*`, `content_*`, premium 이벤트 실제 수집 여부 확인
+1. **실제 GA4 수집 확인** — local analytics smoke PASS 기준으로 `/portal/`, `/portal/tests/`, `/portal/mbti/`, `/eq-test/`, winner blog 4개 페이지의 `hub_*`, `content_*`, premium 이벤트 라이브 수집 여부만 최종 확인
 2. **Ad slot 효과 관찰** — portal/tests/mbti/winner blog/eq-test의 세션 깊이와 광고 가시 구간 이탈 변화 체크
 3. **winner URL 재측정** — `digital-detox`, `habit-building`, `stress-management`, `blood-type`의 다음 클릭률과 내부 링크 흐름 재비교
 4. **eq-test premium 2차 실험** — `premium_cta_view → premium_unlock_click → premium_unlock_complete` 전환율 기준 CTA 카피/위치 조정

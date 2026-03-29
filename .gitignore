@@ -52,6 +52,7 @@ SOUNDSCAPE_*.txt
 !scripts/update_batch9_indexes.py
 *.ps1
 *.js
+!scripts/analytics-event-check.js
 !_common/**/*.js
 nul
 
