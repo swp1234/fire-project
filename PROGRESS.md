@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-29 (세션332: revenue rollout live deploy + analytics validation)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-31 (세션338: winner blog CTA 고도화 + habit/stress 유입 보강)
 
 ---
 
@@ -47,6 +47,137 @@
 ---
 
 ## 세션 기록
+
+### 세션338 (3/31) - winner blog CTA 고도화 + habit/stress 유입 보강
+
+**#1 유입 발생 winner blog 후속 최적화:**
+- `projects/portal/blog/en/blood-type-personality-guide.html`에서 CTA 버튼 묶음을 `Blood Type Test + Attachment Style Guide + EQ Test` 중심으로 재정렬하고, 관련 리스트 상단에도 `EQ Test`와 관계형 가이드를 더 직접 배치
+- 같은 파일에 `Best next-click sequence` 안내 박스를 추가해, 유입이 생긴 독자가 `재미형 테스트 → 관계형 가이드 → EQ` 흐름으로 더 자연스럽게 이동하도록 정리
+- `projects/portal/blog/en/digital-detox.html`는 툴/관련 글 블록에 `EQ Test`와 `Habit Building Guide`를 직접 넣어 `도구형 클릭`과 `후속 가이드 클릭`을 함께 노림
+
+**#2 유입 미발생 글 보강 준비:**
+- `projects/portal/mbti/index.html`의 `next-tests`에서 `Blood Type Guide` 대신 `Habit Building Guide`를 노출해, 아직 유입이 없던 `habit-building`에 허브 진입점을 추가
+- `stress-management`는 기존 MBTI 허브 노출을 유지하고, `habit-building`도 같은 관계/자기이해 흐름 안에서 테스트 후속 읽을거리로 밀기 시작
+
+**#3 검증:**
+- 추가 GA4 재조회 없이 동일 날짜 제약을 유지하고, 이벤트 하네스만 재실행
+- `node scripts/analytics-event-check.js` 결과 `portal`, `portal-tests`, `portal-mbti`, winner blog 4개, `eq-test`까지 **8/8 PASS**
+- `ReadLints` 기준 이번 수정 파일들에서 추가 lint 에러 없음
+
+### 세션337 (3/31) - GA4 운영체계 첫 실전 적용 + 허브/블로그 분기 판정
+
+**#1 획득:**
+- 같은 날짜에 이미 GA4 조회 기록이 있어 추가 MCP 재조회는 생략하고, 세션333~336에서 확보한 오늘자 GA4 데이터로 `팩1/팩2/팩3`를 첫 실전 적용
+- 28일 구조 기준 `Direct 609세션`, `Organic Search 117세션`으로 여전히 Direct 편중이지만, 품질은 Organic이 더 높아 `브랜드/바이럴 유지 + SEO 확장` 이중 전략이 유효
+- 랜딩 기준 메인 진입점은 `/eq-test 213`, `/ 85`, `/portal/mbti 34`, `/portal/blog/en/blood-type-personality-guide.html 18`로 요약
+
+**#2 품질:**
+- `/eq-test/`는 28일 기준 `engagementRate 62.6%`, `avgSessionDuration 152s`, 최근 3일 기준도 `17세션 / 243s`로 여전히 최강 표면
+- `/portal/mbti/`는 28일 기준 평균 체류가 `358s` 수준으로 강한 체류형 허브지만, 분배량은 아직 작아 `좋은 허브`와 `강한 분배 허브`를 구분해 읽어야 함
+- 세그먼트 품질은 `ko-kr 262세션 / 169s`, `South Korea 267세션 / 169s`, `mobile 326세션 / 143s`가 강하고, `en-us 373세션 / 42s`, `United States 180세션 / 61s`는 볼륨 대비 품질이 낮음
+
+**#3 전환:**
+- 메인 KPI는 여전히 표준 지표 + 안정 이벤트 중심으로 유지: 28일 기준 `eq_test_start 180`, `eq_test_complete 34`, 최근 3일 기준 `hub_view 6`, `hub_test_card_click 1`
+- 반면 `premium_*`, `content_*`, `hub_cta_click`, `hub_faq_open`은 오늘까지도 Data API에서 안정적으로 안 보여 보조 KPI 유지
+- 허브 → eq-test 흐름은 `중단`보다 `유지`로 판정하되, 추가 미세조정보다 다음 유효 조회일에 실제 세션 증가 여부를 먼저 보는 쪽으로 결정
+
+**#4 재방문:**
+- `new 581세션` 대비 `returning 109세션`으로 재방문층은 아직 얇지만, returning 평균 체류는 `263s`로 신규(`75s`)보다 훨씬 깊음
+- 최근 기준 `DAU/WAU 0.35`, `WAU/MAU 0.28` 수준이라 루프형 서비스라기보다 아직은 신규 유입 의존 구조
+- 따라서 다음 액션도 retention 기능 확장보다 `강한 랜딩 + 허브 유입 + SEO winner 확보`가 우선
+
+**#5 수익/미수집:**
+- `totalRevenue`, `totalAdRevenue`, `averageRevenuePerUser`, `adUnitExposure`는 오늘 확보된 데이터에서도 실질 활용 가능한 값이 없어 `미수집`으로 유지
+- 수익 판단은 당분간 `eq-test 체류/완주`, `Organic 품질`, `winner blog 세션 발생`을 대리 지표로 사용
+
+**#6 데이터위생:**
+- `landingPage`는 `/eq-test`, `pagePath`는 `/eq-test/`처럼 슬래시 규칙이 갈려 있고, `(not set)` 세션도 존재해 해석 시 주의 필요
+- `search.google.com / referral 35세션, activeUsers 1`, `Singapore 60세션 / 3s`, `Linux 65세션 / 5s` 등은 이상치/저품질 트래픽 후보로 분리 해석
+- winner blog 분류는 28일 기준 `blood-type 발생(18)`, `digital-detox 발생(1)`, `habit-building 미발생(0)`, `stress-management 미발생(0)`으로 잠정 고정
+
+### 세션336 (3/31) - GA4 인사이트 운영 체계 문서화
+
+**#1 KPI 층위 고정:**
+- GA4 해석 기준을 `획득 / 품질 / 전환 / 재방문 / 수익 / 데이터위생` 6개 층위로 재정의
+- `sessions + 일부 custom event` 중심 해석에서 벗어나 `channel`, `landingPage`, `engagementRate`, `newVsReturning`, `DAU/WAU/MAU`, `revenue` 가능 여부까지 함께 보는 운영체계로 확장
+- 특히 Data API에서 아직 불안정한 `premium_*`, `content_*`, `hub_cta_click`, `hub_faq_open`은 메인 KPI가 아니라 보조 KPI로 강등
+
+**#2 세션용 조회 팩/표면별 KPI 설계:**
+- `docs/GA4-INSIGHTS.md` 신설로 `28일 스냅샷`, `최근 3일 실험 표면`, `이벤트 건강도`, `조건부 팩` 4개 조회 묶음을 정의
+- `app`, `hub`, `blog`, `cross_promo` 표면별 핵심 KPI/보조 KPI/해석 기준을 분리해 같은 숫자를 표면별로 다르게 읽지 않도록 정리
+- `PROGRESS.md`에 남길 6줄 요약 템플릿과 `STRATEGY.md` 주간 스냅샷 템플릿도 함께 설계
+
+**#3 운영 문서 연결:**
+- `docs/OPERATIONS.md`에 GA4 일간 세션 루틴과 주간 리뷰 루틴을 추가해, 언제 어떤 팩을 보고 어디에 기록할지 명시
+- `docs/STRATEGY.md`에는 주간 전략 스냅샷을 6층 구조로 누적하는 규칙을 추가
+- `memory/data-check-log.md`에는 팩 번호와 목적을 함께 적는 형식으로 기록 원칙을 보강
+
+**#4 방향성 결론:**
+- 앞으로 세션 의사결정은 `custom event 반영 여부` 하나에 매달리지 않고, 표준 GA4 지표 기반 구조 판단을 우선한다
+- winner blog는 `세션 발생 → CTA 최적화` 순서로 보고, 세션이 아직 없는 페이지는 유입 확보가 먼저다
+- `Direct`/`Organic` 분리, locale별 볼륨/품질 분리, `미수집 수익 지표` 명시가 앞으로의 기본 규칙
+
+### 세션335 (3/31) - traffic-first 허브 유입 강화 + 분석 표면 정리
+
+**#1 측정 게이트 재확인 및 메인 분기 고정:**
+- GA4 Data API(2026-03-29~31) 재조회 결과는 여전히 동일: `premium_*`, `content_*`, `hub_cta_click`, `hub_faq_open`은 미반영
+- 반면 기준선은 그대로 유지되어 `/eq-test/ 17세션`, `/portal/ 3`, `/portal/mbti/ 3`, `/portal/tests/ 1`, winner blog 4개 `0` 상태 기준 이번 10세션 실행의 메인 축을 `traffic-first`로 확정
+
+**#2 eq-test premium/result 후속 정리:**
+- `projects/eq-test/index.html`에서 winner blog 4개 카드에 `data-blog-key`와 언어별 경로 매핑을 추가해, 현재 언어에 따라 가능한 locale 블로그로 우선 연결되도록 정리
+- `premium_cta_view`, `premium_unlock_click`, `premium_unlock_complete`, `ai_analysis_view`, `eq_related_click`에 `surface_type=app`, `surface_name=eq_test_result`를 붙여 이후 표면별 비교가 가능하도록 정리
+- 결과적으로 premium CTA 강화 작업을 더 하되, 당분간은 카피 미세조정보다 `결과 화면 → 다음 클릭` 구조 해석력을 높이는 쪽이 더 우선이라는 판단을 확정
+
+**#3 portal/tests/mbti traffic 스프린트 구현:**
+- `projects/portal/tests/index.html` featured 영역에 `/eq-test/` 카드를 추가하고, `data-app` 기반 카드 이름뿐 아니라 설명까지 locale별 `APP_DATA` shortDesc로 자동 채우도록 보강
+- `projects/portal/mbti/index.html`의 `next-tests`를 `EQ Test`, `Attachment Style`, `Blood Type Test`, `Blood Type Guide`, `Stress Management Guide` 중심으로 단순화해 relationship cluster에서 `/eq-test/`와 winner blog로 더 직접 연결되도록 조정
+- `projects/portal/index.html`, `projects/portal/tests/index.html`, `projects/portal/mbti/index.html`, `projects/portal/js/cross-promo.js`에 `surface_type` / `surface_name`과 blog locale/slug 등 공통 해석 파라미터를 추가해 hub/blog/app/cross-promo 표면을 같은 기준으로 읽을 수 있게 정리
+
+**#4 방향성/부족한 점 점검 결론:**
+- 계속 밀어야 할 것 3개: `eq-test → winner blog` 경로 강화, `portal/tests/mbti` 감정/관계 클러스터 정리, `surface_type` 중심 공통 분석 체계
+- 덜 중요한 것 2개: Data API 미반영 상태에서의 premium 카피 소폭 반복실험, 게임/비핵심 허브 CTA 확장
+- 보완해야 할 기반 2개: custom event 지연 반영 환경에서의 관찰 기준 통일, winner blog locale 불균형(`habit-building` 단일 언어 등) 해소
+
+**#5 검증:**
+- `node scripts/analytics-event-check.js` 재실행 결과 `portal`, `portal-tests`, `portal-mbti`, winner blog 4개, `eq-test`까지 **8/8 PASS**
+- `ReadLints` 기준 이번 수정 파일들에서 추가 lint 에러 없음
+
+### 세션334 (3/31) - eq-test CTA 개선 + winner blog 유입 경로 강화
+
+**#1 측정 게이트 재확인 및 분기 결정:**
+- GA4 Data API(2026-03-29~31) 재조회에서도 `premium_*`, `content_*`, `hub_cta_click`, `hub_faq_open`은 여전히 미반영
+- 반면 `/eq-test/` 세션 17, `/portal/` 3, `/portal/mbti/` 3, `/portal/tests/` 1 기준선은 유지되어 `eq-test` 결과 화면 개선 + winner blog 유입 강화 쪽으로 실행
+
+**#2 eq-test premium CTA 실험 구현:**
+- `projects/eq-test/index.html`에서 AI 심층 분석 카드를 personalized tips 위로 올려 결과 화면에서 더 먼저 노출되도록 조정
+- teaser 문구를 `preview + previewSecondary + teaserNote` 구조로 정리하고 `Unlock My EQ Roadmap` 계열 CTA로 변경
+- `projects/eq-test/js/locales/*.json` 12개 언어에 새 premium teaser/related 라벨 키를 추가해 다국어 렌더링 유지
+
+**#3 winner blog 유입/내부 클릭 최적화:**
+- `eq-test` 결과 화면 상단 related 카드 4개를 `digital-detox`, `habit-building`, `stress-management-techniques-guide`, `blood-type-personality-guide`로 교체해 직접 유입 경로 확보
+- winner blog 4개 중 `digital-detox`, `habit-building`, `stress-management`, `blood-type`에서 다음 클릭이 더 선명하게 일어나도록 CTA를 후속 가이드/도구 중심으로 조정
+- 특히 `habit-building`의 홈 버튼을 제거하고 `Habit Tracker`/`Digital Detox`로 재정렬해 `content_cta_click` 해석력을 높임
+
+**#4 검증:**
+- `node scripts/analytics-event-check.js` 실행 결과 `portal`, `portal-tests`, `portal-mbti`, winner blog 4개, `eq-test`까지 **8/8 PASS**
+- `ReadLints` 기준 이번 수정 파일들에서 추가 lint 에러 없음
+
+### 세션333 (3/31) - GA4 custom event 재확인 + premium beacon 검증
+
+**#1 GA4 custom event 반영 재확인:**
+- GA4 Data API(2026-03-29~31) 기준 `hub_view` 6회, `hub_test_card_click` 1회가 실제 집계 반영된 것 확인
+- pagePath 기준 `hub_view`는 `/portal/` 3회, `/portal/mbti/` 2회, `/portal/tests/` 1회 확인
+- 반면 `hub_cta_click`, `hub_faq_open`, `content_*`, `premium_*`는 동일 기간 Data API에 아직 미반영
+
+**#2 eq-test premium 전송 경로 판정:**
+- `/eq-test/`는 동일 기간 GA4 기준 `sessions=17`, `totalUsers=6`, `eq_test_complete=1`까지 확인
+- 운영 도메인 Playwright 점검에서 `window.dataLayer`에 `premium_cta_view`, `premium_unlock_click`, `premium_unlock_complete`, `ai_analysis_view`가 순서대로 push 되는 것 재확인
+- 추가로 실제 GA `g/collect` POST body에 `eq_test_complete`, `premium_cta_view`, `premium_unlock_click`, `premium_unlock_complete`, `ai_analysis_view`가 함께 전송되는 것 확인 → 구현 문제보다 집계 지연/저표본 이슈로 판정
+
+**#3 관찰 KPI 고정:**
+- Ad slot 관찰 기준은 `/eq-test/`, `/portal/`, `/portal/mbti/`, `/portal/tests/`의 `sessions`, `totalUsers`, `hub_*`/`premium_*` 클릭 이벤트, 다음 클릭 이벤트로 고정
+- 현재 기준선은 `/eq-test/` 17세션, `/portal/` 3세션, `/portal/mbti/` 3세션, `/portal/tests/` 1세션
+- winner URL 4개(`digital-detox`, `habit-building`, `stress-management`, `blood-type`)는 2026-03-29~31 기간에 pagePath 기준 유입이 없어, 다음 클릭률 비교는 추가 트래픽 유입 후 재측정으로 보류
 
 ### 세션332 (3/29) - revenue rollout live deploy + analytics validation
 
@@ -363,8 +494,8 @@
 
 ## 다음 우선순위
 
-1. **GA4 custom event 재확인** — 2026-03-30 이후 Data API에서 `hub_*`, `content_*`, `premium_*` 집계 반영 여부 재조회
-2. **eq-test premium 전송 경로 점검** — headless에서는 `dataLayer` push 확인, 필요 시 DebugView 또는 실브라우저에서 beacon/collect 반영 확인
-3. **Ad slot 효과 관찰** — portal/tests/mbti/winner blog/eq-test의 세션 깊이와 광고 가시 구간 이탈 변화 체크
-4. **winner URL 재측정** — `digital-detox`, `habit-building`, `stress-management`, `blood-type`의 다음 클릭률과 내부 링크 흐름 재비교
-5. **eq-test premium 2차 실험** — `premium_cta_view → premium_unlock_click → premium_unlock_complete` 전환율 기준 CTA 카피/위치 조정
+1. **다음 유효 조회일 GA4 재확인** — 같은 날짜 재조회는 건너뛰고, 다음 집계 반영일에 `팩1/팩2/팩3`을 다시 돌려 허브 → eq-test 실제 상승 여부를 수치로 확인
+2. **winner blog 분기 실행** — `blood-type`, `digital-detox`는 CTA/related 최적화 후보로, `habit-building`, `stress-management`는 locale 확장/유입 확보 후보로 분리 실행
+3. **허브 유지 관찰** — `/portal/mbti/` 체류형 강점은 유지하되 `/portal/tests/`와 `/portal/`은 eq-test 분배효율이 실제로 오르지 않으면 추가 미세조정보다 다른 유입 축 검토
+4. **보조 KPI 상태 재점검** — `premium_*`, `content_*`, `hub_cta_click`, `hub_faq_open`이 여전히 안 보이면 다음 세션도 메인 판단은 표준 지표 중심 유지
+5. **주간 전략 루프 고정** — `STRATEGY.md`의 6층 스냅샷을 다음 주부터 매주 갱신해 세션 로그와 전략 문서가 같은 구조를 쓰도록 유지

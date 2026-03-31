@@ -27,6 +27,8 @@
 - 블로그 top-10 키워드 3개+
 - 월간 1,000+ users
 
+> GA4 전략 스냅샷은 [docs/GA4-INSIGHTS.md](E:/Fire Project/docs/GA4-INSIGHTS.md)의 `획득 / 품질 / 전환 / 재방문 / 수익 / 데이터위생` 6층 구조를 기준으로 업데이트한다.
+
 **리소스 배분 (현행 — 3/14 전환):**
 | 비율 | 영역 | 활동 |
 |------|------|------|
@@ -81,6 +83,51 @@
 3. **한국 유저가 코어.** US 129u는 9.4s 세션 (봇). KR 118u는 180s (실유저).
 4. **105개는 너무 많다.** 실제 트래픽 있는 앱은 10-15개. 나머지는 관리 부채.
 5. **수익 현실:** 400u/월 = AdSense 수익 거의 $0. 의미 있는 수익($50+/월)엔 40,000u/월 필요.
+
+### 주간 전략 스냅샷 템플릿
+
+매주 업데이트할 때는 아래 6층 구조로 기록한다.
+
+| 층위 | 확인할 질문 | 대표 지표 |
+|------|-------------|-----------|
+| 획득 | 어디서 어떤 랜딩으로 들어오는가? | `sessionDefaultChannelGroup`, `sessionSourceMedium`, `landingPage` |
+| 품질 | 어떤 표면이 실제로 머무르게 하는가? | `engagementRate`, `averageSessionDuration`, `screenPageViewsPerSession` |
+| 전환 | 어떤 행동이 실제 다음 단계로 이어지는가? | `eq_test_complete`, `hub_test_card_click`, `cross_promo_click` |
+| 재방문 | 다시 돌아오는 구조가 있는가? | `newVsReturning`, `active7DayUsers`, `active28DayUsers`, `dauPerWau`, `wauPerMau` |
+| 수익 | 수익이 잡히는가, 아니면 아직 미수집인가? | `totalRevenue`, `totalAdRevenue`, `averageRevenuePerUser` |
+| 데이터위생 | 해석을 왜곡하는 노이즈가 있는가? | `(not set)`, 비정상 국가/OS, 미반영 이벤트 |
+
+### 주간 전략 스냅샷 (2026-03-31)
+
+기간: 최근 28일 기준 스냅샷, 최근 3일 실험 표면은 별도 관찰
+
+| 층위 | 수치 | 의미 |
+|------|------|------|
+| 획득 | `Direct 609세션`, `Organic 117세션`, 메인 랜딩 `/eq-test 213`, `/ 85`, `/portal/mbti 34` | Direct 편중은 여전하지만 Organic이 꾸준히 두 번째 축으로 유지. 진입점은 여전히 `eq-test` 중심 |
+| 품질 | `/eq-test/ 152s`, `/portal/mbti/ 358s`, `ko-kr 169s`, `mobile 143s` | `eq-test`는 메인 엔진, `portal/mbti`는 체류형 허브, 한국어/모바일 품질이 확실히 높음 |
+| 전환 | `eq_test_start 180`, `eq_test_complete 34`, 최근 3일 `hub_view 6`, `hub_test_card_click 1` | 메인 이벤트는 잡히지만 허브 분배량은 아직 작음. 허브는 유지 관찰 단계 |
+| 재방문 | `new 581세션`, `returning 109세션`, `returning avg 263s`, `DAU/WAU 0.35`, `WAU/MAU 0.28` | 재방문층은 얇지만 깊다. 아직 retention보다 신규 유입 확대가 더 우선 |
+| 수익 | `totalRevenue`/`totalAdRevenue` 실질 활용값 미수집 | 수익 판단은 당분간 세션·체류·winner blog 발생 여부를 대리 지표로 사용 |
+| 데이터위생 | `search.google.com / referral 35세션(activeUsers 1)`, `Singapore 60세션 / 3s`, `Linux 65세션 / 5s`, 슬래시 규칙 분리 | 일부 트래픽은 저품질/이상치 후보. 표준 지표 해석 시 노이즈 분리 필요 |
+
+### 승자 표면
+
+- `app`: `/eq-test/` — 여전히 최강 진입점이자 메인 실험축
+- `hub`: `/portal/mbti/` — 분배량은 작아도 체류형 허브로 가치가 큼
+- `blog`: `/portal/blog/en/blood-type-personality-guide.html` — 28일 기준 winner 후보 중 가장 명확한 유입 발생
+- `cross_promo`: 클릭 수는 적지만 공통 표면 파라미터가 정리되어 추적 기반은 확보
+
+### 약한 표면
+
+- `winner blog`: `habit-building`, `stress-management` — 아직 유입 미발생
+- `portal/tests`, `portal/` — eq-test 분배효율이 아직 작아 관찰이 더 필요
+- `locale/segment`: 영어권은 볼륨은 크지만 품질이 낮고, 일부 국가/OS는 노이즈 가능성이 큼
+
+### 다음 주 액션
+
+1. 다음 유효 조회일에 `팩1/팩2/팩3`을 다시 돌려 허브 → eq-test 상승 여부를 숫자로 확인
+2. `blood-type`, `digital-detox`는 CTA/related 최적화 후보로 보고, `habit-building`, `stress-management`는 locale 확장/추가 유입 확보로 분기
+3. 메인 판단은 계속 표준 지표 우선으로 두고, `premium_*`, `content_*`, `hub_cta_click`, `hub_faq_open`은 보조 KPI 유지
 
 ### 수익 다각화 검토 필요
 
