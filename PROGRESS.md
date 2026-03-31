@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-31 (세션339: GA4 없이 허브→EQ 흐름 강화 + 루트 예외 재점검)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-31 (세션340: 10세션 실행안 1차 일괄 반영)
 
 ---
 
@@ -26,7 +26,7 @@
 | 크로스프로모 | **99/99앱** 2x2 그리드 카드 완료 + cross-promo.js 동적 위젯 |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
 | SEO 스키마 | FAQPage **104/104 (100%)**, BreadcrumbList **104/104 (100%)**, JSON-LD 전앱 |
-| 카테고리 허브 | Games(21), **Tests(39)**, Tools, MBTI (4개 랜딩페이지) |
+| 카테고리 허브 | Games(21), **Tests(40)**, Tools, MBTI (4개 랜딩페이지) |
 | OG 이미지 | **107개 앱별 1200×630 PNG** (전앱 완료) + 470+블로그 교체 완료 |
 | 런타임 검증 | **Playwright 스모크 테스트 + analytics event harness** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
@@ -47,6 +47,31 @@
 ---
 
 ## 세션 기록
+
+### 세션340 (3/31) - 10세션 실행안 1차 일괄 반영
+
+**#1 winner blog 4개를 하나의 후속 네트워크로 재구성:**
+- `projects/portal/blog/en/habit-building.html`에 `x-default` hreflang을 추가하고, `Stress Response Test`/`EQ Test`를 끼워 넣어 `습관 → 스트레스 패턴 → EQ` 흐름이 한 페이지 안에서 바로 이어지도록 재배치
+- `projects/portal/blog/en/stress-management-techniques-guide.html`는 `digital-detox`와 `habit-building`을 더 앞단 자원으로 끌어올려, 스트레스 완화 글이 곧바로 환경 리셋/루틴 구축으로 연결되도록 정리
+- `projects/portal/blog/en/blood-type-personality-guide.html`, `projects/portal/blog/en/digital-detox.html`는 서로를 연결하고 `dopamine-type`/`EQ Test`/`digital-detox`를 섞어 `재미형 유입 → 자기이해 → 행동형 가이드` 순환을 강화
+
+**#2 허브 역할 분리 문구까지 고정:**
+- `projects/portal/tests/index.html` 상단에 `/portal/mbti/` 바로가기를 추가하고, 하단 CTA 목적지를 게임에서 `MBTI 허브`로 전환해 `/portal/tests/`가 분배 허브 역할에 더 집중하도록 조정
+- `projects/portal/mbti/index.html`는 CTA 섹션과 `next-tests`에 `/portal/tests/` 복귀 동선을 추가해, MBTI 허브가 `전체 테스트 홈`을 대체하지 않고 관계형 체류 허브 역할에 머물도록 정리
+- `projects/portal/js/locales/*.json` 12개 언어의 `hub_tests.faq_a5`, `hub_tests.cta_*`를 업데이트해, 테스트 허브 문구도 `EQ → MBTI 허브 → Stress Check` 순서와 맞도록 통일
+
+**#3 eq-test 결과 화면 정리:**
+- `projects/eq-test/index.html`에서 결과 inline ad를 related grid 아래로 이동해 내부 순환 카드가 광고보다 먼저 보이도록 우선순위를 재정렬
+- related grid에서는 하위 우선 카드 일부를 제거해 결과 직후 선택지가 과도하게 늘어지는 문제를 줄이고, 핵심 허브/테스트/블로그 카드만 남겨 다음 클릭 결정을 더 단순화
+
+**#4 locale 우선순위/검색 정합성 반영:**
+- `digital-detox`는 실제 존재하는 `ru` 버전까지 hreflang에 반영하고 `x-default`를 추가해 현재 배포된 locale 범위 안에서만 검색 신호를 맞춤
+- `habit-building`은 EN 단독 유지 상태를 명시하는 수준으로만 정리하고, 실제 locale 확장은 다음 배치 설계 과제로 남김
+- `habit-building`/`digital-detox` 메타 설명은 `stress`, `trigger`, `focus`, `habit` 중심으로 다듬어 검색 의도와 내부 링크 방향이 더 잘 맞게 조정
+
+**#5 검증:**
+- `ReadLints` 기준 이번 수정 파일들에서 추가 lint 에러 없음
+- `node scripts/analytics-event-check.js` 결과 `portal`, `portal-tests`, `portal-mbti`, winner blog 4개, `eq-test`까지 **8/8 PASS**
 
 ### 세션339 (3/31) - GA4 없이 허브→EQ 흐름 강화 + 루트 예외 재점검
 
@@ -519,7 +544,7 @@
 ## 다음 우선순위
 
 1. **다음 유효 조회일까지 실행 유지** — 당일 수정분은 재조회하지 말고, 허브/앱/블로그 구조 개선을 더 쌓은 뒤 다음 집계 반영일에만 `팩1/팩2/팩3`으로 검증
-2. **미발생 winner blog 유입 확보** — `habit-building`, `stress-management`는 CTA 미세조정보다 locale/허브 진입점/관련 블로그 내부링크 확장을 우선
-3. **발생형 winner blog 후속 강화 유지** — `blood-type`, `digital-detox`는 `eq-test`/관계형 테스트/후속 가이드로 이어지는 클릭 흐름을 더 선명하게 다듬기
-4. **허브 역할 분리 고정** — `/portal/`은 진입 허브, `/portal/tests/`는 분배 허브, `/portal/mbti/`는 체류형 허브라는 역할을 유지한 채 상단 노출/우선순위만 미세 조정
-5. **다음 검증 질문 고정** — 다음 조회일에는 `허브 → eq-test 상승 여부`, `발생형 winner blog 후속 클릭 강화`, `미발생형 winner blog 세션 발생 여부`만 우선 판정
+2. **미발생 winner blog 2차 확장 준비** — `habit-building`, `stress-management`는 이제 허브/관련링크 1차 연결이 들어갔으므로, 다음 배치에서는 실제 locale 확장 후보와 추가 진입 허브를 좁히기
+3. **발생형 winner blog 후속 강화 유지** — `blood-type`, `digital-detox`는 새로 추가한 `digital-detox`/`dopamine-type`/`EQ` 경로가 실제 후속 클릭으로 이어지는지만 다음 조회일에 판정
+4. **허브 역할 분리 고정** — `/portal/`은 진입 허브, `/portal/tests/`는 분배 허브, `/portal/mbti/`는 체류형 허브라는 역할을 유지한 채 문구와 CTA가 다시 섞이지 않도록 관리
+5. **다음 검증 질문 고정** — 다음 조회일에는 `허브 → eq-test 상승 여부`, `habit/stress 세션 발생 여부`, `blood-type/digital-detox 후속 클릭 강화 여부`만 우선 판정
