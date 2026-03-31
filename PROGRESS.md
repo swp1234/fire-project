@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-31 (세션338: winner blog CTA 고도화 + habit/stress 유입 보강)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-31 (세션339: GA4 없이 허브→EQ 흐름 강화 + 루트 예외 재점검)
 
 ---
 
@@ -47,6 +47,30 @@
 ---
 
 ## 세션 기록
+
+### 세션339 (3/31) - GA4 없이 허브→EQ 흐름 강화 + 루트 예외 재점검
+
+**#1 portal / tests / mbti → eq-test 동선 강화:**
+- `projects/portal/index.html` 헤더 상단에 `EQ Test`와 `전체 테스트 보기` 진입점을 추가해, 포털 첫 화면에서 바로 감정/테스트 흐름으로 들어가게 조정
+- `projects/portal/tests/index.html`는 `EQ Test`를 featured와 emotion grid에 모두 반영하고, 페이지 메타/`ItemList`/배지 수를 `40 tests` 기준으로 맞춰 분배형 허브 역할을 더 선명하게 정리
+- `projects/portal/mbti/index.html`의 CTA 섹션과 호환성 모달에도 `EQ Test` 보조 진입점을 추가해, 관계형 허브에서 EQ 퍼널로 바로 넘어가는 경로를 보강
+
+**#2 eq-test 결과 화면 후속 행동 강화:**
+- `projects/eq-test/index.html` 결과 화면 공유 영역 아래에 `/portal/tests/`로 가는 보조 CTA를 추가해, 재도전 외에도 테스트 허브로 내부 순환이 가능하도록 변경
+- related grid 상단에는 `/portal/tests/`, `Attachment Style`, `Stress Check`, `MBTI Love Match`를 먼저 배치해 결과 직후 `허브/핵심 테스트`가 winner blog보다 먼저 보이도록 순서를 재구성
+- 새 허브 CTA도 기존 `eq_related_click` 계열 이벤트로 기록되도록 연결해, 다음 유효 조회일에 허브 복귀 흐름을 함께 판정할 수 있게 준비
+
+**#3 i18n / 구조 정리:**
+- `projects/portal/js/locales/*.json` 12개 언어에 `header.eq_cta_*`, `hub_tests.name_eq-test`, `hub_tests.desc_eq-test`를 추가하고 `hub_tests.badge`를 `40` 기준으로 통일
+- 이번 배치에서는 GA4 재조회 없이 실행만 진행하고, 지표 판정은 다음 유효 조회일로 미뤄 `같은 날 재조회 금지` 원칙을 유지
+
+**#4 root 예외 재점검:**
+- 추가 점검 결과 `projects` 밖 루트에는 `aura-reading`, `number-merge` 같은 앱/alias 예외 디렉토리가 더 남아 있지 않음을 확인
+- 예외성 엔트리는 현재 `projects/root-domain` 내부의 의도된 alias 수준(`number-merge`, `stress-test`, `privacy.html`)만 남아 있어, 루트 구조 정리는 일단 완료 상태로 판단
+
+**#5 검증:**
+- `ReadLints` 기준 이번 수정 파일들에서 추가 lint 에러 없음
+- `node scripts/analytics-event-check.js` 결과 `portal`, `portal-tests`, `portal-mbti`, winner blog 4개, `eq-test`까지 **8/8 PASS**
 
 ### 세션338 (3/31) - winner blog CTA 고도화 + habit/stress 유입 보강
 
@@ -494,8 +518,8 @@
 
 ## 다음 우선순위
 
-1. **다음 유효 조회일 GA4 재확인** — 같은 날짜 재조회는 건너뛰고, 다음 집계 반영일에 `팩1/팩2/팩3`을 다시 돌려 허브 → eq-test 실제 상승 여부를 수치로 확인
-2. **winner blog 분기 실행** — `blood-type`, `digital-detox`는 CTA/related 최적화 후보로, `habit-building`, `stress-management`는 locale 확장/유입 확보 후보로 분리 실행
-3. **허브 유지 관찰** — `/portal/mbti/` 체류형 강점은 유지하되 `/portal/tests/`와 `/portal/`은 eq-test 분배효율이 실제로 오르지 않으면 추가 미세조정보다 다른 유입 축 검토
-4. **보조 KPI 상태 재점검** — `premium_*`, `content_*`, `hub_cta_click`, `hub_faq_open`이 여전히 안 보이면 다음 세션도 메인 판단은 표준 지표 중심 유지
-5. **주간 전략 루프 고정** — `STRATEGY.md`의 6층 스냅샷을 다음 주부터 매주 갱신해 세션 로그와 전략 문서가 같은 구조를 쓰도록 유지
+1. **다음 유효 조회일까지 실행 유지** — 당일 수정분은 재조회하지 말고, 허브/앱/블로그 구조 개선을 더 쌓은 뒤 다음 집계 반영일에만 `팩1/팩2/팩3`으로 검증
+2. **미발생 winner blog 유입 확보** — `habit-building`, `stress-management`는 CTA 미세조정보다 locale/허브 진입점/관련 블로그 내부링크 확장을 우선
+3. **발생형 winner blog 후속 강화 유지** — `blood-type`, `digital-detox`는 `eq-test`/관계형 테스트/후속 가이드로 이어지는 클릭 흐름을 더 선명하게 다듬기
+4. **허브 역할 분리 고정** — `/portal/`은 진입 허브, `/portal/tests/`는 분배 허브, `/portal/mbti/`는 체류형 허브라는 역할을 유지한 채 상단 노출/우선순위만 미세 조정
+5. **다음 검증 질문 고정** — 다음 조회일에는 `허브 → eq-test 상승 여부`, `발생형 winner blog 후속 클릭 강화`, `미발생형 winner blog 세션 발생 여부`만 우선 판정
