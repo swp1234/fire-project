@@ -322,3 +322,6 @@
 [submodule "projects/trauma-response"]
 	path = projects/trauma-response
 	url = https://github.com/swp1234/trauma-response.git
+[submodule "projects/hail-mary-mode"]
+	path = projects/hail-mary-mode
+	url = https://github.com/swp1234/hail-mary-mode.git

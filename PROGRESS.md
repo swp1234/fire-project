@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-31 (세션340: 10세션 실행안 1차 일괄 반영)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-03-31 (세션341: Hail Mary 트렌드 앱 + 블로그 런칭)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **108개** (projects/ 108 디렉토리, 앱 108 + portal + _common) |
+| 총 프로젝트 | **109개** (projects/ 109 디렉토리, 앱 109 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1561개** |
+| 블로그 | **1562개** |
 
-**앱 분류:** 유틸 12 / 바이럴 테스트 **57** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
+**앱 분류:** 유틸 12 / 바이럴 테스트 **58** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
 ---
 
@@ -26,7 +26,7 @@
 | 크로스프로모 | **99/99앱** 2x2 그리드 카드 완료 + cross-promo.js 동적 위젯 |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
 | SEO 스키마 | FAQPage **104/104 (100%)**, BreadcrumbList **104/104 (100%)**, JSON-LD 전앱 |
-| 카테고리 허브 | Games(21), **Tests(40)**, Tools, MBTI (4개 랜딩페이지) |
+| 카테고리 허브 | Games(21), **Tests(41)**, Tools, MBTI (4개 랜딩페이지) |
 | OG 이미지 | **107개 앱별 1200×630 PNG** (전앱 완료) + 470+블로그 교체 완료 |
 | 런타임 검증 | **Playwright 스모크 테스트 + analytics event harness** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
@@ -47,6 +47,28 @@
 ---
 
 ## 세션 기록
+
+### 세션341 (3/31) - Hail Mary 트렌드 앱 + 블로그 런칭
+
+**#1 새 트렌드 앱 런칭:**
+- `projects/hail-mary-mode` 신규 서브모듈 앱을 생성하고 `Hail Mary Mode Test`를 실제 구현
+- 12문항, 4결과(`Mission Brain`, `Signal Keeper`, `Chaos Pilot`, `Last-Light Guardian`), 4축(`Pressure Logic`, `Emotional Containment`, `Adaptive Risk`, `Mission Bond`) 구조로 `eq-test`와 유사한 결과형 퍼널을 구성
+- 12개 언어 i18n, app-loader, skip-link, GA4, AdSense, cross-promo, manifest, sw, JSON-LD, 결과 저장/공유까지 포함해 신규 앱 품질 게이트를 바로 통과 가능한 형태로 마감
+
+**#2 Hail Mary 트렌드용 블로그/유입면 추가:**
+- `projects/portal/blog/en/hail-mary-mindset.html` 신설로 `왜 지금 Hail Mary 서사가 먹히는가`를 심리 해석형 콘텐츠로 정리하고 새 앱 `/hail-mary-mode/`로 직접 연결
+- `projects/portal/index.html` EN 블로그 피드에 새 글을 추가해 홈에서 트렌드 진입이 가능하도록 반영
+- `projects/portal/blog/en/stress-management-techniques-guide.html` 관련 링크에 `Hail Mary Mode Test`와 새 글을 넣어 압박/위기 대응 클러스터 안에서 자연스럽게 순환되도록 연결
+
+**#3 tests 허브 연결:**
+- `projects/portal/js/app-data.js`에 `hail-mary-mode` 앱 메타와 11개 언어 이름/설명을 추가
+- `projects/portal/tests/index.html` 메타/JSON-LD/카운트를 `41 tests` 기준으로 갱신하고, featured + emotion grid에 `Hail Mary Mode Test` 카드를 추가
+- `projects/portal/js/locales/*.json` 12개 언어의 `hub_tests.badge`도 `41` 기준으로 맞춰 허브 수치와 실제 카드 수가 어긋나지 않도록 정리
+
+**#4 검증/배포 준비:**
+- `bash scripts/quality-gate.sh projects/hail-mary-mode` → **PASS**
+- `bash scripts/app-test-suite.sh projects/hail-mary-mode` → **10/10 PASS**
+- `node scripts/analytics-event-check.js` → 기존 `portal`, `portal-tests`, `portal-mbti`, winner blog 4개, `eq-test`까지 **8/8 PASS**
 
 ### 세션340 (3/31) - 10세션 실행안 1차 일괄 반영
 
@@ -544,7 +566,7 @@
 ## 다음 우선순위
 
 1. **다음 유효 조회일까지 실행 유지** — 당일 수정분은 재조회하지 말고, 허브/앱/블로그 구조 개선을 더 쌓은 뒤 다음 집계 반영일에만 `팩1/팩2/팩3`으로 검증
-2. **미발생 winner blog 2차 확장 준비** — `habit-building`, `stress-management`는 이제 허브/관련링크 1차 연결이 들어갔으므로, 다음 배치에서는 실제 locale 확장 후보와 추가 진입 허브를 좁히기
-3. **발생형 winner blog 후속 강화 유지** — `blood-type`, `digital-detox`는 새로 추가한 `digital-detox`/`dopamine-type`/`EQ` 경로가 실제 후속 클릭으로 이어지는지만 다음 조회일에 판정
-4. **허브 역할 분리 고정** — `/portal/`은 진입 허브, `/portal/tests/`는 분배 허브, `/portal/mbti/`는 체류형 허브라는 역할을 유지한 채 문구와 CTA가 다시 섞이지 않도록 관리
-5. **다음 검증 질문 고정** — 다음 조회일에는 `허브 → eq-test 상승 여부`, `habit/stress 세션 발생 여부`, `blood-type/digital-detox 후속 클릭 강화 여부`만 우선 판정
+2. **Hail Mary 신규 표면 관찰 준비** — 당장은 재조회하지 말고, 다음 유효 조회일에 `/hail-mary-mode/` 세션 발생 여부와 홈/테스트 허브 유입 비중만 먼저 판정
+3. **Hail Mary 확장 연결** — 다음 배치에서는 `EQ`, `Stress Response`, `Burnout`, `Brain Type` 등 기존 강한 앱에서 `hail-mary-mode`로 들어오는 교차 진입점을 더 만들기
+4. **미발생 winner blog 2차 확장 준비** — `habit-building`, `stress-management`는 허브/관련링크 1차 연결 이후 실제 locale 확장 후보와 추가 진입 허브를 좁히기
+5. **허브 역할 분리 고정** — `/portal/`은 진입 허브, `/portal/tests/`는 분배 허브, `/portal/mbti/`는 체류형 허브라는 역할을 유지한 채 새 Hail Mary 카드도 같은 규칙 안에서 운영
