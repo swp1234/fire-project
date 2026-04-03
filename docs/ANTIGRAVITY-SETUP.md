@@ -100,6 +100,13 @@ claude mcp add trends -s user \
 claude mcp add youtube -s user \
   -e YOUTUBE_API_KEY=AIzaSyA16xsUHpqdCi2buaWcR3-3Ti37L3FEffk \
   -- node "E:/Fire Project/.mcp-servers/youtube-mcp-server/index.js"
+
+# AdSense (User scope, OAuth init 선행)
+node "E:/Fire Project/.mcp-servers/adsense-mcp/build/index.js" init \
+  --credentials-file="C:/path/to/client_secret.apps.googleusercontent.com.json"
+
+claude mcp add adsense -s user \
+  -- node "E:/Fire Project/.mcp-servers/adsense-mcp/build/index.js" run
 ```
 
 ### 2.3 확인
@@ -107,6 +114,7 @@ claude mcp add youtube -s user \
 ```bash
 claude mcp list
 # ga4, gsc, reddit, gemini, gemini-image 최소 5개 Connected
+# adsense는 init 완료 후 user scope에서 Connected 확인
 ```
 
 ---
@@ -266,6 +274,7 @@ claude
 | MCP 서버 연결 실패 | `claude mcp list`로 확인 → 없으면 §2 재등록 |
 | npx 명령 실패 | `cmd /c npx ...`로 래핑 |
 | GCP 인증 만료 | `gcloud auth application-default login` |
+| AdSense doctor 실패 | `node "E:/Fire Project/.mcp-servers/adsense-mcp/build/index.js" doctor` 재확인 → refresh token 없으면 `init` 재실행 |
 | 서브모듈 detached HEAD | `cd projects/<name> && git checkout master` |
 | GA4/GSC 동시 호출 실패 | GA4 먼저 → GSC 별도 블록 (절대 병렬 금지) |
 | Edit 연쇄 실패 | Read를 먼저 병렬 → 그 다음 Edit 순차 |

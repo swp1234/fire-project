@@ -9,7 +9,9 @@ type: reference
 기록 형식:
 - `YYYY-MM-DD: GA4 조회 완료 (세션NNN, 팩번호 + 목적 요약)`
 - `YYYY-MM-DD: GA4+GSC 조회 완료 (세션NNN, 목적 요약)`
+- `YYYY-MM-DD: AdSense 조회 완료 (세션NNN, 수익/정책/광고 상태 점검)`
 
+- 2026-04-01: AdSense 조회 완료 (세션342, 전용 adsense-mcp 검증 + 미지급 수익/정책 경고/광고단위 정상응답 확인)
 - 2026-03-31: GA4 조회 완료 (세션336, 팩1+팩2+팩3 기반 운영체계 설계용 구조/품질/이벤트 갭 재확인)
 - 2026-03-31: GA4 조회 완료 (세션335, traffic-first 분기 고정 + portal/tests/mbti 허브 유입 강화 전/후 기준 확인)
 - 2026-03-31: GA4 조회 완료 (세션334, delay 재확인 + eq-test CTA/winner blog funnel 구현 전 분기 판단)

@@ -124,6 +124,7 @@ Windows + Git Bash. **Windows 명령어 절대 금지.**
 - **On-demand:** `bash scripts/mcp-restore.sh [social|media|all]` 로 활성화
   - `social`: reddit, twitter, trends, youtube
   - `media`: gemini (텍스트, gemini-2.5-flash), gemini-image (이미지, gemini-2.5-flash-image)
+- `adsense`: 사용자 OAuth init 선행 후 user scope로 등록하는 read-only MCP (`E:/Fire Project/.mcp-servers/adsense-mcp/`, 토큰 저장: `%USERPROFILE%/.config/adsense-mcp/`)
 - **별칭:** NanoBanana = `mcp__gemini-image__` (query: 인라인 표시 / generate_image: 파일 저장)
 - **Gemini = `mcp__gemini__`** (query/search/fetch — 텍스트 전용)
 - Image output dir: `E:/Fire Project/.nano-banana/`

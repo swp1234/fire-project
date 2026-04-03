@@ -1,7 +1,7 @@
 #!/bin/bash
 # MCP servers on-demand restore script
 # Usage: bash scripts/mcp-restore.sh [group]
-# Groups: social | media | all
+# Groups: social | media | monetization | all
 
 GROUP="${1:-all}"
 
@@ -34,11 +34,17 @@ add_media() {
     -- node "E:/Fire Project/.mcp-servers/gemini-mcp-server/build/index.js"
 }
 
+add_monetization() {
+  echo "Adding monetization MCP servers..."
+  claude mcp add adsense -s user -- node "E:/Fire Project/.mcp-servers/adsense-mcp/build/index.js" run
+}
+
 case "$GROUP" in
   social) add_social ;;
   media)  add_media ;;
-  all)    add_social; add_media ;;
-  *)      echo "Usage: $0 [social|media|all]" ;;
+  monetization) add_monetization ;;
+  all)    add_social; add_media; add_monetization ;;
+  *)      echo "Usage: $0 [social|media|monetization|all]" ;;
 esac
 
 echo "Done. Restart Claude Code to activate."

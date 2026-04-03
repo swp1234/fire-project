@@ -48,6 +48,103 @@
 
 ## 세션 기록
 
+### 세션345 (4/4) - bfcache 측정 + 허브 prefetch 1차 반영
+
+**#1 Google 메일 기반 성능 반영 검토:**
+- `bfcache`, `Speculation Rules API`, `Chrome DevTools MCP` 제안을 현재 코드베이스 기준으로 감사했다
+- 1차 코드 검색에서는 `unload`/`beforeunload` 계열 고전 blocker는 거의 없었고, 즉시 반영 가능한 고효율 작업은 `허브 페이지의 안전한 prefetch`와 `bfcache 복귀 측정`으로 판단했다
+
+**#2 실제 구현:**
+- `projects/portal/js/nav-optimizations.js`를 추가해:
+  - `pageshow`의 `event.persisted` 기준으로 bfcache 복귀를 감지하고
+  - GA4에 `navigation_type: back_forward_cache`를 포함한 `page_view`를 추가 전송하며
+  - 브라우저가 지원하면 `Speculation Rules` 기반 `prefetch`를 `moderate` 적극성으로 주입하도록 구성했다
+- `projects/portal/tests/index.html`, `projects/portal/mbti/index.html`, `projects/portal/index.html`에 공통 스크립트를 연결하고, 핵심 CTA/허브/후속 읽을거리 링크만 `.js-prefetch-link`로 지정해 과도한 speculation 없이 선택적 prefetch만 적용했다
+
+**#3 왜 이 범위부터 시작했는가:**
+- 허브 페이지는 내부 분배의 출발점이라 prefetch 체감이 크고, 앱/블로그 개별 페이지보다 blast radius가 작다
+- AdSense + GA4가 전역적으로 들어가 있어, `prerender`까지 바로 확대하면 광고/분석 계측 리스크가 커서 우선 `prefetch`만 적용했다
+
+**#4 검증:**
+- `node scripts/analytics-event-check.js` → `portal`, `portal-tests`, `portal-mbti` 포함 **8/8 PASS**
+- `ReadLints` 기준 신규 lint 에러 없음
+
+**#5 다음 세션 설계:**
+- 1순위: 실제 Chrome DevTools 또는 `chrome-devtools-mcp` 기반으로 `portal/tests/`, `portal/mbti/`, `portal/`의 speculation 동작과 bfcache restore를 실브라우저에서 확인
+- 2순위: 이상 없으면 `portal/blog/{lang}/index.html` 허브들에 같은 패턴을 확장하되, locale 허브는 배치 적용 전 카나리 1개 언어부터 검증
+- 3순위: 게임/오디오 앱군은 `AudioContext`와 SW 영향까지 포함해 bfcache eligibility를 따로 점검하고, 필요 시 `pagehide/pageshow` 정리로 2차 최적화를 설계
+
+### 세션344 (4/4) - Coverage Drilldown 정리 + hreflang 재발 방지
+
+**#1 Coverage CSV 실분류:**
+- 사용자 제공 `Coverage Drilldown` CSV를 실제 파일 기준으로 재분류해, 78개 중 즉시 손댈 기술 이슈는 `8건`으로 축소했다
+- 핵심 패턴은 `존재하지 않는 locale hreflang URL`, `옛 slug`, `legacy path(/projects/white-noise/, /quiz/, /portal/blog/{lang}/)`였다
+
+**#2 실제 수정:**
+- `validation-seeking`, `nervous-system-quiz-polyvagal`, `unit-converter`, `planificador-rutinas` 관련 글에서 `hreflang`을 실제 존재 locale만 남기도록 축소했다
+- `es/validation-seeking-behavior-guide.html`, `es/unit-converter-guide.html`, `es/nervous-system-quiz-polyvagal-guide.html`, `ko/pt/routine-planner-guide.html`, `root-domain/projects/white-noise/`, `root-domain/quiz/`, `portal/blog/{lang}/`에 redirect alias를 추가했다
+
+**#3 재발 방지 장치:**
+- `scripts/check-blog-hreflang.py`를 추가해 블로그 HTML의 `hreflang`이 placeholder, 중복 locale segment, 존재하지 않는 타깃을 가리키는지 빠르게 점검할 수 있게 했다
+- 타깃 파일 7개 기준 검사 결과 `OK: no missing blog hreflang targets found` 확인
+
+**#4 다음 세션 설계:**
+- 1순위: `python scripts/check-blog-hreflang.py`를 전체 `projects/portal/blog/`에 돌려 남아 있는 잘못된 locale 선언을 배치 정리
+- 2순위: 정리 후 새 Coverage export 또는 GSC 드릴다운으로 잔여 URL이 `redirect alias`인지 `실제 noindex/비색인`인지 다시 분리
+- 3순위: 다음 유효 조회일에는 `GA4 -> GSC -> AdSense` 순으로 `hail-mary-mode`, `portal/tests`, winner blog 4개를 재판정해 `locale 확장`과 `허브 노출 강화` 중 다음 배치를 결정
+
+### 세션343 (4/1) - 성장 복귀 설계 정리
+
+**#1 데이터 판정 루프 설계:**
+- `docs/GROWTH-RECOVERY-DESIGN.md`를 추가해 `GA4 -> GSC -> AdSense` 순서의 유효 조회일 판정 루프와 `PROGRESS.md` 6줄 요약 기준을 고정
+- 이번 복귀의 핵심 판정 질문을 `/hail-mary-mode/` 세션 발생, 허브 분배, winner 블로그 유입, AdSense 수익/경고 안정성으로 정리
+
+**#2 Hail Mary 확장 설계:**
+- `stress-response`, `burnout-test`, `eq-test`, `brain-type`, `portal/tests`, `portal` 기준으로 `Hail Mary`의 메인/보조/유지 역할을 파일 단위로 정리
+- 실제 구현 우선순위는 `stress-response -> burnout-test -> eq-test -> brain-type` 순으로 확정
+
+**#3 winner 블로그 2차 설계:**
+- `stress-management-techniques-guide`는 12개 언어 기반이 이미 있어 확장 허브로 사용
+- `habit-building`은 EN only 상태이므로 locale 확장보다 허브 유입 확대를 먼저 하기로 정리
+- `digital-detox`는 focus/habit/stress 중간 허브, `blood-type`은 winner 유지형으로 분류
+
+**#4 다음 구현 순서:**
+- 다음 유효 조회일에 `GA4/GSC/AdSense`를 먼저 보고
+- 그 결과를 기준으로 `확장 / 관찰 / 유지`를 나눈 뒤
+- `Hail Mary` 교차 진입과 winner 블로그 2차를 실제 파일 수정으로 들어간다
+
+### 세션342 (3/31) - 전용 AdSense MCP 구현
+
+**#1 프로젝트 전용 MCP 서버 구현:**
+- `E:/Fire Project/.mcp-servers/adsense-mcp/`에 TypeScript 기반 stdio 서버를 새로 만들고 `init`, `doctor`, `run` CLI를 구현
+- OAuth 사용자 인증, 사용자 프로필 토큰 저장(`%USERPROFILE%/.config/adsense-mcp/`), 파일 기반 캐시, 429/5xx retry/backoff를 포함한 read-only AdSense 클라이언트를 구성
+- MCP 도구 12개(`accounts`, `earnings summary`, `reports`, `sites`, `alerts`, `policy issues`, `payments`, `ad clients`, `ad units`, `url/custom channels`, `saved reports`)를 등록
+
+**#2 운영 경로 반영:**
+- `C:/Users/박상우/.codex/config.toml`의 `adsense` 엔트리를 제3자 패키지에서 로컬 `node "E:/Fire Project/.mcp-servers/adsense-mcp/build/index.js" run`으로 교체
+- `scripts/mcp-restore.sh`에 `monetization` 그룹과 `adsense` 등록 명령을 추가
+- `CLAUDE.md`, `docs/ANTIGRAVITY-SETUP.md`, `docs/ADSENSE-MCP.md`에 init/doctor/run 및 등록 절차를 문서화
+
+**#3 검증 상태:**
+- `npm run build` 통과
+- 임시 프로필(`ADSENSE_MCP_PROFILE_DIR`)로 `node build/index.js run` + `tools/list` 호출 정상 확인
+- 사용자 제공 OAuth client JSON 존재/구조 확인 완료
+- 실사용 OAuth `init` 완료 후 `doctor` 통과
+- 핵심 조회 4종 실검증 완료:
+  - `adsense_get_earnings_summary` 정상 응답
+  - `adsense_list_sites` 정상 응답 (`dopabrain.com`, `READY`, `autoAdsEnabled=true`)
+  - `adsense_list_policy_issues` 정상 응답 (현재 이슈 없음)
+  - `adsense_list_ad_units` 정상 응답 (`ca-pub-*` 클라이언트 기준 조회, 비지원 `partner-*`는 자동 스킵)
+- 실제 프로필 기준 `tools/list` 응답으로 12개 tool descriptor 노출 확인
+- 추가 실검증 완료:
+  - `adsense_list_payments` → 현재 미지급 수익 `$1.22`
+  - `adsense_list_alerts` → `ua-conflict-policy-update` 경고 1건 확인
+  - `adsense_list_saved_reports` → 현재 저장 리포트 없음
+- 운영 반영:
+  - `docs/OPERATIONS.md`에 AdSense 일간/주간 점검 루틴 추가
+  - `docs/STRATEGY.md` 수익 층에 AdSense unpaid/trend/alerts 포함
+  - `memory/data-check-log.md`에 AdSense 일일 조회 기록 형식과 오늘 점검 로그 추가
+
 ### 세션341 (3/31) - Hail Mary 트렌드 앱 + 블로그 런칭
 
 **#1 새 트렌드 앱 런칭:**

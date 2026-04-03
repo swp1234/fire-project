@@ -28,6 +28,7 @@
 - 월간 1,000+ users
 
 > GA4 전략 스냅샷은 [docs/GA4-INSIGHTS.md](E:/Fire Project/docs/GA4-INSIGHTS.md)의 `획득 / 품질 / 전환 / 재방문 / 수익 / 데이터위생` 6층 구조를 기준으로 업데이트한다.
+> 수익 층은 앞으로 `AdSense unpaid earnings`, `last_7_days / last_30_days earnings trend`, `alerts/policy status`를 함께 기록한다.
 
 **리소스 배분 (현행 — 3/14 전환):**
 | 비율 | 영역 | 활동 |
@@ -94,7 +95,7 @@
 | 품질 | 어떤 표면이 실제로 머무르게 하는가? | `engagementRate`, `averageSessionDuration`, `screenPageViewsPerSession` |
 | 전환 | 어떤 행동이 실제 다음 단계로 이어지는가? | `eq_test_complete`, `hub_test_card_click`, `cross_promo_click` |
 | 재방문 | 다시 돌아오는 구조가 있는가? | `newVsReturning`, `active7DayUsers`, `active28DayUsers`, `dauPerWau`, `wauPerMau` |
-| 수익 | 수익이 잡히는가, 아니면 아직 미수집인가? | `totalRevenue`, `totalAdRevenue`, `averageRevenuePerUser` |
+| 수익 | 수익이 잡히는가, 아니면 아직 미수집인가? | `totalRevenue`, `totalAdRevenue`, `averageRevenuePerUser`, `AdSense unpaid`, `AdSense last_7_days`, `AdSense alerts` |
 | 데이터위생 | 해석을 왜곡하는 노이즈가 있는가? | `(not set)`, 비정상 국가/OS, 미반영 이벤트 |
 
 ### 주간 전략 스냅샷 (2026-03-31)
