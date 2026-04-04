@@ -48,6 +48,48 @@
 
 ## 세션 기록
 
+### 세션346 (4/4) - blog EN 허브 prefetch 카나리 반영
+
+**#1 재개 시점 점검:**
+- `PROGRESS.md`와 `memory/data-check-log.md`를 기준으로 이어갈 작업을 재정렬했고, 오늘자 `GA4/GSC` 조회 기록은 아직 없음을 확인했다
+- 현재 도구 범위에서는 분석 MCP를 직접 호출할 수 없어, 이번 턴은 다음 우선순위였던 `blog 허브 카나리 적용`을 코드 레벨로 먼저 진행했다
+
+**#2 실제 구현:**
+- `projects/portal/blog/en/index.html`에 `window.__navOptimizationsConfig`와 `/portal/js/nav-optimizations.js`를 연결했다
+- EN 블로그 허브의 기사 카드 렌더링에 `.js-prefetch-link`를 추가해, 기사 카드 클릭 후보에만 선택적 `prefetch`가 걸리도록 제한했다
+- `hubName`은 `blog-en`으로 분리해 이후 `bfcache restore` 측정 시 기존 `portal`/`tests`/`mbti` 허브와 구분 가능하게 했다
+
+**#3 확장 판단:**
+- `projects/portal/blog/ko/index.html`도 바로 점검했지만, EN 허브와 달리 정적 카드 누적/혼합 구조라 동일 패턴을 바로 복제하기엔 blast radius가 더 컸다
+- 따라서 이번 세션에서는 EN만 카나리로 유지하고, KO 포함 다른 locale 허브 확장은 구조 정리 또는 실브라우저 확인 뒤로 미뤘다
+
+**#4 검증:**
+- `ReadLints` 기준 `projects/portal/blog/en/index.html`, `projects/portal/js/nav-optimizations.js` 신규 lint 에러 없음
+
+**#5 추가 진행:**
+- 먼저 `projects/portal/blog/ko/index.html`, `projects/portal/blog/es/index.html`, `projects/portal/blog/zh/index.html`에 공통 스크립트를 연결했다
+- 이어서 `ja`, `pt`, `id`, `tr`, `de`, `fr`, `hi`, `ru` locale 허브도 상단 구조를 확인한 뒤 같은 패턴으로 확장했다
+- `ko`/`es`/`zh`는 `.blog-grid > a.blog-card[href]`처럼 조금 더 좁은 selector를 썼고, 나머지 locale은 `a.blog-card[href]` selector로 카드 구조 차이를 흡수했다
+- 결과적으로 현재 `portal/blog/{lang}/index.html` 12개 locale 허브 전체가 `nav-optimizations.js` 기반 `bfcache restore` 측정 + 선택적 `prefetch` 적용 상태다
+
+**#6 남은 판단:**
+- 이제 남은 핵심은 코드 확장이 아니라 실브라우저 확인이다: `blog-en`/`blog-ko`/`blog-ja` 정도를 샘플로 잡아 speculation 동작과 `pageshow persisted` 기반 복귀 계측이 실제로 잡히는지 확인
+- `ko` 허브는 동작은 붙였지만 내부 카드 구조가 가장 불균일하므로, 추후 구조 정리 세션에서 별도 정돈 후보로 유지
+
+**#7 자동 검증 추가:**
+- `scripts/blog-hub-nav-check.js`를 새로 추가해 정적 서버 + Playwright 기반으로 locale 블로그 허브의 `speculationrules` 주입 여부를 자동 점검할 수 있게 했다
+- 최종 실행 결과 `12/12 PASS`였고, 모든 locale 허브에서 기대한 selector로 `prefetch` 규칙이 주입되는 것을 확인했다
+- 같은 headless 환경에서는 `bfcache restore`는 관측되지 않았으므로, 이 값은 실패가 아니라 `실브라우저에서 최종 확인 필요` 상태로 기록한다
+- 브라우저 자동화 도구의 localhost 접근은 이번 세션에서 불가해 실브라우저 QA는 에이전트 환경 한계로 보류하고, 실패 로그를 규칙대로 남겼다
+- 회귀 체크로 `node scripts/analytics-event-check.js`를 다시 실행했고 기존 시나리오 `8/8 PASS`를 유지했다
+
+**#8 blog hreflang 전체 정리:**
+- `python scripts/check-blog-hreflang.py` 전체 실행에서 `292개 파일`에 걸친 `MISSING_TARGET` 문제가 확인됐고, 핵심 패턴은 `실제 없는 locale alternate를 대량 선언한 blog 글`이었다
+- `scripts/check-blog-hreflang.py`에 `--fix` 모드를 추가해 placeholder / 중복 locale segment / 존재하지 않는 blog target을 가리키는 `<link rel="alternate">` 라인을 인플레이스로 제거할 수 있게 했다
+- `python scripts/check-blog-hreflang.py --fix` 실행으로 `292 files`를 자동 정리했고, 이후 재검사 결과 `OK: no missing blog hreflang targets found`를 확인했다
+- 샘플 확인 결과 각 글은 `canonical + 실제 존재 locale + x-default`만 남도록 정리됐고, 루트형 단일 locale 글은 잘못된 alternate가 제거돼 단일 locale 선언만 유지됐다
+- 정리 이후 `node scripts/blog-hub-nav-check.js`를 다시 실행해 locale 허브 `12/12 PASS`를 재확인했다
+
 ### 세션345 (4/4) - bfcache 측정 + 허브 prefetch 1차 반영
 
 **#1 Google 메일 기반 성능 반영 검토:**

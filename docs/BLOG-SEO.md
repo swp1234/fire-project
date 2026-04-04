@@ -24,6 +24,13 @@
 - 문화별 적절한 토픽 선택
 - 각 언어 최소 5개 블로그 목표
 - 기존 블로그 구조 참고하여 동일 패턴 사용
+- `hreflang`은 **실제 존재하는 타깃만** 선언한다. 없는 locale URL을 미리 넣지 않는다.
+
+### hreflang 검증/정리
+- 검사: `python scripts/check-blog-hreflang.py`
+- 자동 정리: `python scripts/check-blog-hreflang.py --fix`
+- 동작 원리: placeholder, 중복 locale segment, 존재하지 않는 `portal/blog/...` 타깃을 가리키는 `<link rel="alternate">`만 제거
+- 블로그 대량 생성/번역 배치 후에는 위 검사를 반드시 다시 실행한다
 
 ### 블로그 배포 체크리스트
 1. HTML 파일 생성 (`portal/blog/` 또는 `portal/blog/{lang}/`)
