@@ -48,6 +48,33 @@
 
 ## 세션 기록
 
+### 세션347 (4/4) - GA4/GSC 판정 + locale blog hub 발견 신호 강화
+
+**#1 GA4 판정:**
+- 오늘은 규칙대로 `GA4 -> GSC` 순서로 조회를 진행했다
+- 최근 7일 `pagePath` 기준 상위 표면은 여전히 `/eq-test/`, `/hail-mary-mode/`, `/portal/mbti/`, `/portal/`, `/portal/tests/`였고, 블로그 허브 자체는 아직 큰 유입면이 아니었다
+- 따라서 직전 세션의 `blog 허브 prefetch`는 즉시 트래픽 확대보다 `내부 분배 효율`과 `향후 검색 유입 대비` 성격이 강하다고 판단했다
+
+**#2 GSC 판정:**
+- `index_inspect` 기준 `https://dopabrain.com/portal/blog/en/`은 `Submitted and indexed`
+- `https://dopabrain.com/portal/blog/ko/`는 `Discovered - currently not indexed`
+- `https://dopabrain.com/portal/blog/ja/`는 `URL is unknown to Google`
+- 대표 글 샘플 `en/ko/anger-management-techniques-guide.html`는 둘 다 `Submitted and indexed`라, 병목은 개별 글보다 `locale hub 발견/우선순위` 쪽에 가깝다고 봤다
+
+**#3 원인 재점검:**
+- `portal/blog/sitemap.xml`에는 locale hub 엔트리가 이미 들어 있어, 단순 사이트맵 누락 문제는 아니었다
+- 대신 강한 내부 허브에서 `ko/ja blog hub`로 직접 보내는 링크가 상대적으로 약하다고 판단했다
+
+**#4 실제 구현:**
+- `projects/portal/blog/index.html` 상단에 `빠른 언어 허브` 섹션을 추가해 `ko`, `ja`, `en` blog hub로 바로 들어가는 내부 링크를 더 앞단에 노출했다
+- `projects/portal/tests/index.html`에도 `Blog Hubs by Language` 섹션을 추가해 강한 테스트 허브에서 `en`, `ko`, `ja` blog hub로 직접 이동하는 링크를 만들었다
+- 새 링크는 모두 `js-prefetch-link`로 연결해 기존 navigation 최적화와 같이 동작하게 했다
+
+**#5 검증:**
+- `ReadLints` 기준 신규 lint 에러 없음
+- `node scripts/analytics-event-check.js` → `8/8 PASS`
+- `node scripts/blog-hub-nav-check.js` → `12/12 PASS`
+
 ### 세션346 (4/4) - blog EN 허브 prefetch 카나리 반영
 
 **#1 재개 시점 점검:**
