@@ -22,3 +22,4 @@ type: reference
 - 2026-03-27: GA4+GSC 조회 완료 (세션314, stress-management/digital-detox/blood-type 점검)
 - 2026-03-26: GA4+GSC 조회 완료 (세션309, 자율진행 시작)
 - 2026-03-25: GA4+GSC 조회 완료 (세션289, 데스크탑 재개)
+- 2026-04-07: GSC inspection completed (session348, 485 crawled-not-indexed blog URLs triaged; 3 zero-byte locale articles restored; locale blog hubs and portal sitemap remediated)

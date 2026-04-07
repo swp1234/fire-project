@@ -758,3 +758,10 @@
 3. **Hail Mary 확장 연결** — 다음 배치에서는 `EQ`, `Stress Response`, `Burnout`, `Brain Type` 등 기존 강한 앱에서 `hail-mary-mode`로 들어오는 교차 진입점을 더 만들기
 4. **미발생 winner blog 2차 확장 준비** — `habit-building`, `stress-management`는 허브/관련링크 1차 연결 이후 실제 locale 확장 후보와 추가 진입 허브를 좁히기
 5. **허브 역할 분리 고정** — `/portal/`은 진입 허브, `/portal/tests/`는 분배 허브, `/portal/mbti/`는 체류형 허브라는 역할을 유지한 채 새 Hail Mary 카드도 같은 규칙 안에서 운영
+### Session 348 (2026-04-07) - GSC Coverage Remediation
+
+- Parsed the 485 `Crawled - currently not indexed` blog URLs from the GSC export CSV.
+- Restored 3 zero-byte localized articles: `blog/de/somatic-anxiety-body-symptoms.html`, `blog/fr/somatic-anxiety-body-symptoms.html`, and `blog/tr/somatic-anxiety-body-symptoms.html`.
+- Rebuilt the language blog hub coverage sections to add direct links for affected URLs that were missing from locale indexes.
+- Added every locale blog hub URL to `projects/portal/sitemap.xml` and refreshed the hub `lastmod` values to `2026-04-07`.
+- Follow-up after deploy: resubmit the portal sitemap and recheck GSC validation after recrawl.
