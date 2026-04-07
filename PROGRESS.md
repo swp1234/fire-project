@@ -48,6 +48,28 @@
 
 ## 세션 기록
 
+### 세션348 (4/7) - redirect 포함 15개 blog URL 정리
+
+**#1 입력 데이터:**
+- 사용자 제공 `Coverage Drilldown` CSV(`리디렉션이 포함된 페이지`)에 `15개 URL`이 들어 있었고, 모두 `portal/blog/` 하위 redirect alias 또는 그와 직접 연결된 예전 slug였다
+
+**#2 원인 판정:**
+- 문제는 redirect 파일 자체보다, 이 URL들이 여전히 `blog/sitemap.xml`, `portal/sitemap.xml`, blog 허브 카드, 관련 글 링크, `hreflang` / `xhtml:link`에서 계속 노출되고 있었다는 점이었다
+- 따라서 해결 방향을 `redirect 추가`가 아니라 `redirect URL의 제출/노출 제거`로 잡았다
+
+**#3 실제 수정:**
+- `scripts/cleanup-redirect-coverage.py`를 추가해 이번 CSV의 15개 redirect URL에 대해:
+  - sitemap의 `<loc>` redirect 블록을 제거하고
+  - `hreflang` / `xhtml:link`에서 redirect URL 라인을 제거하며
+  - 일반 내부 링크/허브 카드/JS 데이터는 최종 타깃 URL로 교체하도록 자동 정리했다
+- 그 결과 `projects/portal/blog/**`, `projects/portal/blog/sitemap.xml`, `projects/portal/sitemap.xml`, `projects/portal/index.html`, `projects/portal/tests/index.html` 등 redirect 노출원이 있던 파일들이 함께 정리됐다
+
+**#4 검증:**
+- exact URL 재검색 기준, CSV의 15개 URL은 이제 redirect 파일 자기 자신 외의 제출/내부 참조 지점에서 제거됐다
+- `python scripts/check-blog-hreflang.py` → `OK: no missing blog hreflang targets found`
+- `node scripts/blog-hub-nav-check.js` → `12/12 PASS`
+- `node scripts/analytics-event-check.js` → `8/8 PASS`
+
 ### 세션347 (4/4) - GA4/GSC 판정 + locale blog hub 발견 신호 강화
 
 **#1 GA4 판정:**
