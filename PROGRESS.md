@@ -772,3 +772,11 @@
 - `list_sitemaps` confirms `https://dopabrain.com/portal/sitemap.xml`, `https://dopabrain.com/portal/blog/sitemap.xml`, and `https://dopabrain.com/sitemap.xml` are already submitted on `2026-04-07`.
 - `submit_sitemap` via API is blocked for the current credential with `403 Insufficient Permission`, so any re-submit must be done manually in the Search Console UI if needed.
 - Next practical step: wait for recrawl, then re-check the restored pages plus a few locale hub pages in 24-72 hours.
+### Session 350 (2026-04-07) - Attachment Style Funnel Upgrade
+
+- Queried GA4 and GSC for `2026-03-31` to `2026-04-07` and selected `/attachment-style/` as the highest-priority winner fix based on meaningful sessions with weak engagement.
+- Upgraded the result funnel with richer analytics events: `quiz_start`, `quiz_answer_selected`, `result_view`, `attachment_related_click`, `attachment_share_click`, `attachment_retake_click`, and `attachment_about_toggle`, while keeping `quiz_complete`.
+- Reordered related-test cards by attachment result type and highlighted the top 3 recommendations so the post-result next click is more intentional.
+- Fixed the default document language mismatch by syncing `document.documentElement.lang` during i18n UI refreshes.
+- Filled the missing locale keys across all 12 translation files for `button.save_result`, `related.shadowWork`, and `related.traumaResponse`, then verified that every `data-i18n` key used in `index.html` resolves successfully.
+- Local verification: `node --check js/app.js` passed, locale key coverage check passed, and `git diff --check` passed with no whitespace errors.
