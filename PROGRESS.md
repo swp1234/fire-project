@@ -765,3 +765,10 @@
 - Rebuilt the language blog hub coverage sections to add direct links for affected URLs that were missing from locale indexes.
 - Added every locale blog hub URL to `projects/portal/sitemap.xml` and refreshed the hub `lastmod` values to `2026-04-07`.
 - Follow-up after deploy: resubmit the portal sitemap and recheck GSC validation after recrawl.
+### Session 349 (2026-04-07) - Post-Deploy GSC Check
+
+- Verified the restored locale articles are live on `dopabrain.com` after the `portal` push.
+- GSC sample inspections still show `Crawled - currently not indexed`, but the last crawl timestamps are pre-fix (`2026-04-03`, `2026-04-05`, `2026-04-06`), so Google has not re-crawled the remediated pages yet.
+- `list_sitemaps` confirms `https://dopabrain.com/portal/sitemap.xml`, `https://dopabrain.com/portal/blog/sitemap.xml`, and `https://dopabrain.com/sitemap.xml` are already submitted on `2026-04-07`.
+- `submit_sitemap` via API is blocked for the current credential with `403 Insufficient Permission`, so any re-submit must be done manually in the Search Console UI if needed.
+- Next practical step: wait for recrawl, then re-check the restored pages plus a few locale hub pages in 24-72 hours.
