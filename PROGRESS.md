@@ -809,3 +809,12 @@
 - Account/site status: `dopabrain.com` remains `READY` and `autoAdsEnabled=true`.
 - Alerts/policy: one existing `WARNING` alert `ua-conflict-policy-update` is still present, and there are no active policy issues returned by the API.
 - Note: the in-process Codex AdSense MCP tool session continued to hold the stale token after recovery, so the successful monetization read for this session was verified via the local `adsense-mcp` client directly.
+
+### Session 354 (2026-04-11) - Attachment Style Result Funnel + Monetization Upgrade
+
+- Used the weekly review findings to pick `/attachment-style/` as the next winner-page improvement target after `npc-test`, focusing on weak engagement despite recent session growth.
+- Added a result-screen quick-action module that surfaces the top recommended next test as a primary CTA, plus a secondary jump CTA that scrolls users directly into the related-test grid.
+- Added a new inline AdSense slot on the result screen so the page now has an actual monetization surface after the user finishes the quiz instead of only loading the AdSense script.
+- Upgraded analytics on the result screen with `attachment_primary_cta_click` and `attachment_related_jump_click`, and made share URLs language-aware by using the current hreflang/canonical URL instead of always sharing the base path.
+- While verifying the improvement, discovered and fixed a blocking progression bug where the app stopped after the first reply because `isAnimating` never reset before rendering the next scenario.
+- Verification: `node --check`, `git diff --check`, `quality-gate`, and `live-check` all passed, and a local browser smoke run confirmed the 10-chat flow reaches results, the quick-action CTA updates to the top ranked related test, the inline ad slot renders, and the new result-screen events appear in `dataLayer`.
