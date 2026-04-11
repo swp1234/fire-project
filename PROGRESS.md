@@ -780,3 +780,11 @@
 - Fixed the default document language mismatch by syncing `document.documentElement.lang` during i18n UI refreshes.
 - Filled the missing locale keys across all 12 translation files for `button.save_result`, `related.shadowWork`, and `related.traumaResponse`, then verified that every `data-i18n` key used in `index.html` resolves successfully.
 - Local verification: `node --check js/app.js` passed, locale key coverage check passed, and `git diff --check` passed with no whitespace errors.
+### Session 351 (2026-04-11) - Lang Canonical Cleanup for 6 Excluded URLs
+
+- Investigated the GSC `Alternate page with proper canonical tag` exclusions shown for 6 query-language URLs: `/portal/?lang=en`, `/portal/tools/?lang=de`, `/portal/tools/?lang=es`, `/npc-test/?lang=pt`, `/npc-test/?lang=es`, and `/delulu-score/?lang=en`.
+- Fixed `portal` shared i18n to read `?lang=` on load and to sync canonical/OG URL/history state when the selected language has an explicit hreflang URL.
+- Added early head SEO sync on `portal`, `portal/tools`, `npc-test`, and `delulu-score` so language-param URLs self-canonicalize to their own hreflang URL instead of always pointing to the base page.
+- Updated `npc-test` and `delulu-score` i18n flows so language changes keep the URL, canonical, and rendered language aligned.
+- Verification: `node --check` passed for all edited i18n files; `git diff --check` passed in all 3 repos; `quality-gate` and `live-check` both passed for `npc-test` and `delulu-score`; `portal` pre-push quality gate passed automatically on push.
+- Follow-up: wait for recrawl, then recheck the 6 screenshot URLs in GSC to confirm they move from excluded alternates to self-canonicalized locale variants.
