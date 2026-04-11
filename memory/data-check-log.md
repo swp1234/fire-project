@@ -27,3 +27,4 @@ type: reference
 - 2026-04-07: GA4+GSC query completed (session350, attachment-style selected as immediate winner optimization target; implemented richer funnel tracking, personalized related-card ranking, lang sync, and missing locale key fixes)
 - 2026-04-11: GA4+GSC query completed (session352, weekly review compared 2026-04-04..2026-04-10 vs 2026-03-28..2026-04-03; attachment-style lift confirmed, npc-test selected for immediate engagement/result-funnel remediation, AdSense summary attempt returned invalid_grant)
 - 2026-04-11: AdSense query completed (session353, OAuth recovered after invalid_grant; doctor passed; earnings summary/payments/alerts/sites rechecked via local adsense-mcp client)
+- 2026-04-11: GA4+GSC query completed (session356, follow-up weekly review selected /portal/tools/ for low-engagement hub remediation; implemented focus/wellness featured path, inline ad slot, and direct test cross-sell tracking)

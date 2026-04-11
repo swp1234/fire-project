@@ -827,3 +827,12 @@
 - Rewrote the bottom CTA section to favor relationship funnel actions over generic browsing, while also reordering the follow-up pills so the test path appears before the blog path.
 - Expanded hub tracking so the new surfaces are measurable: starter cards now emit `hub_featured_click` with `card_type=relationship_starter`, CTA buttons emit `hub_cta_click` with named surfaces like `eq_primary`, and the existing follow-up pill tracking continues through `hub_test_card_click`.
 - Verification: `git diff --check` and `live-check` passed, a local browser smoke run confirmed the starter pack renders, the modal still works, and the new `hub_featured_click`, `hub_cta_click`, and `hub_test_card_click` events all appear in `dataLayer`.
+
+### Session 356 (2026-04-11) - Portal Tools Funnel Upgrade Toward Focus + Test Cross-Sell
+
+- Reviewed the same `2026-04-04` to `2026-04-10` GA4/GSC weekly window and selected `/portal/tools/` as the next hub optimization target because it had fresh landing sessions but almost no meaningful engagement or next-click depth.
+- Repositioned the hub from a generic utilities list into a clearer focus/wellness funnel by replacing the featured cards with `habit-tracker`, `pomodoro-timer`, and `detox-timer`, then adding a three-step routine band that guides users through reset -> streak -> focus.
+- Added a real inline AdSense surface after the main tools grid so the hub now has a monetization point once users have already scanned the catalog.
+- Upgraded the bottom CTA section from a single generic tests link into a tracked stack that keeps the tests hub as the main action while also surfacing direct next clicks to `eq-test`, `attachment-style`, and `blood-type`.
+- Added hub analytics coverage for the new surfaces: `hub_view`, `hub_filter_select`, `hub_featured_click`, `hub_tool_card_click`, `hub_cta_click`, `hub_faq_open`, and `hub_ad_impression`.
+- Verification: `git diff --check` and `live-check` passed, and a local Playwright smoke run on `http://127.0.0.1:8771/portal/tools/?lang=en` confirmed the new featured/routine layouts plus the expected `dataLayer` events for filters, featured clicks, tool clicks, CTA clicks, FAQ opens, and the inline ad initialization.
