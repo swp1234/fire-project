@@ -818,3 +818,12 @@
 - Upgraded analytics on the result screen with `attachment_primary_cta_click` and `attachment_related_jump_click`, and made share URLs language-aware by using the current hreflang/canonical URL instead of always sharing the base path.
 - While verifying the improvement, discovered and fixed a blocking progression bug where the app stopped after the first reply because `isAnimating` never reset before rendering the next scenario.
 - Verification: `node --check`, `git diff --check`, `quality-gate`, and `live-check` all passed, and a local browser smoke run confirmed the 10-chat flow reaches results, the quick-action CTA updates to the top ranked related test, the inline ad slot renders, and the new result-screen events appear in `dataLayer`.
+
+### Session 355 (2026-04-11) - Portal MBTI Funnel Upgrade Toward EQ + Relationship Winners
+
+- Selected `/portal/mbti/` as the next hub-level implementation target after the weekly review because it already attracts engaged users but still under-serves the strongest relationship and monetization follow-ups.
+- Reworked the page flow from `matrix -> static info -> generic CTA` into `matrix -> relationship starter pack -> strongest pairs -> prioritized CTA stack -> follow-up pills`.
+- Added a new four-card starter pack that pushes users toward `eq-test`, `attachment-style`, `mbti-love`, and `blood-type`, with `eq-test` intentionally placed as the recommended first click.
+- Rewrote the bottom CTA section to favor relationship funnel actions over generic browsing, while also reordering the follow-up pills so the test path appears before the blog path.
+- Expanded hub tracking so the new surfaces are measurable: starter cards now emit `hub_featured_click` with `card_type=relationship_starter`, CTA buttons emit `hub_cta_click` with named surfaces like `eq_primary`, and the existing follow-up pill tracking continues through `hub_test_card_click`.
+- Verification: `git diff --check` and `live-check` passed, a local browser smoke run confirmed the starter pack renders, the modal still works, and the new `hub_featured_click`, `hub_cta_click`, and `hub_test_card_click` events all appear in `dataLayer`.
