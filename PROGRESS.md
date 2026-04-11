@@ -800,3 +800,12 @@
 - Remediation: synced all 12 `js/locales/*.json` files plus `og-image.svg` from `master` into `gh-pages` so the live site and the source branch now ship the same quiz content.
 - Live verification after propagation: `https://dopabrain.com/npc-test/?lang=en` now renders the new role preview, plays through the 10-scene flow, shows the result-specific related-card order, and pushes `quiz_start`, `npc_choice_select`, `npc_continue_click`, `result_view`, `quiz_complete`, `npc_share_open`, and `npc_related_click` into `dataLayer`.
 - Follow-up: check GA4 event reports after collection delay to confirm `result_view` and `npc_related_click` begin appearing outside of browser-side smoke tests.
+
+### Session 353 (2026-04-11) - AdSense OAuth Recovery + Weekly Monetization Check
+
+- Recovered the project-local AdSense MCP OAuth after `invalid_grant` blocked the weekly review by re-running the `adsense-mcp` consent flow and refreshing the stored token in `%USERPROFILE%/.config/adsense-mcp/`.
+- `doctor` now passes again for `accounts/pub-3600813755953882`, confirming accounts, sites, policy issues, and ad clients all load with the refreshed credential.
+- Current monetization snapshot on `2026-04-11`: `today $0.00`, `yesterday $0.04`, `last_7_days $0.18`, `this_month $0.23`, `last_30_days $1.41`, unpaid balance `$1.22`.
+- Account/site status: `dopabrain.com` remains `READY` and `autoAdsEnabled=true`.
+- Alerts/policy: one existing `WARNING` alert `ua-conflict-policy-update` is still present, and there are no active policy issues returned by the API.
+- Note: the in-process Codex AdSense MCP tool session continued to hold the stale token after recovery, so the successful monetization read for this session was verified via the local `adsense-mcp` client directly.
