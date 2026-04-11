@@ -788,3 +788,15 @@
 - Updated `npc-test` and `delulu-score` i18n flows so language changes keep the URL, canonical, and rendered language aligned.
 - Verification: `node --check` passed for all edited i18n files; `git diff --check` passed in all 3 repos; `quality-gate` and `live-check` both passed for `npc-test` and `delulu-score`; `portal` pre-push quality gate passed automatically on push.
 - Follow-up: wait for recrawl, then recheck the 6 screenshot URLs in GSC to confirm they move from excluded alternates to self-canonicalized locale variants.
+
+### Session 352 (2026-04-11) - Weekly Review + NPC Test Funnel Upgrade
+
+- Queried GA4 and GSC for `2026-04-04` to `2026-04-10` versus `2026-03-28` to `2026-04-03` to identify the next highest-value implementation target after the recent canonical and coverage cleanup.
+- Weekly review summary: `/attachment-style/` improved from `2` to `16` sessions after the prior funnel work, `/portal/mbti/` remained stable with healthy engagement, and AdSense summary access is still blocked by `invalid_grant`.
+- Selected `/npc-test/` as the immediate fix because GA4 showed `12` recent landing sessions with `0` engaged sessions, `bounceRate=1`, and only about `2.1s` average session duration, which made the result funnel the clearest friction point.
+- Added a role-preview strip on the intro screen, result-specific related-test ranking, featured recommendation styling, canonical-aware share URLs, and richer analytics events: `npc_choice_select`, `npc_continue_click`, `result_view`, `npc_share_open`, `npc_share_click`, `npc_retry_click`, and `npc_related_click`, while retaining `quiz_start` and `quiz_complete`.
+- Verification before deploy: `node --check js/app.js`, `git diff --check`, `quality-gate`, and `live-check` all passed, and a local browser run confirmed the result screen, reordered related cards, and new `dataLayer` events.
+- Deployment: pushed `npc-test` `master` and `gh-pages`, then discovered the live Pages branch was still serving older locale JSON packs that left dialogue scenes unrendered.
+- Remediation: synced all 12 `js/locales/*.json` files plus `og-image.svg` from `master` into `gh-pages` so the live site and the source branch now ship the same quiz content.
+- Live verification after propagation: `https://dopabrain.com/npc-test/?lang=en` now renders the new role preview, plays through the 10-scene flow, shows the result-specific related-card order, and pushes `quiz_start`, `npc_choice_select`, `npc_continue_click`, `result_view`, `quiz_complete`, `npc_share_open`, and `npc_related_click` into `dataLayer`.
+- Follow-up: check GA4 event reports after collection delay to confirm `result_view` and `npc_related_click` begin appearing outside of browser-side smoke tests.
