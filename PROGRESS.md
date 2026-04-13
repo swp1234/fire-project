@@ -836,3 +836,12 @@
 - Upgraded the bottom CTA section from a single generic tests link into a tracked stack that keeps the tests hub as the main action while also surfacing direct next clicks to `eq-test`, `attachment-style`, and `blood-type`.
 - Added hub analytics coverage for the new surfaces: `hub_view`, `hub_filter_select`, `hub_featured_click`, `hub_tool_card_click`, `hub_cta_click`, `hub_faq_open`, and `hub_ad_impression`.
 - Verification: `git diff --check` and `live-check` passed, and a local Playwright smoke run on `http://127.0.0.1:8771/portal/tools/?lang=en` confirmed the new featured/routine layouts plus the expected `dataLayer` events for filters, featured clicks, tool clicks, CTA clicks, FAQ opens, and the inline ad initialization.
+
+### Session 357 (2026-04-13) - Portal Home Hero Funnel Upgrade
+
+- Queried GA4, GSC, and AdSense again on `2026-04-13` using `2026-04-06` to `2026-04-12` versus `2026-03-30` to `2026-04-05` to pick the next implementation target after the tools hub rollout.
+- Review snapshot: `/portal/` remained the weakest major hub with `7 sessions`, `engagementRate 0`, and `bounceRate 1`, while `/portal/mbti/` stayed healthy at `17 sessions` with strong engagement and AdSense improved to `today $0.08`, `yesterday $0.07`, `last_7_days $0.21`, `this_month $0.39`.
+- Selected `/portal/` home as the next fix and added a new hero-level winner strip that pushes the first click toward `eq-test`, `attachment-style`, and `blood-type`, while also extending the existing hero pills with a direct `portal/mbti` path.
+- Added named CTA surfaces across the hero pills and category hubs (`hero_eq_pill`, `hero_eq_primary`, `hero_attachment_primary`, `hero_blood_primary`, `tests_hub`, `mbti_hub`, `tools_hub`, `games_hub`) so the top-of-page routing is now measurable at a finer level.
+- Added explicit `hub_ad_impression` tracking for the top and bottom homepage AdSense banners, and localized the new winner cards on load plus after language changes by syncing them through `APP_DATA`, `getAppName`, `getAppDesc`, and `getCategoryName`.
+- Validation: `node --check js/app.js`, `git diff --check`, and `live-check` passed after removing two pre-existing false positives in `js/achievements.js` and `js/daily-streak.js`, and a local Playwright smoke run confirmed the new hero cards render and emit `hub_cta_click` events for `hero_eq_pill`, `hero_eq_primary`, `hero_attachment_primary`, and `tools_hub`.
