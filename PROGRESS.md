@@ -845,3 +845,11 @@
 - Added named CTA surfaces across the hero pills and category hubs (`hero_eq_pill`, `hero_eq_primary`, `hero_attachment_primary`, `hero_blood_primary`, `tests_hub`, `mbti_hub`, `tools_hub`, `games_hub`) so the top-of-page routing is now measurable at a finer level.
 - Added explicit `hub_ad_impression` tracking for the top and bottom homepage AdSense banners, and localized the new winner cards on load plus after language changes by syncing them through `APP_DATA`, `getAppName`, `getAppDesc`, and `getCategoryName`.
 - Validation: `node --check js/app.js`, `git diff --check`, and `live-check` passed after removing two pre-existing false positives in `js/achievements.js` and `js/daily-streak.js`, and a local Playwright smoke run confirmed the new hero cards render and emit `hub_cta_click` events for `hero_eq_pill`, `hero_eq_primary`, `hero_attachment_primary`, and `tools_hub`.
+
+### Session 358 (2026-04-13) - GSC Redirect Source Cleanup
+
+- Investigated the `Page with redirect` GSC validation failure shown for `19` affected URLs and traced the pattern to discoverable redirect stubs under `portal/blog` that were still referenced by sitemap entries, hreflang blocks, and related-resource links.
+- Kept the legacy redirect stub files in place for external/backlink safety, but stopped advertising them internally by rewriting `href/src/loc` references to the final destination URLs instead of the redirect stubs.
+- Updated `projects/portal/sitemap.xml`, `projects/portal/blog/sitemap.xml`, the affected locale blog index pages, and related-article blocks across `de/es/fr/hi/ja/ko/pt/ru/zh` blog content so redirecting URLs are no longer surfaced as crawl targets.
+- Representative fixes included replacing redirecting references like `en/2048-puzzle-strategy-guide` -> `en/number-puzzle-2048-tips`, `en/best-brain-training-games-2026` -> `en/best-free-brain-training-games-2026`, `fr/aura-reading-personality-quiz` -> `en/aura-reading-personality-quiz`, and several locale redirect stubs that previously bounced to English articles or locale hub indexes.
+- Validation: a repository-wide post-fix scan across all non-stub `html/xml` files found `0` remaining `href/src/loc` references to non-self redirect stubs, confirming the issue is no longer being reintroduced from internal discovery paths before deploy.
