@@ -962,3 +962,11 @@
 - Rewrote those homepage-specific keys across all `12` locale JSON files using a safe Unicode-preserving update path, restoring readable copy for Korean, Japanese, Chinese, Russian, Turkish, and the Latin-script locales without changing the rest of the homepage funnel.
 - Validation: locale JSON parse checks and `git diff --check` both passed after the hotfix; then the live homepage was rechecked after deploy to confirm the Korean hero CTA and `start-here` module now render with readable text again instead of placeholder question marks.
 - Deployment: pushed `root-domain` commit `5e17fb0` to `origin/main`, then rechecked `https://dopabrain.com/?lang=ko&v=369a` after propagation to confirm the localized hero CTA, secondary CTA, and all three `start-here` cards were serving correctly from `dopabrain.com`.
+
+### Session 370 (2026-04-17) - Locale Incident Rule + Markdown Hygiene Optimization
+
+- Reviewed the active Markdown inventory outside dependency/vendor directories and confirmed there were no leftover temporary planning docs to delete; the main long-lived docs remain `README.md`, `PROGRESS.md`, `memory/data-check-log.md`, and the canonical guides in `docs/`.
+- Identified the real maintenance risk as process drift rather than file count: locale-edit safety had not been written down in the canonical i18n guide, and document retention rules were implicit instead of explicit.
+- Updated [docs/I18N.md](E:/Fire%20Project/docs/I18N.md) with a new critical section that bans unsafe non-ASCII one-liner locale rewrites on Windows/PowerShell, requires UTF-8-safe bulk edit paths, and standardizes post-edit verification on both locale JSON endpoints and live rendered pages.
+- Updated [docs/OPERATIONS.md](E:/Fire%20Project/docs/OPERATIONS.md) with Markdown hygiene rules so `README.md` stays onboarding-only, `PROGRESS.md` archives once it grows past `25` session headings or `100KB`, `memory/data-check-log.md` stays a one-line ledger, and temporary `md` files must be absorbed or deleted instead of piling up.
+- Kept the optimization intentionally inside existing source-of-truth docs rather than creating another policy file, so the fix reduces future sprawl instead of adding to it.
