@@ -970,3 +970,11 @@
 - Updated [docs/I18N.md](E:/Fire%20Project/docs/I18N.md) with a new critical section that bans unsafe non-ASCII one-liner locale rewrites on Windows/PowerShell, requires UTF-8-safe bulk edit paths, and standardizes post-edit verification on both locale JSON endpoints and live rendered pages.
 - Updated [docs/OPERATIONS.md](E:/Fire%20Project/docs/OPERATIONS.md) with Markdown hygiene rules so `README.md` stays onboarding-only, `PROGRESS.md` archives once it grows past `25` session headings or `100KB`, `memory/data-check-log.md` stays a one-line ledger, and temporary `md` files must be absorbed or deleted instead of piling up.
 - Kept the optimization intentionally inside existing source-of-truth docs rather than creating another policy file, so the fix reduces future sprawl instead of adding to it.
+
+### Session 371 (2026-04-17) - Root Homepage MBTI Copy Correction
+
+- Paused the next implementation step after spotting that the homepage CTA copy `MBTI & 사랑` was semantically wrong for the actual destination page [projects/portal/mbti/index.html](E:/Fire%20Project/projects/portal/mbti/index.html), which is an MBTI compatibility hub rather than a vague love landing.
+- Reframed the homepage hero and first winner card around the real target by updating [projects/root-domain/index.html](E:/Fire%20Project/projects/root-domain/index.html) fallback text plus the localized keys in [projects/root-domain/js/locales](E:/Fire%20Project/projects/root-domain/js/locales) from the ambiguous `MBTI & Love` wording to `MBTI Compatibility` / `MBTI 궁합` phrasing.
+- Used the Unicode-safe locale update path from the new i18n rule so the non-ASCII languages (`ko`, `ja`, `zh`, `ru`) stayed readable while aligning the same semantic fix across all `12` locale JSON files.
+- Validation: `git diff --check` and `quality-gate` both passed. After deploy, the live Korean homepage was rechecked to confirm the hero CTA now reads `MBTI 궁합부터 보기`, the first card reads `MBTI 궁합 허브 열기`, and the related explanatory copy matches the actual compatibility hub.
+- Deployment: pushed `root-domain` commit `a1841e0` to `origin/main`, then rechecked `https://dopabrain.com/?lang=ko&v=371a` after propagation to confirm the revised copy is live on `dopabrain.com`.
