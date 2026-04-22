@@ -178,6 +178,16 @@ if [ -f "$APP_DIR/js/app.js" ]; then
   fi
 fi
 
+# 15. Portal hub locale audit
+if [ "$APP_DIR" = "projects/portal" ]; then
+  if node scripts/portal-hub-locale-audit.js >/dev/null 2>&1; then
+    green "Portal hub locale audit passed"
+  else
+    red "Portal hub locale audit failed"
+    FAIL=$((FAIL+1))
+  fi
+fi
+
 # Summary
 echo ""
 echo "=== Results ==="
