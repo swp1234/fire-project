@@ -11,6 +11,7 @@ const PORTAL_ROOT = path.join(PROJECTS_ROOT, 'portal');
 const LOCALE_DIR = path.join(PORTAL_ROOT, 'js', 'locales');
 const LOCALES = ['ko', 'en', 'zh', 'hi', 'ru', 'ja', 'es', 'pt', 'id', 'tr', 'de', 'fr'];
 const RAW_KEY_RE = /\bhub_[a-z0-9_]+\.[a-z0-9_]+\b/i;
+const SUSPICIOUS_PLACEHOLDER_RE = /\?\?/;
 const STATIC_KEY_IGNORE = [
   /^hub_games\.feat\d+_(tag|name|desc)$/,
   /^hub_games\.desc_[a-z0-9-]+$/,
@@ -27,7 +28,7 @@ const TARGET_PAGES = [
       '[data-i18n="hub_games.feat1_desc"]',
       '[data-i18n="hub_games.try_tests"]'
     ],
-    badPatterns: [RAW_KEY_RE]
+    badPatterns: [RAW_KEY_RE, SUSPICIOUS_PLACEHOLDER_RE]
   },
   {
     relPath: 'mbti/index.html',
@@ -43,7 +44,8 @@ const TARGET_PAGES = [
       RAW_KEY_RE,
       /Best Next Step/,
       /Go Beyond Type Labels/,
-      /Recommended/
+      /Recommended/,
+      SUSPICIOUS_PLACEHOLDER_RE
     ]
   },
   {
@@ -59,20 +61,21 @@ const TARGET_PAGES = [
       /Blog Hubs by Language/,
       /English Blog Hub/,
       /Korean Blog Hub/,
-      /Japanese Blog Hub/
+      /Japanese Blog Hub/,
+      SUSPICIOUS_PLACEHOLDER_RE
     ]
   },
   {
     relPath: 'index.html',
     smokePath: '/portal/',
     selectors: ['body'],
-    badPatterns: [RAW_KEY_RE]
+    badPatterns: [RAW_KEY_RE, SUSPICIOUS_PLACEHOLDER_RE]
   },
   {
     relPath: 'tools/index.html',
     smokePath: '/portal/tools/',
     selectors: ['.quick-start-desc', '.featured .fc-desc', '.routine-desc', '.tools-grid .tc-desc'],
-    badPatterns: [RAW_KEY_RE]
+    badPatterns: [RAW_KEY_RE, SUSPICIOUS_PLACEHOLDER_RE]
   }
 ];
 
@@ -181,8 +184,15 @@ async function run() {
         continue;
       }
       for (const locale of LOCALES) {
-        if (getByPath(localeData[locale], key) === undefined) {
+        const value = getByPath(localeData[locale], key);
+        if (value === undefined) {
           issues.push(`[static] ${target.relPath}: missing locale key "${key}" in ${locale}.json`);
+          continue;
+        }
+        if (typeof value === 'string' && SUSPICIOUS_PLACEHOLDER_RE.test(value)) {
+          issues.push(
+            `[static] ${target.relPath}: locale key "${key}" in ${locale}.json contains suspicious placeholder text "${value}"`
+          );
         }
       }
     }
