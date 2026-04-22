@@ -53,6 +53,7 @@ SOUNDSCAPE_*.txt
 *.ps1
 *.js
 !scripts/analytics-event-check.js
+!scripts/portal-hub-locale-audit.js
 !_common/**/*.js
 nul
 
