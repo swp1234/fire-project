@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-03-31 (세션341: Hail Mary 트렌드 앱 + 블로그 런칭)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-04-24 (세션389: ZH Emotion Management Article Funnel Upgrade)
 
 ---
 
@@ -1119,3 +1119,11 @@
 - Replaced the old generic `gtag('event','click')` snippet with the winner-blog `content_*` taxonomy. The article now emits `content_view`, `content_cta_click`, `content_test_click`, `content_toc_click`, `content_related_click`, and `content_ad_impression`, with stable metadata: `content_group: 'zh_personality'`, `content_slug: 'zh-personality-tests'`, and `page_language: 'zh-CN'`.
 - Updated the Article JSON-LD `dateModified` and both [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml) plus [projects/portal/blog/sitemap.xml](E:/Fire%20Project/projects/portal/blog/sitemap.xml) to `2026-04-24` for the changed Chinese article URL.
 - Validation: `git diff --check`, `node scripts/portal-hub-locale-audit.js`, the portal quality gate, and local Playwright verification passed. After deploy, live verification on `https://dopabrain.com/portal/blog/zh/personality-tests.html?v=388verify` confirmed the quick-start rail, `4` quick cards, inline ad container, self-canonical, `2026-04-24` JSON-LD date, and the new `content_*` events are all serving from `dopabrain.com`.
+
+### Session 389 (2026-04-24) - ZH Emotion Management Article Funnel Upgrade
+
+- Continued the data-led blog remediation pass with the same `2026-04-17..2026-04-23` GA4 landing snapshot and current AdSense health check. After the zh personality article shipped, [projects/portal/blog/zh/emotion-management.html](E:/Fire%20Project/projects/portal/blog/zh/emotion-management.html) became the next clean Chinese blog target with `3` sessions, `0` engaged sessions, and roughly `1.78s` average session duration, while AdSense remained healthy with `today $0.11`, `yesterday $0.06`, `last_7_days $0.22`, `this_month $0.90`, and `last_30_days $0.95`.
+- Kept the existing Chinese article copy intact and added a top quick emotion rail with four immediate next actions: `Emotion Temperature`, `EQ Test`, `Stress Check`, and `HSP Test`. This gives low-engagement readers a test-first route before the long guide body while preserving the page's informational SEO intent.
+- Reworked the bottom continuation path by sending the main CTA to `/portal/tests/`, adding stable `data-content-surface` / `data-target-slug` metadata to related Chinese articles, inserting an inline AdSense slot before related posts, and refreshing the Article JSON-LD `dateModified` plus both portal sitemaps to `2026-04-24` for this URL.
+- Replaced the old generic click snippet with the same measurable `content_*` article taxonomy used on the previous winner pages. The page now emits `content_view`, `content_cta_click`, `content_toc_click`, `content_related_click`, and `content_ad_impression` with `content_group: 'zh_emotion'`, `content_slug: 'zh-emotion-management'`, and `page_language: 'zh-CN'`.
+- Validation: `git diff --check`, `node scripts/portal-hub-locale-audit.js`, the portal quality gate, local Playwright, and live Playwright all passed. After deploy, `https://dopabrain.com/portal/blog/zh/emotion-management.html?v=389browser` confirmed `4` quick cards, `1` inline ad, `2026-04-24` JSON-LD date, and the expected `content_*` events on the live domain.
