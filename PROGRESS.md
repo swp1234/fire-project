@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-04-24 (세션389: ZH Emotion Management Article Funnel Upgrade)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-04-24 (세션390: Weekly Check + HSP Intro CTA Fix)
 
 ---
 
@@ -1127,3 +1127,12 @@
 - Reworked the bottom continuation path by sending the main CTA to `/portal/tests/`, adding stable `data-content-surface` / `data-target-slug` metadata to related Chinese articles, inserting an inline AdSense slot before related posts, and refreshing the Article JSON-LD `dateModified` plus both portal sitemaps to `2026-04-24` for this URL.
 - Replaced the old generic click snippet with the same measurable `content_*` article taxonomy used on the previous winner pages. The page now emits `content_view`, `content_cta_click`, `content_toc_click`, `content_related_click`, and `content_ad_impression` with `content_group: 'zh_emotion'`, `content_slug: 'zh-emotion-management'`, and `page_language: 'zh-CN'`.
 - Validation: `git diff --check`, `node scripts/portal-hub-locale-audit.js`, the portal quality gate, local Playwright, and live Playwright all passed. After deploy, `https://dopabrain.com/portal/blog/zh/emotion-management.html?v=389browser` confirmed `4` quick cards, `1` inline ad, `2026-04-24` JSON-LD date, and the expected `content_*` events on the live domain.
+
+### Session 390 (2026-04-24) - Weekly Check + HSP Intro CTA Fix
+
+- Started the weekly check with fresh GA4, GSC, and AdSense data. The primary comparison window was `2026-04-17..2026-04-23` versus `2026-04-10..2026-04-16`; GSC used `2026-04-17..2026-04-22` due normal Search Console delay. AdSense remained healthy at `today $0.11`, `yesterday $0.06`, `last_7_days $0.22`, `this_month $0.90`, and `last_30_days $0.95`, with no account policy issues beyond the generic Ukraine conflict warning alert.
+- Weekly traffic readout: `/portal/mbti/` strengthened to `28` sessions with `19` engaged sessions, root `/` fell from `36` to `22` sessions but improved from `18s` to `185s` average session duration, and `/portal/tests/` remained sticky with `6` sessions and `533s` average session duration. GSC still showed low-volume early impressions, with no clean quick-win query cluster above the threshold, so the action stayed focused on GA4-confirmed funnel loss.
+- Selected [projects/hsp-test](E:/Fire%20Project/projects/hsp-test) as the weekly implementation target. GA4 showed `/hsp-test/` with `9` sessions, only `3` engaged sessions, but clear interaction from the users who did start: `hsp_handle_click` `29`, `hsp_limit_click` `12`, `quiz_start/test_start/result_view` each `3`. That pointed to a top-of-page start friction issue rather than a result-page issue.
+- Reworked [projects/hsp-test/index.html](E:/Fire%20Project/projects/hsp-test/index.html) and [projects/hsp-test/css/style.css](E:/Fire%20Project/projects/hsp-test/css/style.css) so the primary start CTA now appears above the long explainer, while the explainer is collapsed into a `<details>` block below the CTA. The page JSON-LD `dateModified` and both root/portal sitemap `hsp-test` entries were refreshed to `2026-04-24`.
+- Added new HSP intro instrumentation in [projects/hsp-test/js/app.js](E:/Fire%20Project/projects/hsp-test/js/app.js): `hsp_intro_cta_view`, `hsp_intro_start_click`, and `hsp_about_toggle`, alongside the existing `quiz_start` and `test_start`, so the next weekly check can distinguish “CTA seen” from “test started.”
+- Validation: `git diff --check`, `node --check`, quality gates for `hsp-test`, `root-domain`, and `portal`, the portal locale audit, local Playwright, and live Playwright all passed. Live verification on `https://dopabrain.com/hsp-test/?v=390browser` confirmed the CTA is before the explainer, the explainer is closed by default, `dateModified` is `2026-04-24`, and all new HSP intro events fire on the live domain.
