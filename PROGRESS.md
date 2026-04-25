@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-04-24 (세션390: Weekly Check + HSP Intro CTA Fix)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-04-25 (세션391: ZH Focus Methods Funnel Upgrade)
 
 ---
 
@@ -1136,3 +1136,12 @@
 - Reworked [projects/hsp-test/index.html](E:/Fire%20Project/projects/hsp-test/index.html) and [projects/hsp-test/css/style.css](E:/Fire%20Project/projects/hsp-test/css/style.css) so the primary start CTA now appears above the long explainer, while the explainer is collapsed into a `<details>` block below the CTA. The page JSON-LD `dateModified` and both root/portal sitemap `hsp-test` entries were refreshed to `2026-04-24`.
 - Added new HSP intro instrumentation in [projects/hsp-test/js/app.js](E:/Fire%20Project/projects/hsp-test/js/app.js): `hsp_intro_cta_view`, `hsp_intro_start_click`, and `hsp_about_toggle`, alongside the existing `quiz_start` and `test_start`, so the next weekly check can distinguish “CTA seen” from “test started.”
 - Validation: `git diff --check`, `node --check`, quality gates for `hsp-test`, `root-domain`, and `portal`, the portal locale audit, local Playwright, and live Playwright all passed. Live verification on `https://dopabrain.com/hsp-test/?v=390browser` confirmed the CTA is before the explainer, the explainer is closed by default, `dateModified` is `2026-04-24`, and all new HSP intro events fire on the live domain.
+
+### Session 391 (2026-04-25) - ZH Focus Methods Funnel Upgrade
+
+- Resumed autonomous development with a fresh data check for `2026-04-18..2026-04-24` in GA4 and `2026-04-18..2026-04-23` in GSC. GA4 still showed `/portal/mbti` as the strongest hub with `27` sessions and `17` engaged sessions, while `/hsp-test` had `11` sessions but only `1` engaged session; because HSP had just been changed in Session 390, the next untouched weak target was [projects/portal/blog/zh/focus-methods.html](E:/Fire%20Project/projects/portal/blog/zh/focus-methods.html) with `3` sessions, `0` engaged sessions, and roughly `1.27s` average session duration. AdSense remained healthy with `yesterday $0.11`, `last_7_days $0.33`, `this_month $0.90`, `last_30_days $1.03`, and no policy issues beyond the standing Ukraine conflict alert.
+- Kept the Chinese article body intact and added a top quick-focus rail to [projects/portal/blog/zh/focus-methods.html](E:/Fire%20Project/projects/portal/blog/zh/focus-methods.html) with four immediate next actions: `Pomodoro Timer`, `Routine Planner`, `Stress Check`, and `Emotion Temperature`. This gives low-engagement readers a tool-first path before the long guide body while preserving the article's SEO content.
+- Reworked the bottom continuation path by sending the main CTA to `/portal/tools/` instead of the generic root homepage, adding stable `data-content-surface` / `data-target-slug` metadata to related cards, inserting an inline AdSense slot before related posts, and refreshing the Article JSON-LD `dateModified` plus both portal sitemaps to `2026-04-25` for this URL.
+- Replaced the old generic `gtag('event','click')` snippet with the measurable `content_*` article taxonomy. The page now emits `content_view`, `content_cta_click`, `content_toc_click`, `content_related_click`, and `content_ad_impression` with `content_group: 'zh_focus'`, `content_slug: 'zh-focus-methods'`, and `page_language: 'zh-CN'`.
+- Also fixed the local ignored [scripts/start-codex-isolated.ps1](E:/Fire%20Project/scripts/start-codex-isolated.ps1) startup guard so a no-argument isolated Codex launch no longer fails under `Set-StrictMode` when `$CodexArgs` is null. Verification with `--version` now reaches `codex-cli 0.124.0-alpha.2` without touching Claude paths.
+- Validation: root `git diff --check`, portal `git diff --check`, `node scripts/portal-hub-locale-audit.js`, and the portal quality gate all passed. The first quality-gate attempt failed only because bare `bash` was not on PATH, was logged via `scripts/log-failure.sh`, and then passed with `C:/Program Files/Git/bin/bash.exe`. Local Playwright verification confirmed `4` quick-focus cards, `1` inline ad, `/portal/tools/` bottom CTA, `2026-04-25` JSON-LD date, and the expected `content_*` events with no browser errors.
