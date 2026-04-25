@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-04-25 (세션391: ZH Focus Methods Funnel Upgrade)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-04-25 (Session 392: Animal Personality Intro Trust Signal)
 
 ---
 
@@ -1145,3 +1145,12 @@
 - Replaced the old generic `gtag('event','click')` snippet with the measurable `content_*` article taxonomy. The page now emits `content_view`, `content_cta_click`, `content_toc_click`, `content_related_click`, and `content_ad_impression` with `content_group: 'zh_focus'`, `content_slug: 'zh-focus-methods'`, and `page_language: 'zh-CN'`.
 - Also fixed the local ignored [scripts/start-codex-isolated.ps1](E:/Fire%20Project/scripts/start-codex-isolated.ps1) startup guard so a no-argument isolated Codex launch no longer fails under `Set-StrictMode` when `$CodexArgs` is null. Verification with `--version` now reaches `codex-cli 0.124.0-alpha.2` without touching Claude paths.
 - Validation: root `git diff --check`, portal `git diff --check`, `node scripts/portal-hub-locale-audit.js`, and the portal quality gate all passed. The first quality-gate attempt failed only because bare `bash` was not on PATH, was logged via `scripts/log-failure.sh`, and then passed with `C:/Program Files/Git/bin/bash.exe`. Local Playwright verification confirmed `4` quick-focus cards, `1` inline ad, `/portal/tools/` bottom CTA, `2026-04-25` JSON-LD date, and the expected `content_*` events with no browser errors. After push, live verification on `https://dopabrain.com/portal/blog/zh/focus-methods.html?v=391browser3` confirmed the deployed page emits `content_view`, `content_cta_click`, `content_related_click`, `content_toc_click`, and `content_ad_impression`.
+
+### Session 392 (2026-04-25) - Animal Personality Intro Trust Signal
+
+- Continued from the same Session 391 data set without repeating GA4/GSC queries. The next app-level weak landing was [projects/animal-personality](E:/Fire%20Project/projects/animal-personality), which had `3` sessions, `0` engaged sessions, and near-zero average session duration in the `2026-04-18..2026-04-24` GA4 window. A local mobile Playwright smoke confirmed the app initialized and the start button was visible in the first viewport, so the issue looked more like start confidence/friction than a hard runtime crash.
+- Moved the existing localized `home.socialStats` trust signal (`~2 minutes`, `12 animal types`, participant count) above the result carousel and primary start button in [projects/animal-personality/index.html](E:/Fire%20Project/projects/animal-personality/index.html), while keeping the rating badge below the button. The goal is to tell new visitors the test is quick before they decide whether to start.
+- Added compact `.quick-start-strip` styling in [projects/animal-personality/css/style.css](E:/Fire%20Project/projects/animal-personality/css/style.css) so the trust signal reads as a first-viewport action cue on mobile and desktop without adding new locale keys.
+- Added intro funnel instrumentation in [projects/animal-personality/js/app.js](E:/Fire%20Project/projects/animal-personality/js/app.js): `animal_intro_view`, `animal_intro_cta_view`, and `animal_intro_start_click`, alongside the existing `quiz_start` and `test_start`, so the next check can distinguish page load, CTA visibility, and actual starts.
+- Refreshed the app JSON-LD `dateModified` plus [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml) and [projects/root-domain/sitemap.xml](E:/Fire%20Project/projects/root-domain/sitemap.xml) to `2026-04-25` for `/animal-personality/`.
+- Validation so far: `node --check js/app.js`, locale JSON parsing, `git diff --check`, and quality gates passed for animal-personality, portal, and root-domain. A local mobile Playwright run over a temporary HTTP server confirmed the quick-start strip, first-viewport start button, `2026-04-25` JSON-LD date, `animal_intro_view`, `animal_intro_cta_view`, `animal_intro_start_click`, `quiz_start`, `test_start`, and biome-screen transition with no browser errors.
