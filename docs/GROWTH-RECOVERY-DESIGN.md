@@ -46,6 +46,17 @@
 3. related 직전에 inline ad 표면을 추가하고 `content_ad_impression`을 남긴다.
 4. JSON-LD와 sitemap `lastmod`를 같은 날짜로 갱신해 검색 수집 신호를 맞춘다.
 
+### 0.5 2차 실행 대상
+
+2차 실행 대상은 `projects/brain-type/`이다. 최근 28일에 `/brain-type`은 세션 수는 중간 규모지만 참여 세션과 pageview가 강했고, 검색 랜딩으로 들어온 사용자가 결과 확인 후 다음 페이지로 이동할 여지가 있었다.
+
+구현 방향:
+
+1. 시작 전 화면에 `/portal/tests/`, `/portal/mbti/`, `/portal/blog/en/brain-type-test-2026.html`로 이어지는 growth bridge를 추가한다.
+2. 결과 화면 관련 테스트의 `Hail Mary Mode` 연결을 유지하고 관련 카드에 `data-related-key`를 부여한다.
+3. `brain_type_growth_click`, `brain_type_related_click`, `brain_type_footer_link_click` 이벤트로 다음 이동을 분리 계측한다.
+4. 서비스워커 캐시명을 갱신하고, 앱 JSON-LD와 sitemap `lastmod`를 갱신해 배포 후 오래된 캐시와 검색 수집 지연을 줄인다.
+
 핵심 순서는 고정한다.
 
 1. 데이터 판정 루프

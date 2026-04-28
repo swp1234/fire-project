@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-04-28 (Session 395: Daily Visit Growth System + ZH Search Landing Bridge)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-04-28 (Session 396: Brain Type Growth Bridge)
 
 ---
 
@@ -47,6 +47,31 @@
 ---
 
 ## 세션 기록
+
+### 세션396 (4/28) - Brain Type 성장 브릿지 2차 적용
+
+**#1 대상 선정:**
+- 세션395의 일일 방문수 성장 공식에 따라 2차 표면을 고르면서 `/brain-type/`을 선택했다
+- 최근 28일 기준 `/brain-type`은 sessions는 중간 규모지만 engaged sessions와 screenPageViews가 강해, 검색/직접 유입을 다음 허브와 관련 앱으로 분배할 가치가 높았다
+- 작업 시작 시 `projects/brain-type`에는 이미 `Hail Mary Mode` 관련 테스트 추가 변경이 미커밋 상태였고, 이를 되돌리지 않고 이번 성장 브릿지와 함께 정리했다
+
+**#2 실제 구현:**
+- `projects/brain-type/index.html` 시작 화면에 growth bridge를 추가해 `/portal/tests/`, `/portal/mbti/`, `/portal/blog/en/brain-type-test-2026.html`로 이어지는 3개 경로를 만들었다
+- 12개 locale JSON에 growth bridge 문구를 추가했고, 결과 화면 related 카드에는 `data-related-key`를 부여해 클릭 계측 기준을 정리했다
+- `js/app.js`에 `brain_type_growth_click`, `brain_type_related_click`, `brain_type_footer_link_click` 이벤트를 추가했다
+- `SoftwareApplication` JSON-LD에 `dateModified=2026-04-28`을 추가하고, `sw.js` 캐시명을 `brain-type-v2`로 올려 기존 캐시 잔존 가능성을 줄였다
+- `projects/portal/sitemap.xml`의 `/brain-type/` `lastmod`도 `2026-04-28`로 갱신했다
+
+**#3 검증:**
+- `git -C projects/brain-type diff --check`, `git -C projects/portal diff --check`, `bash scripts/quality-gate.sh projects/brain-type` 모두 PASS
+- 로컬 Playwright에서 growth card 3개, 한국어 i18n 치환, `brain_type_*` 이벤트 3종, `Hail Mary Mode` related key, 모바일 horizontal overflow 없음 확인
+- brain-type 커밋 `855d8c6`, portal sitemap 커밋 `b0c8c83`, root gitlink 커밋 `ab4e629` 푸시 완료
+- 라이브 `https://dopabrain.com/brain-type/?v=396browser1`에서 growth card 3개, `dateModified=2026-04-28`, 이벤트 3종, pageErrors 0 확인
+- 라이브 `https://dopabrain.com/brain-type/sw.js?v=396sw1`에서 `brain-type-v2`, `/portal/sitemap.xml`에서 `/brain-type/ lastmod=2026-04-28` 확인
+
+**#4 다음 우선순위:**
+- 다음 조회일에 `/brain-type/`의 `brain_type_growth_click`과 결과 related 클릭이 실제 pageview 증가로 이어지는지 확인한다
+- 다음 구현 후보는 `/burnout-test/` 또는 `/portal/blog/en/best-browser-games-2026.html`이며, 같은 공식으로 유입량과 참여 품질을 비교해 고른다
 
 ### 세션395 (4/28) - 일일 방문수 성장 체계 + 중국어 검색 랜딩 브릿지
 
