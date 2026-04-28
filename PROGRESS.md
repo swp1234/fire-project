@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-04-28 (Session 393: MBTI Type Page Action Rail)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-04-28 (Session 394: Portal Hub Auto Ads Revenue Cleanup)
 
 ---
 
@@ -1163,3 +1163,11 @@
 - Added shared analytics to the MBTI type pages: `mbti_type_view`, `mbti_type_rail_view`, `mbti_type_cta_click`, `mbti_type_link_click`, and `mbti_type_faq_open`, each carrying `content_group: 'mbti_type'`, the current `mbti_type`, and `page_path`.
 - Wired the shared CSS/JS into all 16 [projects/portal/mbti/*.html](E:/Fire%20Project/projects/portal/mbti/) type pages, refreshed each Article JSON-LD `dateModified` to `2026-04-28`, and updated the 16 matching [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml) lastmod entries to `2026-04-28`.
 - Validation: isolated Codex launch check reached `codex-cli 0.125.0-alpha.3`, `node --check mbti/type-page-enhancer.js`, `git diff --check`, the 16-page wiring check, `node scripts/portal-hub-locale-audit.js`, and the portal quality gate all passed. A local mobile Playwright run on `/portal/mbti/esfj.html` confirmed the action rail, `2026-04-28` JSON-LD date, `3` action cards, and the new `mbti_type_*` events with no browser errors. After deploy, live Playwright verification on `https://dopabrain.com/portal/mbti/esfj.html?v=393browser2` confirmed the shared enhancer assets, action rail, JSON-LD date, and `mbti_type_view`, `mbti_type_rail_view`, and `mbti_type_cta_click` events are serving from `dopabrain.com`.
+
+### Session 394 (2026-04-28) - Portal Hub Auto Ads Revenue Cleanup
+
+- Shifted the autonomous target explicitly to profitability. A follow-up AdSense check confirmed `dopabrain.com` is `READY` with Auto ads enabled, while the AdSense API did not return manual ad units for the account. That made the highest-leverage cleanup the existing portal hub surfaces that still depended on placeholder manual slot IDs.
+- Normalized the highest-traffic portal hub ad surfaces in [projects/portal/index.html](E:/Fire%20Project/projects/portal/index.html), [projects/portal/tests/index.html](E:/Fire%20Project/projects/portal/tests/index.html), and [projects/portal/mbti/index.html](E:/Fire%20Project/projects/portal/mbti/index.html) from placeholder `1234567890` / `1234567891` slots to the project's Auto ads convention, preserving the existing layout while reducing fake-slot dependence.
+- Added missing revenue instrumentation to `/portal/tests/` and `/portal/mbti/`: their inline ad wrappers now carry stable `data-ad-surface` values and emit `hub_ad_impression` with `ad_surface` and `ad_slot`, matching the portal home pattern. The portal home already had `hub_ad_impression`; its top and bottom ad surfaces now also use the Auto ads slot convention.
+- Refreshed [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml) lastmod entries for `/portal/`, `/portal/tests/`, and `/portal/mbti/` to `2026-04-28`.
+- Validation so far: `git diff --check`, `node scripts/portal-hub-locale-audit.js`, and the portal quality gate passed. A local mobile Playwright run over `/portal/`, `/portal/tests/`, and `/portal/mbti/` confirmed all checked ad slots use `auto`, the expected `hub_ad_impression` events fire with the right surfaces, and no browser errors occur.
