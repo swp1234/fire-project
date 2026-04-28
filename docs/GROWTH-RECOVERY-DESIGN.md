@@ -2,6 +2,50 @@
 
 `AdSense MCP` 완료 후 다시 성장 작업으로 복귀하기 위한 실행 설계 문서다.
 
+## 0. 일일 방문수 성장 운영체계
+
+2026-04-28 현재 병목은 단순 페이지 수 부족이 아니라 `획득 채널`과 `내부 분배`의 불균형이다. 최근 28일 기준 Direct는 세션은 많지만 참여율이 낮고, Organic Search는 세션 비중은 작지만 참여율과 체류 시간이 가장 좋다. 따라서 일일 방문수 증가는 신규 앱을 무작정 늘리는 방식이 아니라, 검색 유입이 이미 생긴 페이지를 더 강한 내부 허브로 바꾸고, 그 허브가 앱과 다음 콘텐츠로 방문을 재분배하는 방식으로 운영한다.
+
+### 0.1 목표
+
+- 1차 목표: Organic Search 세션 비중을 키운다.
+- 2차 목표: 검색 랜딩 페이지의 다음 클릭률을 높여 전체 pageview와 재방문 후보를 늘린다.
+- 3차 목표: 수익 표면은 AdSense 정책 안정성을 유지하면서, placeholder 슬롯과 미계측 광고 표면을 줄인다.
+
+### 0.2 진단 모델
+
+페이지 우선순위는 아래 점수로 판단한다.
+
+`우선순위 = 현재 유입량 x 참여 품질 x 검색 확장 가능성 x 구현 레버리지`
+
+판정 기준:
+
+- `현재 유입량`: 최근 7일 또는 28일 sessions가 이미 있는가
+- `참여 품질`: engagementRate, averageSessionDuration, screenPageViews가 같은 그룹 평균보다 좋은가
+- `검색 확장 가능성`: GSC impressions가 있거나 locale/주제 키워드가 명확한가
+- `구현 레버리지`: quick rail, related, sitemap, schema, event만으로 개선 가능한가
+
+### 0.3 실행 레버
+
+| 레버 | 목적 | 적용 표면 |
+|------|------|-----------|
+| 검색 수요 포착 | 제목, 설명, 구조화 데이터, sitemap 최신화로 발견 가능성을 유지 | winner blog, locale hub, evergreen guide |
+| 내부 분배 | 유입 페이지 상단과 하단에서 앱/허브/관련 글로 빠르게 이동 | high-quality landing page |
+| 공유 루프 | 결과 공유, 다시 하기, 친구와 비교하기를 앱 결과 화면에 배치 | viral tests |
+| 허브 강화 | `/portal/`, `/portal/tests/`, `/portal/mbti/`, locale blog hub의 링크 밀도와 클릭 계측 강화 | hub pages |
+| 수익 안정화 | Auto ads 환경에서 잘못된 slot placeholder와 미계측 표면 제거 | high-traffic hub, winner article |
+
+### 0.4 이번 실행 대상
+
+이번 데이터에서 즉시 구현할 1순위는 `projects/portal/blog/zh/mianfei-xinli-ceshi-2026.html`이다. 이 페이지는 최근 28일에 이미 의미 있는 세션과 참여가 있고, 중국어 심리 테스트 검색 의도가 분명하지만, 아직 최신 quick-start rail, `content_*` 이벤트, inline ad, sitemap refresh가 적용되지 않았다.
+
+구현 방향:
+
+1. 상단 quick-start rail로 `/portal/tests/`, `/portal/mbti/`, `/brain-type/`, `/hsp-test/`를 연결한다.
+2. 본문 테스트 링크, 하단 CTA, 관련 글 클릭을 `content_*` 이벤트로 분리 계측한다.
+3. related 직전에 inline ad 표면을 추가하고 `content_ad_impression`을 남긴다.
+4. JSON-LD와 sitemap `lastmod`를 같은 날짜로 갱신해 검색 수집 신호를 맞춘다.
+
 핵심 순서는 고정한다.
 
 1. 데이터 판정 루프

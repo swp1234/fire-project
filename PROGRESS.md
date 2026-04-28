@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-04-28 (Session 394: Portal Hub Auto Ads Revenue Cleanup)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-04-28 (Session 395: Daily Visit Growth System + ZH Search Landing Bridge)
 
 ---
 
@@ -47,6 +47,32 @@
 ---
 
 ## 세션 기록
+
+### 세션395 (4/28) - 일일 방문수 성장 체계 + 중국어 검색 랜딩 브릿지
+
+**#1 데이터 판정:**
+- GA4 2026-03-31..2026-04-27 기준 Direct는 754 sessions / engagementRate 23.3%로 양은 크지만 품질이 낮았고, Organic Search는 170 sessions / engagementRate 64.1% / 평균 체류 227초로 가장 좋은 유입 채널이었다
+- 따라서 병목은 단순 앱/페이지 수 부족보다 `검색 유입 표면 부족 + 랜딩 후 내부 분배 약함`으로 판정했다
+- 같은 기간 랜딩 페이지에서는 `/portal/mbti`, `/portal/blog/zh/mianfei-xinli-ceshi-2026.html`, `/brain-type`, `/burnout-test`, `/portal/blog/en/best-browser-games-2026.html`이 확장 후보로 보였다
+
+**#2 설계 수립:**
+- `docs/GROWTH-RECOVERY-DESIGN.md`에 `일일 방문수 성장 운영체계`를 추가했다
+- 우선순위 공식을 `현재 유입량 x 참여 품질 x 검색 확장 가능성 x 구현 레버리지`로 고정하고, 검색 수요 포착 / 내부 분배 / 공유 루프 / 허브 강화 / 수익 안정화 레버를 운영 기준으로 정리했다
+
+**#3 실제 구현:**
+- `projects/portal/blog/zh/mianfei-xinli-ceshi-2026.html`에 상단 quick-start rail을 추가해 `/portal/tests/`, `/portal/mbti/`, `/brain-type/`, `/hsp-test/`로 즉시 이동할 수 있게 했다
+- 하단 CTA를 `/portal/tests/`로 정렬하고, related 직전 inline ad 표면을 `data-ad-slot="auto"`로 추가했다
+- `content_view`, `content_cta_click`, `content_test_click`, `content_related_click`, `content_toc_click`, `content_ad_impression` 계측을 추가하고 JSON-LD `dateModified`와 양쪽 sitemap `lastmod`를 `2026-04-28`로 갱신했다
+
+**#4 검증:**
+- `git diff --check`, `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, `bash scripts/quality-gate.sh projects/portal` 모두 PASS
+- 로컬 Playwright에서 desktop/mobile quick rail 렌더링, `auto` ad slot, `2026-04-28` schema, `content_*` 이벤트 6종, 모바일 horizontal overflow 없음 확인
+- 포털 커밋 `dd2ad38` 푸시 후 라이브 `https://dopabrain.com/portal/blog/zh/mianfei-xinli-ceshi-2026.html?v=395browser2`에서 quick card 4개, `content_*` 이벤트 6종, ad slot `auto`, pageErrors 0 확인
+- 라이브 `/portal/sitemap.xml`과 `/portal/blog/sitemap.xml` 모두 해당 글 `lastmod=2026-04-28` 확인
+
+**#5 다음 우선순위:**
+- 다음 유효 조회일에 이 글의 `content_cta_click`, `content_test_click`, `content_related_click`이 실제로 늘었는지 확인한다
+- 이어서 같은 공식으로 `/brain-type`, `/burnout-test`, `/portal/blog/en/best-browser-games-2026.html`, 중국어 심리 테스트 클러스터의 다음 확장 표면을 고른다
 
 ### 세션348 (4/7) - redirect 포함 15개 blog URL 정리
 
