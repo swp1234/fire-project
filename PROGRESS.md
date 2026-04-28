@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-04-25 (Session 392: Animal Personality Intro Trust Signal)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-04-28 (Session 393: MBTI Type Page Action Rail)
 
 ---
 
@@ -1154,3 +1154,12 @@
 - Added intro funnel instrumentation in [projects/animal-personality/js/app.js](E:/Fire%20Project/projects/animal-personality/js/app.js): `animal_intro_view`, `animal_intro_cta_view`, and `animal_intro_start_click`, alongside the existing `quiz_start` and `test_start`, so the next check can distinguish page load, CTA visibility, and actual starts.
 - Refreshed the app JSON-LD `dateModified` plus [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml) and [projects/root-domain/sitemap.xml](E:/Fire%20Project/projects/root-domain/sitemap.xml) to `2026-04-25` for `/animal-personality/`.
 - Validation: `node --check js/app.js`, locale JSON parsing, `git diff --check`, and quality gates passed for animal-personality, portal, and root-domain. A local mobile Playwright run over a temporary HTTP server confirmed the quick-start strip, first-viewport start button, `2026-04-25` JSON-LD date, `animal_intro_view`, `animal_intro_cta_view`, `animal_intro_start_click`, `quiz_start`, `test_start`, and biome-screen transition with no browser errors. After deploy, live Playwright verification on `https://dopabrain.com/animal-personality/?v=392browser1` confirmed the same quick-start strip, JSON-LD date, intro/start events, and biome transition are serving from `dopabrain.com`.
+
+### Session 393 (2026-04-28) - MBTI Type Page Action Rail
+
+- Resumed with a fresh data check: GA4 compared `2026-04-21..2026-04-27` against `2026-04-14..2026-04-20`, GSC checked `2026-04-21..2026-04-26`, and AdSense remained healthy with `today $0.02`, `yesterday $0.01`, `last_7_days $0.25`, `this_month $0.95`, `last_30_days $0.97`, and no policy issues beyond the standing Ukraine conflict alert. GSC still had no clean quick-win cluster, so the implementation target stayed GA4-led.
+- Selected the shared MBTI type-page funnel after several individual pages showed low-volume but repeated zero-engagement sessions in the latest window, including `/portal/mbti/esfj.html`, `/portal/mbti/estj.html`, `/portal/mbti/istj.html`, plus smaller zero-engagement rows for `/portal/mbti/enfp.html`, `/portal/mbti/entj.html`, `/portal/mbti/isfj.html`, and `/portal/mbti/istp.html`.
+- Added [projects/portal/mbti/type-page-enhancer.css](E:/Fire%20Project/projects/portal/mbti/type-page-enhancer.css) and [projects/portal/mbti/type-page-enhancer.js](E:/Fire%20Project/projects/portal/mbti/type-page-enhancer.js). The enhancer injects a first-viewport action rail on all 16 MBTI type pages with direct paths to `MBTI Love`, `MBTI Career`, and the full compatibility chart, while preserving the existing article copy and bottom CTA.
+- Added shared analytics to the MBTI type pages: `mbti_type_view`, `mbti_type_rail_view`, `mbti_type_cta_click`, `mbti_type_link_click`, and `mbti_type_faq_open`, each carrying `content_group: 'mbti_type'`, the current `mbti_type`, and `page_path`.
+- Wired the shared CSS/JS into all 16 [projects/portal/mbti/*.html](E:/Fire%20Project/projects/portal/mbti/) type pages, refreshed each Article JSON-LD `dateModified` to `2026-04-28`, and updated the 16 matching [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml) lastmod entries to `2026-04-28`.
+- Validation so far: isolated Codex launch check reached `codex-cli 0.125.0-alpha.3`, `node --check mbti/type-page-enhancer.js`, `git diff --check`, the 16-page wiring check, `node scripts/portal-hub-locale-audit.js`, and the portal quality gate all passed. A local mobile Playwright run on `/portal/mbti/esfj.html` confirmed the action rail, `2026-04-28` JSON-LD date, `3` action cards, and the new `mbti_type_*` events with no browser errors.
