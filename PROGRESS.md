@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-01 (Session 397: ZH Reaction Time Article Funnel)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-01 (Session 398: ZH Mental Age Article Funnel)
 
 ---
 
@@ -47,6 +47,29 @@
 ---
 
 ## 세션 기록
+
+### 세션398 (5/1) - 중국어 Mental Age 글 방문/재방문 브릿지
+
+**#1 타깃 선정:**
+- 새 GA4/GSC 조회 없이 세션397 데이터셋을 이어서 사용했다. `/portal/blog/zh/mental-age-test-brain-quiz-guide.html`은 2026-04-24..2026-04-30 GA4에서 3 sessions / 1 engaged session / 12 pageviews / 평균 체류 약 155s로, 중국어 심리 테스트 클러스터 안에서 방문 품질은 있으나 다음 행동 표면이 약한 후속 후보였다.
+- 같은 중국어 후보였던 lottery 글보다 정책/광고 안정성이 높고, `/mental-age/`, `/brain-type/`, `/eq-test/`, `/portal/tests/`로 자연스럽게 이어지는 테스트 재방문 루프를 만들 수 있어 우선 적용했다.
+
+**#2 실제 구현:**
+- `projects/portal/blog/zh/mental-age-test-brain-quiz-guide.html` 상단에 quick-start rail을 추가해 검색 유입자가 본문을 읽기 전 `/mental-age/`, `/brain-type/`, `/eq-test/`, `/portal/tests/`로 바로 진입할 수 있게 했다.
+- hero/mid CTA, quick-start card, related 링크에 `data-content-surface` / `data-target-slug`를 부여하고 `content_view`, `content_cta_click`, `content_inline_click`, `content_related_click`, `content_toc_click`, `content_ad_impression` 계측을 추가했다.
+- 기존 placeholder 광고 슬롯 `1234567890`을 제거하고 related 직전 inline ad를 `data-ad-slot="auto"` / `data-ad-surface="before_related_ad"`로 정리했다.
+- Article JSON-LD `dateModified`와 `projects/portal/sitemap.xml`, `projects/portal/blog/sitemap.xml`의 해당 URL `lastmod`를 `2026-05-01`로 갱신했다.
+
+**#3 검증:**
+- `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, `bash scripts/quality-gate.sh projects/portal` 모두 PASS
+- 로컬 Playwright에서 quick card 4개, CTA 2개, related 6개, inline link 6개, ad slot `auto`, `dateModified=2026-05-01`, `content_view`, `content_ad_impression`, `content_cta_click`, `content_related_click`, `content_toc_click`, `content_inline_click`, pageErrors 0 확인
+- 포털 커밋 `dd88801` 푸시 완료
+- 라이브 `https://dopabrain.com/portal/blog/zh/mental-age-test-brain-quiz-guide.html?v=398browser1`에서 quick card 4개, ad slot `auto`, `content_view`, `content_ad_impression`, `content_cta_click`, `content_related_click`, `content_toc_click`, pageErrors 0 확인
+- 라이브 `/portal/sitemap.xml`과 `/portal/blog/sitemap.xml` 모두 해당 글 `lastmod=2026-05-01` 확인
+
+**#4 다음 우선순위:**
+- 다음 데이터 조회에서 `zh-mental-age-test-brain-quiz-guide`의 `content_cta_click`, `content_inline_click`, `/mental-age/` 후속 pageview 발생 여부를 확인한다.
+- 중국어 심리 테스트 클러스터는 `mianfei-xinli`, `reaction-time`, `mental-age` 세 표면을 묶어서 재방문과 테스트 시작 이벤트 증가를 비교한다.
 
 ### 세션397 (5/1) - 중국어 반응속도 글 방문/재방문 브릿지
 
