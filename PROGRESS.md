@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-01 (Session 399: MBTI Type Page Revenue Funnel)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-01 (Session 400: Stress Check Intro CTA Recovery)
 
 ---
 
@@ -47,6 +47,32 @@
 ---
 
 ## 세션 기록
+
+### 세션400 (5/1) - Stress Check 첫 행동 회복 + 결과 광고 계측
+
+**#1 데이터 판정:**
+- GA4 2026-04-24..2026-04-30 최신 랜딩 재조회에서 `/stress-check/`는 2 sessions / 0 engaged sessions / 평균 체류 0.000485s / 2 pageviews로 첫 화면 이탈 가능성이 컸다.
+- 같은 기간 이벤트 조회에서는 `/stress-check/`에 `test_start` 2회가 있었지만, intro CTA 노출/클릭 분리 계측이 없어 시작 버튼이 보였는지와 실제 클릭했는지를 구분하기 어려웠다.
+- GSC 2026-04-24..2026-04-29 exact page 조회에서는 `stress tests online` 1 impression / position 78이 잡혔다. 아직 검색 성과는 얇지만 HealthApplication 계열이라 광고/정책 안정성이 lottery 글보다 좋아 우선순위를 줬다.
+- AdSense는 로컬 직접 클라이언트로 재확인했다: `dopabrain.com`은 `READY`, Auto ads enabled, policy issues `{}`, today `$0.00`, yesterday `$0.02`, last_7_days `$0.21`, last_30_days `$1.00`.
+
+**#2 실제 구현:**
+- `projects/stress-check/index.html`에서 긴 `About the Stress Level Assessment` 설명을 시작 버튼 아래의 닫힌 `<details>`로 바꾸고, `15개 질문 / 약 3분 / 무료` 메타와 primary start CTA를 본문 설명보다 위로 올렸다.
+- `projects/stress-check/css/style.css`에 `intro-primary-actions`, 닫힌 about details, category chip 스타일을 추가해 모바일 첫 화면에서 CTA가 안정적으로 보이도록 했다.
+- `projects/stress-check/js/app.js`에 `stress_intro_view`, `stress_intro_cta_view`, `stress_intro_start_click`, `stress_about_open`, `stress_ad_impression` 계측을 추가했다.
+- 기존 결과 상단 광고는 `data-ad-surface="result_top_ad"`를 붙이고 결과 화면에서만 보이도록 `showScreen()`에 연결했다. 하단 광고도 `data-ad-surface="bottom_ad"`를 부여해 표면별 광고 노출을 구분할 수 있게 했다.
+- SoftwareApplication JSON-LD `dateModified`, `projects/portal/sitemap.xml`, `projects/root-domain/sitemap.xml`의 `/stress-check/` `lastmod`를 `2026-05-01`로 갱신했다.
+
+**#3 검증:**
+- `node --check projects/stress-check/js/app.js`, `git -C projects/stress-check diff --check`, `bash scripts/quality-gate.sh projects/stress-check`, `bash scripts/quality-gate.sh projects/portal`, `bash scripts/quality-gate.sh projects/root-domain` 모두 PASS
+- 로컬 모바일 Playwright에서 390x844 기준 start CTA가 첫 화면 안(`bottom=560px`)에 있고, about details 닫힘, category chip 5개, `dateModified=2026-05-01`, horizontal overflow 없음, `stress_intro_view`, `stress_intro_cta_view`, `stress_intro_start_click`, `test_start`, `stress_about_open`, `stress_ad_impression` 확인
+- `stress-check` 커밋 `2666683`, portal sitemap 커밋 `06d4747`, root-domain sitemap 커밋 `f9d5547` 푸시 완료
+- 라이브 `https://dopabrain.com/stress-check/?v=400browser1`에서 동일한 CTA/이벤트/result ad 동작과 pageErrors 0 확인
+- 라이브 `/sitemap.xml`과 `/portal/sitemap.xml` 모두 `/stress-check/ lastmod=2026-05-01` 확인
+
+**#4 다음 우선순위:**
+- 다음 조회에서 `/stress-check/`의 `stress_intro_cta_view -> stress_intro_start_click -> test_start` 전환율과 결과 화면 `stress_ad_impression` 발생 여부를 본다.
+- 다음 후보는 `/emotion-temp/` 또는 최근 고체류 스페인어/프랑스어 blog 표면 중, 정책 안정성과 후속 테스트 연결성이 좋은 쪽을 우선 비교한다.
 
 ### 세션399 (5/1) - MBTI Type Page 수익/첫 클릭 브릿지
 
