@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-01 (Session 398: ZH Mental Age Article Funnel)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-01 (Session 399: MBTI Type Page Revenue Funnel)
 
 ---
 
@@ -47,6 +47,30 @@
 ---
 
 ## 세션 기록
+
+### 세션399 (5/1) - MBTI Type Page 수익/첫 클릭 브릿지
+
+**#1 데이터 판정:**
+- GA4 2026-04-24..2026-04-30, GSC 2026-04-24..2026-04-29를 다시 조회했다. `/portal/mbti/`는 Organic Search에서 15 sessions / 8 engaged sessions / 평균 체류 358s로 여전히 검색 유입의 핵심 허브였다.
+- 반면 개별 MBTI type 페이지들은 Direct 유입에서 반복적인 0-engaged 패턴이 보였다: `/portal/mbti/enfp.html`, `/portal/mbti/esfj.html`, `/portal/mbti/estj.html`은 각각 4 sessions / 0 engaged, `/portal/mbti/entj.html`, `/portal/mbti/isfj.html`, `/portal/mbti/isfp.html`도 각각 3 sessions / 0 engaged였다.
+- AdSense MCP transport는 현재 Codex 세션에서 닫혀 있었지만, 로컬 AdSense 클라이언트 직접 조회는 성공했다. `dopabrain.com`은 `READY`, Auto ads enabled, policy issues `{}` 상태였고 수익은 today `$0.00`, yesterday `$0.02`, last_7_days `$0.21`, last_30_days `$1.00`였다.
+
+**#2 실제 구현:**
+- `projects/portal/mbti/type-page-enhancer.js`에 hero fast-action strip을 추가해 모든 16개 type 페이지 첫 화면에서 `/mbti-love/`, `/mbti-career/`, `/portal/mbti/`로 바로 이동할 수 있게 했다.
+- 같은 공용 enhancer에서 overview 직후 inline Auto ad를 주입하도록 하고 `data-ad-surface="after_overview_ad"`, `data-ad-slot="auto"`를 사용해 placeholder 슬롯 없이 수익 표면을 늘렸다.
+- 새 계측으로 `mbti_type_hero_strip_view`, `mbti_type_hero_click`, `mbti_type_ad_impression`을 추가하고 기존 `mbti_type_view`, `mbti_type_rail_view`, `mbti_type_cta_click`, `mbti_type_link_click`, `mbti_type_faq_open` 흐름과 함께 비교 가능하게 했다.
+- `projects/portal/mbti/type-page-enhancer.css`에 모바일/데스크톱 대응 스타일을 추가했고, 16개 MBTI type HTML의 Article `dateModified` 및 `projects/portal/sitemap.xml`의 16개 URL `lastmod`를 `2026-05-01`로 갱신했다.
+
+**#3 검증:**
+- `node --check projects/portal/mbti/type-page-enhancer.js`, `git -C projects/portal diff --check`, 16개 type page wiring check, `node scripts/portal-hub-locale-audit.js`, `bash scripts/quality-gate.sh projects/portal` 모두 PASS
+- 로컬 모바일 Playwright에서 `ISTJ` 페이지 기준 hero fast link 3개, action rail 3개, inline ad 1개, ad slot `auto`, `after_overview_ad`, `dateModified=2026-05-01`, horizontal overflow 없음, `mbti_type_hero_click`, `mbti_type_ad_impression`, `mbti_type_cta_click` 계측 확인
+- 포털 커밋 `193c0d9` 푸시 완료
+- 라이브 `https://dopabrain.com/portal/mbti/istj.html?v=399browser2`에서 hero fast link 3개, inline auto ad, `mbti_type_hero_strip_view`, `mbti_type_ad_impression`, `mbti_type_hero_click`, `mbti_type_cta_click`, pageErrors 0 확인
+- 라이브 `/portal/sitemap.xml`에서 `/portal/mbti/istj.html` `lastmod=2026-05-01` 확인
+
+**#4 다음 우선순위:**
+- 다음 조회에서 MBTI type pages의 `mbti_type_hero_click`, `mbti_type_ad_impression`, `mbti_type_cta_click`이 Direct 0-engaged 세션을 얼마나 흡수했는지 본다.
+- lottery 계열 글은 트래픽은 있으나 광고/정책 리스크가 있어, 다음 후보는 `stress-check` 또는 영어/스페인어 고체류 blog 표면을 우선 비교한다.
 
 ### 세션398 (5/1) - 중국어 Mental Age 글 방문/재방문 브릿지
 
