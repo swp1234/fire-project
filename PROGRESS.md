@@ -66,6 +66,9 @@
 **#3 검증:**
 - `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, `bash scripts/quality-gate.sh projects/portal` 모두 PASS
 - 로컬 Playwright에서 모바일 폭 기준 quick card 4개, ad surface 3개, `dateModified=2026-05-01`, `content_view`, `content_cta_click`, `content_related_click`, `content_toc_click`, `content_ad_impression` 이벤트, pageErrors 0 확인
+- 포털 커밋 `00041d9`, 루트 커밋 `5c34cda` 푸시 완료
+- 라이브 `https://dopabrain.com/portal/blog/zh/reaction-time-test-guide.html?v=397browser3`에서 quick card 4개, ad surface 3개, `content_*` 이벤트, pageErrors 0 확인
+- 라이브 `/portal/sitemap.xml`과 `/portal/blog/sitemap.xml` 모두 해당 글 `lastmod=2026-05-01` 확인
 
 **#4 다음 우선순위:**
 - 다음 조회일에 `zh-reaction-time-test-guide`의 `content_cta_click`과 `/reaction-test/` 후속 pageview가 생겼는지 본다
