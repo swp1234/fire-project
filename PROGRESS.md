@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-04-28 (Session 396: Brain Type Growth Bridge)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-01 (Session 397: ZH Reaction Time Article Funnel)
 
 ---
 
@@ -47,6 +47,29 @@
 ---
 
 ## 세션 기록
+
+### 세션397 (5/1) - 중국어 반응속도 글 방문/재방문 브릿지
+
+**#1 데이터 판정:**
+- 작업재개 루틴에 따라 GA4 2026-04-24..2026-04-30, GSC 2026-04-24..2026-04-29, AdSense를 분리 조회했다
+- GA4에서 Direct는 131 sessions / engagementRate 17.6%, Organic Search는 64 sessions / engagementRate 53.1% / 평균 체류 247s로 검색 유입 품질이 계속 더 높았다
+- 중국은 59 sessions / 200 pageviews로 이번 주 최대 국가였고, `/portal/blog/zh/mianfei-xinli-ceshi-2026.html`은 5 sessions / 95 pageviews / engagementRate 100%로 Session 395 quick-start 브릿지가 살아 있는 신호를 보였다
+- 반면 `/portal/blog/zh/reaction-time-test-guide.html`은 6 sessions / 0 engaged sessions / 0s 평균 체류로 유입은 있지만 즉시 다음 행동이 약한 표면이었다
+- GSC는 아직 클릭 없이 HSP, MBTI type, 일부 블로그 노출만 얇게 잡혔고, AdSense MCP는 `invalid_grant`를 반환해 수익 스냅샷은 미수집으로 기록하고 실패 로그를 남겼다
+
+**#2 실제 구현:**
+- `projects/portal/blog/zh/reaction-time-test-guide.html` 상단에 30초 quick challenge rail을 추가해 `/reaction-test/`, `/typing-speed/`, `/color-memory/`, `/portal/games/`로 즉시 이동할 수 있게 했다
+- hero/mid/bottom CTA와 related 링크에 `data-content-surface` / `data-target-slug`를 부여하고, `content_view`, `content_cta_click`, `content_related_click`, `content_toc_click`, `content_ad_impression` 계측을 추가했다
+- related 직전 inline ad 표면을 `data-ad-slot="auto"`로 추가하고, 기존 top/middle ad에도 `data-ad-surface`를 붙여 수익 표면 해석력을 맞췄다
+- Article JSON-LD `dateModified`와 `projects/portal/sitemap.xml`, `projects/portal/blog/sitemap.xml`의 해당 URL `lastmod`를 `2026-05-01`로 갱신했다
+
+**#3 검증:**
+- `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, `bash scripts/quality-gate.sh projects/portal` 모두 PASS
+- 로컬 Playwright에서 모바일 폭 기준 quick card 4개, ad surface 3개, `dateModified=2026-05-01`, `content_view`, `content_cta_click`, `content_related_click`, `content_toc_click`, `content_ad_impression` 이벤트, pageErrors 0 확인
+
+**#4 다음 우선순위:**
+- 다음 조회일에 `zh-reaction-time-test-guide`의 `content_cta_click`과 `/reaction-test/` 후속 pageview가 생겼는지 본다
+- 같은 중국어 유입 공식으로 `/portal/blog/zh/lottery-number-guide.html`과 `/portal/blog/zh/mental-age-test-brain-quiz-guide.html` 중 정책 안정성과 참여 품질이 더 좋은 표면을 다음 후보로 비교한다
 
 ### 세션396 (4/28) - Brain Type 성장 브릿지 2차 적용
 
