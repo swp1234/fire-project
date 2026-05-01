@@ -55,7 +55,9 @@
 - GA4에서 Direct는 131 sessions / engagementRate 17.6%, Organic Search는 64 sessions / engagementRate 53.1% / 평균 체류 247s로 검색 유입 품질이 계속 더 높았다
 - 중국은 59 sessions / 200 pageviews로 이번 주 최대 국가였고, `/portal/blog/zh/mianfei-xinli-ceshi-2026.html`은 5 sessions / 95 pageviews / engagementRate 100%로 Session 395 quick-start 브릿지가 살아 있는 신호를 보였다
 - 반면 `/portal/blog/zh/reaction-time-test-guide.html`은 6 sessions / 0 engaged sessions / 0s 평균 체류로 유입은 있지만 즉시 다음 행동이 약한 표면이었다
-- GSC는 아직 클릭 없이 HSP, MBTI type, 일부 블로그 노출만 얇게 잡혔고, AdSense MCP는 `invalid_grant`를 반환해 수익 스냅샷은 미수집으로 기록하고 실패 로그를 남겼다
+- GSC는 아직 클릭 없이 HSP, MBTI type, 일부 블로그 노출만 얇게 잡혔고, AdSense MCP는 처음에 `invalid_grant`를 반환했다
+- OAuth 재동의 후 로컬 AdSense MCP 클라이언트로 `earnings summary -> payments -> alerts/policy issues -> sites` 순서 재조회 완료: today `$0.00`, yesterday `$0.02`, last_7_days `$0.21`, this_month `$0.00`, last_30_days `$1.00`, unpaid `$1.22`
+- 정책 이슈는 `{}`로 비어 있고, 알림은 우크라이나 전쟁 관련 일반 warning 1개만 있으며, `dopabrain.com`은 `READY` + Auto ads enabled 상태다
 
 **#2 실제 구현:**
 - `projects/portal/blog/zh/reaction-time-test-guide.html` 상단에 30초 quick challenge rail을 추가해 `/reaction-test/`, `/typing-speed/`, `/color-memory/`, `/portal/games/`로 즉시 이동할 수 있게 했다
