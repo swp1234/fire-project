@@ -66,10 +66,10 @@
 - JSON-LD 파싱 검사에서 Article, FAQPage, BreadcrumbList 3개가 정상 파싱됐다.
 - 로컬 모바일 Playwright 390x844에서 quick card 4개, CTA 2개, inline link 3개, related link 6개, Auto ad slot `auto`, `dateModified=2026-05-07`, horizontal overflow 없음, pageErrors 0, consoleErrors 0 확인.
 - 같은 Playwright 검증에서 `content_view`, `content_ad_impression`, `content_cta_click`, `content_inline_click`, `content_related_click`, `content_toc_click` 이벤트가 `dataLayer`에 들어오는 것을 확인했다.
+- 라이브 `https://dopabrain.com/portal/blog/zh/dopamine-detox-guide-reset-brain.html?v=402browser3`에서 quick card 4개, CTA 2개, related 6개, Auto ad slot `auto`, `dateModified=2026-05-07`, `content_view`, `content_ad_impression`, pageErrors 0, consoleErrors 0 확인.
 - 작업 중 Node 검증 스니펫 문법 오타 1건은 규칙대로 `scripts/log-failure.sh codex portal other`에 기록했다.
 
 **#4 다음 우선순위:**
-- root gitlink 반영 후 라이브에서 dopamine detox 페이지가 새 portal 커밋을 받는지 확인한다.
 - 다음 데이터 조회에서는 `zh-dopamine-detox-guide-reset-brain`의 CTA/inline/related 클릭과 `/dopamine-type/`, `/pomodoro-timer/`, `/routine-planner/` 후속 pageview를 본다.
 - 이어서 `/portal/` Direct 0-engaged 또는 `/portal/blog/zh/lottery-number-guide.html`은 정책/광고 안정성을 먼저 비교한 뒤 적용한다.
 
