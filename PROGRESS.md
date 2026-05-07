@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-01 (Session 400: Stress Check Intro CTA Recovery)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-07 (Session 401: ZH Casual Games Quick-Start Recovery)
 
 ---
 
@@ -47,6 +47,30 @@
 ---
 
 ## 세션 기록
+
+### 세션401 (5/7) - 중국어 캐주얼 게임 글 첫 행동 브릿지
+
+**#1 데이터 판정:**
+- 작업 재개 요청에 따라 GA4 2026-04-30..2026-05-06을 조회했다. `/portal/blog/zh/casual-games-for-breaks.html`은 Direct 7 sessions / 0 engaged sessions / 7 pageviews / 평균 체류 0.427s로, 최근 중국어 블로그 중 가장 선명한 첫 행동 이탈 표면이었다.
+- 같은 기간 `/portal/mbti/` Organic Search는 12 sessions / 8 engaged sessions / 평균 체류 433s, `/portal/tests/` Direct는 11 sessions / 7 engaged sessions / 평균 체류 796s로 허브는 여전히 강했다. 따라서 약한 블로그 랜딩을 게임 허브와 즉시 플레이로 연결하는 쪽을 우선했다.
+- GSC 2026-04-30..2026-05-05는 아직 impressions가 얇고 clean quick-win query가 없었다. AdSense는 today `$0.02`, yesterday `$0.07`, last_7_days `$0.22`, this_month `$0.22`, last_30_days `$1.09`로 정상 조회됐다.
+
+**#2 실제 구현:**
+- `projects/portal/blog/zh/casual-games-for-breaks.html` 상단 본문 첫 위치에 quick-start rail을 추가해 `/puzzle-2048/`, `/minesweeper/`, `/snake-game/`, `/portal/games/`로 즉시 이동할 수 있게 했다.
+- 7개 개별 게임 버튼, 중간/하단 CTA, related card에 `data-content-surface`와 `data-target-slug`를 붙이고 CTA 목적지를 더 직접적인 `/portal/games/`로 정렬했다.
+- related 직전 inline Auto ad를 `data-ad-surface="before_related_ad"` / `data-ad-slot="auto"`로 추가해 placeholder 슬롯 없이 수익 표면을 만들었다.
+- `content_view`, `content_cta_click`, `content_related_click`, `content_toc_click`, `content_ad_impression` 계측을 추가해 다음 조회에서 글 진입, 즉시 플레이, related 이동, 광고 노출을 분리해서 볼 수 있게 했다.
+- Article JSON-LD `dateModified`, `projects/portal/sitemap.xml`, `projects/portal/blog/sitemap.xml`의 해당 URL `lastmod`를 `2026-05-07`로 갱신했다.
+
+**#3 검증:**
+- `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, `C:/Program Files/Git/bin/bash.exe scripts/quality-gate.sh projects/portal` 모두 PASS.
+- 로컬 모바일 Playwright 390x844에서 quick card 4개, 게임 링크 7개, CTA 2개, related card 3개, Auto ad slot `auto`, `dateModified=2026-05-07`, horizontal overflow 없음, pageErrors 0, consoleErrors 0 확인.
+- 같은 Playwright 검증에서 `content_view`, `content_ad_impression`, `content_cta_click`, `content_related_click`, `content_toc_click` 이벤트가 `dataLayer`에 들어오는 것을 확인했다.
+- 작업 중 PowerShell `rg` quoting 실패 1건은 규칙대로 `scripts/log-failure.sh codex portal other`에 기록했다.
+
+**#4 다음 우선순위:**
+- 다음 조회에서 `zh-casual-games-for-breaks`의 `content_cta_click` 및 `/portal/games/` 후속 pageview 발생 여부를 확인한다.
+- 이어서 `/portal/blog/zh/lottery-number-guide.html`, `/portal/blog/zh/dopamine-detox-guide-reset-brain.html`, `/portal/` Direct 0-engaged 표면 중 정책 안정성과 내부 이동 가능성이 좋은 쪽을 비교한다.
 
 ### 세션400 (5/1) - Stress Check 첫 행동 회복 + 결과 광고 계측
 
