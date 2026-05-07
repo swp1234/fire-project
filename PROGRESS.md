@@ -66,6 +66,7 @@
 - `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, `C:/Program Files/Git/bin/bash.exe scripts/quality-gate.sh projects/portal` 모두 PASS.
 - 로컬 모바일 Playwright 390x844에서 quick card 4개, 게임 링크 7개, CTA 2개, related card 3개, Auto ad slot `auto`, `dateModified=2026-05-07`, horizontal overflow 없음, pageErrors 0, consoleErrors 0 확인.
 - 같은 Playwright 검증에서 `content_view`, `content_ad_impression`, `content_cta_click`, `content_related_click`, `content_toc_click` 이벤트가 `dataLayer`에 들어오는 것을 확인했다.
+- 라이브 `https://dopabrain.com/portal/blog/zh/casual-games-for-breaks.html?v=401browser1`에서 quick card 4개, 게임 링크 7개, related 3개, Auto ad slot `auto`, `dateModified=2026-05-07`, `content_view`, `content_ad_impression`, pageErrors 0, consoleErrors 0 확인.
 - 작업 중 PowerShell `rg` quoting 실패 1건은 규칙대로 `scripts/log-failure.sh codex portal other`에 기록했다.
 
 **#4 다음 우선순위:**
