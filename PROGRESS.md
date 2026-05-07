@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-07 (Session 401: ZH Casual Games Quick-Start Recovery)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-07 (Session 402: ZH Dopamine Detox Quick-Start Recovery)
 
 ---
 
@@ -47,6 +47,31 @@
 ---
 
 ## 세션 기록
+
+### 세션402 (5/7) - 중국어 Dopamine Detox 글 첫 행동/광고 정리
+
+**#1 데이터 판정:**
+- 세션401에서 조회한 GA4 2026-04-30..2026-05-06 데이터셋을 재사용했다. `/portal/blog/zh/dopamine-detox-guide-reset-brain.html`은 Direct 3 sessions / 0 engaged sessions / 평균 체류 0s로, 중국어 블로그의 다음 약한 랜딩 후보였다.
+- `/portal/blog/zh/lottery-number-guide.html`은 8 sessions / 2 engaged였지만 정책 안정성이 상대적으로 낮아 보류했고, dopamine detox 글은 `/dopamine-type/`, `/pomodoro-timer/`, `/routine-planner/`, `/stress-check/`로 자연스럽게 이어질 수 있어 우선 적용했다.
+
+**#2 실제 구현:**
+- `projects/portal/blog/zh/dopamine-detox-guide-reset-brain.html` 본문 초반에 quick reset rail을 추가해 네 가지 낮은 자극 행동(`/dopamine-type/`, `/pomodoro-timer/`, `/routine-planner/`, `/stress-check/`)으로 바로 이동할 수 있게 했다.
+- 기존 CTA 2개, inline link 3개, related link 6개에 `data-content-surface` / `data-target-slug`를 붙이고 `content_view`, `content_cta_click`, `content_inline_click`, `content_related_click`, `content_toc_click`, `content_ad_impression` 계측을 추가했다.
+- 하단 placeholder ad slot `1234567890`을 제거하고 related 직전 Auto ad surface(`data-ad-surface="before_related_ad"`, `data-ad-slot="auto"`)로 정리했다.
+- FAQ JSON-LD의 깨진 따옴표 구간을 고쳐 Article/FAQPage/BreadcrumbList JSON-LD가 모두 정상 파싱되게 했다.
+- Article JSON-LD `dateModified`, `projects/portal/sitemap.xml`, `projects/portal/blog/sitemap.xml`의 해당 URL `lastmod`를 `2026-05-07`로 갱신했다.
+
+**#3 검증:**
+- `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, `C:/Program Files/Git/bin/bash.exe scripts/quality-gate.sh projects/portal` 모두 PASS.
+- JSON-LD 파싱 검사에서 Article, FAQPage, BreadcrumbList 3개가 정상 파싱됐다.
+- 로컬 모바일 Playwright 390x844에서 quick card 4개, CTA 2개, inline link 3개, related link 6개, Auto ad slot `auto`, `dateModified=2026-05-07`, horizontal overflow 없음, pageErrors 0, consoleErrors 0 확인.
+- 같은 Playwright 검증에서 `content_view`, `content_ad_impression`, `content_cta_click`, `content_inline_click`, `content_related_click`, `content_toc_click` 이벤트가 `dataLayer`에 들어오는 것을 확인했다.
+- 작업 중 Node 검증 스니펫 문법 오타 1건은 규칙대로 `scripts/log-failure.sh codex portal other`에 기록했다.
+
+**#4 다음 우선순위:**
+- root gitlink 반영 후 라이브에서 dopamine detox 페이지가 새 portal 커밋을 받는지 확인한다.
+- 다음 데이터 조회에서는 `zh-dopamine-detox-guide-reset-brain`의 CTA/inline/related 클릭과 `/dopamine-type/`, `/pomodoro-timer/`, `/routine-planner/` 후속 pageview를 본다.
+- 이어서 `/portal/` Direct 0-engaged 또는 `/portal/blog/zh/lottery-number-guide.html`은 정책/광고 안정성을 먼저 비교한 뒤 적용한다.
 
 ### 세션401 (5/7) - 중국어 캐주얼 게임 글 첫 행동 브릿지
 
