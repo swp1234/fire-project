@@ -65,10 +65,10 @@
 - `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, JSON-LD Article 파싱, `C:/Program Files/Git/bin/bash.exe scripts/quality-gate.sh projects/portal` 모두 PASS.
 - 로컬 모바일 Playwright 390x844에서 quick card 4개, game link 3개, CTA 1개, related card 2개, Auto ad slot `auto`, `dateModified=2026-05-07`, horizontal overflow 없음, pageErrors 0, consoleErrors 0 확인.
 - 같은 Playwright 검증에서 `content_view`, `content_ad_impression`, `content_cta_click`, `content_related_click`, `content_toc_click` 이벤트가 `dataLayer`에 들어오는 것을 확인했다.
+- 라이브 `https://dopabrain.com/portal/blog/zh/liulanqi-youxi-2026.html?v=403browser2`에서 quick card 4개, game link 3개, CTA 1개, related 2개, Auto ad slot `auto`, `dateModified=2026-05-07`, `content_view`, `content_ad_impression`, pageErrors 0, consoleErrors 0 확인.
 - 작업 중 PowerShell `rg` quoting 실패 1건은 규칙대로 `scripts/log-failure.sh codex portal other`에 기록했다.
 
 **#4 다음 우선순위:**
-- root gitlink 반영 후 라이브에서 중국어 브라우저 게임 글이 새 portal 커밋을 받는지 확인한다.
 - 다음 데이터 조회에서는 `zh-liulanqi-youxi-2026`의 quick/game CTA 클릭과 `/portal/games/`, `/idle-clicker/`, `/stack-tower/`, `/emoji-merge/` 후속 pageview를 본다.
 - 이어서 `/portal/` Direct 0-engaged는 현재 hub 계측을 보고 실제 클릭 부족인지 세션 품질 문제인지 비교한다.
 
