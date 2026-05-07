@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-07 (Session 402: ZH Dopamine Detox Quick-Start Recovery)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-07 (Session 403: ZH Browser Games Quick-Play Recovery)
 
 ---
 
@@ -47,6 +47,30 @@
 ---
 
 ## 세션 기록
+
+### 세션403 (5/7) - 중국어 브라우저 게임 글 즉시 플레이 브릿지
+
+**#1 데이터 판정:**
+- 세션401 GA4 2026-04-30..2026-05-06 데이터셋을 이어서 사용했다. `/portal/blog/zh/liulanqi-youxi-2026.html`은 Direct 3 sessions / 0 engaged sessions / 평균 체류 0.378s로 중국어 게임 글 중 첫 행동 이탈이 뚜렷했다.
+- `/portal/` 홈도 Direct 4 sessions / 0 engaged였지만, 이미 hero CTA와 hub/ad 계측이 촘촘했다. 반면 이 글은 generic click 이벤트만 있어 즉시 플레이 브릿지와 측정 분리가 더 필요했다.
+
+**#2 실제 구현:**
+- `projects/portal/blog/zh/liulanqi-youxi-2026.html` 본문 첫 위치에 quick-play rail을 추가해 `/idle-clicker/`, `/stack-tower/`, `/emoji-merge/`, `/portal/games/`로 바로 이동할 수 있게 했다.
+- 3개 게임 버튼, 하단 CTA, related card 2개에 `data-content-surface` / `data-target-slug`를 붙이고 하단 CTA 목적지를 `/portal/games/`로 정렬했다.
+- related 직전 inline Auto ad를 `data-ad-surface="before_related_ad"` / `data-ad-slot="auto"`로 추가했다.
+- 기존 generic `gtag('event','click')`를 `content_view`, `content_cta_click`, `content_related_click`, `content_toc_click`, `content_ad_impression` taxonomy로 교체했다.
+- Article JSON-LD `dateModified`, `projects/portal/sitemap.xml`, `projects/portal/blog/sitemap.xml`의 해당 URL `lastmod`를 `2026-05-07`로 갱신했다.
+
+**#3 검증:**
+- `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, JSON-LD Article 파싱, `C:/Program Files/Git/bin/bash.exe scripts/quality-gate.sh projects/portal` 모두 PASS.
+- 로컬 모바일 Playwright 390x844에서 quick card 4개, game link 3개, CTA 1개, related card 2개, Auto ad slot `auto`, `dateModified=2026-05-07`, horizontal overflow 없음, pageErrors 0, consoleErrors 0 확인.
+- 같은 Playwright 검증에서 `content_view`, `content_ad_impression`, `content_cta_click`, `content_related_click`, `content_toc_click` 이벤트가 `dataLayer`에 들어오는 것을 확인했다.
+- 작업 중 PowerShell `rg` quoting 실패 1건은 규칙대로 `scripts/log-failure.sh codex portal other`에 기록했다.
+
+**#4 다음 우선순위:**
+- root gitlink 반영 후 라이브에서 중국어 브라우저 게임 글이 새 portal 커밋을 받는지 확인한다.
+- 다음 데이터 조회에서는 `zh-liulanqi-youxi-2026`의 quick/game CTA 클릭과 `/portal/games/`, `/idle-clicker/`, `/stack-tower/`, `/emoji-merge/` 후속 pageview를 본다.
+- 이어서 `/portal/` Direct 0-engaged는 현재 hub 계측을 보고 실제 클릭 부족인지 세션 품질 문제인지 비교한다.
 
 ### 세션402 (5/7) - 중국어 Dopamine Detox 글 첫 행동/광고 정리
 
