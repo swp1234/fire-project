@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-12 (Session 404: ZH Attachment Style Canonical + First-Click Recovery)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-12 (Session 405: Attachment Style Locale Canonical Cleanup)
 
 ---
 
@@ -47,6 +47,27 @@
 ---
 
 ## 세션 기록
+
+### 세션405 (5/12) - 애착유형 글 다국어 canonical 정리
+
+**#1 데이터 판정:**
+- 새 GA4/GSC/AdSense 조회는 하지 않고, 세션404에서 확인한 `/portal/blog/zh/attachment-style-quiz-guide.html` canonical 누수 패턴을 같은 attachment-style 다국어 묶음 전체로 확장 점검했다.
+- 12개 로케일 중 `fr`, `id`, `pt`, `tr`, `zh`는 이미 self canonical/og/Breadcrumb였고, `de`, `es`, `hi`, `ja`, `ko`, `ru`는 canonical, `og:url`, BreadcrumbList 최종 `item`이 영어 URL을 가리키고 있었다.
+- 해당 상태는 검색 신호를 영어 글로 합치는 리스크가 있어, 콘텐츠 본문보다 메타데이터/사이트맵 hygiene를 우선 처리했다.
+
+**#2 실제 구현:**
+- `projects/portal/blog/{de,es,hi,ja,ko,ru}/attachment-style-quiz-guide.html`의 canonical, `og:url`, BreadcrumbList 최종 item을 각 로케일 self URL로 교정했다.
+- 같은 6개 로케일 Article JSON-LD `dateModified`를 `2026-05-12`로 갱신했다.
+- `projects/portal/sitemap.xml`과 `projects/portal/blog/sitemap.xml`에서 `de/es/hi/ja/ko/ru` attachment-style URL의 `lastmod`를 `2026-05-12`로 맞췄다. 세션404에서 이미 갱신한 `zh`까지 함께 단정 검증했다.
+
+**#3 검증:**
+- `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, `scripts/quality-gate.sh projects/portal` 모두 PASS.
+- 로컬 Node 단정 검증에서 12개 로케일 canonical/og/Breadcrumb self URL과 `de/es/hi/ja/ko/ru/zh` sitemap `lastmod=2026-05-12`를 확인했다.
+- 작업 중 PowerShell의 공백 포함 Git Bash 경로 quoting 실패와 self-closing 태그를 놓친 과도하게 엄격한 단정식 실패를 규칙대로 failure log에 남겼다.
+
+**#4 다음 우선순위:**
+- 다음 데이터 조회에서 attachment-style 묶음의 검색 노출/클릭이 로케일별 URL로 분산 회복되는지 본다.
+- 같은 방식으로 다른 다국어 블로그 묶음에도 영어 canonical 잔류가 있는지 소규모 표본 감사하고, 이후 `zh/snake-game-guide` 또는 세션404에서 남긴 weak-click 후보로 돌아간다.
 
 ### 세션404 (5/12) - 중국어 애착유형 글 canonical + 첫 클릭 회복
 
