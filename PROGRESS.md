@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-07 (Session 403: ZH Browser Games Quick-Play Recovery)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-12 (Session 404: ZH Attachment Style Canonical + First-Click Recovery)
 
 ---
 
@@ -47,6 +47,34 @@
 ---
 
 ## 세션 기록
+
+### 세션404 (5/12) - 중국어 애착유형 글 canonical + 첫 클릭 회복
+
+**#1 데이터 판정:**
+- 작업재개 루틴에 따라 GA4 2026-05-05..2026-05-11, GSC 2026-05-05..2026-05-10, AdSense를 분리 조회했다.
+- GA4에서 Direct는 124 sessions / 45 engaged sessions / engagementRate 36.3%, Organic Search는 83 sessions / 48 engaged sessions / engagementRate 57.8%로 검색 유입 품질이 계속 더 높았다.
+- 강한 표면은 `/portal/mbti` Organic Search 17 sessions / 12 engaged, `/portal/tests` Direct 11 sessions / 8 engaged, `/brain-type` Direct 7 sessions / 6 engaged였다.
+- 최근 중국어 글 중 `/portal/blog/zh/dopamine-detox-guide-reset-brain.html`은 10 sessions / 2 engaged로 세션402 이후 유입은 늘었지만 클릭 이벤트는 아직 약했고, 새 약점 후보로 `/portal/blog/zh/snake-game-guide.html` 5 sessions / 0 engaged와 `/portal/blog/zh/attachment-style-quiz-guide.html` 4 sessions / 0 engaged가 보였다.
+- `/portal/blog/zh/attachment-style-quiz-guide.html`는 중국어 페이지임에도 canonical, og:url, BreadcrumbList가 영어 URL을 가리키고 CTA도 실제 주제인 `/attachment-style/`보다 `/eq-test/`로 먼저 보내고 있어, 검색 정합성과 첫 클릭을 동시에 고칠 수 있는 표면으로 선정했다.
+- GSC는 impressions가 아직 얇고 quick-win query는 없었다. AdSense MCP와 로컬 doctor는 `invalid_grant`를 반환해 수익 숫자는 확정하지 못했고, 규칙대로 실패 로그에 남겼다.
+
+**#2 실제 구현:**
+- `projects/portal/blog/zh/attachment-style-quiz-guide.html`의 canonical, og:url, BreadcrumbList 최종 item을 중국어 self URL로 고치고 Article JSON-LD `dateModified`를 `2026-05-12`로 갱신했다.
+- 본문 상단에 quick attachment rail을 추가해 `/attachment-style/`, `/mbti-love/`, `/eq-test/`, `/portal/tests/`로 바로 이동할 수 있게 했다.
+- 첫 CTA를 `EQ Test`에서 `Attachment Style` 중심으로 재정렬하고, 보조 CTA를 `MBTI Love`로 바꿔 글 주제와 실제 다음 행동을 맞췄다.
+- 중국어로 존재하는 내부 관련 글 링크는 `zh` URL로 정렬하고, CTA/inline/related 링크에 `data-content-surface` / `data-target-slug`를 부여했다.
+- related 직전 inline Auto ad를 `data-ad-surface="before_related_ad"` / `data-ad-slot="auto"`로 정리하고, `content_view`, `content_cta_click`, `content_inline_click`, `content_related_click`, `content_toc_click`, `content_ad_impression` 계측을 추가했다.
+- `projects/portal/sitemap.xml`과 `projects/portal/blog/sitemap.xml`의 해당 URL `lastmod`를 `2026-05-12`로 갱신했다.
+
+**#3 검증:**
+- `git -C projects/portal diff --check`, JSON-LD/canonical/quick-card assertion, `node scripts/portal-hub-locale-audit.js`, `C:/Program Files/Git/bin/bash.exe scripts/quality-gate.sh projects/portal` 모두 PASS.
+- 로컬 모바일 Playwright 390x844에서 quick card 4개, related tracked link 11개, Auto ad slot `auto`, `dateModified=2026-05-12`, horizontal overflow 없음, pageErrors 0, consoleErrors 0 확인.
+- 같은 Playwright 검증에서 `content_view`, `content_ad_impression`, `content_cta_click`, `content_related_click`, `content_toc_click` 이벤트가 `dataLayer`에 들어오는 것을 확인했다.
+- 첫 Playwright 이벤트 검증 스니펫은 GA `dataLayer`의 `arguments` 객체를 일반 배열로만 필터링해 이벤트를 놓쳤고, 실패 로그에 남긴 뒤 `Array.from` 기반으로 재검증해 PASS했다.
+
+**#4 다음 우선순위:**
+- 다음 조회에서 `zh-attachment-style-quiz-guide`의 `content_cta_click`, `content_inline_click`, `content_related_click`과 `/attachment-style/`, `/mbti-love/` 후속 pageview 발생 여부를 본다.
+- 같은 attachment-style locale 묶음에서 다른 언어 canonical/og self URL이 영어로 남아 있는 패턴이 발견됐으므로, 다음 SEO hygiene 세션에서 locale-wide canonical cleanup 후보로 올린다.
 
 ### 세션403 (5/7) - 중국어 브라우저 게임 글 즉시 플레이 브릿지
 
