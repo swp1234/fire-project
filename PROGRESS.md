@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-12 (Session 405: Attachment Style Locale Canonical Cleanup)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-12 (Session 406: Multilingual Blog Canonical Leak Cleanup)
 
 ---
 
@@ -47,6 +47,29 @@
 ---
 
 ## 세션 기록
+
+### 세션406 (5/12) - 다국어 블로그 canonical 누수 전수 정리
+
+**#1 데이터 판정:**
+- 새 GA4/GSC/AdSense 조회는 하지 않고, 세션405에서 나온 "다른 다국어 묶음에도 영어 canonical 잔류가 있는지 감사" 후속 작업으로 진행했다.
+- `projects/portal/blog/{lang}/*.html` 전수 감사에서 self URL과 다른 canonical 계열 메타가 246개 보였지만, 그 안에는 정상적인 locale index canonical(`/blog/de/`)과 영어 내부 중복 canonical, 의도된 redirect stub이 섞여 있었다.
+- 고확신 범위를 "비영어 실제 Article 페이지가 같은 slug의 다른 로케일 URL을 canonical/og/Breadcrumb로 가리키는 경우"로 좁혔고, `http-equiv=refresh`/`window.location.replace` 기반 redirect stub 170개는 의도된 canonical로 보고 제외했다.
+
+**#2 실제 구현:**
+- redirect가 아닌 실제 글 52개에서 canonical 47개, `og:url` 48개, BreadcrumbList 최종 item 14개를 각 로케일 self URL로 교정했다.
+- 같은 52개 글의 Article JSON-LD `dateModified`를 `2026-05-12`로 갱신했다.
+- `projects/portal/sitemap.xml`과 `projects/portal/blog/sitemap.xml`에서 해당 52개 URL의 `lastmod`를 `2026-05-12`로 맞췄다.
+- hreflang alternate와 x-default는 언어 연결 신호라서 변경하지 않았고, redirect stub 역시 그대로 유지했다.
+
+**#3 검증:**
+- 로컬 단정 검증에서 non-redirect Article 페이지의 same-slug cross-locale canonical/og/Breadcrumb 누수가 0개임을 확인했다. 의도적으로 제외한 redirect 누수는 170개로 남아 있다.
+- `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, `scripts/quality-gate.sh projects/portal` 모두 PASS.
+- 샘플 diff로 `de/boundaries-setting-complete-guide.html`은 canonical/og/Breadcrumb/dateModified만 바뀌고 hreflang은 유지됐으며, `es/kpop-position-test-guide.html` redirect stub에는 diff가 없음을 확인했다.
+- 작업 초반 PowerShell `rg` 파이프라인 quoting/count 문제가 다시 발생해 failure log에 남겼다.
+
+**#4 다음 우선순위:**
+- 다음 조회에서 `boundaries`, `gaslighting`, `people-pleasing`, `how-to-improve-emotional-intelligence` 등 이번에 정리한 반복 묶음의 로케일별 노출/클릭 분산을 본다.
+- 남은 canonical mismatch는 redirect/index/영어 내부 중복 canonical로 분류됐으므로, 다음 SEO hygiene 세션에서는 redirect stub 목록이 의도된 전략인지 별도 검토한다.
 
 ### 세션405 (5/12) - 애착유형 글 다국어 canonical 정리
 
