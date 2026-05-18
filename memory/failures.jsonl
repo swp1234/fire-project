@@ -1,0 +1,5 @@
+{"ts":"2026-05-18T13:18:23Z","agent":"codex","app":"adsense","category":"mcp","error":"AdSense MCP returned invalid_grant during 2026-05-18 weekly check","resolved":false}
+{"ts":"2026-05-18T13:18:23Z","agent":"codex","app":"ga4","category":"mcp","error":"GA4 pagePath event query used camelCase filter keys and returned invalid dimension_filter structure during 2026-05-18 weekly check","resolved":false}
+{"ts":"2026-05-18T13:18:23Z","agent":"codex","app":"playwright","category":"other","error":"PowerShell quoting expanded or stripped node -e Playwright script syntax during 2026-05-18 weekly check","resolved":false}
+{"ts":"2026-05-18T13:33:56Z","agent":"codex","app":"ai-personality","category":"other","error":"PowerShell stripped regex quotes in node -e ai-personality assertion during 2026-05-18 continuation","resolved":false}
+{"ts":"2026-05-18T14:25:30Z","agent":"codex","app":"portal-sitemap","category":"edit","error":"Over-broad sitemap lastmod patch initially changed stress-relief-tools-2026.html during session409; corrected before verification and should use loc-anchored sitemap edits","resolved":false}

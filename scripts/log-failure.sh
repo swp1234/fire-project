@@ -14,8 +14,12 @@ APP="${2:-unknown}"
 CATEGORY="${3:-other}"
 DESC="${4:?Description required}"
 
-LOG_FILE="C:/Users/박상우/.claude/projects/E--Fire-Project/memory/failures.jsonl"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+LOG_FILE="${FAILURE_LOG_FILE:-$PROJECT_ROOT/memory/failures.jsonl}"
 TIMESTAMP="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+mkdir -p "$(dirname "$LOG_FILE")"
 
 # Escape quotes in description for valid JSON
 DESC_ESCAPED="$(echo "$DESC" | sed 's/"/\\"/g')"

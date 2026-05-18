@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-12 (Session 406: Multilingual Blog Canonical Leak Cleanup)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-18 (Session 409: EN HSP Article Quick Rail + Content Tracking)
 
 ---
 
@@ -47,6 +47,87 @@
 ---
 
 ## 세션 기록
+
+### 세션409 (5/18) - EN HSP 글 quick rail + 콘텐츠 계측 보강
+
+**#1 데이터 판정:**
+- 세션407/408의 같은 주간 데이터셋을 재사용했다. `/portal/blog/en/15-signs-highly-sensitive-person.html`은 6 sessions / 1 engaged, Singapore Direct 5 sessions / 1 engaged로, 본문은 존재하지만 상단 다음 행동 경로와 세부 링크 계측이 약한 저성과 후보였다.
+- `/mbti-love/`도 후보였지만 이미 앱 계측과 퍼널 보강 이력이 상대적으로 충분해, 이번에는 HSP 영어 글의 읽기 후 행동과 수익 계측을 좁게 개선했다.
+
+**#2 실제 구현:**
+- `projects/portal/blog/en/15-signs-highly-sensitive-person.html` 상단에 HSP 다음 행동 quick rail을 추가했다. 연결 대상은 `/hsp-test/`, `/stress-check/`, `/emotion-temp/`, `/portal/blog/en/nervous-system-regulation-techniques.html`이다.
+- intro/recovery CTA, inline links, related links, quick rail cards에 `data-content-surface`와 `data-target-slug`를 보강했다.
+- 기존 placeholder 수동 광고 슬롯 `1234567890/1234567891`을 Auto ads convention인 `data-ad-slot="auto"`로 정리하고, `before_related_ad`, `bottom_ad` 광고 surface 및 `content_ad_impression` 계측을 추가했다.
+- `content_related_click`이 quick rail과 related section을 모두 구분해서 기록하도록 확장하고, `content_inline_click`/`content_cta_click`에도 `target_slug`를 포함시켰다.
+- Article JSON-LD `dateModified`와 `projects/portal/sitemap.xml`, `projects/portal/blog/sitemap.xml`의 해당 URL `lastmod`를 `2026-05-18`로 갱신했다.
+
+**#3 검증:**
+- `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, `scripts/quality-gate.sh projects/portal` PASS.
+- Node 정적 검증으로 quick card 4개, tracked target slug 18개, Auto ad slot 2개, placeholder slot 제거, sitemap lastmod 2곳, `dateModified=2026-05-18`을 확인했다.
+- 로컬 모바일 Playwright 390x844에서 horizontal overflow 없음, quick rail이 첫 CTA보다 먼저 노출됨, `content_view`, `content_related_click`, `content_cta_click`, `content_inline_click`, `content_ad_impression`이 dataLayer에 들어오는 것을 확인했다.
+- sitemap 수정 중 한 번 넓은 치환이 `stress-relief-tools-2026.html`의 lastmod를 잘못 바꿨고, 최종 검증 전 HSP 항목만 바뀌도록 되돌렸다. 같은 패턴을 workspace-local failure log에 남겼다.
+
+**#4 다음 우선순위:**
+- 다음 조회에서 HSP 영어 글의 `content_related_click` 중 quick rail surface와 `/hsp-test/`, `/stress-check/`, `/emotion-temp/` 후속 pageview를 본다.
+- Direct/Singapore 노이즈는 단일 페이지 UX 결함으로 단정하지 말고, 반복되는 0-engaged landing만 좁게 골라 보강한다.
+
+### 세션408 (5/18) - AI Personality 첫 화면 CTA + 이벤트 공백 회복
+
+**#1 데이터 판정:**
+- 세션407의 같은 주간 데이터셋을 이어서 쓰되, Singapore Direct와 `/ai-personality/`만 좁혀서 재진단했다.
+- Singapore는 119 sessions 중 117 sessions가 desktop Direct였고, 99개 랜딩에 얇게 퍼져 있어 특정 페이지 결함보다는 저품질 스캔/웹뷰성 유입으로 판단했다.
+- `/ai-personality/`는 4 sessions / 0 engaged였고 pagePath 이벤트도 `first_visit`, `page_view`, `session_start`뿐이었다. 앱에는 기존 `quiz_start`/`quiz_complete` 코드가 있었지만 실제 최신 주간에는 시작 이벤트가 보이지 않아 첫 화면 시작 마찰과 이벤트 공백을 동시에 고칠 수 있는 표면으로 선정했다.
+
+**#2 실제 구현:**
+- `projects/ai-personality/index.html`에서 시작 버튼과 소요시간 안내를 결과 캐러셀보다 먼저, 그리고 특징 리스트보다 먼저 보이도록 재배치했다.
+- SoftwareApplication JSON-LD `dateModified`를 `2026-05-18`로 추가했다.
+- 결과 inline ad wrapper에 `data-ad-surface="result_inline_ad"`를 붙이고, related card 6개에 `data-related-slug`를 추가했다.
+- `projects/ai-personality/js/app.js`에 `track()`/`trackOnce()` helper와 `IntersectionObserver` 기반 CTA 노출 계측을 추가했다.
+- 새 이벤트로 `ai_personality_intro_view`, `ai_personality_intro_cta_view`, `ai_personality_start_click`, `test_start`, `ai_personality_option_select`, `result_view`, `ai_personality_result_view`, `ai_personality_ad_impression`, `ai_personality_related_click`, `ai_personality_share_click`, `ai_personality_retry_click`을 추가했다.
+- `projects/portal/sitemap.xml`의 `/ai-personality/` lastmod를 `2026-05-18`로 갱신했고, 기존 root sitemap에 빠져 있던 `/ai-personality/` 항목을 `projects/root-domain/sitemap.xml`에 추가했다.
+
+**#3 검증:**
+- `node --check projects/ai-personality/js/app.js`, `git -C projects/ai-personality diff --check`, `scripts/quality-gate.sh projects/ai-personality` PASS.
+- `scripts/quality-gate.sh projects/portal`, `scripts/quality-gate.sh projects/root-domain` PASS.
+- 로컬 모바일 Playwright 390x844에서 시작 버튼이 첫 화면 안쪽 `bottom=622px`에 있고 특징 리스트/캐러셀보다 먼저 보이는 것을 확인했다.
+- 같은 Playwright 흐름에서 10문항 완료 후 `ai_personality_intro_view`, `ai_personality_intro_cta_view`, `ai_personality_start_click`, `quiz_start`, `test_start`, `ai_personality_option_select` 10회, `result_view`, `ai_personality_result_view`, `quiz_complete`, `ai_personality_ad_impression`, `ai_personality_related_click`이 모두 `dataLayer`에 들어오는 것을 확인했다.
+- PowerShell `node -e` regex quoting이 한 번 더 깨져 workspace-local failure log에 기록했고, here-string 방식으로 재검증했다.
+
+**#4 다음 우선순위:**
+- 다음 조회에서 `/ai-personality/`의 `ai_personality_intro_cta_view -> ai_personality_start_click -> quiz_start/test_start -> result_view` 전환율을 본다.
+- Singapore Direct는 개별 페이지 UX 수정 대상으로 보지 말고, 반복되면 analytics 필터/스팸성 유입 분리 기준으로 다룬다.
+- 다음 개발 후보는 `/mbti-love/` Direct 4 sessions / 1 engaged 또는 영어 HSP 글 `/portal/blog/en/15-signs-highly-sensitive-person.html` 6 sessions / 1 engaged 중 이벤트 공백이 더 큰 쪽으로 비교한다.
+
+### 세션407 (5/18) - 주간점검 + 중국어 공의존 글 첫 행동 회복
+
+**#1 데이터 판정:**
+- Codex 격리 스크립트는 실행했지만 현재 API 세션이 TTY가 아니라 `stdin is not a terminal`로 재실행 단계는 건너뛰었다. 이후 Claude CLI는 실행하지 않았다.
+- GA4는 2026-05-11..2026-05-17을 2026-05-04..2026-05-10과 비교했다. Direct는 138 -> 216 sessions로 늘었지만 engagementRate가 34.1% -> 19.9%로 떨어졌고, Organic Search는 87 -> 127 sessions / 52 -> 73 engaged sessions로 증가하면서 engagementRate 57.5%를 유지했다.
+- 강한 표면은 `/portal/mbti/` 28 sessions / 19 engaged / 평균 1864s, `/` 16 sessions / 9 engaged, `/portal/tests/` 8 sessions / 6 engaged였다. 국가별로는 Singapore 119 sessions / engagementRate 10.9%가 저품질 Direct 증가를 설명하는 핵심 신호였고, China 111 sessions / 37 engaged가 계속 큰 표면이었다.
+- GSC 2026-05-11..2026-05-16은 아직 매우 얇아서 `hypervigilance sleep symptoms` 2 impressions / position 64.5만 보였고 clean quick-win은 없었다.
+- HSP는 랜딩 기준 7 sessions / 1 engaged로 약해 보였지만 pagePath 이벤트에서는 `hsp_intro_cta_view` 32, `hsp_intro_start_click` 17, `quiz_start/test_start/result_view` 17/17/13이 보여 하드 결함보다 Direct 품질 문제로 판단했다.
+- 새 구현 타깃은 `/portal/blog/zh/codependency-signs-relationship.html`로 정했다. 해당 페이지는 4 Direct sessions / 0 engaged였고 이벤트가 `first_visit`, `page_view`, `session_start`뿐이라 첫 행동과 계측이 모두 비어 있었다.
+- AdSense MCP는 `invalid_grant`를 반환해 수익/정책 수치는 확정하지 못했다.
+
+**#2 실제 구현:**
+- `projects/portal/blog/zh/codependency-signs-relationship.html` 상단에 quick relationship rail을 추가해 `/attachment-style/`, `/red-flag-test/`, `/toxic-trait-test/`, `/trauma-response/`로 바로 이동할 수 있게 했다.
+- 첫 CTA, 중간 CTA, 하단 CTA, inline link, related links에 `data-content-surface`와 `data-target-slug`를 부여하고 절대 URL로 정렬했다.
+- related 직전 inline Auto ad를 `data-ad-surface="before_related_ad"` / `data-ad-slot="auto"`로 추가했다.
+- `content_view`, `content_cta_click`, `content_inline_click`, `content_related_click`, `content_toc_click`, `content_ad_impression` 계측을 추가했다.
+- Article JSON-LD `dateModified`와 `projects/portal/sitemap.xml`, `projects/portal/blog/sitemap.xml`의 해당 URL `lastmod`를 `2026-05-18`로 갱신했다.
+- Codex 격리 규칙과 충돌하던 `scripts/log-failure.sh`, `scripts/analyze-failures.sh`의 Claude 전용 실패 로그 경로를 workspace-local `memory/failures.jsonl`로 변경했다. 동시에 `grep -P` 의존을 제거하고 Node 기반 JSONL 파서로 바꿔 Windows Git Bash에서도 주간 실패 분석이 깨지지 않게 했다.
+
+**#3 검증:**
+- `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, `scripts/quality-gate.sh projects/portal` 모두 PASS.
+- 로컬 Node 단정 검증에서 zh codependency article의 `dateModified=2026-05-18`, quick card 4개, tracked link 17개, Auto ad slot `auto`, sitemap lastmod 2곳을 확인했다.
+- 로컬 모바일 Playwright 390x844에서 quick card 4개, tracked link 17개, Auto ad slot `auto`, horizontal overflow 없음, `content_view`, `content_ad_impression`, `content_cta_click`, `content_toc_click`, `content_inline_click`, `content_related_click` 이벤트 발생을 확인했다. 로컬 호스트에서 외부 Google/AdSense 리소스가 403/400을 낸 것은 페이지 스크립트 오류가 아니어서 제외했다.
+- `scripts/analyze-failures.sh` 재실행 결과 workspace-local 실패 로그 3건을 category/app/agent별로 정상 집계했다.
+
+**#4 다음 우선순위:**
+- 다음 조회에서 `zh-codependency-signs-relationship`의 `content_view -> content_cta_click/content_inline_click/content_related_click`과 `/attachment-style/`, `/red-flag-test/`, `/toxic-trait-test/`, `/trauma-response/` 후속 pageview를 본다.
+- Direct 저품질 증가의 원인으로 보이는 Singapore 유입과 `(not set)` 랜딩 12 sessions / 0 engaged를 별도 점검한다.
+- AdSense `invalid_grant`가 반복되므로 OAuth/로컬 MCP 복구를 독립 작업으로 분리한다.
+- 새 실패 로그 위치가 `memory/failures.jsonl`로 바뀌었으므로, 다음 주부터 Claude runtime/config에 영향을 주지 않고 Codex 실패 패턴을 누적한다.
 
 ### 세션406 (5/12) - 다국어 블로그 canonical 누수 전수 정리
 
