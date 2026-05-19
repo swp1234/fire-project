@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-18 (Session 409: EN HSP Article Quick Rail + Content Tracking)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-19 (Session 410: ZH Snake Game Guide Quick Rail + Tracking)
 
 ---
 
@@ -47,6 +47,31 @@
 ---
 
 ## 세션 기록
+
+### 세션410 (5/19) - ZH Snake Game Guide quick rail + 게임 계측 보강
+
+**#1 데이터 판정:**
+- GA4 최신 7일 `2026-05-12..2026-05-18`을 직전 `2026-05-05..2026-05-11`과 비교했다. Organic Search는 83 -> 137 sessions, engagementRate 57.8% -> 61.3%로 좋아졌고, Direct는 124 -> 269 sessions로 커졌지만 engagementRate가 36.3% -> 16.7%로 떨어졌다.
+- GSC는 `2026-05-12..2026-05-18`, `2026-05-12..2026-05-17`, `2026-05-12..2026-05-16` 모두 빈 응답이라 아직 최신 검색 판단에는 쓰지 않았다. 직전 주 `2026-05-05..2026-05-11`에는 `dopamine quiz`, `hypervigilance sleep symptoms` 등 소량 impression만 있었다.
+- AdSense MCP는 다시 `invalid_grant`를 반환해 수익 스냅샷은 제외했다.
+- `/hsp-test/`는 Direct landing 기준 8 sessions / 1 engaged로 약해 보였지만, pagePath 이벤트를 보면 `hsp_intro_cta_view` 38, `hsp_intro_start_click/quiz_start/test_start` 21, `result_view` 15로 실제 퍼널은 살아 있었다.
+- 이번 구현 대상은 `/portal/blog/zh/snake-game-guide.html`로 정했다. 최신 7일에 5 Direct sessions / 1 engaged 수준이고, pagePath 이벤트가 `page_view`, `session_start`, `first_visit`, `scroll`, `user_engagement`뿐이라 콘텐츠 클릭/광고/게임 진입 계측이 비어 있었다.
+
+**#2 실제 구현:**
+- `projects/portal/blog/zh/snake-game-guide.html` 상단 통계 블록 아래에 quick game rail을 추가했다. 연결 대상은 `/snake-game/`, `/portal/games/`, `/block-puzzle/`, `/reaction-test/`이다.
+- intro/mid CTA, quick game cards, related links에 `data-content-surface`와 `data-target-slug`를 붙였다.
+- 기존 Auto ad 2개에 `data-ad-surface="top_ad"` / `data-ad-surface="mid_ad"`를 추가하고 `content_ad_impression` 계측을 붙였다.
+- 기존 progress bar 스크립트는 유지하면서 `content_view`, `content_cta_click`, `content_game_click`, `content_toc_click`, `content_related_click`, `content_ad_impression`을 추가했다.
+- Article JSON-LD `dateModified`와 `projects/portal/sitemap.xml`, `projects/portal/blog/sitemap.xml`의 해당 URL `lastmod`를 `2026-05-19`로 갱신했다.
+
+**#3 검증:**
+- `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, `scripts/quality-gate.sh projects/portal` PASS.
+- Node 정적 검증으로 quick card 4개, target slug 12개, ad surface 2개, Auto ad slot 2개, JSON-LD `dateModified=2026-05-19`, sitemap lastmod 2곳을 확인했다.
+- 로컬 모바일 Playwright 390x844에서 horizontal overflow 없음, quick rail이 TOC보다 먼저 노출됨, `content_view`, `content_game_click`, `content_cta_click`, `content_toc_click`, `content_related_click`, `content_ad_impression` 2회가 dataLayer에 들어오는 것을 확인했다.
+
+**#4 다음 우선순위:**
+- 다음 조회에서 `zh-snake-game-guide`의 `content_game_click` 및 `/snake-game/`, `/portal/games/`, `/block-puzzle/`, `/reaction-test/` 후속 pageview를 본다.
+- Direct 급증은 여전히 광범위 노이즈일 가능성이 높으므로, 앱 자체 이벤트가 살아 있는 표면은 재수리하지 말고 콘텐츠 계측이 비어 있는 landing을 우선한다.
 
 ### 세션409 (5/18) - EN HSP 글 quick rail + 콘텐츠 계측 보강
 
