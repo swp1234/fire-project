@@ -6,6 +6,17 @@ const path = require('path');
 const HOST = '127.0.0.1';
 const PORT = 8766;
 const PROJECTS_ROOT = path.resolve(__dirname, '..', 'projects');
+const CRASH_PATTERNS = [
+  'Uncaught',
+  'ReferenceError',
+  'TypeError',
+  'SyntaxError',
+  'RangeError',
+  'Unhandled',
+  'Cannot read propert',
+  'is not defined',
+  'is not a function',
+];
 
 const MIME_TYPES = {
   '.css': 'text/css; charset=utf-8',
@@ -139,7 +150,21 @@ async function blockExternalRequests(page) {
 
 async function instrumentAnalytics(page) {
   await page.addInitScript(() => {
-    const captured = [];
+    const readStored = () => {
+      try {
+        return JSON.parse(sessionStorage.getItem('__analyticsEvents') || '[]');
+      } catch {
+        return [];
+      }
+    };
+    const writeStored = (events) => {
+      try {
+        sessionStorage.setItem('__analyticsEvents', JSON.stringify(events));
+      } catch {
+        // Best-effort test instrumentation only.
+      }
+    };
+    const captured = readStored();
     const dataLayer = [];
     const basePush = Array.prototype.push;
 
@@ -151,6 +176,7 @@ async function instrumentAnalytics(page) {
             name: args[1],
             params: args[2] || {},
           });
+          writeStored(captured);
         }
       }
       return basePush.apply(this, items);
@@ -162,6 +188,37 @@ async function instrumentAnalytics(page) {
       window.dataLayer.push(arguments);
     };
   });
+}
+
+function isCrashError(text) {
+  const lower = (text || '').toLowerCase();
+  return CRASH_PATTERNS.some((pattern) => lower.includes(pattern.toLowerCase()));
+}
+
+async function readRuntimeDiagnostics(page) {
+  const pageErrors = typeof page.pageErrors === 'function'
+    ? await page.pageErrors({ filter: 'since-navigation' }).catch(() => [])
+    : [];
+  const consoleMessages = typeof page.consoleMessages === 'function'
+    ? await page.consoleMessages({ filter: 'since-navigation' }).catch(() => [])
+    : [];
+
+  return {
+    pageErrors: pageErrors.map((error) => error.message || String(error)),
+    consoleErrors: consoleMessages
+      .filter((message) => message.type() === 'error' && isCrashError(message.text()))
+      .map((message) => message.text()),
+  };
+}
+
+async function assertAriaHealth(page, scenarioName) {
+  if (typeof page.ariaSnapshot !== 'function') return;
+
+  const snapshot = await page.ariaSnapshot({ depth: 4, mode: 'ai', timeout: 2000 });
+  const hasUsefulNode = /- (heading|button|link|main|navigation|article|region|list|textbox)\b/.test(snapshot || '');
+  if (!hasUsefulNode) {
+    throw new Error(`${scenarioName}: aria snapshot is empty or lacks useful landmarks`);
+  }
 }
 
 const scenarios = [
@@ -291,6 +348,46 @@ const scenarios = [
       await clickAndWait(page, '.related-card');
     },
   },
+  {
+    name: 'portal-retention-personalization',
+    path: '/brainrot-score/',
+    expected: ['cross_promo_click', 'hub_personalized_click'],
+    async run(page) {
+      await page.waitForSelector('.cp-card');
+      await page.waitForFunction(() => {
+        const raw = localStorage.getItem('dopabrain_personalize');
+        if (!raw) return false;
+        const data = JSON.parse(raw);
+        return data.recent && data.recent[0] === 'brainrot-score' &&
+          data.visits && data.visits['brainrot-score'] >= 1;
+      });
+
+      const destinationId = await page.locator('.cp-card').first().getAttribute('data-destination-id');
+      await preventNavigation(page, '.cp-card');
+      await clickAndWait(page, '.cp-card');
+      await assertEvents(page, ['cross_promo_click']);
+      await page.waitForFunction((id) => {
+        const data = JSON.parse(localStorage.getItem('dopabrain_personalize') || '{}');
+        return data.recent && data.recent[0] === id &&
+          data.clicks && data.clicks[id] >= 1;
+      }, destinationId);
+
+      await page.goto(`http://${HOST}:${PORT}/portal/`, {
+        waitUntil: 'domcontentloaded',
+        timeout: 30000,
+      });
+      await page.waitForSelector('#personalized-section:not(.hidden)');
+
+      const recentCount = await page.locator('#recent-apps .p-card').count();
+      const recommendCount = await page.locator('#recommend-apps .p-card').count();
+      if (recentCount < 1 || recommendCount < 1) {
+        throw new Error(`Personalized portal cards missing: recent=${recentCount}, recommended=${recommendCount}`);
+      }
+
+      await preventNavigation(page, '#personalized-section .p-card');
+      await clickAndWait(page, '#personalized-section .p-card');
+    },
+  },
 ];
 
 async function runScenario(browser, scenario) {
@@ -309,22 +406,30 @@ async function runScenario(browser, scenario) {
       timeout: 30000,
     });
     await page.waitForTimeout(800);
+    await assertAriaHealth(page, scenario.name);
     await scenario.run(page);
     await page.waitForTimeout(250);
     await assertEvents(page, scenario.expected);
 
-    if (pageErrors.length > 0) {
-      throw new Error(`pageerror: ${pageErrors.join(' | ')}`);
+    const diagnostics = await readRuntimeDiagnostics(page);
+    const allPageErrors = pageErrors.concat(diagnostics.pageErrors);
+    if (allPageErrors.length > 0) {
+      throw new Error(`pageerror: ${[...new Set(allPageErrors)].join(' | ')}`);
+    }
+    if (diagnostics.consoleErrors.length > 0) {
+      throw new Error(`console.error: ${[...new Set(diagnostics.consoleErrors)].join(' | ')}`);
     }
 
     return { name: scenario.name, ok: true };
   } catch (error) {
     const eventNames = await readEventNames(page).catch(() => []);
+    const diagnostics = await readRuntimeDiagnostics(page).catch(() => ({ pageErrors: [], consoleErrors: [] }));
     return {
       name: scenario.name,
       ok: false,
       error: error.message,
       events: eventNames,
+      diagnostics,
     };
   } finally {
     await page.close();

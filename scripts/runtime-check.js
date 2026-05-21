@@ -15,6 +15,11 @@ const PROJECT_ROOT = path.resolve(__dirname, '..');
 const PROJECTS_DIR = path.join(PROJECT_ROOT, 'projects');
 const LOAD_TIMEOUT = 10000;
 const OBSERVE_TIME = 5000;
+const ARTIFACT_MODE = process.env.HARNESS_ARTIFACTS || 'failure';
+const TRACE_MODE = process.env.HARNESS_TRACE || 'failure';
+const RUN_ID = new Date().toISOString().replace(/[:.]/g, '-');
+const ARTIFACT_ROOT = path.join(PROJECT_ROOT, 'logs', 'harness-artifacts', 'runtime', RUN_ID);
+const DEFAULT_RESULTS_PATH = path.join(PROJECT_ROOT, 'logs', 'harness-artifacts', 'runtime', 'latest-results.json');
 
 // Error patterns that indicate a crash
 const CRASH_PATTERNS = [
@@ -27,6 +32,85 @@ const CRASH_PATTERNS = [
 function isCrashError(text) {
   const lower = text.toLowerCase();
   return CRASH_PATTERNS.some(p => lower.includes(p.toLowerCase()));
+}
+
+function sanitizeName(name) {
+  return name.replace(/[^a-z0-9._-]+/gi, '-');
+}
+
+function shouldWriteArtifacts(pass) {
+  if (ARTIFACT_MODE === '0' || ARTIFACT_MODE === 'never') return false;
+  if (ARTIFACT_MODE === 'always') return true;
+  return !pass;
+}
+
+function shouldKeepTrace(pass) {
+  if (TRACE_MODE === '0' || TRACE_MODE === 'never') return false;
+  if (TRACE_MODE === 'always') return true;
+  return !pass;
+}
+
+function dedupeErrors(errors) {
+  const seen = new Set();
+  return errors.filter((error) => {
+    const key = `${error.phase}:${error.text}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function getResultsPath() {
+  if (!process.env.RUNTIME_RESULTS_PATH) return DEFAULT_RESULTS_PATH;
+  return path.isAbsolute(process.env.RUNTIME_RESULTS_PATH)
+    ? process.env.RUNTIME_RESULTS_PATH
+    : path.join(PROJECT_ROOT, process.env.RUNTIME_RESULTS_PATH);
+}
+
+async function collectBufferedDiagnostics(page) {
+  const errors = [];
+  if (typeof page.pageErrors === 'function') {
+    const pageErrors = await page.pageErrors({ filter: 'since-navigation' }).catch(() => []);
+    for (const error of pageErrors) {
+      errors.push({ phase: 'pageErrors()', text: error.message || String(error) });
+    }
+  }
+
+  if (typeof page.consoleMessages === 'function') {
+    const consoleMessages = await page.consoleMessages({ filter: 'since-navigation' }).catch(() => []);
+    for (const message of consoleMessages) {
+      if (message.type() === 'error' && isCrashError(message.text())) {
+        errors.push({ phase: 'consoleMessages()', text: message.text() });
+      }
+    }
+  }
+
+  return errors;
+}
+
+async function readAriaSnapshot(page) {
+  if (typeof page.ariaSnapshot !== 'function') return '';
+  try {
+    return await page.ariaSnapshot({ depth: 4, mode: 'ai', timeout: 2000 });
+  } catch {
+    return '';
+  }
+}
+
+async function writeFailureArtifacts(page, appName, payload) {
+  const appArtifactDir = path.join(ARTIFACT_ROOT, sanitizeName(appName));
+  fs.mkdirSync(appArtifactDir, { recursive: true });
+
+  const jsonPath = path.join(appArtifactDir, 'result.json');
+  fs.writeFileSync(jsonPath, JSON.stringify(payload, null, 2));
+
+  try {
+    await page.screenshot({ path: path.join(appArtifactDir, 'failure.png'), fullPage: true });
+  } catch {
+    // Screenshots are best-effort diagnostics.
+  }
+
+  return appArtifactDir;
 }
 
 function getAllApps() {
@@ -61,10 +145,16 @@ async function testApp(browser, appName) {
     // Suppress permission dialogs
     permissions: [],
   });
+  const shouldStartTrace = TRACE_MODE !== '0' && TRACE_MODE !== 'never';
+  if (shouldStartTrace) {
+    await context.tracing.start({ screenshots: true, snapshots: true, sources: true, title: appName });
+  }
   const page = await context.newPage();
 
   const errors = [];
   let crashed = false;
+  let ariaSnapshot = '';
+  let artifactPath = '';
 
   // Collect console errors
   page.on('console', msg => {
@@ -97,6 +187,7 @@ async function testApp(browser, appName) {
   if (!crashed) {
     // Phase 1: observe for 5 seconds
     await page.waitForTimeout(OBSERVE_TIME);
+    ariaSnapshot = await readAriaSnapshot(page);
 
     // Simulate a click in center to "start" the game
     try {
@@ -107,10 +198,32 @@ async function testApp(browser, appName) {
     await page.waitForTimeout(OBSERVE_TIME);
   }
 
+  errors.push(...await collectBufferedDiagnostics(page));
+  const finalErrors = dedupeErrors(errors);
+  const pass = finalErrors.length === 0;
+  const result = { appName, url, pass, errors: finalErrors, crashed, ariaSnapshot };
+
+  if (shouldWriteArtifacts(pass)) {
+    artifactPath = await writeFailureArtifacts(page, appName, result);
+    result.artifactPath = artifactPath;
+  }
+
+  if (shouldStartTrace) {
+    if (shouldKeepTrace(pass)) {
+      if (!artifactPath) {
+        artifactPath = path.join(ARTIFACT_ROOT, sanitizeName(appName));
+        fs.mkdirSync(artifactPath, { recursive: true });
+        result.artifactPath = artifactPath;
+      }
+      await context.tracing.stop({ path: path.join(artifactPath, 'trace.zip') });
+    } else {
+      await context.tracing.stop();
+    }
+  }
+
   await context.close();
 
-  const pass = errors.length === 0;
-  return { appName, url, pass, errors, crashed };
+  return result;
 }
 
 async function main() {
@@ -141,6 +254,9 @@ async function main() {
       console.log(line);
     } else {
       console.log(line);
+      if (result.artifactPath) {
+        console.log(`         artifact: ${result.artifactPath}`);
+      }
       for (const e of result.errors) {
         console.log(`         (${e.phase}) ${e.text.substring(0, 200)}`);
       }
@@ -155,8 +271,10 @@ async function main() {
   console.log(`\n  Summary: ${passed} passed, ${failed} failed out of ${results.length}\n`);
 
   // Output JSON for machine consumption
-  const jsonPath = path.join(PROJECT_ROOT, 'scripts', 'runtime-check-results.json');
+  const jsonPath = getResultsPath();
+  fs.mkdirSync(path.dirname(jsonPath), { recursive: true });
   fs.writeFileSync(jsonPath, JSON.stringify(results, null, 2));
+  console.log(`  Results: ${jsonPath}`);
 
   process.exit(failed > 0 ? 1 : 0);
 }

@@ -53,9 +53,14 @@ SOUNDSCAPE_*.txt
 *.ps1
 *.js
 !scripts/analytics-event-check.js
+!scripts/harness-workflow-check.js
 !scripts/portal-hub-locale-audit.js
 !_common/**/*.js
 nul
+
+# Harness run artifacts (generated)
+logs/harness-artifacts/
+logs/harness-workflow/
 
 # MCP 서버 (로컬 전용)
 .mcp-servers/

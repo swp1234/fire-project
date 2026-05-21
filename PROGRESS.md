@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-21 (Session 412: Retention Personalization Bridge + Cache Refresh)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-22 (Session 413: Playwright 1.60 Harness Workflow Upgrade)
 
 ---
 
@@ -47,6 +47,34 @@
 ---
 
 ## 세션 기록
+
+### 세션413 (5/22) - Playwright 1.60 harness workflow upgrade
+
+**#1 최신 기능 판단:**
+- 공식 Playwright release notes를 확인해 최신 npm 버전이 `1.60.0`임을 검증하고, 로컬 `playwright`를 `1.58.2`에서 `1.60.0`으로 올렸다. 신규 브라우저 바이너리가 필요해 `npx playwright install chromium`도 실행했다.
+- 이번 하네스에 실제로 유용한 기능은 `page.ariaSnapshot({ mode: 'ai' })`, `page.pageErrors({ filter: 'since-navigation' })`, `page.consoleMessages({ filter: 'since-navigation' })`, failure trace retention 계열로 판단했다. UI Mode/HTML report 개선은 현재 raw Playwright script 기반 하네스에는 직접 적용하지 않았다.
+
+**#2 실제 구현:**
+- `scripts/analytics-event-check.js`를 보강했다. analytics capture를 `sessionStorage`에 보존해 같은 scenario 안에서 페이지 이동이 있어도 이벤트 목록이 유지되도록 했고, Playwright 1.60 buffered `pageErrors()`/`consoleMessages()`를 추가로 검사한다.
+- analytics smoke에 `portal-retention-personalization` scenario를 추가했다. `/brainrot-score/` 방문이 `dopabrain_personalize` recent/visits에 저장되는지, cross-promo click이 destination clicks/recent와 `cross_promo_click`으로 이어지는지, `/portal/` 개인화 카드가 렌더링되고 `hub_personalized_click`이 발생하는지 검증한다.
+- analytics scenario마다 `page.ariaSnapshot({ depth: 4, mode: 'ai' })` 기반 기본 접근성/빈 화면 체크를 추가했다.
+- `scripts/runtime-check.js`에 failure artifact workflow를 추가했다. 실패 시 `logs/harness-artifacts/runtime/<timestamp>/<app>/result.json`, `failure.png`, `trace.zip`을 남기고, runtime 결과 기본 출력 위치를 추적 파일 `scripts/runtime-check-results.json`에서 `logs/harness-artifacts/runtime/latest-results.json`으로 옮겼다.
+- `scripts/harness-workflow-check.js`를 새로 추가했다. `git diff --check`, Playwright version floor, syntax checks, portal locale audit, quality gate, analytics event smoke, runtime smoke를 한 명령으로 순차 실행하고 `logs/harness-workflow/latest.json` 및 timestamped `.json/.md` report를 생성한다.
+- `package.json`에 `npm run harness`, `npm run harness:analytics`, `npm run harness:runtime` scripts를 추가했다.
+- `docs/HARNESS-WORKFLOW.md`를 추가해 fast path, targeted run, artifact paths, Playwright 1.60 기능 사용처, retention coverage를 정리했다.
+- `.gitignore`에 새 하네스 스크립트 추적 예외와 generated harness log/artifact ignore 규칙을 추가했다.
+
+**#3 검증:**
+- `node --check scripts/harness-workflow-check.js`, `scripts/analytics-event-check.js`, `scripts/runtime-check.js` PASS.
+- `node scripts/analytics-event-check.js` PASS: 9/9 scenarios.
+- `node scripts/runtime-check.js brainrot-score` PASS.
+- `npm run harness` PASS: git diff check, Playwright 1.60 floor, script syntax, portal locale audit, portal quality gate, analytics smoke 9/9, runtime smoke 1/1.
+- `npm run harness -- --skip-analytics` PASS로 빠른 경로도 확인했다.
+- `git diff --check` PASS.
+
+**#4 다음 우선순위:**
+- 다음 앱 수정부터는 최소 `npm run harness -- --skip-analytics`를 빠른 회귀로 사용하고, portal/analytics/retention 계층을 건드릴 때는 full `npm run harness`를 사용한다.
+- 실패 artifact가 실제 regression triage에 충분한지 다음 실패 케이스에서 확인하고, 필요하면 HAR/filmstrip 저장까지 확장한다.
 
 ### 세션412 (5/21) - Retention personalization bridge + service worker cache refresh
 
