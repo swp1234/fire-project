@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-19 (Session 410: ZH Snake Game Guide Quick Rail + Tracking)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-21 (Session 411: EN Brainrot Trend Article + Tracking)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **109개** (projects/ 109 디렉토리, 앱 109 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1562개** |
+| 블로그 | **1563개** |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **58** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
@@ -47,6 +47,31 @@
 ---
 
 ## 세션 기록
+
+### 세션411 (5/21) - EN Brainrot trend article + 최신 트렌드형 테스트 허브
+
+**#1 데이터/트렌드 판정:**
+- Codex 격리 스크립트는 실행했지만 현재 API 세션이 TTY가 아니라 `stdin is not a terminal`로 새 Codex 프로세스 재실행은 건너뛰었다. 이후 Claude CLI는 실행하지 않았다.
+- GA4 최신 7일 `2026-05-14..2026-05-20`을 직전 `2026-05-07..2026-05-13`과 비교했다. Organic Search는 92 -> 143 sessions로 늘고 평균 세션 시간이 185s -> 526s로 좋아졌으며, Direct는 131 -> 383 sessions로 커졌지만 engagementRate는 28.2% -> 17.0%로 더 약해져 여전히 노이즈 가능성이 높다.
+- 강한 표면은 `/portal/mbti` 30 sessions / 19 engaged / 평균 1728s, `/portal/tests` 13 sessions / 8 engaged / 평균 612s, 루트 `/` 21 sessions / 11 engaged였다. `/hsp-test`는 landing 기준 20 sessions / 4 engaged로 약해 보이지만 이벤트는 `hsp_intro_cta_view` 39, `hsp_intro_start_click` 24, `quiz_start` 97 전체 중 기여가 보여 앱 하드 결함으로 단정하지 않았다.
+- GSC `2026-05-14..2026-05-19`는 빈 응답이어서 최신 검색 판단에는 쓰지 않았다. AdSense MCP는 `invalid_grant`를 반환했고 workspace-local failure log에 남겼다.
+- 최신 트렌드 조사는 May 2026 Reels/소셜 신호 기준으로 `AI is going to take your job`, `You think I'm pretty?`, `Expose your ... addiction`, AI text-to-song, aura points, brainrot/AI slop/Great Meme Reset 계열을 확인했다. 기존 앱 `brainrot-score`, `aura-score`, `delulu-score`, `detox-timer`와 직접 연결되는 영어 트렌드형 글이 가장 작은 신규 표면으로 판단됐다.
+
+**#2 실제 구현:**
+- 신규 영어 블로그 `projects/portal/blog/en/brainrot-score-test-2026.html`을 추가했다. 주제는 `Brainrot Score Test 2026: Aura Points, AI Slop, and What Your Feed Says About You`로, 최신 밈/트렌드를 evergreen 검색형 설명과 결합했다.
+- 상단 quick trend rail을 추가해 `/brainrot-score/`, `/aura-score/`, `/delulu-score/`, `/detox-timer/`로 바로 이동하게 했다. 본문 하단 related에는 `npc-test`, `rizz-score`, `dopamine-type`, `social-battery`까지 포함해 바이럴 테스트 네트워크로 분배되게 했다.
+- 새 글에 Article/FAQ JSON-LD, canonical/OG/Twitter 메타, Auto ads 2곳, cross-promo, `content_view`, `content_test_click`, `content_cta_click`, `content_inline_click`, `content_related_click`, `content_ad_impression` 계측을 넣었다.
+- `projects/portal/blog/en/index.html`에 새 글을 Tests 카테고리의 첫 카드로 등록하고, `projects/portal/sitemap.xml`과 `projects/portal/blog/sitemap.xml`에 `2026-05-21` lastmod로 추가했다.
+
+**#3 검증:**
+- `git diff --check`, `node scripts/portal-hub-locale-audit.js`, `scripts/quality-gate.sh projects/portal` PASS.
+- Node 정적 검증으로 quick card 4개, tracked target slug 17개, ad surface 2개, Article JSON-LD 파싱, `dateModified=2026-05-21`, blog index 등록, portal/blog sitemap 등록을 확인했다.
+- 첫 정적 검증은 기대치를 18 target slug로 잘못 둬 실패했고, 실제 설계상 17개가 정상이라 failure log에 남긴 뒤 기준을 article-specific 값으로 고쳐 재검증했다.
+- 로컬 모바일 Playwright 390x844에서 horizontal overflow 없음, canonical/dateModified 정상, quick card 4개와 ad surface 2개 확인, `content_view`, `content_test_click`, `content_cta_click`, `content_related_click`이 dataLayer에 들어오는 것을 확인했다.
+
+**#4 다음 우선순위:**
+- 다음 조회에서 `brainrot-score-test-2026`의 `content_test_click`, `/brainrot-score/`, `/aura-score/`, `/delulu-score/`, `/detox-timer/` 후속 pageview를 본다.
+- Direct 급증은 계속 노이즈로 분리하고, Organic Search 품질이 좋은 만큼 영어/중국어 trend+test 허브형 글을 추가할 때는 기존 바이럴 앱으로 연결되는 quick rail과 이벤트 계측을 기본 패턴으로 유지한다.
 
 ### 세션410 (5/19) - ZH Snake Game Guide quick rail + 게임 계측 보강
 
