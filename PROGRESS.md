@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-21 (Session 411: EN Brainrot Trend Article + Tracking)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-21 (Session 412: Retention Personalization Bridge + Cache Refresh)
 
 ---
 
@@ -47,6 +47,33 @@
 ---
 
 ## 세션 기록
+
+### 세션412 (5/21) - Retention personalization bridge + service worker cache refresh
+
+**#1 데이터/트렌드 판단:**
+- 2026-05-21 세션411에서 이미 GA4/GSC/AdSense 최신 상태를 확인했기 때문에 같은 날짜의 GA/GSC/AdSense 재조회는 하지 않았다.
+- 최신 트렌드 MCP를 얕게 확인했다. Reels 기준 `AI is going to take your job`, `You think I'm pretty?`, `Turning texts into songs`, `Expose your ... addiction` 계열이 확인되어 다음 콘텐츠 후보로 유지한다. TikTok API는 invalid/failed response, YouTube KR trending은 빈 응답이었다.
+- 기존 포털에는 Speculation Rules 프리패치가 이미 적용되어 있었으므로, 이번에는 새 브라우저 기능 도입을 과하게 늘리지 않고 `scheduler.postTask` 지원 브라우저에서는 개인화 저장을 background priority로 넘기고, 미지원 브라우저는 `requestIdleCallback`/`setTimeout`으로 안전하게 fallback하도록 했다.
+
+**#2 실제 구현:**
+- `projects/portal/js/personalize.js`에 `visits`, `lastVisit`, `lastCategory` 스키마를 추가하고 기존 localStorage 데이터를 normalize하도록 했다. 공개 API에는 `trackVisit(appId, category)`를 추가했고 추천 점수에 방문 빈도 보너스를 반영했다.
+- `projects/portal/js/cross-promo.js`에서 각 앱 페이지 방문 시 현재 앱을 `dopabrain_personalize`의 recent/visits에 저장하도록 했다. 크로스프로모션 카드 클릭도 destination id/category 기준으로 clicks/catClicks/recent에 반영되어 `/portal/` 재방문 시 "Recently Used"와 "For You"가 실제 앱 사용 이력을 기반으로 채워진다.
+- 크로스프로모션 카드에 `data-destination-id`, `data-destination-category`를 추가했고, 기존 `cross_promo_click` GA 이벤트는 유지했다.
+- `projects/portal/js/app.js`에서 개인화 카드 클릭을 `hub_personalized_click` 이벤트로 계측하도록 추가했다. surface는 `recent`/`recommended`로 구분한다.
+- `projects/portal/sw.js` cache name을 `dopabrain-portal-v3`로 올리고 `i18n.js`, `nav-optimizations.js`, `personalize.js`, `cross-promo.js`를 precache 목록에 포함해 기존 방문자에게 개인화 변경이 더 안정적으로 반영되도록 했다.
+
+**#3 검증:**
+- `git -C projects/portal diff --check` PASS.
+- `node --check projects/portal/js/personalize.js`, `cross-promo.js`, `app.js`, `sw.js` PASS.
+- `node scripts/portal-hub-locale-audit.js` PASS.
+- `scripts/quality-gate.sh projects/portal` PASS.
+- Local Playwright desktop: `http://127.0.0.1:4175/brainrot-score/` 방문이 `dopabrain_personalize.visits['brainrot-score']`와 recent에 저장됨을 확인했다. 크로스프로모션 카드 클릭 후 destination app이 recent/clicks에 반영되고 `cross_promo_click` 이벤트가 발생했다.
+- Local Playwright desktop: 이후 `/portal/`에서 personalized section이 표시되고 recent 2개, recommend 6개가 렌더링됨을 확인했다. 개인화 카드 클릭 시 `hub_personalized_click` 이벤트가 발생했다.
+- Local Playwright mobile 390x844: `/brainrot-score/`와 `/portal/` 모두 horizontal overflow 0.
+
+**#4 다음 우선순위:**
+- 다음 데이터 조회에서 `hub_personalized_click`, `cross_promo_click`, `/portal/` 재방문 후 다음 앱 page_view 전환을 함께 본다.
+- 신규 콘텐츠 후보는 "AI is going to take your job" 형식의 직업/번아웃 테스트형 글, "You think I'm pretty?" 형식의 obsession/delulu 테스트형 글, AI text-to-song/DM mood 계열 콘텐츠를 우선 검토한다.
 
 ### 세션411 (5/21) - EN Brainrot trend article + 최신 트렌드형 테스트 허브
 
