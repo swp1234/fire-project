@@ -68,6 +68,7 @@
 - Node 정적 검증으로 quick card 4개, tracked target slug 17개, ad surface 2개, Article JSON-LD 파싱, `dateModified=2026-05-21`, blog index 등록, portal/blog sitemap 등록을 확인했다.
 - 첫 정적 검증은 기대치를 18 target slug로 잘못 둬 실패했고, 실제 설계상 17개가 정상이라 failure log에 남긴 뒤 기준을 article-specific 값으로 고쳐 재검증했다.
 - 로컬 모바일 Playwright 390x844에서 horizontal overflow 없음, canonical/dateModified 정상, quick card 4개와 ad surface 2개 확인, `content_view`, `content_test_click`, `content_cta_click`, `content_related_click`이 dataLayer에 들어오는 것을 확인했다.
+- 배포: `projects/portal` commit `b6889a5`를 `origin/main`에 푸시하고, 루트 진행 로그/서브모듈 포인터 commit `9b694e4`를 `origin/master`에 푸시했다. 첫 live Playwright는 visible selector 대기 조건이 맞지 않아 타임아웃됐지만 HTTP body에서 새 글을 확인했고, 재검증에서 `https://dopabrain.com/portal/blog/en/brainrot-score-test-2026.html?v=411c`가 quick card 4개, ad surface 2개, canonical, horizontal overflow 없음, `content_view`/`content_test_click` 이벤트를 정상 제공하는 것을 확인했다.
 
 **#4 다음 우선순위:**
 - 다음 조회에서 `brainrot-score-test-2026`의 `content_test_click`, `/brainrot-score/`, `/aura-score/`, `/delulu-score/`, `/detox-timer/` 후속 pageview를 본다.
