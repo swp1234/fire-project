@@ -70,6 +70,8 @@
 - Local Playwright desktop: `http://127.0.0.1:4175/brainrot-score/` 방문이 `dopabrain_personalize.visits['brainrot-score']`와 recent에 저장됨을 확인했다. 크로스프로모션 카드 클릭 후 destination app이 recent/clicks에 반영되고 `cross_promo_click` 이벤트가 발생했다.
 - Local Playwright desktop: 이후 `/portal/`에서 personalized section이 표시되고 recent 2개, recommend 6개가 렌더링됨을 확인했다. 개인화 카드 클릭 시 `hub_personalized_click` 이벤트가 발생했다.
 - Local Playwright mobile 390x844: `/brainrot-score/`와 `/portal/` 모두 horizontal overflow 0.
+- 배포: `projects/portal` commit `5c5c850`을 `origin/main`에 푸시하고, 루트 진행 로그/서브모듈 포인터 commit `f41c34c`를 `origin/master`에 푸시했다. 라이브 `curl`에서 `personalize.js`의 `trackVisit`, `cross-promo.js`의 `scheduler.postTask`/`data-destination-id`, `sw.js`의 `dopabrain-portal-v3`, `app.js`의 `hub_personalized_click` 반영을 확인했다.
+- Live Playwright mobile: `https://dopabrain.com/brainrot-score/?v=412live` 방문 후 current app이 localStorage recent/visits에 저장되고, `https://dopabrain.com/portal/?v=412live`에서 personalized section, recent 1개, recommend 6개, horizontal overflow 0을 확인했다.
 
 **#4 다음 우선순위:**
 - 다음 데이터 조회에서 `hub_personalized_click`, `cross_promo_click`, `/portal/` 재방문 후 다음 앱 page_view 전환을 함께 본다.
