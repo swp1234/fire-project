@@ -56,6 +56,7 @@
 - Direct는 422 -> 555 sessions로 커졌지만 engagementRate 15.2% -> 13.2%, 평균 세션 시간 40.8s -> 16.1s로 더 약해져 계속 노이즈/저품질 유입으로 분리한다. 국가별로는 Singapore 317 sessions / 2.8% engagement / 1.6s가 Direct 품질 저하의 큰 축이었다.
 - GSC `2026-05-23..2026-05-29`는 page 기준 루트 1 click / 2 impressions 외에 1 impression짜리 URL만 소량 확인됐다. query+page 조합은 응답 행이 없어 quick-win 판단에는 쓰지 않았다.
 - AdSense MCP tool과 로컬 `doctor` 모두 `invalid_grant`를 반환했다. `%USERPROFILE%/.config/adsense-mcp/`에 credentials/token/settings는 존재하므로 설정 경로 문제가 아니라 refresh token 재동의가 필요한 상태로 판정하고 workspace-local failure log에 남겼다.
+- 사용자가 제공한 OAuth redirect URL로 같은 세션 안에서 AdSense 토큰을 재발급했다. `doctor`와 MCP tool 모두 복구됐고, `dopabrain.com`은 `READY`, Auto ads enabled, policy issues `{}` 상태로 확인됐다. 수익 스냅샷은 today `$0.21`, yesterday `$0.04`, last_7_days `$0.41`, this_month `$1.77`, last_30_days `$1.58`, unpaid `$2.20`이다.
 - 개선 대상은 `/portal/blog/zh/emotional-regulation-techniques.html`로 정했다. 최신 주간 landing 기준 17 sessions / 0 engaged / 평균 1.97s로 상단 행동 경로와 `content_*` 계측이 비어 있었다.
 
 **#2 실제 구현:**
@@ -73,9 +74,10 @@
 - 로컬 모바일 Playwright 390x844 PASS: quick card 4개, ad slot `auto`, `dateModified=2026-05-30`, horizontal overflow 0, `content_view`, `content_ad_impression`, quick/CTA/related click 이벤트 발생, pageErrors 0, consoleErrors 0.
 - 배포 후 라이브 `https://dopabrain.com/portal/blog/zh/emotional-regulation-techniques.html?v=414browser`에서 quick card 4개, ad slot `auto`, `dateModified=2026-05-30`, horizontal overflow 0, `content_view`, `content_ad_impression`, quick/CTA/related click 이벤트, pageErrors 0, consoleErrors 0을 확인했다.
 - `npm run build` in `.mcp-servers/adsense-mcp` PASS. `node build/index.js auth-url`는 stored credentials 기준 정상 JSON을 반환했고, `doctor`는 예상대로 `invalid_grant`를 유지해 사용자 OAuth 승인만 남은 상태임을 확인했다.
+- OAuth redirect URL 적용 후 `node build/index.js doctor` PASS. MCP tool 기준 `adsense_get_earnings_summary`, `adsense_list_sites`, `adsense_list_policy_issues`, `adsense_list_alerts`, `adsense_list_payments`, `adsense_list_ad_clients` 정상 응답을 확인했다.
 
 **#4 다음 우선순위:**
-- 사용자가 Google OAuth redirect URL 또는 code를 제공하면 `node .mcp-servers/adsense-mcp/build/index.js init --code="<...>"`로 AdSense 토큰을 갱신하고 `doctor` / MCP earnings summary를 재검증한다.
+- AdSense는 복구 완료됐으므로 다음 주간 조회부터 GA4 -> GSC -> AdSense 순서로 다시 수익/정책/알림까지 함께 판정한다.
 - 다음 GA4 조회에서는 `zh-emotional-regulation-techniques`의 `content_cta_click`, `content_related_click`, `/emotion-temp/`, `/eq-test/`, `/stress-check/`, `/hsp-test/` 후속 page_view를 확인한다.
 - Organic Search 품질이 계속 좋으므로 zh/en 감정·테스트형 winner article은 quick rail + Auto ad + `content_*` 계측 패턴을 기본값으로 유지한다.
 
