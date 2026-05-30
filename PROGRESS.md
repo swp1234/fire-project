@@ -71,6 +71,7 @@
 - 정적 Node 단정 검증 PASS: quick card 4개, Auto ad slot `auto`, placeholder slot 제거, `dateModified=2026-05-30`, `content_*` 이벤트 5종, portal/blog sitemap lastmod 갱신 확인.
 - `scripts/quality-gate.sh projects/portal` PASS.
 - 로컬 모바일 Playwright 390x844 PASS: quick card 4개, ad slot `auto`, `dateModified=2026-05-30`, horizontal overflow 0, `content_view`, `content_ad_impression`, quick/CTA/related click 이벤트 발생, pageErrors 0, consoleErrors 0.
+- 배포 후 라이브 `https://dopabrain.com/portal/blog/zh/emotional-regulation-techniques.html?v=414browser`에서 quick card 4개, ad slot `auto`, `dateModified=2026-05-30`, horizontal overflow 0, `content_view`, `content_ad_impression`, quick/CTA/related click 이벤트, pageErrors 0, consoleErrors 0을 확인했다.
 - `npm run build` in `.mcp-servers/adsense-mcp` PASS. `node build/index.js auth-url`는 stored credentials 기준 정상 JSON을 반환했고, `doctor`는 예상대로 `invalid_grant`를 유지해 사용자 OAuth 승인만 남은 상태임을 확인했다.
 
 **#4 다음 우선순위:**
