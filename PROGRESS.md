@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-30 (Session 414: Weekly Feedback + ZH Emotional Regulation Funnel + AdSense OAuth Recovery Path)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-30 (Session 415: AI Job Anxiety Trend Article)
 
 ---
 
@@ -47,6 +47,35 @@
 ---
 
 ## 세션 기록
+
+### 세션415 (5/30) - AI Job Anxiety Trend Article
+
+**#1 트렌드 판단:**
+- AdSense OAuth/영구 지속 설정은 사용자가 보류하기로 해서 더 건드리지 않았다.
+- 최신 트렌드 스캔에서 Reels `AI is going to take your job`, `I'm trying`, job/career anxiety 흐름이 확인됐고, Twitter/Reddit 쪽에서도 AI 불안, 취업 불안, 사이드허슬 번아웃, 구직 스트레스가 반복적으로 보였다.
+- 웹 확인으로 2026년 직장 AI 불안 근거도 보강했다. JFF는 2026-03-11 자료에서 근로자들이 AI를 일자리/경제 안정성에 더 부정적으로 보고 있고 고용주 지원이 부족하다고 보고했으며, Monster는 2026-05-08 졸업생 리포트에서 89%가 AI/자동화의 entry-level role 대체를 우려한다고 밝혔다. Workday는 2026-05-27 AI가 생산성과 번아웃에는 긍정 신호를 주지만 직장 연결 결핍을 키울 수 있다고 봤고, PwC는 2026-03-31 분석에서 불확실성을 숨기면 anxiety가 커진다고 설명했다.
+- 기존 EN 블로그에는 `ai-personality-test-guide.html`, `brainrot-score-test-2026.html`, burnout/stress/career 글은 있었지만 `AI job anxiety / will AI take my job / AI burnout at work`를 직접 겨냥한 SEO 허브가 없어서 새 글을 선정했다.
+
+**#2 실제 구현:**
+- `projects/portal/blog/en/ai-job-anxiety-2026.html`을 새로 추가했다. 제목은 `AI Job Anxiety 2026: Will AI Take My Job?`이고, SEO meta/canonical/OG/Twitter, Article JSON-LD, FAQPage, BreadcrumbList를 포함했다.
+- 글 상단에 quick career rail 4개를 추가했다: `/burnout-test/`, `/stress-check/`, `/ai-personality/`, `/mbti-career/`. 본문은 real career risk vs anxiety spiral, quick self-check, next action plan, burnout/stress path로 구성했다.
+- AdSense는 기존 Auto ads 관례에 맞춰 `data-ad-slot="auto"`를 사용했고, `before_related_ad` 및 `bottom_ad` surface를 넣었다.
+- GA4 콘텐츠 이벤트는 `content_view`, `content_cta_click`, `content_test_click`, `content_inline_click`, `content_related_click`, `content_ad_impression`으로 맞췄고, `content_group: 'career_trends'`, `content_slug: 'ai-job-anxiety-2026'`, `page_language: 'en'` 메타를 붙였다.
+- `projects/portal/blog/en/index.html`에 새 글을 추가하고 Tests 카운트를 51로 갱신했다. `projects/portal/sitemap.xml`, `projects/portal/blog/sitemap.xml`에도 새 URL과 `2026-05-30` lastmod를 추가했다.
+
+**#3 검증:**
+- `git -C projects/portal diff --check` PASS.
+- 정적 Node 단정 검증 PASS: dateModified `2026-05-30`, quick card 4개, Auto ad slot 2개 이상, placeholder slot 없음, `content_*` 이벤트 6종, blog index entry/count, root/blog sitemap entry 확인.
+- `node scripts/portal-hub-locale-audit.js` PASS.
+- `scripts/quality-gate.sh projects/portal` PASS.
+- 로컬 Playwright desktop 1366x900 및 mobile 390x844 PASS: quick card 4개, Auto ad slot, JSON-LD date, horizontal overflow 0, `content_view`, `content_test_click`, `content_cta_click`, `content_inline_click`, `content_related_click`, `content_ad_impression` 확인.
+- Portal commit `0840e56` (`Add AI job anxiety trend article`)을 `origin/main`에 푸시했다. Pre-push quality gate도 PASS.
+- 라이브 `https://dopabrain.com/portal/blog/en/ai-job-anxiety-2026.html?v=415browser`에서 desktop/mobile 모두 title/H1, quick card 4개, Auto ad slot, `dateModified=2026-05-30`, horizontal overflow 0, 모든 `content_*` 이벤트, pageErrors 0, consoleErrors 0을 확인했다.
+- 라이브 `/portal/blog/en/`, `/portal/sitemap.xml`, `/portal/blog/sitemap.xml`에서도 새 slug와 Tests count 51, `2026-05-30` lastmod가 반영된 것을 확인했다.
+
+**#4 다음 우선순위:**
+- 다음 GA4 조회에서 `ai-job-anxiety-2026`의 `content_test_click`, `content_cta_click`, `/burnout-test/`, `/stress-check/`, `/ai-personality/`, `/mbti-career/` 후속 page_view를 확인한다.
+- Organic Search 품질이 계속 Direct보다 좋으므로 최신 트렌드형 EN 글은 테스트/도구 quick rail + Auto ad + `content_*` 이벤트 패턴을 기본 템플릿으로 유지한다.
 
 ### 세션414 (5/30) - Weekly Feedback + ZH Emotional Regulation Funnel + AdSense OAuth Recovery Path
 
