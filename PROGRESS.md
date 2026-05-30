@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-30 (Session 415: AI Job Anxiety Trend Article)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-05-30 (Session 416: Article Scaffold Generator)
 
 ---
 
@@ -47,6 +47,29 @@
 ---
 
 ## 세션 기록
+
+### Session 416 (5/30) - Article Scaffold Generator
+
+**#1 Improvement target:**
+- Reviewed the current work loop after the user's "개선" request. The biggest repeated cost was not idea selection itself, but rebuilding the same blog article shell each time: HTML metadata, Article/FAQ/Breadcrumb JSON-LD, Auto ads, `content_*` analytics, quick rail, related links, blog index entry, sitemap entries, and verification notes.
+- Chose a workflow improvement over another content page because it reduces future cycle time for every trend-led EN/ZH article and lowers the chance of missing ad or analytics instrumentation.
+
+**#2 Implementation:**
+- Added `scripts/create-blog-article.js`, a safe-by-default scaffold generator. It supports `--print-sample`, `--spec <json> --dry-run`, and `--spec <json> --write`.
+- The generator creates a new portal blog HTML file with Article/FAQ/Breadcrumb JSON-LD, GA4, AdSense Auto ads, quick action rail, CTA, related links, source links, `content_view`, `content_cta_click`, `content_test_click`, `content_inline_click`, `content_related_click`, and `content_ad_impression`.
+- It updates `projects/portal/sitemap.xml` and `projects/portal/blog/sitemap.xml` for every language. For English posts, it also updates `projects/portal/blog/en/index.html` and increments the matching category count.
+- Added `npm run content:scaffold` to `package.json`, added a tracked sample spec at `docs/blog-article-spec.sample.json`, documented the routine in `docs/OPERATIONS.md`, and added a `.gitignore` exception so the new script is tracked despite the repo-wide `*.js` ignore rule.
+
+**#3 Validation:**
+- `node --check scripts/create-blog-article.js` PASS.
+- `node scripts/create-blog-article.js --print-sample` produced valid JSON.
+- `docs/blog-article-spec.sample.json` parsed successfully.
+- `node scripts/create-blog-article.js --spec docs/blog-article-spec.sample.json --dry-run` PASS and planned exactly four changes: create the article, update portal sitemap, update blog sitemap, and update English blog index. Dry run confirmed no portal article file was created.
+- `git diff --check` PASS.
+- `npm run harness -- --skip-analytics --skip-runtime` PASS, including portal locale audit and portal quality gate.
+
+**#4 Next use:**
+- For the next trend article, prepare a JSON spec first and run the scaffold generator before manual copy editing. This should make the remaining work editorial rather than mechanical.
 
 ### 세션415 (5/30) - AI Job Anxiety Trend Article
 

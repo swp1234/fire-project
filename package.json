@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "content:scaffold": "node scripts/create-blog-article.js",
     "harness": "node scripts/harness-workflow-check.js",
     "harness:analytics": "node scripts/analytics-event-check.js",
     "harness:runtime": "node scripts/runtime-check.js"

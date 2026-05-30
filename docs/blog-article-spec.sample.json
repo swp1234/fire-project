@@ -1,0 +1,93 @@
+{
+  "lang": "en",
+  "slug": "example-trend-article-2026",
+  "title": "Example Trend Article 2026: What To Do Next",
+  "h1": "Example Trend Article 2026: What To Do Next",
+  "description": "A practical trend-aware guide that connects a search topic to a DopaBrain test or tool.",
+  "keywords": ["example trend", "free test", "DopaBrain"],
+  "category": "tests",
+  "tag": "Trend",
+  "tagColor": "#14b8a6",
+  "readTime": "8 min",
+  "themeColor": "#14b8a6",
+  "contentGroup": "trend_growth",
+  "contentSlug": "example-trend-article-2026",
+  "ogImage": "https://dopabrain.com/portal/img/og/burnout-test.png",
+  "date": "2026-05-30",
+  "quickRail": {
+    "title": "Start With the Best Next Step",
+    "description": "Pick the tool that matches your current state.",
+    "cards": [
+      {
+        "title": "Burnout Test",
+        "description": "Check whether this topic is landing on top of exhaustion.",
+        "url": "https://dopabrain.com/burnout-test/",
+        "surface": "quick_burnout_test",
+        "targetSlug": "burnout-test"
+      },
+      {
+        "title": "Stress Check",
+        "description": "Separate planning from high-alert stress.",
+        "url": "https://dopabrain.com/stress-check/",
+        "surface": "quick_stress_check",
+        "targetSlug": "stress-check"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Take the Free Test",
+    "body": "Use the test first, then come back to the guide with a clearer state.",
+    "label": "Start the Test ->",
+    "url": "https://dopabrain.com/burnout-test/",
+    "surface": "intro_burnout_test",
+    "targetSlug": "burnout-test"
+  },
+  "sections": [
+    {
+      "heading": "What This Trend Means",
+      "paragraphs": [
+        "Explain the trend in plain language and connect it to the reader intent.",
+        "Keep the first section practical, not just descriptive."
+      ]
+    },
+    {
+      "heading": "Quick Self-Check",
+      "paragraphs": ["Use this checklist before choosing the next action."],
+      "bullets": [
+        "This topic keeps showing up in your feed.",
+        "You are not sure whether the concern is practical or emotional.",
+        "You want a concrete next step."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Is this a diagnosis?",
+      "answer": "No. DopaBrain articles and tests are educational and reflective, not medical, legal, or financial advice."
+    },
+    {
+      "question": "What should I do next?",
+      "answer": "Start with one small action, then use a relevant DopaBrain test or tool to clarify the pattern."
+    }
+  ],
+  "related": [
+    {
+      "label": "Burnout Test",
+      "url": "https://dopabrain.com/burnout-test/",
+      "surface": "related_burnout_test",
+      "targetSlug": "burnout-test"
+    },
+    {
+      "label": "Stress Check",
+      "url": "https://dopabrain.com/stress-check/",
+      "surface": "related_stress_check",
+      "targetSlug": "stress-check"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Google Search Central helpful content",
+      "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+    }
+  ]
+}

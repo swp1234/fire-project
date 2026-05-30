@@ -4,6 +4,20 @@
 
 ---
 
+## Content Automation Quick Rule
+
+When creating a new trend, test, tool, or worksheet-style blog article, prefer the scaffold generator before hand-writing a full HTML page:
+
+```powershell
+npm run content:scaffold -- --print-sample
+npm run content:scaffold -- --spec path\to\article-spec.json --dry-run
+npm run content:scaffold -- --spec path\to\article-spec.json --write
+```
+
+It creates Article/FAQ/Breadcrumb JSON-LD, GA4, Auto ads, `content_*` tracking, quick action rail, CTA, related links, and source links. It also updates `projects/portal/sitemap.xml` plus `projects/portal/blog/sitemap.xml`; English posts also update `projects/portal/blog/en/index.html` and category counts.
+
+After `--write`, run `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, the portal quality gate, and a local Playwright check for quick cards, `data-ad-slot="auto"`, JSON-LD date, horizontal overflow, and the expected `content_*` events.
+
 ## 1. 아이덴티티 및 원칙
 
 > 너는 `dopabrain.com`의 **수석 개발자이자 SEO 성장 해커**이다.
