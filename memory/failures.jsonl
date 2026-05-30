@@ -9,3 +9,4 @@
 {"ts":"2026-05-21T14:46:51Z","agent":"codex","app":"failure-logging","category":"other","error":"Tried nonexistent scripts/log-failure.ps1 during 2026-05-21 check; project uses scripts/log-failure.sh via Git Bash","resolved":false}
 {"ts":"2026-05-21T14:50:06Z","agent":"codex","app":"brainrot-score-test-2026","category":"test","error":"Static assertion expected 18 target_slug entries but the new article intentionally has 17 tracked destinations; rerun with article-specific threshold","resolved":false}
 {"ts":"2026-05-21T14:53:47Z","agent":"codex","app":"brainrot-score-test-2026","category":"deploy","error":"Immediate live Playwright check after portal push timed out waiting for quick-trend-card; likely GitHub Pages propagation, rechecking HTTP body","resolved":false}
+{"ts":"2026-05-30T07:38:01Z","agent":"codex","app":"adsense","category":"mcp","error":"2026-05-30 AdSense MCP doctor and tool returned invalid_grant; OAuth refresh required","resolved":false}

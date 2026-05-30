@@ -38,6 +38,14 @@ node "E:/Fire Project/.mcp-servers/adsense-mcp/build/index.js" init \
   --credentials-file="C:/path/to/client_secret.apps.googleusercontent.com.json"
 ```
 
+비대화형 Codex 세션에서는 먼저 동의 URL만 출력한 뒤, 브라우저 승인 후 받은 전체 redirect URL 또는 `code` 값을 `--code`로 넣습니다.
+
+```bash
+node "E:/Fire Project/.mcp-servers/adsense-mcp/build/index.js" auth-url
+node "E:/Fire Project/.mcp-servers/adsense-mcp/build/index.js" init \
+  --code="<full redirect URL or authorization code>"
+```
+
 실행 흐름:
 
 1. 터미널에 출력된 Google 동의 URL을 브라우저에서 엽니다.
