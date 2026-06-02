@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-02 (Session 417: Animal Personality vs MBTI Trend Article)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-02 (Session 418: EN Animal Article Cleanup)
 
 ---
 
@@ -25,7 +25,7 @@
 | 분석 | GA4 + GSC + MCP 8개 (on-demand: gemini/gemini-image/reddit/twitter/youtube/trends) |
 | 크로스프로모 | **99/99앱** 2x2 그리드 카드 완료 + cross-promo.js 동적 위젯 |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
-| SEO 스키마 | FAQPage **105/105 (100%)**, BreadcrumbList **105/105 (100%)**, JSON-LD 전앱 |
+| SEO 스키마 | FAQPage **106/106 (100%)**, BreadcrumbList **106/106 (100%)**, JSON-LD 전앱 |
 | 카테고리 허브 | Games(21), **Tests(41)**, Tools, MBTI (4개 랜딩페이지) |
 | OG 이미지 | **107개 앱별 1200×630 PNG** (전앱 완료) + 470+블로그 교체 완료 |
 | 런타임 검증 | **Playwright 스모크 테스트 + analytics event harness** + 게임 루프 try-catch **21/21** 게임 |
@@ -47,6 +47,27 @@
 ---
 
 ## 세션 기록
+
+### Session 418 (6/2) - EN Animal Article Cleanup
+
+**#1 Target:**
+- Reused the Session 417 data instead of querying GA4/GSC again. Since `/animal-personality` was the clearest current winner, cleaned up the older `animal-personality-test-discover.html` article that still pointed into the winner funnel but had stale monetization and tracking.
+- Audit found placeholder manual ad slot `1234567890`, broken `/../` links, old `dateModified`, missing `content_*` events, missing FAQ/Breadcrumb JSON-LD, and overconfident science/professional-use copy.
+
+**#2 Implementation:**
+- Updated `projects/portal/blog/en/animal-personality-test-discover.html` with safer self-reflection positioning, current animal OG image, `dateModified=2026-06-02`, FAQPage JSON-LD, BreadcrumbList JSON-LD, and Auto ads slot `auto`.
+- Replaced broken `/../` links with stable `/animal-personality/`, `/portal/tests/`, `/brain-type/`, `/mbti-love/`, `/color-personality/`, and `/sleep-animal/` targets.
+- Added standard `content_view`, `content_cta_click`, `content_related_click`, and `content_ad_impression` tracking with stable `content_group`, `content_slug`, `data-content-surface`, and `target_slug` metadata.
+- Refreshed `projects/portal/sitemap.xml` and `projects/portal/blog/sitemap.xml` for the article URL to `2026-06-02`.
+
+**#3 Validation:**
+- Structural Node check PASS: Article/FAQPage/BreadcrumbList JSON-LD parsed, Auto ad slot present, placeholder slot removed, broken `/../` links removed, safe-claim checks passed, and `content_*` events present.
+- `git -C projects/portal diff --check` PASS, `node scripts/portal-hub-locale-audit.js` PASS, `C:/Program Files/Git/bin/bash.exe scripts/quality-gate.sh projects/portal` PASS, and `npm run harness -- --skip-analytics --skip-runtime` PASS.
+- Local mobile Playwright PASS over temporary HTTP server: H1 rendered, Auto ad slot count 1, `dateModified=2026-06-02`, FAQPage/BreadcrumbList present, horizontal overflow 0, and `content_view`, `content_cta_click`, `content_related_click`, `content_ad_impression` fired.
+
+**#4 Next priority:**
+- Continue the animal content cleanup with `spirit-animal-personality-quiz.html` or `animal-personality-test-guide.html`, both of which still have older dates and placeholder ad slots.
+- After live deploy, verify the cleaned article and watch whether the article sends more users into `/animal-personality/` and `/portal/tests/`.
 
 ### Session 417 (6/2) - Animal Personality vs MBTI Trend Article
 
