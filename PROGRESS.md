@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-05-30 (Session 416: Article Scaffold Generator)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-02 (Session 417: Animal Personality vs MBTI Trend Article)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **109개** (projects/ 109 디렉토리, 앱 109 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1563개** |
+| 블로그 | **1564개** |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **58** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
@@ -25,13 +25,13 @@
 | 분석 | GA4 + GSC + MCP 8개 (on-demand: gemini/gemini-image/reddit/twitter/youtube/trends) |
 | 크로스프로모 | **99/99앱** 2x2 그리드 카드 완료 + cross-promo.js 동적 위젯 |
 | i18n/FOUC/라이트모드 | **전앱+허브 완료** |
-| SEO 스키마 | FAQPage **104/104 (100%)**, BreadcrumbList **104/104 (100%)**, JSON-LD 전앱 |
+| SEO 스키마 | FAQPage **105/105 (100%)**, BreadcrumbList **105/105 (100%)**, JSON-LD 전앱 |
 | 카테고리 허브 | Games(21), **Tests(41)**, Tools, MBTI (4개 랜딩페이지) |
 | OG 이미지 | **107개 앱별 1200×630 PNG** (전앱 완료) + 470+블로그 교체 완료 |
 | 런타임 검증 | **Playwright 스모크 테스트 + analytics event harness** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
 | 멀티디바이스 | 루트 repo GitHub private (`swp1234/fire-project`) — 데스크톱↔노트북 동기화 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1667 URLs**, 피드백 페이지 |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1668 URLs**, 피드백 페이지 |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -47,6 +47,29 @@
 ---
 
 ## 세션 기록
+
+### Session 417 (6/2) - Animal Personality vs MBTI Trend Article
+
+**#1 Data read:**
+- Resumed from Session 416 by using the new article scaffold workflow instead of hand-building a page. GA4 compared `2026-05-26..2026-06-01` against `2026-05-19..2026-05-25`; Organic Search remained the quality channel at 159 sessions / 107 engaged / 67.3% engagement, while Direct rose to 637 sessions but stayed weak at 15.4% engagement.
+- Country/language diagnostics again separated Singapore Direct noise from useful traffic: Singapore had 365 sessions with only 1.9% engagement, while `/animal-personality` was the clearest real winner with 51 Direct sessions, 37 engaged sessions, 72.5% engagement, 222s average duration, and strong `animal_*` event volume.
+- GSC `2026-05-25..2026-05-30` remained thin with a single row, so the action stayed GA4/trend-led. AdSense was healthy: today `$0.07`, yesterday `$0.02`, last_7_days `$0.55`, last_30_days `$1.88`, `dopabrain.com` READY, Auto ads enabled, and policy issues `{}`.
+
+**#2 Implementation:**
+- Added `projects/portal/blog/en/animal-personality-vs-mbti-2026.html` with the scaffold generator. The page targets the current animal-test plus MBTI-style comparison intent without duplicating the older generic animal personality articles.
+- The article includes Article/FAQ/Breadcrumb JSON-LD, GA4, AdSense Auto ads, a four-card quick rail to `/animal-personality/`, `/mbti-love/`, `/brain-type/`, and `/color-personality/`, related links, source links, and the standard `content_*` event taxonomy.
+- Updated `projects/portal/blog/en/index.html` with the new Tests entry and incremented Tests count 51 -> 52. Updated `projects/portal/sitemap.xml` and `projects/portal/blog/sitemap.xml` with `2026-06-02` lastmod.
+
+**#3 Validation:**
+- `node --check scripts/create-blog-article.js` PASS.
+- Scaffold dry-run planned exactly four portal changes before write: create the article, update root portal sitemap, update blog sitemap, and update English blog index.
+- Structural Node check PASS: canonical URL, `dateModified=2026-06-02`, four quick cards, two Auto ad slots, six `content_*` events, source links, and three valid JSON-LD blocks.
+- `git -C projects/portal diff --check` PASS, `node scripts/portal-hub-locale-audit.js` PASS, `C:/Program Files/Git/bin/bash.exe scripts/quality-gate.sh projects/portal` PASS, and `npm run harness -- --skip-analytics --skip-runtime` PASS.
+- Local mobile Playwright over a temporary HTTP server PASS: H1 rendered, quick cards 4, Auto ads 2, horizontal overflow 0, `content_view`, `content_test_click`, `content_cta_click`, `content_inline_click`, `content_related_click`, and `content_ad_impression` all fired with no page errors or relevant console errors.
+
+**#4 Next priority:**
+- Watch `/animal-personality/` and the new `animal-personality-vs-mbti-2026` article for `content_test_click`, `content_cta_click`, and follow-on page views to `/mbti-love/`, `/brain-type/`, and `/color-personality/`.
+- If the animal winner continues, the next high-leverage pass is to clean up the older EN animal articles that still have placeholder ad slots, older dates, weaker tracking, and some mojibake/overclaiming copy.
 
 ### Session 416 (5/30) - Article Scaffold Generator
 
