@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-03 (Session 421: Spirit Animal Article Funnel Cleanup)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-03 (Session 422: Personality Stack Builder Creative Content)
 
 ---
 
@@ -10,7 +10,7 @@
 |------|------|
 | 총 프로젝트 | **109개** (projects/ 109 디렉토리, 앱 109 + portal + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
-| 블로그 | **1564개** |
+| 블로그 | **1565개** |
 
 **앱 분류:** 유틸 12 / 바이럴 테스트 **58** / 게임 **21** / 도구 13 / 웹 2 / 운세 **4** / 신규 10
 
@@ -31,7 +31,7 @@
 | 런타임 검증 | **Playwright 스모크 테스트 + analytics event harness** + 게임 루프 try-catch **21/21** 게임 |
 | 하네스 | pre-push quality gate, failure logging, MCP on-demand, TeamCreate/TaskCreate/CronCreate |
 | 멀티디바이스 | 루트 repo GitHub private (`swp1234/fire-project`) — 데스크톱↔노트북 동기화 |
-| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1668 URLs**, 피드백 페이지 |
+| 기타 | 커스텀 404, 블로그 인덱스 12개 언어, 사이트맵 **1669 URLs**, 피드백 페이지 |
 
 **URL:** `/` → `/portal/` → `/[앱]/` → `/portal/blog/{lang}/` → `/portal/games/` → `/portal/tests/` → `/portal/mbti/`
 
@@ -47,6 +47,31 @@
 ---
 
 ## 세션 기록
+
+### Session 422 (6/3) - Personality Stack Builder Creative Content
+
+**#1 Direction:**
+- Continued the Fire Project growth work after the latest GA4/GSC/AdSense read showed `/animal-personality/` as the clearest current strength.
+- Chose a new creative content format instead of another plain cleanup pass: an interactive stack builder that combines Animal Personality, Brain Type, and MBTI-style relationship lenses.
+
+**#2 Implementation:**
+- Added `projects/portal/blog/en/personality-stack-builder-2026.html` as a new English cluster article.
+- Embedded a client-side "Build Your Stack Preview" module with Animal layer, Brain layer, and Relationship lens selectors.
+- Added dynamic stack names and summaries such as `Wolf + Analytical + MBTI Love` / `Quiet Strategist` and `Fox + Creative + HSP` / `Adaptive Improviser`.
+- Added GA4 content events for `content_stack_builder_change` and `content_stack_builder_cta` alongside the normal blog content events.
+- Added Article, FAQPage, and BreadcrumbList JSON-LD, Auto ads, a four-card quick rail, related links, and source links.
+- Updated root sitemap, blog sitemap, and English blog index for the new article.
+- Added cluster backlinks from `brain-type-vs-mbti-2026.html`, `animal-personality-vs-mbti-2026.html`, and `spirit-animal-personality-quiz.html`.
+
+**#3 Validation:**
+- Structural Node check PASS: JSON-LD parsed, quick cards 4, stack controls 3, stack actions 3, Auto ads 2, new stack events present, index/sitemaps updated, and all three backlinks present.
+- `git -C projects/portal diff --check` PASS.
+- `node scripts/portal-hub-locale-audit.js` PASS.
+- `C:/Program Files/Git/bin/bash.exe scripts/quality-gate.sh projects/portal` PASS.
+- Local Playwright desktop/mobile PASS: H1 rendered, builder selects updated to `Fox + Creative + HSP`, `content_view`, `content_stack_builder_change`, `content_stack_builder_cta`, and `content_ad_impression` reached `dataLayer`, and horizontal overflow was 0.
+
+**#4 Next priority:**
+- Watch whether the new stack article creates bridge clicks from Animal to Brain/MBTI pages, then expand the same format into a Korean localized version if it earns engagement.
 
 ### Session 421 (6/3) - Spirit Animal Article Funnel Cleanup
 
