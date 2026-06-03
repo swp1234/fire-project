@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-02 (Session 418: EN Animal Article Cleanup)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-03 (Session 421: Spirit Animal Article Funnel Cleanup)
 
 ---
 
@@ -47,6 +47,30 @@
 ---
 
 ## 세션 기록
+
+### Session 421 (6/3) - Spirit Animal Article Funnel Cleanup
+
+**#1 Data read:**
+- Resumed Fire Project work with GA4/GSC/AdSense. GA4 `7daysAgo..yesterday` showed `/animal-personality/` as the strongest current page with 142 views, 85 sessions, 66 engaged sessions, and 7,801s engagement duration.
+- GSC remained thin for the week with one low-impression row, so the action stayed GA4-led.
+- AdSense was healthy enough for continued monetization work: today `$0.05`, yesterday `$0.13`, last 7 days `$0.65`, last 30 days `$2.01`.
+
+**#2 Implementation:**
+- Cleaned `projects/portal/blog/en/spirit-animal-personality-quiz.html`, which still had `dateModified=2026-02-10`, placeholder ad slot `1234567890`, no Breadcrumb JSON-LD, and no `content_*` event tracking.
+- Repositioned the article as a personality-based self-reflection guide instead of using overconfident "science-based" copy.
+- Added a four-card quick rail to `/animal-personality/`, `/brain-type/`, `/mbti-love/`, and `/color-personality/`.
+- Added BreadcrumbList JSON-LD, Auto ads slot `auto`, `content_view`, `content_cta_click`, `content_test_click`, `content_inline_click`, `content_related_click`, and `content_ad_impression` tracking.
+- Updated root and blog sitemap lastmod for the English spirit animal article to `2026-06-03`.
+
+**#3 Validation:**
+- `git -C projects/portal diff --check` PASS.
+- Structural Node check PASS: Article/FAQPage/BreadcrumbList JSON-LD parsed, placeholder ad removed, Auto ad present, `dateModified=2026-06-03`, all six `content_*` events present, and target sitemap lastmods updated.
+- `node scripts/portal-hub-locale-audit.js` PASS.
+- `C:/Program Files/Git/bin/bash.exe scripts/quality-gate.sh projects/portal` PASS.
+- Local Playwright desktop/mobile PASS: H1 rendered, quick cards 4, related links 6, Auto ad slot 1, JSON-LD blocks 3, horizontal overflow 0, and all six content events reached `dataLayer`.
+
+**#4 Next priority:**
+- Continue animal cluster cleanup with `animal-personality-test-guide.html`, which still has an older `dateModified` and placeholder ad slot.
 
 ### Session 418 (6/2) - EN Animal Article Cleanup
 
