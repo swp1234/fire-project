@@ -73,6 +73,7 @@
 - `C:/Program Files/Git/bin/bash.exe scripts/quality-gate.sh projects/portal` PASS.
 - Local Playwright desktop/mobile PASS over a temporary HTTP server: H1 rendered, quick cards `4`, Auto ad slot `1`, ad surface `1`, Article/FAQPage/BreadcrumbList present, horizontal overflow `0`, page errors `0`, and all six `content_*` events reached `dataLayer`. Desktop showed only external ad/analytics resource console errors from local 403/400 responses.
 - `npm run harness -- --skip-analytics --skip-runtime` PASS.
+- Deployment: pushed portal commit `d0c42c7` to `origin/main` and root progress logs to `origin/master`. Live verification on `https://dopabrain.com/portal/blog/en/animal-personality-test-guide.html?v=423browser1` confirmed the `2026-06-04` Article date, `4` quick cards, Auto ad slot, BreadcrumbList, zero horizontal overflow, zero page errors, and live `content_view`, `content_ad_impression`, `content_test_click`, `content_cta_click`, and `content_related_click` events.
 
 **#4 Next priority:**
 - Next data read should watch `animal-personality-test-guide` for `content_test_click`, `content_cta_click`, `content_related_click`, and follow-on page views to `/animal-personality/`, `/brain-type/`, `/portal/blog/en/personality-stack-builder-2026.html`, and `/mbti-love/`.
