@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-04 (Session 423: Animal Personality Guide Funnel Cleanup)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-04 (Session 424: AI Personality Guide Funnel Cleanup)
 
 ---
 
@@ -47,6 +47,33 @@
 ---
 
 ## 세션 기록
+
+### Session 424 (6/4) - AI Personality Guide Funnel Cleanup
+
+**#1 Target:**
+- Continued after Session 423 without repeating GA4/GSC/AdSense because the same-day data read was already complete.
+- Chose `projects/portal/blog/en/ai-personality-test-guide.html` autonomously from the personality-cluster cleanup candidates because it still had `dateModified=2026-03-14`, a placeholder `1234567890` ad slot, weak next-click structure, and overconfident "scientifically accurate" wording, while `/ai-personality/` still showed live event activity in the current GA4 event set.
+
+**#2 Implementation:**
+- Updated Article JSON-LD and visible meta freshness to `2026-06-04`, and refreshed the matching root/blog sitemap lastmod entries for the English article URL.
+- Added a four-card `Best Next Tests` rail to `/ai-personality/`, `/brain-type/`, `/eq-test/`, and `/burnout-test/`.
+- Converted the bottom ad from placeholder slot `1234567890` to Auto ads with `data-ad-slot="auto"` and `data-ad-surface="bottom_ad"`.
+- Added standard content instrumentation: `content_view`, `content_test_click`, `content_cta_click`, `content_toc_click`, `content_related_click`, and `content_ad_impression`.
+- Added target metadata to CTA and related links, and replaced the old "scientifically accurate" FAQ framing with a safer self-reflection / non-clinical assessment explanation. Also removed damaged `??` separators from the description and FAQ copy.
+
+**#3 Validation:**
+- Structural Node check PASS: Article/FAQPage/BreadcrumbList JSON-LD parsed, quick cards `4`, Auto ad present, placeholder slots absent, all six `content_*` events present, and unsafe/malformed copy absent.
+- `git -C projects/portal diff --check` PASS.
+- `node scripts/portal-hub-locale-audit.js` PASS.
+- `C:/Program Files/Git/bin/bash.exe scripts/quality-gate.sh projects/portal` PASS.
+- Local Playwright desktop/mobile PASS: quick cards `4`, Auto ad `1`, Article/FAQPage/BreadcrumbList present, `dateModified=2026-06-04`, horizontal overflow `0`, page errors `0`, and all six content events reached `dataLayer`.
+- `npm run harness -- --skip-analytics --skip-runtime` PASS.
+- Deployment: pushed portal commit `b6422f3` to `origin/main`. Live verification on `https://dopabrain.com/portal/blog/en/ai-personality-test-guide.html?v=424browser1` confirmed the updated date, quick rail, Auto ad, safe copy, zero horizontal overflow, zero page errors, and live `content_view`, `content_ad_impression`, `content_test_click`, `content_cta_click`, `content_toc_click`, and `content_related_click` events.
+
+**#4 Next priority:**
+- Next data read should watch `ai-personality-test-guide` for quick rail clicks and follow-on page views to `/ai-personality/`, `/brain-type/`, `/eq-test/`, and `/burnout-test/`.
+- Continue the stale personality cleanup queue with `aura-reading-personality-quiz.html`, `color-personality-test-guide.html`, or `blood-type-personality-guide.html` if no fresher data has accumulated.
+- If animal/personality remains the strongest cluster after the next valid data read, prioritize Korean expansion of the stack-builder format.
 
 ### Session 423 (6/4) - Animal Personality Guide Funnel Cleanup
 
