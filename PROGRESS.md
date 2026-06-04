@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-03 (Session 422: Personality Stack Builder Creative Content)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-04 (Session 423: Animal Personality Guide Funnel Cleanup)
 
 ---
 
@@ -47,6 +47,37 @@
 ---
 
 ## 세션 기록
+
+### Session 423 (6/4) - Animal Personality Guide Funnel Cleanup
+
+**#1 Data read:**
+- Started the resume cycle with the isolated Codex script in safe `--version` mode; it reached `codex-cli 0.136.0-alpha.2` and no Claude CLI command was run.
+- GA4 `2026-05-28..2026-06-03` versus `2026-05-21..2026-05-27` showed Direct volume rising `508 -> 734` sessions with engagement improving but still low (`13.2% -> 18.3%`), while Organic Search stayed high quality at `143` sessions, `94` engaged sessions, `65.7%` engagement, and about `253s` average session duration.
+- Country diagnostics confirmed Singapore Direct remained noise-heavy (`414` sessions, `12` engaged, `2.9%` engagement, about `1.08s` average duration), while Mexico was the strongest animal-cluster quality segment (`93` sessions, `66` engaged, `71.0%` engagement).
+- Landing-page GA4 kept `/animal-personality` as the clearest current winner with `89` sessions, `66` engaged sessions, `74.2%` engagement, `191.7s` average session duration, and `152` views. Event health was also strong: `animal_intro_start_click`, `quiz_start`, and `test_start` each reached `116`, with `94` result views and `86` result ad impressions.
+- GSC `2026-05-28..2026-06-02` was still thin, returning only one low-impression root query row (`dopamine test online`, position `67`), so the action stayed GA4-led.
+- AdSense was healthy: today `$0.11`, yesterday `$0.07`, last 7 days `$0.65`, this month `$0.32`, last 30 days `$2.03`, unpaid `$4.08`, `dopabrain.com` READY, Auto ads enabled, policy issues `{}`. Alerts were the active Auto optimization experiment and the standing Ukraine policy update.
+
+**#2 Implementation:**
+- Cleaned `projects/portal/blog/en/animal-personality-test-guide.html`, the next animal-cluster article left from Session 421's priority list.
+- Updated the article freshness and sharing layer: `dateModified=2026-06-04`, animal app OG/Twitter image, and matching root/blog sitemap lastmod entries.
+- Added BreadcrumbList JSON-LD and rewrote the overconfident "scientifically accurate" FAQ framing into a safer self-reflection / non-clinical diagnosis answer.
+- Added a four-card `Best Next Steps` rail to `/animal-personality/`, `/brain-type/`, the new `personality-stack-builder-2026` article, and `/mbti-love/`, so readers can move directly into the current winner loop.
+- Normalized the mid-article ad from placeholder slot `1234567890` to the Auto ads convention with `data-ad-slot="auto"` and `data-ad-surface="mid_article_ad"`.
+- Added standard `content_view`, `content_test_click`, `content_cta_click`, `content_inline_click`, `content_related_click`, and `content_ad_impression` tracking, plus target metadata on the main CTA and related links.
+
+**#3 Validation:**
+- Structural Node check PASS: Article/FAQPage/BreadcrumbList JSON-LD parsed, quick cards `4`, Auto ad slot present, placeholder slots absent, safe FAQ copy present, `content_*` events present, and personality-stack links present.
+- `git -C projects/portal diff --check` PASS.
+- `node scripts/portal-hub-locale-audit.js` PASS.
+- `C:/Program Files/Git/bin/bash.exe scripts/quality-gate.sh projects/portal` PASS.
+- Local Playwright desktop/mobile PASS over a temporary HTTP server: H1 rendered, quick cards `4`, Auto ad slot `1`, ad surface `1`, Article/FAQPage/BreadcrumbList present, horizontal overflow `0`, page errors `0`, and all six `content_*` events reached `dataLayer`. Desktop showed only external ad/analytics resource console errors from local 403/400 responses.
+- `npm run harness -- --skip-analytics --skip-runtime` PASS.
+
+**#4 Next priority:**
+- Next data read should watch `animal-personality-test-guide` for `content_test_click`, `content_cta_click`, `content_related_click`, and follow-on page views to `/animal-personality/`, `/brain-type/`, `/portal/blog/en/personality-stack-builder-2026.html`, and `/mbti-love/`.
+- If the animal cluster continues to win, expand the stack-builder format into Korean or continue cleaning older animal/personality articles with stale ads, weak structured data, or missing `content_*` tracking.
+- Keep the zero-engaged latest rows (`zh/emotional-regulation-techniques`, `zh/hsp-coping-strategies`, `/portal/tools`) on the watch list, but do not rework the recently touched surfaces until enough post-change data accumulates.
 
 ### Session 422 (6/3) - Personality Stack Builder Creative Content
 
