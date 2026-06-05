@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-04 (Session 424: AI Personality Guide Funnel Cleanup)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-05 (Session 426: 5-Page Blog Indexing Batch)
 
 ---
 
@@ -1912,3 +1912,12 @@
 - Replaced the old placeholder manual ad slot (`1234567890`) with the project's Auto ads convention inside an inline article ad container, and added the standard `content_*` event taxonomy for `content_view`, `content_test_click`, `content_cta_click`, `content_toc_click`, `content_related_click`, and `content_ad_impression`.
 - Refreshed the Article JSON-LD `dateModified` plus both [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml) and [projects/portal/blog/sitemap.xml](E:/Fire%20Project/projects/portal/blog/sitemap.xml) to `2026-06-05` for the changed Portuguese URL.
 - Validation: portal `git diff --check`, `node scripts/portal-hub-locale-audit.js`, the portal quality gate, JSON-LD parse checks, and hreflang target existence checks all passed. Local mobile Playwright confirmed the page self-canonical, `4` quick cards, Auto ad slot, `2026-06-05` JSON-LD date, no horizontal overflow, and the expected `content_*` events with no browser errors.
+
+### Session 426 (2026-06-05) - 5-Page Blog Indexing Batch
+
+- Continued the indexing maintenance pass at the user's requested higher session throughput. Reused the Session 424/425 GSC context and selected five crawled-not-indexed or stale-indexing candidates for one batch: [projects/portal/blog/hi/best-free-brain-training-games-2026.html](E:/Fire%20Project/projects/portal/blog/hi/best-free-brain-training-games-2026.html), [projects/portal/blog/ko/passive-aggressive-behavior-guide.html](E:/Fire%20Project/projects/portal/blog/ko/passive-aggressive-behavior-guide.html), [projects/portal/blog/en/best-browser-games-2026.html](E:/Fire%20Project/projects/portal/blog/en/best-browser-games-2026.html), [projects/portal/blog/en/maladaptive-daydreaming-signs-test.html](E:/Fire%20Project/projects/portal/blog/en/maladaptive-daydreaming-signs-test.html), and [projects/portal/blog/ru/rejection-sensitivity-dysphoria.html](E:/Fire%20Project/projects/portal/blog/ru/rejection-sensitivity-dysphoria.html).
+- Upgraded all five articles with a four-card quick-action rail, visible Auto ads using `data-ad-slot="auto"` and stable `data-ad-surface`, refreshed Article JSON-LD `dateModified=2026-06-05`, and the standard content analytics taxonomy: `content_view`, `content_test_click`, `content_cta_click`, `content_toc_click` where a TOC exists, `content_related_click`, and `content_ad_impression`.
+- Fixed stale conversion paths while preserving the existing long-form article bodies: Hindi game CTAs now link to the actual game pages, the maladaptive daydreaming article now points old `/dopamine-test/` links to `/dopamine-type/`, and the Russian article's mobile comparison table is constrained to prevent document overflow. A live-only Korean article overflow was also fixed with page-level horizontal clipping.
+- Refreshed the matching URL entries in both [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml) and [projects/portal/blog/sitemap.xml](E:/Fire%20Project/projects/portal/blog/sitemap.xml) to `2026-06-05`.
+- Validation: JSON-LD parse checks, quick-card/ad/event/hreflang/sitemap assertions, portal `git diff --check`, `node scripts/portal-hub-locale-audit.js`, and the portal quality gate all passed. Local mobile Playwright confirmed all five pages had `4` quick cards, Auto ads, `2026-06-05` Article dates, no horizontal overflow, no page errors, and expected `content_*` events.
+- Deployment: pushed portal commits `e61d1d0` (`Batch upgrade blog indexing candidates`) and `4f3e915` (`Fix Korean article mobile overflow`) to `origin/main`. Live verification on `dopabrain.com` confirmed both portal sitemaps carry `2026-06-05` lastmod for all five URLs, and all five live pages render quick cards, Auto ads, refreshed Article dates, zero horizontal/body overflow, zero page errors, and the expected `content_*` events.
