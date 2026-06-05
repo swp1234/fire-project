@@ -18,6 +18,13 @@ It creates Article/FAQ/Breadcrumb JSON-LD, GA4, Auto ads, `content_*` tracking, 
 
 After `--write`, run `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, the portal quality gate, and a local Playwright check for quick cards, `data-ad-slot="auto"`, JSON-LD date, horizontal overflow, and the expected `content_*` events.
 
+## Codex Autonomous Throughput Rule
+
+- Keep Codex isolated from Claude runtime/config exactly as defined in [AGENTS.md](E:/Fire%20Project/AGENTS.md). Do not write `.claude` paths and do not run the `claude` CLI unless the user explicitly requests it.
+- When the user says to continue autonomously, proceed with the next highest-leverage task without waiting for confirmation. Use the latest GA4/GSC/AdSense context when still fresh; run a new data read only when the current decision needs it.
+- The user's "increase development volume 5x" instruction means larger implementation leverage per session: shared tooling, reusable scripts, batch pipelines, quality gates, and cohesive multi-surface improvements. Do not interpret it as "edit exactly five blog posts."
+- For indexing maintenance, default to this loop: run `npm run content:audit`, choose the highest-risk/highest-upside candidates, implement the improvements, run local and live `npm run content:verify`, update `PROGRESS.md`, then commit and push.
+
 ## Content Indexing Maintenance Batch
 
 Use the audit command before each content maintenance batch so the next candidates are selected by repeatable indexing and revenue signals instead of manual scanning:
