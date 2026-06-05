@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-05 (Session 426: 5-Page Blog Indexing Batch)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-05 (Session 427: Blog Indexing Audit + Verification Tooling)
 
 ---
 
@@ -1921,3 +1921,12 @@
 - Refreshed the matching URL entries in both [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml) and [projects/portal/blog/sitemap.xml](E:/Fire%20Project/projects/portal/blog/sitemap.xml) to `2026-06-05`.
 - Validation: JSON-LD parse checks, quick-card/ad/event/hreflang/sitemap assertions, portal `git diff --check`, `node scripts/portal-hub-locale-audit.js`, and the portal quality gate all passed. Local mobile Playwright confirmed all five pages had `4` quick cards, Auto ads, `2026-06-05` Article dates, no horizontal overflow, no page errors, and expected `content_*` events.
 - Deployment: pushed portal commits `e61d1d0` (`Batch upgrade blog indexing candidates`) and `4f3e915` (`Fix Korean article mobile overflow`) to `origin/main`. Live verification on `dopabrain.com` confirmed both portal sitemaps carry `2026-06-05` lastmod for all five URLs, and all five live pages render quick cards, Auto ads, refreshed Article dates, zero horizontal/body overflow, zero page errors, and the expected `content_*` events.
+
+### Session 427 (2026-06-05) - Blog Indexing Audit + Verification Tooling
+
+- Corrected the throughput interpretation after the user clarified that the goal was not "five blog posts" but materially higher development volume per session. Shifted this pass from hand-editing more pages to reusable tooling that makes future indexing/content batches faster and safer.
+- Added [scripts/blog-indexing-audit.js](E:/Fire%20Project/scripts/blog-indexing-audit.js) plus `npm run content:audit`. The read-only audit scans portal blog articles and ranks candidates by sitemap coverage, sitemap `lastmod`, canonical URL, Article/FAQ/Breadcrumb JSON-LD, `dateModified` age, quick-action rail coverage, Auto ad surfaces, expected `content_*` events, placeholder ad slots, legacy `/dopamine-test/` links, internal link existence, and simple mobile overflow risks.
+- Added [scripts/verify-blog-pages.js](E:/Fire%20Project/scripts/verify-blog-pages.js) plus `npm run content:verify`. The Playwright verifier accepts `--file`, `--url`, and `--live`, starts a temporary local static server when needed, checks H1/Article JSON-LD/date/quick cards/Auto ads/horizontal overflow/runtime errors, instruments analytics, clicks expected content surfaces, and fails if expected `content_*` events do not reach `dataLayer`.
+- Updated [docs/OPERATIONS.md](E:/Fire%20Project/docs/OPERATIONS.md) with the new indexing-maintenance batch routine so future content work starts with `content:audit` and ends with local/live `content:verify` instead of one-off browser snippets.
+- Validation: `node --check scripts/blog-indexing-audit.js`, `node --check scripts/verify-blog-pages.js`, `npm run content:audit -- --limit 5`, and `npm run content:audit -- --lang ko --limit 5` all passed. The audit scanned `1,956` portal blog article pages overall and `195` Korean article pages, surfacing old empty/stub-like DE/JA/KO candidates at the top for the next large batch.
+- Local and live verification both passed on [projects/portal/blog/en/maladaptive-daydreaming-signs-test.html](E:/Fire%20Project/projects/portal/blog/en/maladaptive-daydreaming-signs-test.html) and [projects/portal/blog/ko/passive-aggressive-behavior-guide.html](E:/Fire%20Project/projects/portal/blog/ko/passive-aggressive-behavior-guide.html): each rendered `4` quick cards, `1` Auto ad, `dateModified=2026-06-05`, zero horizontal overflow, and `content_view`, `content_ad_impression`, `content_test_click`, `content_cta_click`, `content_related_click`, and `content_toc_click`.

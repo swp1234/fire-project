@@ -18,6 +18,25 @@ It creates Article/FAQ/Breadcrumb JSON-LD, GA4, Auto ads, `content_*` tracking, 
 
 After `--write`, run `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, the portal quality gate, and a local Playwright check for quick cards, `data-ad-slot="auto"`, JSON-LD date, horizontal overflow, and the expected `content_*` events.
 
+## Content Indexing Maintenance Batch
+
+Use the audit command before each content maintenance batch so the next candidates are selected by repeatable indexing and revenue signals instead of manual scanning:
+
+```powershell
+npm run content:audit -- --limit 30
+npm run content:audit -- --lang ko --limit 20
+npm run content:audit -- --min-score 40 --json
+```
+
+The audit is read-only. It ranks portal blog articles by sitemap coverage, sitemap `lastmod`, canonical URL, JSON-LD health, `dateModified` age, quick action rail coverage, Auto ad surfaces, `content_*` events, internal link health, legacy links, and simple mobile overflow risks.
+
+After editing candidates, verify the touched pages locally and then on the live site after deploy:
+
+```powershell
+npm run content:verify -- --file projects\portal\blog\en\example.html --expect-date 2026-06-05 --expect-quick 4 --expect-auto 1 --expect-events content_view,content_ad_impression,content_test_click,content_cta_click,content_related_click
+npm run content:verify -- --live --file projects\portal\blog\en\example.html --expect-date 2026-06-05 --expect-quick 4 --expect-auto 1 --expect-events content_view,content_ad_impression,content_test_click,content_cta_click,content_related_click
+```
+
 ## 1. 아이덴티티 및 원칙
 
 > 너는 `dopabrain.com`의 **수석 개발자이자 SEO 성장 해커**이다.
