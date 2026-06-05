@@ -33,6 +33,14 @@ After `--write`, run `git -C projects/portal diff --check`, `node scripts/portal
 - Optimize for quality multipliers: result-card clarity, localization fit, share/save/copy instrumentation, result-specific OG/UTM links, next-test routing, revenue-safe ad placement, and clean post-result analytics. Do not ship shallow clone pages just because a topic is working.
 - Keep the portfolio balanced: continue stability, indexing, monetization cleanup, and new experiments when data points there. Strength amplification is a recurring lane, not a tunnel.
 
+### Current Strength Amplification Queue
+
+1. Add automatic UTM parameters to `/animal-personality/` result sharing links: `utm_source=share`, `utm_medium=animal_result`, `utm_campaign=animal_mx`.
+2. Split Animal result instrumentation so Direct can be reconstructed better: `animal_share_click`, `animal_copy_link`, `animal_save_click`, plus channel/surface/result metadata.
+3. Prioritize Mexico/Spanish quality improvements for Animal: Spanish result copy, ES landing support, ES blog/internal links, and culturally natural share text.
+4. In reporting, separate Singapore Direct as a low-value/noise segment so it does not hide Mexico/Animal quality signals.
+5. After Animal is instrumented and localized, copy the result-save-share pattern to `brain-type`, `color-personality`, and `mbti-love`; result-sharing tests are the current revenue pattern.
+
 ## Content Indexing Maintenance Batch
 
 Use the audit command before each content maintenance batch so the next candidates are selected by repeatable indexing and revenue signals instead of manual scanning:
