@@ -25,6 +25,14 @@ After `--write`, run `git -C projects/portal diff --check`, `node scripts/portal
 - The user's "increase development volume 5x" instruction means larger implementation leverage per session: shared tooling, reusable scripts, batch pipelines, quality gates, and cohesive multi-surface improvements. Do not interpret it as "edit exactly five blog posts."
 - For indexing maintenance, default to this loop: run `npm run content:audit`, choose the highest-risk/highest-upside candidates, implement the improvements, run local and live `npm run content:verify`, update `PROGRESS.md`, then commit and push.
 
+## Strength Amplification R&D Rule
+
+- When GA4/AdSense shows a clear winner, reinforce the winning mechanism qualitatively instead of simply increasing content volume. Treat the recent Mexico `/animal-personality/` spike as the current model: a shareable test, strong first-screen trust/CTA, high completion, result-page ad exposure, and private/direct sharing.
+- Blend strength amplification into autonomous work without making it the only direction. Default allocation: about 20-30% of autonomous development capacity, or one focused strength-amplification pass every 3-4 sessions when fresh data supports it.
+- Each strength pass should include R&D/benchmarking before implementation. Compare against quiz/result UX patterns such as positive result framing, shareable result pages, personalized next steps, optional low-friction follow-up, custom result landing pages, and measurable sharing/reporting loops.
+- Optimize for quality multipliers: result-card clarity, localization fit, share/save/copy instrumentation, result-specific OG/UTM links, next-test routing, revenue-safe ad placement, and clean post-result analytics. Do not ship shallow clone pages just because a topic is working.
+- Keep the portfolio balanced: continue stability, indexing, monetization cleanup, and new experiments when data points there. Strength amplification is a recurring lane, not a tunnel.
+
 ## Content Indexing Maintenance Batch
 
 Use the audit command before each content maintenance batch so the next candidates are selected by repeatable indexing and revenue signals instead of manual scanning:

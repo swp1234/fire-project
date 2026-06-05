@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-05 (Session 427: Blog Indexing Audit + Verification Tooling)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-05 (Session 428: Strength Amplification R&D Direction)
 
 ---
 
@@ -1931,3 +1931,13 @@
 - Validation: `node --check scripts/blog-indexing-audit.js`, `node --check scripts/verify-blog-pages.js`, `npm run content:audit -- --limit 5`, and `npm run content:audit -- --lang ko --limit 5` all passed. The audit scanned `1,956` portal blog article pages overall and `195` Korean article pages, surfacing old empty/stub-like DE/JA/KO candidates at the top for the next large batch.
 - Local and live verification both passed on [projects/portal/blog/en/maladaptive-daydreaming-signs-test.html](E:/Fire%20Project/projects/portal/blog/en/maladaptive-daydreaming-signs-test.html) and [projects/portal/blog/ko/passive-aggressive-behavior-guide.html](E:/Fire%20Project/projects/portal/blog/ko/passive-aggressive-behavior-guide.html): each rendered `4` quick cards, `1` Auto ad, `dateModified=2026-06-05`, zero horizontal overflow, and `content_view`, `content_ad_impression`, `content_test_click`, `content_cta_click`, `content_related_click`, and `content_toc_click`.
 - Session close: recorded the active handoff instructions in [docs/OPERATIONS.md](E:/Fire%20Project/docs/OPERATIONS.md): keep Codex isolated per [AGENTS.md](E:/Fire%20Project/AGENTS.md), continue autonomously without waiting for confirmation, interpret "5x development volume" as reusable tooling/batch pipelines/quality gates rather than exactly five blog edits, and use the `content:audit` -> implementation -> local/live `content:verify` -> progress log -> commit/push loop for indexing maintenance.
+
+### Session 428 (2026-06-05) - Strength Amplification R&D Direction
+
+- Ran a fresh deep-dive after the user noted the last 1-2 weeks of traffic and revenue growth. The clearest cause was not Google Search indexing: GSC remained thin with only root-level low-volume clicks/impressions, while GA4 showed the growth came from Direct and high-quality test usage.
+- Isolated the strongest winning mechanism: [projects/animal-personality](E:/Fire%20Project/projects/animal-personality) spiked from `5` sessions in `2026-05-08..2026-05-21` to `93` sessions in `2026-05-22..2026-06-04`, with the recent `2026-05-29..2026-06-04` window showing `91` sessions, `66` engaged sessions, `72.5%` engagement, and about `188s` average session duration.
+- The highest-value source was Mexico Direct on `/animal-personality/`: `81` sessions, `63` engaged sessions, `142` pageviews, and `2,179` events in `2026-05-29..2026-06-04`. The peak days were `2026-05-30` (`36` Mexico Direct sessions, `86%` engagement) and `2026-06-02` (`25` Mexico Direct sessions, `84%` engagement), pointing to private/direct sharing rather than trackable Google or public social.
+- Revenue matched the same pattern. AdSense recent 7-day revenue grew from `$0.44` to `$0.71` while AdSense page views only moved `1,811 -> 1,881`; the uplift came from better RPM/click quality. Mexico AdSense moved from `$0.02`, `18` pageviews, `66` impressions, `0` clicks to `$0.26`, `145` pageviews, `210` impressions, and `7` clicks.
+- Benchmarked quiz/result UX patterns across Typeform, Interact, quiz-marketing references, and viral quiz analysis. The recurring quality levers were positive result framing, shareable result pages, personalized next steps, optional low-friction follow-up, custom result landing pages, and measurable sharing/reporting loops.
+- Recorded the new [docs/OPERATIONS.md](E:/Fire%20Project/docs/OPERATIONS.md) Strength Amplification R&D Rule: future autonomous development should keep stability/indexing/new experiments in the mix, but dedicate roughly `20-30%` of capacity, or one pass every `3-4` sessions when fresh data supports it, to qualitatively amplifying proven winners rather than simply increasing content quantity.
+- Immediate implication: treat Animal Personality as the current model to reinforce with better result-card clarity, Mexico/Spanish fit, share/save/copy instrumentation, result-specific OG/UTM links, next-test routing, and revenue-safe result-page ad placement before cloning volume elsewhere.
