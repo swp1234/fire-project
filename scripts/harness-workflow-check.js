@@ -8,6 +8,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const LOG_DIR = path.join(ROOT, 'logs', 'harness-workflow');
 const RUN_ID = new Date().toISOString().replace(/[:.]/g, '-');
+const REPORT_KEEP = Number.parseInt(process.env.HARNESS_WORKFLOW_REPORT_KEEP || '8', 10);
 const BASH = process.env.GIT_BASH || (process.platform === 'win32' ? 'C:/Program Files/Git/bin/bash.exe' : 'bash');
 
 function parseArgs(argv) {
@@ -126,7 +127,43 @@ function writeReport(run) {
 
   const mdPath = path.join(LOG_DIR, `${RUN_ID}.md`);
   fs.writeFileSync(mdPath, `${lines.join('\n')}\n`);
-  return { jsonPath, latestJsonPath, mdPath };
+  const prunedReports = pruneOldReports();
+  return { jsonPath, latestJsonPath, mdPath, prunedReports };
+}
+
+function pruneOldReports() {
+  if (!Number.isFinite(REPORT_KEEP) || REPORT_KEEP < 0) return 0;
+  const keepCount = Math.max(1, REPORT_KEEP);
+
+  const reportPattern = /^(\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}-\d{3}Z)\.(json|md)$/;
+  const reportsByRun = new Map();
+
+  for (const entry of fs.readdirSync(LOG_DIR, { withFileTypes: true })) {
+    if (!entry.isFile()) continue;
+    const match = entry.name.match(reportPattern);
+    if (!match) continue;
+
+    const fullPath = path.join(LOG_DIR, entry.name);
+    const stats = fs.statSync(fullPath);
+    const run = reportsByRun.get(match[1]) || { runId: match[1], mtimeMs: 0, files: [] };
+    run.mtimeMs = Math.max(run.mtimeMs, stats.mtimeMs);
+    run.files.push(fullPath);
+    reportsByRun.set(match[1], run);
+  }
+
+  const oldRuns = Array.from(reportsByRun.values())
+    .sort((left, right) => right.mtimeMs - left.mtimeMs)
+    .slice(keepCount);
+
+  let pruned = 0;
+  for (const run of oldRuns) {
+    for (const file of run.files) {
+      fs.unlinkSync(file);
+      pruned += 1;
+    }
+  }
+
+  return pruned;
 }
 
 async function main() {
@@ -190,6 +227,9 @@ async function main() {
   }
   console.log(`\nReport: ${reportPaths.mdPath}`);
   console.log(`Latest JSON: ${reportPaths.latestJsonPath}\n`);
+  if (reportPaths.prunedReports > 0) {
+    console.log(`Pruned old workflow reports: ${reportPaths.prunedReports}\n`);
+  }
 
   process.exit(run.ok ? 0 : 1);
 }

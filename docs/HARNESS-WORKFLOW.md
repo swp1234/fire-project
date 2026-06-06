@@ -1,6 +1,6 @@
 # Harness Workflow
 
-Last updated: 2026-05-22
+Last updated: 2026-06-06
 
 ## Purpose
 
@@ -35,8 +35,8 @@ node scripts/runtime-check.js brainrot-score
 Workflow reports:
 
 - `logs/harness-workflow/latest.json`
-- `logs/harness-workflow/<timestamp>.json`
-- `logs/harness-workflow/<timestamp>.md`
+- `logs/harness-workflow/<timestamp>.json` for the most recent retained runs
+- `logs/harness-workflow/<timestamp>.md` for the most recent retained runs
 
 Runtime smoke results:
 
@@ -54,6 +54,19 @@ Failure diagnostics, when a runtime smoke fails:
 - `page.ariaSnapshot({ mode: 'ai' })` to catch blank or inaccessible pages in analytics smoke checks and to store runtime context.
 - `page.pageErrors({ filter: 'since-navigation' })` and `page.consoleMessages({ filter: 'since-navigation' })` to collect buffered errors after each scenario.
 - Context tracing with screenshots, snapshots, and sources retained only on runtime failure by default.
+
+## Report Retention
+
+- `scripts/harness-workflow-check.js` keeps `latest.json` plus the most recent `8` timestamped workflow runs by default.
+- Override with `HARNESS_WORKFLOW_REPORT_KEEP=<number>` when a longer investigation needs more local history; the script always preserves at least the current timestamped run plus `latest.json`.
+- Runtime traces and screenshots stay failure-first; normal successful runs should leave compact JSON/Markdown summaries only.
+- `logs/harness-workflow/` and `logs/harness-artifacts/` remain ignored workspace artifacts, not committed source-of-truth docs.
+
+## R&D Fit
+
+- Playwright's trace viewer is best used for failed or retried flows because full trace recording is heavier than a normal smoke pass: https://playwright.dev/docs/next/trace-viewer
+- The current project pattern is therefore correct: use `ariaSnapshot`, buffered console/page errors, and compact summaries on pass; keep trace/screenshot/source artifacts for failures.
+- If a future workflow starts producing repeated noisy diagnostics, add a bounded retention rule in the harness script before adding another Markdown report.
 
 ## Retention Coverage
 

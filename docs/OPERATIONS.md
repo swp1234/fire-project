@@ -25,6 +25,18 @@ After `--write`, run `git -C projects/portal diff --check`, `node scripts/portal
 - The user's "increase development volume 5x" instruction means larger implementation leverage per session: shared tooling, reusable scripts, batch pipelines, quality gates, and cohesive multi-surface improvements. Do not interpret it as "edit exactly five blog posts."
 - For indexing maintenance, default to this loop: run `npm run content:audit`, choose the highest-risk/highest-upside candidates, implement the improvements, run local and live `npm run content:verify`, update `PROGRESS.md`, then commit and push.
 
+## Codex / AI / Harness R&D Application Rule
+
+Last reviewed: 2026-06-06.
+
+- Keep startup context small. `AGENTS.md`, `CLAUDE.md`, `docs/OPERATIONS.md`, and active `PROGRESS.md` should carry decisions and current state; old session detail belongs in `docs/archive/`.
+- Prefer repeatable harness scripts over long Markdown runbooks. When a check can be encoded, add it to a script and keep the doc as the short operating contract.
+- Use Codex subagents or `codex exec` style automation only for read-heavy exploration, audits, or isolated verification where outputs can be summarized back into this workspace. Do not use them to write Claude config or run `claude`.
+- For AI application workflows, adopt OpenAI Agents SDK patterns only when the product owns tool execution, approvals, state, or multi-specialist orchestration. Otherwise, keep one model/tool call plus project-owned logic.
+- If agentic workflows become production code, add tracing/eval hooks early: trace for debugging, then score repeated workflows so improvements can be benchmarked instead of judged by anecdote.
+- Harness artifacts should be failure-first and retention-bounded: compact JSON/Markdown summaries on pass, trace/screenshot/source artifacts on failure, and automatic pruning for timestamped reports.
+- Current source review: OpenAI Agents SDK guide (https://developers.openai.com/api/docs/guides/agents), OpenAI Agents tracing (https://openai.github.io/openai-agents-python/tracing/), OpenAI trace grading (https://developers.openai.com/api/docs/guides/trace-grading), Playwright trace viewer (https://playwright.dev/docs/next/trace-viewer), and the local Codex manual fetched by the `openai-docs` skill on 2026-06-06.
+
 ## Strength Amplification R&D Rule
 
 - When GA4/AdSense shows a clear winner, reinforce the winning mechanism qualitatively instead of simply increasing content volume. Treat the recent Mexico `/animal-personality/` spike as the current model: a shareable test, strong first-screen trust/CTA, high completion, result-page ad exposure, and private/direct sharing.
