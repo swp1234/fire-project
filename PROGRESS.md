@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-06 (Session 429: Animal Result Share UTM Amplification)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-06 (Session 430: Spanish Animal Blog Funnel Support)
 
 ---
 
@@ -1959,3 +1959,14 @@
 - Deployment: pushed animal-personality commit `c9e11e0`, portal sitemap commit `944e399`, root-domain sitemap commit `658a494`, and root progress commit `9ca748b`.
 - Live verification initially saw the old cached app (`dateModified=2026-04-25`), then passed after Pages/Cloudflare propagation. `https://dopabrain.com/animal-personality/?lang=es&v=429browser3` confirmed `dateModified=2026-06-06`, the tracked share URL with `utm_campaign=animal_mx`, copied URL parity, Twitter carrying the encoded tracked URL, zero mobile overflow, zero page errors, and live `animal_copy_link`, `animal_share_click`, and `animal_save_click` events.
 - Next priority: after deploy and live verification, watch Mexico `animal_copy_link`, `animal_share_click`, `animal_save_click`, `animal_result_ad_impression`, and returning `utm_campaign=animal_mx` sessions. If the split proves useful, port the same result-save-share pattern to `brain-type`, `color-personality`, and `mbti-love`.
+
+### Session 430 (2026-06-06) - Spanish Animal Blog Funnel Support
+
+- Continued the recorded Strength Amplification TODO without repeating GA4/GSC/AdSense, because Session 429 already completed the same-day data read. This pass handled item `3` from [docs/OPERATIONS.md](E:/Fire%20Project/docs/OPERATIONS.md): Mexico/Spanish Animal quality improvements, ES landing support, ES blog/internal links, and more natural Spanish routing.
+- Selected two stale Spanish animal-cluster articles in [projects/portal/blog/es](E:/Fire%20Project/projects/portal/blog/es): `animal-personality.html` and `spirit-animal-personality-quiz.html`. Both had old `dateModified`/sitemap dates and direct `/animal-personality/` links that did not preserve `?lang=es` or the new `animal_mx` campaign.
+- Upgraded [projects/portal/blog/es/animal-personality.html](E:/Fire%20Project/projects/portal/blog/es/animal-personality.html): refreshed Article `dateModified=2026-06-06`, added FAQPage and BreadcrumbList JSON-LD, added a four-card quick-action rail, changed the bottom CTA to `https://dopabrain.com/animal-personality/?lang=es&utm_source=portal_blog&utm_medium=es_animal_article&utm_campaign=animal_mx&utm_content=bottom_cta`, inserted an Auto ad surface, and replaced the old generic click event with `content_view`, `content_test_click`, `content_cta_click`, `content_toc_click`, `content_related_click`, and `content_ad_impression`.
+- Upgraded [projects/portal/blog/es/spirit-animal-personality-quiz.html](E:/Fire%20Project/projects/portal/blog/es/spirit-animal-personality-quiz.html): softened the overconfident "science-based" framing into self-reflection wording, refreshed `dateModified=2026-06-06`, added BreadcrumbList JSON-LD, converted all Animal app paths to `?lang=es` plus `animal_mx` campaign params, replaced placeholder ad slot `1234567890` with `data-ad-slot="auto"`, and added the standard `content_*` event taxonomy.
+- Refreshed both URLs in [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml) and [projects/portal/blog/sitemap.xml](E:/Fire%20Project/projects/portal/blog/sitemap.xml) to `2026-06-06`.
+- Validation passed: JSON-LD parse checks for Article/FAQPage/BreadcrumbList, Auto ad and no-placeholder checks, `git diff --check`, `node scripts/portal-hub-locale-audit.js`, portal quality gate, and `npm run harness -- --skip-analytics --skip-runtime`.
+- Local mobile Playwright over a temporary static server passed for both Spanish pages: no page errors, `dateModified=2026-06-06`, Auto ads present, `animal_mx` links present, zero placeholder slots, zero horizontal overflow, and expected `content_*` events reached `dataLayer` after clicking quick/CTA/related surfaces.
+- Next priority: port the result-save-share instrumentation pattern to `brain-type`, `color-personality`, and `mbti-love`, starting with the app that already has the clearest result screen and weakest share/copy/save event split.
