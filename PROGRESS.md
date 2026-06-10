@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-06 (Session 431: Workspace Cleanup + Codex/Harness R&D)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-10 (Session 432: Result Share Pattern Replication + AdSense Reauth Prep)
 
 ---
 
@@ -136,3 +136,13 @@
 - Added report pruning to [scripts/harness-workflow-check.js](E:/Fire%20Project/scripts/harness-workflow-check.js): it keeps `latest.json` plus the most recent `8` timestamped workflow runs by default, with `HARNESS_WORKFLOW_REPORT_KEEP` as an override.
 - Cleaned ignored workspace artifacts: removed the stale `logs/batch-20260327-212750.log`; verification harness runs pruned `12` old `logs/harness-workflow/` timestamp files and left `latest.json` plus the most recent `8` run pairs.
 - Validation passed: `node --check scripts/harness-workflow-check.js`, `git diff --check`, and `npm run harness -- --skip-analytics --skip-runtime`.
+
+### Session 432 (2026-06-10) - Result Share Pattern Replication + AdSense Reauth Prep
+
+- Resumed per [AGENTS.md](E:/Fire%20Project/AGENTS.md) and kept Codex isolated: the launcher ran without touching Claude paths, but reported `stdin is not a terminal` because this API session is not an interactive TTY.
+- Checked AdSense first as requested. The MCP tool and local `doctor` both returned `invalid_grant`; stored OAuth credentials were still present, so a fresh consent URL was generated for manual `init --code` recovery. The failure was logged to [memory/failures.jsonl](E:/Fire%20Project/memory/failures.jsonl).
+- Ran a fresh GA4/GSC selection pass for `2026-06-03..2026-06-09` before implementation. `/animal-personality/` Mexico Direct remained the model winner with `58` sessions, `43` engaged sessions, `101` views, `1,473` events, and about `216s` average session duration. Among the replication candidates, `/mbti-love/` was the only one with recent `result_view` events, while `/brain-type/` and `/color-personality/` had small but engaged Direct/Organic rows. GSC exact checks for all three candidate app URLs returned no recent rows.
+- Ported the Animal result-sharing instrumentation pattern to [projects/mbti-love/js/app.js](E:/Fire%20Project/projects/mbti-love/js/app.js), [projects/brain-type/js/app.js](E:/Fire%20Project/projects/brain-type/js/app.js), and [projects/color-personality/js/app.js](E:/Fire%20Project/projects/color-personality/js/app.js). Result share URLs now carry `lang`, `utm_source=share`, app-specific `utm_medium`, `utm_campaign=personality_result_share`, `utm_content=<result>`, plus result identifiers such as `mbti_love_result`, `brain_type`, `color_type`, `love_group`, and `signature_hex`.
+- Split telemetry so future Direct/share reconstruction can distinguish external share actions from copy and save behavior: `mbti_love_share_click`, `mbti_love_copy_link`, `mbti_love_save_click`; `brain_type_share_click`, `brain_type_copy_link`, `brain_type_result_view`; and `color_personality_share_click`, `color_personality_copy_link`, `color_personality_save_click`, `color_personality_result_view`. `brain-type` has no result-save UI, so this pass kept it to result view/share/copy without adding a new control.
+- Refreshed SoftwareApplication `dateModified=2026-06-10` in [projects/mbti-love/index.html](E:/Fire%20Project/projects/mbti-love/index.html), [projects/brain-type/index.html](E:/Fire%20Project/projects/brain-type/index.html), and [projects/color-personality/index.html](E:/Fire%20Project/projects/color-personality/index.html). Updated the matching app URL lastmods in [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml) and [projects/root-domain/sitemap.xml](E:/Fire%20Project/projects/root-domain/sitemap.xml).
+- Validation passed: `node --check` for all three edited app scripts, submodule/root `git diff --check`, `node scripts/portal-hub-locale-audit.js`, quality gates for `mbti-love`, `brain-type`, `color-personality`, `portal`, and `root-domain`, plus a local mobile Playwright smoke over a temporary static server. The smoke completed result flows for all three apps and confirmed tracked share URLs plus the expected copy/share/save/result events in `dataLayer`.

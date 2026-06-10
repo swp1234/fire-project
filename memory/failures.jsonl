@@ -11,3 +11,5 @@
 {"ts":"2026-05-21T14:53:47Z","agent":"codex","app":"brainrot-score-test-2026","category":"deploy","error":"Immediate live Playwright check after portal push timed out waiting for quick-trend-card; likely GitHub Pages propagation, rechecking HTTP body","resolved":false}
 {"ts":"2026-05-30T07:38:01Z","agent":"codex","app":"adsense","category":"mcp","error":"2026-05-30 AdSense MCP doctor and tool returned invalid_grant; OAuth refresh required","resolved":true}
 {"ts":"2026-05-30T08:02:39Z","agent":"codex","app":"adsense","category":"other","error":"PowerShell input redirection with '<' failed during AdSense MCP stdio smoke; recovered by direct local client and MCP tool checks","resolved":true}
+{"ts":"2026-06-10T11:01:55Z","agent":"codex","app":"adsense","category":"mcp","error":"AdSense MCP doctor returned invalid_grant; refresh token must be reauthorized with init --code.","resolved":false}
+{"ts":"2026-06-10T11:15:37Z","agent":"codex","app":"submodule-push","category":"deploy","error":"Detached HEAD push using HEAD:main failed for brain-type/color-personality; retrying with HEAD:refs/heads/main.","resolved":true}
