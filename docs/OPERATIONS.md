@@ -21,7 +21,7 @@ After `--write`, run `git -C projects/portal diff --check`, `node scripts/portal
 ## Codex Autonomous Throughput Rule
 
 - Keep Codex isolated from Claude runtime/config exactly as defined in [AGENTS.md](E:/Fire%20Project/AGENTS.md). Do not write `.claude` paths and do not run the `claude` CLI unless the user explicitly requests it.
-- On project resume, run `npm run adsense:keepalive` after the isolated Codex launcher. If the stored refresh token returns `invalid_grant`, generate `npm run adsense:auth-url` and complete manual `init --code` before relying on AdSense MCP data.
+- On project resume, run `npm run adsense:keepalive` after the isolated Codex launcher and handle valid-token refresh silently. If the stored refresh token returns `invalid_grant`, generate `npm run adsense:auth-url` and ask only for the OAuth redirect URL needed to complete `init --code`; do not give step-by-step guidance unless the user asks.
 - When the user says to continue autonomously, proceed with the next highest-leverage task without waiting for confirmation. Use the latest GA4/GSC/AdSense context when still fresh; run a new data read only when the current decision needs it.
 - The user's "increase development volume 5x" instruction means larger implementation leverage per session: shared tooling, reusable scripts, batch pipelines, quality gates, and cohesive multi-surface improvements. Do not interpret it as "edit exactly five blog posts."
 - For indexing maintenance, default to this loop: run `npm run content:audit`, choose the highest-risk/highest-upside candidates, implement the improvements, run local and live `npm run content:verify`, update `PROGRESS.md`, then commit and push.

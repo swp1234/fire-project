@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-10 (Session 434: Resume Keepalive + Redirect Alias Cleanup)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-10 (Session 435: AdSense Autorefresh Hardening)
 
 ---
 
@@ -168,3 +168,9 @@
 - Post-cleanup audit now skips `205` redirect stubs and surfaces real content defects instead, led by invalid JSON-LD/stale-schema candidates such as `zh/stress-check-test-guide.html` and stale English support pages.
 - Validation passed: `node --check scripts/blog-indexing-audit.js`, root and portal `git diff --check`, redirect-stub consistency check (`0` bad self/canonical-mismatch stubs), `node scripts/portal-hub-locale-audit.js`, portal quality gate, and `npm run content:audit -- --lang en --limit 5`.
 - Deployment: pushed portal commit `d606215` and root commit `7a54757`. Live verification passed for representative EN/DE/FR/RU alias URLs with `?v=434`; each served `200` and matched canonical plus meta refresh to the intended final article.
+
+### Session 435 (2026-06-10) - AdSense Autorefresh Hardening
+
+- Tightened the user's standing instruction from "guide me through renewal" to "handle renewal automatically." The project resume rule now says Codex should run `npm run adsense:keepalive` silently and only ask for the OAuth redirect URL if Google returns unrecoverable `invalid_grant`.
+- Changed [scripts/install-adsense-mcp-keepalive-task.ps1](E:/Fire%20Project/scripts/install-adsense-mcp-keepalive-task.ps1) so the default scheduled task cadence is `Daily` instead of `Weekly`, and updated [docs/ADSENSE-OAUTH-KEEPALIVE.md](E:/Fire%20Project/docs/ADSENSE-OAUTH-KEEPALIVE.md), [AGENTS.md](E:/Fire%20Project/AGENTS.md), and [docs/OPERATIONS.md](E:/Fire%20Project/docs/OPERATIONS.md) to match.
+- Re-registered `FireProject-AdSenseMcp-KeepAlive` as a daily `09:10` Windows Scheduled Task. Validation passed: default installer `-WhatIf` reports `Daily at 09:10`, the live task is `Ready` with `DaysInterval: 1`, `npm run adsense:keepalive` returns `ok: true`, and `git diff --check` passed.

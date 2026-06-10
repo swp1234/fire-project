@@ -45,10 +45,10 @@ npm run adsense:doctor
 
 ## Scheduled keepalive
 
-After `npm run adsense:doctor` succeeds, register the weekly Windows task:
+After `npm run adsense:doctor` succeeds, register the daily Windows task:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install-adsense-mcp-keepalive-task.ps1 -Schedule Weekly -At 09:10
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install-adsense-mcp-keepalive-task.ps1 -Schedule Daily -At 09:10
 ```
 
 Manual check:

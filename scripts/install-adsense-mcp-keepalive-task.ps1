@@ -3,7 +3,7 @@ param(
     [string]$WorkspacePath = '',
     [string]$TaskName = 'FireProject-AdSenseMcp-KeepAlive',
     [ValidateSet('Daily', 'Weekly')]
-    [string]$Schedule = 'Weekly',
+    [string]$Schedule = 'Daily',
     [string]$At = '09:10'
 )
 

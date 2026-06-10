@@ -21,7 +21,7 @@ Then check the AdSense MCP token before revenue or analytics work:
 npm run adsense:keepalive
 ```
 
-If it returns `invalid_grant`, run `npm run adsense:auth-url`, ask the user for the Google OAuth redirect URL, then complete `init --code`.
+Handle refresh automatically. If Google returns `invalid_grant`, run `npm run adsense:auth-url` and ask only for the OAuth redirect URL needed to complete `init --code`; do not give step-by-step guidance unless the user asks.
 
 ## Optional one-way import (manual only)
 If user explicitly asks to copy MCP definitions from Claude to Codex, use:
