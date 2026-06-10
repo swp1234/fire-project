@@ -21,6 +21,7 @@ const EXPECTED_EVENTS = [
 function parseArgs(argv) {
   const args = {
     failOnScore: null,
+    includeRedirects: false,
     json: false,
     langs: [],
     limit: DEFAULT_LIMIT,
@@ -31,6 +32,7 @@ function parseArgs(argv) {
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === '--fail-on-score') args.failOnScore = readNumber(argv[++i], arg);
+    else if (arg === '--include-redirects') args.includeRedirects = true;
     else if (arg === '--json') args.json = true;
     else if (arg === '--lang') args.langs.push(String(argv[++i] || '').trim().toLowerCase());
     else if (arg === '--limit') args.limit = readLimit(argv[++i], arg);
@@ -68,9 +70,10 @@ function printHelp() {
   node scripts/blog-indexing-audit.js [--limit 30]
   node scripts/blog-indexing-audit.js --lang ko --limit 20
   node scripts/blog-indexing-audit.js --all --json
+  node scripts/blog-indexing-audit.js --include-redirects --limit 30
   node scripts/blog-indexing-audit.js --min-score 40 --fail-on-score 80
 
-Ranks portal blog pages by indexing and maintenance risk. The command is read-only.`);
+Ranks portal blog pages by indexing and maintenance risk. Intentional redirect stubs are skipped by default. The command is read-only.`);
 }
 
 function walkHtmlFiles(dir) {
@@ -80,7 +83,7 @@ function walkHtmlFiles(dir) {
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
       files.push(...walkHtmlFiles(fullPath));
-    } else if (entry.isFile() && entry.name.endsWith('.html') && entry.name !== 'index.html') {
+    } else if (entry.isFile() && entry.name.endsWith('.html') && entry.name !== 'index.html' && !entry.name.startsWith('_')) {
       files.push(fullPath);
     }
   }
@@ -172,6 +175,18 @@ function extractCanonical(html) {
   for (const tag of extractLinkTags(html)) {
     const rel = extractAttr(tag, 'rel').toLowerCase().split(/\s+/);
     if (rel.includes('canonical')) return extractAttr(tag, 'href');
+  }
+  return '';
+}
+
+function extractMetaRefreshTarget(html) {
+  const metaTags = Array.from(html.matchAll(/<meta\b[^>]*>/gi)).map((match) => match[0]);
+  for (const tag of metaTags) {
+    const httpEquiv = extractAttr(tag, 'http-equiv').toLowerCase();
+    if (httpEquiv !== 'refresh') continue;
+    const content = extractAttr(tag, 'content');
+    const target = firstMatch(content, /(?:^|;)\s*url\s*=\s*([^;]+)\s*$/i);
+    if (target) return decodeXml(target.replace(/^['"]|['"]$/g, ''));
   }
   return '';
 }
@@ -287,6 +302,31 @@ function normalizeUrl(url) {
   return String(url || '').replace(/\/+$/, '');
 }
 
+function isRedirectStub(html, url, canonical) {
+  const refreshTarget = extractMetaRefreshTarget(html);
+  if (!refreshTarget) return false;
+
+  let refreshUrl = '';
+  try {
+    refreshUrl = new URL(refreshTarget, url).href;
+  } catch {
+    refreshUrl = refreshTarget;
+  }
+
+  const normalizedUrl = normalizeUrl(url);
+  const normalizedCanonical = normalizeUrl(canonical);
+  const normalizedRefresh = normalizeUrl(refreshUrl);
+  const hasRedirectTitle = /<title\b[^>]*>\s*Redirecting\.\.\.\s*<\/title>/i.test(html);
+  const hasScriptRedirect = /window\.location\.(?:replace|href)\s*=/i.test(html);
+
+  return (
+    normalizedCanonical &&
+    normalizedCanonical !== normalizedUrl &&
+    normalizedRefresh === normalizedCanonical &&
+    (hasRedirectTitle || hasScriptRedirect)
+  );
+}
+
 function addIssue(issues, id, weight, message) {
   issues.push({ id, weight, message });
 }
@@ -302,6 +342,7 @@ function auditFile(filePath, sitemaps, today, maxAgeDays) {
   const breadcrumbNodes = nodes.filter((node) => typeMatches(node, 'BreadcrumbList'));
   const faqNodes = nodes.filter((node) => typeMatches(node, 'FAQPage'));
   const canonical = extractCanonical(html);
+  const redirectStub = isRedirectStub(html, url, canonical);
   const hreflangs = extractHreflangs(html);
   const dateModified = findDateModified(nodes, html);
   const ageDays = dateAgeDays(dateModified, today);
@@ -359,6 +400,7 @@ function auditFile(filePath, sitemaps, today, maxAgeDays) {
     dateModified,
     file: relativePosix(ROOT, filePath),
     hreflangs: hreflangs.map((entry) => entry.hreflang),
+    isRedirectStub: redirectStub,
     issues,
     lang,
     quickCards,
@@ -374,9 +416,10 @@ function trimCell(value, width) {
   return `${text.slice(0, Math.max(0, width - 1))}…`;
 }
 
-function printTable(results, totalCount, args) {
+function printTable(results, totalCount, skippedRedirectStubs, args) {
   const shown = results.slice(0, args.limit);
-  console.log(`Audited ${totalCount} portal blog article pages. Showing ${shown.length} candidate(s).`);
+  const skippedText = skippedRedirectStubs > 0 ? ` Skipped ${skippedRedirectStubs} redirect stub(s).` : '';
+  console.log(`Audited ${totalCount} portal blog article pages.${skippedText} Showing ${shown.length} candidate(s).`);
   console.log(`Score weights prioritize sitemap/canonical/JSON-LD, then content rails, ads, analytics, and mobile risks.\n`);
   console.log(`${trimCell('score', 5)}  ${trimCell('lang', 4)}  ${trimCell('date', 10)}  ${trimCell('quick', 5)}  ${trimCell('ads', 3)}  ${trimCell('file', 54)}  issues`);
   console.log(`${'-'.repeat(5)}  ${'-'.repeat(4)}  ${'-'.repeat(10)}  ${'-'.repeat(5)}  ${'-'.repeat(3)}  ${'-'.repeat(54)}  ${'-'.repeat(48)}`);
@@ -400,8 +443,12 @@ function main() {
     const lang = getLang(filePath);
     return args.langs.length === 0 || args.langs.includes(lang);
   });
-  const results = files
-    .map((filePath) => auditFile(filePath, sitemaps, today, args.maxAgeDays))
+  const auditedResults = files.map((filePath) => auditFile(filePath, sitemaps, today, args.maxAgeDays));
+  const skippedRedirectStubs = args.includeRedirects
+    ? 0
+    : auditedResults.filter((result) => result.isRedirectStub).length;
+  const results = auditedResults
+    .filter((result) => args.includeRedirects || !result.isRedirectStub)
     .filter((result) => result.score >= args.minScore)
     .sort((a, b) => b.score - a.score || a.file.localeCompare(b.file));
 
@@ -410,14 +457,16 @@ function main() {
       auditedAt: today,
       filters: {
         langs: args.langs,
+        includeRedirects: args.includeRedirects,
         maxAgeDays: args.maxAgeDays,
         minScore: args.minScore,
       },
+      skippedRedirectStubs,
       totalFiles: files.length,
       results: results.slice(0, args.limit),
     }, null, 2));
   } else {
-    printTable(results, files.length, args);
+    printTable(results, files.length, skippedRedirectStubs, args);
   }
 
   if (args.failOnScore !== null && results.some((result) => result.score >= args.failOnScore)) {

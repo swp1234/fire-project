@@ -15,6 +15,14 @@ Launch Codex in isolated mode:
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start-codex-isolated.ps1
 ```
 
+Then check the AdSense MCP token before revenue or analytics work:
+
+```powershell
+npm run adsense:keepalive
+```
+
+If it returns `invalid_grant`, run `npm run adsense:auth-url`, ask the user for the Google OAuth redirect URL, then complete `init --code`.
+
 ## Optional one-way import (manual only)
 If user explicitly asks to copy MCP definitions from Claude to Codex, use:
 

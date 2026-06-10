@@ -21,6 +21,7 @@ After `--write`, run `git -C projects/portal diff --check`, `node scripts/portal
 ## Codex Autonomous Throughput Rule
 
 - Keep Codex isolated from Claude runtime/config exactly as defined in [AGENTS.md](E:/Fire%20Project/AGENTS.md). Do not write `.claude` paths and do not run the `claude` CLI unless the user explicitly requests it.
+- On project resume, run `npm run adsense:keepalive` after the isolated Codex launcher. If the stored refresh token returns `invalid_grant`, generate `npm run adsense:auth-url` and complete manual `init --code` before relying on AdSense MCP data.
 - When the user says to continue autonomously, proceed with the next highest-leverage task without waiting for confirmation. Use the latest GA4/GSC/AdSense context when still fresh; run a new data read only when the current decision needs it.
 - The user's "increase development volume 5x" instruction means larger implementation leverage per session: shared tooling, reusable scripts, batch pipelines, quality gates, and cohesive multi-surface improvements. Do not interpret it as "edit exactly five blog posts."
 - For indexing maintenance, default to this loop: run `npm run content:audit`, choose the highest-risk/highest-upside candidates, implement the improvements, run local and live `npm run content:verify`, update `PROGRESS.md`, then commit and push.
@@ -45,13 +46,18 @@ Last reviewed: 2026-06-06.
 - Optimize for quality multipliers: result-card clarity, localization fit, share/save/copy instrumentation, result-specific OG/UTM links, next-test routing, revenue-safe ad placement, and clean post-result analytics. Do not ship shallow clone pages just because a topic is working.
 - Keep the portfolio balanced: continue stability, indexing, monetization cleanup, and new experiments when data points there. Strength amplification is a recurring lane, not a tunnel.
 
-### Current Strength Amplification Queue
+### Completed Strength Amplification Queue
 
-1. Add automatic UTM parameters to `/animal-personality/` result sharing links: `utm_source=share`, `utm_medium=animal_result`, `utm_campaign=animal_mx`.
-2. Split Animal result instrumentation so Direct can be reconstructed better: `animal_share_click`, `animal_copy_link`, `animal_save_click`, plus channel/surface/result metadata.
-3. Prioritize Mexico/Spanish quality improvements for Animal: Spanish result copy, ES landing support, ES blog/internal links, and culturally natural share text.
-4. In reporting, separate Singapore Direct as a low-value/noise segment so it does not hide Mexico/Animal quality signals.
-5. After Animal is instrumented and localized, copy the result-save-share pattern to `brain-type`, `color-personality`, and `mbti-love`; result-sharing tests are the current revenue pattern.
+- Animal result sharing now carries UTM/result metadata, split copy/share/save events, and Spanish/Mexico routing support.
+- The same result-share telemetry pattern has been ported to `brain-type`, `color-personality`, and `mbti-love`.
+- Singapore Direct is treated as a low-value/noise segment in reports unless fresh data proves otherwise.
+
+### Current Autonomous Queue
+
+1. Use `npm run content:audit` after the AdSense keepalive check to select the next maintenance batch.
+2. Prioritize real content defects now that redirect stubs are skipped: invalid JSON-LD, missing Article/Breadcrumb/FAQ schema, stale sitemap dates, missing quick rails, and missing Auto ad surfaces.
+3. Start with the current audit leaders: `zh/stress-check-test-guide.html`, the zh invalid-JSON-LD psychology cluster, and stale English support articles such as `daily-tarot-reading-guide.html`, `future-self-test-guide.html`, `lottery-number-guide.html`, and `mbti-love-compatibility-guide.html`.
+4. Keep using local and live `content:verify` for edited full articles; for redirect aliases, run the redirect-stub consistency check before deploy.
 
 ## Content Indexing Maintenance Batch
 

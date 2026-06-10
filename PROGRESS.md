@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-10 (Session 433: AdSense OAuth Keepalive Research)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-10 (Session 434: Resume Keepalive + Redirect Alias Cleanup)
 
 ---
 
@@ -159,3 +159,11 @@
 - Added [scripts/install-adsense-mcp-keepalive-task.ps1](E:/Fire%20Project/scripts/install-adsense-mcp-keepalive-task.ps1), which registers a Windows Scheduled Task named `FireProject-AdSenseMcp-KeepAlive` for a daily or weekly keepalive run.
 - Validation: `package.json` parsed successfully, `git diff --check` passed, the keepalive script produced the expected `invalid_grant` failure on the current stale token, and the scheduled-task installer passed `-WhatIf` with the default weekly `09:10` schedule.
 - Manual OAuth reauthorization was completed successfully later in the session. Fresh local MCP processes now pass `npm run adsense:doctor` and `npm run adsense:keepalive` for `accounts/pub-3600813755953882`; Windows Scheduled Task `FireProject-AdSenseMcp-KeepAlive` is registered and `Ready` for weekly `09:10` checks. The already-attached AdSense MCP tool in this Codex conversation still returned its stale `invalid_grant`, so a fresh MCP/Codex process may be needed before in-chat AdSense tools pick up the new token.
+
+### Session 434 (2026-06-10) - Resume Keepalive + Redirect Alias Cleanup
+
+- Adopted the user's standing instruction that AdSense token health should be handled automatically when resuming Fire Project. Added the resume keepalive rule to [AGENTS.md](E:/Fire%20Project/AGENTS.md) and [docs/OPERATIONS.md](E:/Fire%20Project/docs/OPERATIONS.md), and confirmed `npm run adsense:keepalive` still passes for `accounts/pub-3600813755953882`.
+- Continued autonomous maintenance using `npm run content:audit`. The audit initially surfaced redirect aliases as if they were broken articles, so [scripts/blog-indexing-audit.js](E:/Fire%20Project/scripts/blog-indexing-audit.js) now skips intentional redirect stubs by default, supports `--include-redirects`, reports skipped redirect counts, and ignores `_template.html`.
+- Repaired 14 portal blog redirect alias files. Seven English aliases were self-refresh loops and now redirect/canonicalize to their finished English articles; seven DE/ES/FR/RU aliases had canonical URLs pointing at themselves while redirecting elsewhere and now canonicalize to the actual redirect target.
+- Post-cleanup audit now skips `205` redirect stubs and surfaces real content defects instead, led by invalid JSON-LD/stale-schema candidates such as `zh/stress-check-test-guide.html` and stale English support pages.
+- Validation passed: `node --check scripts/blog-indexing-audit.js`, root and portal `git diff --check`, redirect-stub consistency check (`0` bad self/canonical-mismatch stubs), `node scripts/portal-hub-locale-audit.js`, portal quality gate, and `npm run content:audit -- --lang en --limit 5`.
