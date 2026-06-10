@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-10 (Session 432: Result Share Pattern Replication + AdSense Reauth Prep)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-10 (Session 433: AdSense OAuth Keepalive Research)
 
 ---
 
@@ -148,3 +148,13 @@
 - Validation passed: `node --check` for all three edited app scripts, submodule/root `git diff --check`, `node scripts/portal-hub-locale-audit.js`, quality gates for `mbti-love`, `brain-type`, `color-personality`, `portal`, and `root-domain`, plus a local mobile Playwright smoke over a temporary static server. The smoke completed result flows for all three apps and confirmed tracked share URLs plus the expected copy/share/save/result events in `dataLayer`.
 - Deployment: pushed [projects/mbti-love](E:/Fire%20Project/projects/mbti-love) commit `26bc752`, [projects/brain-type](E:/Fire%20Project/projects/brain-type) commit `391a90f`, [projects/color-personality](E:/Fire%20Project/projects/color-personality) commit `46d1075`, [projects/portal](E:/Fire%20Project/projects/portal) commit `4e6b7c1`, [projects/root-domain](E:/Fire%20Project/projects/root-domain) commit `35b8c70`, and root commit `b2e69c6`. `brain-type` and `color-personality` were detached submodule checkouts, so the commits were pushed to both `main` and the default `master` branch.
 - Live verification passed immediately on `dopabrain.com`: the three app pages served `dateModified=2026-06-10`, the live JS bundles contained the new copy/share/save event names plus app-specific `utm_medium` values, and both live root/portal sitemaps served `2026-06-10` lastmods for `/mbti-love/`, `/brain-type/`, and `/color-personality/`.
+
+### Session 433 (2026-06-10) - AdSense OAuth Keepalive Research
+
+- Researched the AdSense MCP authentication question against official Google OAuth, Google Cloud token type, and AdSense Management API documentation. Conclusion: truly permanent authentication is not available; the durable approach is a production OAuth consent screen plus a stored refresh token, with a scheduled keepalive to exercise it and detect breakage.
+- Confirmed the current `invalid_grant` state cannot be repaired automatically. A fresh manual OAuth consent flow is required after checking that the Google Cloud OAuth consent screen is `In production` rather than `Testing`; external apps in `Testing` can receive refresh tokens that expire after seven days for non-profile scopes.
+- Documented the operating rule in [docs/ADSENSE-OAUTH-KEEPALIVE.md](E:/Fire%20Project/docs/ADSENSE-OAUTH-KEEPALIVE.md): AdSense does not support service accounts, access tokens are short-lived, refresh tokens are long-lived but revocable/expirable, and keepalive checks are detection/prevention rather than a bypass for Google token rules.
+- Added root package helpers: `npm run adsense:auth-url`, `npm run adsense:doctor`, and `npm run adsense:keepalive`.
+- Added [scripts/adsense-mcp-keepalive.ps1](E:/Fire%20Project/scripts/adsense-mcp-keepalive.ps1), which runs the local AdSense MCP `doctor`, writes JSONL status to `logs/adsense-mcp-keepalive.jsonl`, flags `invalid_grant`, and can print a recovery auth URL.
+- Added [scripts/install-adsense-mcp-keepalive-task.ps1](E:/Fire%20Project/scripts/install-adsense-mcp-keepalive-task.ps1), which registers a Windows Scheduled Task named `FireProject-AdSenseMcp-KeepAlive` for a daily or weekly keepalive run.
+- Validation: `package.json` parsed successfully, `git diff --check` passed, the keepalive script produced the expected `invalid_grant` failure on the current stale token, and the scheduled-task installer passed `-WhatIf` with the default weekly `09:10` schedule.

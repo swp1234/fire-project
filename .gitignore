@@ -51,6 +51,8 @@ SOUNDSCAPE_*.txt
 *.py
 !scripts/update_batch9_indexes.py
 *.ps1
+!scripts/adsense-mcp-keepalive.ps1
+!scripts/install-adsense-mcp-keepalive-task.ps1
 *.js
 !scripts/analytics-event-check.js
 !scripts/create-blog-article.js
@@ -62,6 +64,7 @@ nul
 # Harness run artifacts (generated)
 logs/harness-artifacts/
 logs/harness-workflow/
+logs/adsense-mcp-keepalive.jsonl
 
 # MCP 서버 (로컬 전용)
 .mcp-servers/

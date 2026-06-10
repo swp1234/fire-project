@@ -1,5 +1,8 @@
 {
   "scripts": {
+    "adsense:auth-url": "node .mcp-servers/adsense-mcp/build/index.js auth-url",
+    "adsense:doctor": "node .mcp-servers/adsense-mcp/build/index.js doctor",
+    "adsense:keepalive": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/adsense-mcp-keepalive.ps1",
     "content:audit": "node scripts/blog-indexing-audit.js",
     "content:scaffold": "node scripts/create-blog-article.js",
     "content:verify": "node scripts/verify-blog-pages.js",
