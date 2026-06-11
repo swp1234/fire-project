@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-11 (Session 436: ZH Blog Indexing Schema Batch)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-11 (Session 437: ZH Trauma Blog Indexing Batch)
 
 ---
 
@@ -184,3 +184,13 @@
 - Validation passed: `node --check scripts/blog-indexing-audit.js`, root and portal `git diff --check`, `node scripts/portal-hub-locale-audit.js`, Git Bash portal quality gate, `npm run content:audit -- --lang zh --limit 20`, JSON-LD FAQ sanity checks, and local `npm run content:verify` for all seven pages with expected date, quick cards, Auto ads, zero overflow, and expected `content_*` events.
 - Deployment: pushed portal commits `5d2e9b3` and `e57f696`, then root commits `aec6207` and `82ad733` to advance the submodule pointer and audit script. Live verification passed for all seven URLs with `?v=436done`; both live `portal/sitemap.xml` and `portal/blog/sitemap.xml` served `2026-06-11` lastmods for the seven upgraded zh URLs.
 - Next priority: continue the zh audit leaders with actual broken-link/schema defects: `complex-ptsd-symptoms-recovery.html`, `dissociation-symptoms-grounding.html`, `love-bombing-signs-narcissist.html`, `emotional-dysregulation-signs-coping.html`, and `hypervigilance-trauma-signs-coping.html`.
+
+### Session 437 (2026-06-11) - ZH Trauma Blog Indexing Batch
+
+- Continued per [AGENTS.md](E:/Fire%20Project/AGENTS.md) with `npm run adsense:keepalive` passing for `accounts/pub-3600813755953882` before revenue/content maintenance. Root and portal worktrees were clean before starting.
+- Used `npm run content:audit -- --lang zh --limit 12` to take the next Chinese audit leaders from Session 436, then upgraded five trauma/relationship articles: [complex-ptsd-symptoms-recovery.html](E:/Fire%20Project/projects/portal/blog/zh/complex-ptsd-symptoms-recovery.html), [dissociation-symptoms-grounding.html](E:/Fire%20Project/projects/portal/blog/zh/dissociation-symptoms-grounding.html), [love-bombing-signs-narcissist.html](E:/Fire%20Project/projects/portal/blog/zh/love-bombing-signs-narcissist.html), [emotional-dysregulation-signs-coping.html](E:/Fire%20Project/projects/portal/blog/zh/emotional-dysregulation-signs-coping.html), and [hypervigilance-trauma-signs-coping.html](E:/Fire%20Project/projects/portal/blog/zh/hypervigilance-trauma-signs-coping.html).
+- Rebuilt each page's structured data into one valid Article/BreadcrumbList/FAQPage JSON-LD graph with `dateModified=2026-06-11`, added four-card quick rails, inserted Auto ad surfaces with `data-ad-slot="auto"`, added explicit CTA and related-link click surfaces, and refreshed both portal sitemaps to `2026-06-11`.
+- Fixed broken internal paths found by the audit: replaced the missing `trauma-response-4f-fight-flight-freeze-fawn.html`, `inner-child-healing-guide.html`, `dating-red-flags-checklist.html`, `healthy-boundaries-guide.html`, `cbt-techniques-stop-overthinking.html`, and stale external emotional-intelligence links with existing zh articles or production test URLs.
+- Validation passed: portal/root `git diff --check`, local internal blog-link existence scan, `npm run content:audit -- --lang zh --limit 12`, JSON-LD/quick-rail placement sanity checks, local `npm run content:verify` for all five pages, `node scripts/portal-hub-locale-audit.js`, and the Git Bash portal quality gate.
+- Deployment: pushed portal commit `22bf42a` (`Upgrade zh trauma blog indexing candidates`) and root commit `4614971` (`Advance portal zh trauma batch`). Live verification passed for all five URLs with `?v=437done`, including `content_view`, `content_ad_impression`, `content_test_click`, `content_cta_click`, and `content_related_click`; both live `portal/sitemap.xml` and `portal/blog/sitemap.xml` served `2026-06-11` lastmods for the five upgraded URLs.
+- Next priority: continue zh audit leaders now surfaced by the latest pass, starting with `zodiac-compatibility.html`, `reaction-time-test-how-fast-are-you.html`, `cognitive-distortions-list.html`, `maladaptive-daydreaming-signs-test.html`, `how-to-improve-emotional-intelligence.html`, and `people-pleasing-fawn-response-guide.html`.
