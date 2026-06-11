@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-11 (Session 438: Retention Drop Analysis + Routing Fix)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-12 (Session 439: Country-Aware Content Routing)
 
 ---
 
@@ -49,6 +49,17 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 439 (2026-06-12) - Country-Aware Content Routing
+
+- Continued the user's country-popular-content request after the Session 438 retention fix. Codex isolation stayed intact and `npm run adsense:keepalive` had already passed before analytics/development work.
+- GA4 `2026-06-05..2026-06-11` showed country-specific winners rather than one universal path: Mexico stayed strongest on `/animal-personality/` (`55` sessions, `74.5%` engagement, about `233s` average duration); Chinese readers spent longer on `2048-strategy-guide`, `emotional-regulation-techniques`, dopamine/HSP content, and 2048; Japan's strongest path was `/mbti-city/`; France over-indexed on `test-type-cerveau`; Indonesia clustered around emotional-regulation content; Germany stayed strongest on personality-test discovery. Singapore Direct remained scan/noise and was not used as a recommendation driver.
+- Added [projects/portal/js/country-content.js](E:/Fire%20Project/projects/portal/js/country-content.js), a shared country/market routing module that uses `?market=`, `?country=`, `lang`, browser language, and timezone signals without IP lookup. It renders tracked country rails with `country_content_view` and `country_content_click` events plus UTM-tagged destinations.
+- Added country-aware first-screen rails to [projects/root-domain/index.html](E:/Fire%20Project/projects/root-domain/index.html) and [projects/portal/index.html](E:/Fire%20Project/projects/portal/index.html), with responsive styling in [projects/portal/css/style.css](E:/Fire%20Project/projects/portal/css/style.css) and root inline CSS. Examples: Mexico gets Spanish Animal Personality first; Chinese users get 2048 strategy, emotional regulation, 2048 app, and dopamine type; Japan gets MBTI City; France gets Brain Type; Indonesia gets emotion/EQ/HSP; Germany gets personality/brain/HSP/EQ.
+- Reordered the portal blog card data so the language-specific blog sections now promote the observed winning pages first: zh `2048-strategy-guide`, `emotional-regulation-techniques`, `dopamine-detox-guide-reset-brain`, and `hsp-test-guide`; ja `mbti-city-seikaku-toshi`; es `animal-personality`; fr `test-type-cerveau`; id `emotional-regulation-techniques`; de stronger personality-test copy. Fixed the blog widget language detector so `?lang=fr` and i18n language changes affect the blog list instead of falling back to stored/browser language only.
+- Upgraded [projects/portal/js/cross-promo.js](E:/Fire%20Project/projects/portal/js/cross-promo.js) so blog fallback bridges are now country/locale-specific: zh blogs route to `puzzle-2048`, `dopamine-type`, `hsp-test`, `eq-test`; Spanish/Mexico routes to Animal Personality first; ja/fr/id/de/en/ko each get a better local app sequence. The bridge now emits `cross_promo_view` with detected market and content locale.
+- Refreshed `/` and `/portal/` sitemap lastmods to `2026-06-12` in [projects/root-domain/sitemap.xml](E:/Fire%20Project/projects/root-domain/sitemap.xml) and [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml).
+- Validation passed: `node --check projects/portal/js/country-content.js`, `node --check projects/portal/js/cross-promo.js`, XML parse checks for both sitemaps, targeted `node scripts/verify-blog-pages.js --file ...` for six representative zh/ja/fr/id/es pages, and local Playwright checks for root Mexico rail, portal Chinese rail, portal Japan mobile rail, French blog first card, and Chinese blog bridge. Mobile 390px checks showed country cards stayed within viewport (`16..374` px on a `390` px viewport).
 
 ### Session 424 (2026-06-05) - Indexing Maintenance Kickoff + Portal Content Signals
 
