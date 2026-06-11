@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-10 (Session 435: AdSense Autorefresh Hardening)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-11 (Session 436: ZH Blog Indexing Schema Batch)
 
 ---
 
@@ -174,3 +174,13 @@
 - Tightened the user's standing instruction from "guide me through renewal" to "handle renewal automatically." The project resume rule now says Codex should run `npm run adsense:keepalive` silently and only ask for the OAuth redirect URL if Google returns unrecoverable `invalid_grant`.
 - Changed [scripts/install-adsense-mcp-keepalive-task.ps1](E:/Fire%20Project/scripts/install-adsense-mcp-keepalive-task.ps1) so the default scheduled task cadence is `Daily` instead of `Weekly`, and updated [docs/ADSENSE-OAUTH-KEEPALIVE.md](E:/Fire%20Project/docs/ADSENSE-OAUTH-KEEPALIVE.md), [AGENTS.md](E:/Fire%20Project/AGENTS.md), and [docs/OPERATIONS.md](E:/Fire%20Project/docs/OPERATIONS.md) to match.
 - Re-registered `FireProject-AdSenseMcp-KeepAlive` as a daily `09:10` Windows Scheduled Task. Validation passed: default installer `-WhatIf` reports `Daily at 09:10`, the live task is `Ready` with `DaysInterval: 1`, `npm run adsense:keepalive` returns `ok: true`, and `git diff --check` passed.
+
+### Session 436 (2026-06-11) - ZH Blog Indexing Schema Batch
+
+- Resumed per [AGENTS.md](E:/Fire%20Project/AGENTS.md). The isolated Codex launcher ran without touching Claude paths, but reported `stdin is not a terminal` because this API session is not an interactive TTY. `npm run adsense:keepalive` passed for `accounts/pub-3600813755953882` before content maintenance.
+- Fixed a root-domain false positive in [scripts/blog-indexing-audit.js](E:/Fire%20Project/scripts/blog-indexing-audit.js): internal root links now map to [projects/root-domain](E:/Fire%20Project/projects/root-domain) instead of nonexistent `projects/index.html`, so blog audits no longer inflate scores for valid `https://dopabrain.com/` links.
+- Used `npm run content:audit -- --lang zh --limit 20` to select the cleanest high-impact Chinese maintenance batch, then upgraded seven zh articles: [stress-check-test-guide.html](E:/Fire%20Project/projects/portal/blog/zh/stress-check-test-guide.html), [gaslighting-signs-recovery-guide.html](E:/Fire%20Project/projects/portal/blog/zh/gaslighting-signs-recovery-guide.html), [rumination-repetitive-thinking-stop.html](E:/Fire%20Project/projects/portal/blog/zh/rumination-repetitive-thinking-stop.html), [self-esteem-building-guide.html](E:/Fire%20Project/projects/portal/blog/zh/self-esteem-building-guide.html), [somatic-anxiety-body-symptoms.html](E:/Fire%20Project/projects/portal/blog/zh/somatic-anxiety-body-symptoms.html), [rejection-sensitivity-dysphoria.html](E:/Fire%20Project/projects/portal/blog/zh/rejection-sensitivity-dysphoria.html), and [disorganized-attachment-style.html](E:/Fire%20Project/projects/portal/blog/zh/disorganized-attachment-style.html).
+- Rebuilt invalid JSON-LD into valid Article/BreadcrumbList/FAQPage graphs with `dateModified=2026-06-11`, added visible four-card quick-action rails, replaced placeholder ad slots with `data-ad-slot="auto"`, added `data-ad-surface`, added standard `content_view`, `content_ad_impression`, `content_test_click`, `content_cta_click`, and `content_related_click` tracking, and refreshed both portal sitemaps to `2026-06-11`.
+- Validation passed: `node --check scripts/blog-indexing-audit.js`, root and portal `git diff --check`, `node scripts/portal-hub-locale-audit.js`, Git Bash portal quality gate, `npm run content:audit -- --lang zh --limit 20`, JSON-LD FAQ sanity checks, and local `npm run content:verify` for all seven pages with expected date, quick cards, Auto ads, zero overflow, and expected `content_*` events.
+- Deployment: pushed portal commits `5d2e9b3` and `e57f696`, then root commits `aec6207` and `82ad733` to advance the submodule pointer and audit script. Live verification passed for all seven URLs with `?v=436done`; both live `portal/sitemap.xml` and `portal/blog/sitemap.xml` served `2026-06-11` lastmods for the seven upgraded zh URLs.
+- Next priority: continue the zh audit leaders with actual broken-link/schema defects: `complex-ptsd-symptoms-recovery.html`, `dissociation-symptoms-grounding.html`, `love-bombing-signs-narcissist.html`, `emotional-dysregulation-signs-coping.html`, and `hypervigilance-trauma-signs-coping.html`.
