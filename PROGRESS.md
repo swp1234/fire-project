@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-12 (Session 439: Country-Aware Content Routing)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-12 (Session 440: Country Preference Profiles)
 
 ---
 
@@ -49,6 +49,16 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 440 (2026-06-12) - Country Preference Profiles
+
+- Continued the user's request to identify and add country-specific favorite content and preferences. Codex isolation was preserved; the isolated launcher still reported `stdin is not a terminal` in this API session, and `npm run adsense:keepalive` passed for `accounts/pub-3600813755953882`.
+- Re-read GA4 `2026-06-05..2026-06-11` by country/page and country/event. Preference signals sharpened the Session 439 routing: Mexico is strongly result-quiz driven (`animal_choice_select`, `result_view`, `animal_result_ad_impression`); China mixes long guides with HSP/EQ/attachment/2048 and cross-promo clicks; Japan shows MBTI/relationship/anxiety/attachment test depth; France clusters around brain-type/cognitive profile; Indonesia leans emotional regulation -> EQ/relationship; Germany leans personality discovery, HSP, emotional regulation, and stress response. Singapore remained high-volume low-quality scan traffic and was not used as a preference driver.
+- Added `preferences` profiles to [projects/portal/js/country-content.js](E:/Fire%20Project/projects/portal/js/country-content.js). The country rail now renders up to four preference chips above the recommendation cards and emits `preference_profile` / `preference_count` in `country_content_view` and `country_content_click` events.
+- Expanded market coverage in the shared country router: Malaysia (`my`/`ms`/`Asia/Kuala_Lumpur`) now gets deep test-hopping recommendations (`brain-type`, `iq-test`, `mental-age`, `rizz-score`); Portuguese markets (`pt`/`br`/Brazil/Portugal) get animal/personality/self-work/relationship routes; Russian markets get games, stress, animal, and brain-type routes. English detection now also covers `Europe/London` and `Australia/*`.
+- Added matching preference chip styling to [projects/portal/css/style.css](E:/Fire%20Project/projects/portal/css/style.css) and [projects/root-domain/index.html](E:/Fire%20Project/projects/root-domain/index.html).
+- Updated [projects/portal/js/cross-promo.js](E:/Fire%20Project/projects/portal/js/cross-promo.js) so blog bridges also understand `my`, `pt`, and `ru` markets with localized next-app sequences.
+- Validation passed: `node --check projects/portal/js/country-content.js`, `node --check projects/portal/js/cross-promo.js`, portal/root `git diff --check`, sitemap XML parse checks, `node scripts/portal-hub-locale-audit.js`, Git Bash quality gates for `projects/portal` and `projects/root-domain`, and `npm run harness -- --skip-analytics --skip-runtime`. Local mobile Playwright verified preference chips and card widths for `mx`, `zh`, `my`, `pt`, and `ru`; the Portuguese blog bridge rendered `animal-personality`, `eq-test`, `attachment-style`, and `brain-type`.
 
 ### Session 439 (2026-06-12) - Country-Aware Content Routing
 
