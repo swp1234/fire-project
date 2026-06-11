@@ -4,6 +4,7 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const PROJECTS_ROOT = path.join(ROOT, 'projects');
+const ROOT_DOMAIN_ROOT = path.join(PROJECTS_ROOT, 'root-domain');
 const PORTAL_ROOT = path.join(PROJECTS_ROOT, 'portal');
 const BLOG_ROOT = path.join(PORTAL_ROOT, 'blog');
 const ORIGIN = 'https://dopabrain.com';
@@ -278,9 +279,18 @@ function localPathForInternalHref(href) {
     return '';
   }
 
-  if (!pathname || pathname === '/') return path.join(PROJECTS_ROOT, 'index.html');
-  if (pathname.endsWith('/')) return path.join(PROJECTS_ROOT, pathname, 'index.html');
-  return path.join(PROJECTS_ROOT, pathname);
+  const projectPath = (!pathname || pathname === '/')
+    ? path.join(ROOT_DOMAIN_ROOT, 'index.html')
+    : pathname.endsWith('/')
+      ? path.join(PROJECTS_ROOT, pathname, 'index.html')
+      : path.join(PROJECTS_ROOT, pathname);
+
+  if (fs.existsSync(projectPath)) return projectPath;
+
+  const rootDomainPath = pathname.endsWith('/')
+    ? path.join(ROOT_DOMAIN_ROOT, pathname, 'index.html')
+    : path.join(ROOT_DOMAIN_ROOT, pathname);
+  return rootDomainPath;
 }
 
 function findBrokenInternalLinks(html) {
