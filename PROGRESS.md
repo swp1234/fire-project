@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-12 (Session 440: Country Preference Profiles)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-12 (Session 442: EN Mental Health Indexing Batch)
 
 ---
 
@@ -49,6 +49,14 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 442 (2026-06-12) - EN Mental Health Indexing Batch
+
+- Continued autonomous work after Session 441. Codex isolation was preserved; the isolated launcher again reported `stdin is not a terminal` in this API session, and `npm run adsense:keepalive` passed for `accounts/pub-3600813755953882`.
+- Ran `npm run content:audit -- --limit 20`, plus focused `--lang zh` and `--lang en` passes. Selected two high-score English mental-health/self-regulation articles that also fit the external trend direction from Session 441: [projects/portal/blog/en/decision-fatigue-signs-solutions.html](E:/Fire%20Project/projects/portal/blog/en/decision-fatigue-signs-solutions.html) and [projects/portal/blog/en/doom-scrolling-mental-health-effects.html](E:/Fire%20Project/projects/portal/blog/en/doom-scrolling-mental-health-effects.html).
+- Upgraded both pages with `dateModified=2026-06-12`, four-card quick action rails, visible Auto ads using `data-ad-slot="auto"` and stable `data-ad-surface`, standard `content_view`, `content_ad_impression`, `content_test_click`, `content_cta_click`, `content_related_click`, and `content_toc_click` instrumentation, plus refreshed portal/blog sitemap lastmods.
+- Fixed stale conversion paths while preserving article bodies: old `/dopamine-test/` links now route to `/dopamine-type/`; non-existent `/dopamine-detox/` links now route to the existing `/detox-timer/` app.
+- Validation passed: `node --check` for content audit/verify scripts, JSON-LD parse checks, local `npm run content:verify` for both pages with expected date/quick cards/Auto ads/events, `npm run content:audit -- --lang en --limit 10`, portal `git diff --check`, sitemap tag/lastmod checks, `node scripts/portal-hub-locale-audit.js`, and the Git Bash portal quality gate.
 
 ### Session 441 (2026-06-12) - External Trend Benchmarking + IN/TR Routing
 
