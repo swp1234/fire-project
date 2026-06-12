@@ -57,6 +57,7 @@
 - Upgraded all four pages with `dateModified=2026-06-12`, self/x-default hreflang, BreadcrumbList JSON-LD, four-card quick rails, mobile-safe table overflow, Auto ad surfaces using `data-ad-slot="auto"`, and standard `content_view`, `content_ad_impression`, `content_test_click`, `content_cta_click`, `content_related_click`, and `content_toc_click` instrumentation.
 - Refreshed both [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml) and [projects/portal/blog/sitemap.xml](E:/Fire%20Project/projects/portal/blog/sitemap.xml) to `2026-06-12` for the changed English URLs, including the duplicate MBTI sitemap entries.
 - Validation passed: JSON-LD parse checks, local `npm run content:verify` for all four pages with expected date/quick cards/Auto ads/events, targeted placeholder/legacy link checks, sitemap XML parse checks, `npm run content:audit -- --lang en --limit 20`, portal `git diff --check`, `node scripts/portal-hub-locale-audit.js`, and the Git Bash portal quality gate.
+- Live verification initially exposed a 19px mobile overflow on the Daily Tarot and Future Self pages with real GTM/AdSense scripts; constrained the grid cards with `min-width:0` and wrapping, then verified all four live URLs with `dateModified=2026-06-12`, `4` quick cards, Auto ads, expected `content_*` events, and `overflow=0px`.
 
 ### Session 442 (2026-06-12) - EN Mental Health Indexing Batch
 
