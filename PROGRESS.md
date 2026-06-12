@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-12 (Session 442: EN Mental Health Indexing Batch)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-12 (Session 443: EN Evergreen Guide Indexing Batch)
 
 ---
 
@@ -49,6 +49,14 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 443 (2026-06-12) - EN Evergreen Guide Indexing Batch
+
+- Continued autonomous indexing maintenance after Session 442. Codex isolation was preserved; the isolated launcher again reported `stdin is not a terminal` in this API session, and `npm run adsense:keepalive` passed for `accounts/pub-3600813755953882`.
+- Ran `npm run content:audit -- --lang en --limit 20` and selected the four highest-scoring English evergreen guide articles that shared the same stale pattern: [projects/portal/blog/en/daily-tarot-reading-guide.html](E:/Fire%20Project/projects/portal/blog/en/daily-tarot-reading-guide.html), [projects/portal/blog/en/future-self-test-guide.html](E:/Fire%20Project/projects/portal/blog/en/future-self-test-guide.html), [projects/portal/blog/en/lottery-number-guide.html](E:/Fire%20Project/projects/portal/blog/en/lottery-number-guide.html), and [projects/portal/blog/en/mbti-love-compatibility-guide.html](E:/Fire%20Project/projects/portal/blog/en/mbti-love-compatibility-guide.html).
+- Upgraded all four pages with `dateModified=2026-06-12`, self/x-default hreflang, BreadcrumbList JSON-LD, four-card quick rails, mobile-safe table overflow, Auto ad surfaces using `data-ad-slot="auto"`, and standard `content_view`, `content_ad_impression`, `content_test_click`, `content_cta_click`, `content_related_click`, and `content_toc_click` instrumentation.
+- Refreshed both [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml) and [projects/portal/blog/sitemap.xml](E:/Fire%20Project/projects/portal/blog/sitemap.xml) to `2026-06-12` for the changed English URLs, including the duplicate MBTI sitemap entries.
+- Validation passed: JSON-LD parse checks, local `npm run content:verify` for all four pages with expected date/quick cards/Auto ads/events, targeted placeholder/legacy link checks, sitemap XML parse checks, `npm run content:audit -- --lang en --limit 20`, portal `git diff --check`, `node scripts/portal-hub-locale-audit.js`, and the Git Bash portal quality gate.
 
 ### Session 442 (2026-06-12) - EN Mental Health Indexing Batch
 
