@@ -50,6 +50,14 @@
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
 
+### Session 441 (2026-06-12) - External Trend Benchmarking + IN/TR Routing
+
+- Resumed per AGENTS.md. The isolated launcher still reported `stdin is not a terminal` in this API session, and `npm run adsense:keepalive` passed for `accounts/pub-3600813755953882`.
+- Followed the user's request to avoid relying mainly on internal GA4/AdSense/GSC stats for this localization pass. External benchmark sources included DataReportal Digital 2026 global/mid-year/country context, Attest 2026 Gen Z media consumption, Gallup 2026 Gen Z AI sentiment, 2026 AI personality-testing coverage, and this week's Reels trend formats. The actionable pattern was: mobile-first, short result flows; multi-framework self-discovery; mental-health-adjacent checks; and meme/list-friendly share formats.
+- Added India/Hindi and Turkey/Turkish market profiles to [projects/portal/js/country-content.js](E:/Fire%20Project/projects/portal/js/country-content.js). Detection now handles `hi`/`hindi`/`in`/`india`, `tr`/`turkey`/`turkiye`, Hindi/Turkish browser languages, and `Asia/Kolkata` / `Europe/Istanbul` timezones. India routes to `brain-type`, `iq-test`, `eq-test`, and `anxiety-type`; Turkey routes to `red-flag-test`, `anxiety-type`, `social-battery`, and `brainrot-score`.
+- Added matching blog bridge strategies to [projects/portal/js/cross-promo.js](E:/Fire%20Project/projects/portal/js/cross-promo.js), so Hindi and Turkish blog readers get localized four-card next-test sequences and `cross_promo_view` / `cross_promo_click` market metadata.
+- Validation passed: `node --check` for both edited JS files, portal/root `git diff --check`, `node scripts/portal-hub-locale-audit.js`, `npm run harness -- --skip-analytics --skip-runtime`, Git Bash quality gates for `projects/portal` and `projects/root-domain`, and local mobile Playwright checks for root India rail, portal Turkey rail, and Turkish blog bridge card widths/events. Direct `bash` was not on PATH in this PowerShell session, so quality gates were run through `C:\Program Files\Git\bin\bash.exe`.
+
 ### Session 440 (2026-06-12) - Country Preference Profiles
 
 - Continued the user's request to identify and add country-specific favorite content and preferences. Codex isolation was preserved; the isolated launcher still reported `stdin is not a terminal` in this API session, and `npm run adsense:keepalive` passed for `accounts/pub-3600813755953882`.
