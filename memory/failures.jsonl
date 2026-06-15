@@ -13,3 +13,5 @@
 {"ts":"2026-05-30T08:02:39Z","agent":"codex","app":"adsense","category":"other","error":"PowerShell input redirection with '<' failed during AdSense MCP stdio smoke; recovered by direct local client and MCP tool checks","resolved":true}
 {"ts":"2026-06-10T11:01:55Z","agent":"codex","app":"adsense","category":"mcp","error":"AdSense MCP doctor returned invalid_grant; refresh token must be reauthorized with init --code.","resolved":false}
 {"ts":"2026-06-10T11:15:37Z","agent":"codex","app":"submodule-push","category":"deploy","error":"Detached HEAD push using HEAD:main failed for brain-type/color-personality; retrying with HEAD:refs/heads/main.","resolved":true}
+{"ts":"2026-06-15T13:14:55Z","agent":"codex","app":"analytics","category":"mcp","error":"GA4 event filter retry needed because camelCase filter fields were rejected before switching to snake_case field_name/string_filter.","resolved":true}
+{"ts":"2026-06-15T13:14:55Z","agent":"codex","app":"analytics","category":"mcp","error":"AdSense report retry needed because invalid RPM/CTR metric enum names were used before switching to PAGE_VIEWS_RPM/IMPRESSIONS_RPM/PAGE_VIEWS_CTR.","resolved":true}

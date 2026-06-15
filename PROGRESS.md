@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-12 (Session 443: EN Evergreen Guide Indexing Batch)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-15 (Session 444: Revenue Drop Response + SG Scan Recovery)
 
 ---
 
@@ -49,6 +49,20 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 444 (2026-06-15) - Revenue Drop Response + SG Scan Recovery
+
+- Resumed per AGENTS.md. The isolated launcher again reported `stdin is not a terminal` in this API session, and `npm run adsense:keepalive` passed for `accounts/pub-3600813755953882`.
+- Checked AdSense first: account/site state was healthy (`dopabrain.com` READY, Auto ads enabled, no policy issues). The only alert was the general Ukraine conflict policy notice. Revenue decline was not an account/policy block.
+- AdSense split showed the issue as RPM dilution rather than traffic loss: `2026-06-01..2026-06-07` earned about `$0.71` from `1902` page views (page RPM about `$0.37`), while `2026-06-08..2026-06-14` earned about `$0.63-$0.64` from `2792` page views (page RPM about `$0.23`). Clicks also softened from `12` to about `10`, despite higher page views.
+- GA4 confirmed the dominant low-quality segment: `Singapore / desktop / Direct` produced `1698` sessions, `1703` views, only `34` engaged sessions, and about `0.85s` average session duration during `2026-06-08..2026-06-14`. Excluding Singapore, daily traffic still showed much healthier engagement (`84s..247s` average session duration on the checked days).
+- Updated [projects/portal/js/cross-promo.js](E:/Fire%20Project/projects/portal/js/cross-promo.js) to add a `sg` market strategy, prioritize `Asia/Singapore` detection before blog-locale fallback, and route SG blog readers toward `past-life`, `animal-personality`, `eq-test`, and `attachment-style`.
+- Tightened `traffic_quality_engaged` so scan traffic is not over-counted: simple scroll no longer qualifies; engagement now requires click/key/touch, `45%` scroll depth after at least `3s`, or `20s` visible dwell. Events now include `detected_market` and `quality_version=2026-06-15`.
+- Added a top-of-article `blog_scan_recovery` bridge only for `sg` + desktop + empty-referrer blog visits that do not already have a quick rail, while keeping the existing bottom `blog_bridge`. The new surface emits separate `cross_promo_view` and `cross_promo_click` data.
+- Updated [projects/portal/js/country-content.js](E:/Fire%20Project/projects/portal/js/country-content.js) with a Singapore hub rail so `/portal/` and `/` can send SG-timezone users into the same short result flows before they scatter across low-RPM blog pages.
+- Validation passed: `node --check` for both edited JS files, `git diff --check`, `node scripts/portal-hub-locale-audit.js`, Git Bash `scripts/quality-gate.sh projects/portal`, `npm run harness -- --skip-analytics --skip-runtime`, and a local Playwright smoke with `timezoneId=Asia/Singapore`. The smoke verified the blog page rendered both `blog_scan_recovery` and `blog_bridge` with `detected_market=sg`, and `/portal/` rendered the `Quick picks for Singapore` rail with SG UTM routing.
+- Logged two recoverable MCP/query failures to [memory/failures.jsonl](E:/Fire%20Project/memory/failures.jsonl): the initial AdSense metric enum retry and the initial GA4 filter-field retry.
+- Next priority: after deployment and one data day, re-read `2026-06-15` and `2026-06-16` GA4/AdSense. Compare SG desktop Direct page RPM, `traffic_quality_engaged` with `quality_version=2026-06-15`, and `blog_scan_recovery` clicks before making any heavier routing or content-indexing changes.
 
 ### Session 443 (2026-06-12) - EN Evergreen Guide Indexing Batch
 
