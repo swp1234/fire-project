@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-16 (Session 445: SG Scan Guard Tightening)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-16 (Session 446: KO Animal Blog Indexing Cleanup)
 
 ---
 
@@ -49,6 +49,18 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 446 (2026-06-16) - KO Animal Blog Indexing Cleanup
+
+- Resumed per AGENTS.md from the previous partial work state. The isolated launcher had already reported `stdin is not a terminal` in this API session, and `npm run adsense:keepalive` passed for `accounts/pub-3600813755953882`.
+- Deferred another revenue/routing change because a complete `2026-06-16` GA4/AdSense day is not finalized yet. Continued the content-indexing queue instead, using `npm run content:audit -- --limit 20`, `--lang zh`, `--lang en`, and a focused Korean follow-up.
+- Selected [projects/portal/blog/ko/animal-personality-test-guide.html](E:/Fire%20Project/projects/portal/blog/ko/animal-personality-test-guide.html), which had scored `244` from missing BreadcrumbList/FAQPage JSON-LD, missing self `hreflang=ko`, stale `dateModified`, no quick cards, and no Auto ad surface.
+- Rebuilt the Korean article as clean UTF-8 content with `dateModified=2026-06-16`, canonical/self/x-default hreflang, Article/BreadcrumbList/FAQPage JSON-LD, a four-card quick rail, one Auto ad surface through `ad-loader.js`, and standard `content_view`, `content_ad_impression`, `content_test_click`, `content_cta_click`, `content_related_click`, and `content_toc_click` tracking.
+- Refreshed the matching KO URL lastmod in [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml) and [projects/portal/blog/sitemap.xml](E:/Fire%20Project/projects/portal/blog/sitemap.xml) to `2026-06-16`. A transient wrong sitemap match was caught before commit and corrected so unrelated EN entries stayed untouched.
+- Validation passed: local `npm run content:verify` for the KO page with expected date/quick cards/Auto ad/events/zero overflow, targeted sitemap lastmod checks, `git diff --check`, `npm run content:audit -- --lang ko --limit 5`, `node scripts/portal-hub-locale-audit.js`, Git Bash `scripts/quality-gate.sh projects/portal`, and `npm run harness -- --skip-analytics --skip-runtime`.
+- Logged one recoverable validation failure to [memory/failures.jsonl](E:/Fire%20Project/memory/failures.jsonl): the first page verify missed `content_ad_impression` because the page waited for viewport intersection; the fixed page now emits the expected ad impression event in the harness.
+- Deployment: pushed portal commit `e423191` (`Upgrade ko animal personality blog indexing`). The root pointer/documentation commit follows this session record.
+- Next priority: after GA4/AdSense finalize a full `2026-06-16` day, compare SG desktop Direct page views/impressions/RPM, `traffic_quality_*`, `cross_promo_view`, and `cross_promo_click`; continue the KO content queue with `personality-tests.html`, `zodiac-compatibility.html`, and `brick-breaker-retro-game-guide.html` if revenue data is still incomplete.
 
 ### Session 445 (2026-06-16) - SG Scan Guard Tightening
 
