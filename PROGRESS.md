@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-15 (Session 444: Revenue Drop Response + SG Scan Recovery)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-16 (Session 445: SG Scan Guard Tightening)
 
 ---
 
@@ -49,6 +49,19 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 445 (2026-06-16) - SG Scan Guard Tightening
+
+- Resumed per AGENTS.md. The isolated launcher again reported `stdin is not a terminal` in this API session, and `npm run adsense:keepalive` passed for `accounts/pub-3600813755953882`.
+- Re-read partial `2026-06-15..2026-06-16` GA4/AdSense after the SG scan recovery rollout. `2026-06-17` is still future/unavailable from the current `2026-06-16` session, so this was treated as a partial-day signal rather than a full clean-day verdict.
+- AdSense showed SG desktop still at zero revenue/clicks but with ad pressure heavily constrained: `2026-06-15` had `212` page views, `8` impressions, `0` clicks, `$0.00`; `2026-06-16` partial had `116` page views, `5` impressions, `0` clicks, `$0.00`. Account summary showed today `$0.04`, yesterday `$0.07`, last 7 days `$0.65`, this month `$1.46`, last 30 days `$2.53`.
+- GA4 showed the SG desktop segment remained non-engaged: `2026-06-16` partial had `93` Direct sessions / `0` engaged / `94` views / about `1.36s`, plus `52` Unassigned sessions / `0` engaged / `1` view / about `0.12s`. `cross_promo_click` for SG desktop was `0`.
+- The noisy measurement row persisted: `2026-06-16` SG desktop had `traffic_quality_view=77`, `traffic_quality_engaged=78`, and `cross_promo_view=74`; `45` of the `cross_promo_view` events were still attached to `Unassigned` + blank landing. This confirmed the 3s scan guard still over-counted non-converting scanner traffic.
+- Updated [projects/portal/js/cross-promo.js](E:/Fire%20Project/projects/portal/js/cross-promo.js) so SG desktop direct/no-referrer traffic waits `8s` before `traffic_quality_view` or `cross_promo_view`, bumps `quality_version=2026-06-16`, and no longer sends `traffic_quality_engaged` from the 20s timer for scan-risk traffic; scan-risk engagement now requires real click/key/touch input.
+- Updated [projects/portal/js/ad-loader.js](E:/Fire%20Project/projects/portal/js/ad-loader.js) so the same SG desktop direct/no-referrer blog segment delays the AdSense script until `8s` visible time or real input, using `requestReason=delayed_visible_8000`. Non-SG traffic remains immediate.
+- Validation passed: `node --check` for both edited JS files, root/portal `git diff --check`, `node scripts/portal-hub-locale-audit.js`, Git Bash `scripts/quality-gate.sh projects/portal`, `npm run harness -- --skip-analytics --skip-runtime`, and a local Playwright SG desktop timing smoke. The smoke confirmed no ad request or `cross_promo_view` by `3.5s`, one AdSense request at about `8s`, two delayed `cross_promo_view` events, one delayed `traffic_quality_view`, and zero `traffic_quality_engaged` without input.
+- Logged two recoverable local failures to [memory/failures.jsonl](E:/Fire%20Project/memory/failures.jsonl): the initial GA4 filter casing retry and a malformed local `rg` validation pattern.
+- Next priority: deploy the portal/root pointer changes, then after AdSense/GA4 finalize a complete `2026-06-16` day, compare SG desktop Direct page views/impressions/RPM, `traffic_quality_*`, `cross_promo_view`, and `cross_promo_click` before changing routing again. Re-read `2026-06-17` only once that date exists in the data.
 
 ### Session 444 (2026-06-15) - Revenue Drop Response + SG Scan Recovery
 

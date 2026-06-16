@@ -16,3 +16,5 @@
 {"ts":"2026-06-15T13:14:55Z","agent":"codex","app":"analytics","category":"mcp","error":"GA4 event filter retry needed because camelCase filter fields were rejected before switching to snake_case field_name/string_filter.","resolved":true}
 {"ts":"2026-06-15T13:14:55Z","agent":"codex","app":"analytics","category":"mcp","error":"AdSense report retry needed because invalid RPM/CTR metric enum names were used before switching to PAGE_VIEWS_RPM/IMPRESSIONS_RPM/PAGE_VIEWS_CTR.","resolved":true}
 {"ts":"2026-06-15T14:20:36Z","agent":"main","app":"adsense","category":"mcp","error":"AdSense report rejected invalid PLATFORM_TYPE dimension; retried successfully with PLATFORM_TYPE_NAME.","resolved":true}
+{"ts":"2026-06-16T12:57:34Z","agent":"codex","app":"analytics","category":"mcp","error":"GA4 MCP rejected andGroup dimension_filter structure during SG desktop resume check; resolved by querying smaller unfiltered datasets.","resolved":false}
+{"ts":"2026-06-16T12:59:36Z","agent":"codex","app":"validation","category":"other","error":"Local rg pattern for checking blog script tags was malformed; resolved by splitting literal searches.","resolved":false}
