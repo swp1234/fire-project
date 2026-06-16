@@ -18,6 +18,8 @@ const STATIC_KEY_IGNORE = [
   /^hub_tools\.desc_[a-z0-9-]+$/,
   /^hub_tests\.(name|desc)_[a-z0-9-]+$/
 ];
+const SAFE_PORT_START = Number.parseInt(process.env.PORTAL_LOCALE_AUDIT_PORT || '49152', 10);
+const SAFE_PORT_CANDIDATES = Array.from({ length: 80 }, (_, index) => SAFE_PORT_START + index);
 
 const TARGET_PAGES = [
   {
@@ -113,6 +115,38 @@ function shouldIgnoreStaticKey(key) {
   return STATIC_KEY_IGNORE.some((pattern) => pattern.test(key));
 }
 
+function listenOnSafePort(server, portIndex = 0) {
+  return new Promise((resolve, reject) => {
+    if (portIndex >= SAFE_PORT_CANDIDATES.length) {
+      reject(new Error('Failed to bind static server on safe local ports'));
+      return;
+    }
+
+    const port = SAFE_PORT_CANDIDATES[portIndex];
+    const onError = (error) => {
+      server.off('listening', onListening);
+      if (error.code === 'EADDRINUSE' || error.code === 'EACCES') {
+        listenOnSafePort(server, portIndex + 1).then(resolve, reject);
+        return;
+      }
+      reject(error);
+    };
+    const onListening = () => {
+      server.off('error', onError);
+      const address = server.address();
+      if (!address || typeof address === 'string') {
+        reject(new Error('Failed to bind static server'));
+        return;
+      }
+      resolve({ server, port: address.port });
+    };
+
+    server.once('error', onError);
+    server.once('listening', onListening);
+    server.listen(port, '127.0.0.1');
+  });
+}
+
 function startStaticServer(rootDir) {
   const mime = {
     '.html': 'text/html; charset=utf-8',
@@ -149,17 +183,7 @@ function startStaticServer(rootDir) {
     }
   });
 
-  return new Promise((resolve, reject) => {
-    server.listen(0, '127.0.0.1', () => {
-      const address = server.address();
-      if (!address || typeof address === 'string') {
-        reject(new Error('Failed to bind static server'));
-        return;
-      }
-      resolve({ server, port: address.port });
-    });
-    server.on('error', reject);
-  });
+  return listenOnSafePort(server);
 }
 
 async function run() {

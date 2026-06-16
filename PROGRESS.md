@@ -1,6 +1,6 @@
 # 프로젝트 진행 상황
 
-> 매 세션마다 자동 업데이트. **마지막:** 2026-06-16 (Session 446: KO Animal Blog Indexing Cleanup)
+> 매 세션마다 자동 업데이트. **마지막:** 2026-06-16 (Session 447: Full GSC Indexing Inventory + Blocker Cleanup)
 
 ---
 
@@ -49,6 +49,20 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 447 (2026-06-16) - Full GSC Indexing Inventory + Blocker Cleanup
+
+- Resumed per [AGENTS.md](E:/Fire%20Project/AGENTS.md). The isolated launcher again reported `stdin is not a terminal` in this API session, and `npm run adsense:keepalive` passed for `accounts/pub-3600813755953882` before Google/Search Console work.
+- Ran a full Search Console indexing maintenance pass for `https://dopabrain.com/`. GSC API sitemap status still reports `indexed: 0` for root, portal, and portal-blog sitemaps even though Search Analytics shows live impressions, so this pass treated sitemap `indexed` as stale/limited and reconstructed the actionable inventory from submitted sitemap URLs plus URL Inspection samples.
+- URL Inspection samples confirmed the real issue pattern: [fr/color-palette-generator-guide.html](E:/Fire%20Project/projects/portal/blog/fr/color-palette-generator-guide.html) and [hi/love-compatibility.html](E:/Fire%20Project/projects/portal/blog/hi/love-compatibility.html) were both `Crawled - currently not indexed` with robots/indexing allowed and matching Google/user canonical, pointing to content quality/freshness rather than robots or canonical blocking.
+- Added [scripts/indexing-inventory.js](E:/Fire%20Project/scripts/indexing-inventory.js), a submitted-sitemap inventory that maps URLs to local files and flags missing files, noindex, canonical mismatches, missing title/description/H1, JSON-LD defects, missing Article/Breadcrumb data, stale or mismatched `dateModified`, weak quick rails, missing Auto ad surfaces, mojibake markers, and broken internal links.
+- Added [scripts/repair-indexing-pages.js](E:/Fire%20Project/scripts/repair-indexing-pages.js) to regenerate the two sampled non-indexed pages plus the privacy policy as clean UTF-8, schema-rich, conversion-ready pages and refresh their sitemap `lastmod` values.
+- Removed all immediate sitemap blockers from submitted URLs. The inventory now audits `3,843` sitemap rows / `1,894` unique URLs with `blockerUrls: 0`; remaining work is quality-risk queue only (`238` high-risk URLs, led by stale/broken-link DE/ES/FR/HI/JA blog pages).
+- Cleaned nonexistent or misleading submitted URLs: removed four missing EN blog aliases and `/nervous-system-quiz/` from portal sitemaps, removed redirect aliases from the root sitemap, fixed DE/PT redirect stubs to canonicalize to existing targets, replaced nervous-system quiz links with `/stress-response/`, and added [projects/portal/privacy.html](E:/Fire%20Project/projects/portal/privacy.html) as a redirect alias to [privacy-policy.html](E:/Fire%20Project/projects/portal/privacy-policy.html).
+- Rebuilt [fr/color-palette-generator-guide.html](E:/Fire%20Project/projects/portal/blog/fr/color-palette-generator-guide.html), [hi/love-compatibility.html](E:/Fire%20Project/projects/portal/blog/hi/love-compatibility.html), and [privacy-policy.html](E:/Fire%20Project/projects/portal/privacy-policy.html) with clean UTF-8, fresh `dateModified=2026-06-16`, canonical/schema signals, quick cards where applicable, Auto ad surfaces, and standard `content_*` tracking.
+- Validation passed: `node --check` for the new/changed scripts, `node scripts/indexing-inventory.js --write --json --limit 20`, local `npm run content:verify` for the FR and HI sampled pages, `npm run content:audit -- --lang fr --limit 10`, `npm run content:audit -- --lang hi --limit 10`, `node scripts/portal-hub-locale-audit.js`, Git Bash quality gates for portal/root-domain, root and submodule `git diff --check`, and `npm run harness -- --skip-analytics --skip-runtime`.
+- Logged one recoverable validation failure to [memory/failures.jsonl](E:/Fire%20Project/memory/failures.jsonl): the first harness run hit Chromium `ERR_UNSAFE_PORT` on random local port `5060`. [scripts/portal-hub-locale-audit.js](E:/Fire%20Project/scripts/portal-hub-locale-audit.js) now binds to safe high local ports and the harness rerun passed.
+- Next priority: after deployment and sitemap resubmission, continue the high-risk queue starting with `de/zodiac-compatibility.html`, ES/FR/HI zodiac/numerology/game pages, and JA pages with broken internal links, adding Breadcrumb/FAQ JSON-LD, quick rails, Auto ad surfaces, refreshed dates, and repaired links in batches.
 
 ### Session 446 (2026-06-16) - KO Animal Blog Indexing Cleanup
 

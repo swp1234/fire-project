@@ -57,13 +57,16 @@ SOUNDSCAPE_*.txt
 !scripts/analytics-event-check.js
 !scripts/create-blog-article.js
 !scripts/harness-workflow-check.js
+!scripts/indexing-inventory.js
 !scripts/portal-hub-locale-audit.js
+!scripts/repair-indexing-pages.js
 !_common/**/*.js
 nul
 
 # Harness run artifacts (generated)
 logs/harness-artifacts/
 logs/harness-workflow/
+logs/indexing-audit/
 logs/adsense-mcp-keepalive.jsonl
 
 # MCP 서버 (로컬 전용)
