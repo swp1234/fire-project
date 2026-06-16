@@ -18,3 +18,4 @@
 {"ts":"2026-06-15T14:20:36Z","agent":"main","app":"adsense","category":"mcp","error":"AdSense report rejected invalid PLATFORM_TYPE dimension; retried successfully with PLATFORM_TYPE_NAME.","resolved":true}
 {"ts":"2026-06-16T12:57:34Z","agent":"codex","app":"analytics","category":"mcp","error":"GA4 MCP rejected andGroup dimension_filter structure during SG desktop resume check; resolved by querying smaller unfiltered datasets.","resolved":false}
 {"ts":"2026-06-16T12:59:36Z","agent":"codex","app":"validation","category":"other","error":"Local rg pattern for checking blog script tags was malformed; resolved by splitting literal searches.","resolved":false}
+{"ts":"2026-06-16T13:03:42Z","agent":"codex","app":"deploy","category":"deploy","error":"Live dopabrain.com portal JS did not show SG 8s guard strings after initial propagation retries; continuing polling.","resolved":false}
