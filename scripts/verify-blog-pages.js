@@ -177,8 +177,29 @@ function createStaticServer() {
 
 function listen(server) {
   return new Promise((resolve, reject) => {
-    server.once('error', reject);
-    server.listen(0, HOST, () => resolve(server.address().port));
+    let attempts = 0;
+
+    function tryListen() {
+      attempts += 1;
+      const port = 42000 + Math.floor(Math.random() * 12000);
+      const onError = (error) => {
+        server.removeListener('listening', onListening);
+        if (error.code === 'EADDRINUSE' && attempts < 20) {
+          tryListen();
+          return;
+        }
+        reject(error);
+      };
+      const onListening = () => {
+        server.removeListener('error', onError);
+        resolve(server.address().port);
+      };
+      server.once('error', onError);
+      server.once('listening', onListening);
+      server.listen(port, HOST);
+    }
+
+    tryListen();
   });
 }
 

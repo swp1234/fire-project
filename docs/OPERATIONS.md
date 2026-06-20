@@ -59,6 +59,50 @@ Last reviewed: 2026-06-06.
 3. Start with the current audit leaders: `zh/stress-check-test-guide.html`, the zh invalid-JSON-LD psychology cluster, and stale English support articles such as `daily-tarot-reading-guide.html`, `future-self-test-guide.html`, `lottery-number-guide.html`, and `mbti-love-compatibility-guide.html`.
 4. Keep using local and live `content:verify` for edited full articles; for redirect aliases, run the redirect-stub consistency check before deploy.
 
+## GSC Indexing Defect Prevention Record
+
+Last closure: 2026-06-19, Session 448. Local submitted-sitemap inventory and portal blog audit were reduced to zero actionable indexing-risk items:
+
+```powershell
+node scripts/indexing-inventory.js --json --limit 20
+node scripts/blog-indexing-audit.js --json --limit 20 --min-score 1
+```
+
+Expected clean state:
+
+- `indexing-inventory`: `urlsWithIssues: 0`, `blockerUrls: 0`, `highRiskUrls: 0`.
+- `blog-indexing-audit --min-score 1`: `results: []`.
+
+Do not repeat broad GSC indexing remediation by hand when those local gates are clean. Treat GSC sitemap `indexed: 0` as stale/limited unless fresh URL Inspection or Search Analytics evidence points to a concrete page. If a new URL is sampled as `Crawled - currently not indexed`, first compare it against the local audits before editing.
+
+Prevention checklist for submitted URLs:
+
+- Every indexable page has self canonical, indexable robots, title, meta description, and H1.
+- Blog articles have valid Article or BlogPosting JSON-LD, BreadcrumbList JSON-LD, fresh `dateModified`, and matching sitemap `lastmod`.
+- Blog articles keep at least four static quick cards with `data-content-surface` and `data-target-slug`.
+- Monetizable content uses Auto ads with `data-ad-slot="auto"` and stable `data-ad-surface`; no placeholder slots such as `1234567890`, `9876543210`, or `5555555555`.
+- Edited articles emit the standard `content_view`, `content_ad_impression`, `content_test_click`, `content_cta_click`, and `content_related_click` events.
+- Internal links resolve to existing local files or production app URLs; legacy `/dopamine-test/` links are replaced with `/dopamine-type/`.
+- Mobile verification must show zero horizontal overflow.
+- Root-level `/portal/blog/*.html` articles are Korean by default unless the HTML `lang` says otherwise; avoid false `missing_self_hreflang` repairs.
+- App and portal hub pages also need `dateModified` plus WebPage/WebApplication JSON-LD or a deliberate documented reason for exclusion.
+- Sitemaps should be deduplicated and `lastmod` should follow the page's effective `dateModified`.
+
+Use the repair tools instead of repeating one-off edits:
+
+```powershell
+node scripts/upgrade-blog-indexing-batch.js --file en/example.html
+$env:INDEXING_REPAIR_TODAY='YYYY-MM-DD'; node scripts/repair-indexing-inventory.js
+node scripts/verify-blog-pages.js --json --expect-date YYYY-MM-DD --expect-quick 4 --expect-auto 1 --expect-events content_view,content_ad_impression,content_test_click,content_cta_click,content_related_click projects\portal\blog\en\example.html
+```
+
+Current TODO after the 2026-06-19 stop:
+
+1. Complete AdSense MCP reauthorization if an attached MCP process still returns `invalid_grant`, then rerun earnings summary/reporting from a fresh process.
+2. Measure the eight Session 448 revenue-content pages after fresh GA4/GSC data is available; watch CTR on KO/PT/HI pages and engagement/next-click rate on EN/ZH low-duration pages.
+3. Resume the intentionally stopped app-side revenue review for `brain-type`, `hsp-test`, `mbti-love`, `attachment-style`, and `eq-test`.
+4. Deploy/commit/live-verify the Session 448 batch only after review approval or the next normal deployment turn.
+
 ## Content Indexing Maintenance Batch
 
 Use the audit command before each content maintenance batch so the next candidates are selected by repeatable indexing and revenue signals instead of manual scanning:

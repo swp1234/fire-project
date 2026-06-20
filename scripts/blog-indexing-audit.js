@@ -115,9 +115,14 @@ function publicUrlForFile(filePath) {
   return `${ORIGIN}${publicPathForFile(filePath)}`;
 }
 
-function getLang(filePath) {
+function getLang(filePath, html = '') {
   const parts = relativePosix(BLOG_ROOT, filePath).split('/');
-  return parts[0] || 'unknown';
+  const first = parts[0] || '';
+  if (first && !first.endsWith('.html')) return first;
+  const htmlLang = firstMatch(html, /<html\b[^>]*\blang\s*=\s*["']([^"']+)["']/i)
+    .toLowerCase()
+    .split('-')[0];
+  return htmlLang || 'ko';
 }
 
 function parseSitemap(filePath) {
@@ -344,7 +349,7 @@ function addIssue(issues, id, weight, message) {
 function auditFile(filePath, sitemaps, today, maxAgeDays) {
   const html = readText(filePath);
   const url = publicUrlForFile(filePath);
-  const lang = getLang(filePath);
+  const lang = getLang(filePath, html);
   const jsonLd = extractJsonLd(html);
   const jsonLdErrors = jsonLd.filter((entry) => entry.error);
   const nodes = jsonLd.flatMap((entry) => flattenJsonLd(entry.value));

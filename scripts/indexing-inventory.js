@@ -231,17 +231,21 @@ function extractHrefs(html) {
   const hrefs = [];
   const regex = /<a\b[^>]*href\s*=\s*("([^"]*)"|'([^']*)'|([^\s>]+))/gi;
   let match;
-  while ((match = regex.exec(html))) hrefs.push(decodeXml(match[2] || match[3] || match[4] || ''));
+  while ((match = regex.exec(html))) {
+    const href = decodeXml(match[2] || match[3] || match[4] || '').trim();
+    if (!href || /\$\{|['"]?\s*\+\s*['"]?/.test(href)) continue;
+    hrefs.push(href);
+  }
   return hrefs;
 }
 
-function localPathForHref(href) {
+function localPathForHref(href, baseUrl = ORIGIN) {
   const trimmed = String(href || '').trim();
   if (!trimmed || trimmed.startsWith('#')) return '';
   if (/^(mailto|tel|sms|javascript):/i.test(trimmed)) return '';
   let url;
   try {
-    url = new URL(trimmed, ORIGIN);
+    url = new URL(trimmed, baseUrl);
   } catch {
     return '';
   }
@@ -249,11 +253,11 @@ function localPathForHref(href) {
   return mapUrlToLocalPath(url.href).file;
 }
 
-function findBrokenInternalLinks(html) {
+function findBrokenInternalLinks(html, baseUrl = ORIGIN) {
   const broken = [];
   const seen = new Set();
   for (const href of extractHrefs(html)) {
-    const file = localPathForHref(href);
+    const file = localPathForHref(href, baseUrl);
     if (!file) continue;
     const resolved = path.resolve(file);
     if (seen.has(resolved)) continue;
@@ -297,7 +301,7 @@ function auditUrl(entry, duplicateCount) {
   const dateModified = findDateModified(nodes, html);
   const ageDays = dateAgeDays(dateModified);
   const isRedirect = refresh && canonical && normalizeUrl(new URL(refresh, entry.loc).href) === normalizeUrl(canonical);
-  const brokenInternalLinks = findBrokenInternalLinks(html);
+  const brokenInternalLinks = findBrokenInternalLinks(html, entry.loc);
 
   if (/\bnoindex\b/.test(robots)) addIssue(issues, 'robots_noindex', 'blocker', `robots meta contains noindex: ${robots}`);
   if (!canonical) addIssue(issues, 'missing_canonical', 'high', 'missing canonical');

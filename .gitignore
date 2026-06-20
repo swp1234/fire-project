@@ -59,7 +59,10 @@ SOUNDSCAPE_*.txt
 !scripts/harness-workflow-check.js
 !scripts/indexing-inventory.js
 !scripts/portal-hub-locale-audit.js
+!scripts/repair-indexing-inventory.js
 !scripts/repair-indexing-pages.js
+!scripts/upgrade-blog-indexing-batch.js
+!scripts/upgrade-revenue-content-batch.js
 !_common/**/*.js
 nul
 
@@ -68,6 +71,8 @@ logs/harness-artifacts/
 logs/harness-workflow/
 logs/indexing-audit/
 logs/adsense-mcp-keepalive.jsonl
+logs/app-suite-batch-*/
+logs/dirty-apps-*.txt
 
 # MCP 서버 (로컬 전용)
 .mcp-servers/
