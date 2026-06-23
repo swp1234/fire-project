@@ -325,3 +325,33 @@
 [submodule "projects/hail-mary-mode"]
 	path = projects/hail-mary-mode
 	url = https://github.com/swp1234/hail-mary-mode.git
+[submodule "projects/file-extension-converter"]
+	path = projects/file-extension-converter
+	url = https://github.com/swp1234/file-extension-converter.git
+[submodule "projects/file-size-converter"]
+	path = projects/file-size-converter
+	url = https://github.com/swp1234/file-size-converter.git
+[submodule "projects/image-format-converter"]
+	path = projects/image-format-converter
+	url = https://github.com/swp1234/image-format-converter.git
+[submodule "projects/image-size-converter"]
+	path = projects/image-size-converter
+	url = https://github.com/swp1234/image-size-converter.git
+[submodule "projects/aspect-ratio-calculator"]
+	path = projects/aspect-ratio-calculator
+	url = https://github.com/swp1234/aspect-ratio-calculator.git
+[submodule "projects/data-transfer-calculator"]
+	path = projects/data-transfer-calculator
+	url = https://github.com/swp1234/data-transfer-calculator.git
+[submodule "projects/unix-timestamp-converter"]
+	path = projects/unix-timestamp-converter
+	url = https://github.com/swp1234/unix-timestamp-converter.git
+[submodule "projects/timezone-converter"]
+	path = projects/timezone-converter
+	url = https://github.com/swp1234/timezone-converter.git
+[submodule "projects/text-case-converter"]
+	path = projects/text-case-converter
+	url = https://github.com/swp1234/text-case-converter.git
+[submodule "projects/json-formatter"]
+	path = projects/json-formatter
+	url = https://github.com/swp1234/json-formatter.git

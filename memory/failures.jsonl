@@ -30,3 +30,4 @@
 {"ts":"2026-06-20T08:18:54Z","agent":"main","app":"portal","category":"other","error":"PowerShell quoting error while searching candidate blog rails; reran with Select-String","resolved":false}
 {"ts":"2026-06-20T08:18:54Z","agent":"main","app":"portal","category":"other","error":"rg search over candidate blog files timed out; narrowed to Select-String per file","resolved":false}
 {"ts":"2026-06-20T08:44:00Z","agent":"main","app":"past-life","category":"runtime","error":"Hidden result-screen AdSense slot pushed before layout width existed, causing TagError No slot size for availableWidth=0; moved result ads to visible-slot lazy push and added width guard","resolved":true}
+{"ts":"2026-06-23T12:16:25Z","agent":"gsc","app":"sitemap-submit","category":"mcp","error":"GSC submit_sitemap returned 403 Insufficient Permission for root, portal, and portal blog sitemaps","resolved":false}

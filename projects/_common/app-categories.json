@@ -54,7 +54,17 @@
     "color-palette",
     "white-noise",
     "word-scramble",
-    "valentine"
+    "valentine",
+    "file-extension-converter",
+    "file-size-converter",
+    "image-format-converter",
+    "image-size-converter",
+    "aspect-ratio-calculator",
+    "data-transfer-calculator",
+    "unix-timestamp-converter",
+    "timezone-converter",
+    "text-case-converter",
+    "json-formatter"
   ],
   "other": [
     "quiz-app",

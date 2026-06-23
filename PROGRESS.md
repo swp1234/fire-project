@@ -4,13 +4,13 @@
 
 ---
 
-> Current wrap-up: 2026-06-20 (Session 454: Broad Batch Commit + Deploy)
+> Current wrap-up: 2026-06-23 (Session 455: Search Utility App Expansion)
 
 ## 프로젝트 규모
 
 | 항목 | 수량 |
 |------|------|
-| 총 프로젝트 | **109개** (projects/ 109 디렉토리, 앱 109 + portal + _common) |
+| 총 프로젝트 | **120개** (projects/ 120 디렉토리, 앱 117 + portal + root-domain + _common) |
 | 지원 언어 | 12개 (ko/en/zh/hi/ru/ja/es/pt/id/tr/de/fr) |
 | 블로그 | **1565개** |
 
@@ -51,6 +51,13 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 455 (2026-06-23) - Search Utility App Expansion
+
+- Added 10 browser-only utility apps selected from high-demand converter/calculator patterns: [file-extension-converter](E:/Fire%20Project/projects/file-extension-converter), [file-size-converter](E:/Fire%20Project/projects/file-size-converter), [image-format-converter](E:/Fire%20Project/projects/image-format-converter), [image-size-converter](E:/Fire%20Project/projects/image-size-converter), [aspect-ratio-calculator](E:/Fire%20Project/projects/aspect-ratio-calculator), [data-transfer-calculator](E:/Fire%20Project/projects/data-transfer-calculator), [unix-timestamp-converter](E:/Fire%20Project/projects/unix-timestamp-converter), [timezone-converter](E:/Fire%20Project/projects/timezone-converter), [text-case-converter](E:/Fire%20Project/projects/text-case-converter), and [json-formatter](E:/Fire%20Project/projects/json-formatter).
+- Added [scripts/generate-utility-apps.js](E:/Fire%20Project/scripts/generate-utility-apps.js) so the new app scaffold and portal wiring can be regenerated consistently. The generator creates i18n locale files, app-loader handling, WebApplication/FAQ/Breadcrumb JSON-LD, GA4/AdSense tags, icons, manifest, service worker, and responsive tool UI.
+- Wired the new apps into [projects/_common/app-categories.json](E:/Fire%20Project/projects/_common/app-categories.json), [projects/portal/js/app-data.js](E:/Fire%20Project/projects/portal/js/app-data.js), [projects/portal/tools/index.html](E:/Fire%20Project/projects/portal/tools/index.html), [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml), and [projects/root-domain/sitemap.xml](E:/Fire%20Project/projects/root-domain/sitemap.xml). Updated the tools hub badge from 15+ to 25+ across portal locales and added Converter/Developer filters.
+- Validation passed: AdSense keepalive `ok: true`, `node --check` for the generator, portal app data, and all new app JS/i18n files; `app-test-suite.sh` for all 10 new apps; `node scripts/portal-hub-locale-audit.js`; local Playwright smoke for all 10 apps on desktop and mobile plus `/portal/tools/` card/filter/badge checks; Playwright functional assertions for all 10 tools; portal quality gate; `node scripts/indexing-inventory.js --json --limit 5` with `urlsWithIssues: 0`; root/portal/root-domain `git diff --check`.
 
 ### Session 454 (2026-06-20) - Broad Batch Commit + Deploy
 

@@ -58,6 +58,7 @@ SOUNDSCAPE_*.txt
 !scripts/create-blog-article.js
 !scripts/harness-workflow-check.js
 !scripts/indexing-inventory.js
+!scripts/generate-utility-apps.js
 !scripts/portal-hub-locale-audit.js
 !scripts/repair-indexing-inventory.js
 !scripts/repair-indexing-pages.js
