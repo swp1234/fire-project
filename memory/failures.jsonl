@@ -35,3 +35,5 @@
 {"ts":"2026-06-27T00:37:56Z","agent":"codex","app":"ga4","category":"mcp","error":"GA4 dimension_filter using camelCase fieldName was rejected by wrapper; retried with broader unfiltered event queries.","resolved":false}
 {"ts":"2026-06-27T00:40:58Z","agent":"codex","app":"portal","category":"test","error":"Inline Playwright smoke used require() with top-level await under --input-type=module; reran as CommonJS async IIFE.","resolved":false}
 {"ts":"2026-06-27T00:44:04Z","agent":"codex","app":"root","category":"deploy","error":"Root repo is on master; attempted git push origin main failed with refspec mismatch, then retried origin master.","resolved":false}
+{"ts":"2026-06-27T00:48:43Z","agent":"codex","app":"portal","category":"other","error":"PowerShell rg command for cross-promo references had an unterminated quote; continued with direct file inspection.","resolved":false}
+{"ts":"2026-06-27T00:50:06Z","agent":"codex","app":"portal","category":"test","error":"Cross-promo lang-preservation smoke timed out waiting for visible cp-card even though DOM resolved cards; reran with DOM-attached link assertions.","resolved":false}

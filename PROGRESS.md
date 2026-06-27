@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-06-27 (Session 456: Chinese Revenue Routing Refresh)
+> Current wrap-up: 2026-06-27 (Session 457: Cross-Promo Locale Continuity)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,16 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 457 (2026-06-27) - Cross-Promo Locale Continuity
+
+- Resumed under [AGENTS.md](E:/Fire%20Project/AGENTS.md): the isolated launcher still reports `stdin is not a terminal` in this API shell, and no `.claude` paths or Claude CLI commands were used.
+- Ran `npm run adsense:keepalive` before continuing revenue-adjacent portal work; it passed for `accounts/pub-3600813755953882`.
+- Confirmed local indexing/content gates were still clean before editing: `npm run content:audit -- --json --limit 5 --min-score 1` returned `results: []`, and `node scripts/indexing-inventory.js --json --limit 5` returned `urlsWithIssues: 0`, `blockerUrls: 0`, `highRiskUrls: 0`.
+- Updated [projects/portal/js/cross-promo.js](E:/Fire%20Project/projects/portal/js/cross-promo.js) so app-to-app cross-promo cards now preserve a supported `?lang=` value from the current URL, i18n runtime, or browser language. This closes the gap where Chinese users entering apps through `?lang=zh` could lose the locale when moving through lower cross-promo cards.
+- Refactored blog bridge URL handling to reuse the same locale helper while preserving the Session 456 Chinese blog bridge behavior.
+- Validation passed: `node --check projects\portal\js\cross-promo.js`, `node scripts\portal-hub-locale-audit.js`, Git Bash portal quality gate, `git -C projects\portal diff --check`, local Playwright smoke for `/hsp-test/?lang=zh`, `/attachment-style/?lang=zh`, and `/color-personality/?lang=es` confirming all rendered cross-promo links preserve `lang`, plus local blog bridge smoke for `/portal/blog/zh/2048-strategy-guide.html` confirming all four bridge links keep `?lang=zh`.
+- Logged recoverable local issues to [memory/failures.jsonl](E:/Fire%20Project/memory/failures.jsonl): one PowerShell quoting error and one first-pass Playwright visibility wait that was rerun with DOM-attached link assertions.
 
 ### Session 456 (2026-06-27) - Chinese Revenue Routing Refresh
 
