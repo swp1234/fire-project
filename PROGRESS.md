@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-06-23 (Session 455: Search Utility App Expansion)
+> Current wrap-up: 2026-06-27 (Session 456: Chinese Revenue Routing Refresh)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,19 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 456 (2026-06-27) - Chinese Revenue Routing Refresh
+
+- Resumed under [AGENTS.md](E:/Fire%20Project/AGENTS.md): the isolated launcher still reports `stdin is not a terminal` in this API shell, and no `.claude` paths or Claude CLI commands were used.
+- Recovered the local AdSense MCP OAuth from `invalid_grant` using the user's redirect URL. Fresh local `npm run adsense:keepalive` and `npm run adsense:doctor` both pass for `accounts/pub-3600813755953882`. The already-attached AdSense MCP tools still returned stale `invalid_grant`, so this session used the fresh local MCP client for AdSense reads and logged the stale attached-tool issue to [memory/failures.jsonl](E:/Fire%20Project/memory/failures.jsonl).
+- Local indexing gates were clean before editing: `node scripts/indexing-inventory.js --json --limit 20` reported `urlsWithIssues: 0`, `blockerUrls: 0`, `highRiskUrls: 0`; `npm run content:audit -- --json --limit 20 --min-score 1` reported `results: []`.
+- Fresh AdSense snapshot: today `$0.02`, yesterday `$0.13`, last 7 days `$0.47`, this month `$2.27`, last 30 days `$2.68`, unpaid `$4.08`; `dopabrain.com` is `READY`, Auto ads are enabled, and policy issues are empty. The only alert remains the general Ukraine conflict policy notice.
+- AdSense report for `2026-06-20..2026-06-26`: `$0.47` estimated earnings from `1,575` page views, `851` impressions, and `11` clicks. China led country earnings (`$0.11`, `493` page views, `4` clicks), followed by the US (`$0.10`). Desktop and high-end mobile were nearly even in earnings (`$0.24` vs `$0.23`), with mobile carrying more clicks.
+- GA4 for `2026-06-20..2026-06-26` showed Direct still dominated by low-quality Singapore desktop traffic (`582` Direct sessions, `33` engaged, about `3.26s` average duration), while Organic Search remained much higher quality (`157` sessions, `88` engaged, about `158s`). Chinese paths with real engagement stood out: `zh/avoidant-attachment-dating-guide.html` China mobile Direct (`14` sessions / `12` engaged), `zh/what-your-favorite-color-says-about-you.html` China mobile Direct (`9` / `9`), `zh/2048-strategy-guide.html` China desktop Organic (`8` / `6` plus strong play events), and `zh/hsp-test-guide.html` China desktop Organic (`4` / `3` with deep duration). GSC latest-window row-level reads returned no actionable rows.
+- Updated [projects/portal/js/country-content.js](E:/Fire%20Project/projects/portal/js/country-content.js) so the Chinese market rail now routes to the current winning set: `2048-strategy-guide`, `avoidant-attachment-dating-guide`, `color-personality`, and `hsp-test`, replacing the older emotion/dopamine picks.
+- Updated [projects/portal/js/cross-promo.js](E:/Fire%20Project/projects/portal/js/cross-promo.js) so Chinese blog bridges now recommend `puzzle-2048`, `attachment-style`, `color-personality`, and `hsp-test`, with a clean Chinese bridge title and locale-preserving `?lang=zh` app links.
+- Validation passed: `node --check` for the two edited JS files; `node scripts/portal-hub-locale-audit.js`; local `content:verify` for the four analyzed Chinese winner pages with expected quick cards, Auto ads, `content_*` events, and zero overflow; Git Bash portal quality gate; local Playwright smoke for `/portal/?market=zh` and `zh/2048-strategy-guide.html` confirming the new card order, bridge order, zero page errors, and `?lang=zh` bridge links; `node scripts/indexing-inventory.js --json --limit 5`; `npm run content:audit -- --json --limit 5 --min-score 1`; and `git diff --check`.
+- Logged recoverable local issues to [memory/failures.jsonl](E:/Fire%20Project/memory/failures.jsonl): the stale attached AdSense MCP token, the initial GA4 filter shape mismatch, and the first inline Playwright module-format retry.
 
 ### Session 455 (2026-06-23) - Search Utility App Expansion
 

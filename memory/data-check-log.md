@@ -11,6 +11,7 @@ type: reference
 - `YYYY-MM-DD: GA4+GSC 조회 완료 (세션NNN, 목적 요약)`
 - `YYYY-MM-DD: AdSense 조회 완료 (세션NNN, 수익/정책/광고 상태 점검)`
 
+- 2026-06-27: GA4+GSC+AdSense query completed (session456, recovered local AdSense OAuth after invalid_grant, confirmed site READY/no policy issues, reviewed 2026-06-20..2026-06-26 revenue and GA4 traffic, found China-led revenue plus Chinese content winners, and refreshed zh market routing; GSC latest-window rows returned no actionable data)
 - 2026-04-01: AdSense 조회 완료 (세션342, 전용 adsense-mcp 검증 + 미지급 수익/정책 경고/광고단위 정상응답 확인)
 - 2026-04-04: GA4+GSC 조회 완료 (세션347, blog hub 성능 후속 판정 + locale hub 색인 상태 점검)
 - 2026-03-31: GA4 조회 완료 (세션336, 팩1+팩2+팩3 기반 운영체계 설계용 구조/품질/이벤트 갭 재확인)
