@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-06-27 (Session 457: Cross-Promo Locale Continuity)
+> Current wrap-up: 2026-07-01 (Session 458: ZH Mobile Routing Refresh)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,19 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 458 (2026-07-01) - ZH Mobile Routing Refresh
+
+- Resumed under [AGENTS.md](E:/Fire%20Project/AGENTS.md): the isolated launcher still reports `stdin is not a terminal` in this API shell, and no `.claude` paths or Claude CLI commands were used.
+- Ran `npm run adsense:keepalive`; it passed for `accounts/pub-3600813755953882`.
+- Fresh data review used GA4 and AdSense for `2026-06-24..2026-06-30` with previous-week GA4 comparison (`2026-06-17..2026-06-23`). GSC latest-window reads returned no actionable rows. AdSense reported `$0.60`, `1,370` page views, `961` impressions, and `10` clicks; China led country earnings at `$0.20` with `5` clicks, while Singapore produced `565` page views but only `$0.01` and `0` clicks. Mobile carried most earnings (`$0.43` from high-end mobile devices).
+- GA4 showed the useful zh mobile cluster holding up: China mobile Direct had `176` sessions and `67` engaged sessions, led by `/portal/blog/zh/what-your-favorite-color-says-about-you.html`, `/portal/blog/zh/shadow-work-quiz-guide.html`, and `/portal/blog/zh/avoidant-attachment-dating-guide.html`. Singapore desktop Direct remained low-value scan traffic (`487` sessions, `31` engaged, about `3.7s` average session duration).
+- Baseline local gates were clean before editing: `node scripts\indexing-inventory.js --json --limit 10` reported `urlsWithIssues: 0`, `blockerUrls: 0`, `highRiskUrls: 0`; `npm run content:audit -- --json --limit 20 --min-score 1` returned `results: []`.
+- Updated [projects/portal/js/country-content.js](E:/Fire%20Project/projects/portal/js/country-content.js) and [projects/portal/js/cross-promo.js](E:/Fire%20Project/projects/portal/js/cross-promo.js) so the Chinese market/blog bridge now prioritizes `color-personality`, `shadow-work`, `attachment-style`, and `hsp-test`, preserving `?lang=zh` on app destinations.
+- Updated the three current zh mobile winners, [what-your-favorite-color-says-about-you.html](E:/Fire%20Project/projects/portal/blog/zh/what-your-favorite-color-says-about-you.html), [shadow-work-quiz-guide.html](E:/Fire%20Project/projects/portal/blog/zh/shadow-work-quiz-guide.html), and [avoidant-attachment-dating-guide.html](E:/Fire%20Project/projects/portal/blog/zh/avoidant-attachment-dating-guide.html), with localized quick rails, `?lang=zh` CTA/related app links, `dateModified=2026-07-01`, and refreshed portal/blog/root sitemap lastmods.
+- Validation passed: `node --check` for the edited portal JS, JSON-LD parse checks, local `content:verify` for all three zh pages with expected dates/quick rails/Auto ads/events/zero overflow, `node scripts\portal-hub-locale-audit.js`, Git Bash quality gates for `projects/portal` and `projects/root-domain`, local Playwright zh routing smoke, `git diff --check`, `node scripts\indexing-inventory.js --json --limit 5`, and `npm run content:audit -- --json --limit 5 --min-score 1`.
+- Deployment: pushed portal commit `68b0c1c` and root-domain commit `fbc2fa9`. GitHub Pages builds initially stayed stale for about two minutes, then both reached `built`; live text checks and live Playwright verified `/portal/?market=zh` plus the three zh blog pages render the new `?lang=zh` routing with zero page errors.
+- Logged recoverable shell/tool issues to [memory/failures.jsonl](E:/Fire%20Project/memory/failures.jsonl): PowerShell regex/quote retries, first-pass `verify-blog-pages` flag mismatch, the missing `bash` PATH lookup, and the initial live propagation timeout before Pages builds completed.
 
 ### Session 457 (2026-06-27) - Cross-Promo Locale Continuity
 
