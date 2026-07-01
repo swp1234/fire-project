@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-01 (Session 458: ZH Mobile Routing Refresh)
+> Current wrap-up: 2026-07-01 (Session 459: ES Animal Routing Refresh)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,16 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 459 (2026-07-01) - ES Animal Routing Refresh
+
+- Resumed under [AGENTS.md](E:/Fire%20Project/AGENTS.md): the isolated launcher still reports `stdin is not a terminal` in this API shell, and no `.claude` paths or Claude CLI commands were used. `npm run adsense:keepalive` passed for `accounts/pub-3600813755953882`.
+- Avoided a duplicate GA4/GSC/AdSense pull because [memory/data-check-log.md](E:/Fire%20Project/memory/data-check-log.md) already recorded today's full data review in Session 458. Used that prior data to pick the next non-duplicate routing target: Mexico mobile Organic Social traffic on [test-animal-espiritual-guia.html](E:/Fire%20Project/projects/portal/blog/es/test-animal-espiritual-guia.html).
+- Updated the Spanish animal guide quick rail from generic English cards to localized app paths for `animal-personality`, `mbti-love`, `zodiac-match`, and `blood-type`, all preserving `?lang=es`. Replaced body CTA, inline, FAQ, and related app links so they route through the same language-preserving destinations.
+- Refreshed the article JSON-LD `dateModified` and the matching [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml) plus [projects/portal/blog/sitemap.xml](E:/Fire%20Project/projects/portal/blog/sitemap.xml) lastmods to `2026-07-01`.
+- Validation passed: `npm run content:verify` for the ES animal guide with expected date/quick rail/Auto ad/events, `node scripts\portal-hub-locale-audit.js`, Git Bash portal quality gate, `node scripts\indexing-inventory.js --json --limit 5`, `npm run content:audit -- --json --limit 5 --min-score 1`, portal/root `git diff --check`, and a local Playwright desktop/mobile smoke confirming the four quick-card hrefs and zero horizontal overflow.
+- Deployment: pushed portal commit `ce1da98`. GitHub Pages initially stayed `building` and one `gh api` poll hit a connection error, then the build reached `built`; live text checks and live Playwright desktop/mobile smoke verified the ES animal page and both portal sitemaps serve the new `2026-07-01` / `?lang=es` routing with zero page errors.
+- Logged recoverable local tool issues to [memory/failures.jsonl](E:/Fire%20Project/memory/failures.jsonl): an over-broad `rg` regex parse error, a first-pass `log-failure.sh` argument mismatch, and the delayed Pages build/API poll retry.
 
 ### Session 458 (2026-07-01) - ZH Mobile Routing Refresh
 
