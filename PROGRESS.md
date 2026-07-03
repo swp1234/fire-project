@@ -61,6 +61,7 @@
 - Updated [projects/portal/js/cross-promo.js](E:/Fire%20Project/projects/portal/js/cross-promo.js) so English tool-related blog pages bridge to the same free-tool stack, and Portuguese blog bridges lead with `mental-age`.
 - Refreshed [projects/portal/index.html](E:/Fire%20Project/projects/portal/index.html), [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml), and [projects/root-domain/sitemap.xml](E:/Fire%20Project/projects/root-domain/sitemap.xml) to `2026-07-03` for the routing change.
 - Validation passed: `node --check` for edited portal JS, root/portal `git diff --check`, local Playwright rail/bridge smoke for `?market=en`, `?market=pt`, EN QR guide, and PT mental-age guide, `node scripts/portal-hub-locale-audit.js`, `node scripts/indexing-inventory.js --json --limit 5`, `npm run content:audit -- --json --limit 5 --min-score 1`, `npm run harness -- --skip-analytics --skip-runtime`, and Git Bash quality gates for `projects/portal` and `projects/root-domain`.
+- Deployment: pushed portal commit `18f48f8`, root-domain commit `3c4a891`, and root commit `16798f1`. GitHub Pages builds reached `built` for both deployed repos, and live Playwright verified `dopabrain.com/?market=en`, `/portal/?market=pt`, the EN QR guide bridge, and the PT mental-age guide bridge with the new routing and zero page errors.
 - Logged the recoverable GA4 filter-shape retry to [memory/failures.jsonl](E:/Fire%20Project/memory/failures.jsonl).
 
 ### Session 459 (2026-07-01) - ES Animal Routing Refresh
