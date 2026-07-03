@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-03 (Session 460: US Tools + PT Mental-Age Revenue Routing)
+> Current wrap-up: 2026-07-03 (Session 461: QR Generator Real QR + Event Quality)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,16 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 461 (2026-07-03) - QR Generator Real QR + Event Quality
+
+- Continued the autonomous revenue/traffic loop under [AGENTS.md](E:/Fire%20Project/AGENTS.md). The isolated launcher still reports `stdin is not a terminal` in this API shell, no Claude paths or Claude CLI were used, and `npm run adsense:keepalive` passed for `accounts/pub-3600813755953882`.
+- Targeted [projects/qr-generator](E:/Fire%20Project/projects/qr-generator) because recent routing and event data highlighted English/US tool traffic and `generate_qr` usage. Replaced the prior hand-rolled QR-like canvas pattern with real QR rendering through vendored `qrcodejs@1.0.0` plus MIT license, keeping the existing canvas/download UI.
+- Cleaned GA4 event quality: `generate_qr` is now debounced and deduped, starter-example rendering is excluded, `download_qr` carries `input_type`, `data_size`, and `qr_size`, and GA4 config now pins `page_path`/`page_location` for `/qr-generator/`.
+- Updated QR PWA reliability: `sw.js` now uses `qr-generator-v2`, relative scoped asset URLs, and caches `js/vendor/qrcode.min.js` so the real QR engine is available on repeat/offline visits.
+- Refreshed QR metadata/sitemap signals: [projects/qr-generator/index.html](E:/Fire%20Project/projects/qr-generator/index.html), [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml), and [projects/root-domain/sitemap.xml](E:/Fire%20Project/projects/root-domain/sitemap.xml) now carry `2026-07-03` for the QR update.
+- Validation passed: `node --check` for QR app/vendor/SW, QR app-test-suite `13/13`, local Playwright desktop QR render + one `generate_qr` + one `download_qr`, local mobile QR render, service-worker cache check for `qr-generator-v2`, `node scripts/indexing-inventory.js --json --limit 5`, `npm run content:audit -- --json --limit 5 --min-score 1`, and `npm run harness -- --skip-analytics --skip-runtime`.
+- Deployment commits pushed: QR `4d49865` (`Use real QR renderer and cleaner events`), portal `cd6994b` (`Refresh QR generator sitemap date`), and root-domain `c7ba820` (`Refresh QR generator sitemap date`). Recoverable tool/edit/test issues were logged to [memory/failures.jsonl](E:/Fire%20Project/memory/failures.jsonl).
 
 ### Session 460 (2026-07-03) - US Tools + PT Mental-Age Revenue Routing
 
