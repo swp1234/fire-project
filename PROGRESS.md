@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-01 (Session 459: ES Animal Routing Refresh)
+> Current wrap-up: 2026-07-03 (Session 460: US Tools + PT Mental-Age Revenue Routing)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,17 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 460 (2026-07-03) - US Tools + PT Mental-Age Revenue Routing
+
+- Resumed under [AGENTS.md](E:/Fire%20Project/AGENTS.md): the isolated launcher still reports `stdin is not a terminal` in this API shell, and no `.claude` paths or Claude CLI commands were used. `npm run adsense:keepalive` passed for `accounts/pub-3600813755953882`.
+- Fresh AdSense review: today partial `$0.12`, yesterday `$0.10`, last 7 days `$0.66`, this month `$0.26`, last 30 days `$2.64`; policy issues remain empty, with only the standing Ukraine conflict policy alert. The `2026-06-26..2026-07-02` report showed `$0.66` from `1,320` page views, `971` impressions, and `6` clicks. China high-end mobile led earnings (`$0.19`, `340` page views, `5` clicks), US desktop was small but high-RPM (`$0.13`, `24` page views), and Singapore desktop stayed low-value (`547` page views, `$0.01`, `0` clicks).
+- Fresh GA4 review for `2026-06-26..2026-07-02`: Singapore desktop Direct still dominated noise (`466` sessions, `23` engaged, `4.9%` engagement, about `3.9s` average duration). Growth targets were China mobile Direct (`165` sessions, `58` engaged), US desktop Direct (`39` sessions, `30` engaged, about `437s`, `872` page views), China desktop Organic (`30` sessions, `19` engaged, about `128s`), Mexico mobile Organic Social on the Spanish animal guide (`7` sessions, `5` engaged), and Brazil desktop Organic on the PT mental-age guide (`4` sessions, `4` engaged, about `204s`). GSC latest and 28-day reads returned no actionable rows.
+- Updated [projects/portal/js/country-content.js](E:/Fire%20Project/projects/portal/js/country-content.js) so English-market country rails now prioritize the current US utility signal: `qr-generator`, `unit-converter`, `password-generator`, and `typing-speed`. Portuguese-market rails now lead with `mental-age` and the PT mental-age guide before broader personality paths.
+- Updated [projects/portal/js/cross-promo.js](E:/Fire%20Project/projects/portal/js/cross-promo.js) so English tool-related blog pages bridge to the same free-tool stack, and Portuguese blog bridges lead with `mental-age`.
+- Refreshed [projects/portal/index.html](E:/Fire%20Project/projects/portal/index.html), [projects/portal/sitemap.xml](E:/Fire%20Project/projects/portal/sitemap.xml), and [projects/root-domain/sitemap.xml](E:/Fire%20Project/projects/root-domain/sitemap.xml) to `2026-07-03` for the routing change.
+- Validation passed: `node --check` for edited portal JS, root/portal `git diff --check`, local Playwright rail/bridge smoke for `?market=en`, `?market=pt`, EN QR guide, and PT mental-age guide, `node scripts/portal-hub-locale-audit.js`, `node scripts/indexing-inventory.js --json --limit 5`, `npm run content:audit -- --json --limit 5 --min-score 1`, `npm run harness -- --skip-analytics --skip-runtime`, and Git Bash quality gates for `projects/portal` and `projects/root-domain`.
+- Logged the recoverable GA4 filter-shape retry to [memory/failures.jsonl](E:/Fire%20Project/memory/failures.jsonl).
 
 ### Session 459 (2026-07-01) - ES Animal Routing Refresh
 
