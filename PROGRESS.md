@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-07 (Session 468: Test App Entry Language Continuity II)
+> Current wrap-up: 2026-07-07 (Session 469: Utility and Fortune Entry Language Continuity)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,17 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 469 (2026-07-07) - Utility and Fortune Entry Language Continuity
+
+- Continued the autonomous revenue/traffic hardening loop after Session 468. The isolated Codex launcher still reports `stdin is not a terminal` in this API shell, no Claude paths or Claude CLI were used, and AdSense analytics remained blocked by the same local OAuth `invalid_grant` state.
+- Re-ran the live `?lang=pt` entry audit across 117 apps after Session 468. Remaining failures were 73 `html lang` mismatches and 8 runtime-error apps, so this pass targeted a utility/fortune cohort with monetizable intent: `bmi-calculator`, `biorhythm`, `daily-tarot`, `dream-fortune`, `lottery`, `shopping-calc`, `tax-refund-preview`, and `white-noise`.
+- Updated each app runtime so explicit URL `lang` wins before saved/browser language and synchronizes `document.documentElement.lang` on first load. `biorhythm` also had an inline `bio-lang` detector, so that path now honors URL language before localStorage/browser language.
+- Fixed two runtime leaks from the audit: `shopping-calc` no longer calls `includes` before `supportedLanguages` exists and now guards missing premium modal controls; `white-noise` now defines the missing theme toggle handler and synchronizes the active language button after initial translation load.
+- Refreshed the eight app `dateModified` metadata values plus matching root-domain and portal sitemap app rows to `2026-07-07`.
+- Validation passed: `node --check` for edited JS files, per-repo `git diff --check`, local Playwright smoke for all eight apps with `?lang=pt` and `?lang=en`, Git Bash app-test-suite for all eight apps, `node scripts/indexing-inventory.js --json --limit 5`, and `npm run content:audit -- --json --limit 5 --min-score 1`.
+- Deployment commits pushed and built: bmi-calculator `dd51ead`, biorhythm `eb55251`, daily-tarot `e1abdd4`, dream-fortune `710bfc1`, lottery `7f5e02d`, shopping-calc `7bb4fc4`, tax-refund-preview `768b131`, white-noise `bd192e9`, portal `18a2fcb`, and root-domain `5592efa`.
+- Live Playwright smoke passed on `dopabrain.com`: all eight app entry URLs served matching `html lang`, active language state where the UI exposes it, and translated first-screen text for both `?lang=pt` and `?lang=en`, with zero app runtime errors. Live root and portal sitemaps also served the updated `2026-07-07` rows.
 
 ### Session 468 (2026-07-07) - Test App Entry Language Continuity II
 
