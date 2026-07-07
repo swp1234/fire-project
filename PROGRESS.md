@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-07 (Session 473: Game Entry Language Continuity II)
+> Current wrap-up: 2026-07-07 (Session 474: Viral Test Entry Language Continuity)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,17 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 474 (2026-07-07) - Viral Test Entry Language Continuity
+
+- Stopped the autonomous loop per the user's request after finishing this in-flight pass. No Claude paths or Claude CLI were used; AdSense analytics remained blocked by the local Google OAuth `invalid_grant` state.
+- Re-ran the live stale-language audit with stored Korean language values and `?lang=pt` entry. Corrected valid-app baseline before this pass: 118 valid apps, 41 `html lang` failures, 42 active-language-control failures, 0 runtime errors, and 70 Korean-text leak candidates under the stricter stale-storage condition.
+- Targeted the next viral/shareable test cohort: `aura-reading`, `aura-score`, `brainrot-score`, `color-blindness`, `color-palette`, `dark-core`, `dopamine-type`, and `emotion-iceberg`.
+- Updated each app runtime so explicit URL `lang` wins before saved/browser language, `document.documentElement.lang` synchronizes on first load and language changes, and storage failures no longer break in-memory language switching. `color-palette` now also prevents saved app state from overriding URL language, and `emotion-iceberg` keeps its select-based language control aligned.
+- Refreshed the eight app `dateModified` metadata values plus matching sitemap rows to `2026-07-07`: root-domain rows for `aura-reading` and `color-palette`, and portal rows for all eight apps.
+- Validation passed: `node --check` for edited JS files, per-repo `git diff --check`, local Playwright stale-storage smoke for all eight apps with `?lang=pt` and `?lang=en`, Git Bash app-test-suite for all eight apps, `node scripts/indexing-inventory.js --json --limit 5`, and `npm run content:audit -- --json --limit 5 --min-score 1`.
+- Deployment commits pushed and built: aura-reading `efe31db`, aura-score `c05c78f`, brainrot-score `e898a28`, color-blindness `d3a4268`, color-palette `18a8a29`, dark-core `5ef398f`, dopamine-type `111ebd0`, emotion-iceberg `856af84`, portal `1c79737`, and root-domain `135695d`. `aura-score` Pages source was corrected from stale `gh-pages` to `master` and manually rebuilt so live `/aura-score/` serves the new commit.
+- Live Playwright smoke passed on `dopabrain.com`: all eight app entry URLs returned HTTP 200, matching `html lang`, refreshed `dateModified`, active/select language state, and zero app runtime errors for both `?lang=pt` and `?lang=en` with stale Korean storage preloaded. Live sitemap checks passed for the root/portal rows managed by each sitemap.
 
 ### Session 473 (2026-07-07) - Game Entry Language Continuity II
 
