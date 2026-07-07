@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-07 (Session 469: Utility and Fortune Entry Language Continuity)
+> Current wrap-up: 2026-07-07 (Session 470: Productivity Entry Language Continuity)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,17 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 470 (2026-07-07) - Productivity Entry Language Continuity
+
+- Continued the autonomous revenue/traffic hardening loop after Session 469. The isolated Codex launcher still reports `stdin is not a terminal` in this API shell, no Claude paths or Claude CLI were used, and AdSense analytics remained blocked by the same local OAuth `invalid_grant` state.
+- Re-ran the live `?lang=pt` entry audit across 117 apps after Session 469. Remaining failures were 65 `html lang` mismatches and 5 runtime-error apps, so this pass targeted productivity/daily-use pages with strong repeat-visit and ad-view potential: `affirmation`, `habit-tracker`, `dday-counter`, `detox-timer`, `pomodoro-timer`, `routine-planner`, `todo-list`, and `would-you-rather`.
+- Updated each app runtime so explicit URL `lang` wins before saved/browser language and synchronizes `document.documentElement.lang` on first load. `pomodoro-timer` also now loads locale JSON through the app-relative `js/locales/...` path instead of the root `/js/locales/...` path.
+- Fixed runtime blockers from the audit: `routine-planner` no longer uses invalid optional-chaining assignment, `dday-counter` and `detox-timer` guard optional modal/ad controls before binding listeners, and `would-you-rather` no longer dereferences `window.i18n` when the top-level i18n instance is not attached to `window`.
+- Refreshed the eight app `dateModified` metadata values plus matching root-domain and portal sitemap app rows to `2026-07-07`.
+- Validation passed: `node --check` for all edited JS files, per-repo `git diff --check`, local Playwright smoke for all eight apps with `?lang=pt` and `?lang=en`, Git Bash app-test-suite for all eight apps, `node scripts/indexing-inventory.js --json --limit 5`, and `npm run content:audit -- --json --limit 5 --min-score 1`.
+- Deployment commits pushed and built: affirmation `f6a053e`, habit-tracker `405312c`, dday-counter `d4e0258`, detox-timer `ea906d7`, pomodoro-timer `c132112`, routine-planner `0aea429`, todo-list `6e04e13`, would-you-rather `a284b0b`, portal `c6856b1`, and root-domain `903250b`.
+- Live Playwright smoke passed on `dopabrain.com`: all eight app entry URLs served matching `html lang`, active language state where present, and translated first-screen text for both `?lang=pt` and `?lang=en`, with zero app runtime errors. Live root and portal sitemaps also served the updated `2026-07-07` rows.
 
 ### Session 469 (2026-07-07) - Utility and Fortune Entry Language Continuity
 
