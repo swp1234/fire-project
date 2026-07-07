@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-07 (Session 471: Homepage Country Rail State Hardening)
+> Current wrap-up: 2026-07-07 (Session 472: Game Entry Language Continuity)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,17 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 472 (2026-07-07) - Game Entry Language Continuity
+
+- Continued the autonomous revenue/traffic hardening loop after Session 471. The isolated Codex launcher had already been run in this session and still reports `stdin is not a terminal`; no Claude paths or Claude CLI were used, and AdSense analytics remained blocked by the same local OAuth `invalid_grant` state.
+- Targeted the next game cohort from the live language-entry audit: `block-puzzle`, `brick-breaker`, `emoji-merge`, `idle-clicker`, `maze-runner`, `minesweeper`, `snake-game`, and `stack-tower`.
+- Updated each game runtime so explicit URL `lang` wins before saved/browser language, `document.documentElement.lang` synchronizes on construction and UI updates, active language buttons reflect the current language, and storage failures no longer break the in-memory language switch.
+- Fixed two runtime/first-render blockers found during verification: `snake-game` now initializes and guards `obstacles` before drawing, and `stack-tower` now waits until deferred i18n scripts are ready before running its inline translation initializer.
+- Refreshed the eight app `dateModified` metadata values plus matching root-domain and portal sitemap app rows to `2026-07-07`.
+- Validation passed: `node --check` for edited game JS, per-repo `git diff --check`, local Playwright smoke for all eight apps with `?lang=pt` and `?lang=en` while blocking external scripts, Git Bash app-test-suite for all eight apps, `node scripts/indexing-inventory.js --json --limit 5`, and `npm run content:audit -- --json --limit 5 --min-score 1`.
+- Deployment commits pushed and built: block-puzzle `9d072d3`, brick-breaker `8635fbf`, emoji-merge `cd61239`, idle-clicker `12f5e92`, maze-runner `a0e238e`, minesweeper `2a45fde`, snake-game `be9e1ee`, stack-tower `2de3cd2`, portal `f2bb863`, and root-domain `95dda17`.
+- Live Playwright smoke passed on `dopabrain.com`: all eight app entry URLs served matching `html lang`, active language state, refreshed `dateModified`, and zero app runtime errors for both `?lang=pt` and `?lang=en`. Live root and portal sitemaps also served `2026-07-07` for all eight app rows.
 
 ### Session 471 (2026-07-07) - Homepage Country Rail State Hardening
 
