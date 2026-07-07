@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-07 (Session 463: Hub Link Language Continuity)
+> Current wrap-up: 2026-07-07 (Session 464: App Entry Language Continuity)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,15 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 464 (2026-07-07) - App Entry Language Continuity
+
+- Continued the autonomous revenue/traffic hardening loop after Session 463. AdSense analytics remained blocked by the local OAuth `invalid_grant` state, so revenue reads still need only the OAuth redirect URL from the user.
+- Audited the high-click path created by the homepage/portal language fixes: Portuguese hub links now reached apps with `?lang=pt`, but live direct-entry smoke showed `brain-type`, `eq-test`, `mental-age`, and `attachment-style` still rendered the first screen in the default locale under a fresh Korea browser context.
+- Updated each affected app i18n runtime so an explicit supported URL `lang` parameter wins before browser/default detection, and synchronized `document.documentElement.lang` during UI refresh where missing. Refreshed app `dateModified` metadata and root/portal sitemap `lastmod` values to `2026-07-07`.
+- Validation passed: `node --check` for the four edited i18n files, submodule `git diff --check`, local Playwright direct-entry smoke for `brain-type`, `animal-personality`, `eq-test`, `mental-age`, `hsp-test`, and `attachment-style` with `?lang=pt` in a fresh `ko-KR`/Asia-Seoul browser context, Git Bash app-test-suite for all four changed apps, `node scripts/indexing-inventory.js --json --limit 5`, and `npm run content:audit -- --json --limit 5 --min-score 1`.
+- Deployment commits pushed: brain-type `0c8e358` (`Honor URL language entry`, pushed to both Pages `master` and `main`), eq-test `d18e50c`, mental-age `2b361cc`, attachment-style `08a9d5a`, portal `33e420c`, and root-domain `591908f`. GitHub Pages builds reached `built` for all six repos.
+- Live Playwright smoke passed on `dopabrain.com`: all six checked app entry URLs served Portuguese first-screen UI from `?lang=pt` with `html lang="pt"` and zero local app resource failures or runtime errors.
 
 ### Session 463 (2026-07-07) - Hub Link Language Continuity
 
