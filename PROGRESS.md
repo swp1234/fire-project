@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-07 (Session 462: Country Rail Language Switching Fix)
+> Current wrap-up: 2026-07-07 (Session 463: Hub Link Language Continuity)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,15 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 463 (2026-07-07) - Hub Link Language Continuity
+
+- Continued the autonomous revenue/traffic hardening loop after Session 462. Worktrees were clean before starting, and AdSense analytics remained blocked by the same local OAuth `invalid_grant` state until the user supplies the OAuth redirect URL.
+- Audited live `/` and `/portal/` after switching the first-screen language to Portuguese. The country rail was fixed, but high-click surfaces still dropped language continuity: root Start Here cards, quick category links, popular grid cards, and mid-page CTA; portal hero pills, hero winner cards, featured cards, app cards, and category hub cards.
+- Updated [projects/root-domain/index.html](E:/Fire%20Project/projects/root-domain/index.html) with localized-link helpers so first-screen and popular-grid links preserve the current language as `?lang=...`, while blog quick links route to explicit `/portal/blog/{lang}/` paths.
+- Updated [projects/portal/js/app.js](E:/Fire%20Project/projects/portal/js/app.js) so portal hero, featured, app-grid, personalized, and hub links preserve the active language. Refreshed [projects/portal/index.html](E:/Fire%20Project/projects/portal/index.html) to load `js/app.js?v=20260707-langlinks` for cache safety.
+- Validation passed: custom Playwright smoke over `/` and `/portal/` covering all 12 language buttons and first-screen/high-click links, `node --check projects/portal/js/app.js`, `node scripts/portal-hub-locale-audit.js`, Git Bash quality gates for `projects/portal` and `projects/root-domain`, `node scripts/indexing-inventory.js --json --limit 5`, `npm run content:audit -- --json --limit 5 --min-score 1`, and `npm run harness -- --skip-analytics --skip-runtime`.
+- Deployment commits pushed: portal `2cd37af` (`Preserve language on portal hub links`) and root-domain `4683755` (`Preserve language on root hub links`). Root submodule pointers were advanced in this session.
 
 ### Session 462 (2026-07-07) - Country Rail Language Switching Fix
 
