@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-03 (Session 461: QR Generator Real QR + Event Quality)
+> Current wrap-up: 2026-07-07 (Session 462: Country Rail Language Switching Fix)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,15 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 462 (2026-07-07) - Country Rail Language Switching Fix
+
+- Resumed under [AGENTS.md](E:/Fire%20Project/AGENTS.md): the isolated launcher still reports `stdin is not a terminal` in this API shell, and no `.claude` paths or Claude CLI commands were used. `npm run adsense:keepalive` returned Google `invalid_grant`, so `npm run adsense:auth-url` generated a fresh OAuth URL; AdSense work remains waiting only for the OAuth redirect URL.
+- Reproduced the live homepage issue on `https://dopabrain.com/`: with Asia/Seoul context, switching first-screen language to English or Portuguese left the country rail at `detectedMarket=ko`, title `한국 인기 추천`, and Korean `?lang=ko` destinations.
+- Fixed [projects/portal/js/country-content.js](E:/Fire%20Project/projects/portal/js/country-content.js) so explicit `?lang=` and the user's saved language selection map to the matching content market after hard `?market=` overrides, while preserving timezone-based Korea detection for default visits. Updated [projects/portal/js/app.js](E:/Fire%20Project/projects/portal/js/app.js) so the portal home country rail re-renders after language changes.
+- Added cache-busting `country-content.js?v=20260707-country` references in [projects/root-domain/index.html](E:/Fire%20Project/projects/root-domain/index.html) and [projects/portal/index.html](E:/Fire%20Project/projects/portal/index.html), refreshed portal `dateModified`, and updated root/portal sitemap lastmods to `2026-07-07`.
+- Validation passed: `node --check` for edited JS, portal/root `git diff --check`, custom Playwright smoke over `/` and `/portal/` covering all 12 language buttons plus `?lang=` and `?market=` precedence, `node scripts/portal-hub-locale-audit.js`, Git Bash quality gates for `projects/portal` and `projects/root-domain`, `node scripts/indexing-inventory.js --json --limit 5`, `npm run content:audit -- --json --limit 5 --min-score 1`, and `npm run harness -- --skip-analytics --skip-runtime`.
+- Deployment commits pushed: portal `c45b1cf` (`Fix country rail language switching`) and root-domain `008ce6b` (`Refresh country rail script version`). Root submodule pointers were advanced in this session.
 
 ### Session 461 (2026-07-03) - QR Generator Real QR + Event Quality
 
