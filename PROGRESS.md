@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-07 (Session 467: Priority Tool Entry Language Continuity)
+> Current wrap-up: 2026-07-07 (Session 468: Test App Entry Language Continuity II)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,17 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 468 (2026-07-07) - Test App Entry Language Continuity II
+
+- Continued the autonomous revenue/traffic hardening loop after Session 467. The isolated Codex launcher still reports `stdin is not a terminal` in this API shell, no Claude paths or Claude CLI were used, and AdSense analytics remained blocked by the same local OAuth `invalid_grant` state.
+- Re-ran a live Playwright `?lang=pt` entry audit across all 117 apps with a fresh Korea browser context. 81 apps still failed `html lang` continuity and 9 apps showed runtime errors, so this pass targeted the next high-value test/quiz cohort: `ai-personality`, `color-personality`, `iq-test`, `red-flag-test`, `sleep-animal`, `social-battery`, `work-style`, and `dev-quiz`.
+- Updated each app runtime so an explicit supported URL `lang` parameter wins before saved/browser language and synchronizes `document.documentElement.lang` on first load.
+- Fixed duplicate `js/i18n.js` includes in `work-style` and `dev-quiz`, removing the live-risk `Identifier 'I18n' has already been declared` runtime error seen during the audit.
+- Refreshed the eight app `dateModified` metadata values plus matching root-domain and portal sitemap app rows to `2026-07-07`.
+- Validation passed: `node --check` for all eight edited i18n files, per-repo `git diff --check`, local Playwright smoke for all eight apps with `?lang=pt` and `?lang=en`, Git Bash app-test-suite for all eight apps, `node scripts/indexing-inventory.js --json --limit 5`, and `npm run content:audit -- --json --limit 5 --min-score 1`.
+- Deployment commits pushed and built: ai-personality `62dd042`, color-personality `f897b3f`, iq-test `2668a38`, red-flag-test `89ede95`, sleep-animal `984ba92`, social-battery `3a0959e`, work-style `d8b8d9a`, dev-quiz `bfa5539`, portal `5ab27df`, and root-domain `f3a87e3`. `color-personality` was pushed to both `master` and `main`, then manually triggered through the Pages build API after the automatic build pointer initially lagged.
+- Live Playwright smoke passed on `dopabrain.com`: all eight app entry URLs served matching `html lang`, active language state, and translated first-screen text for both `?lang=pt` and `?lang=en`, with zero app runtime errors. Live root and portal sitemaps also served the updated `2026-07-07` rows.
 
 ### Session 467 (2026-07-07) - Priority Tool Entry Language Continuity
 
