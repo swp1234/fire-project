@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-07 (Session 464: App Entry Language Continuity)
+> Current wrap-up: 2026-07-07 (Session 465: Test App Entry Language Continuity)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,16 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 465 (2026-07-07) - Test App Entry Language Continuity
+
+- Continued the autonomous revenue/traffic hardening loop after Session 464. The isolated Codex launcher still reports `stdin is not a terminal` in this API shell, no Claude paths or Claude CLI were used, and AdSense analytics remained blocked by the same local OAuth `invalid_grant` state.
+- Ran a broader local Playwright audit across 117 app entry pages with a fresh `ko-KR`/Asia-Seoul browser context and `?lang=pt`. Only 13 apps honored the URL language on first entry; 104 still fell back to Korean/default, confirming a larger conversion leak behind the homepage/portal language fixes.
+- Prioritized the next high-value test/psychology cohort: `anxiety-type`, `burnout-test`, `shadow-work`, `stress-response`, `trauma-response`, `inner-child-test`, `overthinker-test`, and `toxic-trait-test`. Each now honors explicit URL `lang` before saved/browser language and synchronizes `html lang` during first render where needed.
+- Refreshed the eight app `dateModified` metadata values and the matching portal sitemap `lastmod` rows to `2026-07-07`.
+- Validation passed: `node --check` for all eight edited i18n files, per-submodule `git diff --check`, local Playwright smoke with external networks blocked for the eight `?lang=pt` app entries, Git Bash app-test-suite for all eight apps, `node scripts/indexing-inventory.js --json --limit 5`, and `npm run content:audit -- --json --limit 5 --min-score 1`.
+- Deployment commits pushed and built: anxiety-type `8442e35`, burnout-test `4804eb6`, shadow-work `3a39c2a`, stress-response `1168b97`, trauma-response `8544c7c`, inner-child-test `22e79cd`, overthinker-test `acc8d01`, toxic-trait-test `bc2b1c2`, and portal `6b80359`.
+- Live Playwright smoke passed on `dopabrain.com`: all eight app entry URLs served Portuguese first-screen UI from `?lang=pt` with `html lang="pt"` and zero local app runtime/resource failures.
 
 ### Session 464 (2026-07-07) - App Entry Language Continuity
 
