@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-07 (Session 466: Utility App Entry Language Continuity)
+> Current wrap-up: 2026-07-07 (Session 467: Priority Tool Entry Language Continuity)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,17 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 467 (2026-07-07) - Priority Tool Entry Language Continuity
+
+- Continued the autonomous revenue/traffic hardening loop after Session 466. The isolated Codex launcher still reports `stdin is not a terminal` in this API shell, no Claude paths or Claude CLI were used, and AdSense analytics remained blocked by the same local OAuth `invalid_grant` state.
+- Targeted the next priority tool-entry cohort after the homepage/portal language leak: `qr-generator`, `unit-converter`, `password-generator`, and `typing-speed`.
+- Updated each app runtime so an explicit supported URL `lang` parameter wins before saved/browser language. `unit-converter` and `password-generator` now initialize through `setLanguage(...)` so first paint, `html lang`, active language controls, and translated UI stay synchronized.
+- Fixed a live-risk runtime bug in `password-generator` by removing the duplicate `js/i18n.js` include that caused `Identifier 'I18n' has already been declared`.
+- Refreshed the four app `dateModified` metadata values plus root-domain and portal sitemap `lastmod` rows to `2026-07-07`.
+- Validation passed: `node --check` for all edited JS files, per-repo `git diff --check`, local Playwright smoke for all four apps with `?lang=pt` and `?lang=en`, Git Bash app-test-suite for all four apps, `node scripts/indexing-inventory.js --json --limit 5`, and `npm run content:audit -- --json --limit 5 --min-score 1`.
+- Deployment commits pushed and built/verified: qr-generator `caa190f`, unit-converter `bf435f1`, password-generator `6d7cf53`, typing-speed `1dc38bb`, root-domain `ba78597`, and portal `e3cebad`. GitHub Pages API still reported the previous portal build as latest, but the live portal sitemap already served the `2026-07-07` rows.
+- Live Playwright smoke passed on `dopabrain.com`: all four app entry URLs served matching `html lang`, active language state, and translated first-screen text for both `?lang=pt` and `?lang=en`, with zero app runtime errors.
 
 ### Session 466 (2026-07-07) - Utility App Entry Language Continuity
 
