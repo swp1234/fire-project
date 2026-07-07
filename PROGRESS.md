@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-07 (Session 470: Productivity Entry Language Continuity)
+> Current wrap-up: 2026-07-07 (Session 471: Homepage Country Rail State Hardening)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,16 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 471 (2026-07-07) - Homepage Country Rail State Hardening
+
+- Continued the autonomous revenue/traffic hardening loop after Session 470. The isolated Codex launcher had already been run in this session and still reports `stdin is not a terminal` in this API shell; no Claude paths or Claude CLI were used, and AdSense analytics remained blocked by the same local OAuth `invalid_grant` state.
+- Rechecked the user-reported live homepage behavior on `https://dopabrain.com/`: a fresh browser already switched the country rail correctly, but the follow-up storage-blocked reproduction exposed the real same-family weakness. If `localStorage.setItem('app_language', ...)` fails or stale cache keeps an older path around, the visible language can change while the country rail falls back to Korea from the Asia/Seoul timezone.
+- Hardened [projects/portal/js/country-content.js](E:/Fire%20Project/projects/portal/js/country-content.js) so the active i18n language wins before saved language and timezone detection, checking both `window.i18n` and the global lexical `i18n` instance. This keeps root and portal country rails aligned with the user's current language even when storage is unavailable.
+- Hardened [projects/root-domain/js/i18n.js](E:/Fire%20Project/projects/root-domain/js/i18n.js) so URL `?lang=` wins before saved/browser language, `html lang` synchronizes on construction and updates, storage failures are non-fatal, and `window.i18n` is explicitly exposed. Applied the same storage-failure and `window.i18n` exposure guard to [projects/portal/js/i18n.js](E:/Fire%20Project/projects/portal/js/i18n.js).
+- Added cache-safety bumps: root now loads `js/i18n.js?v=20260707-rootlang` and `/portal/js/country-content.js?v=20260707-country-state`, portal loads `country-content.js?v=20260707-country-state`, and the root service worker cache name advanced to `root-domain-v3`.
+- Validation passed: `node --check` for edited JS/SW files, root/portal `git diff --check`, local Playwright `?lang=pt` and storage-blocked language-switch repros for `/root-domain/` and `/portal/`, local 12-language root/portal country-rail sweep, Git Bash quality gates for `projects/root-domain` and `projects/portal`, `node scripts/portal-hub-locale-audit.js`, `node scripts/indexing-inventory.js --json --limit 5`, `npm run content:audit -- --json --limit 5 --min-score 1`, and `npm run harness -- --skip-analytics --skip-runtime`.
+- Deployment commits pushed and built: portal `a0a0773` (`Harden country rail language state`) and root-domain `ffd3468` (`Harden root language switching`). Live Playwright verified that `/` and `/portal/` load the new script versions and that all 12 language buttons produce the expected market rail with no non-Korean `lang=ko` link leak.
 
 ### Session 470 (2026-07-07) - Productivity Entry Language Continuity
 
