@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-07 (Session 472: Game Entry Language Continuity)
+> Current wrap-up: 2026-07-07 (Session 473: Game Entry Language Continuity II)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,17 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 473 (2026-07-07) - Game Entry Language Continuity II
+
+- Continued the autonomous revenue/traffic hardening loop after Session 472. The isolated Codex launcher reports `stdin is not a terminal` in this API shell; no Claude paths or Claude CLI were used, and AdSense analytics remained blocked by the local Google OAuth `invalid_grant` state.
+- Corrected the live language-entry audit to only count valid app URLs. Baseline before this pass: 113 valid apps audited with `?lang=pt`, 48 `html lang` failures, 15 active-language-control failures, 0 runtime errors, and 0 non-Korean Korean-link leaks.
+- Targeted the next high-repeat game cohort with monetization upside: `color-memory`, `flappy-bird`, `number-puzzle`, `pong-game`, `puzzle-2048`, `sky-runner`, `word-guess`, and `zigzag-runner`.
+- Updated each app runtime so explicit URL `lang` wins before saved/browser language, `document.documentElement.lang` synchronizes on first load and language changes, and storage failures no longer break in-memory language switching. Also exposed the `word-guess` i18n instance on `window` and restored active language button synchronization in `puzzle-2048`.
+- Refreshed the eight app `dateModified` metadata values plus matching root-domain and portal sitemap app rows to `2026-07-07`.
+- Validation passed: `node --check` for all edited i18n files, per-repo `git diff --check`, local Playwright smoke for all eight apps with `?lang=pt` and `?lang=en` while blocking external scripts, Git Bash app-test-suite for all eight apps, `node scripts/indexing-inventory.js --json --limit 5`, and `npm run content:audit -- --json --limit 5 --min-score 1`.
+- Deployment commits pushed and built: color-memory `881e25c`, flappy-bird `8ad1c71`, number-puzzle `1a2f7ea`, pong-game `e50e6e1`, puzzle-2048 `142dc4c`, sky-runner `0fae183`, word-guess `d2a92d2`, zigzag-runner `aafd8d7`, portal `d1eaef3`, and root-domain `aae2476`.
+- Live Playwright smoke passed on `dopabrain.com`: all eight app entry URLs returned HTTP 200, matching `html lang`, refreshed `dateModified`, active language state where visible, and zero app runtime errors for both `?lang=pt` and `?lang=en`. Live root and portal sitemaps also served `2026-07-07` for all eight app rows.
 
 ### Session 472 (2026-07-07) - Game Entry Language Continuity
 
