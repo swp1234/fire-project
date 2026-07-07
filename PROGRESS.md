@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-07 (Session 465: Test App Entry Language Continuity)
+> Current wrap-up: 2026-07-07 (Session 466: Utility App Entry Language Continuity)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,16 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 466 (2026-07-07) - Utility App Entry Language Continuity
+
+- Continued the autonomous revenue/traffic hardening loop after Session 465. The isolated Codex launcher still reports `stdin is not a terminal` in this API shell, no Claude paths or Claude CLI were used, and AdSense analytics remained blocked by the same local OAuth `invalid_grant` state.
+- Targeted the next high-value language-entry leak cohort: utility/tool apps tied to prior US tool routing work. Local smoke confirmed the shared tool template ignored `?lang=pt`/`?lang=en` and kept `html lang="ko"` under a fresh Korea browser context.
+- Updated the shared lightweight i18n pattern in `aspect-ratio-calculator`, `data-transfer-calculator`, `file-extension-converter`, `file-size-converter`, `image-format-converter`, `image-size-converter`, `json-formatter`, `text-case-converter`, `timezone-converter`, and `unix-timestamp-converter` so explicit URL `lang` wins before saved/browser language. The existing tool copy remains mostly English, but the runtime language state, selector, and `html lang` no longer fall back to Korean.
+- Refreshed the ten app `dateModified`/JSON-LD dates plus root-domain and portal sitemap `lastmod` rows to `2026-07-07`.
+- Validation passed: `node --check` for all ten edited i18n files, per-repo `git diff --check`, local Playwright smoke for all ten tools with `?lang=pt` and `?lang=en`, Git Bash app-test-suite for all ten apps, `node scripts/indexing-inventory.js --json --limit 5`, and `npm run content:audit -- --json --limit 5 --min-score 1`.
+- Deployment commits pushed and built: aspect-ratio-calculator `f713819`, data-transfer-calculator `276d9fd`, file-extension-converter `14455b1`, file-size-converter `914f8de`, image-format-converter `8523e3d`, image-size-converter `fb2e553`, json-formatter `4a5de2a`, text-case-converter `28c0e85`, timezone-converter `1c7c9cb`, unix-timestamp-converter `531ff36`, portal `5b64710`, and root-domain `16ad3a5`.
+- Live Playwright smoke passed on `dopabrain.com`: all ten tool entry URLs served matching `html lang` and language-select values for both `?lang=pt` and `?lang=en`, with zero local app runtime/resource failures.
 
 ### Session 465 (2026-07-07) - Test App Entry Language Continuity
 
