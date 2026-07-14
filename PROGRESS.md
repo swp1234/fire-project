@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-07 (Session 474: Viral Test Entry Language Continuity)
+> Current wrap-up: 2026-07-14 (Session 475: Revenue Funnel Recovery Routing)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,16 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 475 (2026-07-14) - Revenue Funnel Recovery Routing
+
+- Resumed under the Fire Project isolation rules. The Codex isolated launcher returned the usual non-interactive `stdin is not a terminal` message without touching Claude paths or Claude CLI.
+- Ran `npm run adsense:keepalive` before revenue/analytics work. Google returned `invalid_grant`, so `npm run adsense:auth-url` was generated and the user was asked only for the OAuth redirect URL needed to complete recovery. Direct AdSense earnings/policy checks remain blocked until that URL is supplied.
+- Used fresh GA4/GSC data for 2026-07-07..2026-07-13 vs 2026-06-30..2026-07-06. GA4 `totalAdRevenue` is still unpopulated, so the actionable proxy was funnel health: `result_view` fell 68 -> 34, `test_start` 71 -> 43, `animal_result_ad_impression` 14 -> 4, while the top current landings were mostly low-engagement zh blog pages. GSC remained thin and returned no quick-win rows.
+- Hardened [projects/portal/js/cross-promo.js](E:/Fire%20Project/projects/portal/js/cross-promo.js) with topic-aware blog bridge routing: self-check pages now favor `hsp-test`, `shadow-work`, `attachment-style`, and `eq-test`; tarot/fortune pages route to reading flows; productivity articles route to tools; game articles route to playable games; K-pop articles route to `kpop-position`. High-risk zh/topic pages also receive an early compact recovery rail near the first paragraph, with `topic_strategy` and `bridge_strategy` telemetry.
+- Reweighted first-screen recommendations toward currently stronger result funnels: [projects/portal/index.html](E:/Fire%20Project/projects/portal/index.html) now places `hsp-test` in the hero winner rail, and [projects/root-domain/index.html](E:/Fire%20Project/projects/root-domain/index.html) promotes `hsp-test` plus `kpop-position` in top picks. Refreshed root/portal sitemap rows and the portal `dateModified` value to `2026-07-14`.
+- Validation passed: `node --check projects/portal/js/cross-promo.js`, portal/root `git diff --check`, Git Bash quality gates for `projects/portal` and `projects/root-domain`, local Playwright smoke for zh emotional-regulation, en K-pop, and zh 2048 blog pages confirming early recovery rails, correct `?lang=` destinations, four-card bottom bridges, and no mobile overflow, `npm run content:audit -- --json --limit 5 --min-score 1`, and `node scripts/indexing-inventory.js --json --limit 5` with `blockerUrls: 0` and `highRiskUrls: 0`.
+- Operational note: the first quality-gate attempt failed because `bash` is not on PATH in this PowerShell session; the failure was logged to `memory/failures.jsonl`, then the same gates passed with `C:\Program Files\Git\bin\bash.exe`.
 
 ### Session 474 (2026-07-07) - Viral Test Entry Language Continuity
 

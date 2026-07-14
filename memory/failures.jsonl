@@ -51,3 +51,4 @@
 {"ts":"2026-07-03T11:54:42Z","agent":"codex","app":"qr-generator","category":"test","error":"first Playwright QR smoke waited for missing qrcode CDN build path; resolved by vendoring qrcodejs and updating renderer","resolved":false}
 {"ts":"2026-07-03T11:54:42Z","agent":"codex","app":"qr-generator","category":"edit","error":"PowerShell encoding recovery temporarily mojibaked app.js comments and swallowed setTimeout lines; resolved with node --check and ASCII cleanup","resolved":false}
 {"ts":"2026-07-03T11:54:42Z","agent":"codex","app":"qr-generator","category":"other","error":"PowerShell debug interpolation and earlier broad search/Format-Hex checks failed during investigation; reran with narrower commands","resolved":false}
+{"ts":"2026-07-14T12:38:38Z","agent":"codex","app":"portal","category":"test","error":"quality-gate failed because bash is not in PATH; rerun with Git Bash absolute path","resolved":true}
