@@ -232,8 +232,8 @@ const scenarios = [
       await clickAndWait(page, '#blog-filters .blog-filter[data-cat="tests"]');
       await preventNavigation(page, '.blog-card');
       await clickAndWait(page, '.blog-card');
-      await preventNavigation(page, '.hub-card[href="/portal/tests/"]');
-      await clickAndWait(page, '.hub-card[href="/portal/tests/"]');
+      await preventNavigation(page, '.hub-card[data-cta-surface="tests_hub"]');
+      await clickAndWait(page, '.hub-card[data-cta-surface="tests_hub"]');
     },
   },
   {
@@ -322,8 +322,8 @@ const scenarios = [
       await clickAndWait(page, '.cta-button');
       await preventNavigation(page, '.related-links a');
       await clickAndWait(page, '.related-links a');
-      await preventNavigation(page, 'nav a');
-      await clickAndWait(page, 'nav a');
+      await preventNavigation(page, '.container > nav a');
+      await clickAndWait(page, '.container > nav a');
     },
   },
   {
