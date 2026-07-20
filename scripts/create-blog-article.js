@@ -267,7 +267,7 @@ function renderSection(section) {
 }
 
 function renderQuickCards(cards) {
-  return cards.map((card) => `                    <a href="${escapeAttr(card.url)}" class="quick-scaffold-card" data-content-surface="${escapeAttr(card.surface)}" data-target-slug="${escapeAttr(card.targetSlug)}">
+  return cards.map((card) => `                    <a href="${escapeAttr(card.url)}" class="quick-scaffold-card quick-card" data-content-surface="${escapeAttr(card.surface)}" data-target-slug="${escapeAttr(card.targetSlug)}">
                         <strong>${escapeHtml(card.title)}</strong>
                         <span>${escapeHtml(card.description)}</span>
                     </a>`).join('\n');
@@ -366,6 +366,8 @@ function renderArticle(spec) {
     <meta name="twitter:image" content="${escapeAttr(spec.ogImage)}">
 
     <link rel="canonical" href="${escapeAttr(pageUrl(spec))}">
+    <link rel="alternate" hreflang="${escapeAttr(spec.lang)}" href="${escapeAttr(pageUrl(spec))}">
+    <link rel="alternate" hreflang="x-default" href="${escapeAttr(pageUrl(spec))}">
 
     <script type="application/ld+json">
 ${renderArticleJson(spec)}
@@ -456,10 +458,10 @@ ${renderBreadcrumbJson(spec)}
 
             <p class="lead">${escapeHtml(spec.description)}</p>
 
-            <section class="quick-scaffold-rail" aria-labelledby="quick-scaffold-title">
+            <section class="quick-scaffold-rail indexing-quick-rail" aria-labelledby="quick-scaffold-title">
                 <h2 id="quick-scaffold-title">${escapeHtml(spec.quickRail.title)}</h2>
                 <p>${escapeHtml(spec.quickRail.description)}</p>
-                <div class="quick-scaffold-grid">
+                <div class="quick-scaffold-grid quick-grid">
 ${renderQuickCards(spec.quickRail.cards)}
                 </div>
             </section>
