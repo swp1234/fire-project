@@ -52,3 +52,8 @@
 {"ts":"2026-07-03T11:54:42Z","agent":"codex","app":"qr-generator","category":"edit","error":"PowerShell encoding recovery temporarily mojibaked app.js comments and swallowed setTimeout lines; resolved with node --check and ASCII cleanup","resolved":false}
 {"ts":"2026-07-03T11:54:42Z","agent":"codex","app":"qr-generator","category":"other","error":"PowerShell debug interpolation and earlier broad search/Format-Hex checks failed during investigation; reran with narrower commands","resolved":false}
 {"ts":"2026-07-14T12:38:38Z","agent":"codex","app":"portal","category":"test","error":"quality-gate failed because bash is not in PATH; rerun with Git Bash absolute path","resolved":true}
+{"ts":"2026-07-20T10:56:06Z","agent":"codex","app":"adsense","category":"mcp","error":"Invalid AdSense country dimension COUNTRY_NAME_CODE during resume analysis","resolved":true}
+{"ts":"2026-07-20T10:56:06Z","agent":"codex","app":"ga4","category":"mcp","error":"GA4 dimension_filter rejected camelCase fieldName structure during resume analysis","resolved":true}
+{"ts":"2026-07-20T10:57:28Z","agent":"codex","app":"portal","category":"edit","error":"Combined HSP workplace sticky CTA patch missed minified JSON-LD context; retrying in smaller hunks","resolved":true}
+{"ts":"2026-07-20T10:58:22Z","agent":"codex","app":"portal","category":"edit","error":"Git Bash perl date replacement was misparsed by PowerShell; no date or sitemap rows changed","resolved":true}
+{"ts":"2026-07-20T11:00:16Z","agent":"codex","app":"portal","category":"test","error":"PowerShell Start-Process local HTTP server failed to start with workspace path containing spaces; retrying with in-process Node server","resolved":true}

@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-14 (Session 475: Revenue Funnel Recovery Routing)
+> Current wrap-up: 2026-07-20 (Session 476: EN HSP Workplace Revenue Rescue)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,12 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 476 (2026-07-20) - EN HSP Workplace Revenue Rescue
+
+- Resumed the active `$0.20/day` AdSense goal with clean root/submodule worktrees and a passing `npm run adsense:keepalive`. Fresh AdSense data for `2026-07-15..2026-07-19` showed `$0.39` from `953` page views, `531` impressions, and `7` clicks, with a `$0.13` peak on July 17; South Korea mobile led earnings at `$0.11` and `$3.39` page RPM, while US mobile showed `$6.25` page RPM in a small sample. GA4 over the same window showed the previous routing work was producing activity: `cross_promo_click=26`, `test_start=80`, `result_view=54`, and Brain Type/HSP/EQ/Animal flows had strong completion.
+- Selected [hsp-workplace-survival-guide.html](E:/Fire%20Project/projects/portal/blog/en/hsp-workplace-survival-guide.html) as the next focused leak because it had `10` page views from `9` users but no visible content/cross-promo conversion, while `/hsp-test/` converted `9` starters into `8` result viewers. Added a responsive tracked sticky CTA, replaced the first quick card with HSP, routed all article HSP CTAs to `?lang=en&start=1&surface=...`, added `content_sticky_cta_view` and enriched `content_cta_click` attribution, set `dateModified=2026-07-20`, and refreshed both portal sitemap rows.
+- Validation passed: portal `git diff --check`; `scripts/quality-gate.sh projects/portal`; `npm run content:verify` with expected date, four quick cards, two Auto ads, all content events, and zero overflow; `node scripts/indexing-inventory.js` with `urlsWithIssues: 0`; `npm run content:audit` with no results; and a local mobile Playwright E2E confirming no overlap with the generic sticky sprint, navigation to `/hsp-test/?lang=en&start=1&surface=en_hsp_workplace_sticky`, visible first-question screen, all five article/start events with correct surface attribution, zero overflow, and no runtime errors.
 
 ### Session 475 (2026-07-14) - Revenue Funnel Recovery Routing
 
