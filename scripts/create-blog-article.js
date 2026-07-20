@@ -325,14 +325,33 @@ function renderRelatedLinks(links) {
   return links.map((link) => `                <a href="${escapeAttr(link.url)}" data-content-surface="${escapeAttr(link.surface)}" data-target-slug="${escapeAttr(link.targetSlug)}">${escapeHtml(link.label)}</a>`).join('\n');
 }
 
-function renderSources(sources) {
+const UI_COPY = {
+  en: {
+    published: 'Published', read: 'read', faq: 'Frequently Asked Questions',
+    related: 'Related Tools and Guides', relatedIntro: 'Use these next if you want a more specific result or a practical follow-up path.',
+    sources: 'Sources Mentioned', allContent: 'All Content', rights: 'All rights reserved.',
+  },
+  fr: {
+    published: 'Publié', read: 'de lecture', faq: 'Questions fréquentes',
+    related: 'Outils et guides associés', relatedIntro: 'Consultez ensuite ces ressources pour un résultat plus précis ou une suite pratique.',
+    sources: 'Sources citées', allContent: 'Tous les contenus', rights: 'Tous droits réservés.',
+  },
+  pt: {
+    published: 'Publicado', read: 'de leitura', faq: 'Perguntas frequentes',
+    related: 'Ferramentas e guias relacionados', relatedIntro: 'Veja estas opções para obter um resultado mais específico ou um próximo passo prático.',
+    sources: 'Fontes citadas', allContent: 'Todo o conteúdo', rights: 'Todos os direitos reservados.',
+  },
+};
+
+function renderSources(sources, copy) {
   if (!sources.length) return '';
   return `
-            <h2>Sources Mentioned</h2>
+            <h2>${escapeHtml(copy.sources)}</h2>
             <p>${sources.map((source) => `<a href="${escapeAttr(source.url)}" class="inline-link" data-content-surface="source_link" data-target-slug="external-source">${escapeHtml(source.label)}</a>`).join(', ')}</p>`;
 }
 
 function renderArticle(spec) {
+  const copy = UI_COPY[spec.lang] || UI_COPY.en;
   const cta = spec.cta || spec.quickRail.cards[0];
   const ctaTitle = cta.title || spec.quickRail.cards[0].title;
   const ctaBody = cta.body || spec.quickRail.cards[0].description;
@@ -454,7 +473,7 @@ ${renderBreadcrumbJson(spec)}
 
         <article>
             <h1>${escapeHtml(spec.h1)}</h1>
-            <div class="meta">Published ${escapeHtml(spec.date)} &bull; ${escapeHtml(spec.readTime)} read &bull; By DopaBrain Team</div>
+            <div class="meta">${escapeHtml(copy.published)} ${escapeHtml(spec.date)} &bull; ${escapeHtml(spec.readTime)} ${escapeHtml(copy.read)} &bull; DopaBrain Team</div>
 
             <p class="lead">${escapeHtml(spec.description)}</p>
 
@@ -474,7 +493,7 @@ ${renderQuickCards(spec.quickRail.cards)}
 
 ${spec.sections.map(renderSection).join('\n\n')}
 
-            <h2>Frequently Asked Questions</h2>
+            <h2>${escapeHtml(copy.faq)}</h2>
 ${spec.faq.map((item) => `            <div class="faq-item">
                 <h3>${escapeHtml(item.question)}</h3>
                 <p>${escapeHtml(item.answer)}</p>
@@ -487,17 +506,17 @@ ${spec.faq.map((item) => `            <div class="faq-item">
                 </script>
             </div>
 
-            <h2>Related Tools and Guides</h2>
-            <p>Use these next if you want a more specific result or a practical follow-up path.</p>
+            <h2>${escapeHtml(copy.related)}</h2>
+            <p>${escapeHtml(copy.relatedIntro)}</p>
             <div class="related-links">
 ${renderRelatedLinks(spec.related)}
             </div>
-${renderSources(spec.sources)}
+${renderSources(spec.sources, copy)}
         </article>
 
         <footer>
-            <p><a href="https://dopabrain.com/">DopaBrain</a> &bull; <a href="https://dopabrain.com/portal/">All Content</a> &bull; <a href="https://dopabrain.com/portal/blog/${escapeAttr(spec.lang)}/">Blog</a></p>
-            <p style="margin-top:8px;font-size:13px;color:var(--text-secondary)">&copy; 2026 DopaBrain. All rights reserved.</p>
+            <p><a href="https://dopabrain.com/">DopaBrain</a> &bull; <a href="https://dopabrain.com/portal/">${escapeHtml(copy.allContent)}</a> &bull; <a href="https://dopabrain.com/portal/blog/${escapeAttr(spec.lang)}/">Blog</a></p>
+            <p style="margin-top:8px;font-size:13px;color:var(--text-secondary)">&copy; 2026 DopaBrain. ${escapeHtml(copy.rights)}</p>
         </footer>
     </div>
 
