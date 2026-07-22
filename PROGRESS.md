@@ -61,6 +61,7 @@
 - Reinforced the proven ZH winner by replacing its least-relevant quick card with the new five-minute reset, adding the reset to related resources, refreshing `dateModified`, and surfacing the new content in both ZH hub collections. Added the Spanish page to both ES hub collections and the English page to the generated wellness index.
 - Validation passed: all three content specs parse; root and portal `git diff --check`; portal locale audit; portal quality gate with zero warnings; local verification for all three new pages plus the upgraded ZH winner with expected dates/cards/ads/events and zero horizontal overflow; indexing inventory with `1922` unique URLs and `urlsWithIssues: 0`; and final content audit across `1973` files with no results.
 - Deployment: pushed portal commit `bcab0a4` (`Expand shadow work winner content`); the root commit advances the portal pointer and stores the reusable EN/ZH/ES content specs plus this data-selection record.
+- GitHub Pages exposed the new files after the expected short build delay. Isolated live verification passed for all three new URLs and the reinforced ZH winner with the expected `2026-07-22` schema date, cards, ads, five content events, and zero mobile overflow; the first parallel ZH run briefly missed `content_cta_click`, then passed immediately when rerun in isolation.
 
 ### Session 477 (2026-07-22) - Stress-Aware Habit Content Expansion
 
