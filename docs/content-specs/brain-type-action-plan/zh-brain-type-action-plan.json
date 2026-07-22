@@ -1,0 +1,41 @@
+{
+  "lang": "zh",
+  "slug": "brain-type-work-study-action-plan",
+  "title": "大脑类型结果怎么用：工作、学习与决策行动计划",
+  "h1": "大脑类型结果怎么用：工作、学习与决策行动计划",
+  "description": "把大脑类型测试结果变成灵活的七天实验，用于启动任务、检查决策、协作和复盘，而不是固定标签。",
+  "keywords": ["大脑类型测试结果", "思维方式", "学习策略", "决策风格"],
+  "category": "tests", "tag": "大脑类型", "tagColor": "#6366f1", "readTime": "9分钟", "themeColor": "#6366f1",
+  "contentGroup": "brain_type_growth", "contentSlug": "brain-type-work-study-action-plan", "ogImage": "https://dopabrain.com/portal/img/og/brain-type.png", "date": "2026-07-22",
+  "quickRail": {"title": "建立你的行动循环", "description": "把结果当作线索，再用真实任务验证策略。", "cards": [
+    {"title": "大脑类型测试", "description": "通过十个快速选择获得反思线索。", "url": "https://dopabrain.com/brain-type/?lang=zh", "surface": "quick_brain_type", "targetSlug": "brain-type"},
+    {"title": "工作风格测试", "description": "比较你组织工作与协作的偏好。", "url": "https://dopabrain.com/work-style/?lang=zh", "surface": "quick_work_style", "targetSlug": "work-style"},
+    {"title": "情商测试", "description": "补充观察情绪与人际决策。", "url": "https://dopabrain.com/eq-test/?lang=zh", "surface": "quick_eq_test", "targetSlug": "eq-test"},
+    {"title": "专注力方法", "description": "选择适合当前任务的专注策略。", "url": "https://dopabrain.com/portal/blog/zh/focus-methods.html", "surface": "quick_focus_guide", "targetSlug": "focus-methods"}
+  ]},
+  "cta": {"title": "从当前结果开始", "body": "先完成一分钟测试，再从本文选择一个实验。不要把类型当成固定身份。", "label": "开始大脑类型测试 ->", "url": "https://dopabrain.com/brain-type/?lang=zh", "surface": "intro_brain_type", "targetSlug": "brain-type"},
+  "sections": [
+    {"heading": "先说明：大脑类型结果能告诉你什么", "paragraphs": ["DopaBrain 大脑类型测试是娱乐优先的快速反思工具。它描述你在十个二选一场景中的倾向，不是真正的脑扫描、智力测试、学习风格诊断或招聘测评。", "把结果当作关于新鲜感、计划、人际、压力和风险偏好的假设。只有当真实行为支持它时才保留。情境、技能、睡眠、激励和任务设计都会改变你的表现。"], "bullets": ["有用的问题：哪个提示帮我发现了重复习惯？", "无用的结论：我的类型决定我只能用一种方式工作。", "更好的证据：小实验之后观察实际结果。"]},
+    {"heading": "计划—监测—复盘循环", "paragraphs": ["元认知不是寻找永久的学习类型，而是计划方法、监测是否有效、再评价结果。把你的类型转化为一个七天实验。", "开始前写下成果、第一步和可能障碍；进行中检查是否产生了可见进展；结束后记录一个保留项和一个调整项。"], "bullets": ["计划：完成的样子是什么？前十分钟做什么？", "监测：我在产生进展证据，还是只是感觉很忙？", "复盘：什么有效、什么阻碍、下次改变什么？"]},
+    {"heading": "创造者、直觉型、远见者：给想法设置终点", "paragraphs": ["如果结果偏向创意、新奇、直觉或可能性，你的优势可能是快速产生选项，风险则是问题扩张得比成果更快。", "使用两阶段流程：限时开放探索，然后关闭选项。按明确标准选择一个想法，先做出最小可分享版本，再继续发散。"], "bullets": ["工作：限时头脑风暴，再按影响和投入排序。", "学习：先预测答案，再查资料并解释差距。", "决策：先写直觉，再补充一个反对证据。"]},
+    {"heading": "分析者、战略家：提前设定决策门槛", "paragraphs": ["如果结果偏向证据、规划或结构，你的优势可能是减少错误并看见依赖关系，风险则是等待任务无法提供的完全确定。", "提前定义多少信息算足够，并区分可逆决定和高成本决定。日常选择使用更短的截止时间。"], "bullets": ["工作：列出真正会改变决定的三条事实。", "学习：整理笔记前先从记忆中提取。", "决策：达到门槛就行动，并安排复查点。"]},
+    {"heading": "共情者、守护者：让边界清晰可见", "paragraphs": ["如果结果偏向共情、和谐、支持或谨慎，你的优势可能是注意到他人和后续影响，风险则是把每个请求都变成自己的责任。", "同意前明确真正负责人、期限和帮助范围。支持有边界，同时把自己的任务留在日程中。"], "bullets": ["工作：提供具体贡献，而不是无限答应。", "学习：先向同伴解释，再独立测试自己。", "决策：考虑他人需要，但不删除自己的限制。"]},
+    {"heading": "行动者：在速度前加一个检查点", "paragraphs": ["如果结果偏向行动、压力或动能，你的优势可能是快速开始，风险则是在成功条件不清楚时制造返工。", "保留快速启动，但增加九十秒检查：目标、限制、下一步和停止规则。较长任务要在早期展示进展，而不是等到截止日。"], "bullets": ["工作：尽早交付小草稿，只索取一个重点反馈。", "学习：限时练习与短错误复盘交替。", "决策：先问这个行动是否容易撤回。"]},
+    {"heading": "运行七天大脑类型实验", "paragraphs": ["选择一个策略、一个重复场景和一个简单指标，例如完成任务数、回忆正确率、返工时间或任务后的精力。实验要小到至少能重复三次。", "七天后，只有指标或可观察结果改善时才保留策略。有用的结果会扩大你的方法库，而不是把你困在标签中。"]}
+  ],
+  "faq": [
+    {"question": "大脑类型测试是真正的脑扫描吗？", "answer": "不是。它是基于十个选择的娱乐型反思测试，不测量脑结构、智力，也不能诊断任何状况。"},
+    {"question": "我应该只按类型建议的方法学习吗？", "answer": "不应该。研究并不支持把教学严格匹配到固定学习风格标签。尝试多种策略，并保留能改善真实学习结果的方法。"},
+    {"question": "我的大脑类型会改变吗？", "answer": "会随情境、经验、精力和优先级变化。把结果视为当前线索，而不是永久身份。"}
+  ],
+  "related": [
+    {"label": "大脑类型测试", "url": "https://dopabrain.com/brain-type/?lang=zh", "surface": "related_brain_type", "targetSlug": "brain-type"},
+    {"label": "工作风格测试", "url": "https://dopabrain.com/work-style/?lang=zh", "surface": "related_work_style", "targetSlug": "work-style"},
+    {"label": "专注力方法指南", "url": "https://dopabrain.com/portal/blog/zh/focus-methods.html", "surface": "related_focus", "targetSlug": "focus-methods"}
+  ],
+  "sources": [
+    {"label": "EEF：元认知与自我调节学习", "url": "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition"},
+    {"label": "OECD 学习指南针 2030", "url": "https://www.oecd.org/en/data/tools/oecd-learning-compass-2030.html"},
+    {"label": "学习风格匹配荟萃分析", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11270031/"}
+  ]
+}

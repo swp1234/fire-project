@@ -1,0 +1,48 @@
+{
+  "lang": "en",
+  "slug": "brain-type-work-study-action-plan",
+  "title": "Your Brain Type at Work and Study: A Practical Action Plan",
+  "h1": "Your Brain Type at Work and Study: A Practical Action Plan",
+  "description": "Turn your Brain Type result into a flexible plan for starting tasks, checking decisions, collaborating, and reviewing what actually works.",
+  "keywords": ["brain type result", "thinking style at work", "study strategy", "decision making style"],
+  "category": "tests",
+  "tag": "Brain Type",
+  "tagColor": "#6366f1",
+  "readTime": "9 min",
+  "themeColor": "#6366f1",
+  "contentGroup": "brain_type_growth",
+  "contentSlug": "brain-type-work-study-action-plan",
+  "ogImage": "https://dopabrain.com/portal/img/og/brain-type.png",
+  "date": "2026-07-22",
+  "quickRail": {"title": "Build Your Personal Action Loop", "description": "Use the result as a prompt, then test the strategy against real work.", "cards": [
+    {"title": "Brain Type Test", "description": "Get a reflection prompt from ten rapid decisions.", "url": "https://dopabrain.com/brain-type/?lang=en", "surface": "quick_brain_type", "targetSlug": "brain-type"},
+    {"title": "Brain Type Guide", "description": "Understand the result labels and their limits.", "url": "https://dopabrain.com/portal/blog/en/brain-type-test-2026.html", "surface": "quick_brain_guide", "targetSlug": "brain-type-test-2026"},
+    {"title": "Brain Type vs MBTI", "description": "Compare two different reflection frameworks.", "url": "https://dopabrain.com/portal/blog/en/brain-type-vs-mbti-2026.html", "surface": "quick_brain_mbti", "targetSlug": "brain-type-vs-mbti-2026"},
+    {"title": "Work Style Test", "description": "Compare your preferred way of organizing work.", "url": "https://dopabrain.com/work-style/?lang=en", "surface": "quick_work_style", "targetSlug": "work-style"}
+  ]},
+  "cta": {"title": "Start With Your Current Result", "body": "Take the one-minute test, then choose one experiment from this guide instead of treating the label as a fixed identity.", "label": "Take the Brain Type Test ->", "url": "https://dopabrain.com/brain-type/?lang=en", "surface": "intro_brain_type", "targetSlug": "brain-type"},
+  "sections": [
+    {"heading": "First: What a Brain Type Result Can and Cannot Tell You", "paragraphs": ["DopaBrain Brain Type is a fast, entertainment-first reflection tool. It describes patterns in ten forced choices; it is not a neurological scan, an intelligence test, a learning-style diagnosis, or a hiring assessment.", "Use the result as a hypothesis about how you may approach novelty, planning, people, pressure, and risk. Keep it only when real behavior supports it. Context, skill, sleep, incentives, and task design can change how you work."], "bullets": ["Useful question: Which prompt helps me notice a repeatable habit?", "Unhelpful conclusion: My type means I can only work one way.", "Best evidence: a small experiment followed by a review of the outcome."]},
+    {"heading": "The Plan-Monitor-Review Loop", "paragraphs": ["Metacognition is less about finding a permanent style and more about planning an approach, monitoring whether it works, and evaluating the result. Turn your type into a seven-day experiment using that loop.", "Before a task, name the outcome, the first visible action, and one likely obstacle. During the task, check whether progress is happening. Afterward, record one thing to keep and one thing to change."], "bullets": ["Plan: What does done look like, and what is my first ten-minute action?", "Monitor: Am I producing evidence of progress or only feeling busy?", "Review: What helped, what blocked me, and what will I alter next time?"]},
+    {"heading": "Creator, Intuitive, and Visionary: Add a Finish Line", "paragraphs": ["If your result emphasizes ideas, novelty, intuition, or possibility, your advantage may be generating options quickly. The common risk is expanding the problem faster than you finish it.", "Try a two-stage workflow: open exploration for a fixed period, then close the option set. Select one idea with explicit criteria and create the smallest shareable version before generating more."], "bullets": ["Work: time-box brainstorming, then rank ideas by impact and effort.", "Study: predict the answer before checking notes, then explain the gap.", "Decision: write the intuition first and add one disconfirming fact."]},
+    {"heading": "Analyzer and Strategist: Set a Decision Threshold", "paragraphs": ["If your result emphasizes evidence, planning, or structure, your advantage may be reducing errors and seeing dependencies. The common risk is waiting for certainty that the task cannot provide.", "Define in advance how much evidence is enough. Separate reversible choices from expensive or irreversible ones, and give routine decisions a shorter deadline."], "bullets": ["Work: list the three facts that would change the decision.", "Study: retrieve from memory before reorganizing notes.", "Decision: choose when the threshold is met, then schedule a review point."]},
+    {"heading": "Empath and Guardian: Make the Boundary Visible", "paragraphs": ["If your result emphasizes empathy, harmony, support, or caution, your advantage may be noticing people and downstream consequences. The common risk is letting every request become your responsibility.", "Before agreeing, clarify the actual owner, deadline, and definition of help. Collaboration works better when support has a visible boundary and your own task remains on the calendar."], "bullets": ["Work: offer a specific contribution instead of an unlimited yes.", "Study: use a partner to explain concepts, then test yourself alone.", "Decision: include others' needs without removing your own constraints."]},
+    {"heading": "Dynamo: Add a Checkpoint Before Speed", "paragraphs": ["If your result emphasizes action, pressure, or momentum, your advantage may be starting while others are still deciding. The common risk is creating rework by moving before the success condition is clear.", "Keep the fast start, but add a ninety-second checkpoint: goal, constraint, next action, and stop rule. For longer tasks, make progress visible at an early review rather than only at the deadline."], "bullets": ["Work: ship a small draft early and request one focused response.", "Study: alternate timed practice with short error reviews.", "Decision: ask what would make this action difficult to reverse."]},
+    {"heading": "Run a Seven-Day Brain Type Experiment", "paragraphs": ["Choose one strategy, one repeated situation, and one simple measure such as tasks finished, recall score, rework time, or energy after the task. Keep the experiment small enough to repeat at least three times.", "At the end of seven days, keep the strategy only if the measure or your observable outcome improved. A useful result expands your repertoire; it does not trap you inside a label."]}
+  ],
+  "faq": [
+    {"question": "Is Brain Type a real brain scan?", "answer": "No. It is an entertainment-first reflection quiz based on ten choices. It does not measure brain anatomy, diagnose a condition, or assess intelligence."},
+    {"question": "Should I study only in the way suggested for my type?", "answer": "No. Evidence does not support rigidly matching instruction to a preferred learning-style label. Use several strategies and keep the ones that improve observable learning."},
+    {"question": "Can my Brain Type change?", "answer": "Your choices can change with context, experience, energy, and priorities. Treat the result as a current prompt rather than a permanent identity."}
+  ],
+  "related": [
+    {"label": "Brain Type Test", "url": "https://dopabrain.com/brain-type/?lang=en", "surface": "related_brain_type", "targetSlug": "brain-type"},
+    {"label": "Brain Type Result Guide", "url": "https://dopabrain.com/portal/blog/en/brain-type-test-2026.html", "surface": "related_brain_guide", "targetSlug": "brain-type-test-2026"},
+    {"label": "Work Style Test", "url": "https://dopabrain.com/work-style/?lang=en", "surface": "related_work_style", "targetSlug": "work-style"}
+  ],
+  "sources": [
+    {"label": "EEF: Metacognition and Self-Regulated Learning", "url": "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition"},
+    {"label": "OECD Learning Compass 2030", "url": "https://www.oecd.org/en/data/tools/oecd-learning-compass-2030.html"},
+    {"label": "Learning-styles matching meta-analysis", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11270031/"}
+  ]
+}

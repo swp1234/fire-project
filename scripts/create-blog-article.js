@@ -351,6 +351,11 @@ const UI_COPY = {
     related: '相关工具与指南', relatedIntro: '接下来可使用这些工具，获得更具体的结果或选择一个实际行动。',
     sources: '参考来源', allContent: '全部内容', rights: '保留所有权利。',
   },
+  ko: {
+    published: '게시일', read: '읽기', faq: '자주 묻는 질문',
+    related: '관련 도구와 가이드', relatedIntro: '더 구체적인 결과나 실천 경로가 필요할 때 다음 도구를 활용하세요.',
+    sources: '참고 자료', allContent: '전체 콘텐츠', rights: '모든 권리 보유.',
+  },
 };
 
 function renderSources(sources, copy) {

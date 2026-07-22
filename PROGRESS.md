@@ -52,6 +52,16 @@
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
 
+### Session 479 (2026-07-22) - Brain Type Winner Localization and Action Plan
+
+- Continued the user's open-ended content expansion cycle with a second data-selected winner. Fresh 28-day GA4 detail showed `/brain-type/` at `74` views / `17` users / `75%` engagement / about `136s` in China and `42` views / `9` users / `100%` engagement / about `202s` in South Korea, while Singapore's roughly `4s` traffic was excluded as noise. The funnel recorded `44` Brain Type result views, `30` result-ad impressions, `12` related clicks, and `5` primary CTA clicks.
+- Added `en/brain-type-work-study-action-plan.html`, `zh/brain-type-work-study-action-plan.html`, and `ko/brain-type-work-study-action-plan.html`. The guides turn eight quiz labels into flexible work, study, collaboration, and decision experiments using a plan-monitor-review loop, explicit decision thresholds, visible boundaries, and seven-day outcome tracking.
+- Prevented neuromyth overreach by stating that the quiz is entertainment-first rather than a neurological scan, intelligence measure, fixed learning-style diagnosis, or hiring assessment. Grounded the practical strategy in the EEF metacognition guidance, OECD Learning Compass, and a recent learning-style matching meta-analysis.
+- Added four localized quick routes, two Auto ad surfaces, Article/FAQ/Breadcrumb schema, the five standard content events, reciprocal EN/ZH/KO hreflang, language-hub cards, related routes, and sitemap coverage. Extended `create-blog-article.js` with Korean generated UI chrome so future KO articles no longer fall back to English labels.
+- Fixed the popular Brain Type app's intro guide route: KO/ZH/EN now open the matching new action plan, JA/HI retain their existing localized guides, and other locales fall back to the EN action plan. Updated the app schema date, portal/root sitemap rows, and service-worker cache to `brain-type-v5`.
+- Validation passed: three JSON specs; JS/SW syntax; all repository diff checks; portal locale audit; portal and Brain Type quality gates; Brain Type app test suite `13/13`; full target harness including `9/9` analytics smoke and runtime smoke; all three article browser checks with four quick cards, two ads, five content events, and zero overflow; indexing inventory at `1925` unique URLs with zero issues; and content audit across `1976` files with no results. An extra temporary-server locale loop was blocked by command policy, logged to `memory/failures.jsonl`, and replaced by the passing runtime harness plus five direct locale-route assertions.
+- Deployment commits pushed: Brain Type `97df540`, portal `41e5a7d`, and root-domain `3783c4c`. The root commit stores the reusable EN/ZH/KO specs, generator improvement, data record, submodule pointers, and failure log.
+
 ### Session 478 (2026-07-22) - Shadow Work Winner Cluster Expansion
 
 - Resumed in isolated mode; the launcher reached its expected non-interactive `stdin is not a terminal` boundary without touching Claude paths. `npm run adsense:keepalive` passed with account, site, policy, and ad-client reads healthy.
