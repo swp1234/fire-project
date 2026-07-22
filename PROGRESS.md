@@ -52,6 +52,14 @@
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
 
+### Session 481 (2026-07-22) - ZH Color Psychology Winner Evidence and Conversion Loop
+
+- Compared the next Color Personality and K-pop candidates with fresh 28-day GA4 country detail. Selected the color cluster because the ZH favorite-color guide had `30` China views / `19` active users / `78.9%` engagement / about `52s`, while `/color-personality/` had `20` China views / `10` users / `80%` engagement / about `50s`. Excluded Singapore's low-quality guide segment (`17` views / `5.9%` engagement / about `3.5s`) and confirmed `18` result views plus `11` result-ad impressions.
+- Reframed the popular ZH article so color-emotion associations are not presented as a fixed personality diagnosis. Replaced unsupported clothing, sleep, career, and relationship claims with low-risk observation experiments; added a 2025 systematic review, a positive 2022 personality-association study, and a conflicting validation study; refreshed metadata, schema, and sitemap dates to `2026-07-22`.
+- Added three inline/direct-start routes and a responsive sticky CTA to `/color-personality/?lang=zh&start=1`, including entry-surface attribution and `content_sticky_cta_view`. The app now honors direct starts, attributes `test_start`, and returns result users to the matching favorite-color guide in all 12 supported locales.
+- Validation passed: portal/app quality gates; Color Personality app test suite `13/13`; content browser verification with four quick cards, two Auto ads, the five standard content events plus sticky-view telemetry, and zero overflow; full harness syntax/analytics checks; indexing inventory across `1925` unique URLs with zero issues. The legacy file-URL runtime checker cannot fetch locale JSON, so final app runtime was verified over production HTTPS instead.
+- Deployment: portal `01cc87b`, Color Personality `13624da` pushed to both `main` and the Pages source `master`, and root-domain `5149c92`. All three Pages builds completed from those exact commits. Live verification passed for the ZH article and the full app path: Chinese direct start, seven-step completion, localized result-guide link, `test_start` attribution, result-view event, no console errors, and zero mobile overflow.
+
 ### Session 480 (2026-07-22) - ZH 2048 Winner Accuracy and Conversion Pass
 
 - Continued the open-ended winner cycle with the ZH 2048 path. GA4 showed the strategy guide at `26` China views / `42%` engagement / about `96s`, plus `5` Taiwan views / `80%` engagement / about `147s`; the game had `9` China views / `8` users / `50%` engagement / about `163s`. Excluded `19` Singapore guide views at `0%` engagement and roughly `4s`, and did not treat `1186` move events from one user as broad popularity.
