@@ -52,6 +52,14 @@
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
 
+### Session 482 (2026-07-22) - Mental Age Winner Measurement and PT Evidence Pass
+
+- Continued from the fresh 28-day candidate scan and selected Mental Age over the smaller K-pop path. The app recorded `104` page views / `28` users, `30` starts / `22` users, and `25` completions / `21` users. China contributed `40` views / `10` users / `90%` engagement / about `129s`; Brazil contributed `18` views / `7` users / `88.9%` engagement / about `165s`. The PT guide generated `9` CTA clicks from `6` users across `8` content viewers.
+- Closed the missing result measurement loop with `mental_age_result_view` and `mental_age_result_ad_impression`, a result-inline Auto ad, one-time result guards, and an explicit entertainment/non-diagnostic result note. Added a result-to-guide card that resolves to all 12 supported article locales and emits `mental_age_guide_click`.
+- Strengthened the converting PT guide: localized all four quick routes, placed Mental Age direct start first, added tracked inline and sticky `start=1` CTAs, and replaced “real brain age” framing with a clear distinction among a recreational result, historical child-test mental age, clinical assessment, IQ, and MRI-derived brain age.
+- Added authoritative boundaries and sources from the APA Dictionary, U.S. National Institute on Aging, and a systematic review of lifestyle factors and cognitive reserve. Refreshed app/article metadata, schema, service-worker cache, and portal/blog sitemap dates to `2026-07-22`.
+- Validation passed: app and portal quality gates; Mental Age app suite `13/13`; full syntax/analytics harness; content browser checks with four quick cards, two Auto ads, standard events plus sticky-view telemetry, and zero overflow; indexing inventory across `1925` unique URLs with zero issues. Deployment commits: portal `af0e69f`, Mental Age `694edac` to Pages source `master` plus `main`. Live HTTPS verification passed for PT direct start, localized boundary copy and guide return, dedicated result/ad events, no console errors, and zero mobile overflow.
+
 ### Session 481 (2026-07-22) - ZH Color Psychology Winner Evidence and Conversion Loop
 
 - Compared the next Color Personality and K-pop candidates with fresh 28-day GA4 country detail. Selected the color cluster because the ZH favorite-color guide had `30` China views / `19` active users / `78.9%` engagement / about `52s`, while `/color-personality/` had `20` China views / `10` users / `80%` engagement / about `50s`. Excluded Singapore's low-quality guide segment (`17` views / `5.9%` engagement / about `3.5s`) and confirmed `18` result views plus `11` result-ad impressions.
