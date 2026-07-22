@@ -61,6 +61,7 @@
 - Hardened `scripts/create-blog-article.js` so future Spanish and Chinese scaffolds localize published/read/FAQ/related/source/footer chrome instead of falling back to English, and related-click telemetry now uses the localized section name.
 - Validation passed: `node --check`; portal `git diff --check`; `node scripts/portal-hub-locale-audit.js`; portal quality gate with zero warnings; local `content:verify` for all three pages with the expected date, four quick cards, two Auto ads, five standard events, and zero horizontal overflow; `node scripts/indexing-inventory.js --json --limit 10` with `1919` unique URLs and `urlsWithIssues: 0`; and a final `content:audit` over `1970` files with no results.
 - Deployment commits pushed: portal `e372c57` (`Add stress-aware habit content batch`) and root `a067e07` (`Expand autonomous habit content workflow`). GitHub Pages built the exact portal commit, and live `content:verify` passed for all three pages with the expected schema/date/cards/ads/events and zero horizontal overflow; the first parallel EN/ZH run briefly missed the CTA event, then both passed on immediate isolated reruns.
+- Completed AdSense OAuth reauthorization from the user-provided redirect URL. A fresh `npm run adsense:keepalive` passed with account, site, policy issue, and ad client reads all healthy for `accounts/pub-3600813755953882`.
 
 ### Session 476 (2026-07-20) - EN HSP Workplace Revenue Rescue
 
