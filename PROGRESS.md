@@ -52,6 +52,15 @@
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
 
+### Session 480 (2026-07-22) - ZH 2048 Winner Accuracy and Conversion Pass
+
+- Continued the open-ended winner cycle with the ZH 2048 path. GA4 showed the strategy guide at `26` China views / `42%` engagement / about `96s`, plus `5` Taiwan views / `80%` engagement / about `147s`; the game had `9` China views / `8` users / `50%` engagement / about `163s`. Excluded `19` Singapore guide views at `0%` engagement and roughly `4s`, and did not treat `1186` move events from one user as broad popularity.
+- Rebuilt the guide's first-screen routing in Chinese: localized all four quick cards, kept the strongest card on `/puzzle-2048/`, and added a responsive sticky game CTA carrying `lang=zh` and a dedicated `surface=zh_2048_strategy_sticky` attribution value.
+- Added `content_sticky_cta_view` plus enriched CTA click attribution while preserving the five standard content events. The sticky layout includes desktop/mobile safe-area handling and additional body space to avoid covering article content.
+- Corrected unsupported cognitive-benefit claims. The guide now distinguishes skills used inside 2048 from unproven broad real-world transfer, links both a 2023 game-feature meta-analysis and a comprehensive meta-analysis that found no broad causal cognitive enhancement, and rewrites the FAQ to describe 2048 as a strategy entertainment game rather than a medical or cognitive-training tool.
+- Refreshed article schema and both sitemap dates to `2026-07-22`. Validation passed: portal diff check and quality gate; browser content verification with four localized quick cards, two Auto ads, the five required events plus sticky-view telemetry, and zero overflow; indexing inventory at `1925` unique URLs with zero issues; and content audit across `1976` files with no results.
+- Deployment: pushed portal commit `1f77154` (`Strengthen zh 2048 winner funnel`); the root commit advances the portal pointer and records the GA4 selection evidence.
+
 ### Session 479 (2026-07-22) - Brain Type Winner Localization and Action Plan
 
 - Continued the user's open-ended content expansion cycle with a second data-selected winner. Fresh 28-day GA4 detail showed `/brain-type/` at `74` views / `17` users / `75%` engagement / about `136s` in China and `42` views / `9` users / `100%` engagement / about `202s` in South Korea, while Singapore's roughly `4s` traffic was excluded as noise. The funnel recorded `44` Brain Type result views, `30` result-ad impressions, `12` related clicks, and `5` primary CTA clicks.
