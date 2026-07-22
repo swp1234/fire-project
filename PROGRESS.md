@@ -60,6 +60,7 @@
 - Corrected unsupported cognitive-benefit claims. The guide now distinguishes skills used inside 2048 from unproven broad real-world transfer, links both a 2023 game-feature meta-analysis and a comprehensive meta-analysis that found no broad causal cognitive enhancement, and rewrites the FAQ to describe 2048 as a strategy entertainment game rather than a medical or cognitive-training tool.
 - Refreshed article schema and both sitemap dates to `2026-07-22`. Validation passed: portal diff check and quality gate; browser content verification with four localized quick cards, two Auto ads, the five required events plus sticky-view telemetry, and zero overflow; indexing inventory at `1925` unique URLs with zero issues; and content audit across `1976` files with no results.
 - Deployment: pushed portal commit `1f77154` (`Strengthen zh 2048 winner funnel`); the root commit advances the portal pointer and records the GA4 selection evidence.
+- Live verification passed after the portal Pages build: the production guide served the new localized sticky route and calibrated cognitive-transfer copy, emitted the five standard events plus `content_sticky_cta_view`, exposed two Auto ad surfaces and four quick cards, and had zero mobile overflow.
 
 ### Session 479 (2026-07-22) - Brain Type Winner Localization and Action Plan
 
