@@ -1,0 +1,48 @@
+{
+  "lang": "es",
+  "slug": "reinicio-sombra-despues-desencadenante",
+  "title": "Trabajo de sombra después de un desencadenante: reinicio seguro de 5 minutos",
+  "h1": "Trabajo de sombra después de un desencadenante: reinicio seguro de 5 minutos",
+  "description": "Una rutina de cinco minutos para volver al presente, nombrar la emoción, separar hechos de interpretaciones y elegir un paso pequeño después de un desencadenante emocional.",
+  "keywords": ["trabajo de sombra", "desencadenante emocional", "ejercicio de cinco minutos", "diario emocional"],
+  "category": "wellness",
+  "tag": "Trabajo de sombra",
+  "tagColor": "#8b5cf6",
+  "readTime": "8 min",
+  "themeColor": "#8b5cf6",
+  "contentGroup": "shadow_work_growth",
+  "contentSlug": "reinicio-sombra-despues-desencadenante",
+  "ogImage": "https://dopabrain.com/portal/img/og/shadow-work.png",
+  "date": "2026-07-22",
+  "quickRail": {"title": "Elige tu siguiente paso", "description": "Primero recupérate; después decide cuánto quieres explorar.", "cards": [
+    {"title": "Test de sombra", "description": "Detecta el patrón que aparece en tus reacciones intensas.", "url": "https://dopabrain.com/shadow-work/?lang=es", "surface": "quick_shadow_work", "targetSlug": "shadow-work"},
+    {"title": "Guía de sombra", "description": "Conoce los seis arquetipos antes de interpretar un episodio.", "url": "https://dopabrain.com/portal/blog/es/shadow-work-quiz-guide.html", "surface": "quick_shadow_guide", "targetSlug": "shadow-work-quiz-guide"},
+    {"title": "Preguntas de diario", "description": "Profundiza por escrito cuando te sientas estable.", "url": "https://dopabrain.com/portal/blog/es/shadow-work-journal-prompts.html", "surface": "quick_shadow_prompts", "targetSlug": "shadow-work-journal-prompts"},
+    {"title": "Chequeo de estrés", "description": "Comprueba si la carga de estrés amplifica la reacción.", "url": "https://dopabrain.com/stress-check/?lang=es", "surface": "quick_stress_check", "targetSlug": "stress-check"}
+  ]},
+  "cta": {"title": "Empieza por tu patrón", "body": "Usa el test de dos minutos como pista de reflexión y vuelve a esta rutina con un patrón en mente.", "label": "Hacer el test de sombra ->", "url": "https://dopabrain.com/shadow-work/?lang=es", "surface": "intro_shadow_work", "targetSlug": "shadow-work"},
+  "sections": [
+    {"heading": "Antes de reflexionar: comprueba tu capacidad", "paragraphs": ["El trabajo de sombra debería darte más opciones, no empujarte al desbordamiento. Si te sientes fuera de control, en peligro, desconectado o sin poder concentrarte, detén el análisis. Oriéntate en la habitación, contacta a alguien de confianza o busca apoyo profesional.", "Esta rutina es una herramienta educativa de reflexión, no terapia ni diagnóstico. Puedes detenerte en cualquier paso. El objetivo no es demostrar qué significa tu reacción, sino crear espacio para elegir qué hacer."], "bullets": ["Continúa si puedes observar la emoción y mantenerte en el presente.", "Haz solo el ejercicio de conexión al presente si la intensidad es alta.", "Detente y pide ayuda si la reflexión aumenta el malestar o aparece el impulso de hacerte daño o dañar a otra persona."]},
+    {"heading": "Minuto 1: vuelve al presente", "paragraphs": ["Apoya ambos pies en el suelo o siente la superficie que sostiene tu cuerpo. Observa lentamente tres cosas que ves, dos sonidos y una sensación física. Sin forzar un ritmo concreto, deja que la exhalación se alargue un poco.", "Conectarte al presente no elimina una tormenta emocional. Te ayuda a recuperar contacto con el ahora antes de interpretar la reacción. Primero regula; después interpreta."]},
+    {"heading": "Minuto 2: nombra la emoción y su intensidad", "paragraphs": ["Completa una frase sencilla: Noto ___, con una intensidad de ___ sobre 10. Elige una emoción concreta—dolor, vergüenza, enfado, miedo, celos o decepción—en vez de un juicio como ignorado o faltado al respeto.", "Poner sentimientos en palabras suele llamarse etiquetado afectivo. La investigación indica que puede modificar la respuesta emocional, pero no es una garantía ni debe usarse para minimizar lo ocurrido."], "bullets": ["Emoción: ¿qué siento?", "Cuerpo: ¿dónde lo noto?", "Intensidad: ¿qué número encaja ahora?", "Necesidad: ¿qué me ayudaría a estar un 10% más estable?"]},
+    {"heading": "Minuto 3: separa los hechos de la historia", "paragraphs": ["Haz dos columnas. En Hechos de cámara escribe solo lo que una grabación podría captar. En Mi historia escribe el significado que añadió tu mente. Respondió a la mañana siguiente es un hecho; No le importo es una interpretación.", "Tu interpretación puede ser correcta, parcialmente correcta o equivocada. La rutina no la invalida: la mantiene como hipótesis hasta que tengas más información."], "bullets": ["¿Qué ocurrió exactamente?", "¿Qué supuse que significaba?", "¿A qué experiencia anterior se parece?", "¿Qué explicación alternativa puedo comprobar?"]},
+    {"heading": "Minuto 4: encuentra el patrón protector", "paragraphs": ["Pregunta qué intenta proteger la reacción: pertenencia, competencia, control, justicia, descanso, seguridad o un límite. Después observa la estrategia: complacer, perfeccionar, controlar, evitar, rebelarte o cuidar en exceso.", "Un patrón de sombra no es tu identidad. Úsalo como etiqueta provisional para una respuesta protectora aprendida. El test puede darte una pista enfocada, pero su resultado es reflexivo y no clínico."], "bullets": ["¿Qué temía que ocurriera?", "¿Qué intentaba proteger esta respuesta?", "¿Qué coste tuvo en esta situación?", "¿Cómo sería protegerme con más opciones?"]},
+    {"heading": "Minuto 5: elige una respuesta pequeña", "paragraphs": ["Termina con una acción pequeña, observable y reversible: esperar veinte minutos antes de responder, pedir una aclaración, expresar un límite en una frase, caminar un poco o programar una sesión de diario para más tarde.", "Evita decisiones permanentes en el punto máximo de intensidad. Anota la acción y vuelve a puntuar la emoción más tarde. Progresar significa tener más opciones, no dejar de activarte para siempre."], "bullets": ["Pausa: responderé a una hora concreta.", "Aclara: preguntaré qué quiso decir la otra persona.", "Límite: diré qué puedo y qué no puedo hacer.", "Repara: asumiré mi parte sin cargar con todo."]},
+    {"heading": "Una nota de cinco líneas para copiar", "paragraphs": ["Guarda esta versión: ¿Qué pasó? ¿Qué siento y con qué intensidad? ¿Qué historia añadió mi mente? ¿Qué protege esta reacción? ¿Cuál es mi siguiente acción pequeña?", "Si el mismo desencadenante causa malestar intenso repetidamente o interfiere con tu vida diaria, un profesional de salud mental acreditado puede ayudarte a explorarlo con más apoyo y contexto."]}
+  ],
+  "faq": [
+    {"question": "¿Debo hacer trabajo de sombra si estoy muy alterado?", "answer": "Normalmente conviene volver al presente primero y reflexionar después. Si te sientes desbordado, en peligro, desconectado o peor al continuar, detente y busca apoyo."},
+    {"question": "¿Una reacción intensa demuestra que estoy proyectando?", "answer": "No. Puede tener muchas causas, incluida una vulneración real de límites. Trata la proyección como una hipótesis, separa hechos de interpretaciones y busca más información."},
+    {"question": "¿El test de sombra es un diagnóstico?", "answer": "No. Es una herramienta educativa de reflexión que propone un patrón y preguntas de diario. No diagnostica condiciones de salud mental ni sustituye la atención profesional."}
+  ],
+  "related": [
+    {"label": "Test de trabajo de sombra", "url": "https://dopabrain.com/shadow-work/?lang=es", "surface": "related_shadow_work", "targetSlug": "shadow-work"},
+    {"label": "Guía del test de sombra", "url": "https://dopabrain.com/portal/blog/es/shadow-work-quiz-guide.html", "surface": "related_shadow_guide", "targetSlug": "shadow-work-quiz-guide"},
+    {"label": "50 preguntas de trabajo de sombra", "url": "https://dopabrain.com/portal/blog/es/shadow-work-journal-prompts.html", "surface": "related_shadow_prompts", "targetSlug": "shadow-work-journal-prompts"}
+  ],
+  "sources": [
+    {"label": "OMS: En tiempos de estrés, haz lo que importa", "url": "https://www.who.int/publications/i/item/9789240003927"},
+    {"label": "Estudio sobre momento e intensidad del etiquetado afectivo", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9799301/"},
+    {"label": "Revisión sistemática y metaanálisis de escritura expresiva", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10415981/"}
+  ]
+}

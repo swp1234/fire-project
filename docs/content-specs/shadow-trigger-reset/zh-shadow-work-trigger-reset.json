@@ -1,0 +1,48 @@
+{
+  "lang": "zh",
+  "slug": "shadow-work-trigger-reset",
+  "title": "情绪被触发后如何做阴影工作：安全的5分钟复位法",
+  "h1": "情绪被触发后如何做阴影工作：安全的5分钟复位法",
+  "description": "情绪被触发后，先用五分钟稳住当下，再区分事实与解释、识别保护模式，并选择一个可执行的小行动。",
+  "keywords": ["情绪触发后怎么办", "阴影工作", "五分钟复位", "情绪日记"],
+  "category": "wellness",
+  "tag": "阴影工作",
+  "tagColor": "#8b5cf6",
+  "readTime": "8分钟",
+  "themeColor": "#8b5cf6",
+  "contentGroup": "shadow_work_growth",
+  "contentSlug": "shadow-work-trigger-reset",
+  "ogImage": "https://dopabrain.com/portal/img/og/shadow-work.png",
+  "date": "2026-07-22",
+  "quickRail": {"title": "选择下一步", "description": "先稳定自己，再决定要探索多深。", "cards": [
+    {"title": "阴影工作测试", "description": "找出强烈反应背后反复出现的模式。", "url": "https://dopabrain.com/shadow-work/?lang=zh", "surface": "quick_shadow_work", "targetSlug": "shadow-work"},
+    {"title": "阴影工作指南", "description": "先了解六种原型，再解释一次触发。", "url": "https://dopabrain.com/portal/blog/zh/shadow-work-quiz-guide.html", "surface": "quick_shadow_guide", "targetSlug": "shadow-work-quiz-guide"},
+    {"title": "阴影日记问题", "description": "平静后再进行更深入的书写。", "url": "https://dopabrain.com/portal/blog/zh/shadow-work-journal-prompts.html", "surface": "quick_shadow_prompts", "targetSlug": "shadow-work-journal-prompts"},
+    {"title": "压力检查", "description": "看看压力负荷是否正在放大反应。", "url": "https://dopabrain.com/stress-check/?lang=zh", "surface": "quick_stress_check", "targetSlug": "stress-check"}
+  ]},
+  "cta": {"title": "从你的模式开始", "body": "先用两分钟阴影工作测试获得一个反思线索，再带着这个线索完成复位。", "label": "开始阴影工作测试 ->", "url": "https://dopabrain.com/shadow-work/?lang=zh", "surface": "intro_shadow_work", "targetSlug": "shadow-work"},
+  "sections": [
+    {"heading": "开始前：先检查自己是否有余力", "paragraphs": ["阴影工作应该增加选择，而不是把你推向更强烈的不适。如果你感到失控、不安全、与现实脱离或无法集中注意力，请先停止分析，看看周围环境、联系信任的人，或寻求专业支持。", "这个五分钟流程是教育性的自我反思工具，不是治疗或诊断。你可以在任何一步停下。目标不是证明这次反应代表什么，而是腾出一点空间，让你能选择下一步。"], "bullets": ["如果你还能觉察情绪并保持在当下，可以继续。", "如果强度很高，只做落地练习，不急着分析。", "如果反思让痛苦加剧，或出现伤害自己或他人的冲动，请停止并立即寻求支持。"]},
+    {"heading": "第1分钟：回到此时此地", "paragraphs": ["把双脚放在地面，或感受身体被椅子支撑。慢慢找出三样看得见的东西、两种听得到的声音和一种身体感觉。不要强迫呼吸，只让呼气稍微慢一点。", "落地练习不会让情绪风暴立刻消失，但能帮助你在解释反应之前重新连接当下。顺序很重要：先稳定，再理解。"]},
+    {"heading": "第2分钟：说出情绪与强度", "paragraphs": ["完成一句简单的话：我注意到自己感到___，强度大约是10分中的___分。尽量使用受伤、尴尬、愤怒、害怕、嫉妒或失望等情绪词，而不是被忽视、被冒犯这类判断。", "把感受说出来常被称为情绪标记。研究显示它可能改变情绪反应，但并非对每个人都保证有效，也不该用来否认真实发生的事情。"], "bullets": ["情绪：现在最明显的感受是什么？", "身体：我在哪里感觉到它？", "强度：此刻最贴近的数字是多少？", "需要：什么能让我稳定10%？"]},
+    {"heading": "第3分钟：把镜头事实与脑内故事分开", "paragraphs": ["写两列。镜头事实只记录摄像机能拍到的内容；脑内故事记录你赋予事件的意义。例如，对方第二天才回复是事实，对方根本不在乎我是解释。", "你的解释可能正确、部分正确，也可能错误。这个流程不是让你否定自己，而是先把解释当作假设，等获得更多信息再判断。"], "bullets": ["具体发生了什么？", "我认定它意味着什么？", "它让我想起哪段旧经历？", "还有什么可以验证的解释？"]},
+    {"heading": "第4分钟：找到正在保护你的模式", "paragraphs": ["问问这次反应想保护什么：归属、能力、控制、公平、休息、安全或边界。再看看出现了哪种策略——讨好、追求完美、控制、逃避、反抗或过度照顾。", "阴影模式不是你的身份。把它当作一个暂时的标签，用来描述学会的保护动作。阴影工作测试可以提供聚焦线索，但结果仅供反思，不属于临床评估。"], "bullets": ["我害怕接下来发生什么？", "这个反应试图保护什么？", "它在这次情境中让我付出了什么？", "更有选择的保护方式会是什么？"]},
+    {"heading": "第5分钟：选择一个小而具体的回应", "paragraphs": ["最后选一个小、可观察、可以撤回的行动：等二十分钟再回复、问一个澄清问题、用一句话说明边界、短暂散步，或预约稍后再写日记。", "尽量不要在情绪最高点做永久决定。记录行动，稍后再评估情绪数字。这里的进步不是永远不被触发，而是拥有更多选择。"], "bullets": ["暂停：我会在某个具体时间再回应。", "澄清：我会询问对方真正的意思。", "边界：我会说明自己能做和不能做的事。", "修复：我会承担自己的部分，但不把一切都揽在身上。"]},
+    {"heading": "可直接复制的五行触发笔记", "paragraphs": ["下次需要时，直接写下五行：发生了什么？我现在的情绪是几分？我的大脑添加了什么故事？这个反应在保护什么？我能采取的一个小行动是什么？", "如果同一触发反复造成强烈痛苦或影响日常生活，持证心理健康专业人士能在更安全、完整的背景中陪你探索。"]}
+  ],
+  "faq": [
+    {"question": "情绪非常激动时适合做阴影工作吗？", "answer": "通常先落地、稍后再反思更稳妥。如果你感到失控、不安全、与现实脱离，或继续后更加痛苦，请停止并寻求支持。"},
+    {"question": "反应很强烈就代表我在投射吗？", "answer": "不代表。强烈反应可能有很多原因，也可能确实发生了边界侵犯。把投射只当作一种假设，区分事实与解释，并收集更多信息。"},
+    {"question": "阴影工作测试能诊断心理问题吗？", "answer": "不能。它是提供模式和日记线索的教育性反思工具，不能诊断心理健康状况，也不能替代专业照护。"}
+  ],
+  "related": [
+    {"label": "阴影工作测试", "url": "https://dopabrain.com/shadow-work/?lang=zh", "surface": "related_shadow_work", "targetSlug": "shadow-work"},
+    {"label": "阴影工作测试指南", "url": "https://dopabrain.com/portal/blog/zh/shadow-work-quiz-guide.html", "surface": "related_shadow_guide", "targetSlug": "shadow-work-quiz-guide"},
+    {"label": "50个阴影工作日记问题", "url": "https://dopabrain.com/portal/blog/zh/shadow-work-journal-prompts.html", "surface": "related_shadow_prompts", "targetSlug": "shadow-work-journal-prompts"}
+  ],
+  "sources": [
+    {"label": "世界卫生组织：在压力时期做重要的事", "url": "https://www.who.int/publications/i/item/9789240003927"},
+    {"label": "情绪标记的时机与强度研究", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9799301/"},
+    {"label": "表达性书写系统综述与荟萃分析", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10415981/"}
+  ]
+}

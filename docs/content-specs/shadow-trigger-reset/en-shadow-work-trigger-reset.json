@@ -1,0 +1,52 @@
+{
+  "lang": "en",
+  "slug": "shadow-work-trigger-reset",
+  "title": "Shadow Work After a Trigger: A Safe 5-Minute Reset",
+  "h1": "Shadow Work After a Trigger: A Safe 5-Minute Reset",
+  "description": "Use this five-minute shadow work reset to ground yourself, name the feeling, separate facts from interpretations, and choose one small next step after an emotional trigger.",
+  "keywords": ["shadow work after a trigger", "emotional trigger journal", "5 minute grounding", "shadow work prompts"],
+  "category": "wellness",
+  "tag": "Shadow Work",
+  "tagColor": "#8b5cf6",
+  "readTime": "8 min",
+  "themeColor": "#8b5cf6",
+  "contentGroup": "shadow_work_growth",
+  "contentSlug": "shadow-work-trigger-reset",
+  "ogImage": "https://dopabrain.com/portal/img/og/shadow-work.png",
+  "date": "2026-07-22",
+  "quickRail": {
+    "title": "Choose Your Next Step",
+    "description": "Stabilize first, then reflect only as deeply as feels manageable.",
+    "cards": [
+      {"title": "Shadow Work Test", "description": "Find the recurring pattern behind your strongest reactions.", "url": "https://dopabrain.com/shadow-work/?lang=en", "surface": "quick_shadow_work", "targetSlug": "shadow-work"},
+      {"title": "Shadow Work Guide", "description": "Learn the six archetypes before interpreting a trigger.", "url": "https://dopabrain.com/portal/blog/en/shadow-work-quiz-guide.html", "surface": "quick_shadow_guide", "targetSlug": "shadow-work-quiz-guide"},
+      {"title": "Journal Prompts", "description": "Continue with deeper prompts when you feel settled.", "url": "https://dopabrain.com/portal/blog/en/shadow-work-journal-prompts.html", "surface": "quick_shadow_prompts", "targetSlug": "shadow-work-journal-prompts"},
+      {"title": "Stress Check", "description": "Check whether stress load is amplifying the reaction.", "url": "https://dopabrain.com/stress-check/?lang=en", "surface": "quick_stress_check", "targetSlug": "stress-check"}
+    ]
+  },
+  "cta": {"title": "Start With Your Pattern", "body": "Use the two-minute Shadow Work Test as a reflection prompt, then return to this reset with one pattern in mind.", "label": "Take the Shadow Work Test ->", "url": "https://dopabrain.com/shadow-work/?lang=en", "surface": "intro_shadow_work", "targetSlug": "shadow-work"},
+  "sections": [
+    {"heading": "Before You Reflect: Check Your Capacity", "paragraphs": ["Shadow work is most useful when it increases choice, not when it pushes you further into overwhelm. If you feel flooded, unsafe, detached, or unable to focus, pause the analysis. Orient to the room, contact someone you trust, or seek professional support.", "This five-minute reset is an educational reflection tool, not therapy or a diagnosis. You can stop at any step. The goal is not to prove what your reaction means; it is to create enough space to choose your next action."], "bullets": ["Continue now if you can notice the feeling and stay connected to the present.", "Reduce the exercise to grounding only if the intensity is high.", "Stop and get support if reflection increases distress or brings up an urge to harm yourself or someone else."]},
+    {"heading": "Minute 1: Ground in the Present", "paragraphs": ["Put both feet on the floor or feel the surface supporting you. Slowly notice three things you can see, two things you can hear, and one physical sensation. Let your exhale become a little longer without forcing a particular rhythm.", "Grounding does not erase an emotional storm. It helps you reconnect with the present before deciding what the reaction means. That order matters: regulate first, interpret second."]},
+    {"heading": "Minute 2: Name the Feeling and Its Intensity", "paragraphs": ["Complete one plain sentence: I notice ___, and it is about ___ out of 10. Use a specific emotion word when possible—hurt, embarrassment, anger, fear, jealousy, disappointment—rather than a judgment such as ignored or disrespected.", "Putting feelings into words is often called affect labeling. Research suggests it can change the emotional response, but it is not a guarantee and it should not be used to dismiss what happened."], "bullets": ["Feeling: What emotion is here?", "Body: Where do I notice it?", "Intensity: What number fits right now?", "Need: What would help me become 10% steadier?"]},
+    {"heading": "Minute 3: Separate the Camera Facts From the Story", "paragraphs": ["Draw two short columns. In Camera Facts, write only what a recording could capture. In My Story, write the meaning your mind added. For example: They replied the next morning is a fact; They do not care about me is an interpretation.", "Your interpretation may be correct, partly correct, or wrong. The reset does not ask you to invalidate it. It asks you to hold it as a hypothesis until you have more information."], "bullets": ["What exactly happened?", "What did I assume it meant?", "What earlier experience does this resemble?", "What is one alternative explanation I can test?"]},
+    {"heading": "Minute 4: Find the Protective Pattern", "paragraphs": ["Ask what the reaction is trying to protect: belonging, competence, control, fairness, rest, safety, or a boundary. Then notice the strategy that appeared—pleasing, perfecting, controlling, avoiding, rebelling, or caretaking.", "A shadow pattern is not your identity. Treat it as a working label for a learned protective move. The DopaBrain Shadow Work Test can give you a focused prompt, but its result is reflective and non-clinical."], "bullets": ["What was I afraid would happen?", "What did this response try to protect?", "What did it cost me in this situation?", "What would protection with more choice look like?"]},
+    {"heading": "Minute 5: Choose One Small Response", "paragraphs": ["Finish with one action that is small, observable, and reversible. You might wait twenty minutes before replying, ask a clarifying question, state a boundary in one sentence, take a short walk, or schedule a longer journal session.", "Avoid making a permanent decision at peak intensity. Record the action and check your emotion number again later. Progress here means more choice—not never being triggered."], "bullets": ["Pause: I will respond at a specific later time.", "Clarify: I will ask what the person meant.", "Boundary: I will say what I can and cannot do.", "Repair: I will own my part without taking responsibility for everything."]},
+    {"heading": "A Copyable Five-Line Trigger Note", "paragraphs": ["Save this compact version for the next time you need it: What happened? What am I feeling, from 0 to 10? What story did my mind add? What is this reaction protecting? What is one small next action?", "If the same trigger keeps causing intense distress or disrupts daily life, a licensed mental-health professional can help you explore it with more support and context."]}
+  ],
+  "faq": [
+    {"question": "Should I do shadow work while I am very upset?", "answer": "Usually it is better to ground first and reflect later. If you feel overwhelmed, unsafe, detached, or more distressed as you continue, stop and seek support rather than pushing through the exercise."},
+    {"question": "Does a strong trigger prove that I am projecting?", "answer": "No. A strong reaction can have many explanations, including a real boundary violation. Treat projection as one hypothesis, keep observable facts separate from interpretations, and gather more information."},
+    {"question": "Is the Shadow Work Test a diagnosis?", "answer": "No. It is an educational reflection tool that offers a pattern and journal prompt. It cannot diagnose a mental-health condition or replace professional care."}
+  ],
+  "related": [
+    {"label": "Shadow Work Test", "url": "https://dopabrain.com/shadow-work/?lang=en", "surface": "related_shadow_work", "targetSlug": "shadow-work"},
+    {"label": "Shadow Work Quiz Guide", "url": "https://dopabrain.com/portal/blog/en/shadow-work-quiz-guide.html", "surface": "related_shadow_guide", "targetSlug": "shadow-work-quiz-guide"},
+    {"label": "50 Shadow Work Journal Prompts", "url": "https://dopabrain.com/portal/blog/en/shadow-work-journal-prompts.html", "surface": "related_shadow_prompts", "targetSlug": "shadow-work-journal-prompts"}
+  ],
+  "sources": [
+    {"label": "WHO: Doing What Matters in Times of Stress", "url": "https://www.who.int/publications/i/item/9789240003927"},
+    {"label": "Affect labeling: timing and intensity study", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9799301/"},
+    {"label": "Expressive writing systematic review and meta-analysis", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10415981/"}
+  ]
+}

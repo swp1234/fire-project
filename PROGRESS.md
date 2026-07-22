@@ -52,6 +52,16 @@
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
 
+### Session 478 (2026-07-22) - Shadow Work Winner Cluster Expansion
+
+- Resumed in isolated mode; the launcher reached its expected non-interactive `stdin is not a terminal` boundary without touching Claude paths. `npm run adsense:keepalive` passed with account, site, policy, and ad-client reads healthy.
+- Used fresh performance data to select the expansion instead of adding a broad topic batch. GA4 for the last 28 days showed the ZH Shadow Work guide at `50` sessions and `36%` engagement, the Shadow Work app at `25` sessions / `88%` engagement / about `259s` average duration, and Brain Type at `30` sessions / `90%` engagement / about `302s`; short Singapore traffic was treated as noise. GSC for `2026-06-22..2026-07-20` returned no actionable non-site query quick win.
+- Added a focused EN/ZH/ES Shadow Work acquisition batch: `en/shadow-work-trigger-reset.html`, `zh/shadow-work-trigger-reset.html`, and `es/reinicio-sombra-despues-desencadenante.html`. Each article provides a capacity check and five-minute sequence covering grounding, affect labeling, fact/interpretation separation, protective-pattern reflection, and one small reversible response, with explicit stop/support guidance and non-diagnostic framing.
+- Grounded the content in the WHO stress self-help guide, a peer-reviewed affect-labeling study, and an expressive-writing systematic review/meta-analysis. Each page includes four localized quick cards, two Auto ad surfaces, Article/FAQ/Breadcrumb structured data, the five standard content events, reciprocal EN/ZH/ES hreflang, related paths, and sitemap coverage.
+- Reinforced the proven ZH winner by replacing its least-relevant quick card with the new five-minute reset, adding the reset to related resources, refreshing `dateModified`, and surfacing the new content in both ZH hub collections. Added the Spanish page to both ES hub collections and the English page to the generated wellness index.
+- Validation passed: all three content specs parse; root and portal `git diff --check`; portal locale audit; portal quality gate with zero warnings; local verification for all three new pages plus the upgraded ZH winner with expected dates/cards/ads/events and zero horizontal overflow; indexing inventory with `1922` unique URLs and `urlsWithIssues: 0`; and final content audit across `1973` files with no results.
+- Deployment: pushed portal commit `bcab0a4` (`Expand shadow work winner content`); the root commit advances the portal pointer and stores the reusable EN/ZH/ES content specs plus this data-selection record.
+
 ### Session 477 (2026-07-22) - Stress-Aware Habit Content Expansion
 
 - Enabled autonomous content production with clean root and submodule worktrees. The isolated launcher again reported `stdin is not a terminal` in this API shell; no Claude paths or Claude CLI were used. `npm run adsense:keepalive` returned Google OAuth `invalid_grant`, so `npm run adsense:auth-url` generated a fresh authorization URL and only the final OAuth redirect URL is needed from the user. Content production continued without the blocked revenue read.
