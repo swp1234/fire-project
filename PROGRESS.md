@@ -52,6 +52,14 @@
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
 
+### Session 484 (2026-07-22) - ZH Habit Tracker First-Habit Activation Repair
+
+- Selected the ZH habit-tracker funnel after the 28-day event detail showed the guide at `61` page views / `60` users, `40` scrolls and `40` traffic-quality-engaged events, but only `4` test clicks from `2` users. The app had only `5` views / `5` users and one `add_habit`, making first-habit activation the bottleneck.
+- Fixed the quick-entry defect: first visits previously received three demo habits, so `quick=1` never reached the starter branch. Quick routes now remove demo-only data, open a localized user-confirmed form prefilled with a safe micro-habit and 7-day goal, preserve all user-created habits, skip competing onboarding, and distinguish quick form/view/create/result events.
+- Rebuilt the popular guide's first action path with a prefilled 7-day route, a 30-second starter plan, per-surface attribution, and a responsive sticky CTA. Added mobile min-width/ad containment after live verification exposed third-party Auto-ad intrinsic overflow.
+- Calibrated unsupported claims: 66 days is identified as a study median rather than a universal average/deadline; removed universal `<10%` and `95%` success claims; treated “never miss twice” as a planning heuristic; and replaced deterministic dopamine/basal-ganglia language with bounded habit-review evidence. Added Lally et al., Wood/Rünger, and a 2024 digital intervention systematic review plus health/professional-care boundaries.
+- Validation passed: app quality gate, syntax check, runtime harness, analytics harness, custom Playwright quick-start prefill/save/result flow, article browser verification with four quick cards, three Auto ads, sticky plus standard content events, zero overflow, and indexing inventory across `1925` unique URLs with zero issues. Deployment commits: Habit Tracker `81a9bde` to `main` and Pages source `master`; portal `a27e31d` plus overflow follow-up `d9c57c5`; root-domain `b51d697`. Final production checks passed for the full Chinese prefill/save/result path, article events and mobile width, service-worker v4, and both sitemap/app dates.
+
 ### Session 483 (2026-07-22) - ZH Avoidant Attachment High-Traffic Conversion Repair
 
 - Selected the ZH avoidant-attachment guide after a fresh 28-day attachment-cluster query showed `76` page views / `70` users and `31` traffic-quality-engaged users but no recorded article test or CTA click. The downstream app was healthy at `51` views / `41` users, `17` quiz starters, and `16` completions/result views/result-ad impressions, making article-to-app transfer the clear bottleneck.
