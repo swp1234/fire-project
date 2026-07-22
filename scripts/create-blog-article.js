@@ -341,6 +341,16 @@ const UI_COPY = {
     related: 'Ferramentas e guias relacionados', relatedIntro: 'Veja estas opções para obter um resultado mais específico ou um próximo passo prático.',
     sources: 'Fontes citadas', allContent: 'Todo o conteúdo', rights: 'Todos os direitos reservados.',
   },
+  es: {
+    published: 'Publicado', read: 'de lectura', faq: 'Preguntas frecuentes',
+    related: 'Herramientas y guías relacionadas', relatedIntro: 'Usa estas opciones para obtener un resultado más específico o elegir un siguiente paso práctico.',
+    sources: 'Fuentes consultadas', allContent: 'Todo el contenido', rights: 'Todos los derechos reservados.',
+  },
+  zh: {
+    published: '发布于', read: '阅读', faq: '常见问题',
+    related: '相关工具与指南', relatedIntro: '接下来可使用这些工具，获得更具体的结果或选择一个实际行动。',
+    sources: '参考来源', allContent: '全部内容', rights: '保留所有权利。',
+  },
 };
 
 function renderSources(sources, copy) {
@@ -583,7 +593,7 @@ ${renderSources(spec.sources, copy)}
                     target_label: this.textContent.trim(),
                     cta_surface: this.dataset.contentSurface || '',
                     target_slug: this.dataset.targetSlug || '',
-                    section_name: 'Related Tools and Guides'
+                    section_name: '${escapeJsSingle(copy.related)}'
                 });
             });
         });
