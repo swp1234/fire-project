@@ -52,6 +52,14 @@
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
 
+### Session 483 (2026-07-22) - ZH Avoidant Attachment High-Traffic Conversion Repair
+
+- Selected the ZH avoidant-attachment guide after a fresh 28-day attachment-cluster query showed `76` page views / `70` users and `31` traffic-quality-engaged users but no recorded article test or CTA click. The downstream app was healthy at `51` views / `41` users, `17` quiz starters, and `16` completions/result views/result-ad impressions, making article-to-app transfer the clear bottleneck.
+- Rebuilt the first-screen decision around “check my own pattern” versus “diagnose my partner.” Updated the sticky and quick routes, added distinct attribution for primary, after-patterns, after-impact, decision, and related surfaces, and preserved direct `start=1` entry into the high-completion attachment quiz.
+- Added a practical 24-hour repair sequence (facts, needs, reconnection time, repeated-pattern check), explicit instructions not to answer for a partner, and a safety boundary stating that attachment insecurity does not excuse threats, control, humiliation, stalking, coercion, or violence. Expanded adjacent reading routes to abandonment, anxious, and disorganized attachment content.
+- Removed unsupported deterministic childhood claims, the uncited `25%` prevalence and `20-30%` change figures, and blanket therapy recommendations. Added APA's attachment-style definition, an adult attachment/emotion-regulation systematic review, and a randomized security-priming trial with appropriately limited conclusions.
+- Validation passed locally and live: portal quality gate; four quick cards; two Auto ads; standard content events plus sticky-view telemetry; zero overflow; indexing inventory at `1925` URLs with zero issues; ZH content audit score `0`. Deployment: portal `55a0dbc`; the Pages build completed from that exact commit and production browser verification passed.
+
 ### Session 482 (2026-07-22) - Mental Age Winner Measurement and PT Evidence Pass
 
 - Continued from the fresh 28-day candidate scan and selected Mental Age over the smaller K-pop path. The app recorded `104` page views / `28` users, `30` starts / `22` users, and `25` completions / `21` users. China contributed `40` views / `10` users / `90%` engagement / about `129s`; Brazil contributed `18` views / `7` users / `88.9%` engagement / about `165s`. The PT guide generated `9` CTA clicks from `6` users across `8` content viewers.
