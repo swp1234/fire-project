@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-20 (Session 476: Revenue + World Cup Africa Expansion)
+> Current wrap-up: 2026-07-22 (Session 477: Stress-Aware Habit Content Expansion)
 
 ## 프로젝트 규모
 
@@ -60,6 +60,7 @@
 - Each page routes to localized Stress Check, Habit Tracker quick start, Routine Planner, and Burnout Test surfaces; includes four quick cards, two Auto ad surfaces, Article/FAQ/Breadcrumb JSON-LD, the full content event set, three related links, reciprocal EN/ZH/ES hreflang, and sitemap coverage. Added the new articles to the EN, ZH, and ES blog hubs.
 - Hardened `scripts/create-blog-article.js` so future Spanish and Chinese scaffolds localize published/read/FAQ/related/source/footer chrome instead of falling back to English, and related-click telemetry now uses the localized section name.
 - Validation passed: `node --check`; portal `git diff --check`; `node scripts/portal-hub-locale-audit.js`; portal quality gate with zero warnings; local `content:verify` for all three pages with the expected date, four quick cards, two Auto ads, five standard events, and zero horizontal overflow; `node scripts/indexing-inventory.js --json --limit 10` with `1919` unique URLs and `urlsWithIssues: 0`; and a final `content:audit` over `1970` files with no results.
+- Deployment commits pushed: portal `e372c57` (`Add stress-aware habit content batch`) and root `a067e07` (`Expand autonomous habit content workflow`). GitHub Pages built the exact portal commit, and live `content:verify` passed for all three pages with the expected schema/date/cards/ads/events and zero horizontal overflow; the first parallel EN/ZH run briefly missed the CTA event, then both passed on immediate isolated reruns.
 
 ### Session 476 (2026-07-20) - EN HSP Workplace Revenue Rescue
 
