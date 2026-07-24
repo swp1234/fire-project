@@ -33,10 +33,13 @@ function createServer() {
 }
 
 async function run() {
-    const server = createServer();
-    await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
-    const { port } = server.address();
-    const origin = `http://127.0.0.1:${port}`;
+    const baseArgument = process.argv.find(argument => argument.startsWith('--base-url='));
+    const productionBase = baseArgument ? baseArgument.slice('--base-url='.length).replace(/\/+$/, '') : '';
+    const server = productionBase ? null : createServer();
+    if (server) {
+        await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+    }
+    const origin = productionBase || `http://127.0.0.1:${server.address().port}`;
     const browser = await chromium.launch({ headless: true });
     const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
     const errors = [];
@@ -108,7 +111,9 @@ async function run() {
         console.log('PASS: stress plan browser verification');
     } finally {
         await browser.close();
-        await new Promise(resolve => server.close(resolve));
+        if (server) {
+            await new Promise(resolve => server.close(resolve));
+        }
     }
 }
 
