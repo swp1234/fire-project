@@ -113,6 +113,52 @@ async function run() {
         await page.click('.cp-stress-script-link');
         const englishScriptEvents = await trackedEvents(page);
 
+        const communicationReports = [];
+        for (const locale of ['ko', 'en', 'zh', 'hi', 'ru', 'ja', 'es', 'pt', 'id', 'tr', 'de', 'fr']) {
+            await page.goto(`${origin}/portal/blog/${locale}/people-pleasing-signs-fawn-response.html`, {
+                waitUntil: 'domcontentloaded'
+            });
+            await page.waitForSelector('.cp-boundary-script');
+            await page.locator('.cp-boundary-script').scrollIntoViewIfNeeded();
+            await page.waitForTimeout(100);
+            communicationReports.push(await page.evaluate(currentLocale => ({
+                locale: currentLocale,
+                title: document.querySelector('.cp-boundary-script-title')?.textContent,
+                href: document.querySelector('.cp-boundary-script-link')?.getAttribute('href'),
+                context: document.querySelector('.cp-boundary-script')?.getAttribute('data-script-context'),
+                scriptCount: document.querySelectorAll('.cp-boundary-script').length,
+                sprintCount: document.querySelectorAll('.cp-mobile-sprint').length,
+                events: (window.dataLayer || [])
+                    .map(item => item?.event || (item?.[0] === 'event' ? item[1] : null))
+                    .filter(Boolean),
+                overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
+            }), locale));
+        }
+        await page.goto(`${origin}/portal/blog/ko/healthy-boundaries-guide.html`, {
+            waitUntil: 'domcontentloaded'
+        });
+        await page.waitForSelector('.cp-boundary-script-link');
+        await page.evaluate(() => {
+            document.querySelector('.cp-boundary-script-link')
+                ?.addEventListener('click', event => event.preventDefault(), { capture: true });
+        });
+        await page.click('.cp-boundary-script-link');
+        const communicationClickEvents = await trackedEvents(page);
+        await page.goto(`${origin}/portal/blog/en/hsp-workplace-survival-guide.html`, {
+            waitUntil: 'domcontentloaded'
+        });
+        await page.waitForSelector('.cp-boundary-script');
+        const workplaceCommunication = await page.evaluate(() => ({
+            href: document.querySelector('.cp-boundary-script-link')?.getAttribute('href'),
+            context: document.querySelector('.cp-boundary-script')?.getAttribute('data-script-context')
+        }));
+        await page.goto(`${origin}/portal/blog/en/gaslighting-signs-relationship.html`, {
+            waitUntil: 'domcontentloaded'
+        });
+        const unsafeRelationship = await page.evaluate(() => ({
+            scriptCount: document.querySelectorAll('.cp-boundary-script').length
+        }));
+
         const localeReports = [];
         for (const locale of ['ko', 'en', 'zh', 'hi', 'ru', 'ja', 'es', 'pt', 'id', 'tr', 'de', 'fr']) {
             await page.goto(`${origin}/portal/blog/${locale}/stress-management-techniques-guide.html`, {
@@ -165,6 +211,10 @@ async function run() {
             englishBlog,
             englishEvents,
             englishScriptEvents,
+            communicationReports,
+            communicationClickEvents,
+            workplaceCommunication,
+            unsafeRelationship,
             localeReports,
             responseResult,
             responseEvents,
@@ -193,6 +243,23 @@ async function run() {
         }
         if (!englishEvents.includes('stress_plan_bridge_view')) failures.push('English bridge view was not tracked');
         if (!englishScriptEvents.includes('boundary_script_bridge_click')) failures.push('English script bridge click was not tracked');
+        communicationReports.forEach(item => {
+            if (item.scriptCount !== 1) failures.push(`${item.locale} communication bridge count is ${item.scriptCount}`);
+            if (!item.title || !item.href?.includes(`lang=${item.locale}`) || !item.href.includes('source=blog_communication_bridge')) {
+                failures.push(`${item.locale} communication bridge localization or attribution is incomplete`);
+            }
+            if (item.context !== 'relationship') failures.push(`${item.locale} communication bridge context is ${item.context}`);
+            if (item.sprintCount !== 0) failures.push(`${item.locale} generic revenue sprint competed with the communication bridge`);
+            if (!item.events.includes('boundary_script_bridge_view')) failures.push(`${item.locale} communication bridge view was not tracked`);
+            if (item.overflow > 0) failures.push(`${item.locale} communication bridge has ${item.overflow}px overflow`);
+        });
+        if (!communicationClickEvents.includes('boundary_script_bridge_click')) {
+            failures.push('standalone communication bridge click was not tracked');
+        }
+        if (workplaceCommunication.context !== 'work' || !workplaceCommunication.href?.includes('context=work')) {
+            failures.push(`workplace communication routing is wrong: ${JSON.stringify(workplaceCommunication)}`);
+        }
+        if (unsafeRelationship.scriptCount !== 0) failures.push('gaslighting article received an unsafe conversation-script prompt');
         if (!chineseBlog?.title?.includes('7天')) failures.push('Chinese bridge copy did not render');
         localeReports.forEach(item => {
             if (!item.title || !item.href?.includes(`lang=${item.locale}`)) {

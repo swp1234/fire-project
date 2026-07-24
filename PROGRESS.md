@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-25 (Session 488: Boundary & Request Script Builder)
+> Current wrap-up: 2026-07-25 (Session 489: High-Intent Script Builder Distribution)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,17 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 489 (2026-07-25) - High-Intent Script Builder Distribution
+
+- Continued the revenue-first Ralph loop with fresh AdSense and GA4 evidence. Today reported `$0.00` from `62` page views but only `2` impressions; `59` of those views were Korean desktop traffic absent from GA4, so the apparent volume was treated as non-user or verification-like traffic rather than an ad-code failure. Yesterday closed at `$0.06` from `142` page views / `88` impressions / `0` clicks. The last seven days remained `$0.63`, this month `$1.95`, and the last 30 days `$2.52`.
+- Confirmed that scarce real mobile users can monetize when they exist: yesterday's US mobile segment recorded about `$9.73` Page RPM, France mobile `$6.67`, Germany mobile `$4.65`, and Korea mobile `$1.49`. The primary constraint remains acquiring and retaining real mobile/search users, not increasing raw scan-like page views.
+- Queried 28-day GA4 article clusters before changing distribution. The strongest safe high-intent signals included the Korean healthy-boundaries guide from Bing (`3` views, `2` engaged sessions, `92s` engagement), a Japanese people-pleasing article from Bing (`146s`), and the English HSP workplace guide with US Bing/Ecosia/DuckDuckGo traffic. Gaslighting and toxic-relationship pages were intentionally excluded because prompting a confrontation script could be unsafe.
+- Expanded [projects/portal/js/cross-promo.js](E:/Fire%20Project/projects/portal/js/cross-promo.js) with a dedicated Boundary & Request Script Builder card for people-pleasing, healthy-boundary, boundary-setting, relationship-tips, relationship-conflict, HSP-workplace, and workplace-EQ articles. The card appears near the first paragraph, replaces the competing generic revenue sprint, preserves work versus relationship context, and carries `source=blog_communication_bridge`.
+- Added complete card copy in all 12 supported languages plus `boundary_script_bridge_view` and `boundary_script_bridge_click` telemetry with locale, context, destination, surface, and `daily_0_10` attribution. The allowlist prevents the card from appearing on gaslighting, coercion, abuse, toxic-relationship, or other unsafe confrontation contexts.
+- Extended [scripts/verify-stress-plan-distribution.js](E:/Fire%20Project/scripts/verify-stress-plan-distribution.js) to cover all 12 localized people-pleasing routes, standalone click telemetry, the Korean boundaries route, English workplace context routing, absence on the gaslighting article, no competing sprint, and zero mobile overflow.
+- Validation passed locally and on production: JS syntax, portal quality gate with zero warnings, portal locale audit, representative content-page verification, and the expanded Playwright distribution suite. Portal commit `8255637` deployed successfully; GitHub Pages reported the exact commit as built, and the live production verifier passed. This deployment also completed the previously delayed `fc6762c` stress-article direct-link release.
+- Next Ralph measurement: compare `boundary_script_bridge_view -> boundary_script_bridge_click -> boundary_script_view -> boundary_script_generate -> copy/print/plan_click` by entry source, locale, and device. Prioritize real mobile/search sessions and AdSense impressions; do not treat anomalous desktop page-view spikes as content demand.
 
 ### Session 488 (2026-07-25) - Boundary & Request Script Builder
 
