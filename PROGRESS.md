@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-25 (Session 490: Boundary Phrase Reference Library)
+> Current wrap-up: 2026-07-25 (Session 491: 5-Minute Sensory Reset Card)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,19 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 491 (2026-07-25) - 5-Minute Sensory Reset Card
+
+- Restarted selection from site-wide revenue and acquisition data instead of continuing the boundary cluster by inertia. In the last 30 AdSense days, US mobile produced `$0.26` from `45` page views at `$5.86` Page RPM and Korean mobile produced `$0.42` from `147` page views at `$2.82` Page RPM. US desktop added `$0.52` at `$4.42` Page RPM, while Singapore desktop's `2,520` page views produced only `$0.01`.
+- Crossed those markets with 28-day GA4 mobile non-direct traffic. `/hsp-test/` led the high-value-country set with `23` views / `19` active users / `15` engaged sessions / `1,045s` engagement from Naver, Ecosia, and related sources. Animal Personality had `15 / 10 / 10 / 965s`, while Brain Type's `45` views represented only `8` users / `8` engaged sessions. HSP provided the strongest combination of distinct users, engagement, and a practical non-test follow-up.
+- Added [projects/hsp-test/reset.html](E:/Fire%20Project/projects/hsp-test/reset.html), a fourth non-blog/non-test format: a private five-minute sensory-overload reset card. Users select the strongest current input (sound, light/screens, social input, touch/clothing, or too many demands), current setting, and realistic capacity, then receive six time-marked steps covering input reduction, neutral orientation, releasing one tension point, one capacity-matched action, one setting-matched action, and a five-minute re-check.
+- Implemented complete UI and action copy in all 12 supported languages, local preference persistence, a five-minute start/pause/resume/reset timer, clipboard output, pocket-card printing, HSP profile return, and localized sensory-guide routing. The page is explicitly score-free and non-diagnostic so it can be reused without retaking the test.
+- Preserved safety and accuracy boundaries: the card does not determine the cause of symptoms or claim treatment. It advises appropriate urgent help for sudden, severe, unusual symptoms, breathing difficulty, chest pain, fainting, or immediate danger; it does not force deep breathing when that feels worse.
+- Added a result CTA to the proven HSP app in all 12 languages. It preserves language and result profile, emits `sensory_reset_cta_view/click`, and leads directly to the reset card. The card adds view, customize, generate, timer start/pause/resume/reset/complete, copy, print, HSP-return, guide-click, and viewport-qualified ad-impression telemetry with source/profile and `daily_0_10` attribution.
+- Added safe direct distribution from all 12 localized sensory-overload and HSP-coping articles. The specialized bridge replaces the generic revenue sprint, carries `source=blog_sensory_bridge`, and emits `sensory_reset_bridge_view/click`. Added the card as a first-class 12-language portal wellness tool with catalog view/click telemetry, ItemList structured data, full/core sitemap coverage, and hsp-test service-worker v5 precaching.
+- Added [scripts/verify-sensory-reset.js](E:/Fire%20Project/scripts/verify-sensory-reset.js). Local and production Playwright verification covers all 12 card locales, six rendered steps, one owned ad surface, structured data, localized test/guide links, custom light/public/exit planning, the real countdown advancing to `04:59`, pause/copy/ad telemetry, a complete German HSP test-to-result flow, all 12 localized article bridges, Chinese tools-catalog localization, and zero mobile overflow.
+- Validation passed: HSP/portal/root quality gates with zero warnings, HSP app suite `13/13`, portal locale audit, representative German article verification, sitemap XML parsing and uniqueness, local and production sensory-reset verification, and exact Pages builds. Deployment commits: hsp-test `c80c5df`, portal `973524c`, and root-domain `16234b5`; all live sitemaps contain `/hsp-test/reset.html`. Root Pages needed one manual rebuild after its previous build remained queued, then completed from the exact target commit.
+- Next Ralph measurement: compare `sensory_reset_cta/bridge/catalog_view -> sensory_reset_view -> generate -> timer_start/complete or copy/print`, segmented by US/KR/DE/JP mobile search traffic. Optimize the strongest entry and selected input before adding more reset scenarios.
 
 ### Session 490 (2026-07-25) - Boundary Phrase Reference Library
 
