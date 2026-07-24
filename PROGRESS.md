@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-25 (Session 489: High-Intent Script Builder Distribution)
+> Current wrap-up: 2026-07-25 (Session 490: Boundary Phrase Reference Library)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,19 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 490 (2026-07-25) - Boundary Phrase Reference Library
+
+- Continued the revenue-first Ralph loop while the just-deployed builder events were still awaiting GA4 aggregation. A 90-day GSC query for boundary, people-pleasing, saying no, difficult conversations, and workplace-stress intent returned only one impression at average position `97` for the English people-pleasing guide. Existing article edits alone therefore do not provide a credible acquisition path.
+- Selected a third non-blog/non-test format aimed at search, sharing, and immediate utility: [projects/stress-check/library.html](E:/Fire%20Project/projects/stress-check/library.html), a filterable Boundary Phrase Library. It exposes four practical situations across work, relationships, family, and school, each with warm, clear, and firm versions for `12` usable phrase variants.
+- Added complete UI and scenario localization in all 12 supported languages. Users can filter by situation and tone, search the localized phrase text, copy a complete phrase, or open the selected context and tone in the builder with all three example fields already filled. The builder now shares its existing localized examples with the library and emits `boundary_script_template_load` for that handoff.
+- Preserved the safety model: every phrase separates observable facts, one request, and the user's own next action; copied output includes the safety boundary; search and rendering use DOM text nodes; and confrontation wording is explicitly discouraged for violence, stalking, coercion, retaliation, or immediate danger.
+- Added one owned AdSense surface with viewport-qualified `boundary_library_ad_impression`, plus library view, card view, filter, search, copy, edit, builder, plan, language, catalog, and article-bridge telemetry under `daily_0_10` attribution.
+- Added the library as a first-class 12-language portal wellness tool, a crawlable tools-catalog card, catalog ItemList entry, full sitemap entry, and high-priority core-sitemap URL. The safe communication article allowlist now presents both “build a script” and localized “browse examples” actions; gaslighting, coercion, abuse, and toxic-relationship contexts remain excluded. The builder links back to the library, and stress-check service-worker caching advanced to v5.
+- Added [scripts/verify-boundary-library.js](E:/Fire%20Project/scripts/verify-boundary-library.js). Local and production Playwright checks cover 12 locales, 4 cards / 16 rendered phrase sections per locale, tone and context filtering, search no-results behavior, inert HTML/onerror input, clipboard output, edit-click telemetry, ad visibility telemetry, prefilled builder round-trip, portal Chinese localization, structured data, and zero mobile overflow. The distribution verifier now also covers localized phrase-library article routes and `boundary_library_bridge_click`.
+- Validation passed: JS/service-worker syntax, stress-check/portal/root quality gates with zero warnings, stress-check app suite `13/13`, portal locale audit, sitemap XML parsing and uniqueness, both browser verifiers locally and on production, and exact Pages runs. Deployment commits: stress-check `18e552e`, portal `c17ed4a`, and root-domain `01f3333`; all completed successfully and the live core/portal sitemaps contain the library URL.
+- GSC submission of the live core sitemap still returns `403 Insufficient Permission`; discovery remains available through the live robots declaration and linked sitemaps.
+- Next Ralph measurement: compare `boundary_library_bridge/catalog_view -> library_view -> card_view/filter/search -> copy/edit -> boundary_script_template_load -> generate`, segmented by real mobile/search users. Expand the four-scenario reference set only when queries or copy/edit behavior identify a concrete missing situation.
 
 ### Session 489 (2026-07-25) - High-Intent Script Builder Distribution
 

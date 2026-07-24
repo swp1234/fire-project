@@ -125,6 +125,8 @@ async function run() {
                 locale: currentLocale,
                 title: document.querySelector('.cp-boundary-script-title')?.textContent,
                 href: document.querySelector('.cp-boundary-script-link')?.getAttribute('href'),
+                libraryHref: document.querySelector('.cp-boundary-library-link')?.getAttribute('href'),
+                libraryText: document.querySelector('.cp-boundary-library-link')?.textContent,
                 context: document.querySelector('.cp-boundary-script')?.getAttribute('data-script-context'),
                 scriptCount: document.querySelectorAll('.cp-boundary-script').length,
                 sprintCount: document.querySelectorAll('.cp-mobile-sprint').length,
@@ -144,6 +146,16 @@ async function run() {
         });
         await page.click('.cp-boundary-script-link');
         const communicationClickEvents = await trackedEvents(page);
+        await page.goto(`${origin}/portal/blog/ko/healthy-boundaries-guide.html`, {
+            waitUntil: 'domcontentloaded'
+        });
+        await page.waitForSelector('.cp-boundary-library-link');
+        await page.evaluate(() => {
+            document.querySelector('.cp-boundary-library-link')
+                ?.addEventListener('click', event => event.preventDefault(), { capture: true });
+        });
+        await page.click('.cp-boundary-library-link');
+        const communicationLibraryClickEvents = await trackedEvents(page);
         await page.goto(`${origin}/portal/blog/en/hsp-workplace-survival-guide.html`, {
             waitUntil: 'domcontentloaded'
         });
@@ -175,7 +187,7 @@ async function run() {
         const chineseBlog = localeReports.find(item => item.locale === 'zh');
 
         await page.goto(`${origin}/stress-response/?lang=en`, { waitUntil: 'domcontentloaded' });
-        await page.waitForSelector('#app-loader.hidden', { timeout: 5000 });
+        await page.waitForSelector('#app-loader.hidden', { state: 'attached', timeout: 5000 });
         await page.waitForSelector('#start-btn');
         await page.click('#start-btn', { force: true });
         for (let question = 0; question < 8; question += 1) {
@@ -213,6 +225,7 @@ async function run() {
             englishScriptEvents,
             communicationReports,
             communicationClickEvents,
+            communicationLibraryClickEvents,
             workplaceCommunication,
             unsafeRelationship,
             localeReports,
@@ -248,6 +261,9 @@ async function run() {
             if (!item.title || !item.href?.includes(`lang=${item.locale}`) || !item.href.includes('source=blog_communication_bridge')) {
                 failures.push(`${item.locale} communication bridge localization or attribution is incomplete`);
             }
+            if (!item.libraryText || !item.libraryHref?.includes(`lang=${item.locale}`) || !item.libraryHref.includes('source=blog_communication_bridge')) {
+                failures.push(`${item.locale} phrase-library bridge localization or attribution is incomplete`);
+            }
             if (item.context !== 'relationship') failures.push(`${item.locale} communication bridge context is ${item.context}`);
             if (item.sprintCount !== 0) failures.push(`${item.locale} generic revenue sprint competed with the communication bridge`);
             if (!item.events.includes('boundary_script_bridge_view')) failures.push(`${item.locale} communication bridge view was not tracked`);
@@ -255,6 +271,9 @@ async function run() {
         });
         if (!communicationClickEvents.includes('boundary_script_bridge_click')) {
             failures.push('standalone communication bridge click was not tracked');
+        }
+        if (!communicationLibraryClickEvents.includes('boundary_library_bridge_click')) {
+            failures.push('phrase-library bridge click was not tracked');
         }
         if (workplaceCommunication.context !== 'work' || !workplaceCommunication.href?.includes('context=work')) {
             failures.push(`workplace communication routing is wrong: ${JSON.stringify(workplaceCommunication)}`);
