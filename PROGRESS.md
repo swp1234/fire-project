@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-25 (Session 486: Stress Plan Distribution Expansion)
+> Current wrap-up: 2026-07-25 (Session 487: Stress Plan Tool Catalog Integration)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,17 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 487 (2026-07-25) - Stress Plan Tool Catalog Integration
+
+- Continued the same revenue-first Ralph loop without producing another article, quiz, or generator. Same-day GA4 still had no aggregated `stress_plan_*` rows and AdSense had not returned a current-day row, so this pass treated those as reporting delay rather than evidence to abandon the experiment.
+- Promoted the 7-day stress reset plan into the official [portal tools hub](E:/Fire%20Project/projects/portal/tools/index.html): it now occupies the first featured slot and the first full-catalog slot, both as crawlable static links with distinct `source=portal_tools_featured` and `source=portal_tools_catalog` attribution.
+- Added the plan to [portal app data](E:/Fire%20Project/projects/portal/js/app-data.js) as a first-class wellness tool with complete Korean plus 11 translated names/descriptions. This also makes the non-blog/non-test format discoverable through portal search, category filtering, recommendations, and other `APP_DATA` consumers.
+- Added the plan to the tools `ItemList` structured data and introduced `stress_plan_catalog_view` plus `stress_plan_catalog_click` events with placement and `daily_0_10` revenue-goal attribution. Existing generic featured/tool-card telemetry remains intact for comparison.
+- Extended [scripts/verify-stress-plan-distribution.js](E:/Fire%20Project/scripts/verify-stress-plan-distribution.js) to verify the tools hub in addition to the blog and stress-response funnels: Chinese localization on both cards, two placements, source attribution, JSON-LD inclusion, catalog view/click telemetry, and zero mobile overflow.
+- Validation passed: `node --check` for app data, all 12 plan catalog locales, portal hub locale audit, portal quality gate with zero warnings, and local browser distribution verification.
+- Deployment: pushed portal commit `d80019e` to `main`. Production browser verification passed on `dopabrain.com` for the localized tools hub, all 12 stress article bridges, and the complete stress-response result route; the live hub emitted both plan catalog events, the live ad initialized, and all checked surfaces had zero overflow or page errors.
+- Next Ralph measurement: after GA4 aggregation, compare `stress_plan_catalog_view`, `stress_plan_bridge_view`, and `stress_plan_cta_view` against their click and downstream `stress_plan_view/day_check/copy/print` events. The next change should target the measured drop-off rather than add another new content type.
 
 ### Session 486 (2026-07-25) - Stress Plan Distribution Expansion
 

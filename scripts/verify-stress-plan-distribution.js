@@ -68,6 +68,28 @@ async function run() {
     });
 
     try {
+        await page.goto(`${origin}/portal/tools/?lang=zh`, {
+            waitUntil: 'domcontentloaded'
+        });
+        await page.waitForFunction(() => document.querySelector('[data-plan-surface="featured"] .fc-name')?.textContent.includes('7天'));
+        const toolsHub = await page.evaluate(() => ({
+            featuredName: document.querySelector('[data-plan-surface="featured"] .fc-name')?.textContent,
+            catalogName: document.querySelector('[data-plan-surface="catalog"] .tc-name')?.textContent,
+            featuredHref: document.querySelector('[data-plan-surface="featured"]')?.getAttribute('href'),
+            catalogHref: document.querySelector('[data-plan-surface="catalog"]')?.getAttribute('href'),
+            placementCount: document.querySelectorAll('[data-app="stress-reset-plan"]').length,
+            itemListIncludesPlan: [...document.querySelectorAll('script[type="application/ld+json"]')]
+                .some(script => script.textContent.includes('stress-check/plan.html')),
+            overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
+        }));
+        const toolsHubEvents = await trackedEvents(page);
+        await page.evaluate(() => {
+            document.querySelector('[data-plan-surface="catalog"]')
+                ?.addEventListener('click', event => event.preventDefault(), { capture: true });
+        });
+        await page.click('[data-plan-surface="catalog"]');
+        const toolsHubClickEvents = await trackedEvents(page);
+
         await page.goto(`${origin}/portal/blog/en/workplace-stress-relief-guide.html`, {
             waitUntil: 'domcontentloaded'
         });
@@ -128,10 +150,30 @@ async function run() {
         }));
         const responseEvents = await trackedEvents(page);
 
-        const report = { englishBlog, englishEvents, localeReports, responseResult, responseEvents, errors };
+        const report = {
+            toolsHub,
+            toolsHubEvents,
+            toolsHubClickEvents,
+            englishBlog,
+            englishEvents,
+            localeReports,
+            responseResult,
+            responseEvents,
+            errors
+        };
         console.log(JSON.stringify(report, null, 2));
 
         const failures = [];
+        if (!toolsHub.featuredName?.includes('7天') || !toolsHub.catalogName?.includes('7天')) {
+            failures.push('Chinese tool hub localization did not render on both plan cards');
+        }
+        if (toolsHub.placementCount !== 2) failures.push(`expected two tool hub plan placements, received ${toolsHub.placementCount}`);
+        if (!toolsHub.featuredHref?.includes('source=portal_tools_featured')) failures.push('featured plan source attribution is missing');
+        if (!toolsHub.catalogHref?.includes('source=portal_tools_catalog')) failures.push('catalog plan source attribution is missing');
+        if (!toolsHub.itemListIncludesPlan) failures.push('structured tool catalog omits the stress plan');
+        if (toolsHub.overflow > 0) failures.push(`tools hub has ${toolsHub.overflow}px mobile overflow`);
+        if (!toolsHubEvents.includes('stress_plan_catalog_view')) failures.push('tool hub plan view was not tracked');
+        if (!toolsHubClickEvents.includes('stress_plan_catalog_click')) failures.push('tool hub plan click was not tracked');
         if (englishBlog.planCount !== 1) failures.push(`expected one English plan bridge, received ${englishBlog.planCount}`);
         if (englishBlog.sprintCount !== 0) failures.push('generic revenue sprint competed with the plan bridge');
         if (!englishBlog.href?.includes('focus=work') || !englishBlog.href.includes('lang=en')) {
