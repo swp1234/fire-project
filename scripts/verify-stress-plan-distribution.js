@@ -99,11 +99,19 @@ async function run() {
         const englishBlog = await page.evaluate(() => ({
             title: document.querySelector('.cp-stress-plan-title')?.textContent,
             href: document.querySelector('.cp-stress-plan-link')?.getAttribute('href'),
+            scriptText: document.querySelector('.cp-stress-script-link')?.textContent,
+            scriptHref: document.querySelector('.cp-stress-script-link')?.getAttribute('href'),
             planCount: document.querySelectorAll('.cp-stress-plan').length,
             sprintCount: document.querySelectorAll('.cp-mobile-sprint').length,
             overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
         }));
         const englishEvents = await trackedEvents(page);
+        await page.evaluate(() => {
+            document.querySelector('.cp-stress-script-link')
+                ?.addEventListener('click', event => event.preventDefault(), { capture: true });
+        });
+        await page.click('.cp-stress-script-link');
+        const englishScriptEvents = await trackedEvents(page);
 
         const localeReports = [];
         for (const locale of ['ko', 'en', 'zh', 'hi', 'ru', 'ja', 'es', 'pt', 'id', 'tr', 'de', 'fr']) {
@@ -156,6 +164,7 @@ async function run() {
             toolsHubClickEvents,
             englishBlog,
             englishEvents,
+            englishScriptEvents,
             localeReports,
             responseResult,
             responseEvents,
@@ -179,7 +188,11 @@ async function run() {
         if (!englishBlog.href?.includes('focus=work') || !englishBlog.href.includes('lang=en')) {
             failures.push(`English workplace personalization is wrong: ${englishBlog.href}`);
         }
+        if (!englishBlog.scriptHref?.includes('context=work') || !englishBlog.scriptHref.includes('source=blog_stress_bridge')) {
+            failures.push(`English workplace script routing is wrong: ${englishBlog.scriptHref}`);
+        }
         if (!englishEvents.includes('stress_plan_bridge_view')) failures.push('English bridge view was not tracked');
+        if (!englishScriptEvents.includes('boundary_script_bridge_click')) failures.push('English script bridge click was not tracked');
         if (!chineseBlog?.title?.includes('7天')) failures.push('Chinese bridge copy did not render');
         localeReports.forEach(item => {
             if (!item.title || !item.href?.includes(`lang=${item.locale}`)) {

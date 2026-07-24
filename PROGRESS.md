@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-25 (Session 487: Stress Plan Tool Catalog Integration)
+> Current wrap-up: 2026-07-25 (Session 488: Boundary & Request Script Builder)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,20 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 488 (2026-07-25) - Boundary & Request Script Builder
+
+- Continued the revenue-first Ralph loop with a fresh AdSense and GA4 read. Yesterday closed at `$0.06` from `142` page views / `89` impressions / `0` clicks and `$0.40` Page RPM; the latest seven days remained `$0.63`, while today had only one reported page view at read time. No natural `stress_plan_*` events had aggregated yet, so there was not enough evidence to optimize the new plan funnel by event drop-off.
+- Reconfirmed the useful acquisition cluster instead of switching topics: recent `/stress-check/` traffic included four US Bing desktop views with four engaged sessions and `407s` engagement, while `/stress-response/` had ten US Bing tablet views with `302s` engagement from one active user. The next content therefore stayed within a proven stress intent but addressed a distinct task.
+- Added [projects/stress-check/script.html](E:/Fire%20Project/projects/stress-check/script.html), a new non-blog/non-test format: a private boundary and request conversation-script builder for work, relationships, family, and school. Users choose a warm, clear, or firm tone; enter observable facts, one concrete request, and their own next action; then generate, copy, print, reset, or return to the stress plan.
+- Implemented complete UI, examples, generated labels, safety wording, and plan routing in all 12 supported languages. Drafts stay in local storage; user content is rendered with DOM `textContent`, not HTML. The page clearly states that it cannot predict another person's response and is not legal, medical, workplace, or relationship-safety advice, with an explicit violence/stalking/coercion/retaliation boundary.
+- Added a real AdSense surface whose `boundary_script_ad_impression` event fires only when the ad region becomes visible. Added `boundary_script_view`, validation, customization, example, generate, copy, print, reset, and plan-click telemetry with language, context, tone, entry source, and `daily_0_10` attribution.
+- Connected the format to the 7-day plan's day-four action with a localized CTA and `stress_plan_script_click`. Added it as a first-class portal wellness tool in all 12 languages, a crawlable tools-catalog card, ItemList structured data, full/root/core sitemap coverage, and v4 service-worker precaching.
+- Added direct distribution from work and relationship stress articles: their existing specialized stress bridge now offers a localized difficult-conversation builder link carrying context and `source=blog_stress_bridge`, measured by `boundary_script_bridge_click`. Other stress pages keep the single plan action so unrelated intent is not diluted.
+- Added [scripts/verify-boundary-script.js](E:/Fire%20Project/scripts/verify-boundary-script.js). Local and live Playwright verification covered all 12 languages, four generated sections, plan round-trip routing, one owned ad surface, clipboard output, catalog localization, structured-data inclusion, zero mobile overflow, and an injected HTML/onerror payload remaining inert. The existing distribution verifier now also covers the English workplace builder route and click event.
+- Validation passed: JS/service-worker syntax, sitemap uniqueness, stress-check quality gate and app suite `13/13`, portal/root quality gates with zero warnings, portal locale audit, the boundary-builder browser verifier, and the expanded stress distribution verifier.
+- Deployment commits: stress-check `7330a5e` on `master`, portal catalog `c1609b1` plus article distribution `64f9090` on `main`, and root-domain sitemap `43dc17b` plus Pages retries through `5e1937e` on `main`. The builder and catalog passed production browser verification; final root sitemap/article-bridge propagation was still queued behind a transient GitHub Pages API `504` at log time.
+- Next Ralph measurement: compare `boundary_script_bridge_click` and tools-catalog entries against `boundary_script_view -> generate -> copy/print -> plan_click`, alongside plan usage and incremental ad page views. Do not create another conversation tool until natural traffic identifies the stronger entry surface or a concrete builder drop-off.
 
 ### Session 487 (2026-07-25) - Stress Plan Tool Catalog Integration
 
