@@ -25,6 +25,8 @@ Approved non-blog, non-quiz formats:
 
 The first production experiment is `/stress-check/plan.html`: a private, printable 7-day plan generated from the strongest stress category. Its decision events are `stress_plan_click`, `stress_plan_view`, `stress_plan_customize`, `stress_plan_day_check`, `stress_plan_copy`, `stress_plan_print`, and `stress_plan_return`. Expansion requires real plan entry and completion evidence; absence of evidence means improve the winner funnel rather than create another plan.
 
+Distribution is part of the experiment, not a separate afterthought. Stress and burnout editorial pages receive one localized action-plan bridge near the first paragraph instead of a competing generic mobile sprint, while `/stress-response/` exposes the plan after a completed result. The distribution events are `stress_plan_bridge_view`, `stress_plan_bridge_click`, and `stress_plan_cta_view`. This tests whether a useful second pageview can lift mobile monetization without producing another article cluster.
+
 ## Project Overview
 
 **10-Year Wealth Project: AI 기반 앱/게임/웹 수익 파이프라인**

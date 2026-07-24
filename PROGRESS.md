@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-25 (Session 485: Revenue-First Stress Plan Content Experiment)
+> Current wrap-up: 2026-07-25 (Session 486: Stress Plan Distribution Expansion)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,17 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 486 (2026-07-25) - Stress Plan Distribution Expansion
+
+- Continued the active revenue Ralph loop rather than treating the first plan deployment as completion. Fresh AdSense platform detail showed the last seven days at `$0.63 / 1,411` page views, with mobile Page RPM `$0.81` versus desktop `$0.32`; mobile useful-page expansion is therefore the immediate monetization lever.
+- GA4 confirmed stress intent is distributed beyond the original app. `/stress-check/` received `15` Bing page views from `13` users with `10` engaged sessions, while `/stress-response/` had search and direct engagement across Bing, cn.bing.com, Ecosia, Naver, and Direct. Stress-related multilingual articles added another pool of landings.
+- Added a dedicated dynamic action-plan bridge in [projects/portal/js/cross-promo.js](E:/Fire%20Project/projects/portal/js/cross-promo.js). Stress, burnout, and overwhelm articles now receive localized plan copy in all 12 supported languages near the first paragraph. Workplace, finance, relationship, and health slugs preserve a matching plan focus, and the specialized bridge replaces the competing generic mobile revenue sprint.
+- Added `stress_plan_bridge_view` and `stress_plan_bridge_click` with locale, focus, surface, destination, and `daily_0_10` revenue-goal attribution. Plan entry URLs preserve `lang`, `focus`, `level`, and `source=blog_stress_bridge`.
+- Extended [projects/stress-response](E:/Fire%20Project/projects/stress-response) with a 12-language result-to-plan action, `stress_plan_cta_view` plus click attribution, and mobile-safe one-column related cards. Removed the random unsupported percentile from this second stress surface.
+- Added [scripts/verify-stress-plan-distribution.js](E:/Fire%20Project/scripts/verify-stress-plan-distribution.js). It verifies all 12 localized stress-management bridges, English workplace focus routing, absence of a competing generic sprint, bridge telemetry, a full stress-response result flow, result CTA routing, removal of the unsupported percentile, and zero mobile overflow.
+- Validation passed: portal and stress-response syntax; all locale JSON; quality gates; portal hub audit; stress-response app suite `13/13`; the distribution browser verifier across all 12 locales; sitemap XML parsing; and repository diff checks.
+- Next Ralph measurement: compare `stress_plan_bridge_view -> stress_plan_bridge_click` and `stress_plan_cta_view -> stress_plan_click -> stress_plan_view`, then watch mobile pageviews/impressions and Page RPM. Do not create a second new generator until this distribution loop produces real non-verification users or identifies a specific drop-off.
 
 ### Session 485 (2026-07-25) - Revenue-First Stress Plan Content Experiment
 
