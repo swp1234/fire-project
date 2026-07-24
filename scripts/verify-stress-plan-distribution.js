@@ -54,9 +54,12 @@ function trackedEvents(page) {
 }
 
 async function run() {
-    const server = createServer();
-    await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
-    const origin = `http://127.0.0.1:${server.address().port}`;
+    const production = process.argv.includes('--production');
+    const server = production ? null : createServer();
+    if (server) {
+        await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+    }
+    const origin = production ? 'https://dopabrain.com' : `http://127.0.0.1:${server.address().port}`;
     const browser = await chromium.launch({ headless: true });
     const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
     const errors = [];
@@ -157,7 +160,9 @@ async function run() {
         console.log('PASS: stress plan distribution verification');
     } finally {
         await browser.close();
-        await new Promise(resolve => server.close(resolve));
+        if (server) {
+            await new Promise(resolve => server.close(resolve));
+        }
     }
 }
 
