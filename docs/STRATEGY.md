@@ -3,6 +3,28 @@
 > 이 문서는 CLAUDE.md에서 분리된 상세 전략 문서입니다.
 > 수익 모델, 글로벌 전략, 프로젝트 비전 등을 포함합니다.
 
+## 2026-07-25 Revenue-First Content Portfolio
+
+Daily revenue is constrained by traffic quality and crawl/index coverage, not by raw page count. The 30-day AdSense baseline is `$2.52 / 5,617 page views` (`$0.45` Page RPM), while the country split is materially stronger in the United States (`$4.69`) and South Korea (`$1.81`) than in China (`$0.23`) or scan-like Singapore traffic (`$0.01`). Google organic acquisition is almost absent, and Search Console reports the large submitted sitemaps as `0` indexed even though the root page itself passes URL inspection.
+
+Until that changes, Ralph content loops use this order:
+
+1. Extend a proven landing page into a second useful pageview.
+2. Prefer content that produces a saved artifact or repeat visit.
+3. Send a small, curated crawl queue alongside the full inventory.
+4. Measure the new format before translating or cloning it into a cluster.
+5. Stop treating more blog URLs as the default growth action.
+
+Approved non-blog, non-quiz formats:
+
+- Personalized action plans and decision aids.
+- Printable worksheets, scripts, checklists, and templates.
+- Trackers and short guided challenges with local progress.
+- Reference libraries and comparison tables with update ownership.
+- Calculators and generators that solve a specific recurring task.
+
+The first production experiment is `/stress-check/plan.html`: a private, printable 7-day plan generated from the strongest stress category. Its decision events are `stress_plan_click`, `stress_plan_view`, `stress_plan_customize`, `stress_plan_day_check`, `stress_plan_copy`, `stress_plan_print`, and `stress_plan_return`. Expansion requires real plan entry and completion evidence; absence of evidence means improve the winner funnel rather than create another plan.
+
 ## Project Overview
 
 **10-Year Wealth Project: AI 기반 앱/게임/웹 수익 파이프라인**

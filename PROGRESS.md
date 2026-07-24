@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-22 (Session 477: Stress-Aware Habit Content Expansion)
+> Current wrap-up: 2026-07-25 (Session 485: Revenue-First Stress Plan Content Experiment)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,19 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 485 (2026-07-25) - Revenue-First Stress Plan Content Experiment
+
+- Resumed the Ralph loop with daily revenue as the primary constraint. The isolated launcher correctly avoided Claude state but could not open a nested interactive process (`stdin is not a terminal`); `npm run adsense:keepalive` passed for `accounts/pub-3600813755953882`.
+- Fresh 30-day AdSense data showed `$2.52` from `5,617` page views, `3,743` impressions, and `45` clicks, for `$0.45` Page RPM and about `$0.08/day`. Country RPM was `$4.69` in the United States, `$1.81` in South Korea, `$0.23` in China, and `$0.01` across scan-like Singapore traffic. The immediate target is therefore a small increase in real high-value pageviews, not more raw bot-like volume.
+- Acquisition diagnosis found only `3` Google organic sessions in GA4 over 28 days. GSC reported `0` indexed for submitted sitemaps containing `174`, `1,770`, and `1,903` URLs; URL inspection passed the root page, classified `/brain-type/` as `Crawled - currently not indexed`, and did not know the inspected K-pop article. Bing remained the usable search signal.
+- Selected `/stress-check/` as the first expansion surface because Bing organic delivered `12` sessions, `9` engaged sessions, and `2,768s` total engagement over 28 days, the strongest observed search landing. This established a new content type rather than another blog or quiz.
+- Added [projects/stress-check/plan.html](E:/Fire%20Project/projects/stress-check/plan.html), a 12-language private interactive and printable 7-day stress reset worksheet. Stress results pass the highest category plus load level into the plan; users can customize, check days, persist progress locally, copy plain text, print, and return to the test.
+- Replaced the misleading fake “watch an ad for AI analysis” overlay with the plan CTA and removed the unsupported percentile statistic. Added a real in-plan Auto ad surface and dedicated `stress_plan_*` entry, customization, completion, copy, print, return, and ad-view telemetry. Explicit `?lang=` selection now works in the stress app, and checklist state persists across language changes.
+- Added WHO and CDC source boundaries and clear educational/non-diagnostic escalation copy. Refreshed stress metadata and the v3 service worker, including correcting production precache paths from domain-root absolute paths to scope-relative paths.
+- Added [scripts/verify-stress-plan.js](E:/Fire%20Project/scripts/verify-stress-plan.js). Browser verification passed for seven rendered days, personalization, English/Korean switching, local persistence, mobile zero overflow, one AdSense surface, result-to-plan routing, and zero page errors. Stress quality gate passed with zero warnings and the app suite passed `13/13`.
+- Added [projects/root-domain/sitemap-core.xml](E:/Fire%20Project/projects/root-domain/sitemap-core.xml), a non-destructive curated queue of `24` proven/high-value URLs, and advertised it from `robots.txt` while leaving the full inventories intact. Root and portal sitemaps now include the plan URL with `2026-07-25` lastmod.
+- Next Ralph decision: after deployment, submit `sitemap-core.xml`, then measure `stress_plan_click -> stress_plan_view -> stress_plan_day_check/copy/print` and incremental AdSense pageviews. The next non-blog formats to test only after evidence are a boundary-script builder, printable workplace stress worksheet, focused guided challenge, and maintained comparison/reference pages.
 
 ### Session 484 (2026-07-22) - ZH Habit Tracker First-Habit Activation Repair
 
