@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-27 (Session 492: MBTI Couple Conversation Deck)
+> Current wrap-up: 2026-07-27 (Session 496: Palworld Breeding Notebook + Game-Intent Bridge)
 
 ## 프로젝트 규모
 
@@ -917,3 +917,14 @@
 - Added a prominent four-card Palworld Command Center to the first content position on `portal/games/`, routing visitors to the field guide, base planner, server console, and troubleshooter. Added `palworld_games_rail_view/click` measurement. Connected the base planner bidirectionally with the other three Palworld tools, added it to `app-data.js` and the tools catalog, and raised the catalog ItemList count to 26.
 - Validation passed: JS syntax, JSON-LD parsing, catalog schema count, sitemap XML/uniqueness, portal/root quality gates with zero warnings, and a local 390px Playwright flow. The 23-worker continuous/materials/transport scenario produced exactly 23 assigned workers across seven roles, prioritized transport at 8 versus a maximum 4 for other roles, rendered four zones and five checks, showed the high-load warning, copied successfully, exposed all 12 localized titles, and had zero overflow. The games hub showed four Palworld cards and emitted both rail events.
 - Deployment: pushed portal commit `1f8c019` and root-domain commit `683cb96`. The unrelated attachment clarity-board files remained excluded and preserved.
+
+### Session 496 (2026-07-27) - Palworld Breeding Notebook + Game-Intent Bridge
+
+- Closed the user's final Palworld expansion pass without starting another Ralph loop. AdSense remained below the priority threshold at `$0.08` today, `$0.06` yesterday, `$0.64` over seven days, `$2.16` this month, and `$2.48` over 30 days, so the sub-`$0.10/day` problem is not yet solved.
+- Used recent game-content behavior to strengthen distribution instead of publishing another generic article. The best signal was the Chinese 2048 strategy guide from organic China at `4` views / `4` users / `2` engaged sessions / `172s`; most other game rows were sparse or Singapore Direct scan-like traffic.
+- Added `portal/tools/palworld-breeding-notebook.html`, a sixth non-blog/non-test repeat-use content format. Users can maintain private breeding projects with parent pairs, desired traits, planned and hatched egg counts, status, and notes; search and filter projects; copy summaries; duplicate or delete experiments; and export/import a JSON backup.
+- Kept all project text browser-local and out of URLs and analytics. Imported fields are validated, clamped, and capped at 200 projects; rendering uses text nodes so HTML-shaped project, parent, trait, and note input remains inert. Only counts, status, action, locale, and surface metadata are emitted through `palworld_breeding_*` events.
+- Added a specialized three-action Palworld bridge to relevant game/strategy blog routes. It replaces competing scan-recovery and generic revenue-sprint surfaces, localizes priority markets, and routes readers to the field guide, base planner, or breeding notebook with `palworld_game_bridge_view/click` attribution.
+- Expanded the first-content Games hub rail from four to five Palworld cards and connected the notebook with the field guide, base planner, server console, and troubleshooter. Added the notebook as a 12-language first-class `app-data.js` entry, tools-catalog card and ItemList position `27`, plus portal/full/core sitemap coverage.
+- Validation passed: JS syntax, JSON-LD ItemList count `27`, portal sitemap `1,934/1,934` unique URLs, root sitemaps `191/191` and `34/34` unique URLs, portal/root quality gates with zero warnings, and a local Playwright journey. The browser run verified inert hostile input, 3-egg auto-completion, decrement-to-active recovery, duplication, safe import and reload persistence, all 12 titles, Chinese three-link blog routing without a competing sprint, five Games hub cards, and zero horizontal overflow.
+- Deployment commits: portal `64404d9` and root-domain `5c8bcfa`. The unrelated attachment clarity-board files remained preserved and excluded. Work was wrapped at the user's request; no additional Ralph production loop was started.
