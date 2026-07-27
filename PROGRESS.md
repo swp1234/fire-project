@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-07-25 (Session 491: 5-Minute Sensory Reset Card)
+> Current wrap-up: 2026-07-27 (Session 492: MBTI Couple Conversation Deck)
 
 ## 프로젝트 규모
 
@@ -51,6 +51,20 @@
 ## 세션 기록
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
+
+### Session 492 (2026-07-27) - MBTI Couple Conversation Deck
+
+- Restarted the Ralph loop from fresh revenue evidence. AdSense reported `$0.08` today, `$0.06` yesterday, `$0.64` over the last seven days, and `$2.48` over the last 30 days. The 14 completed days from July 13-26 generated `$1.14`, or about `$0.08/day`, from `2,995` page views / `1,547` impressions / `22` clicks. The sub-$0.10 daily problem therefore remains unresolved.
+- Confirmed that acquisition, not ad pricing, is still the main constraint. In the last 30 days, US mobile produced `$0.29` from `52` page views at `$5.63` Page RPM, Korean mobile `$0.43` from `153` page views at `$2.80`, and US desktop `$0.49` at `$4.37`. Singapore desktop again showed scan-like volume (`2,562` page views, `$0.01`, `$0.01` RPM) and was excluded as demand evidence.
+- Crossed 28-day GA4 mobile non-direct acquisition with that monetization. `/hsp-test/` remained strongest at `42` views / `16` active users / `13` engaged sessions / `1,932s`, but the just-launched sensory card had only three result CTA views and zero clicks, so expanding it would be premature. The Korean/Naver MBTI-love cluster supplied a distinct next opportunity: the compatibility guide had `9` views / `8` active users / `4` engaged sessions, while `/mbti-love/` had `7` views / `4` active users / `4` engaged sessions / `394s`. The 90-day URL-prefix GSC property returned only three mobile query rows and no quick wins, so Naver and GA4 behavior carried more weight than sparse Google data.
+- Added [projects/mbti-love/deck.html](E:/Fire%20Project/projects/mbti-love/deck.html), a fifth non-blog/non-test format: a private 12-card couple conversation deck. Users can mix all cards or choose playful, closer, or repair mode; each mode shuffles without repeats and exposes one question at a time. Cards can be saved locally, copied, shared, or printed, and saved questions update immediately across languages.
+- Implemented complete UI, questions, listening notes, safety copy, SEO metadata, FAQ/WebApplication structured data, and responsive behavior in all 12 supported languages. Optional `mbti` context is carried from the test result without changing or scoring the questions. No answers are requested, transmitted, or stored; only favorite card IDs remain in local storage.
+- Kept relationship-safety boundaries explicit: MBTI is framed only as a conversation starter, never as compatibility proof or a judgment of intent. Skipping is always allowed, repair prompts focus on one observable event, and coercion, threats, violence, monitoring, or feeling unsafe route users away from direct repair attempts toward trusted and appropriate local professional support.
+- Added localized deck CTAs to the MBTI-love intro and all 12 result languages, preserving language and result type. Added specialized localized article bridges for seven live MBTI/love-compatibility routes, replacing the generic sprint, plus a first-class 12-language portal catalog entry, ItemList position `22`, portal/full/core sitemap coverage, and service-worker cache v3.
+- Added end-to-end telemetry for deck view, mode select, reset, card view/next, session completion, favorite, copy, native/fallback share, print, test return, viewport-qualified ad impression, MBTI intro/result CTA view/click, article bridge view/click, and catalog view/click under `daily_0_10` attribution.
+- Added [scripts/verify-couple-deck.js](E:/Fire%20Project/scripts/verify-couple-deck.js). Local and production Playwright verification covers all 12 localized deck renders, one owned ad surface, structured data, MBTI context and test-return routing, four unique repair cards, completion, favorite persistence, clipboard and print actions, ad telemetry, a complete German MBTI test-to-result flow, seven localized article bridges without a competing sprint, Chinese catalog localization, and zero mobile overflow.
+- Validation passed: JS/service-worker syntax, mbti-love/portal/root quality gates with zero warnings, portal locale audit, the full harness workflow, analytics smoke `9/9`, MBTI-love runtime smoke, sitemap parsing/uniqueness (`1,929` portal / `186` full root / `29` core, zero duplicates), local verification, exact Pages builds, and production verification. Deployment commits: mbti-love `a2ca95b`, portal `fee9692`, and root-domain `2903bc9`.
+- Next Ralph measurement: compare `couple_deck_cta/bridge/catalog_view -> couple_deck_view -> mode_select -> card_view -> session_complete/favorite/copy/share/print`, led by Korean mobile Naver users. Compare deck ad impressions and return use against the original MBTI-love path before expanding beyond 12 cards; keep the sensory reset experiment unchanged until it receives real clicks.
 
 ### Session 491 (2026-07-25) - 5-Minute Sensory Reset Card
 
