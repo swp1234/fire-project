@@ -68,6 +68,7 @@ SOUNDSCAPE_*.txt
 nul
 
 # Harness run artifacts (generated)
+.codex-artifacts/
 logs/harness-artifacts/
 logs/harness-workflow/
 logs/indexing-audit/

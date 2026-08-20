@@ -1,6 +1,8 @@
 const { chromium } = require('playwright');
 
 const origin = process.argv[2] || 'http://127.0.0.1:4173';
+const originHost = new URL(origin).hostname;
+const isLocal = ['127.0.0.1', 'localhost'].includes(originHost);
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -18,8 +20,8 @@ function assert(condition, message) {
   });
   await page.route('**/*', (route) => {
     const url = new URL(route.request().url());
-    if (!['127.0.0.1', 'localhost'].includes(url.hostname)) return route.abort();
-    if (url.pathname.startsWith('/portal/js/')) return route.abort();
+    if (url.hostname !== originHost) return route.abort();
+    if (isLocal && url.pathname.startsWith('/portal/js/')) return route.abort();
     return route.continue();
   });
 
