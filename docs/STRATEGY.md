@@ -3,6 +3,18 @@
 > 이 문서는 CLAUDE.md에서 분리된 상세 전략 문서입니다.
 > 수익 모델, 글로벌 전략, 프로젝트 비전 등을 포함합니다.
 
+## 2026-08-20 Focused Portfolio Reset
+
+The portfolio is no longer managed as a 120-app / 1,900-URL catalog. Google Search Console reports the submitted portal and blog inventories as `0` indexed, while GA4 and AdSense show that real value is concentrated in a small set of stress, HSP, brain, and localized editorial routes. The operating model is now **focus first, archive second**.
+
+1. The root homepage promotes only six evidence-backed paths: Stress Check, HSP, 2048 Coach, Brain Type, IQ, and K-pop Role Roster.
+2. The full portal remains available for existing users and backlinks, but no longer controls the root discovery experience.
+3. Submitted sitemaps contain only URLs with verified organic acquisition, deep engagement, or monetization support. Low-performance URLs may remain live but are excluded from active discovery and crawl queues.
+4. A route returns to the focused portfolio only after it earns measurable organic sessions or meaningful downstream action; page count, automated test traffic, and scan-like Direct traffic do not qualify.
+5. The primary growth KPI is qualified Organic Search pageviews per session in revenue-capable markets, not total sessions. Singapore desktop scans and similar zero-value spikes are excluded from decisions.
+
+Current baseline: `$2.97` AdSense earnings over 30 days, `$0.70` over seven days, `681` Organic Search sessions over 28 days, and only `6` GSC clicks from the root property in the latest available 28-day window.
+
 ## 2026-07-25 Revenue-First Content Portfolio
 
 Daily revenue is constrained by traffic quality and crawl/index coverage, not by raw page count. The 30-day AdSense baseline is `$2.52 / 5,617 page views` (`$0.45` Page RPM), while the country split is materially stronger in the United States (`$4.69`) and South Korea (`$1.81`) than in China (`$0.23`) or scan-like Singapore traffic (`$0.01`). Google organic acquisition is almost absent, and Search Console reports the large submitted sitemaps as `0` indexed even though the root page itself passes URL inspection.

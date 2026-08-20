@@ -4,7 +4,7 @@
 
 ---
 
-> Current wrap-up: 2026-08-01 (Session 497: 2048 Board Analyzer + Intent-Matched Distribution)
+> Current wrap-up: 2026-08-20 (Session 503: Revenue Plateau Reset + Focused Crawl Portfolio)
 
 ## 프로젝트 규모
 
@@ -49,6 +49,17 @@
 ---
 
 ## 세션 기록
+
+### Session 503 (2026-08-20) - Revenue Plateau Reset + Focused Crawl Portfolio
+
+- Recovered the AdSense OAuth token after `invalid_grant` and re-established a healthy keepalive. The compact baseline is `$0.09` today, `$0.09` yesterday, `$0.70` over seven days, `$2.03` month-to-date, and `$2.97` over 30 days. The site remains `READY` with Auto ads enabled and no policy issues; payment is still held by the separate address-PIN verification alert.
+- Re-read GA4 for `2026-07-23..2026-08-19` against the prior 28 days. Organic Search increased from `610` to `681` sessions and average session duration rose from `176s` to `208s`, while `9,909` Singapore desktop Direct sessions and the August 6 AdSense spike were treated as scan noise. Verified organic paths were Stress Check, Chinese 2048/HSP, Korean HSP/brain training, English K-pop, and Japanese brain/reaction content.
+- GSC confirmed that Google discovery remains the central bottleneck: only the root produced meaningful clicks (`6`), while the submitted root, portal, and blog sitemaps still reported `0` indexed despite `1940` portal URLs. The issue is portfolio dilution rather than lack of pages.
+- Rebuilt the root homepage around three primary jobs (`Stress Check`, `HSP Test`, `2048 Coach`) and three supporting winners (`Brain Type`, `IQ Test`, `K-pop Role Roster`). Removed the dynamic popularity grid, regional rail, stats vanity block, and 60+ link directory from the main discovery path; the full portal remains available as a deliberately secondary archive.
+- Updated SEO copy, structured navigation, FAQ claims, PWA metadata, service-worker cache, event attribution, and all 12 root locales. Added `scripts/verify-root-focus.js` for Korean/Chinese localization, focused routing, schema validity, legacy-catalog removal, runtime errors, and mobile overflow.
+- Replaced the submitted inventory with `42` unique high-confidence URLs split across root apps (`18`), portal hubs/tools (`7`), and verified editorial winners (`17`); `sitemap-core.xml` now holds an 11-URL recovery queue. Root and portal robots now advertise only the focused root sitemap. Existing low-performance URLs remain live but are no longer promoted or submitted.
+- Fixed broken `/privacy-policy.html` links in the Stress plan/script/library and HSP sensory reset. Validation passed: four repository quality gates with zero warnings, Stress `13/13`, HSP `14/14`, analytics harness, 12-locale JSON, all sitemap XML, six JSON-LD blocks, focused Playwright rendering, and indexing inventory `42/42` with zero blockers or high-risk URLs.
+- Next measurement: compare `root_view -> root_cta_click/root_pick_click` by `surface`, then monitor GSC crawl/index movement for the 42-URL queue and Organic Search pageviews per session. Do not restore archive links to the homepage unless they earn organic or monetization evidence.
 
 > Older detailed session logs were archived to [PROGRESS-ARCHIVE-2026-03-TO-2026-06.md](E:/Fire%20Project/docs/archive/PROGRESS-ARCHIVE-2026-03-TO-2026-06.md) on 2026-06-06 so this active file stays lightweight for Codex and AI-agent startup context.
 
