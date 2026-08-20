@@ -3,12 +3,17 @@
 const { chromium } = require('playwright');
 const path = require('path');
 const fs = require('fs');
+const http = require('http');
 
 const GAME_DIRS = [
   'snake-game', 'flappy-bird', 'minesweeper', 'maze-runner', 'reaction-test',
   'pong-game', 'zigzag-runner', 'color-memory', 'stack-tower', 'sky-runner',
   'emoji-merge', 'idle-clicker', 'block-puzzle', 'brick-breaker', 'puzzle-2048',
   'memory-card', 'typing-speed', 'word-guess', 'word-scramble', 'road-shooter'
+];
+
+const FOCUSED_DIRS = [
+  'stress-check', 'hsp-test', 'puzzle-2048', 'brain-type', 'iq-test', 'portal'
 ];
 
 const PROJECT_ROOT = path.resolve(__dirname, '..');
@@ -20,6 +25,14 @@ const TRACE_MODE = process.env.HARNESS_TRACE || 'failure';
 const RUN_ID = new Date().toISOString().replace(/[:.]/g, '-');
 const ARTIFACT_ROOT = path.join(PROJECT_ROOT, 'logs', 'harness-artifacts', 'runtime', RUN_ID);
 const DEFAULT_RESULTS_PATH = path.join(PROJECT_ROOT, 'logs', 'harness-artifacts', 'runtime', 'latest-results.json');
+const MIME_TYPES = {
+  '.css': 'text/css; charset=utf-8', '.gif': 'image/gif',
+  '.html': 'text/html; charset=utf-8', '.ico': 'image/x-icon',
+  '.jpeg': 'image/jpeg', '.jpg': 'image/jpeg',
+  '.js': 'application/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8',
+  '.png': 'image/png', '.svg': 'image/svg+xml', '.txt': 'text/plain; charset=utf-8',
+  '.webmanifest': 'application/manifest+json; charset=utf-8', '.xml': 'application/xml; charset=utf-8',
+};
 
 // Error patterns that indicate a crash
 const CRASH_PATTERNS = [
@@ -65,6 +78,53 @@ function getResultsPath() {
   return path.isAbsolute(process.env.RUNTIME_RESULTS_PATH)
     ? process.env.RUNTIME_RESULTS_PATH
     : path.join(PROJECT_ROOT, process.env.RUNTIME_RESULTS_PATH);
+}
+
+function resolveStaticFile(urlPath) {
+  const decoded = decodeURIComponent(urlPath.split('?')[0]);
+  const normalized = path.posix.normalize(decoded).replace(/^\/+/, '');
+  if (normalized.startsWith('..')) return null;
+  let target = path.resolve(PROJECTS_DIR, normalized);
+  if (!target.startsWith(PROJECTS_DIR) || !fs.existsSync(target)) return null;
+  if (fs.statSync(target).isDirectory()) target = path.join(target, 'index.html');
+  return fs.existsSync(target) && fs.statSync(target).isFile() ? target : null;
+}
+
+async function startStaticServer() {
+  const server = http.createServer((request, response) => {
+    const filePath = resolveStaticFile(request.url || '/');
+    if (!filePath) {
+      response.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+      response.end('Not Found');
+      return;
+    }
+    response.writeHead(200, {
+      'Cache-Control': 'no-store',
+      'Content-Type': MIME_TYPES[path.extname(filePath).toLowerCase()] || 'application/octet-stream',
+    });
+    response.end(fs.readFileSync(filePath));
+  });
+  let port = 35000 + Math.floor(Math.random() * 10000);
+  for (let attempt = 0; attempt < 20; attempt += 1) {
+    try {
+      await new Promise((resolve, reject) => {
+        const onError = (error) => reject(error);
+        server.once('error', onError);
+        server.listen(port, '127.0.0.1', () => {
+          server.removeListener('error', onError);
+          resolve();
+        });
+      });
+      break;
+    } catch (error) {
+      if (error.code !== 'EADDRINUSE' || attempt === 19) throw error;
+      port += 1;
+    }
+  }
+  return {
+    origin: `http://127.0.0.1:${port}`,
+    close: () => new Promise((resolve) => server.close(resolve)),
+  };
 }
 
 async function collectBufferedDiagnostics(page) {
@@ -126,6 +186,10 @@ function getAllApps() {
 
 function resolveApps(arg) {
   if (arg === 'all') return getAllApps();
+  if (arg === 'focused') return FOCUSED_DIRS.filter((app) => {
+    const indexPath = path.join(PROJECTS_DIR, app, 'index.html');
+    return fs.existsSync(indexPath);
+  });
   if (arg === 'games') return GAME_DIRS.filter(g => {
     const idx = path.join(PROJECTS_DIR, g, 'index.html');
     return fs.existsSync(idx);
@@ -133,11 +197,11 @@ function resolveApps(arg) {
   return [arg];
 }
 
-async function testApp(browser, appName) {
+async function testApp(browser, appName, localOrigin) {
   const localPath = path.join(PROJECTS_DIR, appName, 'index.html');
   const hasLocal = fs.existsSync(localPath);
   const url = hasLocal
-    ? `file:///${localPath.replace(/\\/g, '/')}`
+    ? `${localOrigin}/${appName}/`
     : `https://dopabrain.com/${appName}/`;
 
   const context = await browser.newContext({
@@ -150,6 +214,23 @@ async function testApp(browser, appName) {
     await context.tracing.start({ screenshots: true, snapshots: true, sources: true, title: appName });
   }
   const page = await context.newPage();
+
+  await page.route('https://**/*', async (route) => {
+    const url = route.request().url();
+    if (/googletagmanager|google-analytics|googlesyndication|doubleclick|fundingchoicesmessages/.test(url)) {
+      await route.fulfill({ status: 200, contentType: 'application/javascript', body: '' });
+      return;
+    }
+    if (url.includes('fonts.googleapis.com')) {
+      await route.fulfill({ status: 200, contentType: 'text/css', body: '' });
+      return;
+    }
+    if (url.includes('fonts.gstatic.com')) {
+      await route.fulfill({ status: 204, body: '' });
+      return;
+    }
+    await route.continue();
+  });
 
   const errors = [];
   let crashed = false;
@@ -168,7 +249,7 @@ async function testApp(browser, appName) {
 
   // Collect page errors (uncaught exceptions)
   page.on('pageerror', err => {
-    errors.push({ phase: 'pageerror', text: err.message });
+    errors.push({ phase: 'pageerror', text: err.stack || err.message });
   });
 
   // Page crash
@@ -229,7 +310,7 @@ async function testApp(browser, appName) {
 async function main() {
   const arg = process.argv[2];
   if (!arg) {
-    console.error('Usage: node scripts/runtime-check.js <app-name|all|games>');
+    console.error('Usage: node scripts/runtime-check.js <app-name|focused|all|games>');
     process.exit(2);
   }
 
@@ -241,29 +322,31 @@ async function main() {
 
   console.log(`\n  Runtime Smoke Test — ${apps.length} app(s)\n`);
 
+  const server = await startStaticServer();
   const browser = await chromium.launch({ headless: true });
   const results = [];
 
-  for (const app of apps) {
-    const result = await testApp(browser, app);
-    results.push(result);
+  try {
+    for (const app of apps) {
+      const result = await testApp(browser, app, server.origin);
+      results.push(result);
 
-    const icon = result.pass ? 'PASS' : 'FAIL';
-    const line = `  [${icon}] ${result.appName}`;
-    if (result.pass) {
-      console.log(line);
-    } else {
-      console.log(line);
-      if (result.artifactPath) {
-        console.log(`         artifact: ${result.artifactPath}`);
-      }
-      for (const e of result.errors) {
-        console.log(`         (${e.phase}) ${e.text.substring(0, 200)}`);
+      const icon = result.pass ? 'PASS' : 'FAIL';
+      const line = `  [${icon}] ${result.appName}`;
+      if (result.pass) {
+        console.log(line);
+      } else {
+        console.log(line);
+        if (result.artifactPath) console.log(`         artifact: ${result.artifactPath}`);
+        for (const e of result.errors) {
+          console.log(`         (${e.phase}) ${e.text.substring(0, 200)}`);
+        }
       }
     }
+  } finally {
+    await browser.close();
+    await server.close();
   }
-
-  await browser.close();
 
   // Summary
   const passed = results.filter(r => r.pass).length;

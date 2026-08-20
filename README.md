@@ -1,34 +1,27 @@
-# DopaBrain — dopabrain.com
+# DopaBrain
 
-AI(Claude Code)로 구축한 글로벌 무료 웹앱/게임 포털. 12개 언어 지원.
+무료 스트레스·민감도·두뇌 도구를 12개 언어로 제공하는 정적 웹 포트폴리오입니다.
 
-> **앱 수/블로그 수/KPI 등 모든 수치는 [`PROGRESS.md`](PROGRESS.md)가 단일 소스.**
-> README에는 수치를 하드코딩하지 않는다.
+- Production: https://dopabrain.com/
+- Archive portal: https://dopabrain.com/portal/
+- Current focus: Stress Check, HSP Test, 2048 Coach
 
-## 현황
-- **인프라:** AdSense 승인완료, i18n, a11y, 소셜 공유, JSON-LD 전앱 완료
-- **Phase:** Phase 2→3 전환 준비 (게임 고도화 70% + SEO 20% + 실험 10%)
-- **상세:** `PROGRESS.md` 참조
+## Workspace
 
-## 구조
+- `projects/`: 앱별 독립 저장소와 portal/root-domain.
+- `scripts/`: 검증, 분석, 운영 자동화.
+- `docs/`: 현재 전략과 운영 기준.
+- `PROGRESS.md`: 현재 상태, blocker, 다음 판단.
+- `AGENTS.md`: Codex 격리 규칙.
+- `CLAUDE.md`: 제품 공통 불변 조건.
+
+## Main checks
+
+```powershell
+npm run verify:root
+npm run verify:root:mutations
+npm run harness
+npm run harness:runtime
 ```
-Fire Project/
-├── CLAUDE.md          # AI 작업 규칙
-├── PROGRESS.md        # 진행 상황 (단일 소스, 매 세션 업데이트)
-├── docs/              # 전략/운영/디자인/SEO 문서
-└── projects/          # 앱/게임 (각각 독립 Git 서브모듈)
-```
 
-## 핵심 문서
-| 파일 | 내용 |
-|------|------|
-| `PROGRESS.md` | 프로젝트 현황 + 세션 기록 |
-| `docs/OPERATIONS.md` | 자율 운영 가이드 + 활동 사이클 |
-| `docs/STRATEGY.md` | 10년 전략 + 수익 모델 |
-| `docs/BLOG-SEO.md` | 블로그 SEO 가이드 |
-| `docs/SOCIAL-MEDIA-PACK.md` | 소셜 마케팅 콘텐츠 팩 |
-
-## URL
-- 메인: https://dopabrain.com
-- 포털: https://dopabrain.com/portal/
-- 블로그: https://dopabrain.com/portal/blog/{lang}/
+세부 완료 기준은 `docs/VALIDATION.md`, 배포 순서는 `docs/OPERATIONS.md`를 참고하세요.

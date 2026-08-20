@@ -8,7 +8,9 @@
     "content:verify": "node scripts/verify-blog-pages.js",
     "harness": "node scripts/harness-workflow-check.js",
     "harness:analytics": "node scripts/analytics-event-check.js",
-    "harness:runtime": "node scripts/runtime-check.js"
+    "harness:runtime": "node scripts/runtime-check.js focused",
+    "verify:root": "node scripts/verify-root-focus.js",
+    "verify:root:mutations": "node scripts/verify-root-focus-mutations.js"
   },
   "devDependencies": {
     "playwright": "^1.60.0"

@@ -1,232 +1,67 @@
-# DopaBrain AI Operations Guide
+# DopaBrain Operations
 
-> 자율 운영/코디네이션 에이전트는 이 파일 참조
-
----
-
-## Content Automation Quick Rule
-
-When creating a new trend, test, tool, or worksheet-style blog article, prefer the scaffold generator before hand-writing a full HTML page:
+## Start
 
 ```powershell
-npm run content:scaffold -- --print-sample
-npm run content:scaffold -- --spec path\to\article-spec.json --dry-run
-npm run content:scaffold -- --spec path\to\article-spec.json --write
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start-codex-isolated.ps1
+npm run adsense:keepalive
+git status --short
 ```
 
-It creates Article/FAQ/Breadcrumb JSON-LD, GA4, Auto ads, `content_*` tracking, quick action rail, CTA, related links, and source links. It also updates `projects/portal/sitemap.xml` plus `projects/portal/blog/sitemap.xml`; English posts also update `projects/portal/blog/en/index.html` and category counts.
+수익·분석 작업이 아니면 불필요하게 GA4/GSC를 조회하지 않는다. OAuth `invalid_grant`는 `npm run adsense:auth-url`로 복구한다.
 
-After `--write`, run `git -C projects/portal diff --check`, `node scripts/portal-hub-locale-audit.js`, the portal quality gate, and a local Playwright check for quick cards, `data-ad-slot="auto"`, JSON-LD date, horizontal overflow, and the expected `content_*` events.
+## Repository boundaries
 
-## Codex Autonomous Throughput Rule
-
-- Keep Codex isolated from Claude runtime/config exactly as defined in [AGENTS.md](E:/Fire%20Project/AGENTS.md). Do not write `.claude` paths and do not run the `claude` CLI unless the user explicitly requests it.
-- On project resume, run `npm run adsense:keepalive` after the isolated Codex launcher and handle valid-token refresh silently. If the stored refresh token returns `invalid_grant`, generate `npm run adsense:auth-url` and ask only for the OAuth redirect URL needed to complete `init --code`; do not give step-by-step guidance unless the user asks.
-- When the user says to continue autonomously, proceed with the next highest-leverage task without waiting for confirmation. Use the latest GA4/GSC/AdSense context when still fresh; run a new data read only when the current decision needs it.
-- The user's "increase development volume 5x" instruction means larger implementation leverage per session: shared tooling, reusable scripts, batch pipelines, quality gates, and cohesive multi-surface improvements. Do not interpret it as "edit exactly five blog posts."
-- For indexing maintenance, default to this loop: run `npm run content:audit`, choose the highest-risk/highest-upside candidates, implement the improvements, run local and live `npm run content:verify`, update `PROGRESS.md`, then commit and push.
-
-## Codex / AI / Harness R&D Application Rule
-
-Last reviewed: 2026-06-06.
-
-- Keep startup context small. `AGENTS.md`, `CLAUDE.md`, `docs/OPERATIONS.md`, and active `PROGRESS.md` should carry decisions and current state; old session detail belongs in `docs/archive/`.
-- Prefer repeatable harness scripts over long Markdown runbooks. When a check can be encoded, add it to a script and keep the doc as the short operating contract.
-- Use Codex subagents or `codex exec` style automation only for read-heavy exploration, audits, or isolated verification where outputs can be summarized back into this workspace. Do not use them to write Claude config or run `claude`.
-- For AI application workflows, adopt OpenAI Agents SDK patterns only when the product owns tool execution, approvals, state, or multi-specialist orchestration. Otherwise, keep one model/tool call plus project-owned logic.
-- If agentic workflows become production code, add tracing/eval hooks early: trace for debugging, then score repeated workflows so improvements can be benchmarked instead of judged by anecdote.
-- Harness artifacts should be failure-first and retention-bounded: compact JSON/Markdown summaries on pass, trace/screenshot/source artifacts on failure, and automatic pruning for timestamped reports.
-- Current source review: OpenAI Agents SDK guide (https://developers.openai.com/api/docs/guides/agents), OpenAI Agents tracing (https://openai.github.io/openai-agents-python/tracing/), OpenAI trace grading (https://developers.openai.com/api/docs/guides/trace-grading), Playwright trace viewer (https://playwright.dev/docs/next/trace-viewer), and the local Codex manual fetched by the `openai-docs` skill on 2026-06-06.
-
-## Strength Amplification R&D Rule
-
-- When GA4/AdSense shows a clear winner, reinforce the winning mechanism qualitatively instead of simply increasing content volume. Treat the recent Mexico `/animal-personality/` spike as the current model: a shareable test, strong first-screen trust/CTA, high completion, result-page ad exposure, and private/direct sharing.
-- Blend strength amplification into autonomous work without making it the only direction. Default allocation: about 20-30% of autonomous development capacity, or one focused strength-amplification pass every 3-4 sessions when fresh data supports it.
-- Each strength pass should include R&D/benchmarking before implementation. Compare against quiz/result UX patterns such as positive result framing, shareable result pages, personalized next steps, optional low-friction follow-up, custom result landing pages, and measurable sharing/reporting loops.
-- Optimize for quality multipliers: result-card clarity, localization fit, share/save/copy instrumentation, result-specific OG/UTM links, next-test routing, revenue-safe ad placement, and clean post-result analytics. Do not ship shallow clone pages just because a topic is working.
-- Keep the portfolio balanced: continue stability, indexing, monetization cleanup, and new experiments when data points there. Strength amplification is a recurring lane, not a tunnel.
-
-### Completed Strength Amplification Queue
-
-- Animal result sharing now carries UTM/result metadata, split copy/share/save events, and Spanish/Mexico routing support.
-- The same result-share telemetry pattern has been ported to `brain-type`, `color-personality`, and `mbti-love`.
-- Singapore Direct is treated as a low-value/noise segment in reports unless fresh data proves otherwise.
-
-### Current Autonomous Queue
-
-1. Use `npm run content:audit` after the AdSense keepalive check to select the next maintenance batch.
-2. Prioritize real content defects now that redirect stubs are skipped: invalid JSON-LD, missing Article/Breadcrumb/FAQ schema, stale sitemap dates, missing quick rails, and missing Auto ad surfaces.
-3. Start with the current audit leaders: `zh/stress-check-test-guide.html`, the zh invalid-JSON-LD psychology cluster, and stale English support articles such as `daily-tarot-reading-guide.html`, `future-self-test-guide.html`, `lottery-number-guide.html`, and `mbti-love-compatibility-guide.html`.
-4. Keep using local and live `content:verify` for edited full articles; for redirect aliases, run the redirect-stub consistency check before deploy.
-
-## GSC Indexing Defect Prevention Record
-
-Last closure: 2026-06-19, Session 448. Local submitted-sitemap inventory and portal blog audit were reduced to zero actionable indexing-risk items:
+`projects/*`는 독립 Git 저장소 또는 일반 디렉터리일 수 있다.
 
 ```powershell
-node scripts/indexing-inventory.js --json --limit 20
-node scripts/blog-indexing-audit.js --json --limit 20 --min-score 1
+git submodule status
+git -C projects/root-domain status --short
 ```
 
-Expected clean state:
+변경한 하위 저장소를 먼저 검증·commit·push한다. 그다음 루트에서 submodule pointer, 공통 스크립트, 현재 문서를 commit·push한다.
 
-- `indexing-inventory`: `urlsWithIssues: 0`, `blockerUrls: 0`, `highRiskUrls: 0`.
-- `blog-indexing-audit --min-score 1`: `results: []`.
+## Change loop
 
-Do not repeat broad GSC indexing remediation by hand when those local gates are clean. Treat GSC sitemap `indexed: 0` as stale/limited unless fresh URL Inspection or Search Analytics evidence points to a concrete page. If a new URL is sampled as `Crawled - currently not indexed`, first compare it against the local audits before editing.
+1. 현재 파일과 dirty state를 확인한다.
+2. 사용자 행동이나 운영 결과로 표현되는 완료 조건을 정한다.
+3. 구현한다.
+4. 정상 경로 검증과 해당 검증기의 실패 민감도를 확인한다.
+5. 로컬 결과가 통과하면 하위 저장소부터 배포한다.
+6. production URL에서 다시 검증한다.
+7. `PROGRESS.md`는 현재 상태만 갱신한다.
 
-Prevention checklist for submitted URLs:
-
-- Every indexable page has self canonical, indexable robots, title, meta description, and H1.
-- Blog articles have valid Article or BlogPosting JSON-LD, BreadcrumbList JSON-LD, fresh `dateModified`, and matching sitemap `lastmod`.
-- Blog articles keep at least four static quick cards with `data-content-surface` and `data-target-slug`.
-- Monetizable content uses Auto ads with `data-ad-slot="auto"` and stable `data-ad-surface`; no placeholder slots such as `1234567890`, `9876543210`, or `5555555555`.
-- Edited articles emit the standard `content_view`, `content_ad_impression`, `content_test_click`, `content_cta_click`, and `content_related_click` events.
-- Internal links resolve to existing local files or production app URLs; legacy `/dopamine-test/` links are replaced with `/dopamine-type/`.
-- Mobile verification must show zero horizontal overflow.
-- Root-level `/portal/blog/*.html` articles are Korean by default unless the HTML `lang` says otherwise; avoid false `missing_self_hreflang` repairs.
-- App and portal hub pages also need `dateModified` plus WebPage/WebApplication JSON-LD or a deliberate documented reason for exclusion.
-- Sitemaps should be deduplicated and `lastmod` should follow the page's effective `dateModified`.
-
-Use the repair tools instead of repeating one-off edits:
+## Focused release
 
 ```powershell
-node scripts/upgrade-blog-indexing-batch.js --file en/example.html
-$env:INDEXING_REPAIR_TODAY='YYYY-MM-DD'; node scripts/repair-indexing-inventory.js
-node scripts/verify-blog-pages.js --json --expect-date YYYY-MM-DD --expect-quick 4 --expect-auto 1 --expect-events content_view,content_ad_impression,content_test_click,content_cta_click,content_related_click projects\portal\blog\en\example.html
+npm run verify:root
+npm run verify:root:mutations
+npm run harness
+npm run harness:runtime
+node scripts/indexing-inventory.js
 ```
 
-Current TODO after the 2026-06-19 stop:
-
-1. Complete AdSense MCP reauthorization if an attached MCP process still returns `invalid_grant`, then rerun earnings summary/reporting from a fresh process.
-2. Measure the eight Session 448 revenue-content pages after fresh GA4/GSC data is available; watch CTR on KO/PT/HI pages and engagement/next-click rate on EN/ZH low-duration pages.
-3. Resume the intentionally stopped app-side revenue review for `brain-type`, `hsp-test`, `mbti-love`, `attachment-style`, and `eq-test`.
-4. Deploy/commit/live-verify the Session 448 batch only after review approval or the next normal deployment turn.
-
-## Content Indexing Maintenance Batch
-
-Use the audit command before each content maintenance batch so the next candidates are selected by repeatable indexing and revenue signals instead of manual scanning:
+프로덕션 확인:
 
 ```powershell
-npm run content:audit -- --limit 30
-npm run content:audit -- --lang ko --limit 20
-npm run content:audit -- --min-score 40 --json
+node scripts/verify-root-focus.js https://dopabrain.com --no-screenshot
 ```
 
-The audit is read-only. It ranks portal blog articles by sitemap coverage, sitemap `lastmod`, canonical URL, JSON-LD health, `dateModified` age, quick action rail coverage, Auto ad surfaces, `content_*` events, internal link health, legacy links, and simple mobile overflow risks.
+검증 의미와 위험도별 선택은 `docs/VALIDATION.md`를 따른다.
 
-After editing candidates, verify the touched pages locally and then on the live site after deploy:
+## Documentation budget
 
-```powershell
-npm run content:verify -- --file projects\portal\blog\en\example.html --expect-date 2026-06-05 --expect-quick 4 --expect-auto 1 --expect-events content_view,content_ad_impression,content_test_click,content_cta_click,content_related_click
-npm run content:verify -- --live --file projects\portal\blog\en\example.html --expect-date 2026-06-05 --expect-quick 4 --expect-auto 1 --expect-events content_view,content_ad_impression,content_test_click,content_cta_click,content_related_click
-```
+- `PROGRESS.md`: 현재 상태, blocker, 다음 판단만.
+- `memory/data-check-log.md`: 전략을 바꾼 데이터 기준점만.
+- `memory/failures.jsonl`: 재발 가능성이 있는 실패만.
+- 완료된 세션 전문, 콘솔 원문, 중복 체크리스트는 Git 이력에 맡긴다.
+- 조건이 바뀌면 기존 문단을 고치고 같은 내용을 새 섹션으로 덧붙이지 않는다.
 
-## 1. 아이덴티티 및 원칙
+## Stop conditions
 
-> 너는 `dopabrain.com`의 **수석 개발자이자 SEO 성장 해커**이다.
-> 모든 작업의 우선순위는 **'수익화 가능성(AdSense 승인 및 클릭)'**과 **'글로벌 트래픽 확장'**에 둔다.
-> 작업 완료 시 사용자 확인 없이 다음 목표를 즉시 설정하고 진행한다.
+다음은 코드로 우회하지 않는다.
 
-### 우선순위
-1. **유지보수 (Stability):** 전체 프로젝트 인프라 정합성
-2. **성장 (Growth):** SEO + 인덱싱 + 콘텐츠 확장 + 소셜 바이럴
-3. **최적화 (Optimization):** GA4/GSC 데이터 기반 UX/CTR 개선
-4. **확장 (Scalability):** 다국어 + 새 앱/게임
-
-## 2. 자율 활동 사이클 (Autonomous Action Cycle)
-
-에이전트는 매 세션 "작업재개" 시 다음 사이클을 자율 반복한다:
-
-1. **분석(Analyze):** GSC/GA4/AdSense 데이터 확인 → 성과 국가/키워드 + 수익/정책 이상 + 개선 필요 페이지 식별
-2. **최적화(Optimize):** 저클릭 고노출 페이지 Meta Title/Description 수정, 기술적 부채(404 등) 해결
-3. **강화(Enhance):** 기존 앱/게임 품질 개선 (체류시간↑, UX↑), 성과 기반 선별 확장
-4. **정리(Housekeep):** PROGRESS.md 업데이트, Stop Criteria 점검, 다음 단계 제안
-
-> GA4 해석 기준, 조회 팩, 세션/주간 템플릿은 [docs/GA4-INSIGHTS.md](E:/Fire Project/docs/GA4-INSIGHTS.md)를 기준으로 통일한다.
-
-> **리소스 배분:** 70% 게임/기존앱 개선 | 20% SEO/블로그 | 10% 신규 실험
-> **신규 앱:** 데이터 근거(트렌드/키워드/경쟁분석) 있을 때만. 양산 금지.
-
-## 3. 트래픽 폭발 전략 (Traffic Growth Strategy)
-
-### 3.1 성공 패턴 수평 전개 (Scale-out FR Success)
-- FR에서 성공한 키워드를 분석 → DE, ES, JA 등 다른 언어권으로 현지화 즉시 확장
-
-### 3.2 저클릭 고노출(CTR) 최적화
-- GSC 데이터에서 노출↑ 클릭↓ 페이지 식별 → Meta Title/Description을 '사용자 혜택 중심'으로 수정
-
-### 3.3 내부 링크 네트워크 강화
-- 모든 앱/블로그 하단에 관련 콘텐츠 연결 → 체류시간 + 도메인 권위 향상
-
-### 3.4 소셜 바이럴 루프 설계
-- 바이럴 테스트 결과 페이지의 공유 버튼 + OG Tag 최적화 → 외부 유입 극대화
-- Reddit, X/Twitter, Product Hunt, TikTok, 한국/일본 커뮤니티 활용
-
-## 4. 기술적 불변의 법칙
-
-> 디자인/Git/i18n/병렬 에이전트 규칙은 **CLAUDE.md** 참조 (Single Source of Truth).
-> 아래는 OPERATIONS 고유 항목만.
-
-- **성능:** Lighthouse 90점+ 유지
-- **구조:** 신규 앱은 `projects/` 내 기존 템플릿 복제, 데이터는 `data.json` 분리
-
-## 5. 자가 점검 (작업 완료 시)
-
-- [ ] '도파민 증대'라는 서비스 본질에 기여했는가?
-- [ ] 수익화(AdSense/트래픽)에 직접 기여하는 작업이었는가?
-- [ ] 전체 앱의 일관성을 유지하는가?
-- [ ] 다음 에이전트가 이 로그로 바로 이어갈 수 있는가?
-
-## 6. 품질 게이트 (Quality Gate)
-
-> **자동 검증:** `bash scripts/quality-gate.sh projects/<app-name>`
-> 14개 항목 자동 체크. 배포 전 반드시 실행. FAIL 시 배포 금지.
-
-## 7. 주간 리뷰 (매주 일요일)
-
-1. **주간 GSC/GA4/AdSense 성과 비교** — 전주 대비 클릭/노출/사용자/미지급 수익 변화를 확인
-2. **투자 대비 효과 평가** — 어떤 작업이 실제 트래픽/수익/광고 안정성에 기여했는가?
-3. **실패 패턴 분석** — `bash scripts/analyze-failures.sh` → 반복 실패 시 CLAUDE.md에 방지 규칙 추가
-4. **방향 보완** — 유의미한 성과가 없으면 전략 방향 수정
-5. **다음 주 우선순위 설정** — 구체적 액션 아이템 3~5개
-
-## 8. GA4 일간 세션 루틴
-
-1. `memory/data-check-log.md`를 먼저 확인해 같은 날짜 조회 중복을 방지한다.
-2. [docs/GA4-INSIGHTS.md](E:/Fire Project/docs/GA4-INSIGHTS.md)의 `팩 1`로 28일 구조를 본다.
-3. 같은 문서의 `팩 2`로 현재 실험 표면(`/eq-test/`, `portal`, `hub`, winner blog)을 본다.
-4. `팩 3`으로 메인 KPI 이벤트와 보조 KPI 이벤트의 Data API 가시성을 점검한다.
-5. 결과는 `획득`, `품질`, `전환`, `재방문`, `수익/미수집`, `데이터위생` 6줄 요약으로 `PROGRESS.md`에 남긴다.
-
-## 9. GA4 주간 리뷰 루틴
-
-1. 28일 기준 `채널`, `소스/미디엄`, `랜딩페이지`, `국가`, `언어`, `디바이스` 구조를 재정리한다.
-2. 표면을 `app`, `hub`, `blog`, `cross_promo`로 나눠 승자/약한 표면을 다시 분류한다.
-3. `STRATEGY.md`에는 주간 전략 스냅샷만 누적하고, 세션 로그 수준의 상세 수치는 넣지 않는다.
-4. 수익 지표가 비어 있으면 `미수집`으로 분리 보고하고, 세션/체류를 수익의 대리 지표로만 취급한다.
-5. 다음 주 액션은 3~5개로 제한하고 각 액션이 어떤 지표에서 나왔는지 연결한다.
-
-## 10. AdSense 일간 점검 루틴
-
-1. `memory/data-check-log.md`를 먼저 확인해 같은 날짜의 AdSense 중복 조회를 피한다.
-2. 최소 1회는 `payments`, `adsense_get_earnings_summary`, `alerts`를 확인해 미지급 수익/추세/정책 경고를 본다.
-3. `sites`, `policy issues`, `ad units`는 신규 배포, 수익 급감, 정책 경고가 있을 때 함께 본다.
-4. 결과는 `미지급 수익`, `최근 수익 추세`, `정책 경고`, `사이트 상태`, `광고 단위 이상 유무` 중심으로 짧게 `PROGRESS.md`에 남긴다.
-5. 경고나 정책 이슈가 보이면 해당 앱/콘텐츠/광고 배치 점검 작업을 같은 세션 우선순위에 올린다.
-
-## 11. AdSense 주간 리뷰 루틴
-
-1. `last_7_days`와 `last_30_days` 수익 추세를 비교해 증가/정체/하락을 판정한다.
-2. `payments`와 `alerts`를 함께 보고, 수익 저하가 정책/광고 공급/배치 이슈와 연결되는지 확인한다.
-3. `GA4/GSC`의 승자 표면과 `AdSense` 수익 추세를 같이 보며, 체류 상승이 실제 수익 개선으로 이어졌는지 확인한다.
-4. 수익 데이터가 작아도 추세는 누적하고, 절대 수치와 방향성은 분리해서 기록한다.
-
-## 12. Markdown 유지 원칙
-
-1. `README.md`는 온보딩과 문서 안내만 담당한다. 수치, 세션 로그, 실험 상세는 넣지 않는다.
-2. `PROGRESS.md`는 현재 상태와 최근 세션 로그만 유지한다. 세션 로그가 `25개`를 넘기거나 파일 크기가 `100KB`를 넘기면 오래된 상세 로그는 단일 archive 문서로 이동한다.
-3. `memory/data-check-log.md`는 조회 ledger만 남긴다. 날짜당 한 줄 요약 원칙을 지키고 장문 회고는 넣지 않는다.
-4. 임시 설계/브리프/중간 산출 `md`는 최종 규칙이 기존 문서에 흡수되면 바로 삭제한다.
-5. 새 운영 규칙은 가능하면 새 `md`를 만들지 말고 `docs/I18N.md`, `docs/OPERATIONS.md`, `CLAUDE.md`, `PROGRESS.md` 같은 기존 canonical 문서에 흡수한다.
-6. 사고가 발생하면 같은 세션에 원인과 방지 규칙을 canonical 문서에 반영하고, 같은 문제가 다시 나지 않도록 검증 단계까지 문서화한다.
+- AdSense 주소/지급 확인.
+- 권한 없는 GSC 제출이나 외부 계정 변경.
+- 사용자 승인 범위를 넘어선 URL 대량 삭제.
+- 실제 프로덕션 배포 여부를 확인할 수 없는 상태에서의 완료 선언.

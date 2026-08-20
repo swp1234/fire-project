@@ -1,135 +1,44 @@
-# CLAUDE.md
+# DopaBrain Project Rules
 
-> 핵심 규칙만. 상세는 `docs/`, 조건부 규칙은 `.claude/rules/` 참조.
+이 파일은 프로젝트 공통 규칙만 담는다. Codex 격리 규칙은 `AGENTS.md`가 우선한다.
 
-## Shell & Environment (CRITICAL)
+## Product
 
-Windows + Git Bash. **Windows 명령어 절대 금지.**
-- `rm -f`, `ls`, `cp`, `mv` 사용 (`del`, `rmdir`, `dir`, `copy`, `move` 금지)
-- 경로: `/` 슬래시만 (`\` 금지)
-- `~` 직접 해석 안 됨 → 풀 경로 사용 (`/c/Users/박상우/...`)
-- CRLF 방지: `.gitattributes` (`* text=auto eol=lf`)
+- 운영 URL: `https://dopabrain.com/`
+- 현재 전략: 소수의 검증된 진입면에 검색·홈·측정을 집중한다.
+- 핵심 경로: Stress Check, HSP Test, 2048 Coach.
+- 보조 경로: Brain Type, IQ Test, K-pop Role Roster.
+- 저성과 페이지는 근거 없이 삭제하지 않되 홈과 사이트맵에서 제외한다.
 
-## Git (CRITICAL)
+## Required invariants
 
-- **Co-authored-by 절대 금지** — `git commit -m "message"` 만
-- 서브모듈 내부에서 commit/push (루트 `E:\Fire Project`는 remote 없음)
-- 서브모듈 vs 일반 디렉토리 혼재 — `git ls-tree HEAD`로 확인
-- 작은 단위라도 즉시 commit & push
+- 지원 언어: `ko en zh hi ru ja es pt id tr de fr` 12개.
+- 사용자 문구는 locale JSON과 `data-i18n`을 통한다.
+- 터치 타깃은 최소 44px, 모바일 가로 오버플로는 0이어야 한다.
+- GA4 ID: `G-J8GSWM40TV`.
+- AdSense publisher: `ca-pub-3600813755953882`.
+- GSC property: `https://dopabrain.com/`; `sc-domain:` 속성은 사용하지 않는다.
+- 루트 robots는 `https://dopabrain.com/sitemap.xml` 하나만 알린다.
 
-## Session Management (CRITICAL)
+## Change discipline
 
-- **세션 종료/wrap-up 시 GA4/GSC 조회 절대 금지** — 완료 작업 요약 + `PROGRESS.md` 업데이트만
-- GA4/GSC는 **"작업재개"** 또는 **명시적 요청** 시에만 조회
-- `memory/data-check-log.md`에 오늘 날짜 있으면 조회 생략
-- **Effort 전략:** 단순 작업=low, 일반=medium(기본), 복잡한 디버깅/설계=high(`ultrathink`)
-- **`/compact`:** 대규모 작업 시작 전 선제적으로 실행해 context 확보
-- **`/fork`:** 메카닉/접근법 고민 시 대화 분기해 A/B 비교
+- 기존 상태를 읽고 사용자 변경을 보존한다.
+- 각 앱은 독립 저장소일 수 있으므로 `.gitmodules`와 실제 Git 경계를 확인한다.
+- 하위 저장소를 먼저 commit/push하고, 마지막에 루트 포인터와 운영 문서를 commit/push한다.
+- 구현 완료 선언 전 `docs/VALIDATION.md`의 위험도에 맞는 검증을 수행한다.
+- 생성된 보고서나 세션 전문을 Markdown에 누적하지 않는다. 현재 상태만 `PROGRESS.md`에 갱신하고 상세 이력은 Git에 맡긴다.
 
-## Parallel Agents (CRITICAL)
+## Data discipline
 
-- **최대 5~8개** 동시 에이전트 — 20+개는 context 폭발 원인
-- **카나리 패턴**: 대량 배치 전 1개 테스트 에이전트 먼저 → 성공 확인 후 나머지 배치
-- 에이전트 mode: `dontAsk` (permission 실패 방지)
-- 같은 파일 동시 수정 금지
-- Edit 전 반드시 Read 먼저 (Grep/Glob은 Read로 인정 안 됨)
-- 에이전트가 실패하면 **같은 방법 재시도 금지** → 접근법 변경 또는 메인에서 직접 실행
-- Background agents false positive 가능 → 항상 직접 검증
+- 분석 작업 시작 전 `npm run adsense:keepalive`를 실행한다.
+- `invalid_grant`이면 `npm run adsense:auth-url`로 복구한다.
+- Direct 급증은 국가·기기 조합을 확인하기 전 성장으로 판정하지 않는다.
+- 세션 수보다 Organic 참여, 유효 CTA, 국가별 RPM, 색인 상태를 함께 본다.
+- 데이터 조회는 작업 재개나 명시적 요청 때 수행하고 단순 종료 기록을 위해 반복하지 않는다.
 
-## Failure Logging (CRITICAL)
+## Failure records
 
-- 에이전트/도구 실패 시 **반드시** 기록: `bash scripts/log-failure.sh <agent> <app> <category> "<description>"`
-- Categories: `build` | `deploy` | `test` | `mcp` | `edit` | `hook` | `other`
-- 주간 리뷰 시 분석: `bash scripts/analyze-failures.sh`
-- 반복 패턴 발견 시 → CLAUDE.md에 방지 규칙 추가 (하네스 피드백 루프)
+- 재발 가능성이 있는 도구·배포·검증 실패만 `memory/failures.jsonl`에 한 줄로 남긴다.
+- 해결된 일회성 출력이나 전체 콘솔 로그는 문서에 복사하지 않는다.
 
-## Checkpoint (대규모 작업 시)
-
-- 10+ 파일 또는 5+ 에이전트 작업 시 **체크포인트 모드** 활성화
-- 3개 태스크 완료 또는 15 tool calls마다 → `PROGRESS.md`에 중간 저장
-- context 70%+ 소진 감지 시 → 즉시 체크포인트 작성 + commit + 새 세션 안내
-
-## Code Changes
-
-- **수정 전 반드시 현재 상태 확인** — 이전 세션/에이전트가 이미 적용했을 수 있음
-- 파일 Read → 이해 → Edit (추측 금지)
-- 불필요한 작업 금지: 요청받지 않은 리팩토링, 주석 추가, 타입 어노테이션 금지
-- **가이드/설정 정확 재현**: 사용자 제공 가이드/설정을 따를 때 project ID, server name 등 식별자를 **절대 변경 금지** — 명시적 요청 없이는 그대로 복사
-- **환경 이슈 우선순위**: git/TortoiseGit 아이콘 문제 → overlay cache 먼저 확인 (`git status` 반복 금지)
-- **npx 호환성**: Windows에서 npx 명령 실패 시 `cmd /c npx ...` 래핑 시도
-
-## GSC / Language
-
-- siteUrl: `https://dopabrain.com/` (**`sc-domain:` = 403 에러**)
-- GSC와 GA4를 같은 병렬 블록에 **절대 넣지 않는다** (연쇄 실패)
-- 순서: ① GA4 → ② GSC (별도 블록)
-- 응답: 한국어 / 코드 주석: 영어
-
-## i18n (REQUIRED)
-
-- **12개 언어 필수**: ko, en, zh, hi, ru, ja, es, pt, id, tr, de, fr
-- 패턴: `js/i18n.js` + `js/locales/{lang}.json` + `data-i18n`
-- **하드코딩 금지** — 모든 사용자 문자열은 i18n 경유
-- **i18n IIFE는 반드시 try-catch** (loader 멈춤 방지) → `docs/I18N.md`
-
-## Design
-
-- Dark mode first, Glassmorphism 2.0, 44px touch targets
-- 앱별 고유 primary color (중복 금지) → `docs/DESIGN.md`
-
-## New App Checklist
-
-- [ ] i18n 12개 언어 + app-loader (HTML div + CSS + JS hide)
-- [ ] Dark mode first + `<script src="/portal/js/cross-promo.js" defer></script>` + GA4
-- [ ] `.gitattributes` (`* text=auto eol=lf`)
-- [ ] 배포: `git init` → commit → `gh repo create` → Pages → 루트에서 `git submodule add`
-- [ ] 12개 언어 블로그 생성 (`blog-writer` 에이전트 위임)
-- [ ] **품질 게이트 통과:** `bash scripts/quality-gate.sh projects/<name>` → PASS 필수
-- [ ] **테스트 스위트 통과:** `bash scripts/app-test-suite.sh projects/<name>` → ALL PASS 필수
-- [ ] 상세: `docs/VALIDATION.md`
-
-## 작업 방식
-
-- 리소스 배분: **테스트/콘텐츠 SEO 50% → 게임 유지보수 20% → 바이럴 테스트 신규 20% → 실험 10%**
-- 우선순위: **테스트 SEO 강화 → 바이럴 테스트 신규 → 게임 유지보수/버그 → 확장**
-- 세션 시작: `PROGRESS.md` 읽기 → (작업재개 시만) GA4/GSC → 작업 → `PROGRESS.md` 업데이트
-
-## Project Context
-
-**dopabrain.com** — 96개 앱/게임 (projects/), AdSense 수익화
-
-## Agents, Teams & Rules
-
-- **전문 에이전트** (`.claude/agents/`):
-  - `team-lead` — 팀 조율 (TeamCreate → TaskCreate → Agent 스폰 → 모니터링)
-  - `redesigner` — 쿠키커터 리디자인 (worktree 격리)
-  - `seo-analyst` — GA4/GSC 분석 (worktree 격리)
-  - `builder` — 신규 앱 생성 (worktree 격리)
-  - `blog-writer` — 12개 언어 SEO 블로그 생성 (worktree 격리)
-  - `trend-scout` — 소셜 트렌드 스캔 (Reddit/Twitter/TikTok/YouTube)
-  - `supervisor` — 자가 치유 파이프라인 (에이전트 모니터링 + 실패 자동 재시도)
-- **Teams** (`/team` 스킬):
-  - `/team launch <app>` — 풀사이클 앱 출시 (build → blog → seo)
-  - `/team growth` — 성장 스프린트 (trend + seo → action items)
-  - `/team redesign <apps>` — 배치 리디자인
-  - `/team content <apps>` — 배치 블로그 생성
-- **조건부 규칙** (`.claude/rules/`): 게임/블로그/리디자인 경로 자동 로드
-- **자동 위임:** 작업 유형 판단 → Agent tool `name` 파라미터로 에이전트 스폰
-- **도구:** TeamCreate/TaskCreate/SendMessage (팀 조율), CronCreate (배치 모니터링)
-- **스킬:** `/submodule-check` `/team` `/session-wrap` `/validate` `/analyze`
-
-## MCP Servers
-
-- **상시:** ga4, gsc (local scope — 항상 활성)
-- **On-demand:** `bash scripts/mcp-restore.sh [social|media|all]` 로 활성화
-  - `social`: reddit, twitter, trends, youtube
-  - `media`: gemini (텍스트, gemini-2.5-flash), gemini-image (이미지, gemini-2.5-flash-image)
-- `adsense`: 사용자 OAuth init 선행 후 user scope로 등록하는 read-only MCP (`E:/Fire Project/.mcp-servers/adsense-mcp/`, 토큰 저장: `%USERPROFILE%/.config/adsense-mcp/`)
-- **별칭:** NanoBanana = `mcp__gemini-image__` (query: 인라인 표시 / generate_image: 파일 저장)
-- **Gemini = `mcp__gemini__`** (query/search/fetch — 텍스트 전용)
-- Image output dir: `E:/Fire Project/.nano-banana/`
-- GCP: `pubg-platform-ai` / Location: `global` / ADC 인증
-
-## Docs
-
-`STRATEGY` `I18N` `DESIGN` `VALIDATION` `GAME-SPEC` `BLOG-SEO` `UX-DESIGN` `OPERATIONS` `MARKETING` — 모두 `docs/` 하위
+세부 운영은 `docs/OPERATIONS.md`, 검증은 `docs/VALIDATION.md`, 전략은 `docs/STRATEGY.md`를 따른다.

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Codex-safe harness workflow runner.
-// Usage: node scripts/harness-workflow-check.js [--target projects/portal] [--runtime brainrot-score]
+// Usage: node scripts/harness-workflow-check.js [--target projects/portal] [--runtime focused]
 const { spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
@@ -14,7 +14,7 @@ const BASH = process.env.GIT_BASH || (process.platform === 'win32' ? 'C:/Program
 function parseArgs(argv) {
   const options = {
     target: 'projects/portal',
-    runtime: 'brainrot-score',
+    runtime: 'focused',
     skipAnalytics: false,
     skipRuntime: false,
   };
@@ -26,7 +26,7 @@ function parseArgs(argv) {
     else if (arg === '--skip-analytics') options.skipAnalytics = true;
     else if (arg === '--skip-runtime') options.skipRuntime = true;
     else if (arg === '--help' || arg === '-h') {
-      console.log('Usage: node scripts/harness-workflow-check.js [--target projects/portal] [--runtime brainrot-score] [--skip-analytics] [--skip-runtime]');
+      console.log('Usage: node scripts/harness-workflow-check.js [--target projects/portal] [--runtime focused] [--skip-analytics] [--skip-runtime]');
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);
@@ -182,8 +182,12 @@ async function main() {
     ['script syntax', process.execPath, ['--check', 'scripts/harness-workflow-check.js']],
     ['analytics syntax', process.execPath, ['--check', 'scripts/analytics-event-check.js']],
     ['runtime syntax', process.execPath, ['--check', 'scripts/runtime-check.js']],
+    ['root verifier syntax', process.execPath, ['--check', 'scripts/verify-root-focus.js']],
+    ['root mutation syntax', process.execPath, ['--check', 'scripts/verify-root-focus-mutations.js']],
     ['portal locale audit', process.execPath, ['scripts/portal-hub-locale-audit.js']],
     ['quality gate', BASH, ['scripts/quality-gate.sh', options.target]],
+    ['root focus regression', process.execPath, ['scripts/verify-root-focus.js', '--no-screenshot']],
+    ['root verifier mutations', process.execPath, ['scripts/verify-root-focus-mutations.js']],
   ];
 
   if (!options.skipAnalytics) {

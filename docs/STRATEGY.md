@@ -1,279 +1,53 @@
-# Project Strategy & Revenue Model
+# Focused Portfolio Strategy
 
-> 이 문서는 CLAUDE.md에서 분리된 상세 전략 문서입니다.
-> 수익 모델, 글로벌 전략, 프로젝트 비전 등을 포함합니다.
+Updated: 2026-08-20
 
-## 2026-08-20 Focused Portfolio Reset
+## Thesis
 
-The portfolio is no longer managed as a 120-app / 1,900-URL catalog. Google Search Console reports the submitted portal and blog inventories as `0` indexed, while GA4 and AdSense show that real value is concentrated in a small set of stress, HSP, brain, and localized editorial routes. The operating model is now **focus first, archive second**.
+DopaBrain의 병목은 콘텐츠 수가 아니라 발견 경로의 희석과 저가치 트래픽이다. 한 페이지를 더 만드는 것보다 이미 참여와 수익 가능성이 있는 경로의 첫 클릭, 다음 행동, 색인을 개선한다.
 
-1. The root homepage promotes only six evidence-backed paths: Stress Check, HSP, 2048 Coach, Brain Type, IQ, and K-pop Role Roster.
-2. The full portal remains available for existing users and backlinks, but no longer controls the root discovery experience.
-3. Submitted sitemaps contain only URLs with verified organic acquisition, deep engagement, or monetization support. Low-performance URLs may remain live but are excluded from active discovery and crawl queues.
-4. A route returns to the focused portfolio only after it earns measurable organic sessions or meaningful downstream action; page count, automated test traffic, and scan-like Direct traffic do not qualify.
-5. The primary growth KPI is qualified Organic Search pageviews per session in revenue-capable markets, not total sessions. Singapore desktop scans and similar zero-value spikes are excluded from decisions.
+## Portfolio
 
-Current baseline: `$2.97` AdSense earnings over 30 days, `$0.70` over seven days, `681` Organic Search sessions over 28 days, and only `6` GSC clicks from the root property in the latest available 28-day window.
+- Primary: Stress Check, HSP Test, 2048 Coach.
+- Support: Brain Type, IQ Test, K-pop Role Roster.
+- Archive: Portal 한 곳.
+- Suppressed: 성과 근거가 없는 기존 자산. 라이브는 유지하되 홈과 집중 sitemap에서 제외한다.
 
-## 2026-07-25 Revenue-First Content Portfolio
+## Decision model
 
-Daily revenue is constrained by traffic quality and crawl/index coverage, not by raw page count. The 30-day AdSense baseline is `$2.52 / 5,617 page views` (`$0.45` Page RPM), while the country split is materially stronger in the United States (`$4.69`) and South Korea (`$1.81`) than in China (`$0.23`) or scan-like Singapore traffic (`$0.01`). Google organic acquisition is almost absent, and Search Console reports the large submitted sitemaps as `0` indexed even though the root page itself passes URL inspection.
+한 지표만으로 승자를 정하지 않는다.
 
-Until that changes, Ralph content loops use this order:
+| Signal | Use |
+|---|---|
+| Organic sessions and engaged sessions | 실제 검색 수요 |
+| CTA event rate | 첫 행동과 라우팅 품질 |
+| Country/device RPM | 수익 가능성 |
+| GSC clicks, impressions, indexing | 발견 가능성 |
+| Views per session and next click | 깊이와 연결성 |
 
-1. Extend a proven landing page into a second useful pageview.
-2. Prefer content that produces a saved artifact or repeat visit.
-3. Send a small, curated crawl queue alongside the full inventory.
-4. Measure the new format before translating or cloning it into a cluster.
-5. Stop treating more blog URLs as the default growth action.
+Direct 급증은 국가·기기·체류·수익을 확인해 scan/bot을 먼저 배제한다. pageviews만 높은 페이지는 승자가 아니다.
 
-Approved non-blog, non-quiz formats:
+## Operating rules
 
-- Personalized action plans and decision aids.
-- Printable worksheets, scripts, checklists, and templates.
-- Trackers and short guided challenges with local progress.
-- Reference libraries and comparison tables with update ownership.
-- Calculators and generators that solve a specific recurring task.
+- 실험당 한 가지 핵심 가설과 이벤트를 둔다.
+- 색인되지 않는 페이지를 추가 생산하지 않는다.
+- 얇은 번역 확장보다 한 언어의 검증된 intent를 완성한다.
+- 광고 노출을 늘리기 전에 유효한 첫 행동과 결과 도달을 확보한다.
+- 기존 URL 삭제는 backlink와 직접 방문 손실을 검토한 뒤 결정한다.
 
-The first production experiment is `/stress-check/plan.html`: a private, printable 7-day plan generated from the strongest stress category. Its decision events are `stress_plan_click`, `stress_plan_view`, `stress_plan_customize`, `stress_plan_day_check`, `stress_plan_copy`, `stress_plan_print`, and `stress_plan_return`. Expansion requires real plan entry and completion evidence; absence of evidence means improve the winner funnel rather than create another plan.
+## Review window
 
-Distribution is part of the experiment, not a separate afterthought. Stress and burnout editorial pages receive one localized action-plan bridge near the first paragraph instead of a competing generic mobile sprint, while `/stress-response/` exposes the plan after a completed result. The distribution events are `stress_plan_bridge_view`, `stress_plan_bridge_click`, and `stress_plan_cta_view`. This tests whether a useful second pageview can lift mobile monetization without producing another article cluster.
+배포 후 2~4주 동안 다음을 비교한다.
 
-## Project Overview
+1. `root_view` 대비 primary/support 클릭률.
+2. Organic landing별 engagement와 다음 행동.
+3. 국가·기기별 page RPM과 impression RPM.
+4. 집중 sitemap의 discovered/indexed 변화.
 
-**10-Year Wealth Project: AI 기반 앱/게임/웹 수익 파이프라인**
+Primary 경로가 검색·행동·수익 세 축에서 모두 약하면 교체한다. 단기 scan 유입이나 단일 클릭으로 복귀시키지 않는다.
 
-**Vision:** 10년 내 경제적 자유 달성 - 앱/게임/웹 3채널 광고 수익
+## Revenue constraints
 
-**Core Strategy: 적게, 제대로, 빨리**
-- 양산보다 **선택과 집중** (수익 가능성 높은 것에 올인)
-- **게임**이 유틸 앱보다 광고 수익 5~10배 (체류시간 + 자연스러운 전면광고)
-- **바이럴 가능한 앱** (SNS 공유 → 자연 유입)
-- **웹 SEO** (Google 검색 유입 → AdSense 수익)
-
-**Roadmap:**
-1. **Phase 1 (완료):** 105개 앱/게임 구축 + 웹 포털 + AdSense 승인 + 1007블로그
-2. **Phase 2 (Now):** Organic 성장 + 첫 클릭 돌파 + 수익 구조 다각화
-3. **Phase 3 (다음):** 승자 앱 심층 강화 + 프리미엄 기능 도입
-4. **Phase 4:** 스케일업 (Organic 트래픽 10x)
-
-**Phase 2→3 전환 기준:**
-- GSC 첫 Organic 클릭 달성
-- Organic 비율 30%+ (2주 연속)
-- 블로그 top-10 키워드 3개+
-- 월간 1,000+ users
-
-> GA4 전략 스냅샷은 [docs/GA4-INSIGHTS.md](E:/Fire Project/docs/GA4-INSIGHTS.md)의 `획득 / 품질 / 전환 / 재방문 / 수익 / 데이터위생` 6층 구조를 기준으로 업데이트한다.
-> 수익 층은 앞으로 `AdSense unpaid earnings`, `last_7_days / last_30_days earnings trend`, `alerts/policy status`를 함께 기록한다.
-
-**리소스 배분 (현행 — 3/14 전환):**
-| 비율 | 영역 | 활동 |
-|------|------|------|
-| **50%** | 테스트/콘텐츠 SEO | 내부링크, 블로그 순위 개선, 스키마 최적화 |
-| **20%** | 게임 유지보수 | 버그 수정, UX 개선 (신규 X) |
-| **20%** | 바이럴 테스트 신규 | 데이터 기반 신규 테스트만 |
-| **10%** | 실험 | 수익 다각화, 프리미엄 기능 테스트 |
-
-> **핵심:** "양산 중단". 승자 10-15개 심층 강화. 신규는 바이럴 데이터 기반으로만.
-
----
-
-## 데이터 기반 현실 점검 (2026-03-23)
-
-### 28일 데이터 (2/23-3/22)
-
-| 지표 | 수치 | 의미 |
-|------|------|------|
-| 총 유저 | ~405u | eq-test 제외 시 ~296u (10u/일) |
-| Direct | 339u (84%) | eq-test 바이럴 공유 (KakaoTalk 등) |
-| Organic | 59u (14.6%) | **세션 227s (Direct의 3배!)** — 최고 품질 채널 |
-| GSC 클릭 | **0** | 1166 URLs/1007 블로그에도 불구 |
-| 핵심 국가 | KR 118u/180s, US 129u/9.4s | **한국이 실제 코어** (US는 대부분 봇) |
-
-### 승자/패자 분석
-
-**승자 (집중 투자 대상):**
-| 앱 | 28일 유저 | 체류시간 | Bounce | 전략 |
-|----|-----------|----------|--------|------|
-| eq-test | 109u | 157s | 27% | 바이럴 모델 유지, 크로스링크 허브 |
-| portal/mbti | 22u | 256s | 36% | 허브 강화, 내부링크 수혜 |
-| stress-response | 14u | 7.5s | 7% | SEO 블로그 연결, 클러스터 |
-| anxiety-type | 10u | 8.9s | 0% | 스트레스 클러스터 |
-| burnout-test | 10u | 8.6s | 0% | 스트레스 클러스터 |
-| red-flag-test | 10u | 8.2s | 10% | 바이럴 잠재력 |
-| blogs (blood-type,games,kpop) | 16/14/11u | 18-92s | 다양 | Organic 유입 경로 |
-
-**패자 (유지만, 투자 중단):**
-| 앱 | 28일 유저 | Bounce | 문제 |
-|----|-----------|--------|------|
-| overthinker-test | 20u | 90% | 봇 트래픽 |
-| toxic-trait-test | 14u | 86% | 봇+높은이탈 |
-| emotion-iceberg | 13u | 77% | 참여도 낮음 |
-| mbti-city | 14u | 64% | 참여도 낮음 |
-
-**나머지 ~90개 앱:** 월 <5u — 신규 투자 가치 없음, 유지만
-
-### 핵심 인사이트
-
-1. **게임은 수익 엔진이 아니다.** 최고 게임(idle-clicker) 10u/월. 테스트가 트래픽을 만든다.
-2. **Organic이 유일한 성장 레버.** Direct는 바이럴에 의존 (eq-test 1회성). Organic은 복리 성장.
-3. **한국 유저가 코어.** US 129u는 9.4s 세션 (봇). KR 118u는 180s (실유저).
-4. **105개는 너무 많다.** 실제 트래픽 있는 앱은 10-15개. 나머지는 관리 부채.
-5. **수익 현실:** 400u/월 = AdSense 수익 거의 $0. 의미 있는 수익($50+/월)엔 40,000u/월 필요.
-
-### 주간 전략 스냅샷 템플릿
-
-매주 업데이트할 때는 아래 6층 구조로 기록한다.
-
-| 층위 | 확인할 질문 | 대표 지표 |
-|------|-------------|-----------|
-| 획득 | 어디서 어떤 랜딩으로 들어오는가? | `sessionDefaultChannelGroup`, `sessionSourceMedium`, `landingPage` |
-| 품질 | 어떤 표면이 실제로 머무르게 하는가? | `engagementRate`, `averageSessionDuration`, `screenPageViewsPerSession` |
-| 전환 | 어떤 행동이 실제 다음 단계로 이어지는가? | `eq_test_complete`, `hub_test_card_click`, `cross_promo_click` |
-| 재방문 | 다시 돌아오는 구조가 있는가? | `newVsReturning`, `active7DayUsers`, `active28DayUsers`, `dauPerWau`, `wauPerMau` |
-| 수익 | 수익이 잡히는가, 아니면 아직 미수집인가? | `totalRevenue`, `totalAdRevenue`, `averageRevenuePerUser`, `AdSense unpaid`, `AdSense last_7_days`, `AdSense alerts` |
-| 데이터위생 | 해석을 왜곡하는 노이즈가 있는가? | `(not set)`, 비정상 국가/OS, 미반영 이벤트 |
-
-### 주간 전략 스냅샷 (2026-03-31)
-
-기간: 최근 28일 기준 스냅샷, 최근 3일 실험 표면은 별도 관찰
-
-| 층위 | 수치 | 의미 |
-|------|------|------|
-| 획득 | `Direct 609세션`, `Organic 117세션`, 메인 랜딩 `/eq-test 213`, `/ 85`, `/portal/mbti 34` | Direct 편중은 여전하지만 Organic이 꾸준히 두 번째 축으로 유지. 진입점은 여전히 `eq-test` 중심 |
-| 품질 | `/eq-test/ 152s`, `/portal/mbti/ 358s`, `ko-kr 169s`, `mobile 143s` | `eq-test`는 메인 엔진, `portal/mbti`는 체류형 허브, 한국어/모바일 품질이 확실히 높음 |
-| 전환 | `eq_test_start 180`, `eq_test_complete 34`, 최근 3일 `hub_view 6`, `hub_test_card_click 1` | 메인 이벤트는 잡히지만 허브 분배량은 아직 작음. 허브는 유지 관찰 단계 |
-| 재방문 | `new 581세션`, `returning 109세션`, `returning avg 263s`, `DAU/WAU 0.35`, `WAU/MAU 0.28` | 재방문층은 얇지만 깊다. 아직 retention보다 신규 유입 확대가 더 우선 |
-| 수익 | `totalRevenue`/`totalAdRevenue` 실질 활용값 미수집 | 수익 판단은 당분간 세션·체류·winner blog 발생 여부를 대리 지표로 사용 |
-| 데이터위생 | `search.google.com / referral 35세션(activeUsers 1)`, `Singapore 60세션 / 3s`, `Linux 65세션 / 5s`, 슬래시 규칙 분리 | 일부 트래픽은 저품질/이상치 후보. 표준 지표 해석 시 노이즈 분리 필요 |
-
-### 승자 표면
-
-- `app`: `/eq-test/` — 여전히 최강 진입점이자 메인 실험축
-- `hub`: `/portal/mbti/` — 분배량은 작아도 체류형 허브로 가치가 큼
-- `blog`: `/portal/blog/en/blood-type-personality-guide.html` — 28일 기준 winner 후보 중 가장 명확한 유입 발생
-- `cross_promo`: 클릭 수는 적지만 공통 표면 파라미터가 정리되어 추적 기반은 확보
-
-### 약한 표면
-
-- `winner blog`: `habit-building`, `stress-management` — 아직 유입 미발생
-- `portal/tests`, `portal/` — eq-test 분배효율이 아직 작아 관찰이 더 필요
-- `locale/segment`: 영어권은 볼륨은 크지만 품질이 낮고, 일부 국가/OS는 노이즈 가능성이 큼
-
-### 다음 주 액션
-
-1. 다음 유효 조회일에 `팩1/팩2/팩3`을 다시 돌려 허브 → eq-test 상승 여부를 숫자로 확인
-2. `blood-type`, `digital-detox`는 CTA/related 최적화 후보로 보고, `habit-building`, `stress-management`는 locale 확장/추가 유입 확보로 분기
-3. 메인 판단은 계속 표준 지표 우선으로 두고, `premium_*`, `content_*`, `hub_cta_click`, `hub_faq_open`은 보조 KPI 유지
-
-### 수익 다각화 검토 필요
-
-| 모델 | 가능성 | 다음 단계 |
-|------|--------|-----------|
-| AdSense | 현재 수익 $0 수준 | 트래픽 100x 필요 |
-| 프리미엄 결과 (AI 심층분석) | 높음 | eq-test에 "AI 상세 리포트" 실험 |
-| 제휴 마케팅 (멘탈헬스 앱) | 중간 | 스트레스/번아웃 결과에 추천 |
-| 후원 (Buy Me a Coffee) | 낮음 | 커뮤니티 없이 효과 미미 |
-
-**수익 채널:**
-
-| 채널 | 플랫폼 | 광고 | 장점 |
-|------|--------|------|------|
-| **앱** | Google Play | AdMob | 앱스토어 검색 유입, 푸시알림 |
-| **게임** | Google Play + 웹 | AdMob + AdSense | 높은 체류시간, 반복 플레이 |
-| **웹** | GitHub Pages | AdSense | SEO 검색 유입, 즉시 접근, 공유 쉬움 |
-
-**콘텐츠 우선순위 (데이터 기반, 3/23 업데이트):**
-
-| Tier | 유형 | 이유 | 예시 |
-|------|------|------|------|
-| 1 | **바이럴 심리테스트** | SNS 공유 → 최대 트래픽, 0% bounce 가능 | eq-test(109u), stress-response(7%b) |
-| 2 | **SEO 블로그** | Organic 유입 (227s 세션), 복리 성장 | stress-management(pos10.4), blood-type(16u) |
-| 3 | **허브 페이지** | 내부 순환, 높은 체류시간 | portal/mbti(256s), portal/tests |
-| 4 | 캐주얼 게임 | 체류 엔진 (flappy 178s) 이나 유입 적음 | idle-clicker(10u), flappy(6u) |
-
----
-
-## 웹 수익화 전략
-
-**1. 통합 포털** - 모든 앱/게임을 dopabrain.com에서 제공
-**2. SEO 최적화** - 개별 랜딩 페이지 + schema.org
-**3. 바이럴 결과 페이지** - 고유 URL + OG 메타태그
-**4. 웹 게임 포털** - 게임 간 상호 연결, 리더보드
-
-**AdSense 수익 구조:**
-
-| 위치 | 유형 | 예상 RPM |
-|------|------|----------|
-| 사이드바/상단 | 디스플레이 배너 | $1~3 |
-| 콘텐츠 사이 | 인피드 광고 | $2~5 |
-| 게임 스테이지 사이 | 전면 광고 | $5~15 |
-| 결과 페이지 | 네이티브 광고 | $3~8 |
-
----
-
-## 수익 모델 (내부 전략 - 절대 공개 금지)
-
-| 수익 모델 | 설명 | 예상 비중 |
-|-----------|------|-----------|
-| **광고** | 배너, 전면, 보상형 | 기반 수입 |
-| **인앱 결제** | 광고 제거 ₩3,900, 프리미엄 해금 | 메인 수입 |
-| **프리미엄 버전** | 무료 + 유료 Pro 분리 | 보조 수입 |
-| **후원/팁** | Buy Me a Coffee | 소소한 수입 |
-
-### 인앱 결제 전략
-
-**광고 제거:** ₩3,900~₩5,900 (일회성, 모든 앱 공통)
-
-**프리미엄 기능 해금:**
-
-| 앱 유형 | 무료 | 프리미엄 (₩2,900~) |
-|---------|------|---------------------|
-| 게임 | 기본 모드 | 추가 스테이지, 스킨 |
-| 퀴즈 | 10문제/회 | 무제한 + 카테고리별 |
-| 테스트 | 기본 결과 | AI 심층 분석 |
-| 계산기 | 기본 기능 | 고급 + 히스토리 |
-
-**보상형 광고 (게임 필수):** 광고 보고 생명/힌트 얻기 → eCPM $10~30
-
-### 프리미엄 콘텐츠 전략
-
-| 유형 | 품질 | 접근 |
-|------|------|------|
-| 무료 | 70% | 충분히 유용하지만 아쉬움 |
-| 프리미엄 | 100% | 광고 시청 또는 인앱 결제 후 |
-
-구현: "AI 심층 분석" 버튼 → 전면 광고 → 프리미엄 결과
-
----
-
-## 글로벌 전략
-
-**단계적 글로벌화:**
-1. 한국어 우선 출시 → 검증
-2. 영어 번역 추가
-3. 일본어, 중국어 추가 (아시아)
-4. 성과 좋은 앱만 추가 언어
-
-**의사결정 기준 (Stop/Go):**
-
-| 지표 | 집중 투자 | 유지 | 정리 대상 |
-|------|-----------|------|-----------|
-| 월 활성 사용자 | 1,000+ | 100~999 | 100 미만 |
-| 평균 체류시간 | 3분+ | 1~3분 | 1분 미만 |
-| 재방문율 | 20%+ | 5~20% | 5% 미만 |
-
-**Stop Criteria (신규 앱):**
-- 출시 4주 후 MAU < 50 → 추가 투자 중단
-- 블로그 8주 후 클릭 0 → 메타 수정 1회 → 4주 후 재평가 → 여전히 0이면 방치
-- 게임 체류시간 < 1분 → UX 개선 1회 → 미개선 시 정리 대상
-
-## 5년 수익 목표
-
-| 시기 | 월 목표 | 핵심 마일스톤 |
-|------|---------|---------------|
-| 1년차 | 5~10만원 | Google Play 출시, 게임 1개 |
-| 2년차 | 20~50만원 | 히트 앱 1개, 인앱 결제 |
-| 3년차 | 50~150만원 | 글로벌 확장 |
-| 4년차 | 150~300만원 | 포트폴리오 성숙 |
-| 5년차 | 300~500만원 | 안정적 수동 수입 |
+- AdSense 지급 가능 상태가 제품 최적화보다 선행한다.
+- 주소 PIN, 정책, 사이트 readiness를 코드 변경과 별도로 관리한다.
+- 현재 단계에서는 광고 밀도보다 고가치 국가의 유효 세션과 결과 도달이 우선이다.

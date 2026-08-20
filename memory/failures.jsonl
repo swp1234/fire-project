@@ -143,3 +143,4 @@
 {"ts":"2026-08-20T13:45:33Z","agent":"codex","app":"adsense","category":"mcp","error":"AdSense report rejected invalid PLATFORM_TYPE dimension; retrying with PLATFORM_TYPE_NAME","resolved":true}
 {"ts":"2026-08-20T13:45:33Z","agent":"codex","app":"failure-logger","category":"other","error":"bash executable is unavailable in the PowerShell session; recorded required failures directly in memory/failures.jsonl","resolved":true}
 {"ts":"2026-08-20T14:13:22Z","agent":"codex","app":"workspace-artifact-cleanup","category":"other","error":"Policy rejected exact-path PowerShell removal of the generated screenshot artifact; artifact remains untracked and will not be committed","resolved":true}
+{"ts":"2026-08-20T14:55:00Z","agent":"codex","app":"markdown-inventory","category":"other","error":"PowerShell rejected a direct foreach-to-pipeline expression while sizing tracked Markdown; retried with an explicit array accumulator","resolved":true}
