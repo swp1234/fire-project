@@ -13,6 +13,7 @@ const REPORT_DIR = path.join(ROOT, 'logs', 'indexing-audit');
 function parseArgs(argv) {
   const args = {
     json: false,
+    selfTest: false,
     write: false,
     limit: 40,
   };
@@ -20,6 +21,7 @@ function parseArgs(argv) {
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === '--json') args.json = true;
+    else if (arg === '--self-test') args.selfTest = true;
     else if (arg === '--write') args.write = true;
     else if (arg === '--limit') args.limit = readNumber(argv[++i], arg);
     else if (arg === '--help' || arg === '-h') {
@@ -44,6 +46,7 @@ function printHelp() {
   node scripts/indexing-inventory.js
   node scripts/indexing-inventory.js --write
   node scripts/indexing-inventory.js --json --limit 100
+  node scripts/indexing-inventory.js --self-test
 
 Audits every submitted local sitemap URL for technical indexing risks. This does not replace GSC URL Inspection; it finds site-side causes that can be fixed locally.`);
 }
@@ -105,6 +108,16 @@ function loadSitemapEntries() {
   ];
 }
 
+function isPathInside(root, target) {
+  const relative = path.relative(path.resolve(root), path.resolve(target));
+  return relative === '' || (!path.isAbsolute(relative) && relative !== '..' && !relative.startsWith(`..${path.sep}`));
+}
+
+function resolveInside(root, ...parts) {
+  const resolved = path.resolve(root, ...parts);
+  return isPathInside(root, resolved) ? resolved : '';
+}
+
 function mapUrlToLocalPath(rawUrl) {
   let url;
   try {
@@ -114,23 +127,34 @@ function mapUrlToLocalPath(rawUrl) {
   }
   if (url.origin !== ORIGIN) return { file: '', kind: 'external' };
 
-  const pathname = decodeURIComponent(url.pathname);
+  if (/%2f|%5c/i.test(url.pathname)) return { file: '', kind: 'encoded_separator' };
+  let pathname;
+  try {
+    pathname = decodeURIComponent(url.pathname);
+  } catch {
+    return { file: '', kind: 'invalid_encoding' };
+  }
+  if (pathname.includes('\\')) return { file: '', kind: 'invalid_separator' };
   if (pathname === '/' || pathname === '') return { file: path.join(ROOT_DOMAIN_ROOT, 'index.html'), kind: 'root' };
   if (pathname === '/sitemap.xml') return { file: path.join(ROOT_DOMAIN_ROOT, 'sitemap.xml'), kind: 'asset' };
   if (pathname.startsWith('/portal/')) {
     const rel = pathname.replace(/^\/portal\//, '');
-    const base = path.join(PORTAL_ROOT, rel);
+    const base = resolveInside(PORTAL_ROOT, rel);
+    if (!base) return { file: '', kind: 'path_escape' };
     const kind = pathname.startsWith('/portal/blog/')
       ? pathname.endsWith('/') ? 'blog_hub' : 'blog'
       : 'portal';
-    return { file: pathname.endsWith('/') ? path.join(base, 'index.html') : base, kind };
+    const file = pathname.endsWith('/') ? resolveInside(PORTAL_ROOT, rel, 'index.html') : base;
+    return file ? { file, kind } : { file: '', kind: 'path_escape' };
   }
 
   const parts = pathname.replace(/^\/+/, '').split('/');
   const app = parts.shift();
   if (!app) return { file: path.join(ROOT_DOMAIN_ROOT, 'index.html'), kind: 'root' };
-  const base = path.join(PROJECTS_ROOT, app, ...parts);
-  return { file: pathname.endsWith('/') ? path.join(base, 'index.html') : base, kind: 'app' };
+  const base = resolveInside(PROJECTS_ROOT, app, ...parts);
+  if (!base) return { file: '', kind: 'path_escape' };
+  const file = pathname.endsWith('/') ? resolveInside(PROJECTS_ROOT, app, ...parts, 'index.html') : base;
+  return file ? { file, kind: 'app' } : { file: '', kind: 'path_escape' };
 }
 
 function normalizeUrl(value) {
@@ -227,6 +251,68 @@ function countMatches(html, regex) {
   return Array.from(html.matchAll(regex)).length;
 }
 
+function assessQuickRail(html) {
+  const quickCardCount = countMatches(html, /class\s*=\s*["'][^"']*\bquick-card\b[^"']*["']/gi);
+  const hasNativeInteraction = /<section\b(?=[^>]*\bclass\s*=\s*["'][^"']*\bculture-choice\b[^"']*["'])(?=[^>]*\bdata-content-interaction(?:\s*=|\s|>))[^>]*>/i.test(html);
+  const minimumQuickCards = hasNativeInteraction ? 2 : 4;
+  return {
+    hasNativeInteraction,
+    isThin: quickCardCount < minimumQuickCards,
+    minimumQuickCards,
+    quickCardCount,
+  };
+}
+
+function assertSelfTest(condition, message) {
+  if (!condition) throw new Error(`Self-test failed: ${message}`);
+}
+
+function quickRailFixture(quickCardCount, hasNativeInteraction) {
+  const interactionAttribute = hasNativeInteraction ? ' data-content-interaction="choice"' : '';
+  const cards = '<a class="quick-card">card</a>'.repeat(quickCardCount);
+  return `<section class="culture-choice"${interactionAttribute}>${cards}</section>`;
+}
+
+function runSelfTest() {
+  const cases = [
+    { name: 'general blog with 3 cards fails', cards: 3, interaction: false, expectedThin: true, expectedMinimum: 4 },
+    { name: 'general blog with 4 cards passes', cards: 4, interaction: false, expectedThin: false, expectedMinimum: 4 },
+    { name: 'interaction blog with 1 card fails', cards: 1, interaction: true, expectedThin: true, expectedMinimum: 2 },
+    { name: 'interaction blog with 2 cards passes', cards: 2, interaction: true, expectedThin: false, expectedMinimum: 2 },
+  ];
+
+  for (const testCase of cases) {
+    const result = assessQuickRail(quickRailFixture(testCase.cards, testCase.interaction));
+    assertSelfTest(result.quickCardCount === testCase.cards, `${testCase.name}: counted ${result.quickCardCount} cards`);
+    assertSelfTest(result.hasNativeInteraction === testCase.interaction, `${testCase.name}: interaction classification changed`);
+    assertSelfTest(result.minimumQuickCards === testCase.expectedMinimum, `${testCase.name}: minimum is ${result.minimumQuickCards}`);
+    assertSelfTest(result.isThin === testCase.expectedThin, `${testCase.name}: thin=${result.isThin}`);
+    console.log(`[PASS] ${testCase.name}`);
+  }
+
+  const inertMarker = assessQuickRail(
+    '<main data-content-interaction="choice">' + '<a class="quick-card">card</a>'.repeat(3) + '</main>'
+  );
+  assertSelfTest(!inertMarker.hasNativeInteraction, 'inert interaction marker changed the page classification');
+  assertSelfTest(inertMarker.isThin, 'inert interaction marker lowered the four-card minimum');
+  console.log('[PASS] inert interaction marker does not lower the general blog minimum');
+
+  const validPortal = mapUrlToLocalPath(`${ORIGIN}/portal/blog/ko/example.html`);
+  assertSelfTest(validPortal.kind === 'blog' && isPathInside(PORTAL_ROOT, validPortal.file), 'valid portal URL mapping failed');
+  const unsafeUrls = [
+    `${ORIGIN}/portal/%2F..%2F..%2Fsecret.html`,
+    `${ORIGIN}/portal/%5C..%5C..%5Csecret.html`,
+    `${ORIGIN}/app/%2F..%2F..%2Fsecret.html`,
+    `${ORIGIN}/portal/%ZZ.html`,
+    `${ORIGIN}/portal/%E0%A4%A.html`
+  ];
+  for (const unsafeUrl of unsafeUrls) {
+    const mapped = mapUrlToLocalPath(unsafeUrl);
+    assertSelfTest(!mapped.file, `unsafe URL mapped to a local file (${mapped.kind})`);
+  }
+  console.log('[PASS] encoded traversal and malformed URL paths are rejected');
+}
+
 function extractHrefs(html) {
   const hrefs = [];
   const regex = /<a\b[^>]*href\s*=\s*("([^"]*)"|'([^']*)'|([^\s>]+))/gi;
@@ -262,7 +348,7 @@ function findBrokenInternalLinks(html, baseUrl = ORIGIN) {
     const resolved = path.resolve(file);
     if (seen.has(resolved)) continue;
     seen.add(resolved);
-    if (!resolved.startsWith(PROJECTS_ROOT)) continue;
+    if (!isPathInside(PROJECTS_ROOT, resolved)) continue;
     if (!fs.existsSync(resolved)) broken.push(href);
   }
   return broken;
@@ -322,8 +408,14 @@ function auditUrl(entry, duplicateCount) {
     addIssue(issues, 'sitemap_lastmod_mismatch', 'medium', `sitemap lastmod ${entry.lastmod} != dateModified ${dateModified}`);
   }
   if (ageDays !== null && ageDays > 90) addIssue(issues, 'old_date_modified_90d', 'medium', `dateModified is ${ageDays} days old`);
-  if (!isRedirect && mapped.kind === 'blog' && countMatches(html, /class\s*=\s*["'][^"']*\bquick-card\b[^"']*["']/gi) < 4) {
-    addIssue(issues, 'thin_quick_rail', 'medium', 'blog page has fewer than 4 static quick cards');
+  const quickRail = assessQuickRail(html);
+  if (!isRedirect && mapped.kind === 'blog' && quickRail.isThin) {
+    addIssue(
+      issues,
+      'thin_quick_rail',
+      'medium',
+      `blog page has ${quickRail.quickCardCount} static quick cards; expected at least ${quickRail.minimumQuickCards}`
+    );
   }
   if (!isRedirect && mapped.kind === 'blog' && countMatches(html, /data-ad-slot\s*=\s*["']auto["']/gi) === 0) {
     addIssue(issues, 'missing_auto_ad_surface', 'medium', 'blog page has no static Auto ad surface');
@@ -432,6 +524,10 @@ function writeReport(report, topResults) {
 
 function main() {
   const args = parseArgs(process.argv.slice(2));
+  if (args.selfTest) {
+    runSelfTest();
+    return;
+  }
   const rawEntries = loadSitemapEntries();
   const unique = groupByUrl(rawEntries);
   const results = Array.from(unique.values()).map((entry) => auditUrl(entry, entry.sources.length));

@@ -188,6 +188,8 @@ async function main() {
     ['culture choice verifier syntax', process.execPath, ['--check', 'scripts/verify-culture-choice.js']],
     ['cross-promo touch verifier syntax', process.execPath, ['--check', 'scripts/verify-cross-promo-touch.js']],
     ['culture review syntax', process.execPath, ['--check', 'scripts/culture-signal-review.js']],
+    ['indexing inventory syntax', process.execPath, ['--check', 'scripts/indexing-inventory.js']],
+    ['tracked secret verifier syntax', process.execPath, ['--check', 'scripts/verify-tracked-secrets.js']],
     ['blog interaction generator syntax', process.execPath, ['--check', 'scripts/verify-blog-generator-interaction.js']],
     ['portal locale audit', process.execPath, ['scripts/portal-hub-locale-audit.js']],
     ['quality gate', BASH, ['scripts/quality-gate.sh', options.target]],
@@ -197,6 +199,9 @@ async function main() {
     ['culture choice and mutations', process.execPath, ['scripts/verify-culture-choice.js', '--mutations']],
     ['cross-promo touch mutations', process.execPath, ['scripts/verify-cross-promo-touch.js', '--mutations']],
     ['culture review mutations', process.execPath, ['scripts/culture-signal-review.js', '--mutations']],
+    ['indexing inventory self-test', process.execPath, ['scripts/indexing-inventory.js', '--self-test']],
+    ['tracked secret self-test', process.execPath, ['scripts/verify-tracked-secrets.js', '--self-test']],
+    ['tracked secret scan', process.execPath, ['scripts/verify-tracked-secrets.js']],
     ['blog interaction generator', process.execPath, ['scripts/verify-blog-generator-interaction.js']],
   ];
 

@@ -15,6 +15,8 @@
     "verify:culture-choice": "node scripts/verify-culture-choice.js --mutations",
     "verify:cross-promo-touch": "node scripts/verify-cross-promo-touch.js --mutations",
     "verify:culture-review": "node scripts/culture-signal-review.js --mutations",
+    "verify:indexing-inventory": "node scripts/indexing-inventory.js --self-test",
+    "verify:tracked-secrets": "node scripts/verify-tracked-secrets.js --self-test && node scripts/verify-tracked-secrets.js",
     "verify:blog-generator-interaction": "node scripts/verify-blog-generator-interaction.js"
   },
   "devDependencies": {

@@ -3,14 +3,20 @@
 # Usage: bash scripts/mcp-restore.sh [group]
 # Groups: social | media | monetization | all
 
+set -euo pipefail
+
 GROUP="${1:-all}"
 
 add_social() {
+  : "${RAPIDAPI_KEY:?Set RAPIDAPI_KEY before restoring the Twitter MCP server}"
+  : "${TIKTOK_RAPIDAPI_KEY:?Set TIKTOK_RAPIDAPI_KEY before restoring the Trends MCP server}"
+  : "${YOUTUBE_API_KEY:?Set YOUTUBE_API_KEY before restoring the YouTube MCP server}"
+
   echo "Adding social MCP servers..."
   claude mcp add -s user reddit -- python -m mcp_server_reddit
-  claude mcp add -s user -e RAPIDAPI_KEY=9d196dc128msh3d822634a202e4ap157914jsnd32221160443 twitter -- node "E:/Fire Project/.mcp-servers/twitter-X-mcp-server/main.js"
-  claude mcp add -s user -e tiktok=9d196dc128msh3d822634a202e4ap157914jsnd32221160443 trends -- mcp run "E:/Fire Project/.mcp-servers/Trends-MCP/src/server.py"
-  claude mcp add -s user -e YOUTUBE_API_KEY=AIzaSyA16xsUHpqdCi2buaWcR3-3Ti37L3FEffk youtube -- node "E:/Fire Project/.mcp-servers/youtube-mcp-server/index.js"
+  claude mcp add -s user -e RAPIDAPI_KEY="$RAPIDAPI_KEY" twitter -- node "E:/Fire Project/.mcp-servers/twitter-X-mcp-server/main.js"
+  claude mcp add -s user -e tiktok="$TIKTOK_RAPIDAPI_KEY" trends -- mcp run "E:/Fire Project/.mcp-servers/Trends-MCP/src/server.py"
+  claude mcp add -s user -e YOUTUBE_API_KEY="$YOUTUBE_API_KEY" youtube -- node "E:/Fire Project/.mcp-servers/youtube-mcp-server/index.js"
 }
 
 add_media() {
@@ -44,7 +50,7 @@ case "$GROUP" in
   media)  add_media ;;
   monetization) add_monetization ;;
   all)    add_social; add_media; add_monetization ;;
-  *)      echo "Usage: $0 [social|media|monetization|all]" ;;
+  *)      echo "Usage: $0 [social|media|monetization|all]" >&2; exit 2 ;;
 esac
 
 echo "Done. Restart Claude Code to activate."

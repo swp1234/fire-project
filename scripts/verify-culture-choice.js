@@ -15,6 +15,7 @@ const ARTICLE_PATH = path.join(
   'odyssey-spider-man-identity-reset-2026.html'
 );
 const ARTICLE_URL_PATH = '/portal/blog/ko/odyssey-spider-man-identity-reset-2026.html';
+const LIVE_ORIGIN = 'https://dopabrain.com';
 const CONTENT_SLUG = 'odyssey-spider-man-identity-reset-2026';
 const COMMON_EVENT_PARAMS = Object.freeze({
   content_group: 'culture_signal',
@@ -35,9 +36,61 @@ const TARGET_EVENT_NAMES = Object.freeze([
   'content_share_click',
   'share'
 ]);
+const USAGE = `Usage:
+  node scripts/verify-culture-choice.js
+  node scripts/verify-culture-choice.js --mutations
+  node scripts/verify-culture-choice.js --url https://dopabrain.com${ARTICLE_URL_PATH}[?cachebuster=value]`;
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
+}
+
+function parseLiveUrl(value) {
+  let parsed;
+  try {
+    parsed = new URL(value);
+  } catch (error) {
+    throw new Error(`Invalid --url value: ${JSON.stringify(value)}\n${USAGE}`);
+  }
+  assert(parsed.protocol === 'https:', `--url must use HTTPS: ${parsed.href}\n${USAGE}`);
+  assert(parsed.host === 'dopabrain.com', `--url host must be exactly dopabrain.com: ${parsed.host}\n${USAGE}`);
+  assert(!parsed.username && !parsed.password, `--url must not contain credentials\n${USAGE}`);
+  assert(
+    parsed.pathname === ARTICLE_URL_PATH,
+    `--url path must be exactly ${ARTICLE_URL_PATH}: ${parsed.pathname}\n${USAGE}`
+  );
+  assert(!parsed.hash, `--url must not contain a fragment\n${USAGE}`);
+  return parsed.href;
+}
+
+function parseArgs(argv) {
+  let mutations = false;
+  let liveUrl = null;
+  for (let index = 0; index < argv.length; index += 1) {
+    const argument = argv[index];
+    if (argument === '--mutations') {
+      assert(!mutations, `Duplicate --mutations argument\n${USAGE}`);
+      mutations = true;
+      continue;
+    }
+    if (argument === '--url') {
+      assert(liveUrl === null, `Duplicate --url argument\n${USAGE}`);
+      const value = argv[index + 1];
+      assert(value && !value.startsWith('--'), `--url requires a value\n${USAGE}`);
+      liveUrl = parseLiveUrl(value);
+      index += 1;
+      continue;
+    }
+    throw new Error(`Unknown argument: ${argument}\n${USAGE}`);
+  }
+  assert(!(mutations && liveUrl), `--url and --mutations cannot be used together\n${USAGE}`);
+  return { mutations, liveUrl };
+}
+
+function navigationUrl(articleUrl, parameter, value) {
+  const url = new URL(articleUrl);
+  url.searchParams.set(parameter, value);
+  return url.href;
 }
 
 function sortedKeys(value) {
@@ -194,6 +247,170 @@ function startServer(getArticleHtml) {
   });
 }
 
+async function fetchLiveHtml(articleUrl) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15000);
+  let response;
+  try {
+    response = await fetch(articleUrl, {
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'Cache-Control': 'no-cache',
+        'User-Agent': 'DopaBrain-Culture-Choice-Verifier/1.0'
+      },
+      redirect: 'manual',
+      signal: controller.signal
+    });
+  } catch (error) {
+    if (error && error.name === 'AbortError') throw new Error(`Timed out fetching live article: ${articleUrl}`);
+    throw new Error(`Could not fetch live article ${articleUrl}: ${error.message}`);
+  } finally {
+    clearTimeout(timeout);
+  }
+  assert(response.status === 200, `Live article returned HTTP ${response.status}: ${articleUrl}`);
+  const contentType = response.headers.get('content-type') || '';
+  assert(/text\/html/i.test(contentType), `Live article returned non-HTML content type: ${contentType || '(missing)'}`);
+  const responseUrl = new URL(response.url || articleUrl);
+  assert(
+    responseUrl.origin === LIVE_ORIGIN && responseUrl.pathname === ARTICLE_URL_PATH,
+    `Live article response escaped the allowed URL: ${responseUrl.href}`
+  );
+  return response.text();
+}
+
+function isAllowedPageRequest(requestUrl, resourceType, articleUrl) {
+  const allowedOrigin = new URL(articleUrl).origin;
+  return (
+    requestUrl.origin === allowedOrigin
+    && (resourceType !== 'document' || requestUrl.pathname === ARTICLE_URL_PATH)
+  );
+}
+
+function verifyNetworkIsolationPolicy(articleUrl) {
+  const origin = new URL(articleUrl).origin;
+  assert(
+    isAllowedPageRequest(new URL(`${origin}${ARTICLE_URL_PATH}`), 'document', articleUrl),
+    'Network policy rejected the article document'
+  );
+  assert(
+    isAllowedPageRequest(new URL(`${origin}/portal/css/blog.css`), 'stylesheet', articleUrl),
+    'Network policy rejected a same-origin asset'
+  );
+  assert(
+    !isAllowedPageRequest(new URL('http://127.0.0.1:9/probe'), 'fetch', articleUrl),
+    'Network policy allowed another local HTTP origin'
+  );
+  assert(
+    !isAllowedPageRequest(new URL('https://example.com/probe'), 'fetch', articleUrl),
+    'Network policy allowed an external HTTPS origin'
+  );
+  assert(
+    !isAllowedPageRequest(new URL(`${origin}/portal/`), 'document', articleUrl),
+    'Network policy allowed a different same-origin document'
+  );
+}
+
+async function isolatePageNetwork(page, articleUrl) {
+  await page.route('**/*', async (route) => {
+    const request = route.request();
+    let requestUrl;
+    try {
+      requestUrl = new URL(request.url());
+    } catch (error) {
+      await route.abort('blockedbyclient');
+      return;
+    }
+
+    if (!isAllowedPageRequest(requestUrl, request.resourceType(), articleUrl)) {
+      await route.abort('blockedbyclient');
+      return;
+    }
+    await route.continue();
+  });
+  await page.routeWebSocket(/.*/, async (webSocketRoute) => {
+    await webSocketRoute.close({ code: 1008, reason: 'Blocked by culture-choice verifier' });
+  });
+}
+
+function startNetworkProbeServer() {
+  let httpHits = 0;
+  let webSocketUpgradeHits = 0;
+  const server = http.createServer((_request, response) => {
+    httpHits += 1;
+    response.writeHead(204, {
+      'Access-Control-Allow-Origin': '*',
+      'Cache-Control': 'no-store'
+    });
+    response.end();
+  });
+  server.on('upgrade', (_request, socket) => {
+    webSocketUpgradeHits += 1;
+    socket.destroy();
+  });
+
+  return new Promise((resolve, reject) => {
+    server.once('error', reject);
+    server.listen(0, '127.0.0.1', () => {
+      const address = server.address();
+      if (!address || typeof address === 'string') {
+        reject(new Error('Could not determine network probe port'));
+        return;
+      }
+      resolve({
+        getHttpHits: () => httpHits,
+        getWebSocketUpgradeHits: () => webSocketUpgradeHits,
+        httpUrl: `http://127.0.0.1:${address.port}/external-http-probe`,
+        server,
+        webSocketUrl: `ws://127.0.0.1:${address.port}/external-websocket-probe`
+      });
+    });
+  });
+}
+
+async function verifyRuntimeNetworkIsolation(browser, articleUrl) {
+  const probe = await startNetworkProbeServer();
+  const context = await browser.newContext({ serviceWorkers: 'block' });
+  const page = await context.newPage();
+  await isolatePageNetwork(page, articleUrl);
+  await page.addInitScript(installAnalyticsIsolation);
+  try {
+    await page.goto(navigationUrl(articleUrl, 'verifyNetworkIsolation', '1'), { waitUntil: 'domcontentloaded' });
+    await page.evaluate(async (httpUrl) => {
+      try {
+        await fetch(httpUrl);
+      } catch (error) {}
+    }, probe.httpUrl);
+    await page.evaluate((webSocketUrl) => {
+      window.__cultureVerifierWebSocketProbe = new WebSocket(webSocketUrl);
+    }, probe.webSocketUrl);
+    await page.waitForFunction(
+      () => window.__cultureVerifierWebSocketProbe.readyState === WebSocket.CLOSED,
+      null,
+      { timeout: 2000 }
+    );
+    await page.waitForTimeout(50);
+    assert(probe.getHttpHits() === 0, `Network isolation leaked ${probe.getHttpHits()} external HTTP request(s)`);
+    assert(
+      probe.getWebSocketUpgradeHits() === 0,
+      `Network isolation leaked ${probe.getWebSocketUpgradeHits()} external WebSocket upgrade(s)`
+    );
+  } finally {
+    await context.close();
+    await new Promise((resolve) => probe.server.close(resolve));
+  }
+}
+
+function installAnalyticsIsolation() {
+  window.dataLayer = [];
+  window.adsbygoogle = [];
+  try {
+    Object.defineProperty(navigator, 'sendBeacon', {
+      configurable: true,
+      value: () => true
+    });
+  } catch (error) {}
+}
+
 async function readEvents(page) {
   return page.evaluate(() => {
     return (window.dataLayer || [])
@@ -246,15 +463,17 @@ async function assertTargetSize(locator, label) {
   );
 }
 
-async function verifyViewport(browser, baseUrl, viewport) {
+async function verifyViewport(browser, articleUrl, viewport) {
   const context = await browser.newContext({
     viewport: { width: viewport.width, height: viewport.height },
-    locale: 'ko-KR'
+    locale: 'ko-KR',
+    serviceWorkers: 'block'
   });
   const page = await context.newPage();
   const runtimeErrors = [];
   page.on('pageerror', (error) => runtimeErrors.push(error.message));
-  await page.route(/^https:\/\//, (route) => route.abort());
+  await isolatePageNetwork(page, articleUrl);
+  await page.addInitScript(installAnalyticsIsolation);
   await page.addInitScript(() => {
     window.__cultureShareCalls = [];
     window.__shareIntentCountsAtCall = [];
@@ -271,7 +490,7 @@ async function verifyViewport(browser, baseUrl, viewport) {
   });
 
   try {
-    await page.goto(`${baseUrl}${ARTICLE_URL_PATH}?verifyCultureChoice=1`, { waitUntil: 'domcontentloaded' });
+    await page.goto(navigationUrl(articleUrl, 'verifyCultureChoice', viewport.name), { waitUntil: 'domcontentloaded' });
     const card = page.locator('#return-reset-choice');
     assert(await card.count() === 1, 'Missing or duplicate #return-reset-choice card');
 
@@ -500,12 +719,17 @@ const SHARE_OUTCOME_SCENARIOS = Object.freeze([
   { name: 'clipboard-failure', api: 'clipboard', outcome: 'failure', method: 'clipboard', expectedShareCount: 0 }
 ]);
 
-async function verifyShareOutcome(browser, baseUrl, scenario) {
-  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, locale: 'ko-KR' });
+async function verifyShareOutcome(browser, articleUrl, scenario) {
+  const context = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    locale: 'ko-KR',
+    serviceWorkers: 'block'
+  });
   const page = await context.newPage();
   const runtimeErrors = [];
   page.on('pageerror', (error) => runtimeErrors.push(error.message));
-  await page.route(/^https:\/\//, (route) => route.abort());
+  await isolatePageNetwork(page, articleUrl);
+  await page.addInitScript(installAnalyticsIsolation);
   await page.addInitScript(({ api, outcome }) => {
     window.__cultureShareCalls = [];
     window.__shareIntentCountsAtCall = [];
@@ -531,7 +755,7 @@ async function verifyShareOutcome(browser, baseUrl, scenario) {
   }, scenario);
 
   try {
-    await page.goto(`${baseUrl}${ARTICLE_URL_PATH}?verifyShareOutcome=${scenario.name}`, { waitUntil: 'domcontentloaded' });
+    await page.goto(navigationUrl(articleUrl, 'verifyShareOutcome', scenario.name), { waitUntil: 'domcontentloaded' });
     const card = page.locator('#return-reset-choice');
     await card.scrollIntoViewIfNeeded();
     const radio = card.locator('input[type="radio"][value="return"]');
@@ -587,17 +811,17 @@ async function verifyShareOutcome(browser, baseUrl, scenario) {
   }
 }
 
-async function verifyHtml(browser, baseUrl, html, viewports = VIEWPORTS, runShareOutcomeScenarios = true) {
+async function verifyHtml(browser, articleUrl, html, viewports = VIEWPORTS, runShareOutcomeScenarios = true) {
   verifySource(html);
   const journeys = [];
-  for (const viewport of viewports) journeys.push(await verifyViewport(browser, baseUrl, viewport));
+  for (const viewport of viewports) journeys.push(await verifyViewport(browser, articleUrl, viewport));
   if (journeys.length > 1) {
     assert(new Set(journeys.map((result) => result.summary)).size === journeys.length, 'Return/reset choices rendered the same summary');
   }
   const shareOutcomes = [];
   if (runShareOutcomeScenarios) {
     for (const scenario of SHARE_OUTCOME_SCENARIOS) {
-      shareOutcomes.push(await verifyShareOutcome(browser, baseUrl, scenario));
+      shareOutcomes.push(await verifyShareOutcome(browser, articleUrl, scenario));
     }
   }
   return { journeys, shareOutcomes };
@@ -704,14 +928,35 @@ function buildMutations(baseline) {
 }
 
 async function main() {
-  const baseline = fs.readFileSync(ARTICLE_PATH, 'utf8');
-  let activeHtml = baseline;
-  const serverHandle = await startServer(() => activeHtml);
-  const browser = await chromium.launch({ headless: true });
-  const baseUrl = `http://127.0.0.1:${serverHandle.port}`;
+  const options = parseArgs(process.argv.slice(2));
+  let baseline;
+  let activeHtml;
+  let articleUrl;
+  let networkMode;
+  let serverHandle = null;
+  let browser = null;
+
   try {
-    console.log('[RUN] culture choice baseline');
-    const baselineResults = await verifyHtml(browser, baseUrl, baseline);
+    if (options.liveUrl) {
+      console.log(`[RUN] fetch live culture choice ${options.liveUrl}`);
+      baseline = await fetchLiveHtml(options.liveUrl);
+      activeHtml = baseline;
+      articleUrl = options.liveUrl;
+      networkMode = 'live';
+    } else {
+      baseline = fs.readFileSync(ARTICLE_PATH, 'utf8');
+      activeHtml = baseline;
+      serverHandle = await startServer(() => activeHtml);
+      articleUrl = `http://127.0.0.1:${serverHandle.port}${ARTICLE_URL_PATH}`;
+      networkMode = 'local';
+    }
+
+    browser = await chromium.launch({ headless: true });
+    verifyNetworkIsolationPolicy(articleUrl);
+    await verifyRuntimeNetworkIsolation(browser, articleUrl);
+    console.log('[PASS] HTTP and WebSocket network isolation');
+    console.log(`[RUN] culture choice ${networkMode} baseline`);
+    const baselineResults = await verifyHtml(browser, articleUrl, baseline, VIEWPORTS, true);
     baselineResults.journeys.forEach((result) => {
       console.log(`[PASS] ${result.viewport}: ${result.input} selected ${result.choice}; events=${JSON.stringify(result.targetEvents)}`);
     });
@@ -719,13 +964,13 @@ async function main() {
       console.log(`[PASS] ${result.name}: content_share_click=${result.clickCount}, share=${result.shareCount}, method=${result.method}`);
     });
 
-    if (process.argv.includes('--mutations')) {
+    if (options.mutations) {
       const mutationResults = [];
       for (const mutation of buildMutations(baseline)) {
         activeHtml = mutation.html;
         console.log(`[RUN] mutation ${mutation.name}`);
         try {
-          await verifyHtml(browser, baseUrl, activeHtml, [VIEWPORTS[0]], false);
+          await verifyHtml(browser, articleUrl, activeHtml, [VIEWPORTS[0]], false);
           mutationResults.push({ name: mutation.name, ok: false, error: 'verifier incorrectly passed' });
         } catch (error) {
           mutationResults.push({
@@ -742,8 +987,8 @@ async function main() {
       assert(escaped.length === 0, `${escaped.length} culture-choice mutation(s) escaped or failed for the wrong reason`);
     }
   } finally {
-    await browser.close();
-    await new Promise((resolve) => serverHandle.server.close(resolve));
+    if (browser) await browser.close();
+    if (serverHandle) await new Promise((resolve) => serverHandle.server.close(resolve));
   }
 }
 
