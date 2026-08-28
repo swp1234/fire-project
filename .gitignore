@@ -59,6 +59,9 @@ SOUNDSCAPE_*.txt
 !scripts/harness-workflow-check.js
 !scripts/indexing-inventory.js
 !scripts/verify-root-focus-mutations.js
+!scripts/verify-brain-type-trust.js
+!scripts/update-brain-trust-locales.js
+!scripts/update-root-signal-locales.js
 !scripts/generate-utility-apps.js
 !scripts/portal-hub-locale-audit.js
 !scripts/repair-indexing-inventory.js

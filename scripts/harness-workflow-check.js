@@ -184,10 +184,12 @@ async function main() {
     ['runtime syntax', process.execPath, ['--check', 'scripts/runtime-check.js']],
     ['root verifier syntax', process.execPath, ['--check', 'scripts/verify-root-focus.js']],
     ['root mutation syntax', process.execPath, ['--check', 'scripts/verify-root-focus-mutations.js']],
+    ['brain trust verifier syntax', process.execPath, ['--check', 'scripts/verify-brain-type-trust.js']],
     ['portal locale audit', process.execPath, ['scripts/portal-hub-locale-audit.js']],
     ['quality gate', BASH, ['scripts/quality-gate.sh', options.target]],
     ['root focus regression', process.execPath, ['scripts/verify-root-focus.js', '--no-screenshot']],
     ['root verifier mutations', process.execPath, ['scripts/verify-root-focus-mutations.js']],
+    ['brain trust and mutations', process.execPath, ['scripts/verify-brain-type-trust.js', '--mutations']],
   ];
 
   if (!options.skipAnalytics) {

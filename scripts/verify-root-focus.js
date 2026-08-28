@@ -14,7 +14,8 @@ const PICK_PATHS = [
   '/stress-check/', '/hsp-test/', '/puzzle-2048/coach.html',
   '/brain-type/', '/iq-test/', '/portal/tools/kpop-role-roster.html',
 ];
-const HEALTH_PATHS = [...new Set([...PICK_PATHS, '/portal/', '/portal/privacy-policy.html'])];
+const SIGNAL_PATH = '/portal/blog/ko/odyssey-spider-man-identity-reset-2026.html';
+const HEALTH_PATHS = [...new Set([...PICK_PATHS, SIGNAL_PATH, '/portal/', '/portal/privacy-policy.html'])];
 const REQUIRED_SCHEMA_TYPES = ['CollectionPage', 'ItemList', 'Organization', 'WebSite'];
 const CRASH_PATTERN = /ReferenceError|TypeError|SyntaxError|Unhandled|is not defined|is not a function/i;
 const MIME_TYPES = {
@@ -43,6 +44,7 @@ function readLocales(rootDir) {
     'app.title', 'header.tagline', 'header.subtitle', 'cta.primary', 'cta.secondary',
     'cta.desc', 'cta.button', 'startHere.title', 'focus.stress', 'focus.hsp',
     'focus.coach', 'focus.brain', 'focus.iq', 'focus.kpop',
+    'signal.label', 'signal.badge', 'signal.title', 'signal.desc', 'signal.cta',
   ];
   return Object.fromEntries(LANGS.map((lang) => {
     const localePath = path.join(localeDir, `${lang}.json`);
@@ -165,7 +167,7 @@ async function readPageState(page) {
       .map((script) => JSON.parse(script.textContent));
     const keyText = Object.fromEntries([...document.querySelectorAll('[data-i18n]')]
       .map((node) => [node.dataset.i18n, node.textContent.replace(/\s+/g, ' ').trim()]));
-    const interactive = [...document.querySelectorAll('.hero-actions a, .start-card, .pick-card, #cta-link, .lang-btn')]
+    const interactive = [...document.querySelectorAll('.hero-actions a, .start-card, .pick-card, #culture-signal-link, #cta-link, .lang-btn')]
       .map((node) => ({ selector: node.id || node.className, ...rectOf(node) }));
     const primary = document.querySelector('#hero-primary-cta');
     return {
@@ -179,6 +181,7 @@ async function readPageState(page) {
         primary.getBoundingClientRect().width > 0 && primary.getBoundingClientRect().height > 0),
       startPaths: [...document.querySelectorAll('.start-card')].map(pathOf),
       pickPaths: [...document.querySelectorAll('.pick-card')].map(pathOf),
+      signalPath: pathOf(document.querySelector('#culture-signal-link')),
       legacyCount: document.querySelectorAll('.country-content-rail, .quick-cats, .stats-row, .app-grid, .site-directory').length,
       overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       duplicateIds,
@@ -202,6 +205,7 @@ function assertPageState(state, locale, lang, viewport) {
   assert(JSON.stringify(state.startPaths) === JSON.stringify(START_PATHS), `${lang}/${viewport.name}: Focus start paths mismatch`);
   assert(JSON.stringify(state.pickPaths) === JSON.stringify(PICK_PATHS), `${lang}/${viewport.name}: Focus pick paths mismatch`);
   assert(new Set(state.pickPaths).size === PICK_PATHS.length, `${lang}/${viewport.name}: Duplicate focus destinations`);
+  assert(state.signalPath === SIGNAL_PATH, `${lang}/${viewport.name}: Culture signal path mismatch`);
   assert(state.legacyCount === 0, `${lang}/${viewport.name}: Legacy discovery surface remains`);
   assert(state.overflow <= 0, `${lang}/${viewport.name}: horizontal overflow (${state.overflow}px)`);
   assert(state.duplicateIds.length === 0, `${lang}/${viewport.name}: Duplicate DOM IDs: ${state.duplicateIds.join(', ')}`);
@@ -225,6 +229,9 @@ async function assertAnalytics(page) {
   await page.locator('.pick-card').first().evaluate((node) => node.addEventListener('click', (event) => event.preventDefault(), { capture: true }));
   await page.locator('.pick-card').first().click();
   await waitForEvent(() => window.__rootVerifierEvents.some((event) => event.name === 'root_pick_click'));
+  await page.locator('#culture-signal-link').evaluate((node) => node.addEventListener('click', (event) => event.preventDefault(), { capture: true }));
+  await page.locator('#culture-signal-link').click();
+  await waitForEvent(() => window.__rootVerifierEvents.some((event) => event.name === 'root_trend_click' && event.params.surface === 'culture_signal'));
   await page.locator('#lang-toggle').click();
   await page.locator('.lang-option[data-lang="fr"]').click();
   await waitForEvent(() => window.__rootVerifierEvents.some((event) => event.name === 'root_language_change' && event.params.language === 'fr'));

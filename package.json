@@ -10,7 +10,8 @@
     "harness:analytics": "node scripts/analytics-event-check.js",
     "harness:runtime": "node scripts/runtime-check.js focused",
     "verify:root": "node scripts/verify-root-focus.js",
-    "verify:root:mutations": "node scripts/verify-root-focus-mutations.js"
+    "verify:root:mutations": "node scripts/verify-root-focus-mutations.js",
+    "verify:brain-trust": "node scripts/verify-brain-type-trust.js --mutations"
   },
   "devDependencies": {
     "playwright": "^1.60.0"

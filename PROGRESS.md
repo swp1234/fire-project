@@ -1,12 +1,12 @@
 # DopaBrain Current State
 
-Updated: 2026-08-21
+Updated: 2026-08-28
 
 이 문서는 현재 상태와 다음 판단만 유지한다. 이전 세션 전문은 Git 이력에 있으며, 반복 가능한 절차는 `dopabrain-growth-ops` Skill로 이동했다.
 
 ## Current objective
 
-수익 정체를 페이지 증산으로 해결하지 않는다. 검색 참여와 국가별 수익성이 확인된 소수 경로에 홈, 내부 링크, 크롤링, 측정을 집중한다.
+하루 `$1`를 목표로 유효한 KR/US 트래픽을 늘린다. 기존 도구는 전환 레이어로 유지하고, 영화·밈·게임 등 트렌드 콘텐츠는 독립 측정되는 유입 레이어로 시험한다.
 
 ## Production portfolio
 
@@ -15,18 +15,18 @@ Updated: 2026-08-21
 | Primary | Stress Check, HSP Test, 2048 Coach | 홈 첫 행동과 핵심 전환 |
 | Support | Brain Type, IQ Test, K-pop Role Roster | 검증된 보조 수요 |
 | Archive | Portal | 기존 사용자를 위한 보존 경로 |
+| Pilot | Culture Signal | 트렌드 검색 유입과 도구 전환 검증 |
 | Suppressed | 나머지 앱·콘텐츠 | 라이브 유지, 홈·집중 사이트맵 제외 |
 
 ## Data baseline
 
-2026-08-20 점검 기준:
+2026-08-28 점검 기준:
 
-- AdSense 최근 30일: 약 `$2.97`, 14,682 pageviews, Page RPM 약 `$0.20`.
-- 2026-08-06의 7,137 pageviews / `$0.24`는 저가치 스캔성 급증으로 판정.
-- GA4 Singapore desktop Direct 9,909 sessions는 제품 수요 지표로 사용하지 않는다.
-- Organic은 Stress, HSP, 2048 및 일부 두뇌 콘텐츠에서 상대적으로 유효했다.
-- GSC 대량 제출 구조는 색인 성과가 없어서 집중 큐로 교체했다.
-- 집중 사이트맵: 루트 18 + 포털 7 + 블로그 17 = 42 unique URLs.
+- 최근 7일 AdSense: `$0.76`, 1,531 pageviews, Page RPM `$0.49`.
+- SG desktop scan을 제외한 유효 RPM은 약 `$0.91`; KR RPM은 약 `$3.21`.
+- 현재 효율이면 `$1/day`에 유효 PV 약 1,100/day, KR 수준이면 약 300/day가 필요하다.
+- Organic은 주간 175 sessions로 정체했고 Google Organic은 1 session뿐이다.
+- 집중 사이트맵은 신규 문화 글 1개를 추가해 43 unique URLs가 된다.
 
 ## Current release
 
@@ -38,11 +38,14 @@ Updated: 2026-08-21
 - 루트 HTML은 약 55.8KB에서 40.6KB로 축소했다.
 - runtime 검증은 `file://` false failure를 막기 위해 로컬 HTTP 서버를 사용한다.
 - 세션·분석·배포의 재사용 절차는 전역 `dopabrain-growth-ops` Skill로 분리했다.
+- Brain Type의 가짜 평점·가짜 이용자 수·가짜 분포 통계와 스캔 표현을 제거하고 실제 가중 선택 방식을 공개했다.
+- 첫 Culture Signal로 오딧세이·스파이더맨 글을 만들고 홈에서 `root_trend_click`으로 분리 측정한다.
 
 ## Verification state
 
-- `npm run verify:root`: 12 locales × mobile/desktop 24회 + 핵심 링크 8개.
-- `npm run verify:root:mutations`: 정상 기준과 6개 의도적 결함 탐지.
+- `npm run verify:root`: 12 locales × mobile/desktop 24회 + 핵심 링크 9개.
+- `npm run verify:root:mutations`: 정상 기준과 7개 의도적 결함 탐지.
+- `npm run verify:brain-trust`: 신뢰·schema·hreflang 기준과 5개 변이 탐지.
 - `npm run harness`: 포털 locale, 정적 품질, 분석 이벤트, runtime smoke.
 - `npm run harness:runtime`: focused portfolio 6개 runtime smoke.
 - Stress/HSP 앱 전용 suite는 이전 릴리스에서 전 항목 통과.
@@ -50,12 +53,12 @@ Updated: 2026-08-21
 ## Open operations
 
 - AdSense 주소 PIN 미인증 지급 보류는 계정에서 수동 처리해야 한다.
-- 새 포트폴리오는 2~4주 관찰 후 Organic landing, CTA events, country RPM, GSC indexing으로 재판정한다.
+- Culture Signal은 7일 단위로 색인, organic landing, 도구 bridge CTR, 국가 RPM을 확인한다.
 - 명확한 증거 없이 suppressed 페이지를 홈이나 sitemap으로 복귀시키지 않는다.
 
 ## Next review
 
-1. 검색엔진이 42 URL 큐를 다시 처리했는지 확인한다.
-2. `root_view → root_cta_click/root_pick_click` 비율을 언어·국가별로 비교한다.
-3. primary 경로별 수익과 참여가 없으면 순서를 조정하거나 한 경로를 교체한다.
+1. 신규 문화 글의 색인과 `root_trend_click → content_view → content_*_click`을 확인한다.
+2. 7일 내 유효 organic 20/day, engagement 55%, 도구 bridge CTR 8%, 유효 RPM `$1` 중 몇 개를 달성했는지 본다.
+3. 2개 이상 달성하면 게임/밈 문화 신호를 한 편 추가하고, 아니면 제목·내부 링크 또는 주제를 교체한다.
 4. 트래픽 급증은 scan/bot 가능성을 먼저 배제한다.

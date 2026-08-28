@@ -1,10 +1,10 @@
 # DopaBrain
 
-무료 스트레스·민감도·두뇌 도구를 12개 언어로 제공하는 정적 웹 포트폴리오입니다.
+트렌드 콘텐츠에서 무료 테스트·도구·게임으로 연결하는 12개 언어 정적 웹 포트폴리오입니다.
 
 - Production: https://dopabrain.com/
 - Archive portal: https://dopabrain.com/portal/
-- Current focus: Stress Check, HSP Test, 2048 Coach
+- Current focus: Culture Signal + Stress Check, HSP Test, 2048 Coach
 
 ## Workspace
 
@@ -20,6 +20,7 @@
 ```powershell
 npm run verify:root
 npm run verify:root:mutations
+npm run verify:brain-trust
 npm run harness
 npm run harness:runtime
 ```

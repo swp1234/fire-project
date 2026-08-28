@@ -21,16 +21,17 @@
 ```powershell
 npm run verify:root
 npm run verify:root:mutations
+npm run verify:brain-trust
 ```
 
 `verify:root`가 확인하는 항목:
 
 - 12개 locale 파일과 필수 키.
 - mobile 390×844, desktop 1440×900에서 각 언어 렌더링.
-- 정확한 primary/start/pick 경로와 8개 목적지 응답.
+- 정확한 primary/start/pick/culture 경로와 9개 목적지 응답.
 - canonical, 13개 hreflang, 화면과 일치하는 schema types.
 - 중복 ID, skip target, 44px target, 초기 CTA 가시성, 가로 overflow.
-- `root_view`, CTA, pick, language-change 분석 이벤트.
+- `root_view`, CTA, pick, culture, language-change 분석 이벤트.
 - page/console runtime exceptions.
 
 `verify:root:mutations`는 정상 fixture가 통과하고 다음 결함이 실패하는지 확인한다.
@@ -38,9 +39,12 @@ npm run verify:root:mutations
 - primary route 변조.
 - locale 파일 누락.
 - CTA event surface 변조.
+- Culture Signal route 변조.
 - 강제 mobile overflow.
 - duplicate ID.
 - runtime exception.
+
+`verify:brain-trust`는 12 locale, 실제 scoring 설명, 제한 고지, schema, 13 hreflang을 확인하고 가짜 수치·평점·분포·hreflang 붕괴·고지 제거 변이를 실패시킨다.
 
 ## Portfolio runtime
 

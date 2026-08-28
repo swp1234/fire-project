@@ -1,16 +1,17 @@
-# Focused Portfolio Strategy
+# Hybrid Revenue Strategy
 
-Updated: 2026-08-20
+Updated: 2026-08-28
 
 ## Thesis
 
-DopaBrain의 병목은 콘텐츠 수가 아니라 발견 경로의 희석과 저가치 트래픽이다. 한 페이지를 더 만드는 것보다 이미 참여와 수익 가능성이 있는 경로의 첫 클릭, 다음 행동, 색인을 개선한다.
+DopaBrain은 심리 사이트로 고정하지 않는다. 트렌드 글이 검색 유입을 만들고, 테스트·도구·게임이 상호작용과 재방문을 만들도록 연결한다. 대량 뉴스 복제 대신 한 편씩 색인·전환·RPM을 검증한다.
 
 ## Portfolio
 
 - Primary: Stress Check, HSP Test, 2048 Coach.
 - Support: Brain Type, IQ Test, K-pop Role Roster.
 - Archive: Portal 한 곳.
+- Pilot: 영화·밈·게임 Culture Signal. 원문 복제가 아닌 해설·선택·도구 연결을 제공한다.
 - Suppressed: 성과 근거가 없는 기존 자산. 라이브는 유지하되 홈과 집중 sitemap에서 제외한다.
 
 ## Decision model
@@ -31,18 +32,21 @@ Direct 급증은 국가·기기·체류·수익을 확인해 scan/bot을 먼저 
 
 - 실험당 한 가지 핵심 가설과 이벤트를 둔다.
 - 색인되지 않는 페이지를 추가 생산하지 않는다.
+- 트렌드 실험은 한 언어·한 URL·한 bridge CTA로 시작한다.
+- 저작권 침해, 허위 통계, 클릭 유도, 자동 생성 스팸은 수익 실험에서 제외한다.
 - 얇은 번역 확장보다 한 언어의 검증된 intent를 완성한다.
 - 광고 노출을 늘리기 전에 유효한 첫 행동과 결과 도달을 확보한다.
 - 기존 URL 삭제는 backlink와 직접 방문 손실을 검토한 뒤 결정한다.
 
 ## Review window
 
-배포 후 2~4주 동안 다음을 비교한다.
+초기 신호는 7일, 승격 판단은 최대 2~4주 동안 비교한다.
 
 1. `root_view` 대비 primary/support 클릭률.
 2. Organic landing별 engagement와 다음 행동.
 3. 국가·기기별 page RPM과 impression RPM.
 4. 집중 sitemap의 discovered/indexed 변화.
+5. `root_trend_click → content_view → content_test/cta/related_click` bridge 전환.
 
 Primary 경로가 검색·행동·수익 세 축에서 모두 약하면 교체한다. 단기 scan 유입이나 단일 클릭으로 복귀시키지 않는다.
 

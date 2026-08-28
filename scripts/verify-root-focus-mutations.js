@@ -60,6 +60,12 @@ const mutations = [
     apply(rootDir) { mutateIndex(rootDir, (html) => html.replace('data-root-surface="hero_primary_stress"', 'data-root-surface="hero_primary_missing"')); },
   },
   {
+    name: 'broken-culture-signal-route', expected: 'Culture signal path mismatch',
+    apply(rootDir) {
+      mutateIndex(rootDir, (html) => html.replace('/portal/blog/ko/odyssey-spider-man-identity-reset-2026.html', '/portal/blog/ko/missing-culture-signal.html'));
+    },
+  },
+  {
     name: 'mobile-overflow', expected: 'horizontal overflow',
     apply(rootDir) { mutateIndex(rootDir, (html) => html.replace('</head>', '<style>body{min-width:900px!important}</style>\n</head>')); },
   },
