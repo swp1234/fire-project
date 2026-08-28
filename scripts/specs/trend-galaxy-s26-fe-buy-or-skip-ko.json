@@ -1,0 +1,208 @@
+{
+  "lang": "ko",
+  "slug": "galaxy-s26-fe-buy-or-skip-2026",
+  "title": "갤럭시 S26 FE, 9월 4일 출시 시점에 구매를 검토할까? 104만 5천 원 체크리스트",
+  "h1": "갤럭시 S26 FE, 9월 4일 출시 시점 구매를 검토할까 기다릴까?",
+  "description": "갤럭시 S26 FE의 국내 출시일과 공식 가격, 구독 조건을 바탕으로 출시 시점 구매 검토와 대기 중 어느 쪽이 맞는지 판단하는 체크리스트입니다.",
+  "keywords": [
+    "갤럭시 S26 FE 가격",
+    "갤럭시 S26 FE 출시일",
+    "갤럭시 S26 FE 살까",
+    "갤럭시 S26 FE 구매",
+    "갤럭시 S26 FE 기다릴까"
+  ],
+  "category": "technology",
+  "tag": "Culture Signal",
+  "tagColor": "#2563eb",
+  "readTime": "6분",
+  "themeColor": "#2563eb",
+  "contentGroup": "culture_signal",
+  "contentSlug": "galaxy-s26-fe-buy-or-skip-2026",
+  "crossPromoMode": "native",
+  "ogImage": "https://dopabrain.com/portal/img/og/galaxy-s26-fe-buy-or-skip-2026.jpg",
+  "date": "2026-08-29",
+  "quickRail": {
+    "title": "휴대폰보다 먼저 확인할 내 결정 방식",
+    "description": "사양을 더 읽기 전에 내가 빠르게 확정하는 편인지, 비교 자료를 모으는 편인지 확인해 보세요.",
+    "cards": [
+      {
+        "title": "뇌 유형 테스트",
+        "description": "계획, 직관, 공감, 행동 중 내 선택을 움직이는 경향을 10문항으로 돌아봅니다. 특정 제품을 추천하는 테스트는 아닙니다.",
+        "url": "https://dopabrain.com/brain-type/?lang=ko",
+        "surface": "culture_quick_brain_type",
+        "targetSlug": "brain-type"
+      }
+    ]
+  },
+  "cta": {
+    "title": "구매 결론 전에 내 선택 패턴부터 확인",
+    "body": "이 테스트는 휴대폰을 추천하거나 재정 판단을 대신하지 않습니다. 내가 속도와 검증 중 무엇을 더 중시하는지 짧게 확인하는 도구입니다.",
+    "label": "1분 선택 패턴 확인 →",
+    "url": "https://dopabrain.com/brain-type/?lang=ko&start=1&surface=galaxy_s26_fe_brain_type",
+    "surface": "galaxy_s26_fe_brain_type",
+    "targetSlug": "brain-type"
+  },
+  "interaction": {
+    "id": "galaxy-s26-fe-choice",
+    "name": "galaxy_s26_fe_buy_wait",
+    "surface": "culture_purchase_fork",
+    "title": "오늘 기준, 어느 쪽에 더 가까운가요?",
+    "help": "정답, 추천, 진단이 아니라 구매 전제를 분명히 하는 선택입니다.",
+    "legend": "출시 시점 구매 검토와 대기 중 하나 선택",
+    "replaceSectionHeading": "당신의 선택: 출시 시점 구매를 검토한다 vs 기다린다",
+    "choices": [
+      {
+        "id": "buy",
+        "label": "구매를 검토한다 — 9월 4일 출시 시점에 결정한다",
+        "shareLabel": "출시 시점 구매를 검토한다",
+        "summary": "현재 휴대폰 교체가 급하고 256GB 구성과 공식 출고가를 받아들일 수 있으며, 장기 업데이트와 출시 시 제공되고 내 조건에서 사용 가능함이 확인된 카메라·AI 기능의 가치가 큽니다.",
+        "ctaSurface": "galaxy_s26_fe_choice_buy"
+      },
+      {
+        "id": "wait",
+        "label": "기다린다 — 실사용과 총비용을 확인한다",
+        "shareLabel": "실사용을 보고 기다린다",
+        "summary": "현재 휴대폰이 충분히 쓸 만하고 실제 배터리·발열·카메라 평가와 통신사·보상 조건을 비교한 뒤 결정하는 편이 손실을 줄입니다.",
+        "ctaSurface": "galaxy_s26_fe_choice_wait"
+      }
+    ],
+    "ctaLabel": "10문항으로 내 선택 패턴 확인 →",
+    "ctaUrl": "https://dopabrain.com/brain-type/?lang=ko&start=1",
+    "ctaTargetSlug": "brain-type",
+    "shareLabel": "내 선택 공유",
+    "shareSurface": "culture_choice_result",
+    "shareTemplate": "나는 갤럭시 S26 FE를 ‘{choice}’ 쪽으로 기울었습니다. 당신은?",
+    "shareTitle": "갤럭시 S26 FE: 출시 시점 구매 검토 vs 기다리기",
+    "shareSuccess": "선택을 공유했습니다.",
+    "shareFailure": "공유하지 못했습니다. 다시 시도해 주세요.",
+    "copySuccess": "선택과 링크를 복사했습니다.",
+    "copyFailure": "복사하지 못했습니다. 주소창의 링크를 이용해 주세요."
+  },
+  "experiment": {
+    "launchDate": "2026-08-29",
+    "entryEvent": "root_trend_click",
+    "viewEvent": "content_view",
+    "bridgeEvents": [
+      "content_test_click",
+      "content_cta_click"
+    ],
+    "thresholds": {
+      "organicSessionsPerDay": 20,
+      "engagementRate": 0.55,
+      "bridgeRate": 0.08,
+      "effectiveRpmUsd": 1,
+      "minimumFullDays": 7,
+      "minimumContentViews": 20,
+      "minimumOrganicSessionsForRate": 20,
+      "minimumRevenuePageViews": 20,
+      "minimumGscImpressionsForSuppression": 20,
+      "promotePasses": 2,
+      "earliestSuppressDays": 14,
+      "finalReviewDays": 28
+    },
+    "excludedSegments": [
+      {
+        "country": "SG",
+        "platform": "Desktop"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "heading": "확정된 것은 출시일과 공식 가격까지다",
+      "paragraphs": [
+        "삼성전자는 2026년 8월 27일 갤럭시 S26 FE를 공개했고, 국내 출시는 9월 4일이라고 발표했습니다. 국내 발표 구성은 256GB 모델이며 공식 가격은 104만 5,000원, 색상은 블루베리·그라파이트·피스타치오입니다.",
+        "이 글의 기준일인 8월 29일 삼성닷컴 제품 페이지에는 아직 ‘Coming Soon’으로 표시됩니다. 따라서 여기서 ‘출시 시점 구매를 검토한다’는 이미 구매할 수 있거나 출시일 재고를 확보한다는 뜻이 아니라, 9월 4일 출시 시점의 실제 판매 여부·재고·조건을 확인한 뒤 구매 여부를 결정하겠다는 선택입니다. 판매처별 최종 결제액과 조건은 구매 직전 공식 페이지에서 다시 확인해야 합니다."
+      ]
+    },
+    {
+      "heading": "출시 시점에 구매를 검토하는 쪽이 합리적인 조건",
+      "paragraphs": [
+        "현재 휴대폰의 배터리나 성능 문제가 일상을 방해해 교체 시점이 이미 왔다면 기다림의 이익은 작아집니다. 256GB 저장공간이 충분하고 104만 5,000원의 공식 가격을 예산 안에서 감당할 수 있다는 전제가 먼저입니다.",
+        "삼성 공식 정보상 171.1mm FHD+ 디스플레이와 최대 120Hz 주사율, 50MP 광각·12MP 초광각·8MP 3배 망원 카메라, 4,900mAh 대표값 배터리(정격 4,755mAh)를 갖췄습니다. 최대 7회의 주요 OS 업그레이드와 최대 7년 보안 업데이트를 오래 쓰는 근거로 보는 사람이라면 출시 시점 구매 검토의 이유가 선명합니다."
+      ],
+      "bullets": [
+        "현재 기기를 계속 쓰는 비용이나 불편이 이미 크다.",
+        "256GB 한 가지 국내 발표 구성이 내 사용량에 맞는다.",
+        "공식 출고가를 할인 없는 기준으로 잡아도 예산이 흔들리지 않는다.",
+        "실사용 리뷰보다 빠른 교체와 장기 업데이트 지원이 더 중요하다."
+      ]
+    },
+    {
+      "heading": "기다리는 쪽이 합리적인 조건",
+      "paragraphs": [
+        "현재 휴대폰이 문제없이 작동한다면 출시 시점에 바로 결정하지 않는 것은 손실이 아닙니다. 공식 사양은 제품의 가능성을 보여 주지만, 실제 배터리 지속시간과 발열, 카메라 결과, 앱별 체감 성능까지 대신 증명하지는 않습니다.",
+        "구매 후 몇 주 동안 독립적인 실사용 평가와 통신사 요금제, 보상판매, 케어 비용을 함께 비교하면 총비용을 더 정확히 볼 수 있습니다. 기다림은 막연한 할인 기대가 아니라 아직 확인되지 않은 변수를 줄이는 선택이어야 합니다."
+      ],
+      "bullets": [
+        "현재 기기를 적어도 몇 달 더 무리 없이 쓸 수 있다.",
+        "배터리·발열·카메라의 실제 사용 결과가 구매를 좌우한다.",
+        "통신사 약정, 보상판매, 케어 비용을 포함한 총비용 비교가 필요하다.",
+        "256GB가 맞지 않아 S26 FE 대신 다른 모델의 저장공간 선택지를 비교한다."
+      ]
+    },
+    {
+      "heading": "‘최대 50%’를 즉시 할인으로 읽으면 안 된다",
+      "paragraphs": [
+        "삼성이 발표한 ‘최대 50%’는 제품값을 바로 깎아 주는 할인이나 현금 환급이 아닙니다. 국내 자급제 대상 New 갤럭시 AI 구독클럽에 가입하고 정해진 기간 뒤 기기를 반납할 때 적용될 수 있는 최대 잔존가 보장입니다.",
+        "발표 기준 월 이용료는 1년형·2년형 6,900원, 3년형 8,900원이며 최대 잔존가는 각각 삼성닷컴 기준가의 50%, 40%, 25%입니다. 전원 미작동, 외관 파손, 계정 미삭제 단말 등은 제외됩니다. 가입 전에는 이용료, 케어 범위, 반납 판정과 예상 잔존가를 모두 더해 직접 비교해야 합니다."
+      ]
+    },
+    {
+      "heading": "사양보다 오래 쓰는 조건을 본다",
+      "paragraphs": [
+        "긴 업데이트 지원은 분명한 장점이지만 ‘7년 동안 누구에게나 같은 시점에 모든 기능이 제공된다’는 뜻은 아닙니다. 삼성은 OS 업그레이드와 보안 업데이트의 제공 여부와 시기가 국가, 통신사, 모델에 따라 달라질 수 있다고 안내합니다.",
+        "Galaxy AI의 현재 기본 기능은 무료지만 향후 향상된 기능이나 새 서비스는 유료일 수 있고, 제3자 AI에는 별도 조건이 적용될 수 있습니다. IP68도 시험 조건에 따른 등급이며 방수·방진 성능은 영구적이지 않습니다. 오래 쓸 계획이라면 이런 조건까지 구매 판단에 넣어야 합니다."
+      ]
+    },
+    {
+      "heading": "당신의 선택: 출시 시점 구매를 검토한다 vs 기다린다",
+      "paragraphs": [
+        "현재 기기의 상태, 예산, 검증이 필요한 항목을 기준으로 둘 중 하나를 고르세요. 이 선택은 제품의 우열이나 사람의 성격을 진단하지 않습니다."
+      ]
+    },
+    {
+      "heading": "편집 원칙과 기준일",
+      "paragraphs": [
+        "DopaBrain은 삼성전자와 제휴하거나 이 글을 협찬받지 않았으며 구매 링크나 제휴 수수료 링크를 제공하지 않습니다. 가격과 출시 정보는 2026년 8월 29일 기준 삼성전자 공식 발표와 한국 제품 페이지를 교차 확인해 정리했습니다.",
+        "출시 전후 판매 조건과 제공 기능은 바뀔 수 있습니다. 이 글은 구매를 권유하는 광고가 아니라, 공식적으로 확인된 사실과 아직 검증이 필요한 변수를 분리해 결정을 돕는 Culture Signal입니다."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "갤럭시 S26 FE를 지금 바로 살 수 있나요?",
+      "answer": "2026년 8월 29일 기준 삼성닷컴 제품 페이지는 ‘Coming Soon’이며, 삼성전자가 발표한 국내 출시일은 9월 4일입니다. 실제 판매 시작 여부와 재고는 구매 당일 공식 페이지에서 확인해야 합니다."
+    },
+    {
+      "question": "‘최대 50% 잔존가 보장’은 즉시 할인인가요?",
+      "answer": "아닙니다. 국내 자급제 대상 구독클럽의 유료 가입과 추후 기기 반납, 상태 심사 등 조건을 충족할 때 받을 수 있는 최대 잔존가입니다. 즉시 할인이나 확정 환급으로 계산하면 안 됩니다."
+    },
+    {
+      "question": "DopaBrain은 삼성전자 제휴 또는 구매 수수료를 받나요?",
+      "answer": "아닙니다. 이 글은 삼성전자 공식 1차 출처를 바탕으로 독립적으로 작성한 구매 판단 자료이며, 삼성전자 협찬이나 제휴 구매 링크를 포함하지 않습니다."
+    },
+    {
+      "question": "기존 갤럭시 사용자는 모두 바꾸는 것이 좋나요?",
+      "answer": "아닙니다. 현재 기기의 고장과 배터리 상태, 필요한 저장공간, 예산, 실사용 검증의 중요도가 사람마다 다릅니다. 공식 사양만으로 모든 사용자에게 업그레이드를 권할 수는 없습니다."
+    }
+  ],
+  "related": [
+    {
+      "label": "뇌 유형 테스트",
+      "url": "https://dopabrain.com/brain-type/?lang=ko",
+      "surface": "culture_related_brain_type",
+      "targetSlug": "brain-type"
+    }
+  ],
+  "sources": [
+    {
+      "label": "삼성전자 뉴스룸: 갤럭시 S26 FE 공개 및 국내 출시·가격·구독 조건",
+      "url": "https://news.samsung.com/kr/%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90-%EA%B0%A4%EB%9F%AD%EC%8B%9C-%ED%94%84%EB%A6%AC%EB%AF%B8%EC%97%84-%EA%B8%B0%EB%8A%A5%EC%9D%84-%EB%8B%B4%EC%9D%80-%EA%B0%A4%EB%9F%AD%EC%8B%9C-s26-fe-%EA%B3%B5"
+    },
+    {
+      "label": "삼성전자 한국 제품 페이지: 갤럭시 S26 FE 기능·사양·조건",
+      "url": "https://www.samsung.com/sec/smartphones/galaxy-s26-fe/"
+    }
+  ]
+}

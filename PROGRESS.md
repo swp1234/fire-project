@@ -1,6 +1,6 @@
 # DopaBrain Current State
 
-Updated: 2026-08-28
+Updated: 2026-08-29
 
 현재 상태와 다음 판단만 기록한다. 이력은 Git, 반복 절차는 `dopabrain-growth-ops` Skill이 기준이다.
 
@@ -48,6 +48,9 @@ Updated: 2026-08-28
 ## Next decision
 
 `scripts/culture-signal-review.js`가 spec과 읽기 전용 evidence로 `review.json`·경량 `review.md`를 생성한다.
+
+- 2026-08-29 현재 0 complete days, 대상 GA4 행 0, GSC 발견 전이라 첫 파일럿은 `TOO_EARLY`; 두 번째 URL은 아직 공개하지 않는다.
+- 다음 후보는 GTA VI 공식정보 글이 1순위, S26 FE 구매검토 글은 후순위다. 두 spec·상호작용 검증·오리지널 OG draft는 준비됐고 첫 7일 판정 뒤 한 편만 공개한다.
 
 - 7 complete days 미만: `TOO_EARLY`; 유입·색인 증거 없음: `DISCOVERY_HOLD`.
 - Organic 20/day, engagement 55%, bridge 8%, page-attributed RPM `$1` 중 신뢰 가능한 2개 이상: `PROMOTE`.
