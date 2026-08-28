@@ -66,6 +66,13 @@ SOUNDSCAPE_*.txt
 !scripts/verify-cross-promo-touch.js
 !scripts/culture-signal-review.js
 !scripts/verify-blog-generator-interaction.js
+!scripts/verify-2048-ad-policy.js
+!scripts/verify-adsense-contract.js
+!scripts/verify-brain-training-bridge.js
+!scripts/verify-kst-date.js
+!scripts/verify-zh-2048-guide.js
+!scripts/lib/
+!scripts/lib/time-zone-date.js
 !scripts/generate-utility-apps.js
 !scripts/portal-hub-locale-audit.js
 !scripts/repair-indexing-inventory.js

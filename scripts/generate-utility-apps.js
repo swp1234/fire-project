@@ -327,15 +327,6 @@ ${LANGS.map((lang) => `        <option value="${lang}">${lang.toUpperCase()}</op
       <div id="result-output" class="result-output"></div>
     </section>
 
-    <div class="ad-container" aria-label="Sponsored">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-3600813755953882"
-           data-ad-slot="auto"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
-
     <section class="related-tools">
       <h2>More Utilities</h2>
       <div class="related-grid">
@@ -533,7 +524,7 @@ h1 {
   gap: 16px;
   margin-top: 18px;
 }
-.tool-panel, .side-panel, .result-panel, .ad-container, .related-tools {
+.tool-panel, .side-panel, .result-panel, .related-tools {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -646,13 +637,6 @@ th { color: var(--text); }
   border-radius: 8px;
   border: 1px solid var(--border);
   background: var(--surface-2);
-}
-.ad-container {
-  margin-top: 18px;
-  min-height: 96px;
-  display: grid;
-  place-items: center;
-  padding: 12px;
 }
 .related-tools { margin-top: 18px; }
 .related-grid {

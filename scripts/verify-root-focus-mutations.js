@@ -66,6 +66,53 @@ const mutations = [
     },
   },
   {
+    name: 'buried-culture-signal', expected: 'Culture signal is outside the initial viewport',
+    apply(rootDir) {
+      mutateIndex(rootDir, (html) => html.replace('</head>', '<style>#culture-signal-link{transform:translateY(900px)!important}</style>\n</head>'));
+    },
+  },
+  {
+    name: 'oversized-culture-signal', expected: 'Culture signal compact height out of range',
+    apply(rootDir) {
+      mutateIndex(rootDir, (html) => html.replace('</head>', '<style>#culture-signal-link{min-height:180px!important}</style>\n</head>'));
+    },
+  },
+  {
+    name: 'fixed-culture-signal', expected: 'Culture signal must stay in normal flow',
+    apply(rootDir) {
+      mutateIndex(rootDir, (html) => html.replace('</head>', '<style>#culture-signal-link{position:fixed!important}</style>\n</head>'));
+    },
+  },
+  {
+    name: 'duplicate-culture-signal', expected: 'Culture signal count mismatch',
+    apply(rootDir) {
+      mutateIndex(rootDir, (html) => html.replace('</body>', `<script>
+        (() => {
+          const source = document.getElementById('culture-signal-link');
+          const clone = source.cloneNode(true);
+          clone.removeAttribute('id');
+          clone.querySelectorAll('[id]').forEach((node) => node.removeAttribute('id'));
+          document.querySelector('.start-here').before(clone);
+        })();
+      </script>\n</body>`));
+    },
+  },
+  {
+    name: 'wrong-culture-event-binding', expected: 'Culture signal event binding mismatch',
+    apply(rootDir) {
+      mutateIndex(rootDir, (html) => html.replace('data-root-event="root_trend_click"', 'data-root-event="root_cta_click"'));
+    },
+  },
+  {
+    name: 'wrong-culture-view-count', expected: 'root_view culture signal count mismatch',
+    apply(rootDir) {
+      mutateIndex(rootDir, (html) => html.replace(
+        "culture_signal_count: document.querySelectorAll('.culture-signal-link').length",
+        'culture_signal_count: 0'
+      ));
+    },
+  },
+  {
     name: 'mobile-overflow', expected: 'horizontal overflow',
     apply(rootDir) { mutateIndex(rootDir, (html) => html.replace('</head>', '<style>body{min-width:900px!important}</style>\n</head>')); },
   },

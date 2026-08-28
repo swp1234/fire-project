@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
+const { todayInTimeZone } = require('./lib/time-zone-date');
 
 const ROOT = path.resolve(__dirname, '..');
-const TODAY = (process.env.REVENUE_CONTENT_TODAY || new Date().toISOString().slice(0, 10)).slice(0, 10);
+const TODAY = (process.env.REVENUE_CONTENT_TODAY || todayInTimeZone()).slice(0, 10);
 
 const TARGETS = [
   {

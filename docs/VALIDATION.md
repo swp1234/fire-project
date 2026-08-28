@@ -22,29 +22,37 @@ grep은 존재만, screenshot은 모양만 증명한다. 행동·연결·계측�
 npm run verify:root
 npm run verify:root:mutations
 npm run verify:brain-trust
+npm run verify:brain-training-bridge
+npm run verify:2048-ad-policy
+npm run verify:zh-2048-guide
 npm run verify:culture-choice
 npm run verify:cross-promo-touch
 npm run verify:culture-review
-npm run verify:blog-generator-interaction
+npm run verify:indexing-inventory
+npm run verify:tracked-secrets
+npm run verify:adsense-contract
+npm run verify:kst-date
+npm run verify:blog-generator-interaction -- --spec scripts/specs/trend-odyssey-spiderman-ko.json
 npm run harness
 npm run harness:runtime
 ```
 
 - Root: 12 locales × mobile/desktop, 9개 목적지, schema, 44px/overflow, root events; route·locale·event·layout·runtime 변이.
 - Brain Type: 실제 scoring·제한 고지, schema, 13 hreflang; 허위 수치·평점·분포·고지 제거 변이.
+- Brain training bridge: 구현으로 확인한 10개 기능, 4 quick/7 article/4 follow-up 경로, 정확한 surface·slug 이벤트, 효능·의료·허위 광고 주장 제거를 검증한다.
+- 2048 ad policy: 실제 mobile touch/desktop keyboard 이동·일반 undo, Auto Ads loader 하나, 공식 natural-break/reward 호출, 가짜 보상·수동 slot·허위 impression 부재를 검증한다.
 - Culture choice: pointer/keyboard 선택, CTA/share, `content_*` 공통·선택 params, no fake stats/ad-in-interaction, schema; 대응 변이.
 - Cross-promo: mobile sticky target 44px와 overflow 0; touch geometry 변이.
 - Culture review: 순수 evidence 판정과 13개 in-memory 변이. 얇은 표본·전역 수치·URL 불일치가 승격/억제를 만들지 못하며 외부 계정을 변경하지 않는다.
 - Blog generator: 잘못된 interaction spec 거부, 임시 생성물의 2선택·분기 CTA·공유 이벤트 순서·mobile overflow·sticky 억제를 검증한다.
+- AdSense: Auto Ads 구현 경로는 하나만 허용하고 관리형 loader는 Google script 요청까지 확인한다. `data-ad-slot="auto"`, 수동 unit/push, DOM 기반 `content_ad_impression`은 거부하며 GA 이벤트는 유료 노출 증거가 아니다.
 - Harness: portal locale·정적 품질·위 검증기·analytics smoke·focused runtime을 첫 실패에서 중단한다.
 
 콘텐츠 기본 검증은 필요 시 다음을 함께 실행한다.
 
 ```powershell
-node scripts/verify-blog-pages.js --file projects/portal/blog/ko/odyssey-spider-man-identity-reset-2026.html --expect-events content_view,content_ad_impression,content_test_click,content_cta_click,content_related_click
+node scripts/verify-blog-pages.js --file projects/portal/blog/ko/odyssey-spider-man-identity-reset-2026.html --expect-auto 1 --expect-events content_view,content_test_click,content_cta_click,content_related_click
 ```
-
-`content_ad_impression`은 슬롯 가시성 이벤트이지 AdSense 유료 노출 증거가 아니다.
 
 ## Decision evidence
 

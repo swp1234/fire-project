@@ -170,6 +170,10 @@ async function readPageState(page) {
     const interactive = [...document.querySelectorAll('.hero-actions a, .start-card, .pick-card, #culture-signal-link, #cta-link, .lang-btn')]
       .map((node) => ({ selector: node.id || node.className, ...rectOf(node) }));
     const primary = document.querySelector('#hero-primary-cta');
+    const heroActions = document.querySelector('.hero-actions');
+    const startHere = document.querySelector('.start-here');
+    const signal = document.querySelector('#culture-signal-link');
+    const signalArrow = signal?.querySelector('.culture-signal-compact-arrow');
     return {
       title: document.title,
       lang: document.documentElement.lang,
@@ -180,8 +184,26 @@ async function readPageState(page) {
         getComputedStyle(primary).visibility !== 'hidden' && Number(getComputedStyle(primary).opacity) > 0 &&
         primary.getBoundingClientRect().width > 0 && primary.getBoundingClientRect().height > 0),
       startPaths: [...document.querySelectorAll('.start-card')].map(pathOf),
+      startRect: rectOf(startHere),
       pickPaths: [...document.querySelectorAll('.pick-card')].map(pathOf),
-      signalPath: pathOf(document.querySelector('#culture-signal-link')),
+      signalPath: signal ? pathOf(signal) : '',
+      signal: {
+        app: signal?.dataset.app || '',
+        compactCount: document.querySelectorAll('.culture-signal-compact').length,
+        event: signal?.dataset.rootEvent || '',
+        eventCount: document.querySelectorAll('[data-root-event="root_trend_click"]').length,
+        idCount: document.querySelectorAll('#culture-signal-link').length,
+        legacyWrapperCount: document.querySelectorAll('.culture-signal').length,
+        linkCount: document.querySelectorAll('.culture-signal-link').length,
+        nextIsStart: signal?.nextElementSibling === startHere,
+        oldCopyCount: document.querySelectorAll('.culture-signal-desc, .culture-signal-cta').length,
+        position: signal ? getComputedStyle(signal).position : '',
+        previousIsHero: signal?.previousElementSibling === heroActions,
+        rect: signal ? rectOf(signal) : null,
+        surface: signal?.dataset.rootSurface || '',
+        tabIndex: signal?.tabIndex ?? -1,
+        arrowHidden: signalArrow?.getAttribute('aria-hidden') || '',
+      },
       legacyCount: document.querySelectorAll('.country-content-rail, .quick-cats, .stats-row, .app-grid, .site-directory').length,
       overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       duplicateIds,
@@ -206,6 +228,27 @@ function assertPageState(state, locale, lang, viewport) {
   assert(JSON.stringify(state.pickPaths) === JSON.stringify(PICK_PATHS), `${lang}/${viewport.name}: Focus pick paths mismatch`);
   assert(new Set(state.pickPaths).size === PICK_PATHS.length, `${lang}/${viewport.name}: Duplicate focus destinations`);
   assert(state.signalPath === SIGNAL_PATH, `${lang}/${viewport.name}: Culture signal path mismatch`);
+  assert(state.signal.idCount === 1 && state.signal.linkCount === 1, `${lang}/${viewport.name}: Culture signal count mismatch`);
+  assert(state.signal.compactCount === 1, `${lang}/${viewport.name}: Culture signal compact count mismatch`);
+  assert(state.signal.eventCount === 1 && state.signal.event === 'root_trend_click', `${lang}/${viewport.name}: Culture signal event binding mismatch`);
+  assert(state.signal.surface === 'culture_signal', `${lang}/${viewport.name}: Culture signal surface mismatch`);
+  assert(state.signal.app === 'odyssey-spiderman-2026', `${lang}/${viewport.name}: Culture signal app mismatch`);
+  assert(state.signal.previousIsHero, `${lang}/${viewport.name}: Culture signal must follow hero actions`);
+  assert(state.signal.nextIsStart, `${lang}/${viewport.name}: Culture signal must precede Start Here`);
+  assert(state.signal.legacyWrapperCount === 0, `${lang}/${viewport.name}: Legacy culture signal wrapper remains`);
+  assert(state.signal.oldCopyCount === 0, `${lang}/${viewport.name}: Expanded culture signal copy remains`);
+  assert(state.signal.position === 'static', `${lang}/${viewport.name}: Culture signal must stay in normal flow`);
+  assert(state.signal.tabIndex === 0, `${lang}/${viewport.name}: Culture signal is not keyboard focusable`);
+  assert(state.signal.arrowHidden === 'true', `${lang}/${viewport.name}: Culture signal arrow is exposed to assistive technology`);
+  assert(state.signal.rect && state.signal.rect.width >= 44 && state.signal.rect.height >= 44 && state.signal.rect.height <= 96,
+    `${lang}/${viewport.name}: Culture signal compact height out of range`);
+  assert(state.signal.rect.top >= 0 && state.signal.rect.bottom <= viewport.height,
+    `${lang}/${viewport.name}: Culture signal is outside the initial viewport`);
+  assert(state.startRect.top >= 0 && state.startRect.top < viewport.height,
+    `${lang}/${viewport.name}: Start Here no longer begins in the initial viewport`);
+  for (const key of ['signal.label', 'signal.badge', 'signal.title']) {
+    assert(state.keyText[key] === normalizeText(valueAt(locale, key)), `${lang}/${viewport.name}: untranslated key ${key}`);
+  }
   assert(state.legacyCount === 0, `${lang}/${viewport.name}: Legacy discovery surface remains`);
   assert(state.overflow <= 0, `${lang}/${viewport.name}: horizontal overflow (${state.overflow}px)`);
   assert(state.duplicateIds.length === 0, `${lang}/${viewport.name}: Duplicate DOM IDs: ${state.duplicateIds.join(', ')}`);
@@ -223,6 +266,12 @@ function assertPageState(state, locale, lang, viewport) {
 async function assertAnalytics(page) {
   const waitForEvent = (predicate) => page.waitForFunction(predicate, null, { timeout: 3000 });
   await waitForEvent(() => window.__rootVerifierEvents.some((event) => event.name === 'root_view'));
+  const rootViews = await page.evaluate(() => window.__rootVerifierEvents.filter((event) => event.name === 'root_view'));
+  assert(rootViews.length === 1, 'root_view must fire exactly once');
+  assert(rootViews[0].params.start_card_count === 3, 'root_view start card count mismatch');
+  assert(rootViews[0].params.focus_pick_count === 6, 'root_view focus pick count mismatch');
+  assert(rootViews[0].params.culture_signal_count === 1, 'root_view culture signal count mismatch');
+  assert(rootViews[0].params.archive_link_count === 1, 'root_view archive link count mismatch');
   await page.locator('#hero-primary-cta').evaluate((node) => node.addEventListener('click', (event) => event.preventDefault(), { capture: true }));
   await page.locator('#hero-primary-cta').click();
   await waitForEvent(() => window.__rootVerifierEvents.some((event) => event.name === 'root_cta_click' && event.params.surface === 'hero_primary_stress'));
@@ -230,8 +279,13 @@ async function assertAnalytics(page) {
   await page.locator('.pick-card').first().click();
   await waitForEvent(() => window.__rootVerifierEvents.some((event) => event.name === 'root_pick_click'));
   await page.locator('#culture-signal-link').evaluate((node) => node.addEventListener('click', (event) => event.preventDefault(), { capture: true }));
-  await page.locator('#culture-signal-link').click();
+  await page.locator('.culture-signal-compact-title').click();
   await waitForEvent(() => window.__rootVerifierEvents.some((event) => event.name === 'root_trend_click' && event.params.surface === 'culture_signal'));
+  const trendEvents = await page.evaluate(() => window.__rootVerifierEvents.filter((event) => event.name === 'root_trend_click'));
+  assert(trendEvents.length === 1, 'root_trend_click must fire exactly once for one child click');
+  assert(trendEvents[0].params.surface === 'culture_signal', 'root_trend_click surface mismatch');
+  assert(trendEvents[0].params.destination === SIGNAL_PATH, 'root_trend_click destination mismatch');
+  assert(trendEvents[0].params.app_id === 'odyssey-spiderman-2026', 'root_trend_click app mismatch');
   await page.locator('#lang-toggle').click();
   await page.locator('.lang-option[data-lang="fr"]').click();
   await waitForEvent(() => window.__rootVerifierEvents.some((event) => event.name === 'root_language_change' && event.params.language === 'fr'));

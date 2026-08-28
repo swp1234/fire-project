@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
+const { todayInTimeZone } = require('./lib/time-zone-date');
 
 const ROOT = path.resolve(__dirname, '..');
 const PORTAL_ROOT = path.join(ROOT, 'projects', 'portal');
@@ -152,7 +153,7 @@ function loadSpec(specPath) {
 }
 
 function today() {
-  return new Date().toISOString().slice(0, 10);
+  return todayInTimeZone();
 }
 
 function normalizeSlug(slug) {
@@ -305,6 +306,7 @@ function validateSpec(spec) {
   spec.contentSlug = normalizeSlug(spec.contentSlug || spec.slug);
   spec.h1 = spec.h1 || spec.title;
   spec.date = spec.date || today();
+  spec.dateModified = spec.dateModified || spec.date;
   spec.themeColor = spec.themeColor || spec.tagColor || '#14b8a6';
   spec.ogImage = spec.ogImage || 'https://dopabrain.com/portal/img/og/burnout-test.png';
   spec.keywords = listText(spec.keywords);
@@ -474,7 +476,7 @@ function renderArticleJson(spec) {
     description: spec.description,
     image: spec.ogImage,
     datePublished: spec.date,
-    dateModified: spec.date,
+    dateModified: spec.dateModified,
     inLanguage: spec.lang,
     author: { '@type': 'Organization', name: 'DopaBrain', url: 'https://dopabrain.com/' },
     publisher: {
@@ -795,7 +797,6 @@ ${renderBreadcrumbJson(spec)}
         .cta-box { background: linear-gradient(135deg, rgba(20,184,166,0.15), rgba(245,158,11,0.11)); border: 1.5px solid rgba(94,234,212,0.28); border-radius: 8px; padding: 28px 24px; margin: 32px 0; text-align: center; }
         .cta-box h3 { color: var(--primary-light); margin-top: 0; }
         .cta-btn { display: inline-block; padding: 14px 28px; background: linear-gradient(135deg, var(--primary), var(--accent)); color: #06120f; text-decoration: none; border-radius: 8px; font-weight: 850; min-height: 44px; }
-        .ad-shell { margin: 34px 0; padding: 20px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; text-align: center; min-height: 250px; }
         .faq-item { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 18px; margin-bottom: 12px; }
         .faq-item h3 { margin-top: 0; font-size: 17px; }
         .related-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
@@ -847,13 +848,6 @@ ${spec.faq.map((item) => `            <div class="faq-item">
                 <p>${escapeHtml(item.answer)}</p>
             </div>`).join('\n')}
 
-            <div class="ad-shell" data-ad-surface="before_related_ad" aria-label="Sponsored">
-                <ins class="adsbygoogle" style="display:block" data-ad-client="${DEFAULT_AD_CLIENT}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                <script>
-                    try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-                </script>
-            </div>
-
             <h2>${escapeHtml(copy.related)}</h2>
             <p>${escapeHtml(copy.relatedIntro)}</p>
             <div class="related-links">
@@ -866,13 +860,6 @@ ${renderSources(spec.sources, copy)}
             <p><a href="https://dopabrain.com/">DopaBrain</a> &bull; <a href="https://dopabrain.com/portal/">${escapeHtml(copy.allContent)}</a> &bull; <a href="https://dopabrain.com/portal/blog/${escapeAttr(spec.lang)}/">Blog</a></p>
             <p style="margin-top:8px;font-size:13px;color:var(--text-secondary)">&copy; 2026 DopaBrain. ${escapeHtml(copy.rights)}</p>
         </footer>
-    </div>
-
-    <div style="max-width:800px;margin:20px auto;padding:0 20px" data-ad-surface="bottom_ad">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="${DEFAULT_AD_CLIENT}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>
-            try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-        </script>
     </div>
 
     <script>
@@ -938,35 +925,6 @@ ${renderInteractionScript(spec)}
             });
         });
 
-        (function observeAds() {
-            var seenAds = [];
-            function hasSeen(element) {
-                return seenAds.indexOf(element) !== -1;
-            }
-            function markSeen(element) {
-                var adNode = element ? element.querySelector('.adsbygoogle') : null;
-                if (!element || hasSeen(element)) return;
-                seenAds.push(element);
-                trackContentEvent('content_ad_impression', {
-                    ad_surface: element.dataset.adSurface || 'unknown',
-                    ad_slot: adNode && adNode.dataset ? adNode.dataset.adSlot || '' : ''
-                });
-            }
-            var adShells = document.querySelectorAll('[data-ad-surface]');
-            if (!('IntersectionObserver' in window)) {
-                adShells.forEach(markSeen);
-                return;
-            }
-            var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        markSeen(entry.target);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.25 });
-            adShells.forEach(function(shell) { observer.observe(shell); });
-        })();
     </script>
 ${spec.interaction || spec.crossPromoMode === 'native' ? '' : '    <script src="/portal/js/cross-promo.js" defer></script>'}
 </body>
@@ -975,7 +933,7 @@ ${spec.interaction || spec.crossPromoMode === 'native' ? '' : '    <script src="
 }
 
 function insertRootSitemap(rootSitemap, spec) {
-  const entry = `  <url><loc>${pageUrl(spec)}</loc><lastmod>${spec.date}</lastmod><changefreq>${spec.changefreq}</changefreq><priority>${spec.priority}</priority></url>`;
+  const entry = `  <url><loc>${pageUrl(spec)}</loc><lastmod>${spec.dateModified}</lastmod><changefreq>${spec.changefreq}</changefreq><priority>${spec.priority}</priority></url>`;
   if (rootSitemap.includes(pageUrl(spec))) return rootSitemap;
   const anchor = rootSitemap.indexOf('  <!-- Additional deployed apps missing from sitemap');
   if (anchor !== -1) {
@@ -988,7 +946,7 @@ function insertBlogSitemap(blogSitemap, spec) {
   if (blogSitemap.includes(pageUrl(spec))) return blogSitemap;
   const entry = `  <url>
     <loc>${pageUrl(spec)}</loc>
-    <lastmod>${spec.date}</lastmod>
+    <lastmod>${spec.dateModified}</lastmod>
     <changefreq>${spec.changefreq}</changefreq>
     <priority>${spec.priority}</priority>
   </url>`;

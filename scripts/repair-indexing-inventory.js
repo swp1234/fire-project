@@ -2,10 +2,11 @@
 const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
+const { todayInTimeZone } = require('./lib/time-zone-date');
 
 const ROOT = path.resolve(__dirname, '..');
 const PROJECTS_ROOT = path.join(ROOT, 'projects');
-const TODAY = (process.env.INDEXING_REPAIR_TODAY || new Date().toISOString().slice(0, 10)).slice(0, 10);
+const TODAY = (process.env.INDEXING_REPAIR_TODAY || todayInTimeZone()).slice(0, 10);
 const INVENTORY_SCRIPT = path.join(ROOT, 'scripts', 'indexing-inventory.js');
 const SITEMAPS = [
   path.join(PROJECTS_ROOT, 'root-domain', 'sitemap.xml'),

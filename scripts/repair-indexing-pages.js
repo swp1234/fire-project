@@ -115,7 +115,6 @@ function renderArticle(page) {
     .quick-card strong, .related-card strong { display:block; color:#fff; margin-bottom:4px; }
     .quick-card span, .related-card span { color:#cbd5e1; font-size:.92rem; }
     .cta-button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:10px 16px; background:var(--primary); color:white; border-radius:8px; font-weight:800; }
-    .ad-container { min-height:120px; display:flex; align-items:center; justify-content:center; margin:28px 0; border:1px dashed rgba(255,255,255,.22); border-radius:8px; color:#94a3b8; }
     .faq-item { padding:16px 18px; margin:12px 0; }
     footer { border-top:1px solid var(--line); padding:28px clamp(16px,5vw,72px); color:#94a3b8; text-align:center; }
     @media (max-width:760px) { .quick-grid, .related-grid { grid-template-columns:1fr; } .nav { align-items:flex-start; flex-direction:column; } }
@@ -149,7 +148,6 @@ function renderArticle(page) {
       </div>
     </section>
     ${page.sections.map((section) => `<section id="${section.id}"><h2>${section.title}</h2>${section.body.map((part) => `<p>${part}</p>`).join('')}</section>`).join('')}
-    <div class="ad-container" data-ad-slot="auto" data-ad-surface="mid_article_ad">Advertisement</div>
     <section>
       <h2>${page.ctaTitle}</h2>
       <p>${page.ctaText}</p>
@@ -179,9 +177,6 @@ function renderArticle(page) {
         }, params || {}));
       }
       track('content_view');
-      document.querySelectorAll('[data-ad-surface]').forEach(function(node) {
-        track('content_ad_impression', { ad_surface: node.getAttribute('data-ad-surface') || 'article' });
-      });
       document.querySelectorAll('.quick-card').forEach(function(node) {
         node.addEventListener('click', function() { track('content_test_click', { link_url: node.href }); });
       });

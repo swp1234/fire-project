@@ -1,15 +1,14 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
+const { todayInTimeZone } = require('./lib/time-zone-date');
 
 const ROOT = path.resolve(__dirname, '..');
 const PROJECTS_ROOT = path.join(ROOT, 'projects');
 const PORTAL_ROOT = path.join(PROJECTS_ROOT, 'portal');
 const BLOG_ROOT = path.join(PORTAL_ROOT, 'blog');
 const ORIGIN = 'https://dopabrain.com';
-const TODAY = (process.env.INDEXING_BATCH_TODAY || new Date().toISOString().slice(0, 10)).slice(0, 10);
-const ADSENSE_CLIENT = 'ca-pub-3600813755953882';
-const PLACEHOLDER_AD_SLOTS = ['1234567890', '9876543210', '5555555555'];
+const TODAY = (process.env.INDEXING_BATCH_TODAY || todayInTimeZone()).slice(0, 10);
 
 const DEFAULT_TARGETS = [
   'de/zodiac-compatibility.html',
@@ -411,46 +410,78 @@ function ensureQuickRail(html, relativeFile, lang) {
   return html.replace(/(<body\b[^>]*>)/i, `$1${rail}`);
 }
 
-function renderAutoAd() {
-  return `
-                <div class="ad-container indexing-auto-ad" data-ad-surface="indexing_mid_article_ad" aria-label="Sponsored">
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="${ADSENSE_CLIENT}" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                </div>
-`;
-}
-
 function stripScripts(html) {
   return String(html || '').replace(/<script\b[\s\S]*?<\/script>/gi, '');
 }
 
-function ensureAutoAd(html) {
-  let next = html;
-  for (const slot of PLACEHOLDER_AD_SLOTS) {
-    next = next.replace(new RegExp(`data-ad-slot=(["'])${slot}\\1`, 'g'), 'data-ad-slot="auto"');
+function removeBalancedDivBlocks(html, shouldRemove) {
+  const source = String(html || '');
+  const stack = [];
+  const ranges = [];
+  const tokenPattern = /<!--[\s\S]*?-->|<\/?div\b[^>]*>/gi;
+  let match;
+
+  while ((match = tokenPattern.exec(source)) !== null) {
+    const token = match[0];
+    if (token.startsWith('<!--')) continue;
+    if (/^<div\b/i.test(token)) {
+      stack.push({ start: match.index, end: tokenPattern.lastIndex, tag: token });
+      continue;
+    }
+
+    const opening = stack.pop();
+    if (!opening) continue;
+    const block = {
+      start: opening.start,
+      end: tokenPattern.lastIndex,
+      tag: opening.tag,
+      inner: source.slice(opening.end, match.index),
+    };
+    if (shouldRemove(block)) ranges.push(block);
   }
-  const markupOnly = stripScripts(next);
-  if (/data-ad-slot\s*=\s*["']auto["']/i.test(markupOnly) && /<[^>]+\bdata-ad-surface\s*=/i.test(markupOnly)) return next;
-  const ad = renderAutoAd();
-  if (/<div\b[^>]*class\s*=\s*["'][^"']*\bcta-section\b/i.test(next)) {
-    return next.replace(/(<div\b[^>]*class\s*=\s*["'][^"']*\bcta-section\b[^>]*>)/i, `${ad}$1`);
+
+  const outermost = ranges
+    .sort((left, right) => left.start - right.start || right.end - left.end)
+    .filter((candidate, index, ordered) => !ordered.slice(0, index).some((parent) => parent.start <= candidate.start && parent.end >= candidate.end));
+  let result = source;
+  for (const range of outermost.sort((left, right) => right.start - left.start)) {
+    result = result.slice(0, range.start) + result.slice(range.end);
   }
-  if (/<section\b[^>]*>\s*<h2\b[^>]*>[^<]*(Related|Articles|Art)/i.test(next)) {
-    return next.replace(/(<section\b[^>]*>\s*<h2\b[^>]*>[^<]*(?:Related|Articles|Art)[\s\S]*?<\/h2>)/i, `${ad}$1`);
-  }
-  if (/<\/main>/i.test(next)) return next.replace(/(<\/main>)/i, `${ad}$1`);
-  if (/<footer\b/i.test(next)) return next.replace(/(<footer\b[^>]*>)/i, `${ad}$1`);
-  return next.replace(/(<\/body>)/i, `${ad}$1`);
+  return result;
+}
+
+function isAdPlaceholderOnly(innerHtml) {
+  const text = String(innerHtml || '')
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;|&#160;|&#x0*a0;/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return text === '' || /^(?:advertisement|ad|광고|広告|广告|廣告|anzeige|publicit(?:é|a)|publicidad|annuncio|anúncio|реклама)$/i.test(text);
+}
+
+function removeInvalidStaticAds(html) {
+  let next = String(html || '');
+  next = removeBalancedDivBlocks(next, ({ tag }) => (
+    /\bclass\s*=\s*["'][^"']*\bindexing-auto-ad\b[^"']*["']/i.test(tag)
+    || /\bdata-ad-slot\s*=\s*["']auto["']/i.test(tag)
+  ));
+  next = next.replace(/<ins\b(?=[^>]*\bclass\s*=\s*["'][^"']*\badsbygoogle\b)[^>]*>[\s\S]*?<\/ins>\s*/gi, '');
+  next = removeBalancedDivBlocks(next, ({ tag, inner }) => (
+    /\bclass\s*=\s*["'][^"']*\bad-container\b[^"']*["']/i.test(tag)
+    && isAdPlaceholderOnly(inner)
+  ));
+  return next;
 }
 
 function ensureIndexingStyles(html) {
-  if (/indexing-quick-rail/i.test(html) && /indexing-auto-ad/i.test(html) && /Indexing batch support/i.test(html)) {
+  if (/indexing-quick-rail/i.test(html) && /Indexing batch support/i.test(html)) {
     let next = html;
     if (!/Indexing table overflow support/i.test(next)) {
     const overflowCss = `
 
         /* Indexing table overflow support */
         .indexing-quick-rail,
-        .indexing-auto-ad,
         .indexing-followup-section {
             max-width: 100%;
             overflow-wrap: anywhere;
@@ -603,17 +634,8 @@ function ensureIndexingStyles(html) {
             line-height: 1.45;
         }
 
-        .indexing-auto-ad {
-            min-height: 120px;
-            margin: 2.5rem 0;
-            padding: 1rem;
-            border: 1px dashed var(--border-color, rgba(255, 255, 255, 0.18));
-            border-radius: 8px;
-        }
-
         /* Indexing table overflow support */
         .indexing-quick-rail,
-        .indexing-auto-ad,
         .indexing-followup-section {
             max-width: 100%;
             overflow-wrap: anywhere;
@@ -843,28 +865,7 @@ function ensureAdLoader(html) {
 }
 
 function ensureTelemetry(html, relativeFile, lang) {
-  html = html.replace(
-    "target.closest('.cta-section') || target.classList.contains('cta-button') || target.getAttribute('data-content-surface') === 'cta'",
-    "target.closest('.cta-section') || target.closest('.cta-box') || target.closest('.test-cta') || target.classList.contains('cta-btn') || target.classList.contains('cta-button') || target.classList.contains('game-link') || target.getAttribute('data-content-surface') === 'cta'"
-  );
-  html = html.replace(
-    "target.closest('.cta-section') || target.closest('.cta-box') || target.classList.contains('cta-btn') || target.classList.contains('cta-button') || target.getAttribute('data-content-surface') === 'cta'",
-    "target.closest('.cta-section') || target.closest('.cta-box') || target.closest('.test-cta') || target.classList.contains('cta-btn') || target.classList.contains('cta-button') || target.classList.contains('game-link') || target.getAttribute('data-content-surface') === 'cta'"
-  );
-  html = html.replace(
-    "target.closest('.related-posts') || target.classList.contains('related-card') || target.closest('.related-card')",
-    "target.closest('.related-posts') || target.closest('.related-links') || target.classList.contains('related-link') || target.classList.contains('related-card') || target.closest('.related-card')"
-  );
-  html = html.replace(
-    "track('content_view');\n            document.querySelectorAll('[data-ad-surface]').forEach(function(node, index) {",
-    "function emitInitialContentEvents() {\n                track('content_view');\n                document.querySelectorAll('[data-ad-surface]').forEach(function(node, index) {"
-  );
-  html = html.replace(
-    "            });\n\n            document.addEventListener('click', function(event) {",
-    "                });\n            }\n\n            if (document.readyState === 'loading') {\n                document.addEventListener('DOMContentLoaded', emitInitialContentEvents, { once: true });\n            } else {\n                emitInitialContentEvents();\n            }\n\n            document.addEventListener('click', function(event) {"
-  );
-  const expected = ['content_view', 'content_ad_impression', 'content_test_click', 'content_cta_click', 'content_related_click'];
-  if (expected.every((eventName) => html.includes(eventName)) && /indexingContentTelemetry/i.test(html)) return html;
+  html = html.replace(/<script\b[^>]*>[\s\S]*?function\s+indexingContentTelemetry\s*\([\s\S]*?<\/script>\s*/gi, '');
   const contentId = path.basename(relativeFile);
   const script = `
     <script>
@@ -879,21 +880,7 @@ function ensureTelemetry(html, relativeFile, lang) {
                 }, params || {}));
             }
 
-            function emitInitialContentEvents() {
-                track('content_view');
-                document.querySelectorAll('[data-ad-surface]').forEach(function(node, index) {
-                    track('content_ad_impression', {
-                        ad_surface: node.getAttribute('data-ad-surface') || 'article_ad',
-                        ad_index: index + 1
-                    });
-                });
-            }
-
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', emitInitialContentEvents, { once: true });
-            } else {
-                emitInitialContentEvents();
-            }
+            track('content_view');
 
             document.addEventListener('click', function(event) {
                 var target = event.target && event.target.closest ? event.target.closest('a,button') : null;
@@ -959,7 +946,7 @@ function upgradeOne(target) {
   html = ensureJsonLd(html, relativeFile, lang, url);
   html = ensureAdLoader(html);
   html = ensureQuickRail(html, relativeFile, lang);
-  html = ensureAutoAd(html);
+  html = removeInvalidStaticAds(html);
   html = ensureActionLinks(html, relativeFile, lang);
   html = ensureIndexingStyles(html);
   html = ensureTelemetry(html, relativeFile, lang);
@@ -991,4 +978,8 @@ function main() {
   for (const item of changed) console.log(`- ${item.file}`);
 }
 
-main();
+if (require.main === module) main();
+
+module.exports = {
+  removeInvalidStaticAds,
+};

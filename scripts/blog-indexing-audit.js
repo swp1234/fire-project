@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
+const { todayInTimeZone } = require('./lib/time-zone-date');
 
 const ROOT = path.resolve(__dirname, '..');
 const PROJECTS_ROOT = path.join(ROOT, 'projects');
@@ -10,10 +11,8 @@ const BLOG_ROOT = path.join(PORTAL_ROOT, 'blog');
 const ORIGIN = 'https://dopabrain.com';
 const DEFAULT_LIMIT = 25;
 const DEFAULT_MAX_AGE_DAYS = 60;
-const PLACEHOLDER_AD_SLOTS = ['1234567890', '9876543210', '5555555555'];
 const EXPECTED_EVENTS = [
   'content_view',
-  'content_ad_impression',
   'content_test_click',
   'content_cta_click',
   'content_related_click',
@@ -28,6 +27,7 @@ function parseArgs(argv) {
     limit: DEFAULT_LIMIT,
     maxAgeDays: DEFAULT_MAX_AGE_DAYS,
     minScore: 0,
+    selfTest: false,
   };
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -39,6 +39,7 @@ function parseArgs(argv) {
     else if (arg === '--limit') args.limit = readLimit(argv[++i], arg);
     else if (arg === '--max-age-days') args.maxAgeDays = readNumber(argv[++i], arg);
     else if (arg === '--min-score') args.minScore = readNumber(argv[++i], arg);
+    else if (arg === '--self-test') args.selfTest = true;
     else if (arg === '--all') args.limit = Infinity;
     else if (arg === '--help' || arg === '-h') {
       printHelp();
@@ -73,6 +74,7 @@ function printHelp() {
   node scripts/blog-indexing-audit.js --all --json
   node scripts/blog-indexing-audit.js --include-redirects --limit 30
   node scripts/blog-indexing-audit.js --min-score 40 --fail-on-score 80
+  node scripts/blog-indexing-audit.js --self-test
 
 Ranks portal blog pages by indexing and maintenance risk. Intentional redirect stubs are skipped by default. The command is read-only.`);
 }
@@ -346,6 +348,30 @@ function addIssue(issues, id, weight, message) {
   issues.push({ id, weight, message });
 }
 
+function inspectAdContract(html) {
+  const source = String(html || '').replace(/<!--[\s\S]*?-->/g, '');
+  return {
+    adsenseLoader: /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-/i.test(source)
+      || /\/portal\/js\/ad-loader\.js/i.test(source),
+    contentEvents: Array.from(new Set(Array.from(source.matchAll(/content_[a-z0-9_]+/gi)).map((match) => match[0]))),
+    invalidAutoSlots: countMatches(source, /data-ad-slot\s*=\s*["']auto["']/gi),
+    manualAdUnits: countMatches(source, /<ins\b[^>]*\bclass\s*=\s*["'][^"']*\badsbygoogle\b[^"']*["'][^>]*>/gi),
+    staticAdSurfaces: countMatches(source, /data-ad-surface\s*=/gi),
+  };
+}
+
+function runSelfTest() {
+  const commentOnly = inspectAdContract('<!-- <script src="/portal/js/ad-loader.js"></script><ins class="adsbygoogle" data-ad-slot="auto" data-ad-surface="fake"></ins><script>gtag("event","content_ad_impression")</script> -->');
+  if (commentOnly.adsenseLoader || commentOnly.invalidAutoSlots || commentOnly.manualAdUnits || commentOnly.staticAdSurfaces || commentOnly.contentEvents.length) {
+    throw new Error('Self-test failed: commented ad markup affected the audit');
+  }
+  const liveWithDecoy = inspectAdContract('<script src="/portal/js/ad-loader.js"></script><!-- <ins class="adsbygoogle" data-ad-slot="auto"></ins> -->');
+  if (!liveWithDecoy.adsenseLoader || liveWithDecoy.invalidAutoSlots || liveWithDecoy.manualAdUnits) {
+    throw new Error('Self-test failed: live loader/comment decoy classification mismatch');
+  }
+  console.log('[PASS] content audit ignores commented ad markup and detects the live loader');
+}
+
 function auditFile(filePath, sitemaps, today, maxAgeDays) {
   const html = readText(filePath);
   const url = publicUrlForFile(filePath);
@@ -355,7 +381,6 @@ function auditFile(filePath, sitemaps, today, maxAgeDays) {
   const nodes = jsonLd.flatMap((entry) => flattenJsonLd(entry.value));
   const articleNodes = nodes.filter((node) => typeMatches(node, 'Article') || typeMatches(node, 'BlogPosting'));
   const breadcrumbNodes = nodes.filter((node) => typeMatches(node, 'BreadcrumbList'));
-  const faqNodes = nodes.filter((node) => typeMatches(node, 'FAQPage'));
   const canonical = extractCanonical(html);
   const redirectStub = isRedirectStub(html, url, canonical);
   const hreflangs = extractHreflangs(html);
@@ -363,10 +388,9 @@ function auditFile(filePath, sitemaps, today, maxAgeDays) {
   const ageDays = dateAgeDays(dateModified, today);
   const sitemapEntry = sitemaps.get(url);
   const quickCards = countMatches(html, /class\s*=\s*["'][^"']*\bquick-card\b[^"']*["']/gi);
-  const autoAds = countMatches(html, /data-ad-slot\s*=\s*["']auto["']/gi);
-  const adSurfaces = countMatches(html, /data-ad-surface\s*=/gi);
-  const contentEvents = Array.from(new Set(Array.from(html.matchAll(/content_[a-z0-9_]+/gi)).map((match) => match[0])));
-  const placeholderSlots = PLACEHOLDER_AD_SLOTS.filter((slot) => html.includes(`data-ad-slot="${slot}"`) || html.includes(`data-ad-slot='${slot}'`));
+  const hasNativeInteraction = /<section\b(?=[^>]*\bclass\s*=\s*["'][^"']*\bculture-choice\b[^"']*["'])(?=[^>]*\bdata-content-interaction(?:\s*=|\s|>))[^>]*>/i.test(html);
+  const quickMinimum = hasNativeInteraction ? 2 : 4;
+  const { adsenseLoader, contentEvents, invalidAutoSlots, manualAdUnits, staticAdSurfaces } = inspectAdContract(html);
   const brokenInternalLinks = findBrokenInternalLinks(html);
   const issues = [];
 
@@ -379,7 +403,6 @@ function auditFile(filePath, sitemaps, today, maxAgeDays) {
   if (jsonLdErrors.length > 0) addIssue(issues, 'invalid_json_ld', 50, `${jsonLdErrors.length} invalid JSON-LD block(s)`);
   if (articleNodes.length === 0) addIssue(issues, 'missing_article_ld', 30, 'missing Article/BlogPosting JSON-LD');
   if (breadcrumbNodes.length === 0) addIssue(issues, 'missing_breadcrumb_ld', 12, 'missing BreadcrumbList JSON-LD');
-  if (faqNodes.length === 0) addIssue(issues, 'missing_faq_ld', 8, 'missing FAQPage JSON-LD');
   if (!canonical) addIssue(issues, 'missing_canonical', 40, 'missing canonical');
   else if (normalizeUrl(canonical) !== normalizeUrl(url)) addIssue(issues, 'canonical_mismatch', 35, `canonical points to ${canonical}`);
   if (hreflangs.length === 0) addIssue(issues, 'missing_hreflang', 10, 'missing alternate hreflang links');
@@ -390,10 +413,12 @@ function auditFile(filePath, sitemaps, today, maxAgeDays) {
   else if (dateModified && sitemapEntry.lastmod && sitemapEntry.lastmod.slice(0, 10) !== dateModified) {
     addIssue(issues, 'stale_sitemap_lastmod', 22, `sitemap lastmod ${sitemapEntry.lastmod} != ${dateModified}`);
   }
-  if (quickCards < 4) addIssue(issues, 'thin_quick_rail', 24, `quick cards ${quickCards}/4`);
-  if (autoAds === 0) addIssue(issues, 'missing_auto_ad', 20, 'missing auto ad slot');
-  if (adSurfaces === 0) addIssue(issues, 'missing_ad_surface', 12, 'missing data-ad-surface');
-  if (placeholderSlots.length > 0) addIssue(issues, 'placeholder_ad_slot', 25, `placeholder ad slots: ${placeholderSlots.join(', ')}`);
+  if (quickCards < quickMinimum) addIssue(issues, 'thin_quick_rail', 24, `quick cards ${quickCards}/${quickMinimum}`);
+  if (!adsenseLoader) addIssue(issues, 'missing_adsense_loader', 20, 'missing Auto Ads loader');
+  if (invalidAutoSlots > 0) addIssue(issues, 'invalid_adsense_auto_slot', 25, `${invalidAutoSlots} invalid data-ad-slot="auto" unit(s)`);
+  if (manualAdUnits > 0) addIssue(issues, 'manual_ad_unit_without_contract', 25, `${manualAdUnits} manual AdSense unit(s) without an active unit contract`);
+  if (staticAdSurfaces > 0) addIssue(issues, 'unverifiable_ad_surface', 12, `${staticAdSurfaces} static ad surface marker(s) cannot prove paid impressions`);
+  if (contentEvents.includes('content_ad_impression')) addIssue(issues, 'synthetic_ad_impression', 25, 'DOM content_ad_impression is not paid AdSense evidence');
   for (const eventName of EXPECTED_EVENTS) {
     if (!contentEvents.includes(eventName)) addIssue(issues, `missing_${eventName}`, eventName === 'content_view' ? 20 : 10, `missing ${eventName}`);
   }
@@ -407,14 +432,14 @@ function auditFile(filePath, sitemaps, today, maxAgeDays) {
   }
 
   return {
-    adSurfaces,
-    autoAds,
+    adsenseLoader,
     brokenInternalLinks,
     canonical,
     contentEvents,
     dateModified,
     file: relativePosix(ROOT, filePath),
     hreflangs: hreflangs.map((entry) => entry.hreflang),
+    invalidAutoSlots,
     isRedirectStub: redirectStub,
     issues,
     lang,
@@ -435,21 +460,25 @@ function printTable(results, totalCount, skippedRedirectStubs, args) {
   const shown = results.slice(0, args.limit);
   const skippedText = skippedRedirectStubs > 0 ? ` Skipped ${skippedRedirectStubs} redirect stub(s).` : '';
   console.log(`Audited ${totalCount} portal blog article pages.${skippedText} Showing ${shown.length} candidate(s).`);
-  console.log(`Score weights prioritize sitemap/canonical/JSON-LD, then content rails, ads, analytics, and mobile risks.\n`);
-  console.log(`${trimCell('score', 5)}  ${trimCell('lang', 4)}  ${trimCell('date', 10)}  ${trimCell('quick', 5)}  ${trimCell('ads', 3)}  ${trimCell('file', 54)}  issues`);
-  console.log(`${'-'.repeat(5)}  ${'-'.repeat(4)}  ${'-'.repeat(10)}  ${'-'.repeat(5)}  ${'-'.repeat(3)}  ${'-'.repeat(54)}  ${'-'.repeat(48)}`);
+  console.log(`Score weights prioritize sitemap/canonical/JSON-LD, then content rails, AdSense contracts, analytics, and mobile risks.\n`);
+  console.log(`${trimCell('score', 5)}  ${trimCell('lang', 4)}  ${trimCell('date', 10)}  ${trimCell('quick', 5)}  ${trimCell('badAd', 5)}  ${trimCell('file', 54)}  issues`);
+  console.log(`${'-'.repeat(5)}  ${'-'.repeat(4)}  ${'-'.repeat(10)}  ${'-'.repeat(5)}  ${'-'.repeat(5)}  ${'-'.repeat(54)}  ${'-'.repeat(48)}`);
   for (const result of shown) {
     const issueText = result.issues.slice(0, 4).map((issue) => issue.message).join('; ');
     console.log(
       `${trimCell(result.score, 5)}  ${trimCell(result.lang, 4)}  ${trimCell(result.dateModified || '-', 10)}  ` +
-      `${trimCell(result.quickCards, 5)}  ${trimCell(result.autoAds, 3)}  ${trimCell(result.file, 54)}  ${issueText}`
+      `${trimCell(result.quickCards, 5)}  ${trimCell(result.invalidAutoSlots, 5)}  ${trimCell(result.file, 54)}  ${issueText}`
     );
   }
 }
 
 function main() {
   const args = parseArgs(process.argv.slice(2));
-  const today = (process.env.CONTENT_AUDIT_TODAY || new Date().toISOString().slice(0, 10)).slice(0, 10);
+  if (args.selfTest) {
+    runSelfTest();
+    return;
+  }
+  const today = (process.env.CONTENT_AUDIT_TODAY || todayInTimeZone()).slice(0, 10);
   const sitemaps = mergeSitemaps(
     parseSitemap(path.join(PORTAL_ROOT, 'sitemap.xml')),
     parseSitemap(path.join(BLOG_ROOT, 'sitemap.xml'))

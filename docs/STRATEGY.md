@@ -1,6 +1,6 @@
 # Hybrid Revenue Strategy
 
-Updated: 2026-08-28
+Updated: 2026-08-29
 
 ## Thesis
 
@@ -20,6 +20,7 @@ DopaBrain은 심리 사이트로 고정하지 않는다. 원문을 복제하지 
 - 저작권 침해, 허위 통계, 광고 클릭 유도, 자동 생성 스팸은 제외한다.
 - Direct 급증은 국가·기기·참여·수익으로 scan/bot을 먼저 배제한다.
 - 첫 Culture Signal의 도구 bridge는 `(content_test_click + content_cta_click) / content_view`다. 목적지가 섞인 `content_related_click`은 제외한다.
+- Auto Ads loader는 페이지당 하나만 허용한다. 수동 unit 계약이 없는 동안 임의 slot/push와 DOM marker 기반 광고 노출 이벤트를 만들지 않는다.
 
 ## Promotion gates
 
@@ -49,8 +50,11 @@ AdSense 도메인 RPM과 국가/device RPM은 시장 proxy다. 글 단위 귀속
 
 자동 판정은 `scripts/culture-signal-review.js`의 JSON을 기준으로 하고 Markdown은 짧은 사람이 읽는 요약만 유지한다.
 
+현재 Culture Signal과 KR 두뇌훈련 bridge의 변경일은 2026-08-29다. 8월 30일~9월 5일을 첫 7 complete days로 보고 9월 6일에 서로 분리해 판정한다.
+
 ## Revenue constraints
 
 - 주소 PIN·정책·site readiness는 코드와 별도 운영한다.
 - 광고 밀도보다 KR/US의 유효 세션과 결과 도달을 우선한다.
 - 작은 표본의 RPM이나 단일 클릭만으로 포트폴리오를 바꾸지 않는다.
+- `content_ad_impression` 같은 DOM 생성 이벤트는 실제 AdSense fill·수익 증거로 사용하지 않는다.

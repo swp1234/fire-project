@@ -21,6 +21,7 @@
   "crossPromoMode": "native",
   "ogImage": "https://dopabrain.com/portal/img/og/odyssey-spider-man-identity-reset-2026.jpg",
   "date": "2026-08-28",
+  "dateModified": "2026-08-29",
   "quickRail": {
     "title": "영화 취향을 내 선택 방식으로 연결하기",
     "description": "뉴스를 읽고 끝내지 말고, 실제 선택 패턴을 짧게 확인해보세요.",
@@ -86,7 +87,7 @@
     "copyFailure": "복사하지 못했습니다. 주소창의 링크를 이용해 주세요."
   },
   "experiment": {
-    "launchDate": "2026-08-28",
+    "launchDate": "2026-08-29",
     "entryEvent": "root_trend_click",
     "viewEvent": "content_view",
     "bridgeEvents": [

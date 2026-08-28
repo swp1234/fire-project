@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
+const { todayInTimeZone } = require('./lib/time-zone-date');
 
 const ROOT = path.resolve(__dirname, '..');
 const PROJECTS_ROOT = path.join(ROOT, 'projects');
 const ROOT_DOMAIN_ROOT = path.join(PROJECTS_ROOT, 'root-domain');
 const PORTAL_ROOT = path.join(PROJECTS_ROOT, 'portal');
 const ORIGIN = 'https://dopabrain.com';
-const TODAY = (process.env.INDEXING_AUDIT_TODAY || new Date().toISOString().slice(0, 10)).slice(0, 10);
+const TODAY = (process.env.INDEXING_AUDIT_TODAY || todayInTimeZone()).slice(0, 10);
 const REPORT_DIR = path.join(ROOT, 'logs', 'indexing-audit');
 
 function parseArgs(argv) {
@@ -263,6 +264,15 @@ function assessQuickRail(html) {
   };
 }
 
+function assessAdsense(html) {
+  const source = String(html || '').replace(/<!--[\s\S]*?-->/g, '');
+  return {
+    hasLoader: /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-/i.test(source)
+      || /\/portal\/js\/ad-loader\.js/i.test(source),
+    invalidAutoSlotCount: countMatches(source, /data-ad-slot\s*=\s*["']auto["']/gi),
+  };
+}
+
 function assertSelfTest(condition, message) {
   if (!condition) throw new Error(`Self-test failed: ${message}`);
 }
@@ -296,6 +306,19 @@ function runSelfTest() {
   assertSelfTest(!inertMarker.hasNativeInteraction, 'inert interaction marker changed the page classification');
   assertSelfTest(inertMarker.isThin, 'inert interaction marker lowered the four-card minimum');
   console.log('[PASS] inert interaction marker does not lower the general blog minimum');
+
+  const autoAdsOnly = assessAdsense('<script src="/portal/js/ad-loader.js"></script>');
+  assertSelfTest(autoAdsOnly.hasLoader && autoAdsOnly.invalidAutoSlotCount === 0, 'valid Auto Ads-only contract failed');
+  const invalidManualUnit = assessAdsense('<script src="/portal/js/ad-loader.js"></script><ins class="adsbygoogle" data-ad-slot="auto"></ins>');
+  assertSelfTest(invalidManualUnit.hasLoader && invalidManualUnit.invalidAutoSlotCount === 1, 'invalid auto slot was not detected');
+  const missingLoader = assessAdsense('<main>content</main>');
+  assertSelfTest(!missingLoader.hasLoader && missingLoader.invalidAutoSlotCount === 0, 'missing loader classification failed');
+  const commentOnly = assessAdsense('<!-- <script src="/portal/js/ad-loader.js"></script><ins data-ad-slot="auto"></ins> -->');
+  assertSelfTest(!commentOnly.hasLoader && commentOnly.invalidAutoSlotCount === 0, 'commented ad markup changed the contract');
+  const loaderWithCommentDecoy = assessAdsense('<script src="/portal/js/ad-loader.js"></script><!-- <ins data-ad-slot="auto"></ins> -->');
+  assertSelfTest(loaderWithCommentDecoy.hasLoader && loaderWithCommentDecoy.invalidAutoSlotCount === 0, 'comment decoy produced a false ad issue');
+  console.log('[PASS] Auto Ads loader and invalid manual slot contracts are distinguished');
+  console.log('[PASS] commented ad markup is excluded from the DOM contract');
 
   const validPortal = mapUrlToLocalPath(`${ORIGIN}/portal/blog/ko/example.html`);
   assertSelfTest(validPortal.kind === 'blog' && isPathInside(PORTAL_ROOT, validPortal.file), 'valid portal URL mapping failed');
@@ -417,8 +440,12 @@ function auditUrl(entry, duplicateCount) {
       `blog page has ${quickRail.quickCardCount} static quick cards; expected at least ${quickRail.minimumQuickCards}`
     );
   }
-  if (!isRedirect && mapped.kind === 'blog' && countMatches(html, /data-ad-slot\s*=\s*["']auto["']/gi) === 0) {
-    addIssue(issues, 'missing_auto_ad_surface', 'medium', 'blog page has no static Auto ad surface');
+  if (!isRedirect && mapped.kind === 'blog') {
+    const adsense = assessAdsense(html);
+    if (!adsense.hasLoader) addIssue(issues, 'missing_adsense_loader', 'medium', 'blog page has no Auto Ads loader');
+    if (adsense.invalidAutoSlotCount > 0) {
+      addIssue(issues, 'invalid_adsense_auto_slot', 'medium', 'data-ad-slot="auto" is not a valid manual AdSense unit');
+    }
   }
   if (!isRedirect && mapped.kind === 'blog' && looksMojibake(html)) addIssue(issues, 'mojibake_text', 'high', 'page text appears mojibake/corrupted');
   if (brokenInternalLinks.length > 0) addIssue(issues, 'broken_internal_links', 'high', `broken internal links: ${brokenInternalLinks.slice(0, 5).join(', ')}`);
