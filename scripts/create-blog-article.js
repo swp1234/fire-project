@@ -184,6 +184,109 @@ function listText(value) {
   return asArray(value).join(', ');
 }
 
+function inlineJson(value) {
+  return JSON.stringify(value)
+    .replace(/</g, '\\u003c')
+    .replace(/>/g, '\\u003e')
+    .replace(/&/g, '\\u0026')
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029');
+}
+
+function validateInteraction(spec) {
+  if (spec.interaction === undefined || spec.interaction === null) return null;
+  if (!spec.interaction || typeof spec.interaction !== 'object' || Array.isArray(spec.interaction)) {
+    throw new Error('interaction must be an object when provided.');
+  }
+
+  const interaction = spec.interaction;
+  const required = [
+    'id', 'name', 'surface', 'title', 'help', 'legend', 'replaceSectionHeading',
+    'ctaLabel', 'ctaUrl', 'ctaTargetSlug', 'shareLabel', 'shareSurface',
+    'shareTemplate', 'shareTitle', 'shareSuccess', 'shareFailure', 'copySuccess', 'copyFailure',
+  ];
+  for (const key of required) {
+    if (typeof interaction[key] !== 'string' || !interaction[key].trim()) {
+      throw new Error(`interaction.${key} is required and must be a non-empty string.`);
+    }
+    interaction[key] = interaction[key].trim();
+  }
+
+  const tokenPattern = /^[a-z][a-z0-9_-]{1,63}$/;
+  for (const key of ['id', 'name', 'surface', 'ctaTargetSlug', 'shareSurface']) {
+    if (!tokenPattern.test(interaction[key])) {
+      throw new Error(`interaction.${key} must be a stable lowercase token.`);
+    }
+  }
+
+  interaction.choices = asArray(interaction.choices);
+  if (interaction.choices.length !== 2) {
+    throw new Error('interaction.choices must contain exactly two choices.');
+  }
+  const choiceIds = new Set();
+  const choiceLabels = new Set();
+  const choiceSurfaces = new Set();
+  for (const [index, choice] of interaction.choices.entries()) {
+    if (!choice || typeof choice !== 'object' || Array.isArray(choice)) {
+      throw new Error(`interaction.choices[${index}] must be an object.`);
+    }
+    for (const key of ['id', 'label', 'shareLabel', 'summary', 'ctaSurface']) {
+      if (typeof choice[key] !== 'string' || !choice[key].trim()) {
+        throw new Error(`interaction.choices[${index}].${key} is required and must be a non-empty string.`);
+      }
+      choice[key] = choice[key].trim();
+    }
+    if (!tokenPattern.test(choice.id)) {
+      throw new Error(`interaction.choices[${index}].id must be a stable lowercase token.`);
+    }
+    if (!tokenPattern.test(choice.ctaSurface)) {
+      throw new Error(`interaction.choices[${index}].ctaSurface must be a stable lowercase token.`);
+    }
+    if (choiceIds.has(choice.id)) throw new Error(`Duplicate interaction choice id: ${choice.id}`);
+    if (choiceLabels.has(choice.label)) throw new Error(`Duplicate interaction choice label: ${choice.label}`);
+    if (choiceSurfaces.has(choice.ctaSurface)) throw new Error(`Duplicate interaction CTA surface: ${choice.ctaSurface}`);
+    choiceIds.add(choice.id);
+    choiceLabels.add(choice.label);
+    choiceSurfaces.add(choice.ctaSurface);
+  }
+
+  const placeholderCount = interaction.shareTemplate.split('{choice}').length - 1;
+  if (placeholderCount !== 1) {
+    throw new Error('interaction.shareTemplate must contain {choice} exactly once.');
+  }
+
+  let ctaUrl;
+  try {
+    ctaUrl = new URL(interaction.ctaUrl);
+  } catch (error) {
+    throw new Error(`interaction.ctaUrl must be an absolute URL: ${error.message}`);
+  }
+  if (ctaUrl.origin !== 'https://dopabrain.com' || ctaUrl.hash) {
+    throw new Error('interaction.ctaUrl must be an HTTPS dopabrain.com URL without a fragment.');
+  }
+  if (ctaUrl.searchParams.getAll('lang').length !== 1 || ctaUrl.searchParams.get('lang') !== spec.lang) {
+    throw new Error(`interaction.ctaUrl must contain exactly one lang=${spec.lang}.`);
+  }
+  if (ctaUrl.searchParams.getAll('start').length !== 1 || ctaUrl.searchParams.get('start') !== '1') {
+    throw new Error('interaction.ctaUrl must contain exactly one start=1.');
+  }
+  if (ctaUrl.searchParams.has('surface') || ctaUrl.searchParams.has('branch')) {
+    throw new Error('interaction.ctaUrl must not predefine surface or branch; the selected choice supplies them.');
+  }
+  interaction.ctaUrl = ctaUrl.toString();
+
+  const replacementMatches = spec.sections.filter((section) => section && section.heading === interaction.replaceSectionHeading);
+  if (replacementMatches.length !== 1) {
+    throw new Error(`interaction.replaceSectionHeading must match exactly one section heading; matched ${replacementMatches.length}.`);
+  }
+
+  if (spec.crossPromoMode !== undefined && spec.crossPromoMode !== 'native') {
+    throw new Error('An interaction requires crossPromoMode to be "native" when explicitly provided.');
+  }
+  spec.crossPromoMode = 'native';
+  return interaction;
+}
+
 function validateSpec(spec) {
   const required = ['lang', 'slug', 'title', 'description', 'category', 'tag', 'tagColor', 'readTime', 'contentGroup'];
   const missing = required.filter((key) => !spec[key]);
@@ -233,6 +336,8 @@ function validateSpec(spec) {
     }
   }
 
+  spec.interaction = validateInteraction(spec);
+
   return spec;
 }
 
@@ -264,6 +369,79 @@ function renderSection(section) {
     renderParagraphs(section.paragraphs),
     renderBullets(section.bullets),
   ].filter(Boolean).join('\n');
+}
+
+function renderInteraction(spec) {
+  const interaction = spec.interaction;
+  if (!interaction) return '';
+  const titleId = `${interaction.id}-title`;
+  const helpId = `${interaction.id}-help`;
+  const choices = interaction.choices.map((choice) => {
+    const inputId = `${interaction.id}-${choice.id}`;
+    return `                        <label class="culture-choice-option" for="${escapeAttr(inputId)}">
+                            <input id="${escapeAttr(inputId)}" type="radio" name="${escapeAttr(interaction.name)}-choice" value="${escapeAttr(choice.id)}">
+                            <span class="culture-choice-label">${escapeHtml(choice.label)}</span>
+                            <span class="culture-choice-selected" aria-hidden="true">&#10003;</span>
+                        </label>`;
+  }).join('\n');
+
+  return `            <section class="culture-choice" id="${escapeAttr(interaction.id)}" data-content-interaction="${escapeAttr(interaction.name)}" aria-labelledby="${escapeAttr(titleId)}">
+                <h2 id="${escapeAttr(titleId)}">${escapeHtml(interaction.title)}</h2>
+                <p id="${escapeAttr(helpId)}">${escapeHtml(interaction.help)}</p>
+                <fieldset aria-describedby="${escapeAttr(helpId)}">
+                    <legend class="sr-only">${escapeHtml(interaction.legend)}</legend>
+                    <div class="culture-choice-options">
+${choices}
+                    </div>
+                </fieldset>
+                <div class="culture-choice-result" hidden data-choice-result>
+                    <p data-choice-summary role="status" aria-live="polite"></p>
+                    <div class="culture-choice-actions">
+                        <a href="${escapeAttr(interaction.ctaUrl)}" class="cta-btn culture-choice-cta" data-content-surface="${escapeAttr(interaction.surface)}" data-target-slug="${escapeAttr(interaction.ctaTargetSlug)}">${escapeHtml(interaction.ctaLabel)}</a>
+                        <button type="button" class="culture-choice-share" data-choice-share>${escapeHtml(interaction.shareLabel)}</button>
+                    </div>
+                    <p class="culture-choice-status" data-share-status role="status" aria-live="polite"></p>
+                </div>
+            </section>`;
+}
+
+function renderContentSections(spec) {
+  return spec.sections.map((section) => (
+    spec.interaction && section.heading === spec.interaction.replaceSectionHeading
+      ? renderInteraction(spec)
+      : renderSection(section)
+  )).join('\n\n');
+}
+
+function renderInteractionStyles(spec) {
+  if (!spec.interaction) return '';
+  return `
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+        .culture-choice { margin: 42px 0; padding: 24px; border: 1px solid rgba(249,115,22,0.34); border-radius: 14px; background: linear-gradient(135deg,rgba(249,115,22,0.12),rgba(20,184,166,0.08)); }
+        .culture-choice h2 { margin-top: 0; }
+        .culture-choice fieldset { margin: 18px 0 0; border: 0; }
+        .culture-choice-options { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+        .culture-choice-option { position: relative; display: flex; align-items: center; gap: 10px; min-height: 72px; padding: 15px 16px; border: 1px solid rgba(94,234,212,0.24); border-radius: 10px; background: rgba(7,17,15,0.72); color: var(--text-primary); cursor: pointer; font-weight: 800; line-height: 1.45; }
+        .culture-choice-option:hover { border-color: var(--primary-light); }
+        .culture-choice-option.is-selected { border-color: #fb923c; background: rgba(249,115,22,0.18); box-shadow: 0 0 0 2px rgba(249,115,22,0.12); }
+        .culture-choice-option:focus-within { outline: 3px solid var(--primary-light); outline-offset: 3px; }
+        .culture-choice-option input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+        .culture-choice-label { min-width: 0; }
+        .culture-choice-selected { flex: 0 0 auto; margin-left: auto; opacity: 0; font-size: 20px; line-height: 1; }
+        .culture-choice-option.is-selected .culture-choice-selected { opacity: 1; }
+        .culture-choice-result { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border-color); }
+        .culture-choice-result[hidden] { display: none; }
+        .culture-choice-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+        .culture-choice-share { min-height: 44px; padding: 11px 16px; border: 1px solid rgba(94,234,212,0.35); border-radius: 8px; background: rgba(94,234,212,0.08); color: var(--primary-light); cursor: pointer; font: inherit; font-weight: 800; }
+        .culture-choice-status { min-height: 24px; margin: 8px 0 0; font-size: 13px; }`;
+}
+
+function renderInteractionMobileStyles(spec) {
+  if (!spec.interaction) return '';
+  return `
+            .culture-choice { padding: 20px 16px; }
+            .culture-choice-options { grid-template-columns: 1fr; }
+            .culture-choice-actions > * { width: 100%; text-align: center; justify-content: center; }`;
 }
 
 function renderQuickCards(cards) {
@@ -363,6 +541,159 @@ function renderSources(sources, copy) {
   return `
             <h2>${escapeHtml(copy.sources)}</h2>
             <p>${sources.map((source) => `<a href="${escapeAttr(source.url)}" class="inline-link" data-content-surface="source_link" data-target-slug="external-source">${escapeHtml(source.label)}</a>`).join(', ')}</p>`;
+}
+
+function renderInteractionScript(spec) {
+  if (!spec.interaction) return '';
+  const interaction = spec.interaction;
+  const config = {
+    ctaTargetSlug: interaction.ctaTargetSlug,
+    ctaUrl: interaction.ctaUrl,
+    choices: interaction.choices.map((choice) => ({
+      ctaSurface: choice.ctaSurface,
+      id: choice.id,
+      label: choice.label,
+      shareLabel: choice.shareLabel,
+      summary: choice.summary,
+    })),
+    copyFailure: interaction.copyFailure,
+    copySuccess: interaction.copySuccess,
+    id: interaction.id,
+    name: interaction.name,
+    pageUrl: pageUrl(spec),
+    shareFailure: interaction.shareFailure,
+    shareSuccess: interaction.shareSuccess,
+    shareSurface: interaction.shareSurface,
+    shareTemplate: interaction.shareTemplate,
+    shareTitle: interaction.shareTitle,
+    surface: interaction.surface,
+  };
+
+  return `
+        (function initCultureChoice() {
+            var interaction = ${inlineJson(config)};
+            var section = document.getElementById(interaction.id);
+            if (!section) return;
+            var result = section.querySelector('[data-choice-result]');
+            var summary = section.querySelector('[data-choice-summary]');
+            var cta = section.querySelector('.culture-choice-cta');
+            var shareButton = section.querySelector('[data-choice-share]');
+            var shareStatus = section.querySelector('[data-share-status]');
+            var choiceInputs = Array.from(section.querySelectorAll('input[type="radio"]'));
+            var choices = Object.fromEntries(interaction.choices.map(function(choice) { return [choice.id, choice]; }));
+            var selectedChoice = '';
+            var viewTracked = false;
+
+            function trackChoiceView() {
+                if (viewTracked) return;
+                viewTracked = true;
+                trackContentEvent('content_choice_view', {
+                    interaction_name: interaction.name,
+                    interaction_surface: interaction.surface,
+                    choice_count: interaction.choices.length
+                });
+            }
+
+            if ('IntersectionObserver' in window) {
+                var choiceObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                            trackChoiceView();
+                            choiceObserver.disconnect();
+                        }
+                    });
+                }, { threshold: [0.5] });
+                choiceObserver.observe(section);
+            } else {
+                trackChoiceView();
+            }
+
+            choiceInputs.forEach(function(input) {
+                input.addEventListener('change', function() {
+                    var choice = choices[this.value];
+                    if (!choice) return;
+                    var isNewChoice = selectedChoice !== this.value;
+                    selectedChoice = this.value;
+                    choiceInputs.forEach(function(candidate) {
+                        var label = candidate.closest('.culture-choice-option');
+                        if (label) label.classList.toggle('is-selected', candidate.checked);
+                    });
+                    summary.textContent = choice.summary;
+                    result.hidden = false;
+                    cta.dataset.choiceId = selectedChoice;
+                    cta.dataset.contentSurface = choice.ctaSurface;
+                    var ctaUrl = new URL(interaction.ctaUrl);
+                    ctaUrl.searchParams.set('surface', choice.ctaSurface);
+                    ctaUrl.searchParams.set('branch', selectedChoice);
+                    cta.href = ctaUrl.toString();
+                    shareStatus.textContent = '';
+                    if (isNewChoice) {
+                        trackContentEvent('content_choice_select', {
+                            interaction_name: interaction.name,
+                            interaction_surface: interaction.surface,
+                            choice_id: selectedChoice,
+                            choice_label: choice.label
+                        });
+                    }
+                });
+            });
+
+            function trackShareIntent(method) {
+                trackContentEvent('content_share_click', {
+                    choice_id: selectedChoice,
+                    method: method,
+                    share_surface: interaction.shareSurface
+                });
+            }
+
+            function trackShareSuccess(method) {
+                trackContentEvent('share', {
+                    method: method,
+                    content_type: 'culture_signal_choice',
+                    item_id: '${escapeJsSingle(spec.contentSlug)}',
+                    choice_id: selectedChoice
+                });
+            }
+
+            shareButton.addEventListener('click', async function() {
+                var choice = choices[selectedChoice];
+                if (!choice) return;
+                var shareUrl = new URL(interaction.pageUrl);
+                shareUrl.searchParams.set('utm_source', 'share');
+                shareUrl.searchParams.set('utm_medium', 'culture_choice');
+                shareUrl.searchParams.set('utm_campaign', interaction.name);
+                shareUrl.searchParams.set('utm_content', selectedChoice);
+                var shareText = interaction.shareTemplate.replace('{choice}', choice.shareLabel);
+                var canNativeShare = typeof navigator.share === 'function';
+                var canCopy = navigator.clipboard && typeof navigator.clipboard.writeText === 'function';
+                var method = canNativeShare ? 'web_share' : (canCopy ? 'clipboard' : 'unavailable');
+                shareStatus.textContent = '';
+                trackShareIntent(method);
+
+                if (canNativeShare) {
+                    try {
+                        await navigator.share({ title: interaction.shareTitle, text: shareText, url: shareUrl.toString() });
+                        shareStatus.textContent = interaction.shareSuccess;
+                        trackShareSuccess('web_share');
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') shareStatus.textContent = interaction.shareFailure;
+                    }
+                    return;
+                }
+                if (canCopy) {
+                    try {
+                        await navigator.clipboard.writeText(shareText + ' ' + shareUrl.toString());
+                        shareStatus.textContent = interaction.copySuccess;
+                        trackShareSuccess('clipboard');
+                    } catch (error) {
+                        shareStatus.textContent = interaction.copyFailure;
+                    }
+                    return;
+                }
+                shareStatus.textContent = interaction.copyFailure;
+            });
+        })();
+`;
 }
 
 function renderArticle(spec) {
@@ -469,12 +800,14 @@ ${renderBreadcrumbJson(spec)}
         .faq-item h3 { margin-top: 0; font-size: 17px; }
         .related-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
         .related-links a { padding: 10px 16px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; color: var(--primary-light); text-decoration: none; font-size: 14px; font-weight: 750; }
+${renderInteractionStyles(spec)}
         footer { text-align: center; padding: 32px 0; border-top: 1px solid var(--border-color); margin-top: 42px; }
         footer a { color: var(--primary-light); text-decoration: none; }
         @media (max-width: 620px) {
             .container { padding: 22px 16px 44px; }
             .quick-scaffold-grid { grid-template-columns: 1fr; }
             .quick-scaffold-card { min-height: 96px; }
+${renderInteractionMobileStyles(spec)}
         }
     </style>
 </head>
@@ -506,7 +839,7 @@ ${renderQuickCards(spec.quickRail.cards)}
                 <a href="${escapeAttr(ctaUrl)}" class="cta-btn" data-content-surface="${escapeAttr(ctaSurface)}" data-target-slug="${escapeAttr(ctaTargetSlug)}">${escapeHtml(ctaLabel)}</a>
             </div>
 
-${spec.sections.map(renderSection).join('\n\n')}
+${renderContentSections(spec)}
 
             <h2>${escapeHtml(copy.faq)}</h2>
 ${spec.faq.map((item) => `            <div class="faq-item">
@@ -556,6 +889,7 @@ ${renderSources(spec.sources, copy)}
         }
 
         trackContentEvent('content_view', { content_type: 'blog' });
+${renderInteractionScript(spec)}
 
         document.querySelectorAll('.cta-btn').forEach(function(element) {
             element.addEventListener('click', function() {
@@ -563,7 +897,8 @@ ${renderSources(spec.sources, copy)}
                     target_url: this.getAttribute('href') || '',
                     target_label: this.textContent.trim(),
                     cta_surface: this.dataset.contentSurface || '',
-                    target_slug: this.dataset.targetSlug || ''
+                    target_slug: this.dataset.targetSlug || '',
+                    choice_id: this.dataset.choiceId || ''
                 });
             });
         });
@@ -633,7 +968,7 @@ ${renderSources(spec.sources, copy)}
             adShells.forEach(function(shell) { observer.observe(shell); });
         })();
     </script>
-    <script src="/portal/js/cross-promo.js" defer></script>
+${spec.interaction || spec.crossPromoMode === 'native' ? '' : '    <script src="/portal/js/cross-promo.js" defer></script>'}
 </body>
 </html>
 `;
@@ -780,9 +1115,16 @@ function main() {
   console.log("  & 'C:/Program Files/Git/bin/bash.exe' scripts/quality-gate.sh projects/portal");
 }
 
-try {
-  main();
-} catch (error) {
-  console.error(`create-blog-article: ${error.message}`);
-  process.exit(1);
+if (require.main === module) {
+  try {
+    main();
+  } catch (error) {
+    console.error(`create-blog-article: ${error.message}`);
+    process.exit(1);
+  }
 }
+
+module.exports = {
+  renderArticle,
+  validateSpec,
+};

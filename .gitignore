@@ -62,6 +62,10 @@ SOUNDSCAPE_*.txt
 !scripts/verify-brain-type-trust.js
 !scripts/update-brain-trust-locales.js
 !scripts/update-root-signal-locales.js
+!scripts/verify-culture-choice.js
+!scripts/verify-cross-promo-touch.js
+!scripts/culture-signal-review.js
+!scripts/verify-blog-generator-interaction.js
 !scripts/generate-utility-apps.js
 !scripts/portal-hub-locale-audit.js
 !scripts/repair-indexing-inventory.js

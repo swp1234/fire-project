@@ -1,78 +1,70 @@
 # Validation Standard
 
-검증은 “명령이 성공했다”가 아니라 요청한 결함을 실제로 탐지하는지까지 확인한다.
+검증은 정상 실행뿐 아니라 같은 종류의 의도적 결함을 실패시키는지까지 확인한다.
 
 ## Layers
 
-| Layer | What it proves | Example |
-|---|---|---|
-| Static | 형식과 필수 자산 | JSON parse, 12 locales, schema parse |
-| Runtime | 브라우저가 예외 없이 로드됨 | Playwright page/console errors |
-| Behavior | 사용자가 목표 행동을 완료함 | CTA event, test completion |
-| Integration | 목적지와 공통 자산이 연결됨 | internal URL 2xx/3xx |
-| Layout/a11y | 실제 조작 가능함 | 44px target, overflow, landmarks |
-| Production | 배포본이 로컬과 동일하게 동작함 | live URL regression |
-| Mutation | 검증기가 알려진 결함에서 실패함 | broken link, missing locale |
+| Layer | Evidence |
+|---|---|
+| Static | JSON, locale, canonical/hreflang, schema |
+| Runtime | browser/page/console error 없음 |
+| Behavior | 실제 클릭·완료와 정확한 event params |
+| Integration | 내부 목적지 응답과 공통 자산 연결 |
+| Layout/a11y | 44px, overflow 0, landmark, keyboard |
+| Mutation | broken route/event/layout/stat을 탐지 |
+| Production | 배포 URL에서 같은 기준 통과 |
 
-정적 grep만 통과한 결과를 기능 검증으로 보고하지 않는다.
+grep은 존재만, screenshot은 모양만 증명한다. 행동·연결·계측을 대신하지 않는다.
 
-## Focused root gate
+## Focused gates
 
 ```powershell
 npm run verify:root
 npm run verify:root:mutations
 npm run verify:brain-trust
-```
-
-`verify:root`가 확인하는 항목:
-
-- 12개 locale 파일과 필수 키.
-- mobile 390×844, desktop 1440×900에서 각 언어 렌더링.
-- 정확한 primary/start/pick/culture 경로와 9개 목적지 응답.
-- canonical, 13개 hreflang, 화면과 일치하는 schema types.
-- 중복 ID, skip target, 44px target, 초기 CTA 가시성, 가로 overflow.
-- `root_view`, CTA, pick, culture, language-change 분석 이벤트.
-- page/console runtime exceptions.
-
-`verify:root:mutations`는 정상 fixture가 통과하고 다음 결함이 실패하는지 확인한다.
-
-- primary route 변조.
-- locale 파일 누락.
-- CTA event surface 변조.
-- Culture Signal route 변조.
-- 강제 mobile overflow.
-- duplicate ID.
-- runtime exception.
-
-`verify:brain-trust`는 12 locale, 실제 scoring 설명, 제한 고지, schema, 13 hreflang을 확인하고 가짜 수치·평점·분포·hreflang 붕괴·고지 제거 변이를 실패시킨다.
-
-## Portfolio runtime
-
-```powershell
+npm run verify:culture-choice
+npm run verify:cross-promo-touch
+npm run verify:culture-review
+npm run verify:blog-generator-interaction
 npm run harness
-npm run harness:analytics
 npm run harness:runtime
 ```
 
-`harness:runtime` 기본 대상은 focused portfolio 6개다. 광범위 회귀가 필요한 경우에만 `node scripts/runtime-check.js all`을 사용한다.
+- Root: 12 locales × mobile/desktop, 9개 목적지, schema, 44px/overflow, root events; route·locale·event·layout·runtime 변이.
+- Brain Type: 실제 scoring·제한 고지, schema, 13 hreflang; 허위 수치·평점·분포·고지 제거 변이.
+- Culture choice: pointer/keyboard 선택, CTA/share, `content_*` 공통·선택 params, no fake stats/ad-in-interaction, schema; 대응 변이.
+- Cross-promo: mobile sticky target 44px와 overflow 0; touch geometry 변이.
+- Culture review: 순수 evidence 판정과 13개 in-memory 변이. 얇은 표본·전역 수치·URL 불일치가 승격/억제를 만들지 못하며 외부 계정을 변경하지 않는다.
+- Blog generator: 잘못된 interaction spec 거부, 임시 생성물의 2선택·분기 CTA·공유 이벤트 순서·mobile overflow·sticky 억제를 검증한다.
+- Harness: portal locale·정적 품질·위 검증기·analytics smoke·focused runtime을 첫 실패에서 중단한다.
 
-## App-specific risk
+콘텐츠 기본 검증은 필요 시 다음을 함께 실행한다.
 
-질문 흐름, 결과 계산, 저장, 공유, 광고 트리거를 변경했다면 해당 앱 전용 Playwright suite를 실행한다. 스타일이나 문구만 바꿔도 핵심 CTA와 모바일 레이아웃은 다시 확인한다.
+```powershell
+node scripts/verify-blog-pages.js --file projects/portal/blog/ko/odyssey-spider-man-identity-reset-2026.html --expect-events content_view,content_ad_impression,content_test_click,content_cta_click,content_related_click
+```
 
-## Production gate
+`content_ad_impression`은 슬롯 가시성 이벤트이지 AdSense 유료 노출 증거가 아니다.
 
-하위 저장소 push와 루트 submodule pointer push가 끝난 후 실행한다.
+## Decision evidence
+
+`culture-signal-review.js` 입력은 complete-day window, GA4 자체 pagePath와 event contract, GA4 Organic·events, GSC discovery, AdSense totals/segments를 포함한다.
+
+- pagePath/event 불일치와 현재일 포함은 `TRACKING_BLOCKED`.
+- 0분모는 `null`; `NaN/Infinity`를 허용하지 않는다.
+- SG Desktop은 유효 RPM 분모에서 제외한다.
+- 대상 URL과 일치하는 page attribution이 없는 RPM은 proxy이며 승격 pass가 아니다.
+- `SUPPRESS`에도 Organic 20 sessions와 content view 20의 최소 표본이 모두 필요하다.
+- business 상태(`PROMOTE`, `ITERATE`, `SUPPRESS`)와 검증 실패를 구분한다.
+
+보고서는 기본적으로 `.codex-artifacts/culture-signal-review/<date>/`에 두고, 전략이 바뀔 때만 `memory/data-check-log.md`를 갱신한다.
+
+## Production and failures
+
+하위 저장소와 루트 pointer push 후 실행한다.
 
 ```powershell
 node scripts/verify-root-focus.js https://dopabrain.com --no-screenshot
 ```
 
-사이트맵과 robots는 실제 HTTP 200 응답과 URL 수를 확인한다. CDN 캐시가 의심되면 query cachebuster를 붙인다.
-
-## Failure handling
-
-- 검증 실패를 같은 명령의 무한 재시도로 숨기지 않는다.
-- 코드 결함, fixture 결함, 도구 결함을 구분한다.
-- 검증기가 결함을 못 잡으면 기능 코드보다 먼저 assertion을 강화한다.
-- 재발 가능한 도구 문제만 `memory/failures.jsonl`에 기록한다.
+실제 sitemap/robots 응답과 변경 경로를 재검증한다. 반복 재시도로 실패를 숨기지 말고 코드·fixture·도구 결함을 구분하며, 재발 가능한 도구 문제만 `memory/failures.jsonl`에 남긴다.

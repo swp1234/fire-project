@@ -4,54 +4,53 @@ Updated: 2026-08-28
 
 ## Thesis
 
-DopaBrain은 심리 사이트로 고정하지 않는다. 트렌드 글이 검색 유입을 만들고, 테스트·도구·게임이 상호작용과 재방문을 만들도록 연결한다. 대량 뉴스 복제 대신 한 편씩 색인·전환·RPM을 검증한다.
+DopaBrain은 심리 사이트로 고정하지 않는다. 원문을 복제하지 않는 트렌드 해설이 검색 유입을 만들고, 테스트·도구·게임이 행동과 재방문을 만든다는 가설을 한 언어·한 URL씩 검증한다.
 
 ## Portfolio
 
 - Primary: Stress Check, HSP Test, 2048 Coach.
 - Support: Brain Type, IQ Test, K-pop Role Roster.
-- Archive: Portal 한 곳.
-- Pilot: 영화·밈·게임 Culture Signal. 원문 복제가 아닌 해설·선택·도구 연결을 제공한다.
-- Suppressed: 성과 근거가 없는 기존 자산. 라이브는 유지하되 홈과 집중 sitemap에서 제외한다.
+- Pilot: 영화·밈·게임 Culture Signal과 하나의 명확한 bridge.
+- Archive/Suppressed: URL은 보존하되 성과 근거 없이 홈·집중 sitemap에 복귀시키지 않는다.
 
-## Decision model
+## Experiment rules
 
-한 지표만으로 승자를 정하지 않는다.
+- 실험당 검색 intent, 내부 링크, 핵심 행동을 하나씩 명시한다.
+- 색인되지 않는 주제를 대량 생산하거나 얇게 번역하지 않는다.
+- 저작권 침해, 허위 통계, 광고 클릭 유도, 자동 생성 스팸은 제외한다.
+- Direct 급증은 국가·기기·참여·수익으로 scan/bot을 먼저 배제한다.
+- 첫 Culture Signal의 도구 bridge는 `(content_test_click + content_cta_click) / content_view`다. 목적지가 섞인 `content_related_click`은 제외한다.
 
-| Signal | Use |
-|---|---|
-| Organic sessions and engaged sessions | 실제 검색 수요 |
-| CTA event rate | 첫 행동과 라우팅 품질 |
-| Country/device RPM | 수익 가능성 |
-| GSC clicks, impressions, indexing | 발견 가능성 |
-| Views per session and next click | 깊이와 연결성 |
+## Promotion gates
 
-Direct 급증은 국가·기기·체류·수익을 확인해 scan/bot을 먼저 배제한다. pageviews만 높은 페이지는 승자가 아니다.
+출시일과 현재일을 뺀 complete days만 사용한다.
 
-## Operating rules
+| Signal | Pass | Credibility floor |
+|---|---:|---:|
+| Organic landing | 20 sessions/day | 7 complete days |
+| Engagement | 55% | 20 Organic sessions |
+| Tool bridge | 8% | 20 content views |
+| Effective RPM | `$1` | 20 page-attributed PV |
 
-- 실험당 한 가지 핵심 가설과 이벤트를 둔다.
-- 색인되지 않는 페이지를 추가 생산하지 않는다.
-- 트렌드 실험은 한 언어·한 URL·한 bridge CTA로 시작한다.
-- 저작권 침해, 허위 통계, 클릭 유도, 자동 생성 스팸은 수익 실험에서 제외한다.
-- 얇은 번역 확장보다 한 언어의 검증된 intent를 완성한다.
-- 광고 노출을 늘리기 전에 유효한 첫 행동과 결과 도달을 확보한다.
-- 기존 URL 삭제는 backlink와 직접 방문 손실을 검토한 뒤 결정한다.
+AdSense 도메인 RPM과 국가/device RPM은 시장 proxy다. 글 단위 귀속이 없으면 표시만 하고 승격 pass로 세지 않는다. SG Desktop scan은 유효 RPM에서 제외한다.
 
-## Review window
+## Decision loop
 
-초기 신호는 7일, 승격 판단은 최대 2~4주 동안 비교한다.
+| State | Rule | Action |
+|---|---|---|
+| `TRACKING_BLOCKED` | path/event/window 계약 오류 | 계측 복구 후 재판정 |
+| `TOO_EARLY` | 7 complete days 미만 | 변경 없이 관찰 |
+| `DISCOVERY_HOLD` | Organic/GSC 발견 증거 없음 | 색인·내부 링크 점검 |
+| `PROMOTE` | 신뢰 가능한 gate 2개 이상 | 인접 주제 1편 추가 |
+| `ITERATE` | 7일 이후 0~1개 | 제목·주제·bridge 중 하나만 수정 |
+| `SUPPRESS` | 14일 이후 Organic 20 + content view 20 표본과 credible fail | 홈·집중 discovery에서 제거, URL 유지 |
 
-1. `root_view` 대비 primary/support 클릭률.
-2. Organic landing별 engagement와 다음 행동.
-3. 국가·기기별 page RPM과 impression RPM.
-4. 집중 sitemap의 discovered/indexed 변화.
-5. `root_trend_click → content_view → content_test/cta/related_click` bridge 전환.
+28일이 지나도 최소 표본이 없으면 억제하지 않고 discovery 문제로 남긴다. GA4·AdSense 값은 대상 pagePath/URL이 정확히 일치할 때만 페이지 귀속 신호다.
 
-Primary 경로가 검색·행동·수익 세 축에서 모두 약하면 교체한다. 단기 scan 유입이나 단일 클릭으로 복귀시키지 않는다.
+자동 판정은 `scripts/culture-signal-review.js`의 JSON을 기준으로 하고 Markdown은 짧은 사람이 읽는 요약만 유지한다.
 
 ## Revenue constraints
 
-- AdSense 지급 가능 상태가 제품 최적화보다 선행한다.
-- 주소 PIN, 정책, 사이트 readiness를 코드 변경과 별도로 관리한다.
-- 현재 단계에서는 광고 밀도보다 고가치 국가의 유효 세션과 결과 도달이 우선이다.
+- 주소 PIN·정책·site readiness는 코드와 별도 운영한다.
+- 광고 밀도보다 KR/US의 유효 세션과 결과 도달을 우선한다.
+- 작은 표본의 RPM이나 단일 클릭만으로 포트폴리오를 바꾸지 않는다.

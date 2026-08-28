@@ -11,7 +11,11 @@
     "harness:runtime": "node scripts/runtime-check.js focused",
     "verify:root": "node scripts/verify-root-focus.js",
     "verify:root:mutations": "node scripts/verify-root-focus-mutations.js",
-    "verify:brain-trust": "node scripts/verify-brain-type-trust.js --mutations"
+    "verify:brain-trust": "node scripts/verify-brain-type-trust.js --mutations",
+    "verify:culture-choice": "node scripts/verify-culture-choice.js --mutations",
+    "verify:cross-promo-touch": "node scripts/verify-cross-promo-touch.js --mutations",
+    "verify:culture-review": "node scripts/culture-signal-review.js --mutations",
+    "verify:blog-generator-interaction": "node scripts/verify-blog-generator-interaction.js"
   },
   "devDependencies": {
     "playwright": "^1.60.0"

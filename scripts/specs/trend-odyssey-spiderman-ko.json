@@ -18,7 +18,8 @@
   "themeColor": "#f97316",
   "contentGroup": "culture_signal",
   "contentSlug": "odyssey-spider-man-identity-reset-2026",
-  "ogImage": "https://dopabrain.com/portal/img/og/brain-type.png",
+  "crossPromoMode": "native",
+  "ogImage": "https://dopabrain.com/portal/img/og/odyssey-spider-man-identity-reset-2026.jpg",
   "date": "2026-08-28",
   "quickRail": {
     "title": "영화 취향을 내 선택 방식으로 연결하기",
@@ -47,6 +48,71 @@
     "url": "https://dopabrain.com/brain-type/?lang=ko&start=1&surface=odyssey_spiderman_culture_signal",
     "surface": "culture_signal_brain_type",
     "targetSlug": "brain-type"
+  },
+  "interaction": {
+    "id": "return-reset-choice",
+    "name": "return_reset",
+    "surface": "culture_story_fork",
+    "title": "지금 더 끌리는 서사는?",
+    "help": "진단이나 우열이 아닌, 이 순간의 서사 취향 신호입니다.",
+    "legend": "귀환과 리셋 중 하나 선택",
+    "replaceSectionHeading": "당신의 현재 선택은 귀환인가 리셋인가",
+    "choices": [
+      {
+        "id": "return",
+        "label": "귀환 — 지킬 기준을 먼저 찾는다",
+        "shareLabel": "귀환",
+        "summary": "지금은 새로운 답보다 돌아갈 기준이 더 중요한 시기일 수 있습니다. 익숙함을 반복한다는 뜻이 아니라, 변화 속에서도 지킬 좌표를 먼저 고르는 전략입니다.",
+        "ctaSurface": "odyssey_spiderman_choice_return"
+      },
+      {
+        "id": "reset",
+        "label": "리셋 — 움직이며 새 기준을 만든다",
+        "shareLabel": "리셋",
+        "summary": "지금은 완성된 답을 기다리기보다 작은 행동으로 새 기준을 만드는 시기일 수 있습니다. 과거를 버린다는 뜻이 아니라, 달라진 조건에 맞춰 정체성을 다시 쓰는 전략입니다.",
+        "ctaSurface": "odyssey_spiderman_choice_reset"
+      }
+    ],
+    "ctaLabel": "10문항으로 선택 패턴 확인 →",
+    "ctaUrl": "https://dopabrain.com/brain-type/?lang=ko&start=1",
+    "ctaTargetSlug": "brain-type",
+    "shareLabel": "내 선택 공유",
+    "shareSurface": "culture_choice_result",
+    "shareTemplate": "나는 지금 ‘{choice}’ 서사에 더 끌립니다. 당신의 선택은?",
+    "shareTitle": "귀환 vs 리셋",
+    "shareSuccess": "공유했습니다.",
+    "shareFailure": "공유하지 못했습니다. 다시 시도해 주세요.",
+    "copySuccess": "선택 결과와 링크를 복사했습니다.",
+    "copyFailure": "복사하지 못했습니다. 주소창의 링크를 이용해 주세요."
+  },
+  "experiment": {
+    "launchDate": "2026-08-28",
+    "entryEvent": "root_trend_click",
+    "viewEvent": "content_view",
+    "bridgeEvents": [
+      "content_test_click",
+      "content_cta_click"
+    ],
+    "thresholds": {
+      "organicSessionsPerDay": 20,
+      "engagementRate": 0.55,
+      "bridgeRate": 0.08,
+      "effectiveRpmUsd": 1,
+      "minimumFullDays": 7,
+      "minimumContentViews": 20,
+      "minimumOrganicSessionsForRate": 20,
+      "minimumRevenuePageViews": 20,
+      "minimumGscImpressionsForSuppression": 20,
+      "promotePasses": 2,
+      "earliestSuppressDays": 14,
+      "finalReviewDays": 28
+    },
+    "excludedSegments": [
+      {
+        "country": "SG",
+        "platform": "Desktop"
+      }
+    ]
   },
   "sections": [
     {
