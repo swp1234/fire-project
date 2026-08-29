@@ -21,6 +21,7 @@
     "verify:indexing-inventory": "node scripts/indexing-inventory.js --self-test",
     "verify:tracked-secrets": "node scripts/verify-tracked-secrets.js --self-test && node scripts/verify-tracked-secrets.js",
     "verify:adsense-contract": "node scripts/verify-adsense-contract.js --mutations",
+    "verify:hsp-reset-funnel": "node scripts/verify-hsp-reset-funnel.js && node scripts/verify-hsp-reset-funnel.js --mutations",
     "verify:kpop-role-roster": "node scripts/verify-kpop-role-roster.js --mutations",
     "verify:kst-date": "node scripts/verify-kst-date.js",
     "verify:blog-generator-interaction": "node scripts/verify-blog-generator-interaction.js"

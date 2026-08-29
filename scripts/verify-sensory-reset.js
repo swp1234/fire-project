@@ -41,10 +41,31 @@ function createServer() {
     });
 }
 
-function events(page) {
-    return page.evaluate(() => (window.dataLayer || [])
-        .map(item => item?.event || (item?.[0] === 'event' ? item[1] : null))
-        .filter(Boolean));
+function eventRecords(page) {
+    return page.evaluate(() => (window.dataLayer || []).map(item => {
+        if (item?.event) return { name: item.event, params: item };
+        if (item?.[0] === 'event') return { name: item[1], params: item[2] || {} };
+        return null;
+    }).filter(Boolean));
+}
+
+async function events(page) {
+    return (await eventRecords(page)).map(item => item.name);
+}
+
+function forbiddenPayloadKeys(records) {
+    const failures = [];
+    const forbidden = /(?:^|_)(?:trigger|place|capacity|profile)(?:$|_)|^result(?:_|$)/i;
+    const visit = (value, eventName, prefix = '') => {
+        if (!value || typeof value !== 'object') return;
+        Object.entries(value).forEach(([key, nested]) => {
+            const fullKey = prefix ? `${prefix}.${key}` : key;
+            if (forbidden.test(key)) failures.push(`${eventName}:${fullKey}`);
+            visit(nested, eventName, fullKey);
+        });
+    };
+    records.forEach(record => visit(record.params, record.name));
+    return failures;
 }
 
 async function run() {
@@ -60,11 +81,12 @@ async function run() {
     page.on('pageerror', error => {
         if (!/^TagError:/.test(String(error))) errors.push(String(error));
     });
+    await page.route(/googletagmanager|googlesyndication|doubleclick|google-analytics/, route => route.abort());
 
     try {
         const localeReports = [];
         for (const locale of ['ko', 'en', 'zh', 'hi', 'ru', 'ja', 'es', 'pt', 'id', 'tr', 'de', 'fr']) {
-            await page.goto(`${origin}/hsp-test/reset.html?lang=${locale}&source=verify`, { waitUntil: 'domcontentloaded' });
+            await page.goto(`${origin}/hsp-test/reset.html?lang=${locale}&source=hsp_result&profile=drop&trigger=drop&place=drop&capacity=drop&result=drop`, { waitUntil: 'domcontentloaded' });
             await page.waitForSelector('#generate-button');
             await page.click('#generate-button');
             await page.waitForSelector('#result-card:not([hidden])');
@@ -73,30 +95,60 @@ async function run() {
             localeReports.push(await page.evaluate(expectedLocale => ({
                 locale: document.documentElement.lang,
                 expectedLocale,
+                search: location.search,
                 title: document.querySelector('h1')?.textContent,
                 stepCount: document.querySelectorAll('.reset-step').length,
                 firstStep: document.querySelector('.reset-step .step-copy')?.textContent,
                 testHref: document.querySelector('#test-link-bottom')?.getAttribute('href'),
                 guideHref: document.querySelector('#guide-link')?.getAttribute('href'),
-                adCount: document.querySelectorAll('[data-ad-surface="sensory_reset_mid"]').length,
+                autoLoaderCount: document.querySelectorAll('script[src*="pagead/js/adsbygoogle.js"]').length,
+                manualAdCount: document.querySelectorAll('ins.adsbygoogle,[data-ad-surface],[data-ad-slot]').length,
+                manualAdPush: [...document.querySelectorAll('script:not([src])')]
+                    .some(script => /adsbygoogle[\s\S]*\.push\s*\(/.test(script.textContent)),
                 structuredData: [...document.querySelectorAll('script[type="application/ld+json"]')]
                     .some(script => script.textContent.includes('5-Minute Sensory Reset Card')),
-                events: (window.dataLayer || [])
-                    .map(item => item?.event || (item?.[0] === 'event' ? item[1] : null))
-                    .filter(Boolean),
+                eventRecords: (window.dataLayer || []).map(item => item?.event
+                    ? { name: item.event, params: item }
+                    : item?.[0] === 'event' ? { name: item[1], params: item[2] || {} } : null).filter(Boolean),
+                activeElement: document.activeElement?.id,
+                smallTargets: [...document.querySelectorAll('a,button,select')].filter(element => {
+                    const rect = element.getBoundingClientRect();
+                    const style = getComputedStyle(element);
+                    return rect.width > 0 && rect.height > 0 && style.display !== 'none' && style.visibility !== 'hidden'
+                        && (rect.width < 44 || rect.height < 44);
+                }).map(element => {
+                    const rect = element.getBoundingClientRect();
+                    const identity = element.id ? `#${element.id}` : element.getAttribute('href') ? `${element.tagName.toLowerCase()}[href="${element.getAttribute('href')}"]` : element.className || element.tagName;
+                    return `${identity} ${rect.width.toFixed(1)}x${rect.height.toFixed(1)}`;
+                }),
+                timerRole: document.querySelector('.timer')?.getAttribute('role'),
+                timerLive: document.querySelector('.timer')?.getAttribute('aria-live'),
                 overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
             }), locale));
         }
 
-        await page.goto(`${origin}/hsp-test/reset.html?lang=en&source=verify&profile=antenna`, { waitUntil: 'domcontentloaded' });
+        await page.goto(`${origin}/hsp-test/reset.html?lang=en&source=hsp_result&profile=antenna&result=80&trigger=sound&place=home&capacity=steady`, { waitUntil: 'domcontentloaded' });
         await page.selectOption('#trigger-select', 'light');
         await page.selectOption('#place-select', 'public');
         await page.selectOption('#capacity-select', 'exit');
         await page.click('#generate-button');
+        await page.waitForTimeout(80);
         const customPlan = await page.evaluate(() => ({
             stepTexts: [...document.querySelectorAll('.step-copy')].map(node => node.textContent),
             url: location.search,
-            resultVisible: !document.querySelector('#result-card').hidden
+            resultVisible: !document.querySelector('#result-card').hidden,
+            activeElement: document.activeElement?.id,
+            stored: JSON.parse(localStorage.getItem('sensory-reset-settings') || 'null'),
+            smallTargets: [...document.querySelectorAll('a,button,select')].filter(element => {
+                const rect = element.getBoundingClientRect();
+                const style = getComputedStyle(element);
+                return rect.width > 0 && rect.height > 0 && style.display !== 'none' && style.visibility !== 'hidden'
+                    && (rect.width < 44 || rect.height < 44);
+            }).map(element => {
+                const rect = element.getBoundingClientRect();
+                const identity = element.id ? `#${element.id}` : element.getAttribute('href') ? `${element.tagName.toLowerCase()}[href="${element.getAttribute('href')}"]` : element.className || element.tagName;
+                return `${identity} ${rect.width.toFixed(1)}x${rect.height.toFixed(1)}`;
+            })
         }));
         await page.click('#timer-toggle');
         await page.waitForTimeout(1150);
@@ -106,9 +158,7 @@ async function run() {
         await page.click('#copy-button');
         const clipboard = await page.evaluate(() => navigator.clipboard.readText());
         const copyEvents = await events(page);
-        await page.locator('[data-ad-surface]').scrollIntoViewIfNeeded();
-        await page.waitForTimeout(150);
-        const adEvents = await events(page);
+        const resetEventRecords = await eventRecords(page);
 
         await page.goto(`${origin}/hsp-test/?lang=de&source=verify`, { waitUntil: 'domcontentloaded' });
         await page.waitForFunction(() => !document.getElementById('app-loader') || document.getElementById('app-loader').classList.contains('hidden'));
@@ -118,12 +168,18 @@ async function run() {
             await page.waitForTimeout(420);
         }
         await page.waitForSelector('#screen-result.active');
+        await page.locator('#sensory-reset-cta').scrollIntoViewIfNeeded();
+        await page.waitForTimeout(120);
         const resultCta = await page.evaluate(() => ({
             title: document.querySelector('#sensory-reset-title')?.textContent,
             href: document.querySelector('#sensory-reset-link')?.getAttribute('href'),
-            events: (window.dataLayer || [])
-                .map(item => item?.event || (item?.[0] === 'event' ? item[1] : null))
-                .filter(Boolean),
+            resetCount: document.querySelectorAll('#sensory-reset-cta').length,
+            resetLinkCount: document.querySelectorAll('#screen-result #sensory-reset-link').length,
+            mapCount: document.querySelectorAll('#sensory-map-cta').length,
+            mapLinkCount: document.querySelectorAll('#screen-result a[href*="map.html"]').length,
+            eventRecords: (window.dataLayer || []).map(item => item?.event
+                ? { name: item.event, params: item }
+                : item?.[0] === 'event' ? { name: item[1], params: item[2] || {} } : null).filter(Boolean),
             overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
         }));
         await page.evaluate(() => {
@@ -184,7 +240,7 @@ async function run() {
 
         const report = {
             localeReports,
-            interaction: { customPlan, timerRunning, timerEvents, clipboard, copyEvents, adEvents },
+            interaction: { customPlan, timerRunning, timerEvents, clipboard, copyEvents, resetEventRecords },
             resultCta,
             resultClickEvents,
             bridgeReports,
@@ -197,29 +253,47 @@ async function run() {
 
         const failures = [];
         localeReports.forEach(item => {
+            const eventNames = item.eventRecords.map(record => record.name);
             if (item.locale !== item.expectedLocale) failures.push(`${item.expectedLocale} html lang is ${item.locale}`);
+            if (item.search !== `?lang=${item.expectedLocale}&source=hsp_result`) failures.push(`${item.expectedLocale} URL allowlist failed: ${item.search}`);
             if (!item.title || !item.firstStep) failures.push(`${item.expectedLocale} localized reset copy is empty`);
             if (item.stepCount !== 6) failures.push(`${item.expectedLocale} rendered ${item.stepCount} steps`);
             if (!item.testHref?.includes(`lang=${item.expectedLocale}`)) failures.push(`${item.expectedLocale} HSP return route is incomplete`);
             if (!item.guideHref?.includes(`/blog/${item.expectedLocale}/`)) failures.push(`${item.expectedLocale} guide route is incomplete`);
-            if (item.adCount !== 1 || !item.structuredData) failures.push(`${item.expectedLocale} ad or structured data is incomplete`);
-            if (!item.events.includes('sensory_reset_view') || !item.events.includes('sensory_reset_generate')) {
+            if (item.autoLoaderCount !== 1 || item.manualAdCount !== 0 || item.manualAdPush || !item.structuredData) {
+                failures.push(`${item.expectedLocale} Auto Ads or structured data contract is incomplete`);
+            }
+            if (!eventNames.includes('sensory_reset_view') || !eventNames.includes('sensory_reset_generate')) {
                 failures.push(`${item.expectedLocale} view/generate telemetry is incomplete`);
             }
+            if (eventNames.some(name => /_ad_impression$/.test(name))) failures.push(`${item.expectedLocale} emitted a synthetic ad-impression event`);
+            const privateKeys = forbiddenPayloadKeys(item.eventRecords);
+            if (privateKeys.length) failures.push(`${item.expectedLocale} leaked private telemetry keys: ${privateKeys.join(', ')}`);
+            if (item.activeElement !== 'result-title') failures.push(`${item.expectedLocale} generated result did not receive focus`);
+            if (item.smallTargets.length) failures.push(`${item.expectedLocale} has sub-44px targets: ${item.smallTargets.join(', ')}`);
+            if (item.timerRole !== 'timer' || item.timerLive !== null) failures.push(`${item.expectedLocale} timer accessibility contract is invalid`);
             if (item.overflow > 0) failures.push(`${item.expectedLocale} has ${item.overflow}px overflow`);
         });
-        if (!customPlan.resultVisible || !customPlan.url.includes('trigger=light') || !customPlan.url.includes('capacity=exit')) {
+        if (!customPlan.resultVisible || customPlan.url !== '?lang=en&source=hsp_result') {
             failures.push(`custom plan state is incomplete: ${JSON.stringify(customPlan)}`);
         }
+        if (customPlan.stored?.trigger !== 'light' || customPlan.stored?.place !== 'public' || customPlan.stored?.capacity !== 'exit') failures.push('custom settings were not kept in local storage');
+        if (customPlan.activeElement !== 'result-title') failures.push(`custom generated result focus is ${customPlan.activeElement}`);
+        if (customPlan.smallTargets.length) failures.push(`custom reset has sub-44px targets: ${customPlan.smallTargets.join(', ')}`);
         if (!customPlan.stepTexts.some(text => /light|screen/i.test(text))) failures.push('light customization did not affect the plan');
         if (timerRunning !== '04:59') failures.push(`timer did not advance to 04:59: ${timerRunning}`);
         if (!timerEvents.includes('sensory_reset_timer_start') || !timerEvents.includes('sensory_reset_timer_pause')) failures.push('timer telemetry is incomplete');
         if (!clipboard.includes('5-Minute Sensory Reset Card') || !copyEvents.includes('sensory_reset_copy')) failures.push('copy output or telemetry is incomplete');
-        if (!adEvents.includes('sensory_reset_ad_impression')) failures.push('ad impression telemetry is missing');
-        if (!resultCta.title?.includes('5-Minuten') || !resultCta.href?.includes('lang=de') || !resultCta.href.includes('profile=antenna')) {
+        const resetPrivateKeys = forbiddenPayloadKeys(resetEventRecords);
+        if (resetPrivateKeys.length) failures.push(`reset interaction leaked private telemetry keys: ${resetPrivateKeys.join(', ')}`);
+        if (resetEventRecords.some(record => /_ad_impression$/.test(record.name))) failures.push('reset emitted a synthetic ad-impression event');
+        if (!resultCta.title?.includes('5-Minuten') || resultCta.href !== 'reset.html?lang=de&source=hsp_result') {
             failures.push(`German result CTA is incomplete: ${JSON.stringify(resultCta)}`);
         }
-        if (!resultCta.events.includes('sensory_reset_cta_view')) failures.push('result CTA view event is missing');
+        if (resultCta.resetCount !== 1 || resultCta.resetLinkCount !== 1 || resultCta.mapCount !== 0 || resultCta.mapLinkCount !== 0) failures.push('HSP result must expose one reset primary and no map CTA');
+        if (!resultCta.eventRecords.some(record => record.name === 'sensory_reset_cta_view')) failures.push('result CTA view event is missing');
+        const resultPrivateKeys = forbiddenPayloadKeys(resultCta.eventRecords);
+        if (resultPrivateKeys.length) failures.push(`HSP result CTA leaked private telemetry keys: ${resultPrivateKeys.join(', ')}`);
         if (!resultClickEvents.includes('sensory_reset_cta_click')) failures.push('result CTA click event is missing');
         if (resultCta.overflow > 0) failures.push(`HSP result has ${resultCta.overflow}px overflow`);
         bridgeReports.forEach(item => {

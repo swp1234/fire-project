@@ -26,8 +26,15 @@ function serve() {
         fs.createReadStream(file).pipe(response);
     });
 }
-function eventNames(page) {
-    return page.evaluate(() => (window.dataLayer || []).map((item) => item?.event || (item?.[0] === 'event' ? item[1] : null)).filter(Boolean));
+function eventRecords(page) {
+    return page.evaluate(() => (window.dataLayer || []).map((item) => {
+        if (item?.event) return { name: item.event, params: item };
+        if (item?.[0] === 'event') return { name: item[1], params: item[2] || {} };
+        return null;
+    }).filter(Boolean));
+}
+async function eventNames(page) {
+    return (await eventRecords(page)).map((item) => item.name);
 }
 
 async function run() {
@@ -45,22 +52,35 @@ async function run() {
     try {
         const locales = [];
         for (const language of ['en', 'ko', 'zh', 'hi', 'ru', 'ja', 'es', 'pt', 'id', 'tr', 'de', 'fr']) {
-            await page.goto(`${origin}/hsp-test/map.html?lang=${language}&source=verify`, { waitUntil: 'domcontentloaded' });
+            await page.goto(`${origin}/hsp-test/map.html?lang=${language}&source=hsp_result&profile=drop&result=drop&trigger=drop`, { waitUntil: 'domcontentloaded' });
             await page.waitForSelector('#domains .domain');
             locales.push(await page.evaluate((expected) => ({
                 expected,
                 language: document.documentElement.lang,
+                search: location.search,
                 title: document.querySelector('h1')?.textContent,
                 button: document.querySelector('#build')?.textContent,
                 domains: document.querySelectorAll('#domains .domain').length,
-                ads: document.querySelectorAll('[data-ad-surface="sensory_map_inline"]').length,
+                autoLoaderCount: document.querySelectorAll('script[src*="pagead/js/adsbygoogle.js"]').length,
+                manualAdCount: document.querySelectorAll('ins.adsbygoogle,[data-ad-surface],[data-ad-slot]').length,
+                manualAdPush: [...document.querySelectorAll('script:not([src])')]
+                    .some(script => /adsbygoogle[\s\S]*\.push\s*\(/.test(script.textContent)),
+                levelLabels: [...document.querySelectorAll('#domains button[data-domain][data-level]')]
+                    .map(button => button.getAttribute('aria-label')),
+                smallTargets: [...document.querySelectorAll('a,button,select')].filter(element => {
+                    const rect = element.getBoundingClientRect();
+                    const style = getComputedStyle(element);
+                    return rect.width > 0 && rect.height > 0 && style.display !== 'none' && style.visibility !== 'hidden'
+                        && (rect.width < 44 || rect.height < 44);
+                }).map(element => element.id || element.className || element.tagName),
                 jsonLd: Array.from(document.querySelectorAll('script[type="application/ld+json"]')).map((node) => JSON.parse(node.textContent)['@type']),
                 hreflangs: document.querySelectorAll('link[rel="alternate"][hreflang]').length,
+                events: (window.dataLayer || []).map(item => item?.event || (item?.[0] === 'event' ? item[1] : null)).filter(Boolean),
                 overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
             }), language));
         }
 
-        await page.goto(`${origin}/hsp-test/map.html?lang=ko&source=verify`, { waitUntil: 'domcontentloaded' });
+        await page.goto(`${origin}/hsp-test/map.html?lang=ko&source=hsp_result&profile=drop&result=drop`, { waitUntil: 'domcontentloaded' });
         await page.evaluate(() => localStorage.removeItem('sensory_load_map_v1'));
         await page.reload({ waitUntil: 'domcontentloaded' });
         for (const [domain, level] of [['noise', 'high'], ['light', 'low'], ['touch', 'medium'], ['social', 'low'], ['demands', 'high']]) {
@@ -68,16 +88,27 @@ async function run() {
         }
         await page.selectOption('#context', 'work');
         await page.click('#build');
-        await page.locator('[data-ad-surface="sensory_map_inline"]').scrollIntoViewIfNeeded();
-        await page.waitForTimeout(150);
+        await page.waitForTimeout(80);
         const generated = await page.evaluate(() => ({
             title: document.querySelector('#resultTitle').textContent,
             priorityNames: Array.from(document.querySelectorAll('.priority strong')).map((item) => item.textContent),
             advice: Array.from(document.querySelectorAll('.priority small')).map((item) => item.textContent),
             request: document.querySelector('#requestText').textContent,
             stored: JSON.parse(localStorage.getItem('sensory_load_map_v1')),
+            search: location.search,
+            activeElement: document.activeElement?.id,
+            levelLabels: [...document.querySelectorAll('#domains button[data-domain][data-level]')]
+                .map(button => button.getAttribute('aria-label')),
+            smallTargets: [...document.querySelectorAll('a,button,select')].filter(element => {
+                const rect = element.getBoundingClientRect();
+                const style = getComputedStyle(element);
+                return rect.width > 0 && rect.height > 0 && style.display !== 'none' && style.visibility !== 'hidden'
+                    && (rect.width < 44 || rect.height < 44);
+            }).map(element => element.id || element.className || element.tagName),
             overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
         }));
+        await page.click('#used');
+        await page.click('#used');
         await page.click('#used');
         const beforeReloadEvents = await eventNames(page);
         await page.reload({ waitUntil: 'domcontentloaded' });
@@ -104,16 +135,14 @@ async function run() {
             await page.waitForTimeout(430);
         }
         await page.waitForSelector('#screen-result.active');
-        await page.evaluate(() => document.querySelector('#sensory-map-link').addEventListener('click', (event) => event.preventDefault(), { capture: true }));
         const hspResult = await page.evaluate(() => ({
             resetCount: document.querySelectorAll('#sensory-reset-cta').length,
             mapCount: document.querySelectorAll('#sensory-map-cta').length,
-            title: document.querySelector('#sensory-map-title')?.textContent,
-            href: document.querySelector('#sensory-map-link')?.getAttribute('href'),
+            mapLinkCount: document.querySelectorAll('#screen-result a[href*="map.html"]').length,
+            resetTitle: document.querySelector('#sensory-reset-title')?.textContent,
+            resetHref: document.querySelector('#sensory-reset-link')?.getAttribute('href'),
             events: (window.dataLayer || []).map((item) => item?.event || (item?.[0] === 'event' ? item[1] : null)).filter(Boolean)
         }));
-        await page.click('#sensory-map-link');
-        hspResult.eventsAfterClick = await eventNames(page);
 
         await page.goto(`${origin}/portal/blog/zh/sensory-overload-hsp-coping.html`, { waitUntil: 'domcontentloaded' });
         await page.waitForSelector('.cp-sensory-reset-actions');
@@ -147,14 +176,24 @@ async function run() {
         const failures = [];
         locales.forEach((item) => {
             if (item.language !== item.expected || !item.title || !item.button || item.domains !== 5) failures.push(`${item.expected} locale incomplete`);
-            if (item.ads !== 1 || item.jsonLd.join('|') !== 'WebApplication|FAQPage' || item.hreflangs !== 13 || item.overflow > 0) failures.push(`${item.expected} metadata/layout invalid`);
+            if (item.search !== `?lang=${item.expected}&source=hsp_result`) failures.push(`${item.expected} URL allowlist failed: ${item.search}`);
+            if (item.autoLoaderCount !== 1 || item.manualAdCount !== 0 || item.manualAdPush) failures.push(`${item.expected} Auto Ads contract invalid`);
+            if (item.events.some((name) => /_ad_impression$/.test(name))) failures.push(`${item.expected} emitted a synthetic ad-impression event`);
+            if (item.levelLabels.length !== 15 || item.levelLabels.some((label) => !label) || new Set(item.levelLabels).size !== 15) failures.push(`${item.expected} level-button accessible names invalid`);
+            if (item.smallTargets.length) failures.push(`${item.expected} has sub-44px targets: ${item.smallTargets.join(', ')}`);
+            if (item.jsonLd.join('|') !== 'WebApplication|FAQPage' || item.hreflangs !== 13 || item.overflow > 0) failures.push(`${item.expected} metadata/layout invalid`);
         });
         if (generated.priorityNames.length !== 3 || !generated.priorityNames[0].includes('소음') || !generated.priorityNames[1].includes('요구') || generated.advice.some((item) => !/[가-힣]/.test(item)) || !/[가-힣]/.test(generated.request) || generated.overflow > 0) failures.push('Korean generated card invalid');
+        if (generated.search !== '?lang=ko&source=hsp_result') failures.push(`generated map URL allowlist failed: ${generated.search}`);
+        if (generated.activeElement !== 'resultTitle') failures.push(`generated map focus is ${generated.activeElement}`);
+        if (generated.levelLabels.length !== 15 || generated.levelLabels.some((label) => !label) || new Set(generated.levelLabels).size !== 15) failures.push('generated map level-button accessible names invalid');
+        if (generated.smallTargets.length) failures.push(`generated map has sub-44px targets: ${generated.smallTargets.join(', ')}`);
         if (Object.keys(generated.stored).sort().join('|') !== 'context|levels|used' || Object.keys(generated.stored.levels).sort().join('|') !== 'demands|light|noise|social|touch' || 'request' in generated.stored || 'advice' in generated.stored) failures.push('local storage privacy contract invalid');
         if (!persisted.visible || !persisted.used || persisted.context !== 'work') failures.push('persistence failed');
         if (translated.language !== 'zh' || !/[一-鿿]/.test(translated.advice) || !/[一-鿿]/.test(translated.request) || !translated.canonical.includes('lang=zh')) failures.push('live Chinese result translation failed');
-        ['sensory_map_view', 'sensory_map_generate', 'sensory_map_used', 'sensory_map_ad_impression'].forEach((name) => { if (!mapEvents.includes(name)) failures.push(`${name} missing`); });
-        if (hspResult.resetCount !== 1 || hspResult.mapCount !== 1 || !hspResult.href.includes('lang=ko') || !hspResult.href.includes('source=hsp_result') || !hspResult.events.includes('sensory_map_cta_view') || !hspResult.eventsAfterClick.includes('sensory_map_cta_click')) failures.push('HSP result route invalid');
+        ['sensory_map_view', 'sensory_map_generate', 'sensory_map_mark_used', 'sensory_map_mark_reopened'].forEach((name) => { if (!mapEvents.includes(name)) failures.push(`${name} missing`); });
+        ['sensory_map_used', 'sensory_map_reopen', 'sensory_map_ad_impression'].forEach((name) => { if (mapEvents.includes(name)) failures.push(`${name} must not be emitted`); });
+        if (hspResult.resetCount !== 1 || hspResult.mapCount !== 0 || hspResult.mapLinkCount !== 0 || !hspResult.resetTitle || hspResult.resetHref !== 'reset.html?lang=ko&source=hsp_result' || hspResult.events.includes('sensory_map_cta_view') || hspResult.events.includes('sensory_map_cta_click')) failures.push('HSP result must expose one reset primary and no map CTA');
         if (bridge.links !== 2 || !/[一-鿿]/.test(bridge.mapText) || !bridge.mapHref.includes('lang=zh') || !bridge.mapHref.includes('source=blog_sensory_bridge') || bridge.emotion || bridge.sprint || bridge.overflow > 0 || !bridge.events.includes('sensory_reset_bridge_view') || !bridge.eventsAfterClick.includes('sensory_map_bridge_click')) failures.push('blog two-choice bridge invalid');
         if (catalog.count !== 1 || !catalog.name.includes('感官') || !catalog.href.includes('source=portal_tools_catalog') || catalog.overflow > 0) failures.push('tools catalog route invalid');
         if (errors.length) failures.push(errors.join(' | '));

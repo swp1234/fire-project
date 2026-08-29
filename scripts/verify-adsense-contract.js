@@ -16,6 +16,9 @@ const DEFAULT_PAGES = [
   path.join(ROOT, 'projects', 'portal', 'tools', 'index.html'),
   path.join(ROOT, 'projects', 'kpop-position', 'index.html'),
   path.join(ROOT, 'projects', 'puzzle-2048', 'index.html'),
+  path.join(ROOT, 'projects', 'hsp-test', 'index.html'),
+  path.join(ROOT, 'projects', 'hsp-test', 'reset.html'),
+  path.join(ROOT, 'projects', 'hsp-test', 'map.html'),
 ];
 const PRODUCERS = [
   'scripts/create-blog-article.js',

@@ -48,7 +48,13 @@
 - EN K-pop 가이드는 28일 Organic landing 16 sessions, 최근 7일 3 sessions였다. 기존 bridge는 37 users view 대비 1 user click으로 후속 전환이 약했다.
 - 가이드·로스터·포지션 테스트에서 수동 광고 계약과 가짜 노출 이벤트를 제거했다. 테스트의 가짜 사회증거·평점·희귀도·광고 잠금과 비지원 locale 자산도 제거해 이전 수치를 성과 신호에서 제외했다.
 - 8월 30일~9월 5일을 새 관찰 구간으로 두고 SG desktop Direct, 배포일, 이전 허위 이벤트를 제외한다.
-- K-pop과 별도로 다음 제품 전환 실험은 HSP 결과→5분 감각 리셋이다. 기존 reset/map view 각 41 users 대비 click은 0이었다.
+
+## 2026-08-29 HSP reset baseline correction
+
+- 기존 reset/map view 각 41 users·click 0은 숨겨진 결과를 render할 때 view가 먼저 발생한 값이라 실제 노출 기준선으로 사용할 수 없다.
+- HSP 결과에서는 map과 fabricated percentile·rating·types·manual ads를 제거하고 5분 감각 리셋 하나만 primary로 둔다. 선택·결과값을 query나 telemetry로 보내지 않는다.
+- 새 퍼널은 `result_view → sensory_reset_cta_view`(실제 50% intersection, exact-once) `→ sensory_reset_cta_click → sensory_reset_view → sensory_reset_generate`다.
+- 2026-08-30~09-05 KST를 새 관찰창으로 두고 배포일 08-29를 제외한다. 실제 CTA exposure 20 users 전에는 판정하지 않으며 초기 click-user rate 목표는 8%다.
 
 ## Logging rule
 
