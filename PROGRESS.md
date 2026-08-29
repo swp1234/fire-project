@@ -39,7 +39,7 @@ Updated: 2026-08-29
 - K-pop 로스터와 포지션 테스트는 Auto Ads loader 하나만 유지한다. 테스트의 가짜 2,400명·평점·희귀도·광고 대기창·AI 잠금·아티스트 고정 매핑과 비지원 locale 10개를 제거해 경량화했다. 로스터→테스트는 지원 언어로 정규화하면서 자동 시작·surface를 보존한다.
 - 포지션 테스트는 EN/KO만 지원하고 번역 실패 시 정적 EN으로 복구한다. 답변 전환 잠금, 확대 허용, 질문·결과 focus/공지, 재현 가능한 동점 규칙, 실제 성공한 공유만의 계측, 정적 same-origin SW cache를 적용했다.
 - HSP 결과는 진단·유형 판정이 아닌 감각 선호 점검으로 정리했다. 결과 바로 아래에는 5분 감각 리셋 하나만 primary로 두고 map, fabricated percentile·rating·types, manual ads를 제거했다.
-- HSP 선택값·결과값은 URL이나 telemetry로 보내지 않으며 개인정보 고지와 실제 동작을 맞췄다. 12 locale, EN fallback과 same-origin service worker cache를 유지한다.
+- HSP 선택값·결과값은 URL이나 telemetry로 보내지 않으며 개인정보 고지와 실제 동작을 맞췄다. 12 locale, EN fallback과 same-origin service worker cache를 유지하고, 연결된 12 locale 가이드의 수동 광고와 합성 광고 노출 이벤트도 제거했다.
 - 광고 계약은 Auto Ads loader 하나만 허용한다. `data-ad-slot="auto"`, 임의 manual unit/push, DOM 기반 유료 노출 주장은 금지한다.
 - 도구 카탈로그의 화면 43개와 ItemList 33개 불일치를 43개 동일 순서·URL·이름으로 맞췄다. 12개 언어, canonical/hreflang, schema, sitemap/robots와 모바일 44px·overflow 기준을 유지한다.
 

@@ -70,6 +70,7 @@ function forbiddenPayloadKeys(records) {
 
 async function run() {
     const production = process.argv.includes('--production');
+    const verbose = process.argv.includes('--json');
     const server = production ? null : createServer();
     if (server) await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
     const origin = production ? 'https://dopabrain.com' : `http://127.0.0.1:${server.address().port}`;
@@ -201,6 +202,11 @@ async function run() {
                 href: document.querySelector('.cp-sensory-reset-link')?.getAttribute('href'),
                 resetCount: document.querySelectorAll('.cp-sensory-reset').length,
                 sprintCount: document.querySelectorAll('.cp-mobile-sprint').length,
+                directLoaderCount: document.querySelectorAll('script[src*="pagead/js/adsbygoogle.js"]').length,
+                managedLoaderCount: document.querySelectorAll('script[src="/portal/js/ad-loader.js"]').length,
+                manualAdCount: document.querySelectorAll('ins.adsbygoogle,[data-ad-surface],[data-ad-slot]').length,
+                manualAdPush: [...document.querySelectorAll('script:not([src])')]
+                    .some(script => /adsbygoogle[\s\S]*\.push\s*\(/.test(script.textContent)),
                 events: (window.dataLayer || [])
                     .map(item => item?.event || (item?.[0] === 'event' ? item[1] : null))
                     .filter(Boolean),
@@ -249,7 +255,7 @@ async function run() {
             toolsClickEvents,
             errors
         };
-        console.log(JSON.stringify(report, null, 2));
+        if (verbose) console.log(JSON.stringify(report, null, 2));
 
         const failures = [];
         localeReports.forEach(item => {
@@ -301,6 +307,8 @@ async function run() {
                 failures.push(`${item.locale} sensory bridge localization or attribution is incomplete`);
             }
             if (item.resetCount !== 1 || item.sprintCount !== 0) failures.push(`${item.locale} sensory bridge competed with a generic sprint`);
+            if (item.directLoaderCount !== 1 || item.managedLoaderCount !== 1 || item.manualAdCount !== 0 || item.manualAdPush) failures.push(`${item.locale} sensory bridge violates the Auto Ads contract`);
+            if (item.events.some(name => /_ad_impression$/.test(name))) failures.push(`${item.locale} sensory bridge emitted a synthetic ad-impression event`);
             if (!item.events.includes('sensory_reset_bridge_view')) failures.push(`${item.locale} sensory bridge view event is missing`);
             if (item.overflow > 0) failures.push(`${item.locale} sensory bridge has ${item.overflow}px overflow`);
         });
@@ -317,7 +325,7 @@ async function run() {
         if (errors.length) failures.push(`page errors: ${errors.join(' | ')}`);
         if (failures.length) throw new Error(failures.join('\n'));
 
-        console.log('PASS: sensory reset verification');
+        console.log(`[PASS] ${production ? 'production' : 'local'} sensory reset: locales=${localeReports.length}, bridges=${bridgeReports.length}, private funnel + Auto Ads contract`);
     } finally {
         await browser.close();
         if (server) await new Promise(resolve => server.close(resolve));
