@@ -8,6 +8,22 @@ const ROOT = path.resolve(__dirname, '..');
 const CLIENT = 'ca-pub-3600813755953882';
 const DEFAULT_SPEC = path.join(ROOT, 'scripts', 'specs', 'trend-odyssey-spiderman-ko.json');
 const SENSORY_LOCALES = Object.freeze(['ko', 'en', 'zh', 'hi', 'ru', 'ja', 'es', 'pt', 'id', 'tr', 'de', 'fr']);
+const FOCUSED_INDEXING_PAGES = Object.freeze([
+  ['en', 'animal-personality-test-guide.html'],
+  ['en', 'avoidant-attachment-healing-guide.html'],
+  ['en', 'mental-age-test-brain-quiz-guide.html'],
+  ['en', 'past-life-calculator-birthday.html'],
+  ['es', 'test-animal-espiritual-guia.html'],
+  ['fr', 'attachment-style-test-quiz.html'],
+  ['ja', 'brain-type-test.html'],
+  ['ja', 'reaction-time-test-guide.html'],
+  ['ko', 'blood-type-personality-guide.html'],
+  [null, 'mbti-compatibility.html'],
+  [null, 'mbti-love-compatibility-2026.html'],
+  ['zh', 'cognitive-distortions-list.html'],
+  ['zh', 'dopamine-detox-guide-reset-brain.html'],
+  ['zh', 'hsp-test-guide.html'],
+]);
 const DEFAULT_PAGES = [
   path.join(ROOT, 'projects', 'portal', 'blog', 'ko', 'odyssey-spider-man-identity-reset-2026.html'),
   path.join(ROOT, 'projects', 'portal', 'blog', 'ko', '2026-brain-training-top-10.html'),
@@ -27,6 +43,14 @@ const DEFAULT_PAGES = [
     'blog',
     locale,
     'sensory-overload-hsp-coping.html',
+  )),
+  ...FOCUSED_INDEXING_PAGES.map(([locale, filename]) => path.join(
+    ROOT,
+    'projects',
+    'portal',
+    'blog',
+    ...(locale ? [locale] : []),
+    filename,
   )),
 ];
 const PRODUCERS = [

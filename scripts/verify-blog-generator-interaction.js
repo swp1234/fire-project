@@ -5,6 +5,7 @@ const os = require('os');
 const path = require('path');
 const { chromium } = require('playwright');
 const { renderArticle, validateSpec } = require('./create-blog-article');
+const { listenOnSafePort } = require('./lib/safe-local-port');
 
 const WORKSPACE = path.resolve(__dirname, '..');
 const DEFAULT_SPEC_PATH = path.join(WORKSPACE, 'scripts', 'specs', 'trend-odyssey-spiderman-ko.json');
@@ -114,13 +115,7 @@ function createServer(articlePath, route) {
 }
 
 function listen(server) {
-  return new Promise((resolve, reject) => {
-    server.once('error', reject);
-    server.listen(0, '127.0.0.1', () => {
-      server.removeListener('error', reject);
-      resolve(server.address().port);
-    });
-  });
+  return listenOnSafePort(server).then((address) => address.port);
 }
 
 function closeServer(server) {

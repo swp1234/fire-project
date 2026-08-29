@@ -18,6 +18,7 @@ function parseArgs(argv) {
   const args = {
     json: false,
     selfTest: false,
+    strict: false,
     write: false,
     limit: 40,
   };
@@ -26,6 +27,7 @@ function parseArgs(argv) {
     const arg = argv[i];
     if (arg === '--json') args.json = true;
     else if (arg === '--self-test') args.selfTest = true;
+    else if (arg === '--strict') args.strict = true;
     else if (arg === '--write') args.write = true;
     else if (arg === '--limit') args.limit = readNumber(argv[++i], arg);
     else if (arg === '--help' || arg === '-h') {
@@ -50,6 +52,7 @@ function printHelp() {
   node scripts/indexing-inventory.js
   node scripts/indexing-inventory.js --write
   node scripts/indexing-inventory.js --json --limit 100
+  node scripts/indexing-inventory.js --strict
   node scripts/indexing-inventory.js --self-test
 
 Audits every submitted local sitemap URL for technical indexing risks. This does not replace GSC URL Inspection; it finds site-side causes that can be fixed locally.`);
@@ -636,6 +639,8 @@ function main() {
       markdown: toPosix(path.relative(ROOT, paths.mdPath)),
     };
   }
+
+  if (args.strict && report.summary.urlsWithIssues > 0) process.exitCode = 1;
 
   if (args.json) {
     console.log(JSON.stringify({ summary: report.summary, topResults, written: report.written || null }, null, 2));

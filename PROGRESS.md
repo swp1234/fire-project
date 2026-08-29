@@ -54,7 +54,7 @@ Updated: 2026-08-29
 - Brain training 20종, ZH 2048 guide 20종, 2048 ad policy 22종, AdSense contract 9종 결함 변이를 탐지한다.
 - K-pop 경로는 로스터 12 locale의 핵심 현지화+EN fallback, 2개 로스터 여정, 4개 bridge, EN/KO 퀴즈, 카탈로그 12 locale × 2 viewport, 43개 DOM/schema 순서·URL·이름, 개인정보·공유·SW와 결함 변이 52종을 검증한다.
 - HSP는 12 locale·i18n fallback·service worker, 결과→리셋 계층, 실제 50% intersection exact-once 노출, 개인정보·Auto Ads 계약과 결함 변이를 검증한다.
-- `npm run harness`와 focused 6개 runtime smoke가 통합 회귀 기준이다.
+- `npm run harness`와 focused 6개 runtime smoke가 통합 회귀 기준이다. 브라우저 검증 서버는 안전 포트 범위를 사용해 OS 임시 포트의 `ERR_UNSAFE_PORT` 오탐을 막는다.
 
 ## Next decision
 
@@ -71,4 +71,4 @@ Updated: 2026-08-29
 - 그 외는 `ITERATE`; `SUPPRESS`는 14일 이후 Organic 20·content view 20 표본과 신뢰 가능한 실패가 함께 있을 때만 허용한다.
 - AdSense 도메인 RPM은 proxy로만 표시하고 승격 점수에 넣지 않는다. `SUPPRESS`는 홍보·집중 discovery만 제거하고 URL은 유지한다.
 - 수동 운영 잔여는 AdSense 주소 PIN과 과거 Git 이력의 API key 폐기·회전이다. 현재 tree의 추적 파일 secret scan은 통과하며 값은 문서에 기록하지 않는다.
-- 집중 inventory에는 기존 invalid manual-ad markup 페이지가 14개 남아 있다. 수요 근거가 없는 나머지는 일괄 홍보하지 않고 다음 우선순위 감사 때 신뢰성 수정과 함께 처리한다.
+- 제출 sitemap의 43개 URL은 indexing inventory 이슈 0건이다. 기존 14개 가이드의 invalid manual-ad markup·수동 push·DOM 기반 가짜 노출 이벤트를 제거했고, strict inventory가 재발 시 실패한다.

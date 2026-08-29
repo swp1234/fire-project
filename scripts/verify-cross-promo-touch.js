@@ -3,6 +3,7 @@ const fs = require('fs');
 const http = require('http');
 const path = require('path');
 const { chromium } = require('playwright');
+const { listenOnSafePort } = require('./lib/safe-local-port');
 
 const WORKSPACE = path.resolve(__dirname, '..');
 const CROSS_PROMO_PATH = path.join(WORKSPACE, 'projects', 'portal', 'js', 'cross-promo.js');
@@ -71,13 +72,7 @@ function createServer(crossPromoSource, appDataSource) {
 }
 
 function listen(server) {
-  return new Promise((resolve, reject) => {
-    server.once('error', reject);
-    server.listen(0, HOST, () => {
-      server.removeListener('error', reject);
-      resolve(server.address().port);
-    });
-  });
+  return listenOnSafePort(server, HOST).then((address) => address.port);
 }
 
 function closeServer(server) {

@@ -5,6 +5,7 @@ const fs = require('fs');
 const http = require('http');
 const path = require('path');
 const { chromium } = require('playwright');
+const { listenOnSafePort } = require('./lib/safe-local-port');
 
 const ROOT = path.resolve(__dirname, '..');
 const ARTICLE_FILE = path.join(ROOT, 'projects', 'portal', 'blog', 'ko', '2026-brain-training-top-10.html');
@@ -385,13 +386,7 @@ function serverFor(getHtml) {
 }
 
 function listen(server) {
-  return new Promise(function(resolve, reject) {
-    server.once('error', reject);
-    server.listen(0, '127.0.0.1', function() {
-      server.removeListener('error', reject);
-      resolve(server.address().port);
-    });
-  });
+  return listenOnSafePort(server).then(function(address) { return address.port; });
 }
 
 function close(server) {

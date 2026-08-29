@@ -6,6 +6,7 @@ const fs = require('fs');
 const http = require('http');
 const path = require('path');
 const { chromium } = require('playwright');
+const { listenOnSafePort } = require('./lib/safe-local-port');
 
 const ROOT = path.resolve(__dirname, '..');
 const PORTAL = path.join(ROOT, 'projects', 'portal');
@@ -429,13 +430,7 @@ function serverFor(getArticle) {
 }
 
 function listen(server) {
-  return new Promise(function(resolve, reject) {
-    server.once('error', reject);
-    server.listen(0, '127.0.0.1', function() {
-      server.removeListener('error', reject);
-      resolve(server.address().port);
-    });
-  });
+  return listenOnSafePort(server).then(function(address) { return address.port; });
 }
 
 function close(server) {

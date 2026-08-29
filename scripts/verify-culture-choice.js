@@ -4,6 +4,7 @@ const fs = require('fs');
 const http = require('http');
 const path = require('path');
 const { chromium } = require('playwright');
+const { listenOnSafePort } = require('./lib/safe-local-port');
 
 const WORKSPACE = path.resolve(__dirname, '..');
 const PROJECTS_ROOT = path.join(WORKSPACE, 'projects');
@@ -234,17 +235,7 @@ function startServer(getArticleHtml) {
     }
   });
 
-  return new Promise((resolve, reject) => {
-    server.once('error', reject);
-    server.listen(0, '127.0.0.1', () => {
-      const address = server.address();
-      if (!address || typeof address === 'string') {
-        reject(new Error('Could not determine local verifier port'));
-        return;
-      }
-      resolve({ server, port: address.port });
-    });
-  });
+  return listenOnSafePort(server).then((address) => ({ server, port: address.port }));
 }
 
 async function fetchLiveHtml(articleUrl) {
@@ -348,23 +339,13 @@ function startNetworkProbeServer() {
     socket.destroy();
   });
 
-  return new Promise((resolve, reject) => {
-    server.once('error', reject);
-    server.listen(0, '127.0.0.1', () => {
-      const address = server.address();
-      if (!address || typeof address === 'string') {
-        reject(new Error('Could not determine network probe port'));
-        return;
-      }
-      resolve({
+  return listenOnSafePort(server).then((address) => ({
         getHttpHits: () => httpHits,
         getWebSocketUpgradeHits: () => webSocketUpgradeHits,
         httpUrl: `http://127.0.0.1:${address.port}/external-http-probe`,
         server,
         webSocketUrl: `ws://127.0.0.1:${address.port}/external-websocket-probe`
-      });
-    });
-  });
+      }));
 }
 
 async function verifyRuntimeNetworkIsolation(browser, articleUrl) {
