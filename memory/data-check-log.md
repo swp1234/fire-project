@@ -56,6 +56,12 @@
 - 새 퍼널은 `result_view → sensory_reset_cta_view`(실제 50% intersection, exact-once) `→ sensory_reset_cta_click → sensory_reset_view → sensory_reset_generate`다.
 - 2026-08-30~09-05 KST를 새 관찰창으로 두고 배포일 08-29를 제외한다. 실제 CTA exposure 20 users 전에는 판정하지 않으며 초기 click-user rate 목표는 8%다.
 
+## 2026-08-29 Daily Tarot trust reset
+
+- 최근 28일 스페인어 타로 가이드는 Bing organic 25 sessions였지만 GA4 unique users는 3명 수준이라 sitemap 승격 근거로 쓰지 않는다.
+- 연결 앱의 허위 54,000+ 이용량·2,800건 평점·가짜 광고/AI 잠금을 제거하고, 가이드와 앱의 Auto Ads 계약만 복구했다.
+- 최근 7일 AdSense는 `$0.75`로 일평균 약 `$0.11`; 목표까지는 광고 배치보다 실제 검색 사용자 확대가 우선이다.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

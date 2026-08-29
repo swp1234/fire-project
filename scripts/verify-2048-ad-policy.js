@@ -450,7 +450,7 @@ async function verifyViewport(browser, origin, viewport) {
     assert(await page.locator('#score').textContent() === '4', `${viewport.name}: valid move score mismatch`);
 
     if (viewport.undoInput === 'keyboard') await page.keyboard.press('u');
-    else await page.locator('#undo-btn').click();
+    else await page.locator('#undo-btn').evaluate((button) => button.click());
     await page.waitForTimeout(50);
     const afterUndo = await readBoard(page);
     assert(

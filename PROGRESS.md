@@ -40,6 +40,7 @@ Updated: 2026-08-29
 - 포지션 테스트는 EN/KO만 지원하고 번역 실패 시 정적 EN으로 복구한다. 답변 전환 잠금, 확대 허용, 질문·결과 focus/공지, 재현 가능한 동점 규칙, 실제 성공한 공유만의 계측, 정적 same-origin SW cache를 적용했다.
 - HSP 결과는 진단·유형 판정이 아닌 감각 선호 점검으로 정리했다. 결과 바로 아래에는 5분 감각 리셋 하나만 primary로 두고 map, fabricated percentile·rating·types, manual ads를 제거했다.
 - HSP 선택값·결과값은 URL이나 telemetry로 보내지 않으며 개인정보 고지와 실제 동작을 맞췄다. 12 locale, EN fallback과 same-origin service worker cache를 유지하고, 연결된 12 locale 가이드의 수동 광고와 합성 광고 노출 이벤트도 제거했다.
+- Daily Tarot는 54,000+ 허위 이용량·2,800건 평점 schema, 가짜 광고 대기창·수동 slot·합성 광고 노출 이벤트를 제거했다. 규칙 기반 출력을 AI라고 부르지 않고 12 locale의 심화 성찰 경로로 정리했다.
 - 광고 계약은 Auto Ads loader 하나만 허용한다. `data-ad-slot="auto"`, 임의 manual unit/push, DOM 기반 유료 노출 주장은 금지한다.
 - 도구 카탈로그의 화면 43개와 ItemList 33개 불일치를 43개 동일 순서·URL·이름으로 맞췄다. 12개 언어, canonical/hreflang, schema, sitemap/robots와 모바일 44px·overflow 기준을 유지한다.
 
@@ -54,6 +55,7 @@ Updated: 2026-08-29
 - Brain training 20종, ZH 2048 guide 20종, 2048 ad policy 22종, AdSense contract 9종 결함 변이를 탐지한다.
 - K-pop 경로는 로스터 12 locale의 핵심 현지화+EN fallback, 2개 로스터 여정, 4개 bridge, EN/KO 퀴즈, 카탈로그 12 locale × 2 viewport, 43개 DOM/schema 순서·URL·이름, 개인정보·공유·SW와 결함 변이 52종을 검증한다.
 - HSP는 12 locale·i18n fallback·service worker, 결과→리셋 계층, 실제 50% intersection exact-once 노출, 개인정보·Auto Ads 계약과 결함 변이를 검증한다.
+- Daily Tarot는 12 locale 신뢰·Auto Ads 계약과 6개 결함 변이, ES 자동 카드 뽑기→심화 성찰 runtime·44px·exact-once 이벤트를 검증한다.
 - `npm run harness`와 focused 6개 runtime smoke가 통합 회귀 기준이다. 브라우저 검증 서버는 안전 포트 범위를 사용해 OS 임시 포트의 `ERR_UNSAFE_PORT` 오탐을 막는다.
 
 ## Next decision

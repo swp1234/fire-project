@@ -26,6 +26,7 @@
     "verify:kpop-role-roster": "node scripts/verify-kpop-role-roster.js --mutations",
     "verify:kst-date": "node scripts/verify-kst-date.js",
     "verify:safe-local-port": "node scripts/verify-safe-local-port.js",
+    "verify:daily-tarot": "node scripts/verify-daily-tarot.js --mutations",
     "verify:blog-generator-interaction": "node scripts/verify-blog-generator-interaction.js"
   },
   "devDependencies": {
