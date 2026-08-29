@@ -35,8 +35,11 @@ Updated: 2026-08-29
 - Brain Type의 허위 평점·이용자·분포·스캔 표현은 제거했고 실제 가중 선택 방식과 제한을 공개했다.
 - KR 두뇌훈련 글은 근거 없는 효능 주장을 실제 10개 기능 설명으로 교체하고 Brain Workout·2048 Coach·Brain Type 전환을 정확히 계측한다. 변경 전 28일 search-like landing은 16 sessions, 최근 7일은 7 sessions였고 CTA click은 0이었다.
 - ZH 2048 가이드는 화면 FAQ와 schema를 일치시키고 가짜 광고 unit·노출 이벤트를 제거했다. 2048 게임은 일반 undo를 무료 동작으로 복구하고 공식 H5 natural-break/reward 흐름만 유지한다.
+- EN K-pop 포지션 가이드는 고정 서열·아티스트 포지션 단정을 제거하고 2026-08-29 공식 프로필 확인 근거, 로스터·테스트 전환 2개, 정확한 surface/slug 계측만 남겼다. 변경 전 28일 Organic landing은 16 sessions, bridge는 37 users view 대비 1 user click이었다.
+- K-pop 로스터와 포지션 테스트는 Auto Ads loader 하나만 유지한다. 테스트의 가짜 2,400명·평점·희귀도·광고 대기창·AI 잠금·아티스트 고정 매핑과 비지원 locale 10개를 제거해 경량화했다. 로스터→테스트는 지원 언어로 정규화하면서 자동 시작·surface를 보존한다.
+- 포지션 테스트는 EN/KO만 지원하고 번역 실패 시 정적 EN으로 복구한다. 답변 전환 잠금, 확대 허용, 질문·결과 focus/공지, 재현 가능한 동점 규칙, 실제 성공한 공유만의 계측, 정적 same-origin SW cache를 적용했다.
 - 광고 계약은 Auto Ads loader 하나만 허용한다. `data-ad-slot="auto"`, 임의 manual unit/push, DOM 기반 유료 노출 주장은 금지한다.
-- 12개 언어, canonical/hreflang, schema, sitemap/robots와 모바일 44px·overflow 기준을 유지한다.
+- 도구 카탈로그의 화면 43개와 ItemList 33개 불일치를 43개 동일 순서·URL·이름으로 맞췄다. 12개 언어, canonical/hreflang, schema, sitemap/robots와 모바일 44px·overflow 기준을 유지한다.
 
 ## Verification
 
@@ -47,6 +50,7 @@ Updated: 2026-08-29
 - Culture review: 판정 상태, 최소 표본, URL 귀속, SG scan 제외, proxy 비승격, path/event 오류 변이 13종.
 - Blog generator: 같은 spec에서 접근 가능한 2선택 UI·분기 CTA·공유 계측·sticky 억제를 재생성.
 - Brain training 20종, ZH 2048 guide 20종, 2048 ad policy 22종, AdSense contract 9종 결함 변이를 탐지한다.
+- K-pop 경로는 로스터 12 locale의 핵심 현지화+EN fallback, 2개 로스터 여정, 4개 bridge, EN/KO 퀴즈, 카탈로그 12 locale × 2 viewport, 43개 DOM/schema 순서·URL·이름, 개인정보·공유·SW와 결함 변이 52종을 검증한다.
 - `npm run harness`와 focused 6개 runtime smoke가 통합 회귀 기준이다.
 
 ## Next decision
@@ -55,11 +59,13 @@ Updated: 2026-08-29
 
 - 2026-08-29 현재 0 complete days라 첫 파일럿은 `TOO_EARLY`; 두 번째 URL은 공개하지 않는다. 관찰 구간은 8월 30일~9월 5일, 첫 판정일은 9월 6일이다.
 - KR 두뇌훈련 bridge 변경도 같은 기간을 별도 기준선으로 관찰한다. Culture Signal 성과와 합산하지 않는다.
-- 다음 후보는 GTA VI 공식정보 글이 1순위, S26 FE 구매검토 글은 후순위다. 두 spec·상호작용 검증·오리지널 OG draft는 준비됐고 첫 7일 판정 뒤 한 편만 공개한다.
+- K-pop 변경도 8월 30일~9월 5일을 별도 관찰한다. SG desktop Direct와 배포일을 제외하고 `content_view → quick/CTA/bridge click → roster_generate 또는 kpop_position_result_view`를 본다. 최소 20 bridge users 전에는 결론내리지 않고 click user rate 8%를 1차 기준으로 삼는다.
+- 다음 구현 후보는 HSP 결과 바로 아래의 결과별 5분 감각 리셋 전환이다. 현재 Organic 완료는 강하지만 reset/map view 각 41 users 대비 click이 0이므로 K-pop 배포 검증 뒤 별도 가설로 진행한다.
+- 다음 트렌드 글 후보는 GTA VI 공식정보 글이 1순위, S26 FE 구매검토 글은 후순위다. 두 spec·상호작용 검증·오리지널 OG draft는 준비됐고 첫 7일 판정 뒤 한 편만 공개한다.
 
 - 7 complete days 미만: `TOO_EARLY`; 유입·색인 증거 없음: `DISCOVERY_HOLD`.
 - Organic 20/day, engagement 55%, bridge 8%, page-attributed RPM `$1` 중 신뢰 가능한 2개 이상: `PROMOTE`.
 - 그 외는 `ITERATE`; `SUPPRESS`는 14일 이후 Organic 20·content view 20 표본과 신뢰 가능한 실패가 함께 있을 때만 허용한다.
 - AdSense 도메인 RPM은 proxy로만 표시하고 승격 점수에 넣지 않는다. `SUPPRESS`는 홍보·집중 discovery만 제거하고 URL은 유지한다.
 - 수동 운영 잔여는 AdSense 주소 PIN과 과거 Git 이력의 API key 폐기·회전이다. 현재 tree의 추적 파일 secret scan은 통과하며 값은 문서에 기록하지 않는다.
-- 집중 inventory에는 기존 invalid manual-ad markup 페이지가 15개 남아 있다. 이번 배치에서는 트래픽·전환 근거가 있던 3개 표면만 정리했다.
+- 집중 inventory에는 기존 invalid manual-ad markup 페이지가 14개 남아 있다. 수요 근거가 없는 나머지는 일괄 홍보하지 않고 다음 우선순위 감사 때 신뢰성 수정과 함께 처리한다.

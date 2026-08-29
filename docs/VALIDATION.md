@@ -31,6 +31,7 @@ npm run verify:culture-review
 npm run verify:indexing-inventory
 npm run verify:tracked-secrets
 npm run verify:adsense-contract
+npm run verify:kpop-role-roster
 npm run verify:kst-date
 npm run verify:blog-generator-interaction -- --spec scripts/specs/trend-odyssey-spiderman-ko.json
 npm run harness
@@ -46,6 +47,7 @@ npm run harness:runtime
 - Culture review: 순수 evidence 판정과 13개 in-memory 변이. 얇은 표본·전역 수치·URL 불일치가 승격/억제를 만들지 못하며 외부 계정을 변경하지 않는다.
 - Blog generator: 잘못된 interaction spec 거부, 임시 생성물의 2선택·분기 CTA·공유 이벤트 순서·mobile overflow·sticky 억제를 검증한다.
 - AdSense: Auto Ads 구현 경로는 하나만 허용하고 관리형 loader는 Google script 요청까지 확인한다. `data-ad-slot="auto"`, 수동 unit/push, DOM 기반 `content_ad_impression`은 거부하며 GA 이벤트는 유료 노출 증거가 아니다.
+- K-pop: 가이드 FAQ·공식 출처 4개·2개 전환 경로, 로스터 12 locale 핵심 현지화+EN fallback·exact-once 이벤트·개인정보 비전송, EN/KO 테스트의 실패 복구·접근성·공유·SW, 43개 도구 카탈로그의 순서·URL·이름을 390/1440px과 52개 결함 변이로 검증한다.
 - Harness: portal locale·정적 품질·위 검증기·analytics smoke·focused runtime을 첫 실패에서 중단한다.
 
 콘텐츠 기본 검증은 필요 시 다음을 함께 실행한다.
@@ -73,6 +75,7 @@ node scripts/verify-blog-pages.js --file projects/portal/blog/ko/odyssey-spider-
 
 ```powershell
 node scripts/verify-root-focus.js https://dopabrain.com --no-screenshot
+node scripts/verify-kpop-role-roster.js --production
 ```
 
 실제 sitemap/robots 응답과 변경 경로를 재검증한다. 반복 재시도로 실패를 숨기지 말고 코드·fixture·도구 결함을 구분하며, 재발 가능한 도구 문제만 `memory/failures.jsonl`에 남긴다.

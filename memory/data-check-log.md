@@ -43,6 +43,13 @@
 - 결론: 1주차에는 포트폴리오를 유지한다. 2주차에도 Stress가 약하면 Brain Type 또는 HSP와 우선순위를 교체한다.
 - 계정: 정책 문제 없음, 사이트 READY. 주소 PIN 미인증 지급 보류와 미지급 잔액 `$9.18`이 남아 있다.
 
+## 2026-08-29 K-pop path reset
+
+- EN K-pop 가이드는 28일 Organic landing 16 sessions, 최근 7일 3 sessions였다. 기존 bridge는 37 users view 대비 1 user click으로 후속 전환이 약했다.
+- 가이드·로스터·포지션 테스트에서 수동 광고 계약과 가짜 노출 이벤트를 제거했다. 테스트의 가짜 사회증거·평점·희귀도·광고 잠금과 비지원 locale 자산도 제거해 이전 수치를 성과 신호에서 제외했다.
+- 8월 30일~9월 5일을 새 관찰 구간으로 두고 SG desktop Direct, 배포일, 이전 허위 이벤트를 제외한다.
+- K-pop과 별도로 다음 제품 전환 실험은 HSP 결과→5분 감각 리셋이다. 기존 reset/map view 각 41 users 대비 click은 0이었다.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

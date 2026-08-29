@@ -8,6 +8,9 @@ const PROJECTS_ROOT = path.join(ROOT, 'projects');
 const ROOT_DOMAIN_ROOT = path.join(PROJECTS_ROOT, 'root-domain');
 const PORTAL_ROOT = path.join(PROJECTS_ROOT, 'portal');
 const ORIGIN = 'https://dopabrain.com';
+const FOCUSED_QUICK_RAIL_URLS = new Set([
+  `${ORIGIN}/portal/blog/en/kpop-positions-explained-guide.html`,
+]);
 const TODAY = (process.env.INDEXING_AUDIT_TODAY || todayInTimeZone()).slice(0, 10);
 const REPORT_DIR = path.join(ROOT, 'logs', 'indexing-audit');
 
@@ -252,12 +255,40 @@ function countMatches(html, regex) {
   return Array.from(html.matchAll(regex)).length;
 }
 
-function assessQuickRail(html) {
+function isValidFocusedQuickCard(tag) {
+  if (extractAttr(tag, 'data-content-surface') !== 'quick_rail') return false;
+  if (!extractAttr(tag, 'data-target-slug')) return false;
+  const href = extractAttr(tag, 'href');
+  if (!href) return false;
+  try {
+    const url = new URL(href, ORIGIN);
+    return url.origin === ORIGIN && url.pathname !== '/';
+  } catch {
+    return false;
+  }
+}
+
+function assessQuickRail(html, pageUrl = '') {
   const quickCardCount = countMatches(html, /class\s*=\s*["'][^"']*\bquick-card\b[^"']*["']/gi);
   const hasNativeInteraction = /<section\b(?=[^>]*\bclass\s*=\s*["'][^"']*\bculture-choice\b[^"']*["'])(?=[^>]*\bdata-content-interaction(?:\s*=|\s|>))[^>]*>/i.test(html);
-  const minimumQuickCards = hasNativeInteraction ? 2 : 4;
+  const focusedMatch = String(html).match(/<section\b(?=[^>]*\bclass\s*=\s*["'][^"']*\bindexing-quick-rail\b[^"']*["'])(?=[^>]*\bdata-quick-rail-mode\s*=\s*["']focused["'])[^>]*>([\s\S]*?)<\/section>/i);
+  const focusedCards = focusedMatch
+    ? Array.from(focusedMatch[1].matchAll(/<a\b[^>]*\bclass\s*=\s*["'][^"']*\bquick-card\b[^"']*["'][^>]*>/gi)).map((match) => match[0])
+    : [];
+  const focusedUrlAllowed = FOCUSED_QUICK_RAIL_URLS.has(normalizeUrl(pageUrl));
+  const hasFocusedRail = Boolean(
+    focusedMatch
+    && focusedUrlAllowed
+    && focusedCards.length === 2
+    && focusedCards.every(isValidFocusedQuickCard)
+  );
+  const minimumQuickCards = hasNativeInteraction || hasFocusedRail ? 2 : 4;
   return {
+    focusedCardCount: focusedCards.length,
+    hasFocusedRail,
+    hasFocusedRailMarker: Boolean(focusedMatch),
     hasNativeInteraction,
+    invalidFocusedRail: Boolean(focusedMatch) && !hasFocusedRail,
     isThin: quickCardCount < minimumQuickCards,
     minimumQuickCards,
     quickCardCount,
@@ -277,24 +308,31 @@ function assertSelfTest(condition, message) {
   if (!condition) throw new Error(`Self-test failed: ${message}`);
 }
 
-function quickRailFixture(quickCardCount, hasNativeInteraction) {
+function quickRailFixture(quickCardCount, hasNativeInteraction, hasFocusedRail = false) {
   const interactionAttribute = hasNativeInteraction ? ' data-content-interaction="choice"' : '';
-  const cards = '<a class="quick-card">card</a>'.repeat(quickCardCount);
-  return `<section class="culture-choice"${interactionAttribute}>${cards}</section>`;
+  const focusedAttribute = hasFocusedRail ? ' data-quick-rail-mode="focused"' : '';
+  const cards = Array.from({ length: quickCardCount }, (_unused, index) => hasFocusedRail
+    ? `<a class="quick-card" href="/tool-${index + 1}/" data-content-surface="quick_rail" data-target-slug="tool-${index + 1}">card</a>`
+    : '<a class="quick-card">card</a>').join('');
+  const className = hasFocusedRail ? 'indexing-quick-rail' : 'culture-choice';
+  return `<section class="${className}"${interactionAttribute}${focusedAttribute}>${cards}</section>`;
 }
 
 function runSelfTest() {
   const cases = [
-    { name: 'general blog with 3 cards fails', cards: 3, interaction: false, expectedThin: true, expectedMinimum: 4 },
-    { name: 'general blog with 4 cards passes', cards: 4, interaction: false, expectedThin: false, expectedMinimum: 4 },
-    { name: 'interaction blog with 1 card fails', cards: 1, interaction: true, expectedThin: true, expectedMinimum: 2 },
-    { name: 'interaction blog with 2 cards passes', cards: 2, interaction: true, expectedThin: false, expectedMinimum: 2 },
+    { name: 'general blog with 3 cards fails', cards: 3, interaction: false, focused: false, expectedThin: true, expectedMinimum: 4 },
+    { name: 'general blog with 4 cards passes', cards: 4, interaction: false, focused: false, expectedThin: false, expectedMinimum: 4 },
+    { name: 'interaction blog with 1 card fails', cards: 1, interaction: true, focused: false, expectedThin: true, expectedMinimum: 2 },
+    { name: 'interaction blog with 2 cards passes', cards: 2, interaction: true, focused: false, expectedThin: false, expectedMinimum: 2 },
+    { name: 'focused rail with 1 card cannot lower the minimum', cards: 1, interaction: false, focused: true, pageUrl: `${ORIGIN}/portal/blog/en/kpop-positions-explained-guide.html`, expectedThin: true, expectedMinimum: 4, expectedFocused: false },
+    { name: 'allowlisted focused rail with 2 valid cards passes', cards: 2, interaction: false, focused: true, pageUrl: `${ORIGIN}/portal/blog/en/kpop-positions-explained-guide.html`, expectedThin: false, expectedMinimum: 2, expectedFocused: true },
   ];
 
   for (const testCase of cases) {
-    const result = assessQuickRail(quickRailFixture(testCase.cards, testCase.interaction));
+    const result = assessQuickRail(quickRailFixture(testCase.cards, testCase.interaction, testCase.focused), testCase.pageUrl);
     assertSelfTest(result.quickCardCount === testCase.cards, `${testCase.name}: counted ${result.quickCardCount} cards`);
     assertSelfTest(result.hasNativeInteraction === testCase.interaction, `${testCase.name}: interaction classification changed`);
+    assertSelfTest(result.hasFocusedRail === (testCase.expectedFocused ?? false), `${testCase.name}: focused classification changed`);
     assertSelfTest(result.minimumQuickCards === testCase.expectedMinimum, `${testCase.name}: minimum is ${result.minimumQuickCards}`);
     assertSelfTest(result.isThin === testCase.expectedThin, `${testCase.name}: thin=${result.isThin}`);
     console.log(`[PASS] ${testCase.name}`);
@@ -306,6 +344,28 @@ function runSelfTest() {
   assertSelfTest(!inertMarker.hasNativeInteraction, 'inert interaction marker changed the page classification');
   assertSelfTest(inertMarker.isThin, 'inert interaction marker lowered the four-card minimum');
   console.log('[PASS] inert interaction marker does not lower the general blog minimum');
+
+  const inertFocusedMarker = assessQuickRail(
+    '<main data-quick-rail-mode="focused">' + '<a class="quick-card">card</a>'.repeat(3) + '</main>'
+  );
+  assertSelfTest(!inertFocusedMarker.hasFocusedRail, 'inert focused marker changed the page classification');
+  assertSelfTest(inertFocusedMarker.isThin, 'inert focused marker lowered the four-card minimum');
+  console.log('[PASS] inert focused marker does not lower the general blog minimum');
+
+  const unauthorizedFocusedRail = assessQuickRail(
+    quickRailFixture(2, false, true),
+    `${ORIGIN}/portal/blog/en/unrelated.html`
+  );
+  assertSelfTest(!unauthorizedFocusedRail.hasFocusedRail, 'unauthorized focused marker changed the page classification');
+  assertSelfTest(unauthorizedFocusedRail.invalidFocusedRail && unauthorizedFocusedRail.minimumQuickCards === 4, 'unauthorized focused marker bypassed the four-card minimum');
+  console.log('[PASS] focused rail mode is restricted to the intentional page');
+
+  const missingTelemetry = assessQuickRail(
+    quickRailFixture(2, false, true).replace(' data-target-slug="tool-1"', ''),
+    `${ORIGIN}/portal/blog/en/kpop-positions-explained-guide.html`
+  );
+  assertSelfTest(!missingTelemetry.hasFocusedRail && missingTelemetry.invalidFocusedRail, 'focused card without telemetry passed');
+  console.log('[PASS] focused rail requires exactly two internal cards with telemetry');
 
   const autoAdsOnly = assessAdsense('<script src="/portal/js/ad-loader.js"></script>');
   assertSelfTest(autoAdsOnly.hasLoader && autoAdsOnly.invalidAutoSlotCount === 0, 'valid Auto Ads-only contract failed');
@@ -431,7 +491,10 @@ function auditUrl(entry, duplicateCount) {
     addIssue(issues, 'sitemap_lastmod_mismatch', 'medium', `sitemap lastmod ${entry.lastmod} != dateModified ${dateModified}`);
   }
   if (ageDays !== null && ageDays > 90) addIssue(issues, 'old_date_modified_90d', 'medium', `dateModified is ${ageDays} days old`);
-  const quickRail = assessQuickRail(html);
+  const quickRail = assessQuickRail(html, entry.loc);
+  if (!isRedirect && mapped.kind === 'blog' && quickRail.invalidFocusedRail) {
+    addIssue(issues, 'invalid_focused_quick_rail', 'medium', 'focused quick rail is not allowlisted or lacks exactly two valid internal telemetry cards');
+  }
   if (!isRedirect && mapped.kind === 'blog' && quickRail.isThin) {
     addIssue(
       issues,

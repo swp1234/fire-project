@@ -37,20 +37,45 @@ else
   FAIL=$((FAIL+1))
 fi
 
-# 3. i18n: check 12 locale files
-LANGS="ko en zh hi ru ja es pt id tr de fr"
+# 3. i18n: locale files must match the app's declared language set.
+DEFAULT_LANGS="ko en zh hi ru ja es pt id tr de fr"
+LANGS="$DEFAULT_LANGS"
 LOCALE_DIR="$APP_DIR/js/locales"
 MISSING_LANGS=""
+EXTRA_LANGS=""
+if [ -f "$APP_DIR/js/i18n.js" ]; then
+  DECLARED_LANGS=$(node -e '
+    const fs = require("fs");
+    const source = fs.readFileSync(process.argv[1], "utf8");
+    const match = source.match(/supportedLanguages\s*=\s*\[([\s\S]*?)\]/);
+    if (!match) process.exit(0);
+    const langs = Array.from(match[1].matchAll(/["\x27]([a-z]{2}(?:-[a-z]{2})?)["\x27]/gi), item => item[1].toLowerCase());
+    if (langs.length && new Set(langs).size === langs.length) process.stdout.write(langs.join(" "));
+  ' "$APP_DIR/js/i18n.js")
+  if [ -n "$DECLARED_LANGS" ]; then
+    LANGS="$DECLARED_LANGS"
+  fi
+fi
 if [ -d "$LOCALE_DIR" ]; then
   for lang in $LANGS; do
     if [ ! -f "$LOCALE_DIR/$lang.json" ]; then
       MISSING_LANGS="$MISSING_LANGS $lang"
     fi
   done
-  if [ -z "$MISSING_LANGS" ]; then
-    green "i18n: all 12 locales present"
+  for locale_file in "$LOCALE_DIR"/*.json; do
+    [ -f "$locale_file" ] || continue
+    locale_name="$(basename "$locale_file" .json)"
+    case " $LANGS " in
+      *" $locale_name "*) ;;
+      *) EXTRA_LANGS="$EXTRA_LANGS $locale_name" ;;
+    esac
+  done
+  if [ -z "$MISSING_LANGS" ] && [ -z "$EXTRA_LANGS" ]; then
+    LOCALE_COUNT=$(printf '%s\n' $LANGS | wc -l | tr -d '[:space:]')
+    green "i18n: declared locale set matches $LOCALE_COUNT file(s)"
   else
-    red "i18n: missing locales:$MISSING_LANGS"
+    [ -z "$MISSING_LANGS" ] || red "i18n: missing declared locales:$MISSING_LANGS"
+    [ -z "$EXTRA_LANGS" ] || red "i18n: stale undeclared locales:$EXTRA_LANGS"
     FAIL=$((FAIL+1))
   fi
 else

@@ -11,6 +11,10 @@ const DEFAULT_PAGES = [
   path.join(ROOT, 'projects', 'portal', 'blog', 'ko', 'odyssey-spider-man-identity-reset-2026.html'),
   path.join(ROOT, 'projects', 'portal', 'blog', 'ko', '2026-brain-training-top-10.html'),
   path.join(ROOT, 'projects', 'portal', 'blog', 'zh', '2048-strategy-guide.html'),
+  path.join(ROOT, 'projects', 'portal', 'blog', 'en', 'kpop-positions-explained-guide.html'),
+  path.join(ROOT, 'projects', 'portal', 'tools', 'kpop-role-roster.html'),
+  path.join(ROOT, 'projects', 'portal', 'tools', 'index.html'),
+  path.join(ROOT, 'projects', 'kpop-position', 'index.html'),
   path.join(ROOT, 'projects', 'puzzle-2048', 'index.html'),
 ];
 const PRODUCERS = [
