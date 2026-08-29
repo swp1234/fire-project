@@ -51,6 +51,7 @@ npm run harness:runtime
 - AdSense: Auto Ads 구현 경로는 하나만 허용하고 관리형 loader는 Google script 요청까지 확인한다. `data-ad-slot="auto"`, 수동 unit/push, DOM 기반 `content_ad_impression`은 거부하며 GA 이벤트는 유료 노출 증거가 아니다. 제출 sitemap 전체는 strict indexing inventory에서 이슈 0건이어야 한다.
 - HSP reset funnel: 결과 바로 아래의 reset primary 하나, map·fabricated percentile/rating/types·manual ads 부재, 12 locale·i18n fallback·service worker를 확인한다. `sensory_reset_cta_view`는 CTA가 실제 50% 교차할 때 exact-once여야 하며 query·telemetry에 선택값이나 결과값을 노출하지 않는다. 연결된 12 locale 가이드도 Auto Ads loader 하나와 합성 광고 이벤트 0건을 검증한다.
 - Daily Tarot: 허위 이용량·평점·AI 주장·가짜 광고 대기창·수동 광고가 없고, ES 자동 카드 뽑기에서 심화 성찰이 즉시 열리며 `daily_tarot_reflection_view`가 exact-once인지 검증한다.
+- Blog focus: 2026-06-01~08-28 Organic Search 2세션 이상 또는 sitemap 포함 글만 indexable로 두고, 나머지는 `noindex,follow`인지 확인한다. redirect는 건드리지 않으며 keep 글 175개는 Auto Ads 계약을 모두 통과해야 한다.
 - K-pop: 가이드 FAQ·공식 출처 4개·2개 전환 경로, 로스터 12 locale 핵심 현지화+EN fallback·exact-once 이벤트·개인정보 비전송, EN/KO 테스트의 실패 복구·접근성·공유·SW, 43개 도구 카탈로그의 순서·URL·이름을 390/1440px과 52개 결함 변이로 검증한다.
 - Harness: portal locale·정적 품질·위 검증기·analytics smoke·focused runtime을 첫 실패에서 중단한다. 브라우저 검증 서버는 차단 포트를 피하는 20000–45000 범위만 사용한다.
 

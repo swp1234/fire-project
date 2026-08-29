@@ -62,6 +62,12 @@
 - 연결 앱의 허위 54,000+ 이용량·2,800건 평점·가짜 광고/AI 잠금을 제거하고, 가이드와 앱의 Auto Ads 계약만 복구했다.
 - 최근 7일 AdSense는 `$0.75`로 일평균 약 `$0.11`; 목표까지는 광고 배치보다 실제 검색 사용자 확대가 우선이다.
 
+## 2026-08-29 blog crawl focus
+
+- 90일 Organic Search가 확인된 blog 327개·1,569세션 중 2세션 이상 174개가 1,416세션(90.2%)을 보존한다. sitemap pilot 1개를 더해 175개만 indexable로 유지했다.
+- 일반 글 1,598개는 `noindex,follow`, redirect 205개는 유지했다. keep 175개 중 155개에 남은 수동 광고·합성 impression을 제거했다.
+- GSC URL 검사는 homepage만 indexed, 핵심 글과 앱은 `Crawled - currently not indexed`였다. sitemap 재제출 API는 scope 부족(403)으로 실행되지 않았다.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

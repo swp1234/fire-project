@@ -21,6 +21,7 @@ const EXPECTED_EVENTS = [
 function parseArgs(argv) {
   const args = {
     failOnScore: null,
+    includeNoindex: false,
     includeRedirects: false,
     json: false,
     langs: [],
@@ -33,6 +34,7 @@ function parseArgs(argv) {
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === '--fail-on-score') args.failOnScore = readNumber(argv[++i], arg);
+    else if (arg === '--include-noindex') args.includeNoindex = true;
     else if (arg === '--include-redirects') args.includeRedirects = true;
     else if (arg === '--json') args.json = true;
     else if (arg === '--lang') args.langs.push(String(argv[++i] || '').trim().toLowerCase());
@@ -72,11 +74,12 @@ function printHelp() {
   node scripts/blog-indexing-audit.js [--limit 30]
   node scripts/blog-indexing-audit.js --lang ko --limit 20
   node scripts/blog-indexing-audit.js --all --json
+  node scripts/blog-indexing-audit.js --include-noindex --limit 30
   node scripts/blog-indexing-audit.js --include-redirects --limit 30
   node scripts/blog-indexing-audit.js --min-score 40 --fail-on-score 80
   node scripts/blog-indexing-audit.js --self-test
 
-Ranks portal blog pages by indexing and maintenance risk. Intentional redirect stubs are skipped by default. The command is read-only.`);
+Ranks portal blog pages by indexing and maintenance risk. Intentional noindex pages and redirect stubs are skipped by default. The command is read-only.`);
 }
 
 function walkHtmlFiles(dir) {
@@ -360,6 +363,12 @@ function inspectAdContract(html) {
   };
 }
 
+function hasNoindex(html) {
+  const source = String(html || '').replace(/<!--[\s\S]*?-->/g, '');
+  return Array.from(source.matchAll(/<meta\b[^>]*name\s*=\s*["']robots["'][^>]*>/gi))
+    .some((match) => /\bnoindex\b/i.test(match[0]));
+}
+
 function runSelfTest() {
   const commentOnly = inspectAdContract('<!-- <script src="/portal/js/ad-loader.js"></script><ins class="adsbygoogle" data-ad-slot="auto" data-ad-surface="fake"></ins><script>gtag("event","content_ad_impression")</script> -->');
   if (commentOnly.adsenseLoader || commentOnly.invalidAutoSlots || commentOnly.manualAdUnits || commentOnly.staticAdSurfaces || commentOnly.contentEvents.length) {
@@ -368,6 +377,9 @@ function runSelfTest() {
   const liveWithDecoy = inspectAdContract('<script src="/portal/js/ad-loader.js"></script><!-- <ins class="adsbygoogle" data-ad-slot="auto"></ins> -->');
   if (!liveWithDecoy.adsenseLoader || liveWithDecoy.invalidAutoSlots || liveWithDecoy.manualAdUnits) {
     throw new Error('Self-test failed: live loader/comment decoy classification mismatch');
+  }
+  if (!hasNoindex('<meta name="robots" content="noindex,follow">') || hasNoindex('<!-- <meta name="robots" content="noindex"> -->')) {
+    throw new Error('Self-test failed: robots noindex classification mismatch');
   }
   console.log('[PASS] content audit ignores commented ad markup and detects the live loader');
 }
@@ -383,6 +395,7 @@ function auditFile(filePath, sitemaps, today, maxAgeDays) {
   const breadcrumbNodes = nodes.filter((node) => typeMatches(node, 'BreadcrumbList'));
   const canonical = extractCanonical(html);
   const redirectStub = isRedirectStub(html, url, canonical);
+  const noindex = hasNoindex(html);
   const hreflangs = extractHreflangs(html);
   const dateModified = findDateModified(nodes, html);
   const ageDays = dateAgeDays(dateModified, today);
@@ -440,6 +453,7 @@ function auditFile(filePath, sitemaps, today, maxAgeDays) {
     file: relativePosix(ROOT, filePath),
     hreflangs: hreflangs.map((entry) => entry.hreflang),
     invalidAutoSlots,
+    isNoindex: noindex,
     isRedirectStub: redirectStub,
     issues,
     lang,
@@ -456,9 +470,12 @@ function trimCell(value, width) {
   return `${text.slice(0, Math.max(0, width - 1))}…`;
 }
 
-function printTable(results, totalCount, skippedRedirectStubs, args) {
+function printTable(results, totalCount, skippedNoindexPages, skippedRedirectStubs, args) {
   const shown = results.slice(0, args.limit);
-  const skippedText = skippedRedirectStubs > 0 ? ` Skipped ${skippedRedirectStubs} redirect stub(s).` : '';
+  const skipped = [];
+  if (skippedNoindexPages > 0) skipped.push(`${skippedNoindexPages} noindex page(s)`);
+  if (skippedRedirectStubs > 0) skipped.push(`${skippedRedirectStubs} redirect stub(s)`);
+  const skippedText = skipped.length ? ` Skipped ${skipped.join(' and ')}.` : '';
   console.log(`Audited ${totalCount} portal blog article pages.${skippedText} Showing ${shown.length} candidate(s).`);
   console.log(`Score weights prioritize sitemap/canonical/JSON-LD, then content rails, AdSense contracts, analytics, and mobile risks.\n`);
   console.log(`${trimCell('score', 5)}  ${trimCell('lang', 4)}  ${trimCell('date', 10)}  ${trimCell('quick', 5)}  ${trimCell('badAd', 5)}  ${trimCell('file', 54)}  issues`);
@@ -491,8 +508,12 @@ function main() {
   const skippedRedirectStubs = args.includeRedirects
     ? 0
     : auditedResults.filter((result) => result.isRedirectStub).length;
+  const skippedNoindexPages = args.includeNoindex
+    ? 0
+    : auditedResults.filter((result) => result.isNoindex && (args.includeRedirects || !result.isRedirectStub)).length;
   const results = auditedResults
     .filter((result) => args.includeRedirects || !result.isRedirectStub)
+    .filter((result) => args.includeNoindex || !result.isNoindex)
     .filter((result) => result.score >= args.minScore)
     .sort((a, b) => b.score - a.score || a.file.localeCompare(b.file));
 
@@ -501,16 +522,18 @@ function main() {
       auditedAt: today,
       filters: {
         langs: args.langs,
+        includeNoindex: args.includeNoindex,
         includeRedirects: args.includeRedirects,
         maxAgeDays: args.maxAgeDays,
         minScore: args.minScore,
       },
+      skippedNoindexPages,
       skippedRedirectStubs,
       totalFiles: files.length,
       results: results.slice(0, args.limit),
     }, null, 2));
   } else {
-    printTable(results, files.length, skippedRedirectStubs, args);
+    printTable(results, files.length, skippedNoindexPages, skippedRedirectStubs, args);
   }
 
   if (args.failOnScore !== null && results.some((result) => result.score >= args.failOnScore)) {
