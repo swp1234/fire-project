@@ -32,6 +32,13 @@ function clone(value) { return JSON.parse(JSON.stringify(value)); }
 function visibleText(html) { return html.replace(/<script\b[\s\S]*?<\/script>/gi,' ').replace(/<style\b[\s\S]*?<\/style>/gi,' ').replace(/<[^>]+>/g,' ').replace(/\s+/g,' '); }
 function schemas(html) { return [...html.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi)].map(match => JSON.parse(match[1])); }
 function events(layer) { return layer.map(item => Array.from(item || [])).filter(item => item[0] === 'event').map(item => ({ name:item[1], params:item[2] || {} })); }
+function spanishWordPool() {
+  const source=fs.readFileSync(WORDS_PATH,'utf8');
+  const body=source.match(/const WORD_POOL_ES = \[([\s\S]*?)\];/)?.[1] || '';
+  const words=[...body.matchAll(/'([^']+)'/g)].map(match=>match[1]);
+  assert(words.length>=50,'Typing Speed Spanish word pool could not be read');
+  return new Set(words);
+}
 
 function fixture() {
   return {
@@ -174,8 +181,10 @@ async function runtime(guideUrl, local) {
     assert(appEvents.filter(event=>event.name==='typing_test_view'&&event.params.entry_surface==='es_typing_speed_primary').length===1,'Typing Speed linked view mismatch');
     assert(appEvents.filter(event=>event.name==='typing_test_start').length===0,'Typing Speed auto-started from the guide');
     await page.click('.difficulty-card[data-difficulty="normal"]');
-    const prompt=await page.locator('#typing-display').innerText();
-    assert(/[áéíóúñ]|\b(?:que|para|palabra|texto|práctica|precisión)\b/i.test(prompt),`Typing Speed Spanish prompt mismatch: ${prompt}`);
+    const promptWords=await page.locator('#typing-display .typing-word').allInnerTexts();
+    const expectedWords=spanishWordPool();
+    assert(promptWords.length===30&&promptWords.every(word=>expectedWords.has(word)),`Typing Speed Spanish prompt mismatch: ${promptWords.join('|')}`);
+    const prompt=promptWords.join(' ');
     await page.fill('#typing-input',prompt.split(/\s+/).slice(0,5).join(' '));
     await page.evaluate(()=>{window.GameAds=undefined;window.app.endGame()});
     await page.waitForSelector('#result-screen.active');

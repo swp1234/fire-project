@@ -17,7 +17,15 @@ This file contains current operating state only. Decision-changing measurements 
 - Focused sitemap: 49 unique submitted URLs, strict issues 0.
 - Primary: Stress Check, HSP Test, 2048 Coach. Support: Brain Type, IQ, K-pop Roster. Culture Signal remains one isolated pilot. Portal remains the archive.
 
-## Latest release: English Jung shadow path
+## Latest releases
+
+### French cognitive-distortions path
+
+- The guide had 18 content users and 8 engaged users over 56 days with no valid next action. The latest 28 Organic days had 3 sessions, 2 engaged sessions and 620 engagement seconds; exact-page Search Console rows were absent.
+- The 52.7 KB generic page is now a 14.9 KB French reference with 15 visible teaching categories, explicit evidence/diagnosis boundaries, three direct NHS/WHO sources and a private three-step thought check. Choices stay in the browser and analytics records stages only.
+- Two identical primary CTAs now open allowlisted French Stress Check auto-start routes; four related cards remain available. The Stress Check scoring and all other entry routes were left unchanged.
+
+### English Jung shadow path
 
 - `/portal/blog/en/carl-jung-shadow-self-explained.html` had 49 content users and 20 engaged users over 56 days but no valid next-action user. Its latest two Organic users were engaged for 410 seconds. Exact-page Google Search Console rows were absent.
 - `/shadow-work/` had 54 page users, 17 quiz-start users and 9 quiz-complete users. The completion engine was usable, but its random percentile, invented six-archetype measurement, deterministic unconscious claims, result telemetry and mixed legacy events made the funnel uninterpretable.
@@ -29,8 +37,11 @@ This file contains current operating state only. Decision-changing measurements 
 
 - Shadow app: `556933d`; Pages run `33312294971` succeeded.
 - Portal guide/catalog: `83da986`; Pages run `33312297876` succeeded.
+- Stress Check French entry allowlist: `f4e7539`; Pages run `33313140297` succeeded.
+- French guide/catalog: `68c3f24`; Pages run `33313143194` succeeded.
 - `verify:en-shadow-reflection`: 14/14 mutations detected; all 12 locale completions, guide auto-start, source normalization, neutral sharing, private telemetry, mobile layout and locale-load recovery passed locally and live.
-- Full harness: `logs/harness-workflow/2026-08-30T12-47-31-171Z.md`; every step passed, analytics 9/9, runtime 6/6, submitted inventory 49 URLs / 0 issues.
+- `verify:fr-cognitive-distortions`: 10/10 mutations detected; 390/1440px interaction, exact-once/private telemetry and linked French auto-start passed locally and live.
+- Full harness: `logs/harness-workflow/2026-08-30T13-10-34-678Z.md`; every step passed, analytics 9/9, runtime 6/6, submitted inventory 49 URLs / 0 issues. Its Spanish typing verifier now checks all 30 rendered tokens against the Spanish source pool instead of relying on a random substring.
 
 ## Observation windows
 
@@ -38,6 +49,7 @@ Use complete KST days. Do not decide before 20 qualified views unless a correctn
 
 | Path | Window | First diagnostic |
 |---|---|---|
+| French cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |
 | English Jung shadow reflection | 2026-08-31~09-06 | qualified concept-to-CTA 8%; app view-to-start 25%; start-to-complete 50%; complete-to-share/related 8% |
 | English attachment, Chinese RSD, Chinese Zodiac Pair, Spanish Blood Type | 2026-08-31~09-06 | use each release's new stage events; ignore legacy/synthetic events |
 | IQ, reaction time, HSP/thought/habit, Brain Type, Spanish guides | 2026-08-31~09-06 | qualified bridge/use 8%; linked action or completion 50% |

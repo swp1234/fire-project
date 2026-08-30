@@ -195,6 +195,12 @@
 - The guide-to-app path now uses an evidence boundary, a published one-point-per-answer-direction formula and private stage-only telemetry. Observe 2026-08-31~09-06 KST and exclude deployment day plus all legacy quiz/result/ad events.
 - First diagnostics after 20 qualified views: concept-to-CTA 8%, app view-to-start 25%, start-to-complete 50%, complete-to-share/related 8%.
 
+## 2026-08-30 French cognitive-distortions conversion reset
+
+- `/portal/blog/fr/cognitive-distortions-list.html` had 18 content users and 8 engaged users over 56 days but no valid action user. The latest 28 Organic days had 3 sessions, 2 engaged sessions and 620 engagement seconds; exact-page GSC rows were absent.
+- The former 52.7 KB article mixed deterministic thought/brain claims, a hidden English FAQ and an unrelated Animal Personality CTA. The 14.9 KB replacement presents 15 non-diagnostic teaching categories, three direct NHS/WHO sources and a private facts/evidence/neutral-alternative check.
+- Observe 2026-08-31~09-06 KST. Use `content_view → content_fr_thought_check_view → content_fr_thought_check_use/content_cta_click → stress_intro_view → test_start → test_complete`; after 20 qualified views, use 8% use/click-user rate, 50% linked-view-to-start and 50% start-to-complete as diagnostics. Exclude deployment day, SG desktop Direct and legacy/synthetic events.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
