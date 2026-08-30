@@ -188,6 +188,13 @@
 - The replacement distinguishes the community/search label from researched rejection sensitivity and emotional dysregulation, names study design/sample limits, and links to one private now-next-later planner. The destination's invalid manual Auto Ads slot and synthetic paid-impression event were removed; entry attribution is allowlisted and private choices remain local.
 - Observe 2026-08-31~09-06 KST. Use `content_view → content_zh_rejection_check_view → content_cta_click → emotion_action_view → emotion_action_generate → emotion_action_copy/emotion_action_used/emotion_action_related_click`; wait for 20 qualified check views, then use 8% CTA-user rate, 50% linked-view-to-generate and 8% generate-to-used/copy/related as diagnostics. Exclude historical synthetic ad and generic cross-promo events.
 
+## 2026-08-30 English Jung shadow conversion reset
+
+- The guide had 49 content users and 20 engaged users over 56 days but no valid next-action user; the latest two Organic users produced 410 engagement seconds. Exact-page GSC rows were absent.
+- The app had 54 page users, 17 starts and 9 completions, but random percentiles, invented archetype measurement, result telemetry and mixed legacy events invalidated result-stage interpretation.
+- The guide-to-app path now uses an evidence boundary, a published one-point-per-answer-direction formula and private stage-only telemetry. Observe 2026-08-31~09-06 KST and exclude deployment day plus all legacy quiz/result/ad events.
+- First diagnostics after 20 qualified views: concept-to-CTA 8%, app view-to-start 25%, start-to-complete 50%, complete-to-share/related 8%.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

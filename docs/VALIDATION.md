@@ -36,6 +36,7 @@ npm run verify:stress-plan
 npm run verify:fake-unlock-gates
 npm run verify:rule-based-labels
 npm run verify:iq-completion-reset
+npm run verify:en-shadow-reflection
 npm run verify:hsp-reset-funnel
 npm run verify:sensory-reset
 npm run verify:kpop-role-roster
@@ -83,6 +84,7 @@ npm run harness:runtime
 - Japanese reaction time: the guide and app must describe browser timing as a device/browser-dependent measurement, not a diagnostic score or population ranking. Three direct timing sources, a private three-item preflight, qualified exposure, four focused routes, query-priority Japanese rendering, linked auto-start, five-round completion, and result privacy are enforced with 10 mutations and 390/1440px linked journeys. Fabricated ratings, grades, percentiles, AI/career interpretation, fake ad gates, and timing/result telemetry are forbidden.
 - IQ completion reset: exactly ten fixed puzzles must use only numbers and symbols while the shell, prompts, limits, and result explanation render in all 12 locales. No timer, fabricated ranking, manual ad, answer event, result payload, broad service-worker cache, or damaged locale text is allowed. Ten mutations, 12 mobile locale completions, one Korean desktop completion, success-gated sharing, private related-click attribution, and 390/1440px layout are required.
 - English attachment reflection: the ECR-R 36-item/two-dimension boundary must be visible before start and at result. The 10-scenario activity may summarize the current run but cannot claim a diagnosis, stable type, childhood cause, percentile, rating, or prediction. Thirteen mutations, all 12 locale completions, the guide-to-auto-start journey, two focused internal cards, source normalization, language-only sharing, Auto Ads-only loading, and answer/result privacy are required.
+- English shadow reflection: the guide must frame Jung's shadow as an analytical-psychology concept rather than a diagnosis or detectable hidden type. The app publishes its one-point-per-answer-direction formula, keeps answers/counts/result names private, removes fabricated archetypes and percentiles, and requires 14 mutations, all 12 locale completions, guide-qualified exposure, linked auto-start, neutral sharing, mobile layout, and locale-load recovery.
 - Harness: portal locale·정적 품질·위 검증기·analytics smoke·focused runtime을 첫 실패에서 중단한다. 브라우저 검증 서버는 차단 포트를 피하는 20000–45000 범위만 사용한다.
 
 콘텐츠 기본 검증은 필요 시 다음을 함께 실행한다.
