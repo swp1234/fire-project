@@ -9,6 +9,7 @@ const PROJECTS = path.join(ROOT, 'projects');
 const PROJECT = path.join(PROJECTS, 'mental-age');
 const PORTAL_BLOG = path.join(PROJECTS, 'portal', 'blog');
 const LANGS = ['de', 'en', 'es', 'fr', 'hi', 'id', 'ja', 'ko', 'pt', 'ru', 'tr', 'zh'];
+const LOCALIZED_GUIDES = new Set(['en', 'es', 'pt', 'zh']);
 const BASE = 'https://dopabrain.com/mental-age/';
 
 function assert(condition, message) {
@@ -20,6 +21,10 @@ function loadFixture() {
     lang,
     fs.readFileSync(path.join(PROJECT, 'js', 'locales', `${lang}.json`), 'utf8'),
   ]));
+  const portalLocales = Object.fromEntries(LANGS.map(lang => [
+    lang,
+    fs.readFileSync(path.join(PROJECTS, 'portal', 'js', 'locales', `${lang}.json`), 'utf8'),
+  ]));
   return {
     html: fs.readFileSync(path.join(PROJECT, 'index.html'), 'utf8'),
     app: fs.readFileSync(path.join(PROJECT, 'js', 'app.js'), 'utf8'),
@@ -27,6 +32,12 @@ function loadFixture() {
     manifest: fs.readFileSync(path.join(PROJECT, 'manifest.json'), 'utf8'),
     artwork: fs.readFileSync(path.join(PROJECT, 'og-image.svg'), 'utf8'),
     locales,
+    portalHub: fs.readFileSync(path.join(PROJECTS, 'portal', 'tests', 'index.html'), 'utf8'),
+    portalLocales,
+    guideSources: Object.fromEntries([...LOCALIZED_GUIDES].map(lang => [
+      lang,
+      fs.readFileSync(path.join(PORTAL_BLOG, lang, 'mental-age-test-brain-quiz-guide.html'), 'utf8'),
+    ])),
     guidePaths: Object.fromEntries(LANGS.map(lang => [
       lang,
       path.join(PORTAL_BLOG, lang, 'mental-age-test-brain-quiz-guide.html'),
@@ -39,7 +50,7 @@ function clone(value) {
 }
 
 function verify(fixture) {
-  const { html, app, i18n, manifest, artwork, locales, guidePaths } = fixture;
+  const { html, app, i18n, manifest, artwork, locales, portalHub, portalLocales, guideSources, guidePaths } = fixture;
   const publicSource = [html, app, i18n, manifest, artwork, ...Object.values(locales)].join('\n');
   const forbidden = [
     ['fabricated social proof', /(?:2,?340|brains? scanned today|people scanned|aggregateRating|socialProof)/i],
@@ -94,6 +105,44 @@ function verify(fixture) {
     assert(locale.share.twitterText.includes('{score}') && locale.share.copyText.includes('{score}'), `Share score placeholder missing in ${lang}`);
     assert(fs.existsSync(guidePaths[lang]), `Missing ${lang} result guide`);
   }
+
+  const portalFaqSchema = [...portalHub.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi)]
+    .map(match => JSON.parse(match[1])).find(item => item['@type'] === 'FAQPage');
+  assert(portalFaqSchema, 'Portal tests FAQ schema is missing');
+  assert(portalFaqSchema.mainEntity[0].name === 'Are these diagnoses?', 'Portal tests FAQ question is stale');
+  assert(portalFaqSchema.mainEntity[0].acceptedAnswer.text === 'No. DopaBrain tests are for entertainment, reflection, or self-checks and do not replace professional evaluation.', 'Portal tests FAQ answer is stale');
+  assert(/data-i18n="hub_tests\.benefit3_title">Clear Limits</.test(portalHub), 'Portal tests visible limit label is missing');
+  assert(/data-i18n="hub_tests\.faq_q1">Are these diagnoses\?</.test(portalHub), 'Portal tests visible FAQ question is stale');
+  assert(/"name":"Mental Age-Style Challenge"/.test(portalHub), 'Portal tests ItemList mental-age name is stale');
+
+  const hubClaimPattern = /(?:accurate results|science-based|scientifically|grounded in established research|genuine insights|정확한 결과|과학 기반|科学依据|科学ベース|विज्ञान-आधारित|научная основа|base científica|base scientifique|berbasis sains|bilim temelli|wissenschaftlich fundiert)/i;
+  for (const lang of LANGS) {
+    const locale = JSON.parse(portalLocales[lang]);
+    const values = [locale.header?.pill_accurate, locale.hub_tests?.benefit3_title, locale.hub_tests?.benefit3_desc, locale.hub_tests?.faq_q1, locale.hub_tests?.faq_a1, locale.hub_tests?.['name_mental-age'], locale.hub_tests?.['desc_mental-age']];
+    assert(values.every(value => typeof value === 'string' && value.trim()), `Portal ${lang} trust copy is incomplete`);
+    assert(!values.some(value => hubClaimPattern.test(value)), `Portal ${lang} retains unsupported accuracy/science copy`);
+  }
+
+  const oldGuideClaim = /(?:exact mental age|brain's true age|brain's psychological age|mental age reflects your|science-based quiz|scientifically accurate|edad mental exacta|cerebro realmente|idade mental exata|cérebro realmente|大脑真实年龄|确切心理年龄|科学测验)/i;
+  for (const [lang, source] of Object.entries(guideSources)) {
+    assert(/<article data-mental-age-trust-contract="2026-08-30">/.test(source), `${lang} guide trust marker is missing`);
+    const articleSource = source.match(/<article[\s\S]*?<\/article>/i)?.[0] || '';
+    assert(articleSource.length > 3000, `${lang} guide is too thin`);
+    assert(!oldGuideClaim.test(articleSource), `${lang} guide retains an unsupported age claim`);
+    assert(/2026-08-30/.test(source), `${lang} guide date is stale`);
+    const graph = [...source.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi)]
+      .map(match => JSON.parse(match[1])).find(item => Array.isArray(item['@graph']))?.['@graph'];
+    assert(graph, `${lang} guide graph schema is missing`);
+    const articleSchema = graph.find(item => item['@type'] === 'Article');
+    const faqSchema = graph.find(item => item['@type'] === 'FAQPage');
+    const h1 = source.match(/<h1>([\s\S]*?)<\/h1>/i)?.[1];
+    const metaDescription = source.match(/<meta name="description" content="([^"]*)">/i)?.[1];
+    assert(articleSchema?.headline === h1 && articleSchema?.description === metaDescription && articleSchema?.dateModified === '2026-08-30', `${lang} guide Article schema drift`);
+    const visibleFaqs = [...articleSource.matchAll(/<div class="faq-item">\s*<h3>([\s\S]*?)<\/h3>\s*<p>([\s\S]*?)<\/p>\s*<\/div>/gi)]
+      .map(match => ({ name: match[1].replace(/<[^>]+>/g, '').trim(), text: match[2].replace(/<[^>]+>/g, '').trim() }));
+    const schemaFaqs = faqSchema?.mainEntity?.map(item => ({ name: item.name, text: item.acceptedAnswer?.text })) || [];
+    assert(JSON.stringify(visibleFaqs) === JSON.stringify(schemaFaqs), `${lang} guide FAQ schema-visible drift`);
+  }
   return { locales: LANGS.length, hreflangs: alternates.size, schema: schemaBlocks.length };
 }
 
@@ -105,6 +154,9 @@ function runMutations(baseline) {
     ['legacy-locale', 'Legacy age category remains in en', fixture => { const value = JSON.parse(fixture.locales.en); value.category = { adult: 'Adult' }; fixture.locales.en = JSON.stringify(value); }],
     ['collapsed-hreflang', 'Incorrect ko hreflang URL', fixture => { fixture.html = fixture.html.replace(`${BASE}?lang=ko`, BASE); }],
     ['missing-guide', 'Missing ko result guide', fixture => { fixture.guidePaths.ko = path.join(ROOT, 'missing-guide.html'); }],
+    ['hub-science-claim', 'Portal en retains unsupported accuracy/science copy', fixture => { const value = JSON.parse(fixture.portalLocales.en); value.hub_tests.benefit3_title = 'Science-Based'; fixture.portalLocales.en = JSON.stringify(value); }],
+    ['stale-guide-claim', 'en guide retains an unsupported age claim', fixture => { fixture.guideSources.en = fixture.guideSources.en.replace('What the result is—and is not', 'Discover your exact mental age'); }],
+    ['missing-guide-marker', 'zh guide trust marker is missing', fixture => { fixture.guideSources.zh = fixture.guideSources.zh.replace(' data-mental-age-trust-contract="2026-08-30"', ''); }],
   ];
   for (const [name, expected, mutate] of mutations) {
     const fixture = clone(baseline);
@@ -147,7 +199,7 @@ async function listen(server) {
   throw new Error('No safe local verification port available');
 }
 
-async function runBrowser(locales) {
+async function runBrowser(locales, portalLocales) {
   const server = createServer();
   const port = await listen(server);
   const browser = await chromium.launch({ headless: true });
@@ -175,9 +227,28 @@ async function runBrowser(locales) {
       const expected = {
         title: `${locale.app.title} | DopaBrain`, meta: locale.meta.description, ogTitle: locale.meta.og_title,
         intro: locale.intro.title, preview: locale.intro.resultPreview, privacy: locale.intro.privacyNote,
-        start: locale.button.start, guide: `/portal/blog/${lang}/mental-age-test-brain-quiz-guide.html?surface=mental_age_result_guide`, overflow: 0,
+        start: locale.button.start, guide: `/portal/blog/${LOCALIZED_GUIDES.has(lang) ? lang : 'en'}/mental-age-test-brain-quiz-guide.html?surface=mental_age_result_guide`, overflow: 0,
       };
       assert(JSON.stringify(actual) === JSON.stringify(expected), `${lang} locale runtime mismatch: ${JSON.stringify({ actual, expected })}`);
+
+      const portalLocale = JSON.parse(portalLocales[lang]);
+      await page.goto(`http://127.0.0.1:${port}/portal/tests/?lang=${lang}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForFunction(expectedLang => document.documentElement.lang === expectedLang, lang);
+      const hubActual = await page.evaluate(() => ({
+        benefitTitle: document.querySelector('[data-i18n="hub_tests.benefit3_title"]')?.textContent,
+        benefitDesc: document.querySelector('[data-i18n="hub_tests.benefit3_desc"]')?.textContent,
+        faqQ: document.querySelector('[data-i18n="hub_tests.faq_q1"]')?.textContent,
+        faqA: document.querySelector('[data-i18n="hub_tests.faq_a1"]')?.textContent,
+        mentalName: document.querySelector('[data-i18n="hub_tests.name_mental-age"]')?.textContent,
+        mentalDesc: document.querySelector('[data-i18n="hub_tests.desc_mental-age"]')?.textContent,
+        overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      }));
+      const hubExpected = {
+        benefitTitle: portalLocale.hub_tests.benefit3_title, benefitDesc: portalLocale.hub_tests.benefit3_desc,
+        faqQ: portalLocale.hub_tests.faq_q1, faqA: portalLocale.hub_tests.faq_a1,
+        mentalName: portalLocale.hub_tests['name_mental-age'], mentalDesc: portalLocale.hub_tests['desc_mental-age'], overflow: 0,
+      };
+      assert(JSON.stringify(hubActual) === JSON.stringify(hubExpected), `Portal ${lang} runtime mismatch: ${JSON.stringify({ hubActual, hubExpected })}`);
     }
 
     await page.goto(`http://127.0.0.1:${port}/mental-age/?lang=en`, { waitUntil: 'domcontentloaded' });
@@ -209,6 +280,14 @@ async function runBrowser(locales) {
     await page.evaluate(() => { app._clearTimers(); app.scores = [0, 0, 0, 0, 0, 0, 100]; app.calculateResult(); });
     await page.waitForFunction(() => document.querySelector('#result-score')?.textContent === '14');
     assert(errors.length === 0, `Page errors: ${errors.join(' | ')}`);
+
+    await page.goto(`http://127.0.0.1:${port}/portal/blog/en/mental-age-test-brain-quiz-guide.html`, { waitUntil: 'domcontentloaded' });
+    const guideRuntime = await page.evaluate(() => ({
+      marker: document.querySelector('article')?.dataset.mentalAgeTrustContract,
+      faqCount: document.querySelectorAll('article .faq-item').length,
+      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    }));
+    assert(guideRuntime.marker === '2026-08-30' && guideRuntime.faqCount === 5 && guideRuntime.overflow === 0, `English guide runtime mismatch: ${JSON.stringify(guideRuntime)}`);
     console.log(JSON.stringify({ runtimeLocales: LANGS.length, scoreCases: [40, 14], overflow: first.overflow, pageErrors: errors.length }));
   } finally {
     await browser.close();
@@ -220,7 +299,7 @@ async function main() {
   const fixture = loadFixture();
   const result = verify(fixture);
   if (process.argv.includes('--mutations')) runMutations(fixture);
-  await runBrowser(fixture.locales);
+  await runBrowser(fixture.locales, fixture.portalLocales);
   console.log(`PASS: mental-age trust contract (${result.locales} locales, ${result.hreflangs} hreflangs)`);
 }
 
