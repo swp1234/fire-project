@@ -6,6 +6,8 @@ const { removeInvalidStaticAds } = require('./upgrade-blog-indexing-batch');
 const { inspectHtml, verifyHtml } = require('./verify-adsense-contract');
 const { PORTAL, loadKeepPaths } = require('./blog-indexing-focus');
 
+const ADSENSE_CLIENT = 'ca-pub-3600813755953882';
+
 function fail(message) {
   throw new Error(message);
 }
@@ -168,16 +170,72 @@ function verifyInlineScriptSyntax(html, label) {
   return count;
 }
 
+function firstMatch(text, regex) {
+  const match = regex.exec(String(text || ''));
+  return match ? match[0] : '';
+}
+
+function visibleTokens(html) {
+  return String(html || '')
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<[^>]+>/g, ' ')
+    .match(/[\p{L}\p{N}]+/gu) || [];
+}
+
+function assertCleanupInvariants(original, cleaned, label) {
+  const exactContracts = [
+    ['title', /<title\b[^>]*>[\s\S]*?<\/title>/i],
+    ['h1', /<h1\b[^>]*>[\s\S]*?<\/h1>/i],
+    ['canonical', /<link\b(?=[^>]*\brel\s*=\s*["']canonical["'])[^>]*>/i],
+    ['robots', /<meta\b(?=[^>]*\bname\s*=\s*["']robots["'])[^>]*>/i],
+  ];
+  for (const [name, regex] of exactContracts) {
+    if (firstMatch(original, regex) !== firstMatch(cleaned, regex)) fail(`${label}: cleanup changed ${name}`);
+  }
+
+  const originalJsonLd = Array.from(String(original).matchAll(/<script\b(?=[^>]*type\s*=\s*["']application\/ld\+json["'])[^>]*>[\s\S]*?<\/script>/gi), (match) => match[0]);
+  const cleanedJsonLd = Array.from(String(cleaned).matchAll(/<script\b(?=[^>]*type\s*=\s*["']application\/ld\+json["'])[^>]*>[\s\S]*?<\/script>/gi), (match) => match[0]);
+  if (JSON.stringify(originalJsonLd) !== JSON.stringify(cleanedJsonLd)) fail(`${label}: cleanup changed JSON-LD`);
+
+  const before = visibleTokens(original);
+  const after = visibleTokens(cleaned);
+  const removed = [];
+  let cursor = 0;
+  for (const token of before) {
+    if (cursor < after.length && token === after[cursor]) cursor += 1;
+    else removed.push(token);
+  }
+  if (cursor !== after.length) fail(`${label}: cleanup reordered or added visible content`);
+  const allowedPlaceholder = /^(?:advertisement|ad|ads|sponsored|광고|广告|廣告|広告|विज्ञापन|anzeige|werbung|publicite|publicité|publicidad|anuncio|anúncio|iklan|reklama|реклама)$/iu;
+  const unexpected = removed.filter((token) => !allowedPlaceholder.test(token));
+  if (unexpected.length) fail(`${label}: cleanup removed visible content: ${unexpected.slice(0, 8).join(', ')}`);
+}
+
+function verifyInventoryHtml(html, label) {
+  const result = inspectHtml(html);
+  const loaders = result.directLoaders + result.managedLoaders;
+  if (loaders > 1) fail(`${label}: expected at most one Auto Ads loader, got ${loaders}`);
+  if (!result.loaderClients.every((client) => client === ADSENSE_CLIENT)) fail(`${label}: AdSense client mismatch`);
+  if (result.invalidAutoSlots) fail(`${label}: invalid data-ad-slot="auto" detected`);
+  if (result.manualUnits) fail(`${label}: manual adsbygoogle unit detected`);
+  if (result.manualPushes) fail(`${label}: manual adsbygoogle.push detected`);
+  if (result.staticAdSurfaces) fail(`${label}: static ad surface detected`);
+  if (result.paidImpressionClaims) fail(`${label}: synthetic paid-impression telemetry detected`);
+  return result;
+}
+
 function cleanHtml(html, label) {
-  let next = String(html);
+  let next = removeManualPushCalls(String(html));
+  next = removeFakeImpressionLoops(next);
+  next = removeFakeImpressionCalls(next);
   for (let pass = 0; pass < 20; pass += 1) {
     const cleaned = removeInvalidStaticAds(next);
     if (cleaned === next) break;
     next = cleaned;
     if (pass === 19) fail(`${label}: static ad cleanup did not converge`);
   }
-  next = removeFakeImpressionLoops(next);
-  next = removeFakeImpressionCalls(next);
   next = removeManualPushCalls(next);
   next = dedupeAutoAdsLoaders(next);
   next = next.replace(/\s+data-ad-surface\s*=\s*("[^"]*"|'[^']*')/gi, '');
@@ -210,6 +268,14 @@ function selfTest() {
   const flatCleaned = removeOrphanedImpressionClosers(removeFakeImpressionCalls(removeFakeImpressionLoops(flatIndent)));
   if (flatCleaned.includes('content_ad_impression') || flatCleaned.includes('forEach')) fail('self-test: flat-indented loop survived');
   new Function('track', flatCleaned);
+  let mutationDetected = false;
+  const riskyFixture = '<title>Keep</title><h1>Keep</h1><script src="/portal/js/ad-loader.js"></script><div class="indexing-auto-ad"><p>Reader note</p><ins class="adsbygoogle" data-ad-slot="auto"></ins></div>';
+  try {
+    assertCleanupInvariants(riskyFixture, cleanHtml(riskyFixture, 'visible-content-mutation'), 'visible-content-mutation');
+  } catch (error) {
+    mutationDetected = /removed visible content/.test(error.message);
+  }
+  if (!mutationDetected) fail('self-test: meaningful visible-content removal was not detected');
   console.log('[PASS] indexable blog ad cleaner self-test');
 }
 
@@ -220,14 +286,23 @@ function run({ apply = false } = {}) {
   const failures = [];
   let dirtyBefore = 0;
   let inlineScripts = 0;
+  let inventoryDirtyBefore = 0;
   let syntheticBefore = 0;
 
   for (const file of listHtml(blogRoot)) {
     const original = fs.readFileSync(file, 'utf8');
-    const withoutSynthetic = removeOrphanedImpressionClosers(removeFakeImpressionCalls(removeFakeImpressionLoops(original)));
-    const cleaned = withoutSynthetic.replace(/[ \t]+(?=\r?$)/gm, '');
-    if (withoutSynthetic !== original) syntheticBefore += 1;
+    const before = inspectHtml(original);
+    const loadersBefore = before.directLoaders + before.managedLoaders;
+    if (before.paidImpressionClaims) syntheticBefore += 1;
+    if (loadersBefore > 1 || !before.loaderClients.every((client) => client === ADSENSE_CLIENT)
+      || before.invalidAutoSlots || before.manualUnits || before.manualPushes || before.staticAdSurfaces || before.paidImpressionClaims) {
+      inventoryDirtyBefore += 1;
+    }
+    const cleaned = cleanHtml(original, path.relative(PORTAL, file));
     try {
+      if (cleanHtml(cleaned, path.relative(PORTAL, file)) !== cleaned) fail(`${path.relative(PORTAL, file)}: cleanup is not idempotent`);
+      assertCleanupInvariants(original, cleaned, path.relative(PORTAL, file));
+      verifyInventoryHtml(cleaned, path.relative(PORTAL, file));
       inlineScripts += verifyInlineScriptSyntax(cleaned, path.relative(PORTAL, file));
     } catch (error) {
       failures.push(error.message);
@@ -253,12 +328,12 @@ function run({ apply = false } = {}) {
       failures.push(error.message);
     }
   }
-  if (failures.length) fail(`${failures.length} indexable ad cleanup issue(s):\n- ${failures.slice(0, 30).join('\n- ')}`);
+  if (failures.length) fail(`${failures.length} blog ad cleanup issue(s):\n- ${failures.slice(0, 30).join('\n- ')}`);
 
   const changed = [...pending.values()].filter((item) => item.cleaned !== item.original);
   if (apply) for (const item of changed) writeWithRetry(item.file, item.cleaned);
   if (!apply && changed.length) fail(`${changed.length} blog page(s) still require ad cleanup; run with --apply`);
-  console.log(`[PASS] blog ad events: scanned=${pending.size}, inlineScripts=${inlineScripts}, syntheticBefore=${syntheticBefore}; retained=${keep.size}, dirtyBefore=${dirtyBefore}, changed=${apply ? changed.length : 0}`);
+  console.log(`[PASS] blog ad inventory: scanned=${pending.size}, inlineScripts=${inlineScripts}, dirtyBefore=${inventoryDirtyBefore}, syntheticBefore=${syntheticBefore}; retained=${keep.size}, retainedDirtyBefore=${dirtyBefore}, changed=${apply ? changed.length : 0}`);
 }
 
 function main() {
