@@ -29,18 +29,18 @@ Updated: 2026-08-30
 
 ## Latest release
 
-- Chinese zodiac guide held `6 → 6` equal-window Organic sessions. It had 25 pageview users, 20 qualified content users and no CTA users in 56 days; the app had 67 page users but only 10 sign selectors. Discovery existed, but the guide-to-choice path did not convert.
-- Replaced deterministic compatibility scores and predictions with 12-locale, score-free conversation cards. Removed fabricated `5,280+` proof, random percentile, love/friend/work scoring, stale AI/premium language, selection values from analytics/share, and synthetic engagement/ad events.
-- The 40.5 KB Chinese guide is now a 13.1 KB culture-and-evidence answer with two primary studies and two direct app CTAs. App changes net `−3,801` lines; one Auto Ads loader and app-scoped cache remain.
-- Stage contract: `content_view → content_cta_click → zodiac_pair_view → zodiac_pair_start → zodiac_pair_open → zodiac_pair_related_click/zodiac_pair_share`. Historical `page_engage`, `zodiac_select`, `zodiac_result_view`, timer/scroll and synthetic ad events are not comparable.
+- Chinese RSD guide held `8 → 7` equal-window Organic sessions, with 4/7 engaged and 702 engagement seconds. Across 56 days it had 45 qualified content users and no CTA/action users: the largest remaining measured content-to-action leak.
+- Replaced a 46.7 KB diagnosis-like article with a 12.1 KB direct answer that distinguishes the popular RSD label from researched rejection sensitivity and ADHD emotional dysregulation. Removed unsupported near-universal prevalence, brain mechanism, duration, medication efficacy, hidden FAQ and US-only crisis guidance.
+- The linked 12-locale private action planner is now Auto Ads loader-only; its invalid manual slot and synthetic ad-impression event were removed. Arbitrary entry sources normalize to `direct`, and emotion/intensity/context/time/goal choices stay out of URL and analytics.
+- Stage contract: `content_view → content_zh_rejection_check_view → content_cta_click → emotion_action_view → emotion_action_generate → emotion_action_copy/emotion_action_used/emotion_action_related_click`. Historical synthetic ad and generic cross-promo events are not comparable.
 
 ## Deployment and verification
 
-- Zodiac Match `e403d4f`, Pages run `33308739615`; Portal `cb9d233`, Pages run `33308739767`: success.
-- `verify:zodiac-pair-reset`: 10/10 mutations detected; local and live 12-locale mobile journeys, desktop journey and Chinese guide→app journey passed. Sign choices stayed out of URLs, telemetry and shared links.
-- Full regression: `logs/harness-workflow/2026-08-30T11-13-44-952Z.md`; all steps passed, runtime 6/6, analytics 9/9, submitted inventory 49/0 issues.
-- Recent prior release: Blood Type `63da3a5` / run `33307767157`; Portal `7f0cfd7` / run `33307767313`.
-- Main gates: `npm run harness`, `npm run verify:zodiac-pair-reset`, `npm run verify:blood-type-culture-reset`, `node scripts/indexing-inventory.js --strict`.
+- Portal `76604db`, Pages run `33309515396`: success.
+- `verify:zh-rejection-action`: 10/10 mutations detected; local and live 12-locale mobile tool journeys plus Chinese guide→planner journey passed. Private choices stayed out of URL and telemetry.
+- Full regression: `logs/harness-workflow/2026-08-30T11-32-50-457Z.md`; all steps passed, runtime 6/6, analytics 9/9, submitted inventory 49/0 issues.
+- Recent prior release: Zodiac Match `e403d4f` / run `33308739615`; Portal `cb9d233` / run `33308739767`.
+- Main gates: `npm run harness`, `npm run verify:zh-rejection-action`, `npm run verify:zodiac-pair-reset`, `node scripts/indexing-inventory.js --strict`.
 
 ## Observation windows
 
@@ -48,6 +48,7 @@ All windows use complete KST days and exclude deployment day and SG desktop Dire
 
 | Path | Window | First diagnostic |
 |---|---|---|
+| Chinese rejection action | 2026-08-31~09-06 | qualified check→CTA 8%; linked view→generate 50%; generate→used/copy/related 8% |
 | Chinese zodiac pair | 2026-08-31~09-06 | guide CTA-user 8%; app view→start 25%; start→open 50%; open→related 8% |
 | Spanish Blood Type | 2026-08-31~09-06 | guide CTA-user 8%; app view→first open 25%; open→related 8% |
 | IQ puzzle | 2026-08-31~09-06 | start 35%; start→complete 50%; complete→related 8% |

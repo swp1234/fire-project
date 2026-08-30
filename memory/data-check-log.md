@@ -181,6 +181,13 @@
 - The replacement is a 12-locale score-free conversation-card path backed by a 66,063-marriage/divorce study and a cross-cultural personality study. It keeps sign choices in browser memory, shares a generic URL, emits stage-only events, uses one Auto Ads loader and preserves app-scoped caching.
 - Observe 2026-08-31~09-06 KST. Use `content_view → content_cta_click → zodiac_pair_view → zodiac_pair_start → zodiac_pair_open → zodiac_pair_related_click/zodiac_pair_share`; wait for 20 real app views, then use 25% view-to-start, 50% start-to-open and 8% open-to-related-click as diagnostics. Exclude legacy `page_engage`, `zodiac_select`, `zodiac_result_view`, timer/scroll and synthetic ad events.
 
+## 2026-08-30 Chinese rejection-action reset
+
+- `/portal/blog/zh/rejection-sensitivity-dysphoria.html` moved `8 → 7` equal-window Organic sessions, with 4/7 engaged sessions and 702 engagement seconds. Across 56 days it had 45 qualified content users and no CTA/action users. GSC returned no exact-page rows, so GA4 is the discovery baseline.
+- The prior article framed RSD as a neurobiological disease, repeated a near-universal ADHD prevalence, asserted dopamine/amygdala mechanisms and medication effects beyond the available evidence, supplied a fixed episode duration, and gave a US-only crisis number to a Chinese-language audience.
+- The replacement distinguishes the community/search label from researched rejection sensitivity and emotional dysregulation, names study design/sample limits, and links to one private now-next-later planner. The destination's invalid manual Auto Ads slot and synthetic paid-impression event were removed; entry attribution is allowlisted and private choices remain local.
+- Observe 2026-08-31~09-06 KST. Use `content_view → content_zh_rejection_check_view → content_cta_click → emotion_action_view → emotion_action_generate → emotion_action_copy/emotion_action_used/emotion_action_related_click`; wait for 20 qualified check views, then use 8% CTA-user rate, 50% linked-view-to-generate and 8% generate-to-used/copy/related as diagnostics. Exclude historical synthetic ad and generic cross-promo events.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
