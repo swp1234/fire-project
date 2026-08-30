@@ -47,6 +47,7 @@
     "verify:zh-hsp-guide": "node scripts/verify-zh-hsp-guide.js --mutations",
     "verify:ja-reaction-time": "node scripts/verify-ja-reaction-time.js --mutations",
     "verify:iq-completion-reset": "node scripts/verify-iq-completion-reset.js --mutations",
+    "verify:blood-type-culture-reset": "node scripts/verify-blood-type-culture-reset.js --mutations",
     "verify:blog-generator-interaction": "node scripts/verify-blog-generator-interaction.js"
   },
   "devDependencies": {

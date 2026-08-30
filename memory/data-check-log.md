@@ -167,6 +167,13 @@
 - The UI claimed 12 locales, but all 20 random questions and choices were English, each had a 30-second timer, and a full run could take ten minutes. The replacement uses ten fixed number/symbol puzzles, no timer, real localized prompts and limits, one loader-only Auto Ads path, app-local caching, and private exact-once stage events. Answers, score, category counts, elapsed time, and result values are not transmitted.
 - Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, and the legacy events above. Use `iq_puzzle_view → iq_puzzle_start → iq_puzzle_complete → iq_puzzle_related_click/iq_puzzle_share`; wait for 20 real views, then use the old 35% view-to-start only as context, 50% start-to-complete as the first repair threshold, and 8% complete-to-related-click as the revenue-path threshold.
 
+## 2026-08-30 Spanish Blood Type trust reset
+
+- `/portal/blog/es/blood-type-personality.html` held `6 → 6` equal-window Organic sessions. Across 56 days the guide had 12 content users and no CTA users; the app had 54 page users, 8 blood-type selectors, and all 8 selectors reached the result. First choice, not post-choice completion, was the bottleneck.
+- The prior guide and app treated a cultural stereotype as personality, relationship, career, health and compatibility analysis; showed fabricated `89,000+` proof and a random percentile; kept stale premium/AI copy; rendered result details only in English; and transmitted the selected type in analytics.
+- The replacement is a four-card culture/evidence path with a visible research boundary, 12 fully localized result bodies, generic share URLs, stage-only analytics, two direct research sources, one Auto Ads loader and app-scoped caching. The large-survey boundary is 10,000+ participants and less than 0.3% personality variance explained; the smaller study is presented as limited, not validation.
+- Observe 2026-08-31~09-06 KST. Use `content_view → content_cta_click → blood_type_culture_view → blood_type_culture_open → blood_type_culture_related_click/blood_type_culture_share`; wait for 20 real app views, then use 25% first-open and 8% open-to-related-click as initial diagnostics. Exclude historical `page_engage`, `quiz_*`, `result_view`, `blood_type_select`, and synthetic ad events.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
