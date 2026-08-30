@@ -214,7 +214,7 @@ async function funnelCheck(browser, guideUrl, local) {
     await page.waitForTimeout(250);
     let layer=await page.evaluate(()=>(window.dataLayer||[]).map(item=>Array.from(item||[])));
     assert(browserEvents(layer).filter(event=>event.name==='content_future_self_cta_view').length===0,'Guide CTA view fired before 500ms');
-    await page.waitForTimeout(400);
+    await page.waitForFunction(()=>(window.dataLayer||[]).filter(item=>item[0]==='event'&&item[1]==='content_future_self_cta_view').length===1,null,{timeout:3000});
     layer=await page.evaluate(()=>(window.dataLayer||[]).map(item=>Array.from(item||[])));
     assert(browserEvents(layer).filter(event=>event.name==='content_future_self_cta_view').length===1,'Guide qualified CTA view did not fire exactly once');
     await Promise.all([page.waitForURL(/\/future-self\/\?lang=ko&start=1&source=future_self_guide_primary/),page.click('.primary-box .cta')]);
