@@ -7,6 +7,7 @@ const { chromium } = require('playwright');
 const ROOT = path.resolve(__dirname, '..');
 const PROJECTS = path.join(ROOT, 'projects');
 const GRADES = ['genius', 'superior', 'high_average', 'average', 'below_average', 'needs_improvement'];
+const LANGUAGES = ['de', 'en', 'es', 'fr', 'hi', 'id', 'ja', 'ko', 'pt', 'ru', 'tr', 'zh'];
 const AI_LABEL = /(?:\bAI\b|\bIA\b|\bKI(?:-|\b)|ИИ)/;
 const AD_GATE = /(?:\bad\b|광고|広告|广告|विज्ञापन|реклам|anuncio|publicidad|publicité|iklan|reklam|anzeige)/i;
 const SOURCE_CLAIM = /(?:AI[- ]powered|AI (?:brain|deep|analysis)|AI 두뇌|AI 심층|AI 분석|AI深|AI गहरे|KI-Tiefenanalyse|анализ ИИ)/i;
@@ -31,6 +32,7 @@ function inspectIQ(source, locales) {
   for (const { file, json } of locales) {
     const values = [json.results?.detail_notes, json.results?.detail_hint, json.results?.detail_title];
     if (values.some(value => typeof value !== 'string' || !value.trim())) issues.push(`${file}: missing detailed-note UI copy`);
+    if (values.some(value => typeof value === 'string' && value.includes('?'))) issues.push(`${file}: detailed-note UI contains replacement question marks`);
     if (values.some(value => AI_LABEL.test(value))) issues.push(`${file}: detailed-note UI claims AI`);
     if (AD_GATE.test(json.results?.detail_hint || '')) issues.push(`${file}: detailed-note hint claims an ad gate`);
     for (const grade of GRADES) {
@@ -43,9 +45,11 @@ function inspectIQ(source, locales) {
 function inspectZodiac(source, locales) {
   const issues = [];
   if (SOURCE_CLAIM.test(source)) issues.push('Zodiac source presents deterministic notes as AI output');
+  if (!/this\.ready\s*=\s*this\.init\(\)/.test(source) || !/await\s+i18n\.ready/.test(source)) issues.push('Zodiac loader does not await locale initialization');
   for (const { file, json } of locales) {
     const values = [json.results?.deepAnalysis, json.meta?.description];
     if (values.some(value => typeof value !== 'string' || !value.trim())) issues.push(`${file}: missing relationship-note copy`);
+    if (values.some(value => typeof value === 'string' && value.includes('?'))) issues.push(`${file}: relationship-note copy contains replacement question marks`);
     if (values.some(value => AI_LABEL.test(value))) issues.push(`${file}: relationship-note copy claims AI`);
   }
   return issues;
@@ -59,6 +63,7 @@ function staticIssues() {
   const zodiacSource = [
     fs.readFileSync(path.join(PROJECTS, 'zodiac-match', 'index.html'), 'utf8'),
     fs.readFileSync(path.join(PROJECTS, 'zodiac-match', 'js', 'app.js'), 'utf8'),
+    fs.readFileSync(path.join(PROJECTS, 'zodiac-match', 'js', 'i18n.js'), 'utf8'),
   ].join('\n');
   return [
     ...inspectIQ(iqSource, localeFiles('iq-test')),
@@ -75,10 +80,19 @@ function selfTest() {
     },
   };
   const zodiacLocale = { file: 'mutation.json', json: { results: { deepAnalysis: 'AI Deep Analysis' }, meta: { description: 'AI-powered result' } } };
+  const corruptedLocale = {
+    file: 'mutation.json',
+    json: {
+      results: { detail_notes: '????', detail_hint: 'note', detail_title: 'note' },
+      detail_notes: Object.fromEntries(GRADES.map(grade => [grade, 'note'])),
+    },
+  };
   const mutations = [
     inspectIQ('showAIAnalysis()', [iqLocale]).length,
     inspectIQ('AI-powered result', []).length,
     inspectZodiac('AI analysis', [zodiacLocale]).length,
+    inspectIQ('clean', [corruptedLocale]).length,
+    inspectZodiac('const i18n = new I18n();', []).length,
   ];
   if (mutations.some(count => count === 0)) fail('rule-based label mutation self-test failed');
   console.log(`PASS: rule-based label mutations ${mutations.length}/${mutations.length}`);
@@ -118,12 +132,33 @@ async function listen(server) {
 async function runBrowser() {
   const server = createServer();
   const port = await listen(server);
+  const iqLocales = Object.fromEntries(localeFiles('iq-test').map(({ file, json }) => [file.replace('.json', ''), json]));
+  const zodiacLocales = Object.fromEntries(localeFiles('zodiac-match').map(({ file, json }) => [file.replace('.json', ''), json]));
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', error => errors.push(String(error)));
   try {
+    for (const language of LANGUAGES) {
+      await page.goto(`http://127.0.0.1:${port}/iq-test/?lang=${language}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForFunction(() => !document.querySelector('#app-loader') || document.querySelector('#app-loader').classList.contains('hidden'));
+      await page.waitForFunction(expected => document.documentElement.lang === expected, language);
+      const iqLabels = await page.locator('#btn-detail-notes, [data-i18n="results.detail_hint"], [data-i18n="results.detail_title"]').allInnerTexts();
+      const iqExpected = [iqLocales[language].results.detail_notes, iqLocales[language].results.detail_hint, iqLocales[language].results.detail_title];
+      if (iqLabels.some(value => !value.trim() || value.includes('?') || AI_LABEL.test(value) || AD_GATE.test(value))) fail(`IQ ${language} locale runtime label failed`);
+      if (JSON.stringify(iqLabels) !== JSON.stringify(iqExpected)) fail(`IQ ${language} locale runtime value mismatch`);
+
+      await page.goto(`http://127.0.0.1:${port}/zodiac-match/?lang=${language}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForFunction(() => !document.querySelector('#app-loader') || document.querySelector('#app-loader').classList.contains('hidden'));
+      await page.waitForFunction(expected => document.documentElement.lang === expected, language);
+      const zodiacLabels = await page.locator('[data-i18n="results.deepAnalysis"]').allInnerTexts();
+      if (zodiacLabels.some(value => !value.trim() || value.includes('?') || AI_LABEL.test(value))) fail(`Zodiac ${language} locale runtime label failed`);
+      if (zodiacLabels.some(value => value !== zodiacLocales[language].results.deepAnalysis)) fail(`Zodiac ${language} locale runtime value mismatch`);
+      const zodiacMeta = await page.getAttribute('meta[name="description"]', 'content');
+      if (zodiacMeta !== zodiacLocales[language].meta.description) fail(`Zodiac ${language} locale meta mismatch`);
+    }
+
     await page.goto(`http://127.0.0.1:${port}/iq-test/?lang=en`, { waitUntil: 'domcontentloaded' });
     await page.click('#btn-start');
     for (let index = 0; index < 20; index += 1) {
