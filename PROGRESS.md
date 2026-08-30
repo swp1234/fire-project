@@ -14,10 +14,16 @@ This file contains current operating state only. Decision-changing measurements 
 
 - 2026-08-23~29 AdSense: `$0.75`, 1,795 pageviews, 827 impressions, 22 clicks, Page RPM `$0.42`.
 - Country opportunity: US `$0.21 / 57 PV / $3.75 RPM`; KR `$0.18 / 103 PV / $1.71 RPM`; CN `$0.19 / 591 PV / $0.32 RPM`.
-- Focused sitemap: 49 unique submitted URLs, strict issues 0.
+- Focused sitemap: 50 unique submitted URLs, strict issues 0.
 - Primary: Stress Check, HSP Test, 2048 Coach. Support: Brain Type, IQ, K-pop Roster. Culture Signal remains one isolated pilot. Portal remains the archive.
 
 ## Latest releases
+
+### Spanish cognitive-distortions path
+
+- Equal 28-day Organic landing sessions held at `6 → 6`; 4/6 recent sessions engaged. Search entries came from Mexico, Guatemala, Peru and the United States. Across 56 days the page had 18 content users and no valid action user; exact-page Search Console rows were absent.
+- The 54.2 KB generic page is now a 14.8 KB evidence-bound guide with 15 visible teaching categories, three direct NHS/WHO sources and a private three-step thought check. Deterministic brain/error claims, the hidden English FAQ, unrelated Animal Personality CTA and synthetic ad event were removed.
+- Two identical primary CTAs open an allowlisted Spanish Stress Check route. The upgraded page was added to the focused sitemap because repeat Organic acquisition was already present.
 
 ### French cognitive-distortions path
 
@@ -39,8 +45,11 @@ This file contains current operating state only. Decision-changing measurements 
 - Portal guide/catalog: `83da986`; Pages run `33312297876` succeeded.
 - Stress Check French entry allowlist: `f4e7539`; Pages run `33313140297` succeeded.
 - French guide/catalog: `68c3f24`; Pages run `33313143194` succeeded.
+- Stress Check Spanish entry allowlist: `73bd330`; Pages run `33314275421` succeeded.
+- Spanish guide/catalog/sitemap: `1440793`; Pages run `33314278283` succeeded.
 - `verify:en-shadow-reflection`: 14/14 mutations detected; all 12 locale completions, guide auto-start, source normalization, neutral sharing, private telemetry, mobile layout and locale-load recovery passed locally and live.
 - `verify:fr-cognitive-distortions`: 10/10 mutations detected; 390/1440px interaction, exact-once/private telemetry and linked French auto-start passed locally and live.
+- `verify:es-cognitive-distortions`: 11/11 mutations detected; 390/1440px interaction, exact-once/private telemetry, focused sitemap inclusion and linked Spanish auto-start passed locally and live. French and Chinese adjacent live paths also passed after the shared Stress Check allowlist change.
 - Full harness: `logs/harness-workflow/2026-08-30T13-10-34-678Z.md`; every step passed, analytics 9/9, runtime 6/6, submitted inventory 49 URLs / 0 issues. Its Spanish typing verifier now checks all 30 rendered tokens against the Spanish source pool instead of relying on a random substring.
 
 ## Observation windows
@@ -49,6 +58,7 @@ Use complete KST days. Do not decide before 20 qualified views unless a correctn
 
 | Path | Window | First diagnostic |
 |---|---|---|
+| Spanish cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |
 | French cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |
 | English Jung shadow reflection | 2026-08-31~09-06 | qualified concept-to-CTA 8%; app view-to-start 25%; start-to-complete 50%; complete-to-share/related 8% |
 | English attachment, Chinese RSD, Chinese Zodiac Pair, Spanish Blood Type | 2026-08-31~09-06 | use each release's new stage events; ignore legacy/synthetic events |

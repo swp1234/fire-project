@@ -201,6 +201,12 @@
 - The former 52.7 KB article mixed deterministic thought/brain claims, a hidden English FAQ and an unrelated Animal Personality CTA. The 14.9 KB replacement presents 15 non-diagnostic teaching categories, three direct NHS/WHO sources and a private facts/evidence/neutral-alternative check.
 - Observe 2026-08-31~09-06 KST. Use `content_view → content_fr_thought_check_view → content_fr_thought_check_use/content_cta_click → stress_intro_view → test_start → test_complete`; after 20 qualified views, use 8% use/click-user rate, 50% linked-view-to-start and 50% start-to-complete as diagnostics. Exclude deployment day, SG desktop Direct and legacy/synthetic events.
 
+## 2026-08-30 Spanish cognitive-distortions conversion reset
+
+- `/portal/blog/es/cognitive-distortions-list.html` held `6 → 6` equal-window Organic landing sessions with 4/6 engaged. Recent entries were Mexico 3, Guatemala 1, Peru 1 and United States 1; across 56 days it had 18 content users and no valid action user. Exact-page GSC rows were absent.
+- The former 54.2 KB page mixed deterministic brain/error claims, a hidden English FAQ, an unrelated Animal Personality CTA and synthetic ad telemetry. The 14.8 KB replacement presents 15 non-diagnostic categories, three direct NHS/WHO sources, a private three-step check and a Spanish Stress Check bridge; repeat Organic acquisition justified focused-sitemap inclusion.
+- Observe 2026-08-31~09-06 KST. Use `content_view → content_es_thought_check_view → content_es_thought_check_use/content_cta_click → stress_intro_view → test_start → test_complete`; after 20 qualified views, use 8% use/click-user rate, 50% linked-view-to-start and 50% start-to-complete as diagnostics. Exclude deployment day, SG desktop Direct and legacy/synthetic events.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
