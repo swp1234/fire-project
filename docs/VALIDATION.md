@@ -39,6 +39,7 @@ npm run verify:hsp-reset-funnel
 npm run verify:sensory-reset
 npm run verify:kpop-role-roster
 npm run verify:future-self-funnel
+npm run verify:doomscrolling-bridge
 npm run verify:kst-date
 npm run verify:blog-generator-interaction -- --spec scripts/specs/trend-odyssey-spiderman-ko.json
 npm run harness
@@ -53,7 +54,7 @@ npm run harness:runtime
 - Cross-promo: mobile sticky target 44px와 overflow 0; touch geometry 변이.
 - Culture review: 순수 evidence 판정과 13개 in-memory 변이. 얇은 표본·전역 수치·URL 불일치가 승격/억제를 만들지 못하며 외부 계정을 변경하지 않는다.
 - Blog generator: 잘못된 interaction spec 거부, 임시 생성물의 2선택·분기 CTA·공유 이벤트 순서·mobile overflow·sticky 억제를 검증한다.
-- AdSense: Auto Ads 구현 경로는 하나만 허용하고 관리형 loader는 Google script 요청까지 확인한다. `data-ad-slot="auto"`, 수동 unit/push, DOM 기반 `content_ad_impression`은 거부하며 GA 이벤트는 유료 노출 증거가 아니다. Google 공식 H5 `adBreak/adConfig` 초기화 shim만 전용 공용 모듈에서 예외로 허용한다. 제출 sitemap 43개 URL과 연결된 local JS도 같은 계약을 따르고 strict indexing inventory에서 이슈 0건이어야 한다.
+- AdSense: Auto Ads 구현 경로는 하나만 허용하고 관리형 loader는 Google script 요청까지 확인한다. `data-ad-slot="auto"`, 수동 unit/push, DOM 기반 `content_ad_impression`은 거부하며 GA 이벤트는 유료 노출 증거가 아니다. Google 공식 H5 `adBreak/adConfig` 초기화 shim만 전용 공용 모듈에서 예외로 허용한다. 제출 sitemap 44개 URL과 연결된 local JS도 같은 계약을 따르고 strict indexing inventory에서 이슈 0건이어야 한다.
 - Search trust: 제출 URL의 `aggregateRating`은 화면에 보이는 실제 자사 리뷰 수집 근거가 없으면 high-risk로 실패한다. 메타 description은 실제 `<meta>` 태그에서 읽고 누락·빈 값·160자 초과를 통과시키지 않는다.
 - Fake unlocks: Blood Type과 MBTI Love 상세 해석은 광고 countdown·가짜 premium modal 없이 1초 안에 열려야 한다. 12 locale 소스와 모바일 runtime에서 AI/ad-gate 금칙어·overflow·page error를 검증한다.
 - Rule-based labels: IQ와 Zodiac 상세 화면은 미리 작성된 규칙 기반 메모임을 명시하고 AI·광고 잠금으로 표시하지 않아야 한다. IQ 점수는 `정답 수 / 20 × 100`과 정확히 일치하고 85–145 변환·속도 보너스·등급·인구 백분위가 없어야 한다. 12개 locale의 JSON-실제 DOM 정확 일치, UTF-8 치환 문자 부재, Zodiac 로더의 번역 초기화 대기, 모바일 결과 흐름, IQ 20번 문항 직후 완료 동작을 함께 검증한다.
@@ -62,6 +63,7 @@ npm run harness:runtime
 - Blog focus: 2026-06-01~08-28 Organic Search 2세션 이상 또는 sitemap 포함 글만 indexable로 두고, 나머지는 `noindex,follow`인지 확인한다. redirect는 건드리지 않으며 indexable keep 글 174개는 Auto Ads 계약을 통과해야 한다. retained redirect 1개는 광고 검증에서 제외한다. 전체 blog HTML은 수동 unit/push/static ad surface와 합성 `content_ad_impression`이 없어야 하고, cleanup 멱등성·검색 메타/가시 본문 보존·모든 inline script 컴파일을 검증한다.
 - K-pop: 가이드 FAQ·공식 출처 4개·2개 전환 경로, 로스터 12 locale 핵심 현지화+EN fallback·exact-once 이벤트·개인정보 비전송, EN/KO 테스트의 실패 복구·접근성·공유·SW, 43개 도구 카탈로그의 순서·URL·이름을 390/1440px과 52개 결함 변이로 검증한다.
 - Future Self: 12 locales, query-language priority, linked Korean auto-start, source allowlist, answer/result privacy, successful-share telemetry, service-worker assets, qualified 50%/500ms guide exposure, CTA click, completion, and 15 adversarial mutations.
+- Doomscrolling: unsupported health claims, schema, four direct sources, private 60-second reset, qualified exposure, exact-once use, CTA click, and the Stress Check destination are enforced with 13 mutations and 390/1440px journeys.
 - Harness: portal locale·정적 품질·위 검증기·analytics smoke·focused runtime을 첫 실패에서 중단한다. 브라우저 검증 서버는 차단 포트를 피하는 20000–45000 범위만 사용한다.
 
 콘텐츠 기본 검증은 필요 시 다음을 함께 실행한다.

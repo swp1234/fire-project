@@ -24,17 +24,18 @@ Updated: 2026-08-30
 ## Baseline
 
 - Latest complete 7-day AdSense baseline: `$0.75` total, about `$0.107/day`; the next operating milestone is `$1.40/7 days` or `$0.20/day`.
-- The submitted crawl set contains 43 unique URLs with zero inventory blockers after restoring the Future Self guide.
+- The submitted crawl set contains 44 unique URLs with zero inventory blockers after restoring the Future Self and doomscrolling guides.
 
 - 2026-08-22~28 AdSense: `$0.75`, 1,645 pageviews, 828 impressions, 23 clicks, Page RPM 약 `$0.46`.
 - 동일 28일 비교(8월 2~29일 vs 7월 5일~8월 1일): AdSense `$2.90 vs $2.15`, Organic `680 vs 654` sessions. Pageviews `14,379 vs 5,560` 급증에도 Page RPM은 `$0.20 vs $0.39`로 하락해 유효 검색·행동 개선을 우선한다.
 - SG Desktop scan 제외 유효 RPM 약 `$0.91`; KR RPM 약 `$3.21`.
 - `$1/day`에는 현 효율 약 1,100 유효 PV/day, KR 수준 약 300 PV/day가 필요하다.
-- 주간 Organic 175 sessions, Google Organic 1 session. 집중 sitemap은 42 unique URLs다.
+- 주간 Organic 175 sessions, Google Organic 1 session. 집중 sitemap은 44 unique URLs다.
 - AdSense 주소 PIN 미인증 지급 보류가 남아 있다.
 
 ## Current release
 
+- 2026-08-30: The English doomscrolling guide's Organic landing sessions rose `4 → 6`, including `1 → 4` US sessions, but recent engagement was only 21 seconds across 5 users and CTA users were zero. Unsupported dopamine-hijack, cortisol, screen-time cutoff, detox-reset, and hidden FAQ claims were removed. The shorter guide now cites CDC, two original studies, and Android help; offers a private 60-second interrupt; and sends qualified readers directly to Stress Check.
 - 2026-08-30: Future Self's Korean guide had `9 vs 6` equal-window Organic landing sessions but only `2/9` engaged sessions and 14 engagement seconds across 8 users. The guide is now a lightweight, near-top direct bridge instead of an unsupported AI prediction article. The app exposes its exact `8 choices × 2 path points` rule, removes fabricated rating/FAQ proof and deterministic future claims, honors linked Korean entry, records no answer/result values, and emits start/complete/share only at the verified interaction stage.
 
 - 2026-08-30: `robots.txt` declares all 3 focused sitemaps. All 1,992 blog HTML files now follow the Auto Ads-only contract: no manual unit/push, static ad surface, or synthetic impression event. The verifier preserves title/H1/canonical/robots/JSON-LD/visible content, requires idempotent cleanup, and compiles all 4,641 remaining inline scripts.
@@ -68,6 +69,7 @@ Updated: 2026-08-30
 
 ## Verification
 
+- Doomscrolling: Article/Breadcrumb schema only, four direct sources, 390/1440px layout, 44px targets, 50%/500ms reset exposure, private exact-once reset use, CTA click, Stress Check destination, and 13 adversarial mutations. Full local report: `logs/harness-workflow/2026-08-30T06-36-18-564Z.md`.
 - Future Self: 12 locales, 390/1440px guide layout, 44px targets, qualified CTA exposure, click integration, Korean linked start, eight-answer completion, result privacy, successful clipboard share, service-worker inventory, and 15 adversarial mutations.
 - Future Self production: exact Pages commits `cc254c5` and `77c052f` deployed successfully; live source, sitemap, 12-locale layout, linked/manual start, completion, and share checks passed. Full local report: `logs/harness-workflow/2026-08-30T06-18-29-718Z.md`.
 
@@ -89,6 +91,7 @@ Updated: 2026-08-30
 
 ## Next decision
 
+- Doomscrolling observation window: 2026-08-31~09-06 KST. Exclude 2026-08-30 and SG desktop Direct; compare US Organic landings and `content_view → content_doomscroll_reset_view → content_doomscroll_reset_use/content_cta_click → test_start`. Wait for 20 qualified reset-view users before judging; use 8% Stress Check click-user rate as the first threshold.
 - Future Self observation window: 2026-08-31~09-06 KST. Exclude 2026-08-30 and SG desktop scan traffic; compare `content_view → content_future_self_cta_view → content_cta_click → test_start → test_complete`. Do not decide before 20 qualified CTA-view users; use 8% CTA click-user rate and 50% app completion as first diagnostic thresholds.
 - Revenue milestone: compare complete rolling 7-day AdSense windows against `$1.40`. A single-day spike does not count as reaching `$0.20/day`.
 

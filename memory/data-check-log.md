@@ -90,6 +90,13 @@
 - Observe 2026-08-31~09-06 KST, excluding deployment day and SG desktop. Use `content_view → content_future_self_cta_view → content_cta_click → test_start → test_complete`; wait for 20 qualified CTA-view users before judging, with 8% CTA click-user rate and 50% completion as the first diagnostic thresholds.
 - Revenue milestone is now `$1.40` across seven complete days (`$0.20/day`), up from the latest `$0.75/7 days` (`$0.107/day`).
 
+## 2026-08-30 doomscrolling US bridge reset
+
+- The complete 2026-08-23~29 AdSense window was `$0.75`, 1,795 pageviews, 827 impressions, 22 clicks, and `$0.42` Page RPM. US produced `$0.21` from 57 pageviews (`$3.75` RPM), KR `$0.18` from 103 (`$1.71`), and CN `$0.19` from 591 (`$0.32`); US/KR valid traffic remains the leverage point for the `$0.20/day` milestone.
+- `/portal/blog/en/doom-scrolling-mental-health-effects.html` moved `4 → 6` equal-window Organic landing sessions and US Organic moved `1 → 4`. Recent Organic engagement was only 21 seconds across 5 users. Path history had 14 content-view users, 0 CTA users, and old synthetic ad telemetry that is no longer emitted by current code.
+- The previous page made unsupported dopamine-hijack, cortisol-duration, two-hour cutoff, and detox-reset claims. It is now a shorter association-not-causation guide with CDC, two original studies, Android controls, a private 60-second interrupt, and a near-top Stress Check bridge.
+- Observe 2026-08-31~09-06 KST; exclude deployment day and SG desktop Direct. Compare US Organic landings and `content_view → content_doomscroll_reset_view → content_doomscroll_reset_use/content_cta_click → test_start`. Wait for 20 qualified reset-view users; use 8% Stress Check click-user rate as the first diagnostic threshold.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
