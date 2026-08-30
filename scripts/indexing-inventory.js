@@ -8,6 +8,11 @@ const PROJECTS_ROOT = path.join(ROOT, 'projects');
 const ROOT_DOMAIN_ROOT = path.join(PROJECTS_ROOT, 'root-domain');
 const PORTAL_ROOT = path.join(PROJECTS_ROOT, 'portal');
 const ORIGIN = 'https://dopabrain.com';
+const EXPECTED_SITEMAPS = [
+  `${ORIGIN}/sitemap.xml`,
+  `${ORIGIN}/portal/sitemap.xml`,
+  `${ORIGIN}/portal/blog/sitemap.xml`,
+];
 const FOCUSED_QUICK_RAIL_URLS = new Set([
   `${ORIGIN}/portal/blog/en/kpop-positions-explained-guide.html`,
 ]);
@@ -113,6 +118,21 @@ function loadSitemapEntries() {
     ...parseSitemap(path.join(PORTAL_ROOT, 'sitemap.xml'), 'portal/sitemap.xml'),
     ...parseSitemap(path.join(PORTAL_ROOT, 'blog', 'sitemap.xml'), 'portal/blog/sitemap.xml'),
   ];
+}
+
+function missingRobotsSitemaps(robotsText) {
+  const declared = new Set(
+    Array.from(String(robotsText || '').matchAll(/^\s*Sitemap\s*:\s*(\S+)\s*$/gim), (match) => match[1])
+  );
+  return EXPECTED_SITEMAPS.filter((url) => !declared.has(url));
+}
+
+function assertSitemapDiscovery() {
+  const robotsPath = path.join(ROOT_DOMAIN_ROOT, 'robots.txt');
+  const missing = missingRobotsSitemaps(readText(robotsPath));
+  if (missing.length > 0) {
+    throw new Error(`robots.txt does not declare focused sitemap(s): ${missing.join(', ')}`);
+  }
 }
 
 function isPathInside(root, target) {
@@ -397,6 +417,14 @@ function runSelfTest() {
     assertSelfTest(!mapped.file, `unsafe URL mapped to a local file (${mapped.kind})`);
   }
   console.log('[PASS] encoded traversal and malformed URL paths are rejected');
+
+  const completeRobots = EXPECTED_SITEMAPS.map((url) => `Sitemap: ${url}`).join('\n');
+  assertSelfTest(missingRobotsSitemaps(completeRobots).length === 0, 'complete robots sitemap discovery failed');
+  assertSelfTest(
+    missingRobotsSitemaps(`Sitemap: ${EXPECTED_SITEMAPS[0]}`).length === 2,
+    'missing nested sitemap declarations were not detected'
+  );
+  console.log('[PASS] robots.txt declares every focused sitemap');
 }
 
 function extractHrefs(html) {
@@ -621,6 +649,7 @@ function main() {
     runSelfTest();
     return;
   }
+  assertSitemapDiscovery();
   const rawEntries = loadSitemapEntries();
   const unique = groupByUrl(rawEntries);
   const results = Array.from(unique.values()).map((entry) => auditUrl(entry, entry.sources.length));
