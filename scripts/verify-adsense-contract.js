@@ -20,7 +20,6 @@ const FOCUSED_INDEXING_PAGES = Object.freeze([
   ['ja', 'reaction-time-test-guide.html'],
   ['ko', 'blood-type-personality-guide.html'],
   [null, 'mbti-compatibility.html'],
-  [null, 'mbti-love-compatibility-2026.html'],
   ['zh', 'cognitive-distortions-list.html'],
   ['zh', 'dopamine-detox-guide-reset-brain.html'],
   ['zh', 'hsp-test-guide.html'],

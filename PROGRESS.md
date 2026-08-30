@@ -24,13 +24,13 @@ Updated: 2026-08-30
 - 동일 28일 비교(8월 2~29일 vs 7월 5일~8월 1일): AdSense `$2.90 vs $2.15`, Organic `680 vs 654` sessions. Pageviews `14,379 vs 5,560` 급증에도 Page RPM은 `$0.20 vs $0.39`로 하락해 유효 검색·행동 개선을 우선한다.
 - SG Desktop scan 제외 유효 RPM 약 `$0.91`; KR RPM 약 `$3.21`.
 - `$1/day`에는 현 효율 약 1,100 유효 PV/day, KR 수준 약 300 PV/day가 필요하다.
-- 주간 Organic 175 sessions, Google Organic 1 session. 집중 sitemap은 43 unique URLs다.
+- 주간 Organic 175 sessions, Google Organic 1 session. 집중 sitemap은 42 unique URLs다.
 - AdSense 주소 PIN 미인증 지급 보류가 남아 있다.
 
 ## Current release
 
 - 2026-08-30: `robots.txt` declares all 3 focused sitemaps. All 1,992 blog HTML files now follow the Auto Ads-only contract: no manual unit/push, static ad surface, or synthetic impression event. The verifier preserves title/H1/canonical/robots/JSON-LD/visible content, requires idempotent cleanup, and compiles all 4,641 remaining inline scripts.
-- 2026-08-30: Local and production checks cover all 43 submitted URLs and 51 linked scripts under the Auto Ads-only contract, with one exact Google H5 `adBreak/adConfig` bootstrap exception. Cleanup changed 18 submitted pages; source/runtime isolation, compilation, idempotence, and invariant preservation prevent the former manual-unit requirement and verifier false positives from returning.
+- 2026-08-30: Local and production checks cover all 42 submitted URLs and their linked scripts under the Auto Ads-only contract, with one exact Google H5 `adBreak/adConfig` bootstrap exception. Cleanup changed 18 submitted pages; source/runtime isolation, compilation, idempotence, and invariant preservation prevent the former manual-unit requirement and verifier false positives from returning.
 - 2026-08-30: Brain Type, 2048, and Portal search descriptions are now 149/143/139 characters; unsupported 2048 leaderboard wording is gone, and Portal exposes the exact 12-locale plus x-default hreflang set. The shared test now counts real link tags instead of selector text.
 - 2026-08-30: Primary Stress Check no longer claims an unsupported scientific basis or a fabricated 4.6/320 aggregate rating. Its 139-character self-assessment description and JSON-LD trust contract are source-tested before the functional plan journey.
 - 2026-08-30: Removed unsupported aggregate ratings from the remaining eight submitted apps (1,250–5,280 claimed ratings). Strict indexing inventory now treats any aggregate rating without a visible first-party review system as a high-risk failure.
@@ -39,6 +39,7 @@ Updated: 2026-08-30
 - 2026-08-30: IQ's 2026-08-23–29 GA4 evidence was only 6 landing sessions and 10 pageviews, with no path-level AdSense channel result. The app now preserves IQ-style puzzle search intent but replaces the arbitrary 85–145 conversion, speed bonus, population percentiles, and genius/special-education labels with the exact correct-answer percentage and `x of 20` session summary in all 12 locales.
 - 2026-08-30: Mental Age's 2026-08-23–29 evidence was 3 landing sessions but 22 pageviews from 7 users. The route and seven mini-games remain, while the fabricated 5–80 age conversion, population percentile, 2,340+ scans, hidden accuracy FAQ, and age-number share image are replaced by the exact rounded mean of seven visible 0–100 scores, category breakdown, and explicit entertainment limitation. The 12-locale Portal hub no longer promises accurate/science-based results, and the four indexable EN/ES/PT/ZH guides now explain the exact formula and limits; other guide locales fall back to verified EN until rewritten.
 - 2026-08-30: Palworld Server Settings gained 15 Organic landings from 0 in the prior 28-day window, including 13 KR sessions, but KR mobile was 0/4 engaged and only 1 of 138 tool users copied settings. The mobile copy action moved from 4,521px to 1,136px, the guide rail moved after the generator, official docs were refreshed to 1.0.3, and the broken PvP preset now emits all three required flags. Campaign parameters no longer pollute canonical URLs; hidden FAQ schema was removed.
+- 2026-08-30: Two Korean MBTI compatibility articles had 0.714 text-token Jaccard overlap and split recent Organic landings 18/11. The stronger evergreen route now owns the intent with a lightweight four-axis comparison, visible no-best-match boundary, official Myers-Briggs source, and near-top MBTI Love CTA; the dated duplicate is a noindex redirect and was removed from the sitemap/catalog. A verifier defect that required ads on retained redirect stubs was fixed, and qualified comparison exposure now observes the usable picker rather than an over-tall mobile section.
 
 - 홈은 3 primary, 6 focused picks, Culture Signal 1개, archive 1개만 노출한다. Culture Signal은 첫 viewport 안의 compact rail로 올렸고 2026-08-29를 새 launch date로 삼는다.
 - 첫 Culture Signal은 오딧세이·스파이더맨 해설, 전용 OG 이미지, 귀환/리셋 선택 카드, Brain Type·2048 bridge를 제공한다.
@@ -53,7 +54,7 @@ Updated: 2026-08-30
 - HSP 결과는 진단·유형 판정이 아닌 감각 선호 점검으로 정리했다. 결과 바로 아래에는 5분 감각 리셋 하나만 primary로 두고 map, fabricated percentile·rating·types, manual ads를 제거했다.
 - HSP 선택값·결과값은 URL이나 telemetry로 보내지 않으며 개인정보 고지와 실제 동작을 맞췄다. 12 locale, EN fallback과 same-origin service worker cache를 유지하고, 연결된 12 locale 가이드의 수동 광고와 합성 광고 노출 이벤트도 제거했다.
 - Daily Tarot는 54,000+ 허위 이용량·2,800건 평점 schema, 가짜 광고 대기창·수동 slot·합성 광고 노출 이벤트를 제거했다. 규칙 기반 출력을 AI라고 부르지 않고 12 locale의 심화 성찰 경로로 정리했다.
-- Blog crawl surface는 90일 Organic Search 2세션 이상과 sitemap 글만 유지한다. 리디렉션 205개를 보호하고 175개를 indexable로 남겼으며, 무성과 일반 글 1,598개는 reversible `noindex,follow`로 축소했다.
+- Blog crawl surface는 90일 Organic Search 2세션 이상과 sitemap 글만 유지한다. 리디렉션 206개를 보호하고 174개를 indexable로 남겼으며, 무성과 일반 글 1,598개는 reversible `noindex,follow`로 축소했다.
 - 광고 계약은 Auto Ads loader 하나만 허용한다. `data-ad-slot="auto"`, 임의 manual unit/push, DOM 기반 유료 노출 주장은 금지한다.
 - 도구 카탈로그의 화면 43개와 ItemList 33개 불일치를 43개 동일 순서·URL·이름으로 맞췄다. 12개 언어, canonical/hreflang, schema, sitemap/robots와 모바일 44px·overflow 기준을 유지한다.
 
@@ -71,7 +72,8 @@ Updated: 2026-08-30
 - Daily Tarot는 12 locale 신뢰·Auto Ads 계약과 6개 결함 변이, ES 자동 카드 뽑기→심화 성찰 runtime·44px·exact-once 이벤트를 검증한다.
 - Mental Age는 앱·Portal 허브 12 locale, 검증된 guide fallback, EN/ES/PT/ZH Article/FAQ schema, 평균값 40/14, 모바일 overflow 0과 결함 변이 9종을 검증한다.
 - Palworld Server Settings는 12 locale, 공식 PvP 3-flag 출력, 수치 상하한, clean canonical, mobile primary 순서·overflow, sitemap freshness, qualified exposure/copy exact-once와 결함 변이 9종을 검증한다.
-- Blog focus 검증은 1,978개 article·205개 redirect·175개 keep·1,598개 noindex와 keep 전부의 Auto Ads 단일 경로를 고정한다.
+- MBTI 궁합 focus는 canonical/redirect/catalog/sitemap, 공식 출처·비결정론 경계, 4개 KO quick route, 2개 viewport·44px·overflow, 선택값 비수집, qualified exposure/use/CTA exact-once와 결함 변이 10종을 검증한다.
+- Blog focus 검증은 1,978개 article·206개 redirect·174개 keep·1,598개 noindex와 실제 indexable keep 전부의 Auto Ads 단일 경로를 고정한다.
 - `npm run harness`와 focused 6개 runtime smoke가 통합 회귀 기준이다. 브라우저 검증 서버는 안전 포트 범위를 사용해 OS 임시 포트의 `ERR_UNSAFE_PORT` 오탐을 막는다.
 
 ## Next decision
@@ -83,6 +85,7 @@ Updated: 2026-08-30
 - K-pop 변경도 8월 30일~9월 5일을 별도 관찰한다. SG desktop Direct와 배포일을 제외하고 `content_view → quick/CTA/bridge click → roster_generate 또는 kpop_position_result_view`를 본다. 최소 20 bridge users 전에는 결론내리지 않고 click user rate 8%를 1차 기준으로 삼는다.
 - HSP의 기존 reset/map view 각 41 users·click 0은 결과 화면이 숨겨진 render 시점에 발생해 유효 기준선이 아니다. 8월 29일 배포일을 제외한 8월 30일~9월 5일 KST를 새 관찰창으로 삼아 `result_view → sensory_reset_cta_view → sensory_reset_cta_click → sensory_reset_view → sensory_reset_generate`를 본다. CTA view는 실제 50% intersection에서 exact-once로 기록하며, 실제 노출 20 users 전에는 결론내리지 않고 click-user rate 8%를 1차 목표로 둔다.
 - Palworld는 8월 31일~9월 6일 KST를 별도 관찰창으로 삼아 `palworld_server_tool_view → palworld_generator_view → palworld_preset_select/setting_change → palworld_copy`를 본다. SG desktop·배포일을 제외하고 실제 generator 노출 20 users 전에는 결론내리지 않으며 copy-user rate 8%를 1차 목표로 둔다.
+- MBTI 궁합 canonical은 8월 31일~9월 6일 KST를 별도 관찰창으로 삼아 두 구 URL의 Organic landing 합계와 `content_view → content_mbti_compare_view → content_mbti_compare_use/content_cta_click`을 본다. SG desktop·배포일을 제외하고 qualified compare view 20 users 전에는 결론내리지 않는다.
 - 다음 트렌드 글 후보는 GTA VI 공식정보 글이 1순위, S26 FE 구매검토 글은 후순위다. 두 spec·상호작용 검증·오리지널 OG draft는 준비됐고 첫 7일 판정 뒤 한 편만 공개한다.
 
 - 7 complete days 미만: `TOO_EARLY`; 유입·색인 증거 없음: `DISCOVERY_HOLD`.
@@ -90,4 +93,4 @@ Updated: 2026-08-30
 - 그 외는 `ITERATE`; `SUPPRESS`는 14일 이후 Organic 20·content view 20 표본과 신뢰 가능한 실패가 함께 있을 때만 허용한다.
 - AdSense 도메인 RPM은 proxy로만 표시하고 승격 점수에 넣지 않는다. `SUPPRESS`는 홍보·집중 discovery만 제거하고 URL은 유지한다.
 - 수동 운영 잔여는 AdSense 주소 PIN과 과거 Git 이력의 API key 폐기·회전이다. 현재 tree의 추적 파일 secret scan은 통과하며 값은 문서에 기록하지 않는다.
-- 제출 sitemap의 43개 URL은 indexing inventory 이슈 0건이다. 기존 14개 가이드의 invalid manual-ad markup·수동 push·DOM 기반 가짜 노출 이벤트를 제거했고, strict inventory가 재발 시 실패한다.
+- 제출 sitemap의 42개 URL은 indexing inventory 이슈 0건이다. 기존 14개 가이드의 invalid manual-ad markup·수동 push·DOM 기반 가짜 노출 이벤트를 제거했고, strict inventory가 재발 시 실패한다.

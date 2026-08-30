@@ -75,6 +75,13 @@
 - Official Palworld Server Guide is now 1.0.3. The local PvP preset enabled only 1 of 3 required flags, and mobile placed the copy action 4,521px below the top.
 - Decision: repair the existing indexed utility instead of publishing another trend URL. Observe 2026-08-31~09-06 KST; exclude deployment day and SG desktop, require 20 qualified generator users, and use 8% copy-user rate as the first threshold.
 
+## 2026-08-30 MBTI compatibility intent consolidation
+
+- Equal 28-day Organic landing evidence: evergreen `/portal/blog/mbti-compatibility.html` moved `7 → 18` sessions with `3 → 7` engaged; dated `/portal/blog/mbti-love-compatibility-2026.html` moved `8 → 11` with `2 → 8` engaged. Their text-token Jaccard overlap was 0.714.
+- The evergreen route had the stronger current landing signal, while both articles targeted the same Korean compatibility intent. The dated route is now a noindex redirect and is absent from the sitemap/catalog.
+- The 625 MBTI exception events were excluded as SG desktop scan noise: the sitewide spike was concentrated on 2026-08-06, recent MBTI exceptions were zero, and KO mobile/EN desktop production journeys had no page errors.
+- Decision: observe 2026-08-31~09-06 KST; exclude deployment day and SG desktop, require 20 qualified comparison-view users, and compare the combined Organic landings of both former routes plus compare-use/CTA rates.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

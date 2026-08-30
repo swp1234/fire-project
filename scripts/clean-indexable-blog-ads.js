@@ -4,7 +4,7 @@ const path = require('path');
 const vm = require('vm');
 const { removeInvalidStaticAds } = require('./upgrade-blog-indexing-batch');
 const { inspectHtml, verifyHtml } = require('./verify-adsense-contract');
-const { PORTAL, loadKeepPaths } = require('./blog-indexing-focus');
+const { PORTAL, isRedirectStub, loadKeepPaths } = require('./blog-indexing-focus');
 
 const ADSENSE_CLIENT = 'ca-pub-3600813755953882';
 
@@ -288,6 +288,7 @@ function run({ apply = false } = {}) {
   let inlineScripts = 0;
   let inventoryDirtyBefore = 0;
   let syntheticBefore = 0;
+  let retainedRedirectsSkipped = 0;
 
   for (const file of listHtml(blogRoot)) {
     const original = fs.readFileSync(file, 'utf8');
@@ -318,6 +319,10 @@ function run({ apply = false } = {}) {
     }
     const item = pending.get(file);
     const original = item ? item.original : fs.readFileSync(file, 'utf8');
+    if (isRedirectStub(original, pagePath)) {
+      retainedRedirectsSkipped += 1;
+      continue;
+    }
     const before = inspectHtml(original);
     if (before.invalidAutoSlots || before.manualUnits || before.manualPushes || before.staticAdSurfaces || before.paidImpressionClaims) dirtyBefore += 1;
     try {
@@ -333,7 +338,7 @@ function run({ apply = false } = {}) {
   const changed = [...pending.values()].filter((item) => item.cleaned !== item.original);
   if (apply) for (const item of changed) writeWithRetry(item.file, item.cleaned);
   if (!apply && changed.length) fail(`${changed.length} blog page(s) still require ad cleanup; run with --apply`);
-  console.log(`[PASS] blog ad inventory: scanned=${pending.size}, inlineScripts=${inlineScripts}, dirtyBefore=${inventoryDirtyBefore}, syntheticBefore=${syntheticBefore}; retained=${keep.size}, retainedDirtyBefore=${dirtyBefore}, changed=${apply ? changed.length : 0}`);
+  console.log(`[PASS] blog ad inventory: scanned=${pending.size}, inlineScripts=${inlineScripts}, dirtyBefore=${inventoryDirtyBefore}, syntheticBefore=${syntheticBefore}; snapshotPaths=${keep.size}, indexableRetained=${keep.size - retainedRedirectsSkipped}, retainedRedirectsSkipped=${retainedRedirectsSkipped}, retainedDirtyBefore=${dirtyBefore}, changed=${apply ? changed.length : 0}`);
 }
 
 function main() {
