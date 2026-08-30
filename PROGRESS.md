@@ -29,6 +29,7 @@ Updated: 2026-08-30
 ## Current release
 
 - 2026-08-30: `robots.txt` declares all 3 focused sitemaps. All 1,992 blog HTML files now follow the Auto Ads-only contract: no manual unit/push, static ad surface, or synthetic impression event. The verifier preserves title/H1/canonical/robots/JSON-LD/visible content, requires idempotent cleanup, and compiles all 4,641 remaining inline scripts.
+- 2026-08-30: All 43 submitted URLs and 51 linked local scripts now follow the same Auto Ads-only contract. Cleanup changed 18 submitted pages; strict inventory, linked-script compilation, idempotence, invariant preservation, and the Stress runtime contract prevent the former manual-unit requirement from returning.
 
 - 홈은 3 primary, 6 focused picks, Culture Signal 1개, archive 1개만 노출한다. Culture Signal은 첫 viewport 안의 compact rail로 올렸고 2026-08-29를 새 launch date로 삼는다.
 - 첫 Culture Signal은 오딧세이·스파이더맨 해설, 전용 OG 이미지, 귀환/리셋 선택 카드, Brain Type·2048 bridge를 제공한다.

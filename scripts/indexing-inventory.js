@@ -320,10 +320,16 @@ function assessQuickRail(html, pageUrl = '') {
 
 function assessAdsense(html) {
   const source = String(html || '').replace(/<!--[\s\S]*?-->/g, '');
+  const directLoaders = Array.from(source.matchAll(/<script\b[^>]*\bsrc\s*=\s*["'][^"']*pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=([^"'&\s>]+)[^"']*["'][^>]*>\s*<\/script>/gi));
+  const managedLoaders = countMatches(source, /<script\b[^>]*\bsrc\s*=\s*["'][^"']*\/portal\/js\/ad-loader\.js[^"']*["'][^>]*>\s*<\/script>/gi);
   return {
-    hasLoader: /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-/i.test(source)
-      || /\/portal\/js\/ad-loader\.js/i.test(source),
+    directLoaderClients: directLoaders.map((match) => match[1]),
+    loaderCount: directLoaders.length + managedLoaders,
     invalidAutoSlotCount: countMatches(source, /data-ad-slot\s*=\s*["']auto["']/gi),
+    manualPushCount: countMatches(source, /\(?\s*(?:window\.)?adsbygoogle\s*=\s*window\.adsbygoogle\s*\|\|\s*\[\]\s*\)?\s*\.push\s*\(/gi),
+    manualUnitCount: countMatches(source, /<ins\b[^>]*\bclass\s*=\s*["'][^"']*\badsbygoogle\b[^"']*["'][^>]*>/gi),
+    staticSurfaceCount: countMatches(source, /\bdata-ad-surface\s*=/gi),
+    syntheticImpressionCount: countMatches(source, /\bcontent_ad_impression\b/gi),
   };
 }
 
@@ -391,15 +397,19 @@ function runSelfTest() {
   console.log('[PASS] focused rail requires exactly two internal cards with telemetry');
 
   const autoAdsOnly = assessAdsense('<script src="/portal/js/ad-loader.js"></script>');
-  assertSelfTest(autoAdsOnly.hasLoader && autoAdsOnly.invalidAutoSlotCount === 0, 'valid Auto Ads-only contract failed');
+  assertSelfTest(autoAdsOnly.loaderCount === 1 && autoAdsOnly.invalidAutoSlotCount === 0, 'valid Auto Ads-only contract failed');
   const invalidManualUnit = assessAdsense('<script src="/portal/js/ad-loader.js"></script><ins class="adsbygoogle" data-ad-slot="auto"></ins>');
-  assertSelfTest(invalidManualUnit.hasLoader && invalidManualUnit.invalidAutoSlotCount === 1, 'invalid auto slot was not detected');
+  assertSelfTest(invalidManualUnit.loaderCount === 1 && invalidManualUnit.invalidAutoSlotCount === 1 && invalidManualUnit.manualUnitCount === 1, 'invalid auto slot was not detected');
+  const numericManualUnit = assessAdsense('<script src="/portal/js/ad-loader.js"></script><ins class="adsbygoogle" data-ad-slot="1234567890"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>');
+  assertSelfTest(numericManualUnit.manualUnitCount === 1 && numericManualUnit.manualPushCount === 1, 'numeric manual unit or push was not detected');
+  const wrongClient = assessAdsense('<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0000000000000000"></script>');
+  assertSelfTest(wrongClient.loaderCount === 1 && wrongClient.directLoaderClients[0] === 'ca-pub-0000000000000000', 'direct loader client was not captured');
   const missingLoader = assessAdsense('<main>content</main>');
-  assertSelfTest(!missingLoader.hasLoader && missingLoader.invalidAutoSlotCount === 0, 'missing loader classification failed');
+  assertSelfTest(missingLoader.loaderCount === 0 && missingLoader.invalidAutoSlotCount === 0, 'missing loader classification failed');
   const commentOnly = assessAdsense('<!-- <script src="/portal/js/ad-loader.js"></script><ins data-ad-slot="auto"></ins> -->');
-  assertSelfTest(!commentOnly.hasLoader && commentOnly.invalidAutoSlotCount === 0, 'commented ad markup changed the contract');
+  assertSelfTest(commentOnly.loaderCount === 0 && commentOnly.invalidAutoSlotCount === 0, 'commented ad markup changed the contract');
   const loaderWithCommentDecoy = assessAdsense('<script src="/portal/js/ad-loader.js"></script><!-- <ins data-ad-slot="auto"></ins> -->');
-  assertSelfTest(loaderWithCommentDecoy.hasLoader && loaderWithCommentDecoy.invalidAutoSlotCount === 0, 'comment decoy produced a false ad issue');
+  assertSelfTest(loaderWithCommentDecoy.loaderCount === 1 && loaderWithCommentDecoy.invalidAutoSlotCount === 0, 'comment decoy produced a false ad issue');
   console.log('[PASS] Auto Ads loader and invalid manual slot contracts are distinguished');
   console.log('[PASS] commented ad markup is excluded from the DOM contract');
 
@@ -534,12 +544,19 @@ function auditUrl(entry, duplicateCount) {
       `blog page has ${quickRail.quickCardCount} static quick cards; expected at least ${quickRail.minimumQuickCards}`
     );
   }
-  if (!isRedirect && mapped.kind === 'blog') {
+  if (!isRedirect) {
     const adsense = assessAdsense(html);
-    if (!adsense.hasLoader) addIssue(issues, 'missing_adsense_loader', 'medium', 'blog page has no Auto Ads loader');
+    if (adsense.loaderCount !== 1) addIssue(issues, 'invalid_adsense_loader_count', 'medium', `expected one Auto Ads loader, found ${adsense.loaderCount}`);
+    if (adsense.directLoaderClients.some((client) => client !== 'ca-pub-3600813755953882')) {
+      addIssue(issues, 'invalid_adsense_client', 'high', 'direct Auto Ads loader uses the wrong client');
+    }
     if (adsense.invalidAutoSlotCount > 0) {
       addIssue(issues, 'invalid_adsense_auto_slot', 'medium', 'data-ad-slot="auto" is not a valid manual AdSense unit');
     }
+    if (adsense.manualUnitCount > 0) addIssue(issues, 'manual_adsense_unit', 'medium', `${adsense.manualUnitCount} manual AdSense unit(s) violate the Auto Ads-only contract`);
+    if (adsense.manualPushCount > 0) addIssue(issues, 'manual_adsense_push', 'medium', `${adsense.manualPushCount} manual adsbygoogle.push call(s) violate the Auto Ads-only contract`);
+    if (adsense.staticSurfaceCount > 0) addIssue(issues, 'static_ad_surface', 'medium', `${adsense.staticSurfaceCount} static ad surface marker(s) remain`);
+    if (adsense.syntheticImpressionCount > 0) addIssue(issues, 'synthetic_ad_impression', 'high', 'DOM telemetry cannot prove a paid AdSense impression');
   }
   if (!isRedirect && mapped.kind === 'blog' && looksMojibake(html)) addIssue(issues, 'mojibake_text', 'high', 'page text appears mojibake/corrupted');
   if (brokenInternalLinks.length > 0) addIssue(issues, 'broken_internal_links', 'high', `broken internal links: ${brokenInternalLinks.slice(0, 5).join(', ')}`);
@@ -694,4 +711,6 @@ function main() {
   if (report.written) console.log(`\nReport: ${report.written.markdown}`);
 }
 
-main();
+if (require.main === module) main();
+
+module.exports = { assessAdsense, loadSitemapEntries, mapUrlToLocalPath };

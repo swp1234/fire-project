@@ -350,4 +350,14 @@ if (require.main === module) {
   }
 }
 
-module.exports = { cleanHtml, removeFakeImpressionCalls, removeFakeImpressionLoops, removeManualPushCalls };
+module.exports = {
+  ADSENSE_CLIENT,
+  assertCleanupInvariants,
+  cleanHtml,
+  inspectHtml,
+  removeFakeImpressionCalls,
+  removeFakeImpressionLoops,
+  removeManualPushCalls,
+  verifyInlineScriptSyntax,
+  verifyInventoryHtml,
+};

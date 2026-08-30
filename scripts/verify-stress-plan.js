@@ -55,7 +55,11 @@ async function run() {
             days: document.querySelectorAll('.day-card').length,
             focus: document.querySelector('#focus-select')?.value,
             level: document.querySelector('#level-select')?.value,
-            adCount: document.querySelectorAll('.adsbygoogle').length,
+            autoAdsClients: Array.from(document.querySelectorAll(
+                'script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]'
+            )).map(script => new URL(script.src).searchParams.get('client')),
+            manualAdCount: document.querySelectorAll('ins.adsbygoogle').length,
+            staticAdSurfaceCount: document.querySelectorAll('[data-ad-surface]').length,
             overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
             events: window.dataLayer
                 .map(item => item?.event || (item?.[0] === 'event' ? item[1] : null))
@@ -93,7 +97,13 @@ async function run() {
         if (initial.days !== 7) failures.push(`expected 7 day cards, received ${initial.days}`);
         if (initial.focus !== 'work') failures.push(`expected work focus, received ${initial.focus}`);
         if (initial.level !== 'high') failures.push(`expected high level, received ${initial.level}`);
-        if (initial.adCount < 1) failures.push('expected at least one AdSense surface');
+        if (initial.autoAdsClients.length !== 1 || initial.autoAdsClients[0] !== 'ca-pub-3600813755953882') {
+            failures.push(`expected one official Auto Ads loader, received ${initial.autoAdsClients.join(', ') || 'none'}`);
+        }
+        if (initial.manualAdCount !== 0) failures.push(`expected no manual ad units, received ${initial.manualAdCount}`);
+        if (initial.staticAdSurfaceCount !== 0) {
+            failures.push(`expected no static ad surfaces, received ${initial.staticAdSurfaceCount}`);
+        }
         if (initial.overflow > 0) failures.push(`mobile overflow is ${initial.overflow}px`);
         if (!initial.events.includes('stress_plan_view')) failures.push('stress_plan_view was not tracked');
         if (progress !== '1 / 7') failures.push(`expected progress 1 / 7, received ${progress}`);
