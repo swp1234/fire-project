@@ -35,6 +35,7 @@ Updated: 2026-08-30
 - 2026-08-30: Removed unsupported aggregate ratings from the remaining eight submitted apps (1,250–5,280 claimed ratings). Strict indexing inventory now treats any aggregate rating without a visible first-party review system as a high-risk failure.
 - 2026-08-30: Blood Type and MBTI Love no longer simulate ad viewing or label deterministic copy as AI/premium output. Their detailed reflection and relationship notes now open immediately in all 12 locales; a 7-pattern mutation scan and two mobile result journeys enforce the contract.
 - 2026-08-30: IQ and Zodiac Match now label deterministic output as detailed notes instead of AI analysis or ad-gated premium content. IQ's broken grade-note lookup and question-20 completion path are fixed; exact 12-locale runtime values, UTF-8 integrity, and Zodiac's loader-to-i18n sequencing are enforced. Both child READMEs now document only the current trust contract.
+- 2026-08-30: IQ's 2026-08-23–29 GA4 evidence was only 6 landing sessions and 10 pageviews, with no path-level AdSense channel result. The app now preserves IQ-style puzzle search intent but replaces the arbitrary 85–145 conversion, speed bonus, population percentiles, and genius/special-education labels with the exact correct-answer percentage and `x of 20` session summary in all 12 locales.
 
 - 홈은 3 primary, 6 focused picks, Culture Signal 1개, archive 1개만 노출한다. Culture Signal은 첫 viewport 안의 compact rail로 올렸고 2026-08-29를 새 launch date로 삼는다.
 - 첫 Culture Signal은 오딧세이·스파이더맨 해설, 전용 OG 이미지, 귀환/리셋 선택 카드, Brain Type·2048 bridge를 제공한다.
