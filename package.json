@@ -34,6 +34,7 @@
     "verify:fake-unlock-gates": "node scripts/verify-fake-unlock-gates.js",
     "verify:rule-based-labels": "node scripts/verify-rule-based-labels.js",
     "verify:mental-age-trust": "node scripts/verify-mental-age-trust.js --mutations",
+    "verify:palworld-server-console": "node scripts/verify-palworld-server-console.js --mutations",
     "verify:blog-generator-interaction": "node scripts/verify-blog-generator-interaction.js"
   },
   "devDependencies": {

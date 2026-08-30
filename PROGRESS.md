@@ -21,6 +21,7 @@ Updated: 2026-08-30
 ## Baseline
 
 - 2026-08-22~28 AdSense: `$0.75`, 1,645 pageviews, 828 impressions, 23 clicks, Page RPM 약 `$0.46`.
+- 동일 28일 비교(8월 2~29일 vs 7월 5일~8월 1일): AdSense `$2.90 vs $2.15`, Organic `680 vs 654` sessions. Pageviews `14,379 vs 5,560` 급증에도 Page RPM은 `$0.20 vs $0.39`로 하락해 유효 검색·행동 개선을 우선한다.
 - SG Desktop scan 제외 유효 RPM 약 `$0.91`; KR RPM 약 `$3.21`.
 - `$1/day`에는 현 효율 약 1,100 유효 PV/day, KR 수준 약 300 PV/day가 필요하다.
 - 주간 Organic 175 sessions, Google Organic 1 session. 집중 sitemap은 43 unique URLs다.
@@ -37,6 +38,7 @@ Updated: 2026-08-30
 - 2026-08-30: IQ and Zodiac Match now label deterministic output as detailed notes instead of AI analysis or ad-gated premium content. IQ's broken grade-note lookup and question-20 completion path are fixed; exact 12-locale runtime values, UTF-8 integrity, and Zodiac's loader-to-i18n sequencing are enforced. Both child READMEs now document only the current trust contract.
 - 2026-08-30: IQ's 2026-08-23–29 GA4 evidence was only 6 landing sessions and 10 pageviews, with no path-level AdSense channel result. The app now preserves IQ-style puzzle search intent but replaces the arbitrary 85–145 conversion, speed bonus, population percentiles, and genius/special-education labels with the exact correct-answer percentage and `x of 20` session summary in all 12 locales.
 - 2026-08-30: Mental Age's 2026-08-23–29 evidence was 3 landing sessions but 22 pageviews from 7 users. The route and seven mini-games remain, while the fabricated 5–80 age conversion, population percentile, 2,340+ scans, hidden accuracy FAQ, and age-number share image are replaced by the exact rounded mean of seven visible 0–100 scores, category breakdown, and explicit entertainment limitation. The 12-locale Portal hub no longer promises accurate/science-based results, and the four indexable EN/ES/PT/ZH guides now explain the exact formula and limits; other guide locales fall back to verified EN until rewritten.
+- 2026-08-30: Palworld Server Settings gained 15 Organic landings from 0 in the prior 28-day window, including 13 KR sessions, but KR mobile was 0/4 engaged and only 1 of 138 tool users copied settings. The mobile copy action moved from 4,521px to 1,136px, the guide rail moved after the generator, official docs were refreshed to 1.0.3, and the broken PvP preset now emits all three required flags. Campaign parameters no longer pollute canonical URLs; hidden FAQ schema was removed.
 
 - 홈은 3 primary, 6 focused picks, Culture Signal 1개, archive 1개만 노출한다. Culture Signal은 첫 viewport 안의 compact rail로 올렸고 2026-08-29를 새 launch date로 삼는다.
 - 첫 Culture Signal은 오딧세이·스파이더맨 해설, 전용 OG 이미지, 귀환/리셋 선택 카드, Brain Type·2048 bridge를 제공한다.
@@ -68,6 +70,7 @@ Updated: 2026-08-30
 - HSP는 12 locale·i18n fallback·service worker, 결과→리셋 계층, 실제 50% intersection exact-once 노출, 개인정보·Auto Ads 계약과 결함 변이를 검증한다.
 - Daily Tarot는 12 locale 신뢰·Auto Ads 계약과 6개 결함 변이, ES 자동 카드 뽑기→심화 성찰 runtime·44px·exact-once 이벤트를 검증한다.
 - Mental Age는 앱·Portal 허브 12 locale, 검증된 guide fallback, EN/ES/PT/ZH Article/FAQ schema, 평균값 40/14, 모바일 overflow 0과 결함 변이 9종을 검증한다.
+- Palworld Server Settings는 12 locale, 공식 PvP 3-flag 출력, 수치 상하한, clean canonical, mobile primary 순서·overflow, sitemap freshness, qualified exposure/copy exact-once와 결함 변이 9종을 검증한다.
 - Blog focus 검증은 1,978개 article·205개 redirect·175개 keep·1,598개 noindex와 keep 전부의 Auto Ads 단일 경로를 고정한다.
 - `npm run harness`와 focused 6개 runtime smoke가 통합 회귀 기준이다. 브라우저 검증 서버는 안전 포트 범위를 사용해 OS 임시 포트의 `ERR_UNSAFE_PORT` 오탐을 막는다.
 
@@ -79,6 +82,7 @@ Updated: 2026-08-30
 - KR 두뇌훈련 bridge 변경도 같은 기간을 별도 기준선으로 관찰한다. Culture Signal 성과와 합산하지 않는다.
 - K-pop 변경도 8월 30일~9월 5일을 별도 관찰한다. SG desktop Direct와 배포일을 제외하고 `content_view → quick/CTA/bridge click → roster_generate 또는 kpop_position_result_view`를 본다. 최소 20 bridge users 전에는 결론내리지 않고 click user rate 8%를 1차 기준으로 삼는다.
 - HSP의 기존 reset/map view 각 41 users·click 0은 결과 화면이 숨겨진 render 시점에 발생해 유효 기준선이 아니다. 8월 29일 배포일을 제외한 8월 30일~9월 5일 KST를 새 관찰창으로 삼아 `result_view → sensory_reset_cta_view → sensory_reset_cta_click → sensory_reset_view → sensory_reset_generate`를 본다. CTA view는 실제 50% intersection에서 exact-once로 기록하며, 실제 노출 20 users 전에는 결론내리지 않고 click-user rate 8%를 1차 목표로 둔다.
+- Palworld는 8월 31일~9월 6일 KST를 별도 관찰창으로 삼아 `palworld_server_tool_view → palworld_generator_view → palworld_preset_select/setting_change → palworld_copy`를 본다. SG desktop·배포일을 제외하고 실제 generator 노출 20 users 전에는 결론내리지 않으며 copy-user rate 8%를 1차 목표로 둔다.
 - 다음 트렌드 글 후보는 GTA VI 공식정보 글이 1순위, S26 FE 구매검토 글은 후순위다. 두 spec·상호작용 검증·오리지널 OG draft는 준비됐고 첫 7일 판정 뒤 한 편만 공개한다.
 
 - 7 complete days 미만: `TOO_EARLY`; 유입·색인 증거 없음: `DISCOVERY_HOLD`.

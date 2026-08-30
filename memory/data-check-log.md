@@ -68,6 +68,13 @@
 - 일반 글 1,598개는 `noindex,follow`, redirect 205개는 유지했다. keep 175개 중 155개에 남은 수동 광고·합성 impression을 제거했다.
 - GSC URL 검사는 homepage만 indexed, 핵심 글과 앱은 `Crawled - currently not indexed`였다. sitemap 재제출 API는 scope 부족(403)으로 실행되지 않았다.
 
+## 2026-08-30 Palworld conversion reset
+
+- Equal 28-day comparison: AdSense earnings `$2.15 → $2.90`, pageviews `5,560 → 14,379`, Page RPM `$0.39 → $0.20`; Organic Search `654 → 680` sessions. Traffic volume rose without proportional search or yield growth.
+- Palworld Server Settings produced `0 → 15` Organic landing sessions; 13 were KR. KR mobile was 0/4 engaged, while path events showed 138 tool users, 1 copy user, and 1 preset user.
+- Official Palworld Server Guide is now 1.0.3. The local PvP preset enabled only 1 of 3 required flags, and mobile placed the copy action 4,521px below the top.
+- Decision: repair the existing indexed utility instead of publishing another trend URL. Observe 2026-08-31~09-06 KST; exclude deployment day and SG desktop, require 20 qualified generator users, and use 8% copy-user rate as the first threshold.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
