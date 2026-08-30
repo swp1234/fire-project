@@ -30,6 +30,7 @@ Updated: 2026-08-30
 
 ## Current release
 
+- IQ puzzle completion reset: equal-window Organic landing `6 → 10`, with 10/10 recent sessions engaged; nine were Korean Naver entries. The former 20 random English-only questions and per-question 30-second timer produced 25 starts but only 2 completions from 71 path users. The app is now ten fixed language-neutral number/symbol puzzles with no timer, 12 localized shells, a transparent `correct / 10 × 100` score, and private view/start/complete/share/related-click stages.
 - Japanese reaction time: Organic landing `5 → 6`, with 5/6 recent sessions engaged; path-wide history had 13 content users and 0 CTA users. The 55 KB guide is now an 11.9 KB same-device measurement guide with a private three-item preflight and direct Japanese auto-start route. The app removed fabricated rating/percentile/grade, AI/career interpretation, fake ad countdowns, synthetic engagement, and timing/result telemetry; it now reports only private view/start/complete stages.
 - Chinese HSP guide: equal-window Organic landing `8 → 7`, recent engaged 5/7 and 1,372 engagement seconds. Path-wide history already had 5 CTA users from 19 content users, so the working HSP intent and app were preserved. The guide alone was reduced from 32.6 KB to 17.6 KB, replacing “free diagnosis,” fixed prevalence, universal brain-signature, mandatory DOES criteria, hidden FAQ, and validated-test claims with a four-prompt private reflection, explicit research limits, three direct sources, and Chinese HSP auto-start.
 - Chinese cognitive distortions: Organic landing `3 → 8`, recent engaged 7/8, but path-wide meaningful CTA users were 0/29. The 47 KB generic CBT article and unrelated Animal Personality CTA are now a concise 15-pattern reference, private three-step thought check, and Chinese Stress Check auto-start. Stress Check removed fabricated 4,800-user proof, “validated”/AI-ad claims, hidden FAQ, synthetic engagement, result telemetry/query leakage, premature share events, and a nested-button click failure.
@@ -45,6 +46,7 @@ Updated: 2026-08-30
 
 ## Deployment and verification
 
+- IQ Test `7d72cc4`, Pages run `33306821791`: success. Live 12 locale mobile journeys plus Korean desktop completed all ten puzzles at 390/1440px; related click and successful share were exact-once, while answers, score, category, time, and result stayed out of URL and telemetry.
 - Reaction Test `6bc66ba`, Pages run `33305585877`; Portal `f2b7b67`, Pages run `33305633567`: success. Live 390/1440px guide setup view/use→CTA→Japanese auto-start→five-round completion passed; round times, average, grade, choices, and result values stayed out of URL and telemetry.
 - Portal `a8b552c`, Pages run `33304759366`: success. Live Chinese HSP guide→qualified view→four nested prompt clicks→CTA→ZH auto-start→five category completion passed at 390/1440px; choice and result values stayed out of telemetry.
 - Stress Check `61b1ad5`, Pages run `33303937981`; Portal `ad70b2d`, Pages run `33303973878`: success. Live Chinese thought check→CTA→ZH auto-start→15 answers→completion passed at 390/1440px with private telemetry.
@@ -55,9 +57,9 @@ Updated: 2026-08-30
 - Detox Timer `7941186`, Pages run `33299235567`: success.
 - Portal `4f1d455`, Pages run `33299275506`: success.
 - Spanish production journey: 390/1440px overflow 0, 44px targets, qualified guide view/use, exact CTA, linked ES 10-minute start, localized complete/abort, app view/start/outcome exact-once, live source/sitemap passed.
-- Full local regression: `logs/harness-workflow/2026-08-30T09-58-04-546Z.md`; focused runtime 6/6, submitted inventory 49/0 issues, Japanese reaction mutations 10/10.
+- Full local regression: `logs/harness-workflow/2026-08-30T10-24-37-448Z.md`; focused runtime 6/6, submitted inventory 49/0 issues, IQ completion mutations 10/10 and 13 linked journeys.
 - Previous production units: Chinese browser games Portal `5016b6b` / run `33298349084`; doomscrolling Portal `b67323d` / run `33297525976`; Future Self app `cc254c5`, Portal `77c052f`.
-- Main gates: `npm run harness -- --skip-analytics`, `npm run verify:ja-reaction-time`, `npm run verify:zh-hsp-guide`, `npm run verify:zh-cognitive-distortions`, `node scripts/indexing-inventory.js --strict`.
+- Main gates: `npm run harness -- --skip-analytics`, `npm run verify:iq-completion-reset`, `npm run verify:ja-reaction-time`, `npm run verify:zh-hsp-guide`, `node scripts/indexing-inventory.js --strict`.
 
 ## Observation windows
 
@@ -65,6 +67,7 @@ All windows exclude their deployment day and SG desktop Direct. Do not decide be
 
 | Path | Complete KST window | Funnel | First diagnostic |
 |---|---|---|---|
+| IQ puzzle | 2026-08-31~09-06 | `iq_puzzle_view → iq_puzzle_start → iq_puzzle_complete → iq_puzzle_related_click/iq_puzzle_share` | 20 real views; start 35%; start→complete 50%; complete→related 8% |
 | Japanese reaction time | 2026-08-31~09-06 | `content_view → content_ja_reaction_setup_view → content_ja_reaction_setup_use/content_cta_click → reaction_test_view → reaction_test_start → reaction_test_complete` | 20 qualified views; use/click 8%; linked start 50%; completion 50% |
 | Chinese HSP guide | 2026-08-31~09-06 | `content_view → content_zh_hsp_profile_view → content_zh_hsp_profile_use/content_cta_click → test_start → quiz_complete` | 20 qualified views; use/click 8%; linked start 50% |
 | Chinese cognitive distortions | 2026-08-31~09-06 | `content_view → content_zh_thought_check_view → content_zh_thought_check_use/content_cta_click → stress_intro_view → test_start → test_complete` | 20 qualified views; use/click 8%; linked start 50% |

@@ -160,6 +160,13 @@
 - The former 55 KB guide and destination used unsupported exact averages/rankings, professional and sports claims, a fabricated 4.3/1,420 rating, arbitrary grades and percentiles, AI personality/career interpretation, fake manual ads/countdown, synthetic engagement, and result telemetry. The 11.9 KB replacement explains browser/device timing limits with three direct sources and connects a private preflight to Japanese auto-start. The app records only view/start/complete stages and sends no round times, average, grade, or result values.
 - Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, and old synthetic events. Use `content_view → content_ja_reaction_setup_view → content_ja_reaction_setup_use/content_cta_click → reaction_test_view → reaction_test_start → reaction_test_complete`; wait for 20 qualified views, then use 8% use/click-user rate, 50% linked-start, and 50% completion as initial diagnostics.
 
+## 2026-08-30 IQ puzzle completion reset
+
+- `/iq-test` moved `6 → 10` equal-window Organic landing sessions and all ten recent sessions were engaged. Nine were Korean Naver entries (seven mobile, one desktop, one tablet); the remaining session was India desktop Bing. GSC returned no exact-page rows.
+- Across 2026-07-05~08-29 the path had 71 page-view users, 25 test-start users, 16 question-answer users with 155 answers, and only 2 completions. The historical start-to-complete rate was 8%; old `page_engage`, timer/scroll engagement, per-answer values, completion score, and AI-analysis events are excluded from the new baseline.
+- The UI claimed 12 locales, but all 20 random questions and choices were English, each had a 30-second timer, and a full run could take ten minutes. The replacement uses ten fixed number/symbol puzzles, no timer, real localized prompts and limits, one loader-only Auto Ads path, app-local caching, and private exact-once stage events. Answers, score, category counts, elapsed time, and result values are not transmitted.
+- Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, and the legacy events above. Use `iq_puzzle_view → iq_puzzle_start → iq_puzzle_complete → iq_puzzle_related_click/iq_puzzle_share`; wait for 20 real views, then use the old 35% view-to-start only as context, 50% start-to-complete as the first repair threshold, and 8% complete-to-related-click as the revenue-path threshold.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

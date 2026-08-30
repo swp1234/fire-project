@@ -171,8 +171,8 @@ async function runBrowser() {
       await page.goto(`http://127.0.0.1:${port}/iq-test/?lang=${language}`, { waitUntil: 'domcontentloaded' });
       await page.waitForFunction(() => !document.querySelector('#app-loader') || document.querySelector('#app-loader').classList.contains('hidden'));
       await page.waitForFunction(expected => document.documentElement.lang === expected, language);
-      const iqLabels = await page.locator('#btn-detail-notes, [data-i18n="results.detail_hint"], [data-i18n="results.detail_title"]').allInnerTexts();
-      const iqExpected = [iqLocales[language].results.detail_notes, iqLocales[language].results.detail_hint, iqLocales[language].results.detail_title];
+      const iqLabels = await page.locator('#btn-detail-notes, [data-i18n="results.detail_title"]').allInnerTexts();
+      const iqExpected = [iqLocales[language].results.detail_notes, iqLocales[language].results.detail_title];
       if (iqLabels.some(value => !value.trim() || value.includes('?') || AI_LABEL.test(value) || AD_GATE.test(value))) fail(`IQ ${language} locale runtime label failed`);
       if (JSON.stringify(iqLabels) !== JSON.stringify(iqExpected)) fail(`IQ ${language} locale runtime value mismatch`);
       if (await page.title() !== iqLocales[language].app.title) fail(`IQ ${language} locale title mismatch`);
@@ -191,7 +191,7 @@ async function runBrowser() {
 
     await page.goto(`http://127.0.0.1:${port}/iq-test/?lang=en`, { waitUntil: 'domcontentloaded' });
     await page.click('#btn-start');
-    for (let index = 0; index < 20; index += 1) {
+    for (let index = 0; index < 10; index += 1) {
       await page.waitForSelector('.option');
       await page.click('.option');
       await page.waitForTimeout(340);
@@ -213,7 +213,7 @@ async function runBrowser() {
     iq.elapsedMs = Date.now() - iqStart;
     const correctMatch = iq.correctText.match(/(\d+)\s+of\s+(\d+)/i);
     const transparentScore = correctMatch && iq.score === Math.round((Number(correctMatch[1]) / Number(correctMatch[2])) * 100);
-    if (!iq.text.includes('does not measure intelligence') || !transparentScore || iq.scoreLabel !== 'Puzzle Score' || iq.summary !== 'Session Summary' || iq.legacyPercentile || /\b(?:genius|superior|percentile)\b/i.test(`${iq.scoreLabel} ${iq.summary} ${iq.correctText}`) || AI_LABEL.test(iq.label) || iq.elapsedMs > 1000 || iq.overflow > 0) {
+    if (!iq.text.includes('does not measure intelligence') || !transparentScore || iq.scoreLabel !== iqLocales.en.results.score_label || iq.summary !== iqLocales.en.results.session_summary || iq.legacyPercentile || /\b(?:genius|superior|percentile)\b/i.test(`${iq.scoreLabel} ${iq.summary} ${iq.correctText}`) || AI_LABEL.test(iq.label) || iq.elapsedMs > 1000 || iq.overflow > 0) {
       fail(`IQ detailed-note runtime contract failed: ${JSON.stringify({ ...iq, text: iq.text.slice(0, 80) })}`);
     }
 
