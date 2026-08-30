@@ -42,6 +42,7 @@ npm run verify:future-self-funnel
 npm run verify:doomscrolling-bridge
 npm run verify:zh-browser-games
 npm run verify:es-dopamine-break
+npm run verify:es-typing-speed
 npm run verify:kst-date
 npm run verify:blog-generator-interaction -- --spec scripts/specs/trend-odyssey-spiderman-ko.json
 npm run harness
@@ -68,6 +69,7 @@ npm run harness:runtime
 - Doomscrolling: unsupported health claims, schema, four direct sources, private 60-second reset, qualified exposure, exact-once use, CTA click, and the Stress Check destination are enforced with 13 mutations and 390/1440px journeys.
 - Chinese browser games: unsupported rankings/ratings/ad claims are forbidden; nine Chinese query routes, four static quick cards, private 3/10/20-minute picker, qualified exposure, exact-once use, click attribution, and the 2048 destination are enforced with 13 mutations and 390/1440px journeys.
 - Spanish dopamine break: literal detox/reset and unsupported medical claims, fabricated usage/rating/AI proof, fake ad gates, duration telemetry, and cross-origin cache writes are forbidden. Four direct sources, private qualified guide interactions, the linked Spanish 10-minute preset, localized completion/abort, exact-once funnel events, successful-share attribution, 12 locale bundles, and 21 mutations are enforced at 390/1440px.
+- Spanish typing speed: the guide formula, three duration routes, qualified CTA exposure, four focused destinations, Spanish word/sentence prompts, attempted-word accuracy, linked entry without auto-start, private view/start/complete/share events, success-only sharing, local cache scope, 12 locale bundles, and 19 mutations are enforced at 390/1440px. Fabricated ratings, percentiles, grades, reward-inflated WPM, fake ad surfaces, duplicate page views, and result telemetry are forbidden.
 - Harness: portal locale·정적 품질·위 검증기·analytics smoke·focused runtime을 첫 실패에서 중단한다. 브라우저 검증 서버는 차단 포트를 피하는 20000–45000 범위만 사용한다.
 
 콘텐츠 기본 검증은 필요 시 다음을 함께 실행한다.

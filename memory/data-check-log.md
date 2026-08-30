@@ -110,6 +110,14 @@
 - The guide now frames the action as a voluntary screen break, cites Harvard Health, Cleveland Clinic, Android, and Apple, and states the health boundary. The timer accepts a linked Spanish 10-minute preset without auto-start, localizes completion/abort, records no duration or choice values, and caches only successful same-origin GET responses.
 - Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, and old synthetic events. Use `content_view → content_dopamine_break_view → content_dopamine_break_use/content_cta_click → detox_timer_view → detox_timer_start → detox_timer_complete/detox_timer_abort`; wait for 20 qualified break views, then use 8% click-user rate and 50% linked-view-to-start as initial diagnostics.
 
+## 2026-08-30 Spanish typing-speed funnel reset
+
+- `/portal/blog/es/test-velocidad-escritura-guia.html` moved `0 → 5` equal-window Organic landing sessions; all five were engaged, spread across Argentina, Mexico, Spain, and the United States on separate dates through Bing/Yahoo. GSC exact-page rows were absent.
+- Path-wide recent evidence had 9 content-view users and 5 CTA users, but also old synthetic `content_ad_impression`. `/typing-speed/` had 36 users and no start or completion event, so the destination could not prove that clicks became tests.
+- The 44 KB guide and app exposed unsupported professional ranges, a fabricated 4.5/850 rating, population percentiles, arbitrary grades, reward-inflated 2× WPM, duplicate page views, and a service worker that cached root-site paths instead of its app scope. The accuracy formula also penalized every unattempted prompt word.
+- The guide is now a focused Spanish measurement route with a visible formula and three durations. The app adds Spanish prompts, uses attempted words for accuracy, removes fabricated ranking/reward output, accepts allowlisted linked entry without auto-start, records private exact-once view/start/complete/share stages, and caches successful same-origin app requests only.
+- Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, and old synthetic events. Use `content_view → content_typing_test_view → content_cta_click → typing_test_view → typing_test_start → typing_test_complete/typing_test_share`; wait for 20 qualified guide views, then use 8% CTA-user rate, 50% linked-view-to-start, and completion as diagnostics.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

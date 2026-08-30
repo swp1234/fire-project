@@ -40,6 +40,7 @@
     "verify:doomscrolling-bridge": "node scripts/verify-doomscrolling-bridge.js --mutations",
     "verify:zh-browser-games": "node scripts/verify-zh-browser-games.js --mutations",
     "verify:es-dopamine-break": "node scripts/verify-es-dopamine-break.js --mutations",
+    "verify:es-typing-speed": "node scripts/verify-es-typing-speed.js --mutations",
     "verify:blog-generator-interaction": "node scripts/verify-blog-generator-interaction.js"
   },
   "devDependencies": {
