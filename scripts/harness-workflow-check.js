@@ -212,6 +212,7 @@ async function main() {
     ['root focus regression', process.execPath, ['scripts/verify-root-focus.js', '--no-screenshot']],
     ['root verifier mutations', process.execPath, ['scripts/verify-root-focus-mutations.js']],
     ['brain trust and mutations', process.execPath, ['scripts/verify-brain-type-trust.js', '--mutations']],
+    ['mental-age trust and mutations', process.execPath, ['scripts/verify-mental-age-trust.js', '--mutations']],
     ['brain training bridge mutations', process.execPath, ['scripts/verify-brain-training-bridge.js', '--mutations']],
     ['2048 ad policy mutations', process.execPath, ['scripts/verify-2048-ad-policy.js', '--mutations']],
     ['ZH 2048 guide mutations', process.execPath, ['scripts/verify-zh-2048-guide.js', '--mutations']],
