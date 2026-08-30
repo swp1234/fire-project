@@ -118,6 +118,13 @@
 - The guide is now a focused Spanish measurement route with a visible formula and three durations. The app adds Spanish prompts, uses attempted words for accuracy, removes fabricated ranking/reward output, accepts allowlisted linked entry without auto-start, records private exact-once view/start/complete/share stages, and caches successful same-origin app requests only.
 - Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, and old synthetic events. Use `content_view → content_typing_test_view → content_cta_click → typing_test_view → typing_test_start → typing_test_complete/typing_test_share`; wait for 20 qualified guide views, then use 8% CTA-user rate, 50% linked-view-to-start, and completion as diagnostics.
 
+## 2026-08-30 French Brain Type trust and conversion reset
+
+- `/portal/blog/fr/test-type-cerveau.html` moved `3 → 8` equal-window Organic landing sessions; 5 recent sessions were engaged. The small but geographically varied Bing/Ecosia sample came from France, Belgium, and Morocco, while path-wide history had 12 content-view users and only 1 CTA user.
+- The former guide presented unsupported left/right-brain and career-determining claims and retained hidden generic FAQ content. The app also duplicated `page_view`, emitted synthetic engagement, and sent answer choice, result type, and shared URL data to analytics.
+- The replacement states that the result is a fixed summary of 10 binary choices rather than a brain scan, intelligence measure, diagnosis, or career assessment. It cites the 1,011-participant Nielsen et al. lateralization study, exposes the scoring rule, links directly to the French app, and records only private stage events. External share success is counted only when a share window actually opens or clipboard write succeeds.
+- Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, and old synthetic events. Use `content_view → content_fr_brain_type_view → content_cta_click → test_start → test_complete`; wait for 20 qualified profile views, then use 8% CTA-user rate and 50% linked-view-to-start as initial diagnostics.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

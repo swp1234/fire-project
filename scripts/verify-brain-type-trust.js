@@ -4,6 +4,7 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const PROJECT = path.join(ROOT, 'projects', 'brain-type');
+const PORTAL = path.join(ROOT, 'projects', 'portal');
 const LANGS = ['ko', 'en', 'zh', 'hi', 'ru', 'ja', 'es', 'pt', 'id', 'tr', 'de', 'fr'];
 const BASE = 'https://dopabrain.com/brain-type/';
 
@@ -16,6 +17,9 @@ function loadFixture() {
   return {
     html: fs.readFileSync(path.join(PROJECT, 'index.html'), 'utf8'),
     app: fs.readFileSync(path.join(PROJECT, 'js', 'app.js'), 'utf8'),
+    guide: fs.readFileSync(path.join(PORTAL, 'blog', 'fr', 'test-type-cerveau.html'), 'utf8'),
+    index: fs.readFileSync(path.join(PORTAL, 'blog', 'fr', 'index.html'), 'utf8'),
+    sitemap: fs.readFileSync(path.join(PORTAL, 'blog', 'sitemap.xml'), 'utf8'),
     locales,
   };
 }
@@ -25,7 +29,7 @@ function clone(value) {
 }
 
 function verify(fixture) {
-  const { html, app, locales } = fixture;
+  const { html, app, guide, index, sitemap, locales } = fixture;
   assert(/<html\s+lang="en"/i.test(html), 'Default document language must be English');
   const publicSource = `${html}\n${app}\n${Object.values(locales).join('\n')}`;
   for (const [label, pattern] of [
@@ -61,8 +65,25 @@ function verify(fixture) {
   assert(/data-i18n="engage\.trustNote"/.test(html), 'Visible trust note missing');
   assert(/data-i18n="about\.text3"/.test(html), 'Visible limitation disclosure missing');
   assert(/does not scan your brain/i.test(locales.en), 'English limitation disclosure weakened');
+  assert(html.includes('data-brain-type-contract="2026-08-30"'), 'Brain Type privacy release marker missing');
+  assert(!/page_engage|setupGA\(/.test(`${html}\n${app}`), 'Brain Type retains duplicate or synthetic page telemetry');
+  const choiceBlock = app.match(/gtag\('event', 'scan_choice',[\s\S]*?\}\);/)?.[0] || '';
+  assert(choiceBlock && !/dimension:|choice:/.test(choiceBlock), 'Brain Type choice telemetry leaks an answer');
+  assert(!/result_type:|share_url:/.test(app), 'Brain Type telemetry leaks a result or share URL');
+  assert(/if \(opened\) this\.trackEvent\('share'/.test(app), 'Brain Type external share is not success-gated');
+
+  assert(guide.includes('data-fr-brain-type-contract="2026-08-30"'), 'French Brain Type guide marker missing');
+  assert(count(guide, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/gi) === 1, 'French Brain Type guide Auto Ads loader drifted');
+  assert(!/FAQPage|AggregateRating|content_ad_impression/.test(guide), 'French Brain Type guide retains unsupported schema or ad telemetry');
+  assert(/pas un scan cérébral/i.test(guide) && /ne mesure ni l’intelligence ni un hémisphère dominant/i.test(guide) && /10 réponses binaires/.test(guide), 'French Brain Type guide boundary or formula missing');
+  assert(guide.includes('/brain-type/?lang=fr&amp;start=1&amp;surface=fr_brain_type_primary'), 'French Brain Type primary route broken');
+  assert(/intersectionRatio>=\.5/.test(guide) && /},500\)/.test(guide), 'French Brain Type qualified exposure missing');
+  assert(sitemap.includes('https://dopabrain.com/portal/blog/fr/test-type-cerveau.html</loc><lastmod>2026-08-30'), 'French Brain Type sitemap row missing');
+  assert(/Style cognitif : règle et limites/.test(index), 'French Brain Type catalog card stale');
   return { ok: true, locales: LANGS.length, hreflangs: hrefs.size, schemaTypes };
 }
+
+function count(text, pattern) { return (text.match(pattern) || []).length; }
 
 function runMutations(baseline) {
   const mutations = [
@@ -71,6 +92,11 @@ function runMutations(baseline) {
     ['collapsed-hreflangs', 'Incorrect ko hreflang URL', (fixture) => { fixture.html = fixture.html.replace(/https:\/\/dopabrain\.com\/brain-type\/\?lang=[a-z]+/g, BASE); }],
     ['missing-disclosure', 'Visible limitation disclosure missing', (fixture) => { fixture.html = fixture.html.replace('data-i18n="about.text3"', 'data-i18n="about.removed"'); }],
     ['fabricated-percentile', 'Found fabricated population statistic', (fixture) => { fixture.app += '\nfunction calculatePercentile() {}'; }],
+    ['choice-leak', 'choice telemetry leaks an answer', (fixture) => { fixture.app = fixture.app.replace('round: this.currentRound + 1,', 'round: this.currentRound + 1, choice: choice,'); }],
+    ['result-leak', 'telemetry leaks a result', (fixture) => { fixture.app = fixture.app.replace("content_type: 'test_result',", "content_type: 'test_result', result_type: this.resultType,"); }],
+    ['premature-share', 'external share is not success-gated', (fixture) => { fixture.app = fixture.app.replace(/if \(opened\) this\.trackEvent\('share'/g, "this.trackEvent('share'"); }],
+    ['guide-myth', 'boundary or formula missing', (fixture) => { fixture.guide = fixture.guide.replace('pas un scan cérébral', 'un scan cérébral').replace('ne mesure ni l’intelligence ni un hémisphère dominant', 'mesure un hémisphère dominant').replace('10 réponses binaires', 'résultat secret'); }],
+    ['guide-route', 'primary route broken', (fixture) => { fixture.guide = fixture.guide.replace('/brain-type/?lang=fr&amp;start=1&amp;surface=fr_brain_type_primary', '/portal/'); }],
   ];
   const results = [];
   for (const [name, expected, mutate] of mutations) {

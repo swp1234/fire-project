@@ -50,7 +50,7 @@ npm run harness:runtime
 ```
 
 - Root: 12 locales × mobile/desktop, 9개 목적지, schema, 44px/overflow, root events; route·locale·event·layout·runtime 변이.
-- Brain Type: 실제 scoring·제한 고지, schema, 13 hreflang; 허위 수치·평점·분포·고지 제거 변이.
+- Brain Type: 실제 scoring·제한 고지, schema, 13 hreflang, 중복 page view 제거, 선택·결과·공유 URL 비전송, 성공한 공유만 기록한다. 프랑스어 가이드의 공개 규칙·좌우뇌 신화 경계·직접 경로·50%/500ms 노출·sitemap/index 연결을 포함해 10개 변이로 검증한다.
 - Brain training bridge: 구현으로 확인한 10개 기능, 4 quick/7 article/4 follow-up 경로, 정확한 surface·slug 이벤트, 효능·의료·허위 광고 주장 제거를 검증한다.
 - 2048 ad policy: 실제 mobile touch/desktop keyboard 이동·일반 undo, Auto Ads loader 하나, 공식 natural-break/reward 호출, 가짜 보상·수동 slot·허위 impression 부재를 검증한다.
 - Culture choice: pointer/keyboard 선택, CTA/share, `content_*` 공통·선택 params, no fake stats/ad-in-interaction, schema; 대응 변이.
