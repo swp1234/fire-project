@@ -31,6 +31,7 @@
     "verify:indexable-blog-ads": "node scripts/clean-indexable-blog-ads.js --self-test",
     "verify:focused-auto-ads": "node scripts/clean-focused-auto-ads.js --self-test",
     "verify:stress-plan": "node scripts/verify-stress-plan.js && node scripts/verify-stress-plan-distribution.js",
+    "verify:fake-unlock-gates": "node scripts/verify-fake-unlock-gates.js",
     "verify:blog-generator-interaction": "node scripts/verify-blog-generator-interaction.js"
   },
   "devDependencies": {
