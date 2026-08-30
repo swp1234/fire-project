@@ -38,6 +38,7 @@
     "verify:mbti-compatibility-focus": "node scripts/verify-mbti-compatibility-focus.js --mutations",
     "verify:future-self-funnel": "node scripts/verify-future-self-funnel.js --mutations",
     "verify:doomscrolling-bridge": "node scripts/verify-doomscrolling-bridge.js --mutations",
+    "verify:zh-browser-games": "node scripts/verify-zh-browser-games.js --mutations",
     "verify:blog-generator-interaction": "node scripts/verify-blog-generator-interaction.js"
   },
   "devDependencies": {

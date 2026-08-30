@@ -24,17 +24,18 @@ Updated: 2026-08-30
 ## Baseline
 
 - Latest complete 7-day AdSense baseline: `$0.75` total, about `$0.107/day`; the next operating milestone is `$1.40/7 days` or `$0.20/day`.
-- The submitted crawl set contains 44 unique URLs with zero inventory blockers after restoring the Future Self and doomscrolling guides.
+- The submitted crawl set contains 45 unique URLs with zero inventory issues after restoring the Future Self, doomscrolling, and Chinese browser-games guides.
 
 - 2026-08-22~28 AdSense: `$0.75`, 1,645 pageviews, 828 impressions, 23 clicks, Page RPM 약 `$0.46`.
 - 동일 28일 비교(8월 2~29일 vs 7월 5일~8월 1일): AdSense `$2.90 vs $2.15`, Organic `680 vs 654` sessions. Pageviews `14,379 vs 5,560` 급증에도 Page RPM은 `$0.20 vs $0.39`로 하락해 유효 검색·행동 개선을 우선한다.
 - SG Desktop scan 제외 유효 RPM 약 `$0.91`; KR RPM 약 `$3.21`.
 - `$1/day`에는 현 효율 약 1,100 유효 PV/day, KR 수준 약 300 PV/day가 필요하다.
-- 주간 Organic 175 sessions, Google Organic 1 session. 집중 sitemap은 44 unique URLs다.
+- 주간 Organic 175 sessions, Google Organic 1 session. 집중 sitemap은 45 unique URLs다.
 - AdSense 주소 PIN 미인증 지급 보류가 남아 있다.
 
 ## Current release
 
+- 2026-08-30: The Chinese browser-games landing grew from `3 → 11` equal-window Organic sessions (`3 → 8` engaged), all recent Organic traffic coming from China desktop. The 33 KB unsupported TOP-10/rating page is now a 15 KB time-based bridge with nine verified Chinese game routes, a private 3/10/20-minute picker, near-top 2048 CTA, honest duration/ranking boundaries, and no synthetic ad telemetry. It adds one proven Organic URL to the focused sitemap without publishing a new path.
 - 2026-08-30: The English doomscrolling guide's Organic landing sessions rose `4 → 6`, including `1 → 4` US sessions, but recent engagement was only 21 seconds across 5 users and CTA users were zero. Unsupported dopamine-hijack, cortisol, screen-time cutoff, detox-reset, and hidden FAQ claims were removed. The shorter guide now cites CDC, two original studies, and Android help; offers a private 60-second interrupt; and sends qualified readers directly to Stress Check.
 - 2026-08-30: Future Self's Korean guide had `9 vs 6` equal-window Organic landing sessions but only `2/9` engaged sessions and 14 engagement seconds across 8 users. The guide is now a lightweight, near-top direct bridge instead of an unsupported AI prediction article. The app exposes its exact `8 choices × 2 path points` rule, removes fabricated rating/FAQ proof and deterministic future claims, honors linked Korean entry, records no answer/result values, and emits start/complete/share only at the verified interaction stage.
 
@@ -69,6 +70,8 @@ Updated: 2026-08-30
 
 ## Verification
 
+- Chinese browser games: nine local/live Chinese destinations, Article/Breadcrumb schema only, 390/1440px layout, 44px targets, 50%/500ms picker exposure, private exact-once use, click attribution, 2048 destination, and 13 adversarial mutations. The submitted inventory is 45 unique URLs with zero issues. Full local report: `logs/harness-workflow/2026-08-30T06-57-53-124Z.md`.
+- Chinese browser-games production: exact Portal commit `5016b6b` deployed in Pages run `33298349084`; live source/sitemap and post-ad-layout picker/use/click/Chinese-2048 checks passed.
 - Doomscrolling: Article/Breadcrumb schema only, four direct sources, 390/1440px layout, 44px targets, 50%/500ms reset exposure, private exact-once reset use, CTA click, Stress Check destination, and 13 adversarial mutations. Full local report: `logs/harness-workflow/2026-08-30T06-36-18-564Z.md`.
 - Doomscrolling production: exact Portal commit `b67323d` deployed in Pages run `33297525976`; live source/sitemap and post-ad-layout reset/use/CTA/Stress Check checks passed.
 - Future Self: 12 locales, 390/1440px guide layout, 44px targets, qualified CTA exposure, click integration, Korean linked start, eight-answer completion, result privacy, successful clipboard share, service-worker inventory, and 15 adversarial mutations.
@@ -92,6 +95,7 @@ Updated: 2026-08-30
 
 ## Next decision
 
+- Chinese browser-games observation window: 2026-08-31~09-06 KST. Exclude 2026-08-30 and SG desktop Direct; compare China Organic landings and `content_view → content_game_picker_view → content_game_picker_use/content_game_click → game_start` where available. Wait for 20 qualified picker-view users; use 8% game-click-user rate as the first bridge threshold. Treat China RPM as a constraint, so prefer multi-page game sessions over raw pageviews.
 - Doomscrolling observation window: 2026-08-31~09-06 KST. Exclude 2026-08-30 and SG desktop Direct; compare US Organic landings and `content_view → content_doomscroll_reset_view → content_doomscroll_reset_use/content_cta_click → test_start`. Wait for 20 qualified reset-view users before judging; use 8% Stress Check click-user rate as the first threshold.
 - Future Self observation window: 2026-08-31~09-06 KST. Exclude 2026-08-30 and SG desktop scan traffic; compare `content_view → content_future_self_cta_view → content_cta_click → test_start → test_complete`. Do not decide before 20 qualified CTA-view users; use 8% CTA click-user rate and 50% app completion as first diagnostic thresholds.
 - Revenue milestone: compare complete rolling 7-day AdSense windows against `$1.40`. A single-day spike does not count as reaching `$0.20/day`.
@@ -111,4 +115,4 @@ Updated: 2026-08-30
 - 그 외는 `ITERATE`; `SUPPRESS`는 14일 이후 Organic 20·content view 20 표본과 신뢰 가능한 실패가 함께 있을 때만 허용한다.
 - AdSense 도메인 RPM은 proxy로만 표시하고 승격 점수에 넣지 않는다. `SUPPRESS`는 홍보·집중 discovery만 제거하고 URL은 유지한다.
 - 수동 운영 잔여는 AdSense 주소 PIN과 과거 Git 이력의 API key 폐기·회전이다. 현재 tree의 추적 파일 secret scan은 통과하며 값은 문서에 기록하지 않는다.
-- 제출 sitemap의 42개 URL은 indexing inventory 이슈 0건이다. 기존 14개 가이드의 invalid manual-ad markup·수동 push·DOM 기반 가짜 노출 이벤트를 제거했고, strict inventory가 재발 시 실패한다.
+- 제출 sitemap의 45개 unique URL은 indexing inventory 이슈 0건이다. 기존 14개 가이드의 invalid manual-ad markup·수동 push·DOM 기반 가짜 노출 이벤트를 제거했고, strict inventory가 재발 시 실패한다.

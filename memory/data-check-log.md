@@ -97,6 +97,12 @@
 - The previous page made unsupported dopamine-hijack, cortisol-duration, two-hour cutoff, and detox-reset claims. It is now a shorter association-not-causation guide with CDC, two original studies, Android controls, a private 60-second interrupt, and a near-top Stress Check bridge.
 - Observe 2026-08-31~09-06 KST; exclude deployment day and SG desktop Direct. Compare US Organic landings and `content_view → content_doomscroll_reset_view → content_doomscroll_reset_use/content_cta_click → test_start`. Wait for 20 qualified reset-view users; use 8% Stress Check click-user rate as the first diagnostic threshold.
 
+## 2026-08-30 Chinese browser-games bridge reset
+
+- `/portal/blog/zh/browser-games.html` moved `3 → 11` equal-window Organic landing sessions and `3 → 8` engaged sessions; all 11 recent Organic sessions were China desktop. Historical page-wide events were polluted by 27 synthetic `content_ad_impression` and stale Palworld bridge events, so they are excluded from the new funnel baseline.
+- China generated `$0.19` from 591 complete-window pageviews (`$0.32` Page RPM), so a single landing view has low yield. The page now prioritizes multi-page game entry through nine live Chinese routes instead of unsupported TOP-10 rankings, ratings, global popularity, or no-ad claims.
+- Observe 2026-08-31~09-06 KST; exclude deployment day and SG desktop Direct. Use `content_view → content_game_picker_view → content_game_picker_use/content_game_click`, wait for 20 qualified picker views, and use 8% game-click-user rate as the first threshold. Do not compare new picker events with the historical synthetic event set.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
