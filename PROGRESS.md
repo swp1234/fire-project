@@ -70,6 +70,7 @@ Updated: 2026-08-30
 ## Verification
 
 - Doomscrolling: Article/Breadcrumb schema only, four direct sources, 390/1440px layout, 44px targets, 50%/500ms reset exposure, private exact-once reset use, CTA click, Stress Check destination, and 13 adversarial mutations. Full local report: `logs/harness-workflow/2026-08-30T06-36-18-564Z.md`.
+- Doomscrolling production: exact Portal commit `b67323d` deployed in Pages run `33297525976`; live source/sitemap and post-ad-layout reset/use/CTA/Stress Check checks passed.
 - Future Self: 12 locales, 390/1440px guide layout, 44px targets, qualified CTA exposure, click integration, Korean linked start, eight-answer completion, result privacy, successful clipboard share, service-worker inventory, and 15 adversarial mutations.
 - Future Self production: exact Pages commits `cc254c5` and `77c052f` deployed successfully; live source, sitemap, 12-locale layout, linked/manual start, completion, and share checks passed. Full local report: `logs/harness-workflow/2026-08-30T06-18-29-718Z.md`.
 

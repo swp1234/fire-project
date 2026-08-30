@@ -147,11 +147,17 @@ async function runtimeCheck(guideUrl, local) {
       await page.goto(guideUrl,{waitUntil:'domcontentloaded',timeout:30000});
       await page.exposeFunction('__captureDoomscrollEvent',(name,params)=>captured.push({name,params}));
       await page.evaluate(()=>{const original=window.gtag;window.gtag=(...args)=>{if(args[0]==='event')window.__captureDoomscrollEvent(args[1],args[2]||{});return original?.(...args)}});
+      if(!local)await page.waitForTimeout(1500);
       await page.locator('.reset-actions').evaluate(node=>node.scrollIntoView({block:'center'}));
       await page.waitForTimeout(250);
       let layer=await page.evaluate(()=>(window.dataLayer||[]).map(item=>Array.from(item||[])));
       assert(browserEvents(layer).filter(event=>event.name==='content_doomscroll_reset_view').length===0,'Reset view fired before 500ms');
-      await page.waitForFunction(()=>(window.dataLayer||[]).filter(item=>item[0]==='event'&&item[1]==='content_doomscroll_reset_view').length===1,null,{timeout:3000});
+      try {
+        await page.waitForFunction(()=>(window.dataLayer||[]).filter(item=>item[0]==='event'&&item[1]==='content_doomscroll_reset_view').length===1,null,{timeout:3000});
+      } catch (error) {
+        const diagnostic=await page.evaluate(()=>{const rect=document.querySelector('.reset-actions')?.getBoundingClientRect();return{rect:rect&&{top:rect.top,bottom:rect.bottom,height:rect.height},viewport:innerHeight,scrollY,events:(window.dataLayer||[]).filter(item=>item[0]==='event').map(item=>item[1])}});
+        throw new Error(`Qualified reset view timed out: ${JSON.stringify(diagnostic)}`);
+      }
       await page.locator('[data-plan="news"]').click();
       await page.locator('[data-plan="sleep"]').click();
       const reset=await page.evaluate(()=>({output:document.querySelector('[data-reset-output]')?.textContent,pressed:[...document.querySelectorAll('.reset-choice')].map(node=>node.getAttribute('aria-pressed')),layer:(window.dataLayer||[]).map(item=>Array.from(item||[])),url:location.href,storage:Object.keys(localStorage)}));
