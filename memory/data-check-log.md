@@ -125,6 +125,13 @@
 - The replacement states that the result is a fixed summary of 10 binary choices rather than a brain scan, intelligence measure, diagnosis, or career assessment. It cites the 1,011-participant Nielsen et al. lateralization study, exposes the scoring rule, links directly to the French app, and records only private stage events. External share success is counted only when a share window actually opens or clipboard write succeeds.
 - Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, and old synthetic events. Use `content_view → content_fr_brain_type_view → content_cta_click → test_start → test_complete`; wait for 20 qualified profile views, then use 8% CTA-user rate and 50% linked-view-to-start as initial diagnostics.
 
+## 2026-08-30 Chinese habit-tracker conversion reset
+
+- `/portal/blog/zh/habit-tracker-guide.html` held roughly flat at `8 → 9` equal-window Organic landing sessions; 4/9 recent sessions were engaged, all entries were China/Taiwan desktop Bing, and the recent window had only 59 total engagement seconds. Path-wide history had 27 content-view users but no CTA users and was polluted by synthetic ad/sticky events.
+- The 78 KB guide mixed practical material with fixed-duration framing and a hidden generic FAQ. The linked app exposed a fabricated 4.3/780 rating, fake AI analysis behind an ad button, three invalid manual Auto Ads units, synthetic engagement, and analytics parameters containing habit counts, goal days, template choice, completion counts, and completion rate.
+- The guide is now one Chinese 7-day starter route with the 66-day study boundary and three direct sources. The app opens a localized allowlisted preset without saving, escapes user-entered names, stores habit records locally, records private exact-once stages, counts shares only after success, and limits the service worker to successful same-origin app responses.
+- Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, historical synthetic events, and old sticky events. Use `content_view → content_zh_habit_plan_view → content_cta_click → habit_tracker_view → habit_tracker_quick_form_view → habit_tracker_habit_created → habit_tracker_first_completion`; wait for 20 qualified plan views, then use 8% CTA-user rate and 50% form-to-create as initial diagnostics.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

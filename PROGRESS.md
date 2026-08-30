@@ -15,7 +15,7 @@ Updated: 2026-08-30
 - 2026-08-23~29 AdSense: `$0.75`, 1,795 pageviews, 827 impressions, 22 clicks, Page RPM `$0.42`.
 - 국가별: US `$0.21 / 57 PV / $3.75 RPM`, KR `$0.18 / 103 PV / $1.71 RPM`, CN `$0.19 / 591 PV / $0.32 RPM`.
 - 유효 검색 수요와 RPM을 함께 고려해 US/KR 전환을 우선하고, CN은 단일 PV보다 게임 내 다중 페이지 세션을 우선한다.
-- 집중 sitemap: 48 unique URLs, strict indexing issues 0.
+- 집중 sitemap: 49 unique URLs, strict indexing issues 0.
 - 계정 정책 문제는 없고, 주소 PIN 미인증에 따른 지급 보류가 남아 있다.
 
 ## Portfolio
@@ -30,6 +30,7 @@ Updated: 2026-08-30
 
 ## Current release
 
+- Chinese habit tracker: Organic landing `8 → 9`, recent engaged 4/9, CTA users 0. 78 KB 장문을 7일 단일 행동 경로로 축소하고, 앱의 허위 평점·AI/광고 잠금·수동 광고·합성 engage·개인 습관 수치 telemetry를 제거했다. 연결된 중국어 프리필은 확인 전 저장하지 않으며 첫 생성·완료·성공 공유만 비공개 단계로 기록한다.
 - French Brain Type: Organic landing `3 → 8`, recent engaged 5/8. 좌·우뇌 우세·직업 결정 주장을 제거하고 10개 선택의 고정 규칙과 한계를 공개했다. 앱은 중복 page view와 합성 engage, 선택·결과·공유 URL telemetry를 제거하고 실제 성공한 공유만 기록한다.
 - Spanish typing speed: Organic landing `0 → 5`, engaged 5/5; recent path-wide CTA users were 5/9, but the destination had no start/complete signal. The 44 KB guide is now a focused three-duration route with a visible formula. The app adds Spanish prompts and private view/start/complete/share events while removing fabricated rating, percentile, grade, reward-inflated WPM, duplicate page views, and root-scope cache errors.
 - Spanish dopamine break: Organic landing `1 → 9`, engaged 7. 가이드를 근거 있는 화면 휴식 안내와 10분 타이머 bridge로 축소했다. 목적지 앱의 허위 50,000+ 이용량·평점·AI 분석·깨진 가짜 광고 대기창을 제거하고 ES 진입, 완료/중단 현지화, 비공개 exact-once 퍼널, same-origin cache를 복구했다.
@@ -40,14 +41,15 @@ Updated: 2026-08-30
 
 ## Deployment and verification
 
+- Habit Tracker `bb83e74`, Pages build `1183494033`; Portal `0ff35b5`, Pages build `1183494802`: success. Live guide→ZH prefill→confirm→complete→successful share, privacy source, and sitemap passed at 390/1440px.
 - Brain Type `bb174a3`, Pages build `1183464962`; Portal `072ceba`, Pages build `1183465900`: success. Live 12 locales × mobile/desktop, guide CTA/related telemetry, privacy source, and sitemap passed.
 - Typing Speed `f1ed220`, Pages run `33300169297`; Portal `8c5144f`, Pages run `33300203355`: success. Live guide→Spanish prompt→start→complete→successful share passed at 390/1440px.
 - Detox Timer `7941186`, Pages run `33299235567`: success.
 - Portal `4f1d455`, Pages run `33299275506`: success.
 - Spanish production journey: 390/1440px overflow 0, 44px targets, qualified guide view/use, exact CTA, linked ES 10-minute start, localized complete/abort, app view/start/outcome exact-once, live source/sitemap passed.
-- Full local regression: `logs/harness-workflow/2026-08-30T08-04-27-234Z.md`; focused runtime 6/6, submitted inventory 48/0 issues, Brain Type mutations 10/10, typing mutations 19/19, dopamine-break mutations 21/21.
+- Full local regression: `logs/harness-workflow/2026-08-30T08-30-37-505Z.md`; focused runtime 6/6, submitted inventory 49/0 issues, habit-tracker mutations 16/16, Brain Type mutations 10/10.
 - Previous production units: Chinese browser games Portal `5016b6b` / run `33298349084`; doomscrolling Portal `b67323d` / run `33297525976`; Future Self app `cc254c5`, Portal `77c052f`.
-- Main gates: `npm run harness -- --skip-analytics`, `npm run verify:es-dopamine-break`, `node scripts/indexing-inventory.js --strict`.
+- Main gates: `npm run harness -- --skip-analytics`, `npm run verify:zh-habit-tracker`, `node scripts/indexing-inventory.js --strict`.
 
 ## Observation windows
 
@@ -55,6 +57,7 @@ All windows exclude their deployment day and SG desktop Direct. Do not decide be
 
 | Path | Complete KST window | Funnel | First diagnostic |
 |---|---|---|---|
+| Chinese habit tracker | 2026-08-31~09-06 | `content_view → content_zh_habit_plan_view → content_cta_click → habit_tracker_view → habit_tracker_quick_form_view → habit_tracker_habit_created → habit_tracker_first_completion` | 20 plan views; click 8%; form→create 50% |
 | French Brain Type | 2026-08-31~09-06 | `content_view → content_fr_brain_type_view → content_cta_click → test_start → test_complete` | 20 profile views; click 8%; linked start 50% |
 | Spanish typing speed | 2026-08-31~09-06 | `content_view → typing_view → CTA → app_view → start → complete/share` | 20 guide views; click 8%; linked view→start 50% |
 | Spanish dopamine break | 2026-08-31~09-06 | `content_view → break_view → break_use/CTA → timer_view → start → complete/abort` | 20 break views; click 8%; linked view→start 50% |
