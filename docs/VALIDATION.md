@@ -44,6 +44,7 @@ npm run verify:zh-browser-games
 npm run verify:es-dopamine-break
 npm run verify:es-typing-speed
 npm run verify:zh-habit-tracker
+npm run verify:ja-brain-type
 npm run verify:kst-date
 npm run verify:blog-generator-interaction -- --spec scripts/specs/trend-odyssey-spiderman-ko.json
 npm run harness
@@ -72,6 +73,7 @@ npm run harness:runtime
 - Spanish dopamine break: literal detox/reset and unsupported medical claims, fabricated usage/rating/AI proof, fake ad gates, duration telemetry, and cross-origin cache writes are forbidden. Four direct sources, private qualified guide interactions, the linked Spanish 10-minute preset, localized completion/abort, exact-once funnel events, successful-share attribution, 12 locale bundles, and 21 mutations are enforced at 390/1440px.
 - Spanish typing speed: the guide formula, three duration routes, qualified CTA exposure, four focused destinations, Spanish word/sentence prompts, attempted-word accuracy, linked entry without auto-start, private view/start/complete/share events, success-only sharing, local cache scope, 12 locale bundles, and 19 mutations are enforced at 390/1440px. Fabricated ratings, percentiles, grades, reward-inflated WPM, fake ad surfaces, duplicate page views, and result telemetry are forbidden.
 - Chinese habit tracker: 66-day research boundary, three direct sources, one-action 7-day route, qualified exposure, four destinations, localized prefill without auto-save, escaped user text, local-only habit records, private exact-once create/complete/share stages, success-only sharing, 12 locale bundles, and 16 mutations are enforced at 390/1440px. Fabricated ratings, AI/ad gates, manual ad units, synthetic engagement, habit counts/goals/completion telemetry, and unsafe service-worker fallbacks are forbidden.
+- Japanese Brain Type: the guide must frame the result as a fixed summary of 10 choices, not a scan, intelligence measure, left/right-brain diagnosis, talent, or career assessment. One direct primary source, four focused routes, 50%/500ms qualified exposure, exact CTA attribution, Japanese auto-start, and answer/result privacy are enforced with 10 mutations and 390/1440px linked journeys.
 - Harness: portal locale·정적 품질·위 검증기·analytics smoke·focused runtime을 첫 실패에서 중단한다. 브라우저 검증 서버는 차단 포트를 피하는 20000–45000 범위만 사용한다.
 
 콘텐츠 기본 검증은 필요 시 다음을 함께 실행한다.

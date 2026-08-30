@@ -132,6 +132,13 @@
 - The guide is now one Chinese 7-day starter route with the 66-day study boundary and three direct sources. The app opens a localized allowlisted preset without saving, escapes user-entered names, stores habit records locally, records private exact-once stages, counts shares only after success, and limits the service worker to successful same-origin app responses.
 - Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, historical synthetic events, and old sticky events. Use `content_view → content_zh_habit_plan_view → content_cta_click → habit_tracker_view → habit_tracker_quick_form_view → habit_tracker_habit_created → habit_tracker_first_completion`; wait for 20 qualified plan views, then use 8% CTA-user rate and 50% form-to-create as initial diagnostics.
 
+## 2026-08-30 Japanese Brain Type trust and conversion reset
+
+- `/portal/blog/ja/brain-type-test.html` moved `4 → 8` equal-window Organic landing sessions. Five of eight recent sessions were engaged with 472 total engagement seconds; six were Japan desktop Bing, with one Bing mobile and one Google tablet session. Exact-page GSC rows were absent.
+- Recent path-wide evidence had 12 content-view users and only one CTA user. Historical `content_ad_impression` events were synthetic and are excluded from the new baseline.
+- The former 54 KB guide claimed “latest neuroscience,” left/right-brain personality, 80–85% accuracy, and career fit. The replacement publishes the fixed 10-choice/8-label scoring boundary, cites the 1,011-participant Nielsen et al. study, and links directly to a Japanese auto-start route without sending answer or result data.
+- Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, and old synthetic events. Use `content_view → content_ja_brain_type_view → content_cta_click → test_start → test_complete`; wait for 20 qualified guide views, then use 8% CTA-user rate and 50% linked-start as initial diagnostics.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

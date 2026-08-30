@@ -42,6 +42,7 @@
     "verify:es-dopamine-break": "node scripts/verify-es-dopamine-break.js --mutations",
     "verify:es-typing-speed": "node scripts/verify-es-typing-speed.js --mutations",
     "verify:zh-habit-tracker": "node scripts/verify-zh-habit-tracker.js --mutations",
+    "verify:ja-brain-type": "node scripts/verify-ja-brain-type.js --mutations",
     "verify:blog-generator-interaction": "node scripts/verify-blog-generator-interaction.js"
   },
   "devDependencies": {
