@@ -1,6 +1,6 @@
 # DopaBrain Current State
 
-Updated: 2026-08-29
+Updated: 2026-08-30
 
 현재 상태와 다음 판단만 기록한다. 이력은 Git, 반복 절차는 `dopabrain-growth-ops` Skill이 기준이다.
 
@@ -27,6 +27,8 @@ Updated: 2026-08-29
 - AdSense 주소 PIN 미인증 지급 보류가 남아 있다.
 
 ## Current release
+
+- 2026-08-30: `robots.txt` now declares all 3 focused sitemaps. Synthetic `content_ad_impression` telemetry was removed from the full 1,992-page blog inventory, and the verifier now compiles all 5,002 inline scripts.
 
 - 홈은 3 primary, 6 focused picks, Culture Signal 1개, archive 1개만 노출한다. Culture Signal은 첫 viewport 안의 compact rail로 올렸고 2026-08-29를 새 launch date로 삼는다.
 - 첫 Culture Signal은 오딧세이·스파이더맨 해설, 전용 OG 이미지, 귀환/리셋 선택 카드, Brain Type·2048 bridge를 제공한다.
