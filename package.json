@@ -39,6 +39,7 @@
     "verify:future-self-funnel": "node scripts/verify-future-self-funnel.js --mutations",
     "verify:doomscrolling-bridge": "node scripts/verify-doomscrolling-bridge.js --mutations",
     "verify:zh-browser-games": "node scripts/verify-zh-browser-games.js --mutations",
+    "verify:es-dopamine-break": "node scripts/verify-es-dopamine-break.js --mutations",
     "verify:blog-generator-interaction": "node scripts/verify-blog-generator-interaction.js"
   },
   "devDependencies": {

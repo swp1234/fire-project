@@ -103,6 +103,13 @@
 - China generated `$0.19` from 591 complete-window pageviews (`$0.32` Page RPM), so a single landing view has low yield. The page now prioritizes multi-page game entry through nine live Chinese routes instead of unsupported TOP-10 rankings, ratings, global popularity, or no-ad claims.
 - Observe 2026-08-31~09-06 KST; exclude deployment day and SG desktop Direct. Use `content_view → content_game_picker_view → content_game_picker_use/content_game_click`, wait for 20 qualified picker views, and use 8% game-click-user rate as the first threshold. Do not compare new picker events with the historical synthetic event set.
 
+## 2026-08-30 Spanish dopamine-break funnel reset
+
+- `/portal/blog/es/dopamine-detox-guide-reset-brain.html` moved `1 → 9` equal-window Organic landing sessions, with 7 engaged sessions and real search entries from Mexico, Spain, Chile, Colombia, and Costa Rica. GSC exact-page rows were still absent.
+- Historical page events included synthetic `content_ad_impression`; the destination app also claimed 50,000+ users, exposed a fabricated aggregate rating and AI analysis, and sent give-up actions into a nonexistent ad gate. Those events and claims are excluded from the new baseline.
+- The guide now frames the action as a voluntary screen break, cites Harvard Health, Cleveland Clinic, Android, and Apple, and states the health boundary. The timer accepts a linked Spanish 10-minute preset without auto-start, localizes completion/abort, records no duration or choice values, and caches only successful same-origin GET responses.
+- Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, and old synthetic events. Use `content_view → content_dopamine_break_view → content_dopamine_break_use/content_cta_click → detox_timer_view → detox_timer_start → detox_timer_complete/detox_timer_abort`; wait for 20 qualified break views, then use 8% click-user rate and 50% linked-view-to-start as initial diagnostics.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
