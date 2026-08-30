@@ -30,6 +30,7 @@ Updated: 2026-08-30
 
 ## Current release
 
+- Japanese reaction time: Organic landing `5 → 6`, with 5/6 recent sessions engaged; path-wide history had 13 content users and 0 CTA users. The 55 KB guide is now an 11.9 KB same-device measurement guide with a private three-item preflight and direct Japanese auto-start route. The app removed fabricated rating/percentile/grade, AI/career interpretation, fake ad countdowns, synthetic engagement, and timing/result telemetry; it now reports only private view/start/complete stages.
 - Chinese HSP guide: equal-window Organic landing `8 → 7`, recent engaged 5/7 and 1,372 engagement seconds. Path-wide history already had 5 CTA users from 19 content users, so the working HSP intent and app were preserved. The guide alone was reduced from 32.6 KB to 17.6 KB, replacing “free diagnosis,” fixed prevalence, universal brain-signature, mandatory DOES criteria, hidden FAQ, and validated-test claims with a four-prompt private reflection, explicit research limits, three direct sources, and Chinese HSP auto-start.
 - Chinese cognitive distortions: Organic landing `3 → 8`, recent engaged 7/8, but path-wide meaningful CTA users were 0/29. The 47 KB generic CBT article and unrelated Animal Personality CTA are now a concise 15-pattern reference, private three-step thought check, and Chinese Stress Check auto-start. Stress Check removed fabricated 4,800-user proof, “validated”/AI-ad claims, hidden FAQ, synthetic engagement, result telemetry/query leakage, premature share events, and a nested-button click failure.
 - Japanese Brain Type: Organic landing `4 → 8`, recent engaged 5/8, but path-wide CTA users were 1/12. The 54 KB guide's unsupported “latest neuroscience,” left/right-brain personality, 80–85% accuracy, and career-fit claims were replaced with a compact 10-choice scoring rule, explicit limits, one direct primary source, and a Japanese auto-start route. Qualified exposure and click attribution are private and exact-once.
@@ -44,6 +45,7 @@ Updated: 2026-08-30
 
 ## Deployment and verification
 
+- Reaction Test `6bc66ba`, Pages run `33305585877`; Portal `f2b7b67`, Pages run `33305633567`: success. Live 390/1440px guide setup view/use→CTA→Japanese auto-start→five-round completion passed; round times, average, grade, choices, and result values stayed out of URL and telemetry.
 - Portal `a8b552c`, Pages run `33304759366`: success. Live Chinese HSP guide→qualified view→four nested prompt clicks→CTA→ZH auto-start→five category completion passed at 390/1440px; choice and result values stayed out of telemetry.
 - Stress Check `61b1ad5`, Pages run `33303937981`; Portal `ad70b2d`, Pages run `33303973878`: success. Live Chinese thought check→CTA→ZH auto-start→15 answers→completion passed at 390/1440px with private telemetry.
 - Portal `64817ad`, Pages run `33302837640`: success. Live Japanese guide→qualified view→CTA→Japanese auto-start passed at 390/1440px with no answer/result telemetry.
@@ -53,9 +55,9 @@ Updated: 2026-08-30
 - Detox Timer `7941186`, Pages run `33299235567`: success.
 - Portal `4f1d455`, Pages run `33299275506`: success.
 - Spanish production journey: 390/1440px overflow 0, 44px targets, qualified guide view/use, exact CTA, linked ES 10-minute start, localized complete/abort, app view/start/outcome exact-once, live source/sitemap passed.
-- Full local regression: `logs/harness-workflow/2026-08-30T09-37-25-291Z.md`; focused runtime 6/6, submitted inventory 49/0 issues, Chinese HSP mutations 10/10.
+- Full local regression: `logs/harness-workflow/2026-08-30T09-58-04-546Z.md`; focused runtime 6/6, submitted inventory 49/0 issues, Japanese reaction mutations 10/10.
 - Previous production units: Chinese browser games Portal `5016b6b` / run `33298349084`; doomscrolling Portal `b67323d` / run `33297525976`; Future Self app `cc254c5`, Portal `77c052f`.
-- Main gates: `npm run harness -- --skip-analytics`, `npm run verify:zh-hsp-guide`, `npm run verify:zh-cognitive-distortions`, `node scripts/indexing-inventory.js --strict`.
+- Main gates: `npm run harness -- --skip-analytics`, `npm run verify:ja-reaction-time`, `npm run verify:zh-hsp-guide`, `npm run verify:zh-cognitive-distortions`, `node scripts/indexing-inventory.js --strict`.
 
 ## Observation windows
 
@@ -63,6 +65,7 @@ All windows exclude their deployment day and SG desktop Direct. Do not decide be
 
 | Path | Complete KST window | Funnel | First diagnostic |
 |---|---|---|---|
+| Japanese reaction time | 2026-08-31~09-06 | `content_view → content_ja_reaction_setup_view → content_ja_reaction_setup_use/content_cta_click → reaction_test_view → reaction_test_start → reaction_test_complete` | 20 qualified views; use/click 8%; linked start 50%; completion 50% |
 | Chinese HSP guide | 2026-08-31~09-06 | `content_view → content_zh_hsp_profile_view → content_zh_hsp_profile_use/content_cta_click → test_start → quiz_complete` | 20 qualified views; use/click 8%; linked start 50% |
 | Chinese cognitive distortions | 2026-08-31~09-06 | `content_view → content_zh_thought_check_view → content_zh_thought_check_use/content_cta_click → stress_intro_view → test_start → test_complete` | 20 qualified views; use/click 8%; linked start 50% |
 | Japanese Brain Type | 2026-08-31~09-06 | `content_view → content_ja_brain_type_view → content_cta_click → test_start → test_complete` | 20 qualified views; click 8%; linked start 50% |

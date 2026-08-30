@@ -153,6 +153,13 @@
 - The 32.6 KB guide claimed a free diagnosis, a universal 15–20% prevalence, a science-backed validated test, a mandatory four-feature diagnosis, and deterministic inborn brain activation; it also retained a hidden generic FAQ. The 17.6 KB replacement frames SPS as a research construct, distinguishes observation from diagnosis, cites the original construct paper, a critical review, and a small fMRI study with its sample limit, and records only qualified view, four-prompt completion, and CTA stages without selections.
 - Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, and historical synthetic events. Use `content_view → content_zh_hsp_profile_view → content_zh_hsp_profile_use/content_cta_click → test_start → quiz_complete`; wait for 20 qualified views, then use 8% use/click-user rate and 50% linked-start as initial diagnostics.
 
+## 2026-08-30 Japanese reaction-time trust and conversion reset
+
+- `/portal/blog/ja/reaction-time-test-guide.html` moved `5 → 6` equal-window Organic landing sessions; 5/6 recent sessions were engaged. The valid search sample was Japan desktop Bing 4/4 engaged plus Japan desktop Yahoo referral 2 sessions/1 engaged; Singapore desktop Direct traffic was excluded. Exact-page GSC rows were absent.
+- Recent path-wide evidence had 13 content users and 16 content views but no CTA or test-click users. Historical `content_ad_impression` (13 users/16 events) was synthetic and is excluded from the new baseline.
+- The former 55 KB guide and destination used unsupported exact averages/rankings, professional and sports claims, a fabricated 4.3/1,420 rating, arbitrary grades and percentiles, AI personality/career interpretation, fake manual ads/countdown, synthetic engagement, and result telemetry. The 11.9 KB replacement explains browser/device timing limits with three direct sources and connects a private preflight to Japanese auto-start. The app records only view/start/complete stages and sends no round times, average, grade, or result values.
+- Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, and old synthetic events. Use `content_view → content_ja_reaction_setup_view → content_ja_reaction_setup_use/content_cta_click → reaction_test_view → reaction_test_start → reaction_test_complete`; wait for 20 qualified views, then use 8% use/click-user rate, 50% linked-start, and 50% completion as initial diagnostics.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

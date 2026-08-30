@@ -45,6 +45,7 @@
     "verify:ja-brain-type": "node scripts/verify-ja-brain-type.js --mutations",
     "verify:zh-cognitive-distortions": "node scripts/verify-zh-cognitive-distortions.js --mutations",
     "verify:zh-hsp-guide": "node scripts/verify-zh-hsp-guide.js --mutations",
+    "verify:ja-reaction-time": "node scripts/verify-ja-reaction-time.js --mutations",
     "verify:blog-generator-interaction": "node scripts/verify-blog-generator-interaction.js"
   },
   "devDependencies": {

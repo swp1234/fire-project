@@ -47,6 +47,7 @@ npm run verify:zh-habit-tracker
 npm run verify:ja-brain-type
 npm run verify:zh-cognitive-distortions
 npm run verify:zh-hsp-guide
+npm run verify:ja-reaction-time
 npm run verify:kst-date
 npm run verify:blog-generator-interaction -- --spec scripts/specs/trend-odyssey-spiderman-ko.json
 npm run harness
@@ -78,6 +79,7 @@ npm run harness:runtime
 - Japanese Brain Type: the guide must frame the result as a fixed summary of 10 choices, not a scan, intelligence measure, left/right-brain diagnosis, talent, or career assessment. One direct primary source, four focused routes, 50%/500ms qualified exposure, exact CTA attribution, Japanese auto-start, and answer/result privacy are enforced with 10 mutations and 390/1440px linked journeys.
 - Chinese cognitive distortions / Stress Check: 15 visible patterns, three direct health-authority sources, a private three-step check, qualified exposure, four focused routes, Chinese auto-start, all 15 nested-control clicks, exact completion, 12 locale trust copy, and answer/result privacy are enforced with 10 mutations and 390/1440px linked journeys. Fabricated usage, validated-scale/AI-ad claims, hidden FAQ, manual ad surfaces, synthetic engagement, sensitive URL/event values, and pre-success share events are forbidden.
 - Chinese HSP guide: SPS is presented as a research framework rather than a diagnosis, validated clinical scale, fixed prevalence, or deterministic brain signature. Four observation prompts, three direct research sources, 50%/500ms qualified exposure, four focused routes, Chinese HSP auto-start, five-category completion, and choice/result privacy are enforced with 10 mutations and 390/1440px linked journeys. The HSP app remains an independently observed dependency and is not changed by this guide-only gate.
+- Japanese reaction time: the guide and app must describe browser timing as a device/browser-dependent measurement, not a diagnostic score or population ranking. Three direct timing sources, a private three-item preflight, qualified exposure, four focused routes, query-priority Japanese rendering, linked auto-start, five-round completion, and result privacy are enforced with 10 mutations and 390/1440px linked journeys. Fabricated ratings, grades, percentiles, AI/career interpretation, fake ad gates, and timing/result telemetry are forbidden.
 - Harness: portal locale·정적 품질·위 검증기·analytics smoke·focused runtime을 첫 실패에서 중단한다. 브라우저 검증 서버는 차단 포트를 피하는 20000–45000 범위만 사용한다.
 
 콘텐츠 기본 검증은 필요 시 다음을 함께 실행한다.
