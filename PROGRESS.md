@@ -2,69 +2,55 @@
 
 Updated: 2026-08-30
 
-이 문서는 현재 판단만 유지한다. 수치 근거는 `memory/data-check-log.md`, 반복 절차는 `dopabrain-growth-ops` Skill, 완료 기준은 `docs/VALIDATION.md`가 기준이다.
+This file keeps only the current operating state. Decision-changing measurements belong in `memory/data-check-log.md`; reusable procedure belongs in the `dopabrain-growth-ops` skill; durable test contracts belong in `docs/VALIDATION.md`.
 
 ## Objective
 
-- 단기: complete KST 7일 수익을 `$0.75`에서 `$1.40`으로 높여 일평균 `$0.20` 달성.
-- 장기: `$1/day`.
-- 배포일·당일 부분 데이터·Singapore desktop Direct scan은 판단에서 제외.
+- Raise rolling 7 complete-KST-day AdSense revenue from `$0.75` to `$1.40` (`$0.20/day`), then toward `$1/day`.
+- Exclude deployment days, partial current days, and Singapore desktop Direct scans from decisions.
+- Change one independently measurable path at a time and preserve its observation window.
 
 ## Baseline
 
 - 2026-08-23~29 AdSense: `$0.75`, 1,795 pageviews, 827 impressions, 22 clicks, Page RPM `$0.42`.
-- US `$0.21 / 57 PV / $3.75 RPM`, KR `$0.18 / 103 PV / $1.71 RPM`, CN `$0.19 / 591 PV / $0.32 RPM`.
-- US/KR은 검색→행동 전환, CN은 게임 내 다중 페이지 세션을 우선한다.
-- 집중 sitemap: 49 unique URLs, strict issues 0. 계정 정책 문제 없음; 주소 PIN 지급 보류는 유지.
+- Country opportunity: US `$0.21 / 57 PV / $3.75 RPM`; KR `$0.18 / 103 PV / $1.71 RPM`; CN `$0.19 / 591 PV / $0.32 RPM`.
+- Focused sitemap: 49 unique submitted URLs, strict issues 0.
+- Portfolio: Stress Check, HSP Test, and 2048 Coach are primary; Brain Type, IQ, and K-pop Roster are support; Culture Signal is a pilot; Portal is the archive.
 
-## Portfolio
+## Latest release: English attachment path
 
-| Tier | Paths | Role |
-|---|---|---|
-| Primary | Stress Check, HSP Test, 2048 Coach | 첫 행동·핵심 전환 |
-| Support | Brain Type, IQ Test, K-pop Role Roster | 검증된 보조 수요 |
-| Pilot | Culture Signal | 트렌드 유입→도구 bridge |
-| Archive | Portal | 기존 자산 보존 |
-| Suppressed | 나머지 저성과 자산 | 라이브 유지, 홈·집중 sitemap 제외 |
-
-## Latest release
-
-- Chinese RSD guide held `8 → 7` equal-window Organic sessions, with 4/7 engaged and 702 engagement seconds. Across 56 days it had 45 qualified content users and no CTA/action users: the largest remaining measured content-to-action leak.
-- Replaced a 46.7 KB diagnosis-like article with a 12.1 KB direct answer that distinguishes the popular RSD label from researched rejection sensitivity and ADHD emotional dysregulation. Removed unsupported near-universal prevalence, brain mechanism, duration, medication efficacy, hidden FAQ and US-only crisis guidance.
-- The linked 12-locale private action planner is now Auto Ads loader-only; its invalid manual slot and synthetic ad-impression event were removed. Arbitrary entry sources normalize to `direct`, and emotion/intensity/context/time/goal choices stay out of URL and analytics.
-- Stage contract: `content_view → content_zh_rejection_check_view → content_cta_click → emotion_action_view → emotion_action_generate → emotion_action_copy/emotion_action_used/emotion_action_related_click`. Historical synthetic ad and generic cross-promo events are not comparable.
+- The English avoidant-attachment guide declined from 13 to 4 equal-window Organic sessions, but the recent 4 users still produced 602 engagement seconds. Across 56 days, 37 content users produced only 1 guide-to-test click.
+- The attachment app had 117 page users, 41 starts, and 28 completions over 56 days. Start-to-completion was about 68%, so the completion engine was retained and the guide-to-start trust boundary was reset.
+- The 36.2 KB guide became a 15.1 KB evidence-first answer. It explains the ECR-R 36-item/two-dimension model, separates association from causation, removes deterministic childhood/nervous-system/healing claims, and offers two identical direct-start CTAs plus two focused related links.
+- The 12-locale app is now a private 10-scenario response reflection. Fabricated rating/social proof, hidden FAQ, random percentile, manual ad unit, synthetic impression, per-answer telemetry, and result-bearing share URLs were removed.
+- New app stages: `attachment_reflection_view → start → complete → share/restart/related_click`. Answers, scores, and result labels stay out of analytics and URLs. Historical quiz/result events are not comparable.
 
 ## Deployment and verification
 
-- Portal `76604db`, Pages run `33309515396`: success.
-- `verify:zh-rejection-action`: 10/10 mutations detected; local and live 12-locale mobile tool journeys plus Chinese guide→planner journey passed. Private choices stayed out of URL and telemetry.
-- Full regression: `logs/harness-workflow/2026-08-30T11-32-50-457Z.md`; all steps passed, runtime 6/6, analytics 9/9, submitted inventory 49/0 issues.
-- Recent prior release: Zodiac Match `e403d4f` / run `33308739615`; Portal `cb9d233` / run `33308739767`.
-- Main gates: `npm run harness`, `npm run verify:zh-rejection-action`, `npm run verify:zodiac-pair-reset`, `node scripts/indexing-inventory.js --strict`.
+- Attachment app: `b6e9056`; Pages run `33310406327` succeeded.
+- Portal guide/catalog: `319fbba`; Pages run `33310860473` succeeded.
+- `verify:en-attachment-reflection`: 13/13 mutations detected; all 12 locale completions, mobile/desktop, guide auto-start, neutral sharing, source normalization, and `clarity_board` compatibility passed locally and live.
+- Full harness: `logs/harness-workflow/2026-08-30T12-13-23-107Z.md`; all steps passed, analytics 9/9, runtime 6/6, submitted inventory 49 URLs / 0 issues.
+- Prior live releases remain under observation: Chinese RSD action path, Chinese Zodiac Pair reset, and Spanish Blood Type culture reset.
 
 ## Observation windows
 
-All windows use complete KST days and exclude deployment day and SG desktop Direct. Do not decide before 20 qualified views unless a correctness or policy defect appears.
+Use complete KST days. Do not decide before 20 qualified views unless a correctness or policy defect appears.
 
 | Path | Window | First diagnostic |
 |---|---|---|
-| Chinese rejection action | 2026-08-31~09-06 | qualified check→CTA 8%; linked view→generate 50%; generate→used/copy/related 8% |
-| Chinese zodiac pair | 2026-08-31~09-06 | guide CTA-user 8%; app view→start 25%; start→open 50%; open→related 8% |
-| Spanish Blood Type | 2026-08-31~09-06 | guide CTA-user 8%; app view→first open 25%; open→related 8% |
-| IQ puzzle | 2026-08-31~09-06 | start 35%; start→complete 50%; complete→related 8% |
-| Japanese reaction time | 2026-08-31~09-06 | setup use/CTA 8%; linked start 50%; completion 50% |
-| Chinese HSP, thought check, habit tracker | 2026-08-31~09-06 | qualified use/CTA 8%; linked action 50% |
-| Japanese/French Brain Type | 2026-08-31~09-06 | profile→CTA 8%; linked start 50% |
-| Spanish typing speed/dopamine break | 2026-08-31~09-06 | guide→CTA 8%; linked view→start 50% |
-| Chinese browser games, US doomscrolling | 2026-08-31~09-06 | qualified tool use/click 8% |
-| Korean Future Self, Palworld, MBTI | 2026-08-31~09-06 | CTA/copy/use 8%; linked completion where applicable 50% |
-| K-pop, HSP reset, Culture Signal | 2026-08-30~09-05 | bridge/CTA 8%; first decision 2026-09-06 |
+| English attachment reflection | 2026-08-31~09-06 | qualified pattern→CTA 8%; app view→start 25%; start→complete 50%; complete→share/related 8% |
+| Chinese RSD action | 2026-08-31~09-06 | qualified check→CTA 8%; linked view→generate 50%; generate→used/copy/related 8% |
+| Chinese Zodiac Pair | 2026-08-31~09-06 | guide CTA 8%; app view→start 25%; start→open 50%; open→related 8% |
+| Spanish Blood Type | 2026-08-31~09-06 | guide CTA 8%; app view→first open 25%; open→related 8% |
+| IQ, reaction time, HSP/thought/habit, Brain Type, Spanish guides | 2026-08-31~09-06 | qualified bridge/use 8%; linked action or completion 50% |
+| Culture Signal and earlier focused resets | 2026-08-30~09-05 | first decision 2026-09-06 after valid exposure threshold |
 
 ## Decision rule
 
-- Revenue milestone: rolling 7 complete-day AdSense total `≥ $1.40` only.
-- `<7` complete days: `TOO_EARLY`; insufficient discovery/exposure: `DISCOVERY_HOLD`.
-- `PROMOTE`: Organic 20/day, engagement 55%, bridge 8%, attributable RPM `$1+` 중 durable signal 2개 이상.
-- 그 외 `ITERATE`. `SUPPRESS`: 14일, Organic 20·content view 20 이상에서 discovery/conversion 실패가 반복될 때만.
-- Page-unattributed AdSense RPM은 proxy일 뿐 URL 승격·억제 근거가 아니다.
-- 다음 신규 트렌드 후보는 GTA VI 공식정보 글이지만 기존 관찰창 첫 판정 전에는 공개하지 않는다.
+- Revenue milestone: rolling 7 complete-day AdSense total `≥ $1.40`.
+- Fewer than 7 complete days: `TOO_EARLY`; insufficient discovery or exposure: `DISCOVERY_HOLD`.
+- `PROMOTE`: at least two durable signals among Organic 20/day, engagement 55%, bridge 8%, and attributable Page RPM `$1+`.
+- Otherwise `ITERATE`. `SUPPRESS` only after at least 14 days plus 20 Organic sessions and 20 qualified content views show repeated failure.
+- Page-unattributed AdSense RPM is a proxy, never URL-level causal evidence.
+- Do not publish another trend candidate before the current Culture Signal reaches its first valid decision window.

@@ -50,6 +50,7 @@
     "verify:blood-type-culture-reset": "node scripts/verify-blood-type-culture-reset.js --mutations",
     "verify:zodiac-pair-reset": "node scripts/verify-zodiac-pair-reset.js --mutations",
     "verify:zh-rejection-action": "node scripts/verify-zh-rejection-action.js --mutations",
+    "verify:en-attachment-reflection": "node scripts/verify-en-attachment-reflection.js --mutations",
     "verify:blog-generator-interaction": "node scripts/verify-blog-generator-interaction.js"
   },
   "devDependencies": {

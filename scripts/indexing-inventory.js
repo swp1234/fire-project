@@ -15,6 +15,7 @@ const EXPECTED_SITEMAPS = [
 ];
 const FOCUSED_QUICK_RAIL_URLS = new Set([
   `${ORIGIN}/portal/blog/en/kpop-positions-explained-guide.html`,
+  `${ORIGIN}/portal/blog/en/avoidant-attachment-healing-guide.html`,
 ]);
 const TODAY = (process.env.INDEXING_AUDIT_TODAY || todayInTimeZone()).slice(0, 10);
 const REPORT_DIR = path.join(ROOT, 'logs', 'indexing-audit');
