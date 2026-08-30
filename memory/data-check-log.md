@@ -146,6 +146,13 @@
 - The 47 KB generic article is now a concise 15-pattern reference with an NHS-style evidence check, three direct NHS/WHO sources, and a private Chinese Stress Check bridge. Stress Check no longer claims a validated scale, fabricated 4,800 users, AI/ad unlocking, or hidden FAQ; it sends no answers, totals, result bands, or category values to analytics/URLs and counts sharing only after success. Browser verification also found and fixed nested text/icon clicks that previously did not advance questions.
 - Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, and historical synthetic events. Use `content_view → content_zh_thought_check_view → content_zh_thought_check_use/content_cta_click → stress_intro_view → test_start → test_complete`; wait for 20 qualified views, then use 8% use/click-user rate and 50% linked-start as initial diagnostics.
 
+## 2026-08-30 Chinese HSP guide trust reset
+
+- `/portal/blog/zh/hsp-test-guide.html` was stable at `8 → 7` equal-window Organic landing sessions. Five of seven recent sessions were engaged for 1,372 total engagement seconds: five China desktop Bing sessions, one China mobile Bing session, and one Germany desktop Bing session. Exact-page GSC rows were absent.
+- Path-wide history already showed 5 CTA users and 12 CTA clicks from 19 content-view users, so the conversion intent was not replaced. The HSP app and its separate reset observation window were left unchanged.
+- The 32.6 KB guide claimed a free diagnosis, a universal 15–20% prevalence, a science-backed validated test, a mandatory four-feature diagnosis, and deterministic inborn brain activation; it also retained a hidden generic FAQ. The 17.6 KB replacement frames SPS as a research construct, distinguishes observation from diagnosis, cites the original construct paper, a critical review, and a small fMRI study with its sample limit, and records only qualified view, four-prompt completion, and CTA stages without selections.
+- Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, and historical synthetic events. Use `content_view → content_zh_hsp_profile_view → content_zh_hsp_profile_use/content_cta_click → test_start → quiz_complete`; wait for 20 qualified views, then use 8% use/click-user rate and 50% linked-start as initial diagnostics.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

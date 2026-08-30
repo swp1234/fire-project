@@ -30,6 +30,7 @@ Updated: 2026-08-30
 
 ## Current release
 
+- Chinese HSP guide: equal-window Organic landing `8 → 7`, recent engaged 5/7 and 1,372 engagement seconds. Path-wide history already had 5 CTA users from 19 content users, so the working HSP intent and app were preserved. The guide alone was reduced from 32.6 KB to 17.6 KB, replacing “free diagnosis,” fixed prevalence, universal brain-signature, mandatory DOES criteria, hidden FAQ, and validated-test claims with a four-prompt private reflection, explicit research limits, three direct sources, and Chinese HSP auto-start.
 - Chinese cognitive distortions: Organic landing `3 → 8`, recent engaged 7/8, but path-wide meaningful CTA users were 0/29. The 47 KB generic CBT article and unrelated Animal Personality CTA are now a concise 15-pattern reference, private three-step thought check, and Chinese Stress Check auto-start. Stress Check removed fabricated 4,800-user proof, “validated”/AI-ad claims, hidden FAQ, synthetic engagement, result telemetry/query leakage, premature share events, and a nested-button click failure.
 - Japanese Brain Type: Organic landing `4 → 8`, recent engaged 5/8, but path-wide CTA users were 1/12. The 54 KB guide's unsupported “latest neuroscience,” left/right-brain personality, 80–85% accuracy, and career-fit claims were replaced with a compact 10-choice scoring rule, explicit limits, one direct primary source, and a Japanese auto-start route. Qualified exposure and click attribution are private and exact-once.
 - Chinese habit tracker: Organic landing `8 → 9`, recent engaged 4/9, CTA users 0. 78 KB 장문을 7일 단일 행동 경로로 축소하고, 앱의 허위 평점·AI/광고 잠금·수동 광고·합성 engage·개인 습관 수치 telemetry를 제거했다. 연결된 중국어 프리필은 확인 전 저장하지 않으며 첫 생성·완료·성공 공유만 비공개 단계로 기록한다.
@@ -43,6 +44,7 @@ Updated: 2026-08-30
 
 ## Deployment and verification
 
+- Portal `a8b552c`, Pages run `33304759366`: success. Live Chinese HSP guide→qualified view→four nested prompt clicks→CTA→ZH auto-start→five category completion passed at 390/1440px; choice and result values stayed out of telemetry.
 - Stress Check `61b1ad5`, Pages run `33303937981`; Portal `ad70b2d`, Pages run `33303973878`: success. Live Chinese thought check→CTA→ZH auto-start→15 answers→completion passed at 390/1440px with private telemetry.
 - Portal `64817ad`, Pages run `33302837640`: success. Live Japanese guide→qualified view→CTA→Japanese auto-start passed at 390/1440px with no answer/result telemetry.
 - Habit Tracker `bb83e74`, Pages build `1183494033`; Portal `0ff35b5`, Pages build `1183494802`: success. Live guide→ZH prefill→confirm→complete→successful share, privacy source, and sitemap passed at 390/1440px.
@@ -51,9 +53,9 @@ Updated: 2026-08-30
 - Detox Timer `7941186`, Pages run `33299235567`: success.
 - Portal `4f1d455`, Pages run `33299275506`: success.
 - Spanish production journey: 390/1440px overflow 0, 44px targets, qualified guide view/use, exact CTA, linked ES 10-minute start, localized complete/abort, app view/start/outcome exact-once, live source/sitemap passed.
-- Full local regression: `logs/harness-workflow/2026-08-30T09-16-39-242Z.md`; focused runtime 6/6, submitted inventory 49/0 issues, Chinese cognitive/Stress mutations 10/10.
+- Full local regression: `logs/harness-workflow/2026-08-30T09-37-25-291Z.md`; focused runtime 6/6, submitted inventory 49/0 issues, Chinese HSP mutations 10/10.
 - Previous production units: Chinese browser games Portal `5016b6b` / run `33298349084`; doomscrolling Portal `b67323d` / run `33297525976`; Future Self app `cc254c5`, Portal `77c052f`.
-- Main gates: `npm run harness -- --skip-analytics`, `npm run verify:zh-cognitive-distortions`, `npm run verify:ja-brain-type`, `node scripts/indexing-inventory.js --strict`.
+- Main gates: `npm run harness -- --skip-analytics`, `npm run verify:zh-hsp-guide`, `npm run verify:zh-cognitive-distortions`, `node scripts/indexing-inventory.js --strict`.
 
 ## Observation windows
 
@@ -61,6 +63,7 @@ All windows exclude their deployment day and SG desktop Direct. Do not decide be
 
 | Path | Complete KST window | Funnel | First diagnostic |
 |---|---|---|---|
+| Chinese HSP guide | 2026-08-31~09-06 | `content_view → content_zh_hsp_profile_view → content_zh_hsp_profile_use/content_cta_click → test_start → quiz_complete` | 20 qualified views; use/click 8%; linked start 50% |
 | Chinese cognitive distortions | 2026-08-31~09-06 | `content_view → content_zh_thought_check_view → content_zh_thought_check_use/content_cta_click → stress_intro_view → test_start → test_complete` | 20 qualified views; use/click 8%; linked start 50% |
 | Japanese Brain Type | 2026-08-31~09-06 | `content_view → content_ja_brain_type_view → content_cta_click → test_start → test_complete` | 20 qualified views; click 8%; linked start 50% |
 | Chinese habit tracker | 2026-08-31~09-06 | `content_view → content_zh_habit_plan_view → content_cta_click → habit_tracker_view → habit_tracker_quick_form_view → habit_tracker_habit_created → habit_tracker_first_completion` | 20 plan views; click 8%; form→create 50% |
