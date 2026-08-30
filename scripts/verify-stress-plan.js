@@ -2,6 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
+const { ADSENSE_CLIENT, inspectHtml } = require('./clean-indexable-blog-ads');
 
 const projectRoot = path.resolve(__dirname, '..', 'projects', 'stress-check');
 const mimeTypes = {
@@ -43,10 +44,16 @@ async function run() {
     const browser = await chromium.launch({ headless: true });
     const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
     const errors = [];
+    let resultContext;
     page.on('pageerror', error => errors.push(String(error)));
 
     try {
-        await page.goto(`${origin}/plan.html?lang=en&focus=work&level=high&source=verification`, {
+        const planUrl = `${origin}/plan.html?lang=en&focus=work&level=high&source=verification&verify_cache=${Date.now()}`;
+        const sourceResponse = await fetch(planUrl, { headers: { 'Cache-Control': 'no-cache' } });
+        if (!sourceResponse.ok) throw new Error(`plan source returned HTTP ${sourceResponse.status}`);
+        const sourceAds = inspectHtml(await sourceResponse.text());
+
+        await page.goto(planUrl, {
             waitUntil: 'domcontentloaded'
         });
         await page.waitForSelector('.day-card');
@@ -55,11 +62,7 @@ async function run() {
             days: document.querySelectorAll('.day-card').length,
             focus: document.querySelector('#focus-select')?.value,
             level: document.querySelector('#level-select')?.value,
-            autoAdsClients: Array.from(document.querySelectorAll(
-                'script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]'
-            )).map(script => new URL(script.src).searchParams.get('client')),
-            manualAdCount: document.querySelectorAll('ins.adsbygoogle').length,
-            staticAdSurfaceCount: document.querySelectorAll('[data-ad-surface]').length,
+            runtimeAdsbygoogleCount: document.querySelectorAll('ins.adsbygoogle').length,
             overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
             events: window.dataLayer
                 .map(item => item?.event || (item?.[0] === 'event' ? item[1] : null))
@@ -74,36 +77,47 @@ async function run() {
         await page.waitForSelector('.day-card');
         const persisted = await page.isChecked('.day-card input[data-day="0"]');
 
-        await page.goto(`${origin}/?lang=en`, { waitUntil: 'domcontentloaded' });
-        await page.evaluate(() => {
+        resultContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
+        const resultPage = await resultContext.newPage();
+        resultPage.on('pageerror', error => errors.push(String(error)));
+        await resultPage.goto(`${origin}/?lang=en&verify_cache=${Date.now()}`, { waitUntil: 'domcontentloaded' });
+        await resultPage.waitForFunction(() => (
+            typeof i18n !== 'undefined'
+            && i18n.currentLang === 'en'
+            && Boolean(i18n.translations.en)
+            && document.querySelector('#intro-screen')?.classList.contains('active')
+        ), null, { timeout: 7000 });
+        await resultPage.evaluate(() => {
             STRESS_QUESTIONS.forEach(question => {
                 window.app.answers[question.id] = 4;
             });
             window.app.calculateResults();
             window.app.displayResults();
         });
-        await page.waitForSelector('#result-screen.active', { timeout: 7000 });
-        const callToAction = (await page.textContent('#btn-premium-unlock')).trim();
+        await resultPage.waitForSelector('#result-screen.active', { timeout: 7000 });
+        const callToAction = (await resultPage.textContent('#btn-premium-unlock')).trim();
         await Promise.all([
-            page.waitForURL(/plan\.html/, { timeout: 5000 }),
-            page.click('#btn-premium-unlock')
+            resultPage.waitForURL(/plan\.html/, { timeout: 5000 }),
+            resultPage.click('#btn-premium-unlock')
         ]);
-        const routedUrl = page.url();
+        const routedUrl = resultPage.url();
 
-        const report = { initial, progress, koreanTitle, persisted, callToAction, routedUrl, errors };
+        const report = { sourceAds, initial, progress, koreanTitle, persisted, callToAction, routedUrl, errors };
         console.log(JSON.stringify(report, null, 2));
 
         const failures = [];
         if (initial.days !== 7) failures.push(`expected 7 day cards, received ${initial.days}`);
         if (initial.focus !== 'work') failures.push(`expected work focus, received ${initial.focus}`);
         if (initial.level !== 'high') failures.push(`expected high level, received ${initial.level}`);
-        if (initial.autoAdsClients.length !== 1 || initial.autoAdsClients[0] !== 'ca-pub-3600813755953882') {
-            failures.push(`expected one official Auto Ads loader, received ${initial.autoAdsClients.join(', ') || 'none'}`);
+        const loaderCount = sourceAds.directLoaders + sourceAds.managedLoaders;
+        if (loaderCount !== 1 || sourceAds.loaderClients[0] !== ADSENSE_CLIENT) {
+            failures.push(`expected one official Auto Ads loader in source, received ${sourceAds.loaderClients.join(', ') || 'none'}`);
         }
-        if (initial.manualAdCount !== 0) failures.push(`expected no manual ad units, received ${initial.manualAdCount}`);
-        if (initial.staticAdSurfaceCount !== 0) {
-            failures.push(`expected no static ad surfaces, received ${initial.staticAdSurfaceCount}`);
-        }
+        if (sourceAds.invalidAutoSlots) failures.push(`invalid auto slots in source: ${sourceAds.invalidAutoSlots}`);
+        if (sourceAds.manualUnits) failures.push(`manual ad units in source: ${sourceAds.manualUnits}`);
+        if (sourceAds.manualPushes) failures.push(`manual ad pushes in source: ${sourceAds.manualPushes}`);
+        if (sourceAds.staticAdSurfaces) failures.push(`static ad surfaces in source: ${sourceAds.staticAdSurfaces}`);
+        if (sourceAds.paidImpressionClaims) failures.push(`synthetic ad impression claims in source: ${sourceAds.paidImpressionClaims}`);
         if (initial.overflow > 0) failures.push(`mobile overflow is ${initial.overflow}px`);
         if (!initial.events.includes('stress_plan_view')) failures.push('stress_plan_view was not tracked');
         if (progress !== '1 / 7') failures.push(`expected progress 1 / 7, received ${progress}`);
@@ -120,6 +134,7 @@ async function run() {
         }
         console.log('PASS: stress plan browser verification');
     } finally {
+        if (resultContext) await resultContext.close();
         await browser.close();
         if (server) {
             await new Promise(resolve => server.close(resolve));

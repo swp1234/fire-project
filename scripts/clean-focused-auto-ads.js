@@ -56,8 +56,13 @@ function linkedLocalScripts(htmlFile, html) {
 
 function verifyLinkedScript(source, label) {
   new vm.Script(source, { filename: label });
-  if (/\(?\s*(?:window\.)?adsbygoogle\s*=\s*window\.adsbygoogle\s*\|\|\s*\[\]\s*\)?\s*\.push\s*\(/i.test(source)) {
-    fail(`${label}: linked script can issue a manual adsbygoogle.push`);
+  const pushes = Array.from(String(source).matchAll(/\badsbygoogle\b[\s\S]{0,100}?\.push\s*\(/gi));
+  const normalizedLabel = String(label).replace(/\\/g, '/');
+  const officialPlacementShim = normalizedLabel.endsWith('projects/portal/js/game-ads.js')
+    && pushes.length === 1
+    && /window\.adBreak\s*=\s*window\.adConfig\s*=\s*function\s*\(\s*o\s*\)\s*\{\s*window\.adsbygoogle\.push\s*\(\s*o\s*\)\s*;?\s*\}/i.test(source);
+  if (pushes.length && !officialPlacementShim) {
+    fail(`${label}: linked script can issue an unauthorized adsbygoogle.push`);
   }
   if (/\bdata-ad-surface\b/i.test(source)) fail(`${label}: linked script depends on a static ad surface`);
   if (/\b[A-Za-z0-9_]*ad_impression\b/i.test(source)) fail(`${label}: linked script emits unverifiable ad-impression telemetry`);
@@ -119,9 +124,13 @@ function selfTest() {
   if (cleanHtml(cleaned, 'fixture') !== cleaned) fail('self-test: cleanup is not idempotent');
   new vm.Script('const ok = true;');
   verifyLinkedScript('function useful() { return true; }', 'linked-fixture');
+  verifyLinkedScript(
+    'window.adsbygoogle = window.adsbygoogle || []; window.adBreak = window.adConfig = function(o) { window.adsbygoogle.push(o); };',
+    'projects/portal/js/game-ads.js'
+  );
   let mutationDetected = false;
   try {
-    verifyLinkedScript("(window.adsbygoogle = window.adsbygoogle || []).push({}); track('result_ad_impression');", 'linked-mutation');
+    verifyLinkedScript("window.adsbygoogle = window.adsbygoogle || []; window.adsbygoogle.push({});", 'linked-mutation');
   } catch {
     mutationDetected = true;
   }
