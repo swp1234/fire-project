@@ -6,6 +6,9 @@ Updated: 2026-08-30
 
 ## Objective
 
+- Current milestone: raise the 7-day average from about `$0.10/day` to `$0.20/day` while keeping `$1/day` as the longer-term target.
+- Judge the milestone with complete KST days only; exclude deployment days and known SG desktop scan traffic.
+
 하루 `$1`를 목표로 KR/US의 유효 검색 유입을 늘린다. 트렌드 콘텐츠가 유입을 만들고 테스트·도구·게임이 행동과 재방문으로 연결되는지 한 편씩 검증한다.
 
 ## Portfolio
@@ -20,6 +23,9 @@ Updated: 2026-08-30
 
 ## Baseline
 
+- Latest complete 7-day AdSense baseline: `$0.75` total, about `$0.107/day`; the next operating milestone is `$1.40/7 days` or `$0.20/day`.
+- The submitted crawl set contains 43 unique URLs with zero inventory blockers after restoring the Future Self guide.
+
 - 2026-08-22~28 AdSense: `$0.75`, 1,645 pageviews, 828 impressions, 23 clicks, Page RPM 약 `$0.46`.
 - 동일 28일 비교(8월 2~29일 vs 7월 5일~8월 1일): AdSense `$2.90 vs $2.15`, Organic `680 vs 654` sessions. Pageviews `14,379 vs 5,560` 급증에도 Page RPM은 `$0.20 vs $0.39`로 하락해 유효 검색·행동 개선을 우선한다.
 - SG Desktop scan 제외 유효 RPM 약 `$0.91`; KR RPM 약 `$3.21`.
@@ -28,6 +34,8 @@ Updated: 2026-08-30
 - AdSense 주소 PIN 미인증 지급 보류가 남아 있다.
 
 ## Current release
+
+- 2026-08-30: Future Self's Korean guide had `9 vs 6` equal-window Organic landing sessions but only `2/9` engaged sessions and 14 engagement seconds across 8 users. The guide is now a lightweight, near-top direct bridge instead of an unsupported AI prediction article. The app exposes its exact `8 choices × 2 path points` rule, removes fabricated rating/FAQ proof and deterministic future claims, honors linked Korean entry, records no answer/result values, and emits start/complete/share only at the verified interaction stage.
 
 - 2026-08-30: `robots.txt` declares all 3 focused sitemaps. All 1,992 blog HTML files now follow the Auto Ads-only contract: no manual unit/push, static ad surface, or synthetic impression event. The verifier preserves title/H1/canonical/robots/JSON-LD/visible content, requires idempotent cleanup, and compiles all 4,641 remaining inline scripts.
 - 2026-08-30: Local and production checks cover all 42 submitted URLs and their linked scripts under the Auto Ads-only contract, with one exact Google H5 `adBreak/adConfig` bootstrap exception. Cleanup changed 18 submitted pages; source/runtime isolation, compilation, idempotence, and invariant preservation prevent the former manual-unit requirement and verifier false positives from returning.
@@ -60,6 +68,8 @@ Updated: 2026-08-30
 
 ## Verification
 
+- Future Self: 12 locales, 390/1440px guide layout, 44px targets, qualified CTA exposure, click integration, Korean linked start, eight-answer completion, result privacy, successful clipboard share, service-worker inventory, and 15 adversarial mutations.
+
 - Root: 12 locales × 2 viewports, 핵심 링크 9개, 결함 변이 14종.
 - Brain Type: 신뢰·schema·hreflang 및 허위 표현 변이 5종.
 - Culture choice: mobile pointer/desktop keyboard, 정확한 event params·CTA/share·schema 및 변이 12종.
@@ -77,6 +87,9 @@ Updated: 2026-08-30
 - `npm run harness`와 focused 6개 runtime smoke가 통합 회귀 기준이다. 브라우저 검증 서버는 안전 포트 범위를 사용해 OS 임시 포트의 `ERR_UNSAFE_PORT` 오탐을 막는다.
 
 ## Next decision
+
+- Future Self observation window: 2026-08-31~09-06 KST. Exclude 2026-08-30 and SG desktop scan traffic; compare `content_view → content_future_self_cta_view → content_cta_click → test_start → test_complete`. Do not decide before 20 qualified CTA-view users; use 8% CTA click-user rate and 50% app completion as first diagnostic thresholds.
+- Revenue milestone: compare complete rolling 7-day AdSense windows against `$1.40`. A single-day spike does not count as reaching `$0.20/day`.
 
 `scripts/culture-signal-review.js`가 spec과 읽기 전용 evidence로 `review.json`·경량 `review.md`를 생성한다.
 

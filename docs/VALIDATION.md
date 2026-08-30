@@ -38,6 +38,7 @@ npm run verify:rule-based-labels
 npm run verify:hsp-reset-funnel
 npm run verify:sensory-reset
 npm run verify:kpop-role-roster
+npm run verify:future-self-funnel
 npm run verify:kst-date
 npm run verify:blog-generator-interaction -- --spec scripts/specs/trend-odyssey-spiderman-ko.json
 npm run harness
@@ -58,8 +59,9 @@ npm run harness:runtime
 - Rule-based labels: IQ와 Zodiac 상세 화면은 미리 작성된 규칙 기반 메모임을 명시하고 AI·광고 잠금으로 표시하지 않아야 한다. IQ 점수는 `정답 수 / 20 × 100`과 정확히 일치하고 85–145 변환·속도 보너스·등급·인구 백분위가 없어야 한다. 12개 locale의 JSON-실제 DOM 정확 일치, UTF-8 치환 문자 부재, Zodiac 로더의 번역 초기화 대기, 모바일 결과 흐름, IQ 20번 문항 직후 완료 동작을 함께 검증한다.
 - HSP reset funnel: 결과 바로 아래의 reset primary 하나, map·fabricated percentile/rating/types·manual ads 부재, 12 locale·i18n fallback·service worker를 확인한다. `sensory_reset_cta_view`는 CTA가 실제 50% 교차할 때 exact-once여야 하며 query·telemetry에 선택값이나 결과값을 노출하지 않는다. 연결된 12 locale 가이드도 Auto Ads loader 하나와 합성 광고 이벤트 0건을 검증한다.
 - Daily Tarot: 허위 이용량·평점·AI 주장·가짜 광고 대기창·수동 광고가 없고, ES 자동 카드 뽑기에서 심화 성찰이 즉시 열리며 `daily_tarot_reflection_view`가 exact-once인지 검증한다.
-- Blog focus: 2026-06-01~08-28 Organic Search 2세션 이상 또는 sitemap 포함 글만 indexable로 두고, 나머지는 `noindex,follow`인지 확인한다. redirect는 건드리지 않으며 keep 글 175개는 Auto Ads 계약을 통과해야 한다. 전체 blog HTML은 수동 unit/push/static ad surface와 합성 `content_ad_impression`이 없어야 하고, cleanup 멱등성·검색 메타/가시 본문 보존·모든 inline script 컴파일을 검증한다.
+- Blog focus: 2026-06-01~08-28 Organic Search 2세션 이상 또는 sitemap 포함 글만 indexable로 두고, 나머지는 `noindex,follow`인지 확인한다. redirect는 건드리지 않으며 indexable keep 글 174개는 Auto Ads 계약을 통과해야 한다. retained redirect 1개는 광고 검증에서 제외한다. 전체 blog HTML은 수동 unit/push/static ad surface와 합성 `content_ad_impression`이 없어야 하고, cleanup 멱등성·검색 메타/가시 본문 보존·모든 inline script 컴파일을 검증한다.
 - K-pop: 가이드 FAQ·공식 출처 4개·2개 전환 경로, 로스터 12 locale 핵심 현지화+EN fallback·exact-once 이벤트·개인정보 비전송, EN/KO 테스트의 실패 복구·접근성·공유·SW, 43개 도구 카탈로그의 순서·URL·이름을 390/1440px과 52개 결함 변이로 검증한다.
+- Future Self: 12 locales, query-language priority, linked Korean auto-start, source allowlist, answer/result privacy, successful-share telemetry, service-worker assets, qualified 50%/500ms guide exposure, CTA click, completion, and 15 adversarial mutations.
 - Harness: portal locale·정적 품질·위 검증기·analytics smoke·focused runtime을 첫 실패에서 중단한다. 브라우저 검증 서버는 차단 포트를 피하는 20000–45000 범위만 사용한다.
 
 콘텐츠 기본 검증은 필요 시 다음을 함께 실행한다.

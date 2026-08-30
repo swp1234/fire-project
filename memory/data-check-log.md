@@ -82,6 +82,14 @@
 - The 625 MBTI exception events were excluded as SG desktop scan noise: the sitewide spike was concentrated on 2026-08-06, recent MBTI exceptions were zero, and KO mobile/EN desktop production journeys had no page errors.
 - Decision: observe 2026-08-31~09-06 KST; exclude deployment day and SG desktop, require 20 qualified comparison-view users, and compare the combined Organic landings of both former routes plus compare-use/CTA rates.
 
+## 2026-08-30 Future Self conversion reset
+
+- Equal 28-day Organic landing evidence for `/portal/blog/ko/future-self-prediction-test.html` was `6 → 9` sessions. The recent window had only `2/9` engaged sessions and 14 total engagement seconds across 8 users; 8 recent sessions were KR mobile Naver traffic, so this was a real mobile entry problem rather than SG scan noise.
+- Historical app evidence showed 37 page-view users, 2 test-start users, and 1 completion. The guide's primary CTA incorrectly opened the Portal home, while the app ignored `?lang=ko`, claimed AI-like destiny output, displayed an unsupported 4.6/2,340 rating, and sent result type/value to analytics.
+- Decision: repair this existing organic path instead of adding another URL. The guide now links directly into a Korean auto-start journey; the app publishes its fixed scoring rule, removes fabricated proof, does not send answers/results, and attributes linked versus manual starts.
+- Observe 2026-08-31~09-06 KST, excluding deployment day and SG desktop. Use `content_view → content_future_self_cta_view → content_cta_click → test_start → test_complete`; wait for 20 qualified CTA-view users before judging, with 8% CTA click-user rate and 50% completion as the first diagnostic thresholds.
+- Revenue milestone is now `$1.40` across seven complete days (`$0.20/day`), up from the latest `$0.75/7 days` (`$0.107/day`).
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
