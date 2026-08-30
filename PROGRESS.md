@@ -29,19 +29,18 @@ Updated: 2026-08-30
 
 ## Latest release
 
-- Spanish Blood Type path: Organic landing `6 → 6`; guide users 12/CTA 0, app page users 54/first-select users 8, while 8 selectors all reached the result. The bottleneck was trust before the first choice, not completion.
-- The 61.8 KB guide is now a 13.7 KB Spanish culture/evidence guide with two primary sources and a direct app CTA. The app is no longer a personality test: four culture cards keep the research boundary visible before and after selection.
-- Removed unsupported personality, relationship, career, health, compatibility and percentile output; fabricated `89,000+` proof; hidden FAQ; synthetic engagement; selected blood type in telemetry/share URLs; stale premium/AI claims. Full result copy now works in all 12 locales.
-- App code `33.6 KB → 5.9 KB`, CSS `1,328 → 142 lines`, README `286 → 23 lines`; one Auto Ads loader and app-scoped network-first cache remain.
-- Stage contract: `content_view → content_cta_click → blood_type_culture_view → blood_type_culture_open → blood_type_culture_related_click/blood_type_culture_share`. Historical `page_engage`, `quiz_*`, `result_view`, `blood_type_select`, and synthetic ad events are not comparable.
+- Chinese zodiac guide held `6 → 6` equal-window Organic sessions. It had 25 pageview users, 20 qualified content users and no CTA users in 56 days; the app had 67 page users but only 10 sign selectors. Discovery existed, but the guide-to-choice path did not convert.
+- Replaced deterministic compatibility scores and predictions with 12-locale, score-free conversation cards. Removed fabricated `5,280+` proof, random percentile, love/friend/work scoring, stale AI/premium language, selection values from analytics/share, and synthetic engagement/ad events.
+- The 40.5 KB Chinese guide is now a 13.1 KB culture-and-evidence answer with two primary studies and two direct app CTAs. App changes net `−3,801` lines; one Auto Ads loader and app-scoped cache remain.
+- Stage contract: `content_view → content_cta_click → zodiac_pair_view → zodiac_pair_start → zodiac_pair_open → zodiac_pair_related_click/zodiac_pair_share`. Historical `page_engage`, `zodiac_select`, `zodiac_result_view`, timer/scroll and synthetic ad events are not comparable.
 
 ## Deployment and verification
 
-- Blood Type `63da3a5`, Pages run `33307767157`; Portal `7f0cfd7`, Pages run `33307767313`: success.
-- `verify:blood-type-culture-reset`: 10/10 mutations detected; local and live 12-locale mobile journeys plus Spanish guide→CTA→card→share/related/restart passed. Choice values stayed out of URL, telemetry and shared links.
-- Full regression: `logs/harness-workflow/2026-08-30T10-51-06-180Z.md`; all steps passed, runtime 6/6, analytics 9/9, submitted inventory 49/0 issues.
-- Recent prior releases: IQ `7d72cc4` / run `33306821791`; Reaction `6bc66ba` / run `33305585877`; Portal reaction guide `f2b7b67` / run `33305633567`.
-- Main gates: `npm run harness`, `npm run verify:blood-type-culture-reset`, `npm run verify:iq-completion-reset`, `node scripts/indexing-inventory.js --strict`.
+- Zodiac Match `e403d4f`, Pages run `33308739615`; Portal `cb9d233`, Pages run `33308739767`: success.
+- `verify:zodiac-pair-reset`: 10/10 mutations detected; local and live 12-locale mobile journeys, desktop journey and Chinese guide→app journey passed. Sign choices stayed out of URLs, telemetry and shared links.
+- Full regression: `logs/harness-workflow/2026-08-30T11-13-44-952Z.md`; all steps passed, runtime 6/6, analytics 9/9, submitted inventory 49/0 issues.
+- Recent prior release: Blood Type `63da3a5` / run `33307767157`; Portal `7f0cfd7` / run `33307767313`.
+- Main gates: `npm run harness`, `npm run verify:zodiac-pair-reset`, `npm run verify:blood-type-culture-reset`, `node scripts/indexing-inventory.js --strict`.
 
 ## Observation windows
 
@@ -49,6 +48,7 @@ All windows use complete KST days and exclude deployment day and SG desktop Dire
 
 | Path | Window | First diagnostic |
 |---|---|---|
+| Chinese zodiac pair | 2026-08-31~09-06 | guide CTA-user 8%; app view→start 25%; start→open 50%; open→related 8% |
 | Spanish Blood Type | 2026-08-31~09-06 | guide CTA-user 8%; app view→first open 25%; open→related 8% |
 | IQ puzzle | 2026-08-31~09-06 | start 35%; start→complete 50%; complete→related 8% |
 | Japanese reaction time | 2026-08-31~09-06 | setup use/CTA 8%; linked start 50%; completion 50% |

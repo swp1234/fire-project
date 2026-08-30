@@ -174,6 +174,13 @@
 - The replacement is a four-card culture/evidence path with a visible research boundary, 12 fully localized result bodies, generic share URLs, stage-only analytics, two direct research sources, one Auto Ads loader and app-scoped caching. The large-survey boundary is 10,000+ participants and less than 0.3% personality variance explained; the smaller study is presented as limited, not validation.
 - Observe 2026-08-31~09-06 KST. Use `content_view → content_cta_click → blood_type_culture_view → blood_type_culture_open → blood_type_culture_related_click/blood_type_culture_share`; wait for 20 real app views, then use 25% first-open and 8% open-to-related-click as initial diagnostics. Exclude historical `page_engage`, `quiz_*`, `result_view`, `blood_type_select`, and synthetic ad events.
 
+## 2026-08-30 Chinese zodiac pair reset
+
+- `/portal/blog/zh/zodiac-compatibility-guide.html` held `6 → 6` equal-window Organic sessions. Across 56 days it had 25 pageview users, 20 qualified content users and no CTA users; the app had 67 page users but only 10 `zodiac_select` users. China desktop Bing supplied five of the six recent Organic sessions, so the route has discovery but weak guide-to-choice conversion.
+- The prior app presented folklore as deterministic love, friendship and work scores, showed fabricated `5,280+` proof and a random percentile, transmitted selected signs, and mixed synthetic engagement/ad events into the funnel. The guide made stronger accuracy claims without a usable evidence boundary.
+- The replacement is a 12-locale score-free conversation-card path backed by a 66,063-marriage/divorce study and a cross-cultural personality study. It keeps sign choices in browser memory, shares a generic URL, emits stage-only events, uses one Auto Ads loader and preserves app-scoped caching.
+- Observe 2026-08-31~09-06 KST. Use `content_view → content_cta_click → zodiac_pair_view → zodiac_pair_start → zodiac_pair_open → zodiac_pair_related_click/zodiac_pair_share`; wait for 20 real app views, then use 25% view-to-start, 50% start-to-open and 8% open-to-related-click as diagnostics. Exclude legacy `page_engage`, `zodiac_select`, `zodiac_result_view`, timer/scroll and synthetic ad events.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
