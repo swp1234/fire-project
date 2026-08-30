@@ -139,6 +139,13 @@
 - The former 54 KB guide claimed “latest neuroscience,” left/right-brain personality, 80–85% accuracy, and career fit. The replacement publishes the fixed 10-choice/8-label scoring boundary, cites the 1,011-participant Nielsen et al. study, and links directly to a Japanese auto-start route without sending answer or result data.
 - Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, and old synthetic events. Use `content_view → content_ja_brain_type_view → content_cta_click → test_start → test_complete`; wait for 20 qualified guide views, then use 8% CTA-user rate and 50% linked-start as initial diagnostics.
 
+## 2026-08-30 Chinese cognitive-distortions conversion reset
+
+- `/portal/blog/zh/cognitive-distortions-list.html` moved `3 → 8` equal-window Organic landing sessions with 7/8 engaged and 786 engagement seconds. Five recent sessions were China desktop Bing, two China mobile Bing, and one Hong Kong desktop Bing; exact-page GSC rows were absent.
+- Path-wide history had 29 content-view users, no meaningful content CTA users, one cross-promo user, and 29 synthetic `content_ad_impression` users. The page's primary conversion was an unrelated Animal Personality route.
+- The 47 KB generic article is now a concise 15-pattern reference with an NHS-style evidence check, three direct NHS/WHO sources, and a private Chinese Stress Check bridge. Stress Check no longer claims a validated scale, fabricated 4,800 users, AI/ad unlocking, or hidden FAQ; it sends no answers, totals, result bands, or category values to analytics/URLs and counts sharing only after success. Browser verification also found and fixed nested text/icon clicks that previously did not advance questions.
+- Observe 2026-08-31~09-06 KST; exclude deployment day, SG desktop Direct, and historical synthetic events. Use `content_view → content_zh_thought_check_view → content_zh_thought_check_use/content_cta_click → stress_intro_view → test_start → test_complete`; wait for 20 qualified views, then use 8% use/click-user rate and 50% linked-start as initial diagnostics.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
