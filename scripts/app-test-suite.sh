@@ -145,7 +145,7 @@ fi
 
 # T2.4 hreflang tags (should have 12+)
 if [ -f "$INDEX" ]; then
-  HREFLANG=$(grep -c 'hreflang=' "$INDEX" 2>/dev/null || echo 0)
+  HREFLANG=$(grep -Eic '<link[^>]+hreflang=' "$INDEX" 2>/dev/null || echo 0)
   if [ "$HREFLANG" -ge 12 ]; then
     green "hreflang tags ($HREFLANG)"
     PASS=$((PASS+1))

@@ -104,6 +104,18 @@ function collectLocaleKeys(html) {
   return [...keys];
 }
 
+function collectHreflangs(html) {
+  const alternates = [];
+  for (const match of String(html).matchAll(/<link\b[^>]*>/gi)) {
+    const tag = match[0];
+    if (!/\brel\s*=\s*["'][^"']*\balternate\b[^"']*["']/i.test(tag)) continue;
+    const language = /\bhreflang\s*=\s*["']([^"']+)["']/i.exec(tag)?.[1];
+    const href = /\bhref\s*=\s*["']([^"']+)["']/i.exec(tag)?.[1];
+    if (language && href) alternates.push({ language, href });
+  }
+  return alternates;
+}
+
 function hasDataI18nHtmlHandler(html) {
   return (
     html.includes("querySelectorAll('[data-i18n-html]')") ||
@@ -192,6 +204,22 @@ async function run() {
 
   for (const locale of LOCALES) {
     localeData[locale] = readJson(path.join(LOCALE_DIR, `${locale}.json`));
+  }
+
+  const portalIndex = fs.readFileSync(path.join(PORTAL_ROOT, 'index.html'), 'utf8');
+  const alternates = collectHreflangs(portalIndex);
+  const alternateMap = new Map(alternates.map((entry) => [entry.language, entry.href]));
+  const expectedLanguages = [...LOCALES, 'x-default'];
+  if (alternates.length !== expectedLanguages.length || alternateMap.size !== expectedLanguages.length) {
+    issues.push(`[static] index.html: expected ${expectedLanguages.length} unique hreflang links, got ${alternates.length}/${alternateMap.size}`);
+  }
+  for (const language of expectedLanguages) {
+    const expected = language === 'ko' || language === 'x-default'
+      ? 'https://dopabrain.com/portal/'
+      : `https://dopabrain.com/portal/?lang=${language}`;
+    if (alternateMap.get(language) !== expected) {
+      issues.push(`[static] index.html: ${language} hreflang mismatch`);
+    }
   }
 
   for (const target of TARGET_PAGES) {
