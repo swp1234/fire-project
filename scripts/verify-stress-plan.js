@@ -14,6 +14,35 @@ const mimeTypes = {
     '.svg': 'image/svg+xml'
 };
 
+function inspectIndexTrust(html) {
+    const descriptionTag = /<meta\b[^>]*\bname\s*=\s*["']description["'][^>]*>/i.exec(String(html))?.[0] || '';
+    const description = /\bcontent\s*=\s*["']([^"']*)["']/i.exec(descriptionTag)?.[1] || '';
+    let aggregateRatings = 0;
+    const visit = value => {
+        if (!value || typeof value !== 'object') return;
+        if (Object.prototype.hasOwnProperty.call(value, 'aggregateRating')) aggregateRatings += 1;
+        for (const child of Object.values(value)) visit(child);
+    };
+    for (const match of String(html).matchAll(/<script\b[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+        visit(JSON.parse(match[1]));
+    }
+    return {
+        aggregateRatings,
+        description,
+        descriptionLength: [...description].length,
+        unsupportedClaims: Array.from(String(html).matchAll(/\b(?:science[- ]based|scientifically validated|clinically validated)\b/gi)).length
+    };
+}
+
+function selfTestTrustInspection() {
+    const clean = inspectIndexTrust('<meta name="description" content="15 self-assessment questions"><script type="application/ld+json">{"@type":"SoftwareApplication"}</script>');
+    const rating = inspectIndexTrust('<script type="application/ld+json">{"aggregateRating":{"ratingValue":4.6}}</script>');
+    const claim = inspectIndexTrust('<meta name="description" content="15 science-based questions">');
+    if (clean.aggregateRatings || clean.unsupportedClaims || rating.aggregateRatings !== 1 || claim.unsupportedClaims !== 1) {
+        throw new Error('stress trust inspection self-test failed');
+    }
+}
+
 function createServer() {
     return http.createServer((request, response) => {
         const requestPath = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
@@ -48,6 +77,11 @@ async function run() {
     page.on('pageerror', error => errors.push(String(error)));
 
     try {
+        selfTestTrustInspection();
+        const indexUrl = `${origin}/?lang=en&source=verification&verify_cache=${Date.now()}`;
+        const indexResponse = await fetch(indexUrl, { headers: { 'Cache-Control': 'no-cache' } });
+        if (!indexResponse.ok) throw new Error(`index source returned HTTP ${indexResponse.status}`);
+        const sourceTrust = inspectIndexTrust(await indexResponse.text());
         const planUrl = `${origin}/plan.html?lang=en&focus=work&level=high&source=verification&verify_cache=${Date.now()}`;
         const sourceResponse = await fetch(planUrl, { headers: { 'Cache-Control': 'no-cache' } });
         if (!sourceResponse.ok) throw new Error(`plan source returned HTTP ${sourceResponse.status}`);
@@ -102,10 +136,15 @@ async function run() {
         ]);
         const routedUrl = resultPage.url();
 
-        const report = { sourceAds, initial, progress, koreanTitle, persisted, callToAction, routedUrl, errors };
+        const report = { sourceTrust, sourceAds, initial, progress, koreanTitle, persisted, callToAction, routedUrl, errors };
         console.log(JSON.stringify(report, null, 2));
 
         const failures = [];
+        if (!sourceTrust.description || sourceTrust.descriptionLength > 160) {
+            failures.push(`invalid index description length: ${sourceTrust.descriptionLength}`);
+        }
+        if (sourceTrust.aggregateRatings) failures.push(`unverifiable aggregate ratings in index source: ${sourceTrust.aggregateRatings}`);
+        if (sourceTrust.unsupportedClaims) failures.push(`unsupported validation claims in index source: ${sourceTrust.unsupportedClaims}`);
         if (initial.days !== 7) failures.push(`expected 7 day cards, received ${initial.days}`);
         if (initial.focus !== 'work') failures.push(`expected work focus, received ${initial.focus}`);
         if (initial.level !== 'high') failures.push(`expected high level, received ${initial.level}`);

@@ -115,7 +115,8 @@ fi
 
 # T2.2 Meta description length (under 160 chars)
 if [ -f "$INDEX" ]; then
-  DESC=$(grep -oP 'name="description"\s+content="[^"]*"' "$INDEX" 2>/dev/null | head -1 | sed 's/.*content="//;s/"//')
+  DESC_TAG=$(grep -oiE '<meta[^>]+name="description"[^>]*>' "$INDEX" 2>/dev/null | head -1)
+  DESC=$(printf '%s' "$DESC_TAG" | grep -oP 'content="\K[^"]*' 2>/dev/null | head -1)
   if [ -n "$DESC" ]; then
     DESC_LEN=${#DESC}
     if [ "$DESC_LEN" -le 160 ]; then
@@ -125,6 +126,9 @@ if [ -f "$INDEX" ]; then
       red "Meta description too long ($DESC_LEN chars, max 160)"
       FAIL=$((FAIL+1))
     fi
+  else
+    red "Meta description missing or empty"
+    FAIL=$((FAIL+1))
   fi
 fi
 
