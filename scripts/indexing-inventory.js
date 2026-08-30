@@ -241,6 +241,13 @@ function flattenJsonLd(value) {
   return [value, ...graph];
 }
 
+function countJsonLdProperty(value, property) {
+  if (!value || typeof value !== 'object') return 0;
+  let count = Object.prototype.hasOwnProperty.call(value, property) ? 1 : 0;
+  for (const child of Object.values(value)) count += countJsonLdProperty(child, property);
+  return count;
+}
+
 function typeMatches(node, typeName) {
   const type = node && node['@type'];
   if (Array.isArray(type)) return type.includes(typeName);
@@ -413,6 +420,12 @@ function runSelfTest() {
   console.log('[PASS] Auto Ads loader and invalid manual slot contracts are distinguished');
   console.log('[PASS] commented ad markup is excluded from the DOM contract');
 
+  const cleanTrustSchema = { '@type': 'SoftwareApplication', offers: { '@type': 'Offer', price: '0' } };
+  const fakeRatingSchema = { '@type': 'SoftwareApplication', aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.7' } };
+  assertSelfTest(countJsonLdProperty(cleanTrustSchema, 'aggregateRating') === 0, 'clean trust schema was flagged');
+  assertSelfTest(countJsonLdProperty(fakeRatingSchema, 'aggregateRating') === 1, 'aggregate rating mutation was not detected');
+  console.log('[PASS] unverifiable aggregate rating mutation is detected');
+
   const validPortal = mapUrlToLocalPath(`${ORIGIN}/portal/blog/ko/example.html`);
   assertSelfTest(validPortal.kind === 'blog' && isPathInside(PORTAL_ROOT, validPortal.file), 'valid portal URL mapping failed');
   const unsafeUrls = [
@@ -508,6 +521,7 @@ function auditUrl(entry, duplicateCount) {
   const jsonLd = extractJsonLd(html);
   const jsonLdErrors = jsonLd.filter((item) => item.error);
   const nodes = jsonLd.flatMap((item) => flattenJsonLd(item.value));
+  const aggregateRatingCount = jsonLd.reduce((sum, item) => sum + countJsonLdProperty(item.value, 'aggregateRating'), 0);
   const dateModified = findDateModified(nodes, html);
   const ageDays = dateAgeDays(dateModified);
   const isRedirect = refresh && canonical && normalizeUrl(new URL(refresh, entry.loc).href) === normalizeUrl(canonical);
@@ -521,6 +535,9 @@ function auditUrl(entry, duplicateCount) {
   if (!/<h1\b/i.test(html)) addIssue(issues, 'missing_h1', 'medium', 'missing h1');
   if (!isRedirect && jsonLd.length === 0) addIssue(issues, 'missing_json_ld', 'medium', 'missing JSON-LD');
   if (!isRedirect && jsonLdErrors.length > 0) addIssue(issues, 'invalid_json_ld', 'high', `${jsonLdErrors.length} invalid JSON-LD block(s)`);
+  if (!isRedirect && aggregateRatingCount > 0) {
+    addIssue(issues, 'unverifiable_aggregate_rating', 'high', `${aggregateRatingCount} aggregate rating claim(s) lack a visible first-party review system`);
+  }
   if (!isRedirect && mapped.kind === 'blog' && nodes.filter((node) => typeMatches(node, 'Article') || typeMatches(node, 'BlogPosting')).length === 0) {
     addIssue(issues, 'missing_article_ld', 'high', 'blog URL missing Article/BlogPosting JSON-LD');
   }

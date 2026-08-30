@@ -32,6 +32,7 @@ Updated: 2026-08-30
 - 2026-08-30: Local and production checks cover all 43 submitted URLs and 51 linked scripts under the Auto Ads-only contract, with one exact Google H5 `adBreak/adConfig` bootstrap exception. Cleanup changed 18 submitted pages; source/runtime isolation, compilation, idempotence, and invariant preservation prevent the former manual-unit requirement and verifier false positives from returning.
 - 2026-08-30: Brain Type, 2048, and Portal search descriptions are now 149/143/139 characters; unsupported 2048 leaderboard wording is gone, and Portal exposes the exact 12-locale plus x-default hreflang set. The shared test now counts real link tags instead of selector text.
 - 2026-08-30: Primary Stress Check no longer claims an unsupported scientific basis or a fabricated 4.6/320 aggregate rating. Its 139-character self-assessment description and JSON-LD trust contract are source-tested before the functional plan journey.
+- 2026-08-30: Removed unsupported aggregate ratings from the remaining eight submitted apps (1,250–5,280 claimed ratings). Strict indexing inventory now treats any aggregate rating without a visible first-party review system as a high-risk failure.
 
 - 홈은 3 primary, 6 focused picks, Culture Signal 1개, archive 1개만 노출한다. Culture Signal은 첫 viewport 안의 compact rail로 올렸고 2026-08-29를 새 launch date로 삼는다.
 - 첫 Culture Signal은 오딧세이·스파이더맨 해설, 전용 OG 이미지, 귀환/리셋 선택 카드, Brain Type·2048 bridge를 제공한다.

@@ -51,6 +51,7 @@ npm run harness:runtime
 - Culture review: 순수 evidence 판정과 13개 in-memory 변이. 얇은 표본·전역 수치·URL 불일치가 승격/억제를 만들지 못하며 외부 계정을 변경하지 않는다.
 - Blog generator: 잘못된 interaction spec 거부, 임시 생성물의 2선택·분기 CTA·공유 이벤트 순서·mobile overflow·sticky 억제를 검증한다.
 - AdSense: Auto Ads 구현 경로는 하나만 허용하고 관리형 loader는 Google script 요청까지 확인한다. `data-ad-slot="auto"`, 수동 unit/push, DOM 기반 `content_ad_impression`은 거부하며 GA 이벤트는 유료 노출 증거가 아니다. Google 공식 H5 `adBreak/adConfig` 초기화 shim만 전용 공용 모듈에서 예외로 허용한다. 제출 sitemap 43개 URL과 연결된 local JS도 같은 계약을 따르고 strict indexing inventory에서 이슈 0건이어야 한다.
+- Search trust: 제출 URL의 `aggregateRating`은 화면에 보이는 실제 자사 리뷰 수집 근거가 없으면 high-risk로 실패한다. 메타 description은 실제 `<meta>` 태그에서 읽고 누락·빈 값·160자 초과를 통과시키지 않는다.
 - HSP reset funnel: 결과 바로 아래의 reset primary 하나, map·fabricated percentile/rating/types·manual ads 부재, 12 locale·i18n fallback·service worker를 확인한다. `sensory_reset_cta_view`는 CTA가 실제 50% 교차할 때 exact-once여야 하며 query·telemetry에 선택값이나 결과값을 노출하지 않는다. 연결된 12 locale 가이드도 Auto Ads loader 하나와 합성 광고 이벤트 0건을 검증한다.
 - Daily Tarot: 허위 이용량·평점·AI 주장·가짜 광고 대기창·수동 광고가 없고, ES 자동 카드 뽑기에서 심화 성찰이 즉시 열리며 `daily_tarot_reflection_view`가 exact-once인지 검증한다.
 - Blog focus: 2026-06-01~08-28 Organic Search 2세션 이상 또는 sitemap 포함 글만 indexable로 두고, 나머지는 `noindex,follow`인지 확인한다. redirect는 건드리지 않으며 keep 글 175개는 Auto Ads 계약을 통과해야 한다. 전체 blog HTML은 수동 unit/push/static ad surface와 합성 `content_ad_impression`이 없어야 하고, cleanup 멱등성·검색 메타/가시 본문 보존·모든 inline script 컴파일을 검증한다.
