@@ -15,12 +15,19 @@ This file contains current operating state only. Decision-changing measurements 
 - 2026-08-25~31 AdSense: `$0.67`, 1,950 pageviews, 756 impressions, 21 clicks, Page RPM `$0.34`; prior seven days were `$0.63 / 1,785 PV / $0.35 RPM`. The target remains `$1.40` per seven complete days.
 - Country opportunity: US `$0.15 / 54 PV / $2.85 RPM`; KR `$0.18 / 288 PV / $0.63 RPM`; CN `$0.18 / 601 PV / $0.30 RPM`; FR `$0.04 / 40 PV / $1.04 RPM`.
 - 2026-08-31 GA4 was dominated by non-engaged scan-like traffic: Singapore desktop Direct 82 sessions plus Unassigned 56, and China Direct/Unassigned 77. Exclude these segments from demand decisions.
-- Focused sitemap: 60 unique submitted URLs, strict issues 0.
-- Search Console re-downloaded the focused queues on 2026-09-01 after their stale `174 / 1,940 / 1,770` submitted counts were replaced by live `18 / 10 / 31` root, portal and blog rows; all three submissions were accepted.
+- Focused sitemap: 61 unique submitted URLs, strict issues 0.
+- Search Console re-downloaded the focused queues on 2026-09-01 after their stale `174 / 1,940 / 1,770` submitted counts were replaced by live `18 / 10 / 36` root, portal and blog rows; all three submissions were accepted.
 - Raw AdSense request coverage was 10.43%, but it was 10.59% in the prior week and is dominated by scan traffic: Singapore generated 5,541 requests, 287 matches, 1 impression and $0.00. KR/US/JP coverage was 30.6%/47.3%/62.0%, so do not add ad density to fix the raw ratio.
 - Primary: Stress Check, HSP Test, 2048 Coach. Support: Brain Type, IQ, K-pop Roster. Culture Signal remains one isolated pilot. Portal remains the archive.
 
 ## Latest releases
+
+### English Future Self guide → transparent eight-scene reflection
+
+- `/portal/blog/en/future-self-prediction-quiz.html` moved `1 → 5` across equal 28-day Organic windows. The recent window had five sessions from India, Nigeria and the United States, three engaged sessions and four users; across 56 days, three users produced valid guide CTA/test clicks, so the search identity and direct Future Self route were preserved.
+- The 33.4 KB AI-prediction page is now a 15.0 KB reflection guide. It removes accuracy, career/health/outcome prediction, personality-determinism, hidden FAQ, synthetic ad and generic cross-promo claims; it publishes the exact eight-choice, 16-point and fixed tie-order rule and labels all eight outputs as fictional story shorthand.
+- Two direct English auto-start CTAs keep source attribution private. Hershfield future-self and implementation-intention research is bounded to the studied tasks rather than used as evidence for DopaBrain's labels, and a seven-day if–then action check replaces deterministic advice.
+- Portal release `f234acb` passed 13/13 mutations, local and live 390/1440px completion, and full harness `2026-09-01T12-27-03-843Z` with analytics `9/9`, runtime `6/6` and strict inventory `61 / 0`. The live gate was corrected to tolerate a properly cancelled 500 ms exposure when Auto Ads shifts the target, then re-centre it; IndexNow returned 200 and Search Console downloaded `18 / 10 / 36` rows with zero warnings/errors.
 
 ### Indonesian emotion-regulation guide → private action planner
 
@@ -168,6 +175,7 @@ Use complete KST days. Do not decide before 20 qualified views unless a correctn
 | Path | Window | First diagnostic |
 |---|---|---|
 | Focused Google discovery queue | 2026-09-02~09-08 | newer `lastCrawlTime` on priority samples; first newly indexed non-home URL; first Culture Signal discovery |
+| English Future Self guide → story | 2026-09-02~09-08 | qualified method-view-to-CTA 8%; linked start-to-complete 50%; post-completion share/related 8%; non-SG Organic engagement 55% |
 | Korean psychology-test picker | 2026-09-02~09-08 | qualified picker-to-use 25%; use-to-CTA 25%; Organic engagement 55%; post-submit Bing/Naver sessions; first Google discovery row |
 | Japanese Minesweeper guide → game | 2026-09-02~09-08 | qualified rule-view-to-use 25%; guide-to-game click 8%; game view-to-start 50%; start-to-complete 25%; Japan Organic engagement 55% |
 | Chinese free games → five game entries | 2026-09-02~09-08 | qualified filter-view-to-use 25%; game-click user rate 8%; China Organic engagement 55%; destination split only by non-sensitive slug |

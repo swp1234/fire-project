@@ -41,6 +41,7 @@
     "verify:palworld-server-console": "node scripts/verify-palworld-server-console.js --mutations",
     "verify:mbti-compatibility-focus": "node scripts/verify-mbti-compatibility-focus.js --mutations",
     "verify:future-self-funnel": "node scripts/verify-future-self-funnel.js --mutations",
+    "verify:en-future-self-guide": "node scripts/verify-en-future-self-guide.js --mutations",
     "verify:doomscrolling-bridge": "node scripts/verify-doomscrolling-bridge.js --mutations",
     "verify:zh-browser-games": "node scripts/verify-zh-browser-games.js --mutations",
     "verify:zh-free-games-controls": "node scripts/verify-zh-free-games-controls.js --mutations",
