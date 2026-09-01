@@ -268,6 +268,13 @@
 - The app's advertised 12-language surface actually served 100 Korean core questions and mixed fabricated `4.6 / 1,200` proof, hidden FAQ, fake interstitial explanations, daily challenge state and score-bearing sharing/telemetry. It is now a deterministic ten-question practice in 12 localized shells with visible result/privacy/ad boundaries, neutral sharing, official completion-break ads only and app-local caching.
 - Observe 2026-09-02~09-08 KST using `content_view → content_fr_dev_quiz_view/content_cta_click → dev_quiz_view → dev_quiz_start → dev_quiz_complete → dev_quiz_share/dev_quiz_related_click`. Wait for 20 qualified guide views, then use 8% guide CTA, 25% app view-to-start, 50% start-to-complete and 8% post-completion action as initial diagnostics. Exclude deployment day, Direct/Unassigned scans and all legacy synthetic, answer, score and cross-promo events.
 
+## 2026-09-01 English past-life birthday guide → story journey reset
+
+- `/portal/blog/en/past-life-calculator-birthday.html` moved `16 → 3` across equal 28-day Organic landing windows. All three recent sessions engaged and came from distinct Bing segments: Bangladesh desktop, Cayman Islands desktop and United States mobile. Search Console returned no exact-page row; URL Inspection reported `Crawled - currently not indexed`, successful fetch, allowed indexing and canonical agreement, with the last crawl on 2026-05-21.
+- Across 56 days the guide had 51 content users, eight valid quick-path users and three CTA users. The destination had 62 page users, 16 start users and 10 completion users; four users saved and two shared. The 62.5% start-to-complete rate supported preserving the core engine rather than rebuilding the journey logic.
+- The apparent runtime emergency was not persistent: all 271 `exception` events occurred on 2026-08-06 across 12 users, while a current live six-scene completion produced no exception event or page error. It remains excluded from the new funnel. Verified defects were fabricated rating/participant proof, hidden FAQ, manual ad/fake impression surfaces, result-bearing analytics/share, invented compatibility/percentile claims and unsafe broad caching.
+- Observe 2026-09-02~09-08 KST using `content_view → content_en_past_life_method_view/content_cta_click → past_life_view → past_life_start → past_life_complete → past_life_share/past_life_related_click`. Wait for 20 qualified guide views, then use 8% guide CTA, 25% app view-to-start, 50% start-to-complete and 8% post-completion action as diagnostics. Exclude deployment day, SG desktop Direct, the one-day exception burst and all legacy synthetic/result/ad/cross-promo events.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

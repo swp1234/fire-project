@@ -22,6 +22,13 @@ This file contains current operating state only. Decision-changing measurements 
 
 ## Latest releases
 
+### English past-life birthday guide → story journey
+
+- `/portal/blog/en/past-life-calculator-birthday.html` fell `16 → 3` across equal 28-day Organic windows, but all three recent Bing entries engaged. Across 56 days, 51 content users produced eight valid quick-path users and three CTA users, so the path still shows direct story-tool intent despite weak current discovery.
+- `/past-life/` had 62 page users, 16 start users and 10 completion users. The 62.5% historical start-to-complete rate justified preserving the six-scene choice engine; a 271-event exception burst was confined to 2026-08-06 and did not reproduce in a current live completion.
+- The 33.1 KB birthday-claim guide is now an 11.4 KB evidence-boundary page with transparent digit reduction, nine neutral writing prompts and two direct journey CTAs. The app removed fabricated `4.6 / 4,800` proof, fake participant counts, hidden FAQ, manual ad units, synthetic events, compatibility/percentile claims and result-bearing telemetry/share.
+- The app retains six scenes and eight localized story roles, publishes its 3/2/1 scoring rule, keeps choices and result local, uses only an official completion-break ad request and scopes caching to `/past-life/`. IndexNow accepted the guide/app URLs with HTTP 200; Search Console accepted `18 / 10 / 31` queues.
+
 ### French developer guide → Developer Quiz path
 
 - `/portal/blog/fr/guide-quiz-developpeur.html` moved `3 → 4` across equal 28-day Organic windows. All four recent sessions engaged, and five of nine 56-day content users produced ten direct Dev Quiz CTA clicks; the guide already had a usable intent signal.
@@ -109,6 +116,7 @@ This file contains current operating state only. Decision-changing measurements 
 - Lottery app: `a553d0e`; Pages run `33489504177` succeeded. Indonesian guide/catalog/sitemap: `cc5fb72`; Pages run `33489463109` succeeded.
 - Block Puzzle app: `6ab51fe`; Pages run `33492331655` succeeded. Chinese game guide/catalog/sitemap: `f060103`; Pages run `33492301923` succeeded.
 - Developer Quiz app: `86ee03a`; Pages run `33495211280` succeeded. French guide/catalog/sitemap: `3e0b2ae`; Pages run `33495211548` succeeded.
+- Past Life app: `b06f53e`; Pages run `33497742054` succeeded. English guide/catalog/sitemap: `6acfbe5`; Pages run `33497741863` succeeded.
 - `verify:en-shadow-reflection`: 14/14 mutations detected; all 12 locale completions, guide auto-start, source normalization, neutral sharing, private telemetry, mobile layout and locale-load recovery passed locally and live.
 - `verify:fr-cognitive-distortions`: 10/10 mutations detected; 390/1440px interaction, exact-once/private telemetry and linked French auto-start passed locally and live.
 - `verify:es-cognitive-distortions`: 11/11 mutations detected; 390/1440px interaction, exact-once/private telemetry, focused sitemap inclusion and linked Spanish auto-start passed locally and live. French and Chinese adjacent live paths also passed after the shared Stress Check allowlist change.
@@ -120,7 +128,8 @@ This file contains current operating state only. Decision-changing measurements 
 - `verify:id-lottery-random-path`: 18/18 mutations detected; local and live 390/1440px guide-to-app journeys, all 12 languages, query cleanup, unbiased generation invariants and exact-once/private stages passed.
 - `verify:zh-block-puzzle-path`: 18/18 mutations detected; local and live 390/1440px guide-to-game journeys, all 12 languages, query cleanup, no score-changing rewards, success-gated neutral sharing and exact-once/private stages passed.
 - `verify:fr-dev-quiz-path`: 16/16 mutations detected; local and live 390/1440px guide-to-quiz journeys, all 12 languages, ten-question completion, query cleanup, success-gated neutral sharing and exact-once/private stages passed.
-- Full harness: `logs/harness-workflow/2026-09-01T09-48-46-690Z.md`; every step passed, analytics 9/9, runtime 6/6, submitted inventory 56 URLs / 0 issues.
+- `verify:en-past-life-path`: 18/18 mutations detected; local and live 390/1440px guide-to-story journeys, all 12 languages, six-scene deterministic completion, query cleanup, neutral sharing and exact-once/private stages passed.
+- Full harness: `logs/harness-workflow/2026-09-01T10-18-43-260Z.md`; every step passed, analytics 9/9, runtime 6/6, submitted inventory 56 URLs / 0 issues.
 
 ## Observation windows
 
@@ -135,6 +144,7 @@ Use complete KST days. Do not decide before 20 qualified views unless a correctn
 | Indonesian 6/45 guide → random picker | 2026-09-02~09-08 | qualified method-view-to-CTA 8%; app view-to-generate 25%; generate-to-save/share/related 8%; Indonesia Organic engagement 55% |
 | Chinese game catalog → Block Puzzle | 2026-09-02~09-08 | qualified catalog-view-to-game click 8%; app view-to-start 25%; start-to-complete 25%; complete-to-share/related 8%; China Organic engagement 55% |
 | French developer guide → Developer Quiz | 2026-09-02~09-08 | qualified guide-view-to-CTA 8%; app view-to-start 25%; start-to-complete 50%; complete-to-share/related 8%; France/Brazil Organic engagement 55% |
+| English past-life birthday guide → story journey | 2026-09-02~09-08 | qualified boundary-view-to-CTA 8%; app view-to-start 25%; start-to-complete 50%; complete-to-share/related 8%; non-SG Organic engagement 55% |
 | Spanish cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |
 | French cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |
 | English Jung shadow reflection | 2026-08-31~09-06 | qualified concept-to-CTA 8%; app view-to-start 25%; start-to-complete 50%; complete-to-share/related 8% |
