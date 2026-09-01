@@ -1,6 +1,6 @@
 # DopaBrain Current State
 
-Updated: 2026-08-30
+Updated: 2026-09-01
 
 This file contains current operating state only. Decision-changing measurements belong in `memory/data-check-log.md`; reusable procedure belongs in the `dopabrain-growth-ops` skill; durable test contracts belong in `docs/VALIDATION.md`.
 
@@ -12,12 +12,19 @@ This file contains current operating state only. Decision-changing measurements 
 
 ## Baseline and portfolio
 
-- 2026-08-23~29 AdSense: `$0.75`, 1,795 pageviews, 827 impressions, 22 clicks, Page RPM `$0.42`.
-- Country opportunity: US `$0.21 / 57 PV / $3.75 RPM`; KR `$0.18 / 103 PV / $1.71 RPM`; CN `$0.19 / 591 PV / $0.32 RPM`.
-- Focused sitemap: 50 unique submitted URLs, strict issues 0.
+- 2026-08-25~31 AdSense: `$0.67`, 1,950 pageviews, 756 impressions, 21 clicks, Page RPM `$0.34`; prior seven days were `$0.63 / 1,785 PV / $0.35 RPM`. The target remains `$1.40` per seven complete days.
+- Country opportunity: US `$0.15 / 54 PV / $2.85 RPM`; KR `$0.18 / 288 PV / $0.63 RPM`; CN `$0.18 / 601 PV / $0.30 RPM`; FR `$0.04 / 40 PV / $1.04 RPM`.
+- 2026-08-31 GA4 was dominated by non-engaged scan-like traffic: Singapore desktop Direct 82 sessions plus Unassigned 56, and China Direct/Unassigned 77. Exclude these segments from demand decisions.
+- Focused sitemap: 51 unique submitted URLs, strict issues 0.
 - Primary: Stress Check, HSP Test, 2048 Coach. Support: Brain Type, IQ, K-pop Roster. Culture Signal remains one isolated pilot. Portal remains the archive.
 
 ## Latest releases
+
+### Korean psychology-test purpose picker
+
+- `/portal/blog/psychology-test-best.html` gained `0 → 5` equal-window Organic sessions, all from South Korea via Naver; only 2/5 engaged and no user took a valid next action. Exact-page Search Console rows were absent.
+- The 74.1 KB “BEST 7” page is now a 14.6 KB purpose-first chooser. It removes fabricated popularity, accuracy, HSP diagnosis, frequency-healing and scientific-compatibility claims, and replaces them with five explicit measurement boundaries plus direct APA/WHO sources.
+- A private five-choice picker routes to Stress Check, HSP, Brain Type, IQ Puzzle or K-pop Position. Its use event contains no selected purpose; the destination is attributed only when the user clicks the generated CTA. New Naver demand justified focused-sitemap inclusion as a separate Google-discovery hypothesis.
 
 ### Spanish cognitive-distortions path
 
@@ -47,10 +54,12 @@ This file contains current operating state only. Decision-changing measurements 
 - French guide/catalog: `68c3f24`; Pages run `33313143194` succeeded.
 - Stress Check Spanish entry allowlist: `73bd330`; Pages run `33314275421` succeeded.
 - Spanish guide/catalog/sitemap: `1440793`; Pages run `33314278283` succeeded.
+- Korean psychology picker/catalog/sitemap: `d89a970`; Pages run `33479823852` succeeded. The qualified-view layout-shift fix is `07c6fe1`; Pages run `33480344934` succeeded.
 - `verify:en-shadow-reflection`: 14/14 mutations detected; all 12 locale completions, guide auto-start, source normalization, neutral sharing, private telemetry, mobile layout and locale-load recovery passed locally and live.
 - `verify:fr-cognitive-distortions`: 10/10 mutations detected; 390/1440px interaction, exact-once/private telemetry and linked French auto-start passed locally and live.
 - `verify:es-cognitive-distortions`: 11/11 mutations detected; 390/1440px interaction, exact-once/private telemetry, focused sitemap inclusion and linked Spanish auto-start passed locally and live. French and Chinese adjacent live paths also passed after the shared Stress Check allowlist change.
-- Full harness: `logs/harness-workflow/2026-08-30T13-10-34-678Z.md`; every step passed, analytics 9/9, runtime 6/6, submitted inventory 49 URLs / 0 issues. Its Spanish typing verifier now checks all 30 rendered tokens against the Spanish source pool instead of relying on a random substring.
+- `verify:ko-psychology-picker`: 13/13 mutations detected; 390/1440px purpose selection, exact-once/private telemetry, 44px targets and continuous qualified exposure across live layout shifts passed locally and live.
+- Full harness: `logs/harness-workflow/2026-09-01T07-05-41-417Z.md`; every step passed, analytics 9/9, runtime 6/6, submitted inventory 51 URLs / 0 issues.
 
 ## Observation windows
 
@@ -58,6 +67,7 @@ Use complete KST days. Do not decide before 20 qualified views unless a correctn
 
 | Path | Window | First diagnostic |
 |---|---|---|
+| Korean psychology-test picker | 2026-09-02~09-08 | qualified picker-to-use 25%; use-to-CTA 25%; Organic engagement 55%; first Google discovery row |
 | Spanish cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |
 | French cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |
 | English Jung shadow reflection | 2026-08-31~09-06 | qualified concept-to-CTA 8%; app view-to-start 25%; start-to-complete 50%; complete-to-share/related 8% |

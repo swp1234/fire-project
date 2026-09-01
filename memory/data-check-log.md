@@ -207,6 +207,14 @@
 - The former 54.2 KB page mixed deterministic brain/error claims, a hidden English FAQ, an unrelated Animal Personality CTA and synthetic ad telemetry. The 14.8 KB replacement presents 15 non-diagnostic categories, three direct NHS/WHO sources, a private three-step check and a Spanish Stress Check bridge; repeat Organic acquisition justified focused-sitemap inclusion.
 - Observe 2026-08-31~09-06 KST. Use `content_view → content_es_thought_check_view → content_es_thought_check_use/content_cta_click → stress_intro_view → test_start → test_complete`; after 20 qualified views, use 8% use/click-user rate, 50% linked-view-to-start and 50% start-to-complete as diagnostics. Exclude deployment day, SG desktop Direct and legacy/synthetic events.
 
+## 2026-09-01 revenue checkpoint and Korean test-picker reset
+
+- Complete 2026-08-25~31 AdSense was `$0.67 / 1,950 PV / 756 impressions / 21 clicks / $0.34 RPM`, versus `$0.63 / 1,785 PV / 681 impressions / 11 clicks / $0.35 RPM` in the prior seven days. Revenue improved 6% but remains 48% of the `$1.40` target. US retained the best meaningful RPM at `$2.85`; KR and CN each earned `$0.18` at `$0.63` and `$0.30` RPM.
+- 2026-08-31 GA4 contained 82 Singapore desktop Direct, 56 Singapore desktop Unassigned and 77 China Direct/Unassigned sessions with zero engaged sessions. These scan-like segments explain much of the pageview/RPM distortion and remain excluded from demand decisions.
+- `/portal/blog/psychology-test-best.html` moved `0 → 5` equal-window Organic sessions, all South Korea/Naver, with 2 engaged sessions and no valid action. The 74.1 KB page mixed fabricated popularity, accuracy, diagnosis, healing-frequency and scientific-compatibility claims. It is now a 14.6 KB private purpose picker with five visible boundaries and focused-sitemap inclusion.
+- Release verification found a real live-only denominator defect: the ad loader could shift the qualified heading below the fold after IntersectionObserver had already disconnected. Commit `07c6fe1` keeps observation active until 50% visibility is continuous for 500 ms; the dedicated 13-mutation verifier passed locally and live at 390/1440px, and full harness `2026-09-01T07-05-41-417Z` passed with 51 submitted URLs / 0 issues.
+- Observe 2026-09-02~09-08 KST. Use `content_view → content_ko_test_picker_view → content_ko_test_picker_use → content_cta_click`; after 20 qualified views, use 25% picker-use, 25% use-to-CTA and 55% Organic engagement as diagnostics. GSC discovery is a separate outcome because the five baseline entries were Naver-only.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
