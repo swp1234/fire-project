@@ -16,9 +16,16 @@ This file contains current operating state only. Decision-changing measurements 
 - Country opportunity: US `$0.15 / 54 PV / $2.85 RPM`; KR `$0.18 / 288 PV / $0.63 RPM`; CN `$0.18 / 601 PV / $0.30 RPM`; FR `$0.04 / 40 PV / $1.04 RPM`.
 - 2026-08-31 GA4 was dominated by non-engaged scan-like traffic: Singapore desktop Direct 82 sessions plus Unassigned 56, and China Direct/Unassigned 77. Exclude these segments from demand decisions.
 - Focused sitemap: 51 unique submitted URLs, strict issues 0.
+- Search Console re-downloaded the focused queues on 2026-09-01 after their stale `174 / 1,940 / 1,770` submitted counts were replaced by live `18 / 10 / 26` root, portal and blog rows; all three report 0 warnings/errors.
 - Primary: Stress Check, HSP Test, 2048 Coach. Support: Brain Type, IQ, K-pop Roster. Culture Signal remains one isolated pilot. Portal remains the archive.
 
 ## Latest releases
+
+### Google discovery queue reset
+
+- URL Inspection found the homepage submitted/indexed, six representative priority routes crawled but not indexed, and the Culture Signal URL unknown to Google. Fetch, robots, indexing permission and user/Google canonical were correct where Google had crawled.
+- `mcp-server-gsc@0.3.0` exposes sitemap submission while hardcoding the read-only OAuth scope, so its write call always returned 403. `scripts/gsc-submit-sitemaps.js` now validates the fixed three-sitemap allowlist, live robots, XML content type, same-origin URLs, duplicate/count bounds and a full-scope signed service-account request before one submission pass.
+- Search Console accepted and downloaded all three queues at 2026-09-01 07:24 UTC. This resets discovery only; it does not prove indexing or ranking.
 
 ### Korean psychology-test purpose picker
 
@@ -59,6 +66,7 @@ This file contains current operating state only. Decision-changing measurements 
 - `verify:fr-cognitive-distortions`: 10/10 mutations detected; 390/1440px interaction, exact-once/private telemetry and linked French auto-start passed locally and live.
 - `verify:es-cognitive-distortions`: 11/11 mutations detected; 390/1440px interaction, exact-once/private telemetry, focused sitemap inclusion and linked Spanish auto-start passed locally and live. French and Chinese adjacent live paths also passed after the shared Stress Check allowlist change.
 - `verify:ko-psychology-picker`: 13/13 mutations detected; 390/1440px purpose selection, exact-once/private telemetry, 44px targets and continuous qualified exposure across live layout shifts passed locally and live.
+- `verify:gsc-submit-sitemaps`: 5/5 safety mutations detected; live robots declared all three queues and dry-run counts matched `18 / 10 / 26`. Search Console confirmed same-minute download with 0 warnings/errors.
 - Full harness: `logs/harness-workflow/2026-09-01T07-05-41-417Z.md`; every step passed, analytics 9/9, runtime 6/6, submitted inventory 51 URLs / 0 issues.
 
 ## Observation windows
@@ -67,6 +75,7 @@ Use complete KST days. Do not decide before 20 qualified views unless a correctn
 
 | Path | Window | First diagnostic |
 |---|---|---|
+| Focused Google discovery queue | 2026-09-02~09-08 | newer `lastCrawlTime` on priority samples; first newly indexed non-home URL; first Culture Signal discovery |
 | Korean psychology-test picker | 2026-09-02~09-08 | qualified picker-to-use 25%; use-to-CTA 25%; Organic engagement 55%; first Google discovery row |
 | Spanish cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |
 | French cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |

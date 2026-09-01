@@ -215,6 +215,13 @@
 - Release verification found a real live-only denominator defect: the ad loader could shift the qualified heading below the fold after IntersectionObserver had already disconnected. Commit `07c6fe1` keeps observation active until 50% visibility is continuous for 500 ms; the dedicated 13-mutation verifier passed locally and live at 390/1440px, and full harness `2026-09-01T07-05-41-417Z` passed with 51 submitted URLs / 0 issues.
 - Observe 2026-09-02~09-08 KST. Use `content_view → content_ko_test_picker_view → content_ko_test_picker_use → content_cta_click`; after 20 qualified views, use 25% picker-use, 25% use-to-CTA and 55% Organic engagement as diagnostics. GSC discovery is a separate outcome because the five baseline entries were Naver-only.
 
+## 2026-09-01 Search Console discovery queue reset
+
+- Search Console still showed the pre-focus submissions: root `174` rows last downloaded 2026-06-05, portal `1,940` last downloaded 2026-08-08, and blog `1,770` last downloaded 2026-05-14. All showed indexed `0`, while the live focused XML had only `18 / 10 / 26` rows and 51 unique URLs.
+- URL Inspection sampled eight priority URLs. The homepage was submitted and indexed; Stress Check, HSP, 2048, the Korean psychology picker, Spanish cognitive distortions and English shadow reflection were `Crawled - currently not indexed`; Culture Signal was unknown to Google. Every crawled sample was fetchable, indexing-allowed and canonical-consistent.
+- The GSC MCP submission tool returned 403 because package `mcp-server-gsc@0.3.0` hardcodes `webmasters.readonly` even for its write method. The repository's fixed-allowlist submitter used the same `siteFullUser` service account with the official `webmasters` scope. At 2026-09-01 07:24 UTC, Search Console accepted and downloaded all three live queues with submitted counts `18 / 10 / 26` and 0 warnings/errors.
+- Observe 2026-09-02~09-08 KST for newer priority-route crawl times, a first newly indexed non-home sample and Culture Signal discovery. This is a discovery reset, not evidence that the pages will rank; do not change the observation pages solely because the sitemap report still displays indexed `0` immediately after submission.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
