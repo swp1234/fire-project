@@ -6,7 +6,7 @@ This file contains current operating state only. Decision-changing measurements 
 
 ## Objective
 
-- Raise rolling 7 complete-KST-day AdSense revenue from `$0.75` to `$1.40` (`$0.20/day`), then toward `$1/day`.
+- Raise rolling 7 complete-KST-day AdSense revenue from `$0.67` to `$1.40` (`$0.20/day`), then toward `$1/day`.
 - Exclude deployment days, partial current days, and Singapore desktop Direct scans from decisions.
 - Change one independently measurable path at a time and preserve its observation window.
 
@@ -15,12 +15,19 @@ This file contains current operating state only. Decision-changing measurements 
 - 2026-08-25~31 AdSense: `$0.67`, 1,950 pageviews, 756 impressions, 21 clicks, Page RPM `$0.34`; prior seven days were `$0.63 / 1,785 PV / $0.35 RPM`. The target remains `$1.40` per seven complete days.
 - Country opportunity: US `$0.15 / 54 PV / $2.85 RPM`; KR `$0.18 / 288 PV / $0.63 RPM`; CN `$0.18 / 601 PV / $0.30 RPM`; FR `$0.04 / 40 PV / $1.04 RPM`.
 - 2026-08-31 GA4 was dominated by non-engaged scan-like traffic: Singapore desktop Direct 82 sessions plus Unassigned 56, and China Direct/Unassigned 77. Exclude these segments from demand decisions.
-- Focused sitemap: 51 unique submitted URLs, strict issues 0.
+- Focused sitemap: 52 unique submitted URLs, strict issues 0.
 - Search Console re-downloaded the focused queues on 2026-09-01 after their stale `174 / 1,940 / 1,770` submitted counts were replaced by live `18 / 10 / 26` root, portal and blog rows; all three report 0 warnings/errors.
 - Raw AdSense request coverage was 10.43%, but it was 10.59% in the prior week and is dominated by scan traffic: Singapore generated 5,541 requests, 287 matches, 1 impression and $0.00. KR/US/JP coverage was 30.6%/47.3%/62.0%, so do not add ad density to fix the raw ratio.
 - Primary: Stress Check, HSP Test, 2048 Coach. Support: Brain Type, IQ, K-pop Roster. Culture Signal remains one isolated pilot. Portal remains the archive.
 
 ## Latest releases
+
+### Japanese Minesweeper guide-to-play path
+
+- Japan desktop search traffic to the guide remained small but fully engaged (`3 → 4` equal-window Organic sessions; 7/7 engaged), while 56-day content users produced no valid next action. The generic cross-promo instead sent six users toward an unrelated Palworld path.
+- The 28.6 KB generic guide is now a 16.5 KB Japanese rules path with two deterministic counting rules, a private example, explicit DopaBrain first-click/hint/random-board boundaries and two direct Japanese game CTAs. It sends no answer choice to analytics.
+- The destination removed an unverifiable `4.5 / 4,200` rating, hidden FAQ schema, two invalid manual `data-ad-slot="auto"` units, duplicate page view and pre-success sharing. It now has a private exact-once view/start/complete/share/related funnel, allowlisted Japanese entry, 12-locale share feedback and app-scoped manifest/service-worker paths.
+- The focused blog sitemap now has 27 rows. IndexNow accepted only the changed guide and game URLs with HTTP 200, and Search Console accepted all three focused sitemaps at `18 / 10 / 27` rows.
 
 ### Google discovery queue reset
 
@@ -69,13 +76,15 @@ This file contains current operating state only. Decision-changing measurements 
 - Stress Check Spanish entry allowlist: `73bd330`; Pages run `33314275421` succeeded.
 - Spanish guide/catalog/sitemap: `1440793`; Pages run `33314278283` succeeded.
 - Korean psychology picker/catalog/sitemap: `d89a970`; Pages run `33479823852` succeeded. The qualified-view layout-shift fix is `07c6fe1`; Pages run `33480344934` succeeded.
+- Minesweeper app: `e644267`; Pages run `33484542795` succeeded. Japanese guide/catalog/sitemap: `c425b98`; Pages run `33484542960` succeeded.
 - `verify:en-shadow-reflection`: 14/14 mutations detected; all 12 locale completions, guide auto-start, source normalization, neutral sharing, private telemetry, mobile layout and locale-load recovery passed locally and live.
 - `verify:fr-cognitive-distortions`: 10/10 mutations detected; 390/1440px interaction, exact-once/private telemetry and linked French auto-start passed locally and live.
 - `verify:es-cognitive-distortions`: 11/11 mutations detected; 390/1440px interaction, exact-once/private telemetry, focused sitemap inclusion and linked Spanish auto-start passed locally and live. French and Chinese adjacent live paths also passed after the shared Stress Check allowlist change.
 - `verify:ko-psychology-picker`: 13/13 mutations detected; 390/1440px purpose selection, exact-once/private telemetry, 44px targets and continuous qualified exposure across live layout shifts passed locally and live.
 - `verify:gsc-submit-sitemaps`: 5/5 safety mutations detected; live robots declared all three queues and dry-run counts matched `18 / 10 / 26`. Search Console confirmed same-minute download with 0 warnings/errors.
 - `verify:indexnow-submit`: 5/5 safety mutations detected; live key, 14,821-byte HTML, indexability and canonical passed before the one-URL submission returned HTTP 200.
-- Full harness: `logs/harness-workflow/2026-09-01T07-05-41-417Z.md`; every step passed, analytics 9/9, runtime 6/6, submitted inventory 51 URLs / 0 issues.
+- `verify:ja-minesweeper-path`: 16/16 mutations detected; local and live 390/1440px guide-to-play journeys, Japanese rendering, query cleanup, exact-once/private stages and success-gated sharing passed.
+- Full harness: `logs/harness-workflow/2026-09-01T07-57-48-806Z.md`; every step passed, analytics 9/9, runtime 6/6, submitted inventory 52 URLs / 0 issues.
 
 ## Observation windows
 
@@ -85,6 +94,7 @@ Use complete KST days. Do not decide before 20 qualified views unless a correctn
 |---|---|---|
 | Focused Google discovery queue | 2026-09-02~09-08 | newer `lastCrawlTime` on priority samples; first newly indexed non-home URL; first Culture Signal discovery |
 | Korean psychology-test picker | 2026-09-02~09-08 | qualified picker-to-use 25%; use-to-CTA 25%; Organic engagement 55%; post-submit Bing/Naver sessions; first Google discovery row |
+| Japanese Minesweeper guide → game | 2026-09-02~09-08 | qualified rule-view-to-use 25%; guide-to-game click 8%; game view-to-start 50%; start-to-complete 25%; Japan Organic engagement 55% |
 | Spanish cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |
 | French cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |
 | English Jung shadow reflection | 2026-08-31~09-06 | qualified concept-to-CTA 8%; app view-to-start 25%; start-to-complete 50%; complete-to-share/related 8% |

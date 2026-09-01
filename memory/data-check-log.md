@@ -229,6 +229,13 @@
 - Valid Organic discovery is currently led by Naver and Bing-family sources. The existing public IndexNow key passed live validation, and the new fixed-host submitter accepted only explicit clean canonical changes. The Korean psychology picker was the sole first submission because it was updated today; `api.indexnow.org` returned HTTP 200.
 - Observe 2026-09-02~09-08 KST for Bing/Naver Organic sessions and engagement on that page. Do not resend unchanged URLs: IndexNow receipt only proves notification and repeated submissions do not accelerate indexing.
 
+## 2026-09-01 Japanese Minesweeper guide-to-play reset
+
+- The Japanese guide moved `3 → 4` equal-window Organic landing sessions; all seven sessions across both windows were engaged and recent engagement time rose `90 → 141` seconds. Across 56 days it had 10 content users but no valid action. Six users instead fired a stale Palworld bridge event from generic cross-promo, so that event is excluded.
+- The former guide promised broad mastery and probability tactics without a usable action path. The destination compounded the problem with an unverifiable `4.5 / 4,200` rating, hidden FAQ, invalid manual Auto Ads units, duplicate page view, result-bearing share text and broad PWA paths.
+- The replacement teaches two count-derived rules and links directly to an allowlisted Japanese game entry. Guide interaction and game telemetry are stage-only: no example answer, cell, board, difficulty, time or win/loss value is sent. The app retains the official H5 natural-break/reward module but removes invalid manual AdSense surfaces.
+- Observe 2026-09-02~09-08 KST and exclude deployment day, SG desktop Direct, old `content_ad_impression`, generic cross-promo and legacy page-view events. Use `content_view → content_ja_minesweeper_rule_view → content_ja_minesweeper_rule_use/content_cta_click → minesweeper_view → minesweeper_start → minesweeper_complete`; wait for 20 qualified guide views, then use 25% rule-use, 8% game click, 50% view-to-start and 25% start-to-complete as initial diagnostics.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
