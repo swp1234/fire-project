@@ -222,6 +222,13 @@
 - The GSC MCP submission tool returned 403 because package `mcp-server-gsc@0.3.0` hardcodes `webmasters.readonly` even for its write method. The repository's fixed-allowlist submitter used the same `siteFullUser` service account with the official `webmasters` scope. At 2026-09-01 07:24 UTC, Search Console accepted and downloaded all three live queues with submitted counts `18 / 10 / 26` and 0 warnings/errors.
 - Observe 2026-09-02~09-08 KST for newer priority-route crawl times, a first newly indexed non-home sample and Culture Signal discovery. This is a discovery reset, not evidence that the pages will rank; do not change the observation pages solely because the sitemap report still displays indexed `0` immediately after submission.
 
+## 2026-09-01 ad delivery and IndexNow acquisition audit
+
+- AdSense account/site/client were READY, Auto Ads was enabled and policy issues were empty. The severe address-PIN alert is a payout hold, not a serving defect; the AFS partner client requiring review is separate from the READY AFC content client.
+- Recent raw delivery was `12,973 requests / 1,353 matched / 756 impressions / 10.43% coverage`; the prior week was `12,567 / 1,331 / 681 / 10.59%`. Singapore alone produced 5,541 requests, 287 matches, 1 impression and `$0.00`, explaining much of the apparent coverage failure. KR/US/JP coverage was 30.6%/47.3%/62.0%; do not increase ad density or change Auto Ads based on the global ratio.
+- Valid Organic discovery is currently led by Naver and Bing-family sources. The existing public IndexNow key passed live validation, and the new fixed-host submitter accepted only explicit clean canonical changes. The Korean psychology picker was the sole first submission because it was updated today; `api.indexnow.org` returned HTTP 200.
+- Observe 2026-09-02~09-08 KST for Bing/Naver Organic sessions and engagement on that page. Do not resend unchanged URLs: IndexNow receipt only proves notification and repeated submissions do not accelerate indexing.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

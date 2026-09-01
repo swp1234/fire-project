@@ -17,6 +17,7 @@ This file contains current operating state only. Decision-changing measurements 
 - 2026-08-31 GA4 was dominated by non-engaged scan-like traffic: Singapore desktop Direct 82 sessions plus Unassigned 56, and China Direct/Unassigned 77. Exclude these segments from demand decisions.
 - Focused sitemap: 51 unique submitted URLs, strict issues 0.
 - Search Console re-downloaded the focused queues on 2026-09-01 after their stale `174 / 1,940 / 1,770` submitted counts were replaced by live `18 / 10 / 26` root, portal and blog rows; all three report 0 warnings/errors.
+- Raw AdSense request coverage was 10.43%, but it was 10.59% in the prior week and is dominated by scan traffic: Singapore generated 5,541 requests, 287 matches, 1 impression and $0.00. KR/US/JP coverage was 30.6%/47.3%/62.0%, so do not add ad density to fix the raw ratio.
 - Primary: Stress Check, HSP Test, 2048 Coach. Support: Brain Type, IQ, K-pop Roster. Culture Signal remains one isolated pilot. Portal remains the archive.
 
 ## Latest releases
@@ -26,6 +27,12 @@ This file contains current operating state only. Decision-changing measurements 
 - URL Inspection found the homepage submitted/indexed, six representative priority routes crawled but not indexed, and the Culture Signal URL unknown to Google. Fetch, robots, indexing permission and user/Google canonical were correct where Google had crawled.
 - `mcp-server-gsc@0.3.0` exposes sitemap submission while hardcoding the read-only OAuth scope, so its write call always returned 403. `scripts/gsc-submit-sitemaps.js` now validates the fixed three-sitemap allowlist, live robots, XML content type, same-origin URLs, duplicate/count bounds and a full-scope signed service-account request before one submission pass.
 - Search Console accepted and downloaded all three queues at 2026-09-01 07:24 UTC. This resets discovery only; it does not prove indexing or ranking.
+
+### IndexNow changed-URL acquisition
+
+- Bing and Naver are the current valid search sources while Google discovery remains thin. The pre-existing root IndexNow key was live and valid, but there was no guarded submission workflow.
+- `scripts/indexnow-submit.js` now requires explicit clean same-origin canonical URLs and validates the live key, 200 HTML response, indexability and canonical before submission. It rejects external/query/hash/duplicate URLs and never submits the whole sitemap by default.
+- Only today's updated Korean psychology picker was submitted; IndexNow returned HTTP 200. This is a crawl notification, not an indexing or ranking guarantee.
 
 ### Korean psychology-test purpose picker
 
@@ -67,6 +74,7 @@ This file contains current operating state only. Decision-changing measurements 
 - `verify:es-cognitive-distortions`: 11/11 mutations detected; 390/1440px interaction, exact-once/private telemetry, focused sitemap inclusion and linked Spanish auto-start passed locally and live. French and Chinese adjacent live paths also passed after the shared Stress Check allowlist change.
 - `verify:ko-psychology-picker`: 13/13 mutations detected; 390/1440px purpose selection, exact-once/private telemetry, 44px targets and continuous qualified exposure across live layout shifts passed locally and live.
 - `verify:gsc-submit-sitemaps`: 5/5 safety mutations detected; live robots declared all three queues and dry-run counts matched `18 / 10 / 26`. Search Console confirmed same-minute download with 0 warnings/errors.
+- `verify:indexnow-submit`: 5/5 safety mutations detected; live key, 14,821-byte HTML, indexability and canonical passed before the one-URL submission returned HTTP 200.
 - Full harness: `logs/harness-workflow/2026-09-01T07-05-41-417Z.md`; every step passed, analytics 9/9, runtime 6/6, submitted inventory 51 URLs / 0 issues.
 
 ## Observation windows
@@ -76,7 +84,7 @@ Use complete KST days. Do not decide before 20 qualified views unless a correctn
 | Path | Window | First diagnostic |
 |---|---|---|
 | Focused Google discovery queue | 2026-09-02~09-08 | newer `lastCrawlTime` on priority samples; first newly indexed non-home URL; first Culture Signal discovery |
-| Korean psychology-test picker | 2026-09-02~09-08 | qualified picker-to-use 25%; use-to-CTA 25%; Organic engagement 55%; first Google discovery row |
+| Korean psychology-test picker | 2026-09-02~09-08 | qualified picker-to-use 25%; use-to-CTA 25%; Organic engagement 55%; post-submit Bing/Naver sessions; first Google discovery row |
 | Spanish cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |
 | French cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |
 | English Jung shadow reflection | 2026-08-31~09-06 | qualified concept-to-CTA 8%; app view-to-start 25%; start-to-complete 50%; complete-to-share/related 8% |

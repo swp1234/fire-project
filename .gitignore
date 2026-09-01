@@ -66,6 +66,7 @@ SOUNDSCAPE_*.txt
 !scripts/verify-cross-promo-touch.js
 !scripts/culture-signal-review.js
 !scripts/gsc-submit-sitemaps.js
+!scripts/indexnow-submit.js
 !scripts/verify-blog-generator-interaction.js
 !scripts/verify-2048-ad-policy.js
 !scripts/verify-adsense-contract.js

@@ -5,6 +5,8 @@
     "adsense:keepalive": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/adsense-mcp-keepalive.ps1",
     "gsc:submit-sitemaps": "node --use-system-ca scripts/gsc-submit-sitemaps.js",
     "verify:gsc-submit-sitemaps": "node --use-system-ca scripts/gsc-submit-sitemaps.js --self-test && node --use-system-ca scripts/gsc-submit-sitemaps.js --dry-run",
+    "indexnow:submit": "node --use-system-ca scripts/indexnow-submit.js",
+    "verify:indexnow-submit": "node --use-system-ca scripts/indexnow-submit.js --self-test",
     "content:audit": "node scripts/blog-indexing-audit.js",
     "content:scaffold": "node scripts/create-blog-article.js",
     "content:verify": "node scripts/verify-blog-pages.js",
