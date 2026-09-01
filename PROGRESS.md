@@ -15,12 +15,19 @@ This file contains current operating state only. Decision-changing measurements 
 - 2026-08-25~31 AdSense: `$0.67`, 1,950 pageviews, 756 impressions, 21 clicks, Page RPM `$0.34`; prior seven days were `$0.63 / 1,785 PV / $0.35 RPM`. The target remains `$1.40` per seven complete days.
 - Country opportunity: US `$0.15 / 54 PV / $2.85 RPM`; KR `$0.18 / 288 PV / $0.63 RPM`; CN `$0.18 / 601 PV / $0.30 RPM`; FR `$0.04 / 40 PV / $1.04 RPM`.
 - 2026-08-31 GA4 was dominated by non-engaged scan-like traffic: Singapore desktop Direct 82 sessions plus Unassigned 56, and China Direct/Unassigned 77. Exclude these segments from demand decisions.
-- Focused sitemap: 56 unique submitted URLs, strict issues 0.
+- Focused sitemap: 57 unique submitted URLs, strict issues 0.
 - Search Console re-downloaded the focused queues on 2026-09-01 after their stale `174 / 1,940 / 1,770` submitted counts were replaced by live `18 / 10 / 31` root, portal and blog rows; all three submissions were accepted.
 - Raw AdSense request coverage was 10.43%, but it was 10.59% in the prior week and is dominated by scan traffic: Singapore generated 5,541 requests, 287 matches, 1 impression and $0.00. KR/US/JP coverage was 30.6%/47.3%/62.0%, so do not add ad density to fix the raw ratio.
 - Primary: Stress Check, HSP Test, 2048 Coach. Support: Brain Type, IQ, K-pop Roster. Culture Signal remains one isolated pilot. Portal remains the archive.
 
 ## Latest releases
+
+### Chinese MBTI city guide → city match path
+
+- `/portal/blog/zh/mbti-city-chengshi-xingge.html` moved `1 → 3` across equal 28-day Organic windows. All three recent Bing entries engaged for 30–222 seconds, and five 56-day users clicked the old app CTA, so the search identity and direct route were preserved.
+- `/mbti-city/` had 76 page users but no start or completion stage. A real completion-path bug called nonexistent `i18n.translateDOM`, while fabricated `15,200+` participation, `4.3 / 1,260` proof, random rarity percentages, hidden FAQ, manual ads and synthetic engagement made the old funnel unusable.
+- The 24.5 KB guide is now a 13.0 KB city-culture explainer with the exact eight-question/four-axis rule, 16 explicitly fictional city mappings, two direct Chinese CTAs and four verified related routes. The app keeps the deterministic engine, adds 12-language boundaries, private exact-once stages, completion-break ads only and app-scoped caching.
+- The dedicated gate detects 18/18 mutations and completes all eight questions at 390/1440px across 12 languages. Strict inventory is 57 URLs with 0 issues.
 
 ### English past-life birthday guide → story journey
 
@@ -117,6 +124,7 @@ This file contains current operating state only. Decision-changing measurements 
 - Block Puzzle app: `6ab51fe`; Pages run `33492331655` succeeded. Chinese game guide/catalog/sitemap: `f060103`; Pages run `33492301923` succeeded.
 - Developer Quiz app: `86ee03a`; Pages run `33495211280` succeeded. French guide/catalog/sitemap: `3e0b2ae`; Pages run `33495211548` succeeded.
 - Past Life app: `b06f53e`; Pages run `33497742054` succeeded. English guide/catalog/sitemap: `6acfbe5`; Pages run `33497741863` succeeded.
+- MBTI City app: `ae05dad`; Pages run `33500561412` succeeded. Chinese guide/catalog/sitemap: `de2ef8f`; Pages run `33500571968` succeeded.
 - `verify:en-shadow-reflection`: 14/14 mutations detected; all 12 locale completions, guide auto-start, source normalization, neutral sharing, private telemetry, mobile layout and locale-load recovery passed locally and live.
 - `verify:fr-cognitive-distortions`: 10/10 mutations detected; 390/1440px interaction, exact-once/private telemetry and linked French auto-start passed locally and live.
 - `verify:es-cognitive-distortions`: 11/11 mutations detected; 390/1440px interaction, exact-once/private telemetry, focused sitemap inclusion and linked Spanish auto-start passed locally and live. French and Chinese adjacent live paths also passed after the shared Stress Check allowlist change.
@@ -129,7 +137,8 @@ This file contains current operating state only. Decision-changing measurements 
 - `verify:zh-block-puzzle-path`: 18/18 mutations detected; local and live 390/1440px guide-to-game journeys, all 12 languages, query cleanup, no score-changing rewards, success-gated neutral sharing and exact-once/private stages passed.
 - `verify:fr-dev-quiz-path`: 16/16 mutations detected; local and live 390/1440px guide-to-quiz journeys, all 12 languages, ten-question completion, query cleanup, success-gated neutral sharing and exact-once/private stages passed.
 - `verify:en-past-life-path`: 18/18 mutations detected; local and live 390/1440px guide-to-story journeys, all 12 languages, six-scene deterministic completion, query cleanup, neutral sharing and exact-once/private stages passed.
-- Full harness: `logs/harness-workflow/2026-09-01T10-18-43-260Z.md`; every step passed, analytics 9/9, runtime 6/6, submitted inventory 56 URLs / 0 issues.
+- `verify:zh-mbti-city-path`: 18/18 mutations detected; local and live 390/1440px guide-to-app journeys, all 12 languages, eight-question deterministic completion, query cleanup and exact-once/private stages passed. IndexNow accepted the guide/app URLs with HTTP 200; Search Console downloaded `18 / 10 / 32` rows with 0 warnings/errors.
+- Full harness: `logs/harness-workflow/2026-09-01T10-51-49-035Z.md`; every step passed, analytics 9/9, runtime 6/6, submitted inventory 57 URLs / 0 issues.
 
 ## Observation windows
 
@@ -145,6 +154,7 @@ Use complete KST days. Do not decide before 20 qualified views unless a correctn
 | Chinese game catalog → Block Puzzle | 2026-09-02~09-08 | qualified catalog-view-to-game click 8%; app view-to-start 25%; start-to-complete 25%; complete-to-share/related 8%; China Organic engagement 55% |
 | French developer guide → Developer Quiz | 2026-09-02~09-08 | qualified guide-view-to-CTA 8%; app view-to-start 25%; start-to-complete 50%; complete-to-share/related 8%; France/Brazil Organic engagement 55% |
 | English past-life birthday guide → story journey | 2026-09-02~09-08 | qualified boundary-view-to-CTA 8%; app view-to-start 25%; start-to-complete 50%; complete-to-share/related 8%; non-SG Organic engagement 55% |
+| Chinese MBTI city guide → city match | 2026-09-02~09-08 | qualified boundary-view-to-CTA 8%; app view-to-start 25%; start-to-complete 50%; complete-to-share/related 8%; China/HK Organic engagement 55% |
 | Spanish cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |
 | French cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |
 | English Jung shadow reflection | 2026-08-31~09-06 | qualified concept-to-CTA 8%; app view-to-start 25%; start-to-complete 50%; complete-to-share/related 8% |

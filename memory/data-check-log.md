@@ -275,6 +275,12 @@
 - The apparent runtime emergency was not persistent: all 271 `exception` events occurred on 2026-08-06 across 12 users, while a current live six-scene completion produced no exception event or page error. It remains excluded from the new funnel. Verified defects were fabricated rating/participant proof, hidden FAQ, manual ad/fake impression surfaces, result-bearing analytics/share, invented compatibility/percentile claims and unsafe broad caching.
 - Observe 2026-09-02~09-08 KST using `content_view → content_en_past_life_method_view/content_cta_click → past_life_view → past_life_start → past_life_complete → past_life_share/past_life_related_click`. Wait for 20 qualified guide views, then use 8% guide CTA, 25% app view-to-start, 50% start-to-complete and 8% post-completion action as diagnostics. Exclude deployment day, SG desktop Direct, the one-day exception burst and all legacy synthetic/result/ad/cross-promo events.
 
+## 2026-09-01 Chinese MBTI city guide → city match reset
+
+- `/portal/blog/zh/mbti-city-chengshi-xingge.html` moved `1 → 3` across equal 28-day Organic windows. Recent entries were China mobile/tablet and Hong Kong mobile Bing sessions; all engaged for 30–222 seconds. Across 56 days, 46 content users produced five CTA users. Search Console had no exact row, while URL Inspection reported crawled-currently-not-indexed with successful fetch, allowed indexing, canonical agreement and last crawl 2026-03-28.
+- `/mbti-city/` had 76 page users but no valid start or completion stage. A reproduced source defect called nonexistent `i18n.translateDOM` during completion. The old shell also contained fabricated `15,200+`, `4.3 / 1,260`, random rarity, hidden FAQ, manual ad and synthetic engagement surfaces.
+- The release preserves the eight-question/four-axis deterministic engine and resets the destination contract to private exact-once stages. Observe 2026-09-02~09-08 KST using `content_view → content_zh_mbti_city_boundary_view/content_cta_click → mbti_city_view → mbti_city_start → mbti_city_complete → mbti_city_share/mbti_city_related_click`. Wait for 20 qualified boundary views, then use 8% guide CTA, 25% app view-to-start, 50% start-to-complete and 8% post-completion action. Exclude deployment day, Direct/Unassigned scans and all legacy synthetic, result, rarity and cross-promo events.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

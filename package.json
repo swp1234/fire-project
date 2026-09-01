@@ -59,6 +59,7 @@
     "verify:zh-block-puzzle-path": "node scripts/verify-zh-block-puzzle-path.js --mutations",
     "verify:fr-dev-quiz-path": "node scripts/verify-fr-dev-quiz-path.js --mutations",
     "verify:en-past-life-path": "node scripts/verify-en-past-life-path.js --mutations",
+    "verify:zh-mbti-city-path": "node scripts/verify-zh-mbti-city-path.js --mutations",
     "verify:iq-completion-reset": "node scripts/verify-iq-completion-reset.js --mutations",
     "verify:blood-type-culture-reset": "node scripts/verify-blood-type-culture-reset.js --mutations",
     "verify:zodiac-pair-reset": "node scripts/verify-zodiac-pair-reset.js --mutations",
