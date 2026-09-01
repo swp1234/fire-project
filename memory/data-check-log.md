@@ -247,6 +247,13 @@
 - The apparent `8 → 24` Organic-session growth on `/portal/blog/es/lectura-tarot-diario-guia.html` came from one recurring Edge desktop pattern in Ciudad Obregón, Mexico across 18 dates. The recent 24 sessions had only 166 total engagement seconds and approximately one repeated active user per date.
 - Do not promote or rebuild the tarot guide from this count. Treat it as repeated-user/automation-like concentration until independent users, devices or locations appear; SG desktop Direct remains excluded separately.
 
+## 2026-09-01 Indonesian 6/45 random-path reset
+
+- `/portal/blog/id/lottery-number-guide.html` changed from no prior valid acquisition to four engaged Organic sessions in the latest 28-day window: three Indonesia mobile DuckDuckGo sessions with 721 engagement seconds and one Indonesia desktop Bing session with 19 seconds. One engaged Indonesia mobile ChatGPT referral added 14 seconds. Direct sessions were excluded.
+- Across 56 days the guide had 10 users but only synthetic `content_ad_impression` and broad cross-promo signals; the destination had 42 page-view users and 39 synthetic `page_engage` users but no generation, completion or share event. The old funnel therefore cannot establish tool use.
+- The article's hot/cold-number, syndicate, rollover value and winning-strategy material was replaced with the exact 6/45 combination boundary. The app's `Math.random`, simulated prizes, fake AI/frequency output, fabricated rating/FAQ and root-scope cache were removed. The deployed path uses unbiased Web Crypto sampling, local-only explicit favorites and stage-only analytics.
+- Observe 2026-09-02~09-08 KST. Use `content_view → content_lottery_method_view/content_cta_click → lottery_random_view → lottery_random_generate → lottery_random_save/lottery_random_share/lottery_random_related_click`; wait for 20 qualified method views, then use 8% guide CTA, 25% app view-to-generate and 8% post-generate action as diagnostics. Exclude deployment day, Direct/Unassigned scans and all legacy synthetic/ad/statistics events.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
