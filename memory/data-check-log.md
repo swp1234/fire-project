@@ -254,6 +254,13 @@
 - The article's hot/cold-number, syndicate, rollover value and winning-strategy material was replaced with the exact 6/45 combination boundary. The app's `Math.random`, simulated prizes, fake AI/frequency output, fabricated rating/FAQ and root-scope cache were removed. The deployed path uses unbiased Web Crypto sampling, local-only explicit favorites and stage-only analytics.
 - Observe 2026-09-02~09-08 KST. Use `content_view → content_lottery_method_view/content_cta_click → lottery_random_view → lottery_random_generate → lottery_random_save/lottery_random_share/lottery_random_related_click`; wait for 20 qualified method views, then use 8% guide CTA, 25% app view-to-generate and 8% post-generate action as diagnostics. Exclude deployment day, Direct/Unassigned scans and all legacy synthetic/ad/statistics events.
 
+## 2026-09-01 Chinese game catalog → Block Puzzle reset
+
+- `/portal/blog/zh/dopabrain-games-2026.html` moved `3 → 6` across equal 28-day Organic landing windows. All six recent sessions were China desktop Bing entries, five were engaged, and total engagement was 265 seconds. Exact-page GSC rows were absent.
+- Across 56 days the guide had 41 page users, but 39 users fired synthetic `content_ad_impression`. Valid `content_cta_click` destinations showed Block Puzzle as the only repeated choice: 6 events / 4 users, versus one user each for idle-clicker, sky-runner and word-guess.
+- Block Puzzle had 48 page users but only 4 `game_start` users and 2 `game_over` users; those legacy events were mixed with 31 synthetic `page_engage` users and transmitted score. The app also exposed fake rating/FAQ proof, fake ad surfaces, a score-doubling reward and broad root caching, so historical completion/revenue inference is invalid.
+- The released path preserves the observed Block Puzzle choice, presents four non-ranked Chinese entries and resets the app to private exact-once stages. Observe 2026-09-02~09-08 KST using `content_view → content_zh_game_catalog_view/content_game_click → block_puzzle_view → block_puzzle_start → block_puzzle_complete → block_puzzle_share/block_puzzle_related_click`; wait for 20 qualified catalog views, then use 8% game-click, 25% view-to-start and 25% start-to-complete as initial diagnostics. Exclude deployment day, Direct/Unassigned scans and all legacy synthetic/score events.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

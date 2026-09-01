@@ -15,12 +15,19 @@ This file contains current operating state only. Decision-changing measurements 
 - 2026-08-25~31 AdSense: `$0.67`, 1,950 pageviews, 756 impressions, 21 clicks, Page RPM `$0.34`; prior seven days were `$0.63 / 1,785 PV / $0.35 RPM`. The target remains `$1.40` per seven complete days.
 - Country opportunity: US `$0.15 / 54 PV / $2.85 RPM`; KR `$0.18 / 288 PV / $0.63 RPM`; CN `$0.18 / 601 PV / $0.30 RPM`; FR `$0.04 / 40 PV / $1.04 RPM`.
 - 2026-08-31 GA4 was dominated by non-engaged scan-like traffic: Singapore desktop Direct 82 sessions plus Unassigned 56, and China Direct/Unassigned 77. Exclude these segments from demand decisions.
-- Focused sitemap: 54 unique submitted URLs, strict issues 0.
+- Focused sitemap: 55 unique submitted URLs, strict issues 0.
 - Search Console re-downloaded the focused queues on 2026-09-01 after their stale `174 / 1,940 / 1,770` submitted counts were replaced by live `18 / 10 / 29` root, portal and blog rows; all three report 0 warnings/errors.
 - Raw AdSense request coverage was 10.43%, but it was 10.59% in the prior week and is dominated by scan traffic: Singapore generated 5,541 requests, 287 matches, 1 impression and $0.00. KR/US/JP coverage was 30.6%/47.3%/62.0%, so do not add ad density to fix the raw ratio.
 - Primary: Stress Check, HSP Test, 2048 Coach. Support: Brain Type, IQ, K-pop Roster. Culture Signal remains one isolated pilot. Portal remains the archive.
 
 ## Latest releases
+
+### Chinese game catalog → Block Puzzle path
+
+- `/portal/blog/zh/dopabrain-games-2026.html` moved `3 → 6` across equal 28-day Organic windows; all recent entries were China desktop Bing, 5/6 engaged, with 265 engagement seconds. Its four valid historical CTA users all chose Block Puzzle, so the existing choice was preserved and made primary.
+- The 42.7 KB “TOP 10” page is now an 11.7 KB non-ranking catalog with four verified Chinese entries. It removes popularity/brain claims, fake ad telemetry and generic cross-promo, and states local-storage, device, entertainment and official game-over ad boundaries.
+- Block Puzzle removed fabricated rating/FAQ proof, fake ad placeholders, synthetic engagement, score-bearing analytics/share, result-changing reward ads and root-scope caching. It now exposes private exact-once view/start/complete/successful-share/related stages in 12 languages; result data remains local.
+- IndexNow accepted the guide/app URLs with HTTP 200. Search Console accepted the focused queues at `18 / 10 / 30`, and the strict inventory is 55 URLs with 0 issues.
 
 ### Indonesian 6/45 random path
 
@@ -93,6 +100,7 @@ This file contains current operating state only. Decision-changing measurements 
 - Minesweeper app: `e644267`; Pages run `33484542795` succeeded. Japanese guide/catalog/sitemap: `c425b98`; Pages run `33484542960` succeeded.
 - Chinese free-games guide/catalog/sitemap: `c236bd5`; Pages run `33486321526` succeeded.
 - Lottery app: `a553d0e`; Pages run `33489504177` succeeded. Indonesian guide/catalog/sitemap: `cc5fb72`; Pages run `33489463109` succeeded.
+- Block Puzzle app: `6ab51fe`; Pages run `33492331655` succeeded. Chinese game guide/catalog/sitemap: `f060103`; Pages run `33492301923` succeeded.
 - `verify:en-shadow-reflection`: 14/14 mutations detected; all 12 locale completions, guide auto-start, source normalization, neutral sharing, private telemetry, mobile layout and locale-load recovery passed locally and live.
 - `verify:fr-cognitive-distortions`: 10/10 mutations detected; 390/1440px interaction, exact-once/private telemetry and linked French auto-start passed locally and live.
 - `verify:es-cognitive-distortions`: 11/11 mutations detected; 390/1440px interaction, exact-once/private telemetry, focused sitemap inclusion and linked Spanish auto-start passed locally and live. French and Chinese adjacent live paths also passed after the shared Stress Check allowlist change.
@@ -102,7 +110,8 @@ This file contains current operating state only. Decision-changing measurements 
 - `verify:ja-minesweeper-path`: 16/16 mutations detected; local and live 390/1440px guide-to-play journeys, Japanese rendering, query cleanup, exact-once/private stages and success-gated sharing passed.
 - `verify:zh-free-games-controls`: 13/13 mutations detected; local and live 390/1440px filtering, five Chinese destination renders, exact-once/private stages and layout-shift-resilient qualified exposure passed.
 - `verify:id-lottery-random-path`: 18/18 mutations detected; local and live 390/1440px guide-to-app journeys, all 12 languages, query cleanup, unbiased generation invariants and exact-once/private stages passed.
-- Full harness: `logs/harness-workflow/2026-09-01T08-43-22-225Z.md`; every step passed, analytics 9/9, runtime 6/6, submitted inventory 54 URLs / 0 issues.
+- `verify:zh-block-puzzle-path`: 18/18 mutations detected; local and live 390/1440px guide-to-game journeys, all 12 languages, query cleanup, no score-changing rewards, success-gated neutral sharing and exact-once/private stages passed.
+- Full harness: `logs/harness-workflow/2026-09-01T09-15-53-411Z.md`; every step passed, analytics 9/9, runtime 6/6, submitted inventory 55 URLs / 0 issues.
 
 ## Observation windows
 
@@ -115,6 +124,7 @@ Use complete KST days. Do not decide before 20 qualified views unless a correctn
 | Japanese Minesweeper guide → game | 2026-09-02~09-08 | qualified rule-view-to-use 25%; guide-to-game click 8%; game view-to-start 50%; start-to-complete 25%; Japan Organic engagement 55% |
 | Chinese free games → five game entries | 2026-09-02~09-08 | qualified filter-view-to-use 25%; game-click user rate 8%; China Organic engagement 55%; destination split only by non-sensitive slug |
 | Indonesian 6/45 guide → random picker | 2026-09-02~09-08 | qualified method-view-to-CTA 8%; app view-to-generate 25%; generate-to-save/share/related 8%; Indonesia Organic engagement 55% |
+| Chinese game catalog → Block Puzzle | 2026-09-02~09-08 | qualified catalog-view-to-game click 8%; app view-to-start 25%; start-to-complete 25%; complete-to-share/related 8%; China Organic engagement 55% |
 | Spanish cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |
 | French cognitive distortions → Stress Check | 2026-08-31~09-06 | qualified check-to-use/CTA 8%; linked app view-to-start 50%; start-to-complete 50% |
 | English Jung shadow reflection | 2026-08-31~09-06 | qualified concept-to-CTA 8%; app view-to-start 25%; start-to-complete 50%; complete-to-share/related 8% |
