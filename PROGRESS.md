@@ -15,12 +15,19 @@ This file contains current operating state only. Decision-changing measurements 
 - 2026-08-25~31 AdSense: `$0.67`, 1,950 pageviews, 756 impressions, 21 clicks, Page RPM `$0.34`; prior seven days were `$0.63 / 1,785 PV / $0.35 RPM`. The target remains `$1.40` per seven complete days.
 - Country opportunity: US `$0.15 / 54 PV / $2.85 RPM`; KR `$0.18 / 288 PV / $0.63 RPM`; CN `$0.18 / 601 PV / $0.30 RPM`; FR `$0.04 / 40 PV / $1.04 RPM`.
 - 2026-08-31 GA4 was dominated by non-engaged scan-like traffic: Singapore desktop Direct 82 sessions plus Unassigned 56, and China Direct/Unassigned 77. Exclude these segments from demand decisions.
-- Focused sitemap: 59 unique submitted URLs, strict issues 0.
+- Focused sitemap: 60 unique submitted URLs, strict issues 0.
 - Search Console re-downloaded the focused queues on 2026-09-01 after their stale `174 / 1,940 / 1,770` submitted counts were replaced by live `18 / 10 / 31` root, portal and blog rows; all three submissions were accepted.
 - Raw AdSense request coverage was 10.43%, but it was 10.59% in the prior week and is dominated by scan traffic: Singapore generated 5,541 requests, 287 matches, 1 impression and $0.00. KR/US/JP coverage was 30.6%/47.3%/62.0%, so do not add ad density to fix the raw ratio.
 - Primary: Stress Check, HSP Test, 2048 Coach. Support: Brain Type, IQ, K-pop Roster. Culture Signal remains one isolated pilot. Portal remains the archive.
 
 ## Latest releases
+
+### Indonesian emotion-regulation guide → private action planner
+
+- `/portal/blog/id/emotional-regulation-techniques.html` produced 10 Organic sessions, 9 engaged sessions, 6 users and 1,630 engagement seconds across 56 days. Nine users saw the old generic emotion-action bridge but none clicked; the page therefore had repeat engagement and a uniquely measurable zero-action bottleneck.
+- The 47.8 KB “7 science-based techniques” article is now a 13.2 KB `Sekarang–Berikutnya–Nanti` guide. Exact efficacy, brain-rewiring, MRI, cortisol, treatment-timing, hidden FAQ, synthetic ad and generic cross-promo claims were removed; WHO/NHS self-management guidance is separated from diagnosis, treatment and guaranteed outcomes.
+- The planner now accepts an allowlisted Indonesian guide source and fully localizes its shell, safety/privacy copy, choices and generated action body. Private selections and generated text stay out of URLs and analytics; the pre-analytics query/hash sanitizer and existing Korean/Chinese sources remain valid.
+- Portal release `eea66a1` passed the dedicated 15/15 mutation gate, local and live Indonesian 390/1440px journeys, and full harness `2026-09-01T12-06-44-705Z` with analytics `9/9`, runtime `6/6` and strict inventory `60 / 0`. IndexNow accepted only the guide/planner URLs, and Search Console downloaded `18 / 10 / 35` rows with zero warnings/errors.
 
 ### French Minesweeper strategy → verified game path
 
