@@ -43,6 +43,7 @@
     "verify:future-self-funnel": "node scripts/verify-future-self-funnel.js --mutations",
     "verify:doomscrolling-bridge": "node scripts/verify-doomscrolling-bridge.js --mutations",
     "verify:zh-browser-games": "node scripts/verify-zh-browser-games.js --mutations",
+    "verify:zh-free-games-controls": "node scripts/verify-zh-free-games-controls.js --mutations",
     "verify:es-dopamine-break": "node scripts/verify-es-dopamine-break.js --mutations",
     "verify:es-typing-speed": "node scripts/verify-es-typing-speed.js --mutations",
     "verify:zh-habit-tracker": "node scripts/verify-zh-habit-tracker.js --mutations",

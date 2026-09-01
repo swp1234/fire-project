@@ -236,6 +236,17 @@
 - The replacement teaches two count-derived rules and links directly to an allowlisted Japanese game entry. Guide interaction and game telemetry are stage-only: no example answer, cell, board, difficulty, time or win/loss value is sent. The app retains the official H5 natural-break/reward module but removes invalid manual AdSense surfaces.
 - Observe 2026-09-02~09-08 KST and exclude deployment day, SG desktop Direct, old `content_ad_impression`, generic cross-promo and legacy page-view events. Use `content_view → content_ja_minesweeper_rule_view → content_ja_minesweeper_rule_use/content_cta_click → minesweeper_view → minesweeper_start → minesweeper_complete`; wait for 20 qualified guide views, then use 25% rule-use, 8% game click, 50% view-to-start and 25% start-to-complete as initial diagnostics.
 
+## 2026-09-01 Chinese free-games controls reset
+
+- `/portal/blog/zh/free-games.html` moved `3 → 6` equal-window Organic sessions. Recent valid acquisition was five China desktop and one China tablet Bing-family session; 4/6 engaged. The 56-day path had two valid CTA users, but 58 synthetic `content_ad_impression` users and 35 unrelated Palworld bridge-view users made the old event set unusable.
+- The 62.4 KB TOP/ranking page is now a 12.5 KB control-based selector for 2048, Minesweeper, Stack Tower, Emoji Merge and Idle Clicker. All five local destinations support `?lang=zh`; filter choice stays private, while clicked game slug is a non-sensitive destination dimension.
+- Observe 2026-09-02~09-08 KST. Use `content_view → content_zh_game_filter_view → content_zh_game_filter_use/content_game_click`; wait for 20 qualified filter views, then use 25% filter-use, 8% game-click-user and 55% China Organic engagement as first diagnostics. Exclude deployment day, SG desktop Direct and all legacy synthetic/cross-promo events.
+
+## 2026-09-01 Spanish tarot repeated-user anomaly
+
+- The apparent `8 → 24` Organic-session growth on `/portal/blog/es/lectura-tarot-diario-guia.html` came from one recurring Edge desktop pattern in Ciudad Obregón, Mexico across 18 dates. The recent 24 sessions had only 166 total engagement seconds and approximately one repeated active user per date.
+- Do not promote or rebuild the tarot guide from this count. Treat it as repeated-user/automation-like concentration until independent users, devices or locations appear; SG desktop Direct remains excluded separately.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
