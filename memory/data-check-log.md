@@ -289,6 +289,14 @@
 - Release `6eaee94` passed the complete local harness and live 12-language 390/1440px linked journeys. IndexNow accepted only the changed guide/planner URLs, and Search Console downloaded `18 / 10 / 33` focused rows with zero warnings/errors.
 - Observe 2026-09-02~09-08 KST using `content_view → content_ko_emotion_action_view/content_cta_click → emotion_action_view → emotion_action_generate → emotion_action_copy/emotion_action_used/emotion_action_related_click`. Wait for 20 qualified action views, then use 8% guide CTA, 25% linked-view-to-generate and 8% post-generate action as initial diagnostics. Exclude deployment day, Direct/Unassigned scans, `emotion_action_bridge_*`, synthetic ad events and all selection/result values.
 
+## 2026-09-01 French Minesweeper guide → verified game path reset
+
+- `/portal/blog/fr/minesweeper-strategy.html` moved `2 → 5` across equal 28-day Organic landing windows. Recent acquisition was France mobile DuckDuckGo (1 engaged), Russia mobile DuckDuckGo (2 non-engaged) and France mobile Ecosia (2 sessions / 1 engaged user). Search Console returned no exact-page row; URL Inspection reported `Crawled - currently not indexed`, successful fetch, allowed indexing, canonical agreement and last crawl 2026-04-01.
+- Across 56 days the page had 14 content users and no valid game CTA. Fourteen users fired retired `content_ad_impression` and `cross_promo_view`; six received an unrelated Palworld bridge. The old page routed its only primary play button to the homepage and claimed complete mastery, every-board resolution and cognitive improvement from daily play.
+- The 15.9 KB replacement teaches two deterministic counting rules, a private practice choice and visible DopaBrain first-click/hint/random-board boundaries. The existing 12-language app now allowlists `fr_minesweeper_guide` alongside the Japanese source and provides a measured French return route; board, result, difficulty and time remain out of analytics.
+- App release `ef08e45` and Portal release `d58965c` passed the complete local harness and live French/Japanese 390/1440px journeys. IndexNow accepted only the changed guide/game URLs, and Search Console downloaded `18 / 10 / 34` rows with zero warnings/errors.
+- Observe 2026-09-02~09-08 KST using `content_view → content_fr_minesweeper_rule_view/content_fr_minesweeper_rule_use/content_cta_click → minesweeper_view → minesweeper_start → minesweeper_complete → minesweeper_share/minesweeper_related_click`. Wait for 20 qualified rule views, then use 25% practice-use, 8% game CTA, 25% app view-to-start and 25% start-to-complete as diagnostics. Exclude deployment day, Direct/Unassigned scans and all legacy synthetic/cross-promo events.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

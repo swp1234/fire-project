@@ -15,12 +15,19 @@ This file contains current operating state only. Decision-changing measurements 
 - 2026-08-25~31 AdSense: `$0.67`, 1,950 pageviews, 756 impressions, 21 clicks, Page RPM `$0.34`; prior seven days were `$0.63 / 1,785 PV / $0.35 RPM`. The target remains `$1.40` per seven complete days.
 - Country opportunity: US `$0.15 / 54 PV / $2.85 RPM`; KR `$0.18 / 288 PV / $0.63 RPM`; CN `$0.18 / 601 PV / $0.30 RPM`; FR `$0.04 / 40 PV / $1.04 RPM`.
 - 2026-08-31 GA4 was dominated by non-engaged scan-like traffic: Singapore desktop Direct 82 sessions plus Unassigned 56, and China Direct/Unassigned 77. Exclude these segments from demand decisions.
-- Focused sitemap: 58 unique submitted URLs, strict issues 0.
+- Focused sitemap: 59 unique submitted URLs, strict issues 0.
 - Search Console re-downloaded the focused queues on 2026-09-01 after their stale `174 / 1,940 / 1,770` submitted counts were replaced by live `18 / 10 / 31` root, portal and blog rows; all three submissions were accepted.
 - Raw AdSense request coverage was 10.43%, but it was 10.59% in the prior week and is dominated by scan traffic: Singapore generated 5,541 requests, 287 matches, 1 impression and $0.00. KR/US/JP coverage was 30.6%/47.3%/62.0%, so do not add ad density to fix the raw ratio.
 - Primary: Stress Check, HSP Test, 2048 Coach. Support: Brain Type, IQ, K-pop Roster. Culture Signal remains one isolated pilot. Portal remains the archive.
 
 ## Latest releases
+
+### French Minesweeper strategy → verified game path
+
+- `/portal/blog/fr/minesweeper-strategy.html` moved `2 → 5` across equal 28-day Organic windows. Recent entries were France/Russia mobile DuckDuckGo and France mobile Ecosia; 2/5 engaged. Across 56 days, 14 content users produced no valid game action while all 14 saw generic cross-promo and synthetic ad telemetry.
+- The 54.8 KB “beginner to expert” page is now a 15.9 KB two-rule guide. It removes solve-every-board, memory/logic improvement and daily-training claims, hidden FAQ, synthetic paid-impression events, generic cross-promo, probability overreach and the broken homepage play CTA.
+- The guide teaches only `number − confirmed flags = closed cells` and `number = confirmed flags`, states DopaBrain's first-click/hint/random-board boundaries, offers a private mini exercise and links twice to an allowlisted French game entry. The app preserves the Japanese source while adding a measured French return route.
+- The dedicated gate detects 15/15 mutations and verifies exact-once guide/game stages, private telemetry, query cleanup, share success and 390/1440px completion locally and live. Full harness `2026-09-01T11-43-33-996Z` passed with analytics `9/9`, runtime `6/6` and strict inventory `59 / 0`; IndexNow accepted the guide/game and Search Console downloaded `18 / 10 / 34` rows with zero warnings/errors.
 
 ### Korean emotion-regulation guide → private action planner
 

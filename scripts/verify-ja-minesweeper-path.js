@@ -22,7 +22,7 @@ function source(v){
   ok(!/aggregateRating|FAQPage|data-ad-slot|<ins[^>]+adsbygoogle|adsbygoogle\s*(?:=|\.push)|page_engage|gtag\('event',\s*'page_view'|shareTwitterBtn|shareUrlBtn/.test(v.html+'\n'+v.js),'app fake proof, manual ad, or duplicate telemetry remains');
   ok(count(v.html,/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/g)===1,'app must load Auto Ads once');
   ok(v.html.indexOf('allowedSources')<v.html.indexOf('googletagmanager.com/gtag/js'),'query sanitizer must precede analytics');
-  ok(/allowedSources = new Set\(\['ja_minesweeper_guide'\]\)/.test(v.html)&&/allowedLanguages\.has\(lang\)/.test(v.html),'query allowlist missing');
+  ok(/allowedSources = new Set\(\['ja_minesweeper_guide','fr_minesweeper_guide'\]\)/.test(v.html)&&/allowedLanguages\.has\(lang\)/.test(v.html),'query allowlist missing');
   for(const e of ['minesweeper_view','minesweeper_start','minesweeper_complete','minesweeper_share','minesweeper_related_click'])ok(v.js.includes("'"+e+"'"),'app event missing: '+e);
   ok(/await navigator\.share/.test(v.js)&&/await navigator\.clipboard\.writeText/.test(v.js)&&/trackMinesweeper\('minesweeper_share'/.test(v.js),'share success gate missing');
   ok(!/(won|elapsedTime|currentDifficulty|revealedCount|board|finalTime)\s*:/.test((v.js.match(/trackMinesweeper\([\s\S]{0,220}/g)||[]).join('\n')),'private app event payload drifted');
