@@ -281,6 +281,14 @@
 - `/mbti-city/` had 76 page users but no valid start or completion stage. A reproduced source defect called nonexistent `i18n.translateDOM` during completion. The old shell also contained fabricated `15,200+`, `4.3 / 1,260`, random rarity, hidden FAQ, manual ad and synthetic engagement surfaces.
 - The release preserves the eight-question/four-axis deterministic engine and resets the destination contract to private exact-once stages. Observe 2026-09-02~09-08 KST using `content_view → content_zh_mbti_city_boundary_view/content_cta_click → mbti_city_view → mbti_city_start → mbti_city_complete → mbti_city_share/mbti_city_related_click`. Wait for 20 qualified boundary views, then use 8% guide CTA, 25% app view-to-start, 50% start-to-complete and 8% post-completion action. Exclude deployment day, Direct/Unassigned scans and all legacy synthetic, result, rarity and cross-promo events.
 
+## 2026-09-01 Korean emotion-regulation guide → action planner reset
+
+- `/portal/blog/ko/emotional-regulation-techniques.html` moved `1 → 4` across equal 28-day Organic landing windows. The recent sessions were South Korea desktop Bing entries and all engaged for 23–67 seconds. Search Console returned no exact-page row; URL Inspection reported `Crawled - currently not indexed`, successful fetch, allowed indexing, canonical agreement and last crawl 2026-04-04.
+- Across 56 days the guide had six content users and four `emotion_action_bridge_view` users, but no content CTA or bridge click. The planner had 35 page users and no generate stage; its historical 35 `emotion_action_ad_impression` users came from retired synthetic telemetry and are excluded. The weak injected bridge cannot establish tool demand.
+- The 46.2 KB article asserted exact efficacy percentages, brain rewiring and treatment timing, exposed hidden FAQ/synthetic ad telemetry and sent three primary CTAs to an unrelated EQ test. The 13.7 KB replacement uses WHO/NHS actions and narrowly describes one affect-labeling laboratory study without extending it to treatment effectiveness. The planner source is allowlisted and private query values are removed before analytics.
+- Release `6eaee94` passed the complete local harness and live 12-language 390/1440px linked journeys. IndexNow accepted only the changed guide/planner URLs, and Search Console downloaded `18 / 10 / 33` focused rows with zero warnings/errors.
+- Observe 2026-09-02~09-08 KST using `content_view → content_ko_emotion_action_view/content_cta_click → emotion_action_view → emotion_action_generate → emotion_action_copy/emotion_action_used/emotion_action_related_click`. Wait for 20 qualified action views, then use 8% guide CTA, 25% linked-view-to-generate and 8% post-generate action as initial diagnostics. Exclude deployment day, Direct/Unassigned scans, `emotion_action_bridge_*`, synthetic ad events and all selection/result values.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.

@@ -22,7 +22,7 @@ function loadBundle() { return { guide:read(GUIDE_FILE), tool:read(TOOL_FILE), j
 
 function verifySource(bundle) {
   if (!/<html lang="zh-CN">/.test(bundle.guide) || !/<h1>RSD是正式诊断吗？<\/h1>/.test(bundle.guide)) fail("guide language or direct-answer H1 drifted");
-  if (!/dateModified[^\n]+2026-08-30/.test(bundle.guide) || !/dateModified[^\n]+2026-08-30/.test(bundle.tool)) fail("release date drifted");
+  if (!/dateModified[^\n]+2026-08-30/.test(bundle.guide) || !/dateModified[^\n]+2026-09-01/.test(bundle.tool)) fail("release date drifted");
   if (!/不是正式医学诊断/.test(bundle.guide) || !/研究仍有限/.test(bundle.guide)) fail("RSD evidence boundary is missing");
   if (/(?:高达\s*99|99\s*%|神经生物学疾病|杏仁核过度|多巴胺失调|单胺氧化酶|MAOI|药物治疗|30-60分钟|988自杀|FAQPage)/i.test(bundle.guide)) fail("unsupported diagnosis, prevalence, mechanism, treatment, timing, hotline, or FAQ claim remains");
   for (const source of ["24099-rejection-sensitive-dysphoria-rsd","37470198","30155685","9789240003927"]) if (!bundle.guide.includes(source)) fail(`guide source missing: ${source}`);

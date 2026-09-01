@@ -15,12 +15,19 @@ This file contains current operating state only. Decision-changing measurements 
 - 2026-08-25~31 AdSense: `$0.67`, 1,950 pageviews, 756 impressions, 21 clicks, Page RPM `$0.34`; prior seven days were `$0.63 / 1,785 PV / $0.35 RPM`. The target remains `$1.40` per seven complete days.
 - Country opportunity: US `$0.15 / 54 PV / $2.85 RPM`; KR `$0.18 / 288 PV / $0.63 RPM`; CN `$0.18 / 601 PV / $0.30 RPM`; FR `$0.04 / 40 PV / $1.04 RPM`.
 - 2026-08-31 GA4 was dominated by non-engaged scan-like traffic: Singapore desktop Direct 82 sessions plus Unassigned 56, and China Direct/Unassigned 77. Exclude these segments from demand decisions.
-- Focused sitemap: 57 unique submitted URLs, strict issues 0.
+- Focused sitemap: 58 unique submitted URLs, strict issues 0.
 - Search Console re-downloaded the focused queues on 2026-09-01 after their stale `174 / 1,940 / 1,770` submitted counts were replaced by live `18 / 10 / 31` root, portal and blog rows; all three submissions were accepted.
 - Raw AdSense request coverage was 10.43%, but it was 10.59% in the prior week and is dominated by scan traffic: Singapore generated 5,541 requests, 287 matches, 1 impression and $0.00. KR/US/JP coverage was 30.6%/47.3%/62.0%, so do not add ad density to fix the raw ratio.
 - Primary: Stress Check, HSP Test, 2048 Coach. Support: Brain Type, IQ, K-pop Roster. Culture Signal remains one isolated pilot. Portal remains the archive.
 
 ## Latest releases
+
+### Korean emotion-regulation guide → private action planner
+
+- `/portal/blog/ko/emotional-regulation-techniques.html` moved `1 → 4` across equal 28-day Organic windows. The latest South Korea desktop Bing entries were all engaged for 23–67 seconds, while four users saw the old injected planner bridge but none clicked it; the search identity was retained and the weak bridge was replaced.
+- The 46.2 KB article is now a 13.7 KB `지금–다음–나중` action guide. Unsupported efficacy percentages, brain-rewiring language, fixed treatment timelines, hidden FAQ, synthetic ad telemetry, generic cross-promo and three unrelated EQ-test CTAs were removed. WHO/NHS guidance and one affect-labeling laboratory study are presented with explicit non-diagnostic and study-design boundaries.
+- The existing planner now accepts an allowlisted Korean guide source, sanitizes query and hash data before analytics, and publishes only visible WebApplication/Breadcrumb schema. It keeps selections and generated text out of URLs and analytics while preserving the Chinese rejection-sensitivity entry.
+- The dedicated gate detects 13/13 mutations and verifies all 12 languages plus linked 390/1440px journeys locally and live. Full harness `2026-09-01T11-24-15-595Z` passed with analytics `9/9`, runtime `6/6` and strict inventory `58 / 0`; IndexNow accepted the guide/planner and Search Console downloaded `18 / 10 / 33` rows with zero warnings/errors.
 
 ### Chinese MBTI city guide → city match path
 
