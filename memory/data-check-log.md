@@ -331,3 +331,11 @@
 - 계정/지급/정책 blocker가 바뀜.
 
 상세 쿼리와 재사용 절차는 `dopabrain-growth-ops` Skill의 revenue reference를 따른다.
+
+## 2026-09-01 French attachment reflection reset
+
+- Equal 28-day Organic landing sessions for `/portal/blog/fr/attachment-style-test-quiz.html` moved `6 → 4`. The prior window included France, Belgium and Canada; the recent window was four France mobile Ecosia sessions with two engaged sessions, three users and 191 engagement seconds. Across 56 days the page had 19 content users, four CTA users and one test-click user, which supports preserving the query and direct destination rather than suppressing it.
+- Search Console had no exact performance row and URL Inspection reported `Explorée, actuellement non indexée`; the last crawl was 2026-05-07, while robots, fetch and canonical selection were valid. The focused sitemap row now carries 2026-09-01 lastmod and both changed canonical URLs received IndexNow HTTP 200.
+- The old 52.0 KB guide treated childhood as a lifetime blueprint, asserted fixed type shares and relationship outcomes, suggested treatment paths, exposed hidden English FAQ and emitted synthetic ad/generic cross-promo telemetry. The 14.7 KB replacement uses the ECR-R author's 36-item anxiety/avoidance documentation and primary sources to bound DopaBrain's ten-scenario activity as non-validated reflection.
+- New observation funnel: `content_view → content_fr_attachment_boundary_view → content_cta_click → attachment_reflection_view → attachment_reflection_start → attachment_reflection_complete → attachment_reflection_share/attachment_reflection_related_click`. Exclude historical synthetic ad and generic cross-promo events. Do not judge before 20 qualified boundary-view users; first diagnostics are 8% qualified-view-to-CTA users and 50% linked-view-to-completion.
+- Releases: attachment app `d4c927f` / Pages `33514020326`; portal `ce13694` / Pages `33514118925`. Full harness `2026-09-01T13-20-16-180Z` passed, including 13/13 targeted mutations, analytics 9/9, runtime 6/6 and focused inventory 62/0.

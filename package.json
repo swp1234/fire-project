@@ -70,6 +70,7 @@
     "verify:id-emotion-action-path": "node scripts/verify-id-emotion-action-path.js --mutations",
     "verify:de-emotion-action-path": "node scripts/verify-de-emotion-action-path.js --mutations",
     "verify:en-attachment-reflection": "node scripts/verify-en-attachment-reflection.js --mutations",
+    "verify:fr-attachment-reflection": "node scripts/verify-fr-attachment-reflection.js --mutations",
     "verify:en-shadow-reflection": "node scripts/verify-en-shadow-reflection.js --mutations",
     "verify:blog-generator-interaction": "node scripts/verify-blog-generator-interaction.js"
   },

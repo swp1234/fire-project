@@ -66,7 +66,7 @@ function verifySource(source) {
     fail('legacy or synthetic analytics remain');
   }
   for (const event of APP_EVENTS) if (!source.js.includes("'" + event + "'")) fail('app event missing: ' + event);
-  for (const value of ['direct', 'en_avoidant_guide_primary', 'clarity_board', 'clarity_header', 'clarity_footer']) {
+  for (const value of ['direct', 'en_avoidant_guide_primary', 'fr_attachment_guide_primary', 'clarity_board', 'clarity_header', 'clarity_footer']) {
     if (!source.js.includes("'" + value + "'")) fail('source or surface allowlist missing: ' + value);
   }
   if (/result_type|secondary_type|option_key|scenario_number|share_url|attachment_style=|utm_content|event_label\s*:\s*(?:primary|type)|trackEvent\([^\n]+scores?\b/i.test(source.js)) {
@@ -76,7 +76,7 @@ function verifySource(source) {
   if (!shareBody || count(shareBody[1], /searchParams\.set\('lang'/g) !== 1 || /searchParams\.set\('(?!lang')/.test(shareBody[1])) {
     fail('share URL is not language-only and neutral');
   }
-  if (!/attachment-reflection-v3/.test(source.sw) || /manifest\.json/.test(source.sw)) {
+  if (!/attachment-reflection-v4/.test(source.sw) || /manifest\.json/.test(source.sw)) {
     fail('service worker cache contract drifted');
   }
 

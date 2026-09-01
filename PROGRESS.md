@@ -22,6 +22,13 @@ This file contains current operating state only. Decision-changing measurements 
 
 ## Latest releases
 
+### French attachment guide → private response reflection
+
+- `/portal/blog/fr/attachment-style-test-quiz.html` had repeat francophone Organic entry but weakened from `6 → 4` across equal 28-day windows. The recent four France mobile Ecosia sessions produced two engaged sessions and three users; across 56 days the page had 19 content users, four CTA users and one direct test-click user, so the query identity and destination were preserved.
+- The 52.0 KB fixed-type guide is now a 14.7 KB evidence-boundary page. It removes childhood-cause determinism, fixed population shares, relationship prediction, treatment advice, hidden English FAQ, synthetic paid-impression telemetry and generic cross-promo; the ECR-R developer documentation and primary research distinguish the 36-item anxiety/avoidance measure from DopaBrain's ten-scenario reflection.
+- Two identical French auto-start CTAs normalize `fr_attachment_guide_primary` before analytics. The app retains all 12 locale completions, stage-only private telemetry, a language-only neutral share URL, one Auto Ads loader and its existing English/Clarity sources.
+- Attachment release `d4c927f` and portal release `ce13694` passed 13/13 French mutations, all 12 existing locale completions, local/live French guide-to-result completion and full harness `2026-09-01T13-20-16-180Z` with analytics `9/9`, runtime `6/6` and strict inventory `62 / 0`. IndexNow accepted only the guide/app URLs; Search Console confirmed the three focused queues at `18 / 10 / 37`.
+
 ### German emotion-regulation guide → fully localized action planner
 
 - `/portal/blog/de/emotional-regulation-techniques.html` moved `0 → 3` across equal 28-day Organic windows. All three recent Germany entries engaged: two mobile Ecosia sessions and one desktop Bing session, totaling 187 seconds. Across 56 days, nine content users produced three generic bridge-view users but no planner click; one user clicked the old unrelated test rail.
@@ -145,6 +152,10 @@ This file contains current operating state only. Decision-changing measurements 
 - New funnel only: `content_en_jung_shadow_concept_view -> content_cta_click -> shadow_reflection_view -> shadow_reflection_start -> shadow_reflection_complete -> shadow_reflection_share/shadow_reflection_related_click`. Historical quiz/result/ad events are not comparable.
 
 ## Deployment and verification
+
+- Attachment app French entry: `d4c927f`; Pages run `33514020326` succeeded. French guide/catalog/sitemap: `ce13694`; Pages run `33514118925` succeeded.
+- `verify:fr-attachment-reflection`: 13/13 mutations detected; live French guide qualification, auto-start, ten-scenario completion, normalized attribution, private exact-once telemetry, neutral sharing and 390/1365px layouts passed.
+- Latest full harness: `logs/harness-workflow/2026-09-01T13-20-16-180Z.md`; every step passed, analytics 9/9, runtime 6/6, submitted inventory 62 URLs / 0 issues.
 
 - Shadow app: `556933d`; Pages run `33312294971` succeeded.
 - Portal guide/catalog: `83da986`; Pages run `33312297876` succeeded.
