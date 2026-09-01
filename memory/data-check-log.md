@@ -261,6 +261,13 @@
 - Block Puzzle had 48 page users but only 4 `game_start` users and 2 `game_over` users; those legacy events were mixed with 31 synthetic `page_engage` users and transmitted score. The app also exposed fake rating/FAQ proof, fake ad surfaces, a score-doubling reward and broad root caching, so historical completion/revenue inference is invalid.
 - The released path preserves the observed Block Puzzle choice, presents four non-ranked Chinese entries and resets the app to private exact-once stages. Observe 2026-09-02~09-08 KST using `content_view → content_zh_game_catalog_view/content_game_click → block_puzzle_view → block_puzzle_start → block_puzzle_complete → block_puzzle_share/block_puzzle_related_click`; wait for 20 qualified catalog views, then use 8% game-click, 25% view-to-start and 25% start-to-complete as initial diagnostics. Exclude deployment day, Direct/Unassigned scans and all legacy synthetic/score events.
 
+## 2026-09-01 French developer guide → Developer Quiz reset
+
+- `/portal/blog/fr/guide-quiz-developpeur.html` moved `3 → 4` across equal 28-day Organic landing windows. All four recent sessions engaged for 288 seconds; sources were France desktop Bing (2), Brazil desktop Bing (1) and France mobile Bing (1). URL Inspection reported `Crawled - currently not indexed`, with successful fetch, allowed robots and last crawl on 2026-03-23.
+- Across 56 days the guide had nine content users and five CTA users producing ten direct `/dev-quiz/` clicks. The destination had 39 page users but no valid start or completion event; 34 users fired synthetic `page_engage` and 31 received generic cross-promo. The guide-to-app bridge therefore showed intent while the destination remained unmeasurable.
+- The app's advertised 12-language surface actually served 100 Korean core questions and mixed fabricated `4.6 / 1,200` proof, hidden FAQ, fake interstitial explanations, daily challenge state and score-bearing sharing/telemetry. It is now a deterministic ten-question practice in 12 localized shells with visible result/privacy/ad boundaries, neutral sharing, official completion-break ads only and app-local caching.
+- Observe 2026-09-02~09-08 KST using `content_view → content_fr_dev_quiz_view/content_cta_click → dev_quiz_view → dev_quiz_start → dev_quiz_complete → dev_quiz_share/dev_quiz_related_click`. Wait for 20 qualified guide views, then use 8% guide CTA, 25% app view-to-start, 50% start-to-complete and 8% post-completion action as initial diagnostics. Exclude deployment day, Direct/Unassigned scans and all legacy synthetic, answer, score and cross-promo events.
+
 ## Logging rule
 
 새 항목은 아래 조건 중 하나일 때만 추가한다.
