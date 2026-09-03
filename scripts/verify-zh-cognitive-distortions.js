@@ -120,7 +120,7 @@ function source(v) {
   );
   ok(/识别与证据检查/.test(v.index), "Chinese thought-check catalog stale");
   ok(
-    v.html.includes('data-stress-check-contract="2026-08-30"'),
+    v.html.includes('data-stress-check-contract="2026-09-03"'),
     "Stress Check contract missing",
   );
   ok(
@@ -147,9 +147,10 @@ function source(v) {
     "Stress Check linked entry contract missing",
   );
   ok(
-    /await navigator\.share/.test(v.app) &&
-      /await navigator\.clipboard\.writeText/.test(v.app),
-    "Stress Check share success gate missing",
+    !/shareResult|saveResultImage|btn-share|btn-save-image|result-canvas/.test(
+      v.app + "\n" + v.html,
+    ),
+    "Stress Check retired result action returned",
   );
   ok(
     !/AI|인공지능|人工智能|unlockPremium|socialProof|percentileStat|aiAnalysis|watchVideo/.test(
@@ -238,10 +239,11 @@ function mutations(base) {
         )),
     ],
     [
-      "share",
-      "share success gate missing",
+      "retired-share",
+      "retired result action returned",
       (v) =>
-        (v.app = v.app.replace("await navigator.share", "navigator.share")),
+        (v.app +=
+          "\nshareResult(){navigator.share({text:this.totalScore})}\n"),
     ],
     [
       "locale-ai",

@@ -21,7 +21,15 @@ Updated: 2026-09-03
 - 포트폴리오: Primary는 Stress Check, HSP Test, 2048 Coach. Support는 Brain Type, IQ, K-pop Roster. Culture Signal은 격리된 파일럿이며 Portal은 검색 수요를 검증하는 아카이브다.
 - 제출 인벤토리: 63 unique URLs, strict issues 0. Search Console sitemap 행은 root/portal/blog `18 / 10 / 38`.
 
-## 최신 릴리스: English HSP coping → sensory reset
+## 최신 릴리스: Stress Check result → 7-day plan
+
+- 최근 28일 페이지 이벤트는 `stress_intro_view 79 users → stress_intro_start_click/test_start 26 → test_complete 11 → stress_plan_click 1`이었다. 같은 기간 Organic landing은 25 sessions / 21 engaged, 최근 7일은 5/5 engaged여서 유입보다 결과 이후 행동 부재를 우선 병목으로 정했다.
+- 15문항 검색 정체성과 12개 언어를 유지하면서 결과 percentage gauge, 이미지 저장·공유, 9개 관련 테스트, 4개 SEO 링크, 6개 동적 추천과 generic cross-promo를 제거했다. 결과 경계 바로 다음에 하나의 7-day plan CTA와 HSP/Stress Response 두 경로만 남겼다.
+- 새 측정 경로는 `stress_intro_cta_view → stress_intro_start_click → test_complete → stress_result_action_view → stress_plan_click`이다. 답변·점수·결과 band는 URL과 analytics에 보내지 않으며 CTA view는 50%/500ms 연속 노출에서 exact-once다.
+- Stress Check `a174424`가 배포됐다. 전용 gate 변이 16/16, 12 locale·15문항·390/1440px local/live 완료, 다국어/둠스크롤 연결, plan 지속성 검증이 통과했다. 전체 harness `2026-09-03T14-25-17-423Z`는 전 단계 PASS, analytics `9/9`, runtime `6/6`, inventory `63/0`이다.
+- IndexNow는 변경 canonical 한 개를 HTTP 200으로 접수했다. sitemap 변경이 없어 Search Console은 재제출하지 않았다.
+
+## 직전 릴리스: English HSP coping → sensory reset
 
 - `/portal/blog/en/hsp-coping-strategies-highly-sensitive.html`은 equal-window Organic이 `2 → 5`, 최근 7일은 3회였다. 56일 동안 미국·영국·세르비아의 Organic 7회 중 4회가 engaged였지만 59 page users에서 유효한 후속 행동은 0이었다.
 - 기존 42,165-byte “15 evidence-based tips” 글을 13,668-byte 실행 가이드로 교체했다. 고정 유병률, 보편적 뇌 특성, 치료 효과, 숨은 FAQ, 합성 광고 이벤트와 generic cross-promo를 제거했다.
@@ -36,6 +44,7 @@ Updated: 2026-09-03
 
 | 경로 묶음 | 관찰창 | 첫 진단 |
 |---|---|---|
+| Stress Check result → 7-day plan | 2026-09-04~09-10 | result action view 20 후 plan click 25%, intro start 40%, start→complete 50% |
 | English HSP coping → Reset/Map | 2026-09-04~09-10 | qualified plan view 20 후 CTA user rate 8%, linked reset view→generate 25%, non-SG Organic engagement 55% |
 | Focused Google discovery queue | 2026-09-02~09-08 | priority URL의 새 crawl, 첫 non-home indexed URL, Culture Signal 최초 발견 |
 | German emotion, English Future Self, Korean picker | 2026-09-02~09-08 | qualified action 8%, linked completion/generate 25~50%, valid Organic engagement 55% |
@@ -45,7 +54,7 @@ Updated: 2026-09-03
 
 ## 다음 실행
 
-1. 09-04 이후 HSP 새 stage event가 GA4에 유입되는지 먼저 확인한다. 이벤트 부재와 0 클릭을 구분한다.
+1. 09-04 이후 Stress Check와 HSP의 새 stage event가 GA4에 유입되는지 먼저 확인한다. 이벤트 부재와 0 클릭을 구분한다.
 2. 09-06에는 초기 관찰창 중 표본 임계치를 충족한 경로만 `PROMOTE / ITERATE / SUPPRESS`로 판정한다.
 3. 새 변경 전에는 AdSense 7일 완전 구간과 country×device를 다시 측정해 스캔 유입을 제거한다.
 4. 운영 변경은 child repo commit/push → live verifier → 변경 canonical만 IndexNow → 검증 sitemap 한 번 제출 순서를 유지한다.

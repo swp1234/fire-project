@@ -2,6 +2,7 @@
 const fs=require('fs'),http=require('http'),path=require('path'),{chromium}=require('playwright');
 const ROOT=path.resolve(__dirname,'..'),PORTAL=path.join(ROOT,'projects','portal'),APP=path.join(ROOT,'projects','stress-check');
 const FILES={guide:path.join(PORTAL,'blog','fr','cognitive-distortions-list.html'),catalog:path.join(PORTAL,'blog','fr','index.html'),app:path.join(APP,'js','app.js'),html:path.join(APP,'index.html')};
+const ROUTE='/portal/blog/fr/cognitive-distortions-list.html',LIVE='https://dopabrain.com'+ROUTE;
 const CTA='/stress-check/?lang=fr&amp;start=1&amp;surface=fr_cognitive_distortion_primary';
 function fail(m){throw new Error(m)}function read(f){return fs.readFileSync(f,'utf8')}function load(){return Object.fromEntries(Object.entries(FILES).map(([k,f])=>[k,read(f)]))}function count(s,r){return(s.match(r)||[]).length}
 function source(v){
@@ -27,14 +28,14 @@ function events(p){return p.evaluate(()=>(window.dataLayer||[]).map(x=>Array.fro
 async function runtime(live){
   const srv=live?null:server();
   if(srv)await new Promise(r=>srv.listen(0,'127.0.0.1',r));
-  const origin=live?live.replace(/\/$/,''):'http://127.0.0.1:'+srv.address().port;
+  const origin=live?new URL(live).origin:'http://127.0.0.1:'+srv.address().port;
   const b=await chromium.launch({headless:true}),ctx=await b.newContext({serviceWorkers:'block'});
   try{
     for(const width of [390,1440]){
       const p=await ctx.newPage();
       await p.setViewportSize({width,height:844});
       await block(p);
-      await p.goto(origin+'/portal/blog/fr/cognitive-distortions-list.html',{waitUntil:'domcontentloaded'});
+      await p.goto(origin+ROUTE,{waitUntil:'domcontentloaded'});
       const overflow=await p.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
       if(overflow>1)fail(width+' overflow '+overflow);
       await p.locator('[data-qualified-action] h2').scrollIntoViewIfNeeded();
@@ -69,4 +70,4 @@ async function runtime(live){
     if(srv)await new Promise(r=>srv.close(r));
   }
 }
-async function main(){const args=process.argv.slice(2),i=args.indexOf('--url'),live=i>=0?args[i+1]:'';const s=source(load());if(args.includes('--mutations'))mutations();console.log('[PASS] French cognitive-distortions '+JSON.stringify({source:s,runtime:await runtime(live)}))}main().catch(e=>{console.error('[FAIL] '+e.stack);process.exitCode=1});
+async function main(){const args=process.argv.slice(2),i=args.indexOf('--url'),live=i>=0?args[i+1]:'';if(live&&new URL(live).href!==LIVE)fail('Live URL mismatch');const s=source(load());if(args.includes('--mutations'))mutations();console.log('[PASS] French cognitive-distortions '+JSON.stringify({source:s,runtime:await runtime(live)}))}main().catch(e=>{console.error('[FAIL] '+e.stack);process.exitCode=1});

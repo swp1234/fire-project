@@ -35,6 +35,7 @@
     "verify:indexable-blog-ads": "node scripts/clean-indexable-blog-ads.js --self-test",
     "verify:focused-auto-ads": "node scripts/clean-focused-auto-ads.js --self-test",
     "verify:stress-plan": "node scripts/verify-stress-plan.js && node scripts/verify-stress-plan-distribution.js",
+    "verify:stress-core": "node scripts/verify-stress-core.js --mutations",
     "verify:fake-unlock-gates": "node scripts/verify-fake-unlock-gates.js",
     "verify:rule-based-labels": "node scripts/verify-rule-based-labels.js",
     "verify:mental-age-trust": "node scripts/verify-mental-age-trust.js --mutations",

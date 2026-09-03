@@ -129,10 +129,10 @@ async function run() {
             window.app.displayResults();
         });
         await resultPage.waitForSelector('#result-screen.active', { timeout: 7000 });
-        const callToAction = (await resultPage.textContent('#btn-premium-unlock')).trim();
+        const callToAction = (await resultPage.textContent('#btn-action-plan')).trim();
         await Promise.all([
             resultPage.waitForURL(/plan\.html/, { timeout: 5000 }),
-            resultPage.click('#btn-premium-unlock')
+            resultPage.click('#btn-action-plan')
         ]);
         const routedUrl = resultPage.url();
 
@@ -163,8 +163,12 @@ async function run() {
         if (!koreanTitle.includes('7일')) failures.push('Korean title did not render');
         if (!persisted) failures.push('local checklist state did not persist');
         if (!callToAction.toLowerCase().includes('7-day')) failures.push('English result CTA did not render');
-        if (!routedUrl.includes('focus=') || !routedUrl.includes('level=high')) {
-            failures.push(`result route lost personalization: ${routedUrl}`);
+        const routed = new URL(routedUrl);
+        const allowedRouteKeys = [...routed.searchParams.keys()].sort().join('|');
+        if (routed.searchParams.get('lang') !== 'en'
+            || routed.searchParams.get('source') !== 'stress_result'
+            || allowedRouteKeys !== 'focus|lang|level|source') {
+            failures.push(`result route lost private attribution contract: ${routedUrl}`);
         }
         if (errors.length) failures.push(`page errors: ${errors.join(' | ')}`);
 
