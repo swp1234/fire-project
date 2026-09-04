@@ -40,6 +40,7 @@ npm run verify:mbti-career-retirement
 npm run verify:pong-suspension
 npm run verify:idle-clicker-suspension
 npm run verify:flappy-suspension
+npm run verify:memory-card-suspension
 npm run verify:hsp-reset-funnel
 npm run verify:sensory-reset
 npm run verify:ja-minesweeper-path

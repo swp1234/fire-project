@@ -18,20 +18,20 @@ Updated: 2026-09-05 KST
 - 상호작용 페이지의 수동 광고·보상형 광고·가짜 unlock·합성 광고 이벤트를 한 번에 한 제품씩 격리한다.
 - 오늘 AdSense 상태는 이미 확인했으므로 다음 완료일 전에는 재조회하지 않는다.
 
-## 최신 배포: Flappy 광고 위험 격리
+## 최신 배포: Memory Card 광고 위험 격리
 
-- 실데이터 56일: `29 PV / 29 users / 29 sessions / 21 engaged / 280s`. Singapore desktop Direct가 23 PV를 차지했고, Organic은 Australia 1회·21초뿐이었다. 실제 시작/완료 이벤트와 Search Console 행은 없었다.
-- 하위 저장소 `f9a3dc1`, Pages `33904742960`이 배포됐다.
-- 게임·12개 언어·7개 관련 경로는 유지했다. Auto Ads, 수동 광고 2개, 전면/보상형 광고, 가짜 `4.6/3,500` 평점, 합성 `page_engage`, 검증되지 않은 유지장치와 일반 cross-promo는 제거했다.
-- 계측은 private exact-once `flappy_view -> flappy_start -> flappy_complete -> flappy_share / flappy_related_click`로 제한했다. 점수·결과·시간·URL은 보내지 않는다.
-- 서비스워커와 manifest를 `/flappy-bird/`에 한정했다. 실제 브라우저 검증 중 발견한 390px 캔버스 2px 넘침도 가용 표시 폭 기준으로 수정했다.
+- 실데이터 56일: `35 PV / 34 users`. Singapore desktop Direct가 `28 PV / 28 sessions / 23 engaged / 483s`를 차지했다. Organic은 China Bing 1회·4초뿐이었고 Search Console 행과 실제 시작/완료 행동은 없었다.
+- 하위 저장소 `8667aca`, Pages `33906637827`이 배포됐다.
+- 게임·4개 테마·단계 진행·로컬 리더보드·12개 언어·4개 관련 경로는 유지했다. Auto Ads, 수동 광고 2개, 전면/보상형 광고, 가짜 `4.5/2,650` 평점, 합성 참여 계측, 중복 공유 UI와 일반 cross-promo는 제거했다.
+- 계측은 private exact-once `memory_card_view -> memory_card_start -> memory_card_progress -> memory_card_complete -> memory_card_share / memory_card_related_click`로 제한했다. 점수·결과·시간·URL은 보내지 않는다.
+- 서비스워커와 manifest를 `/memory-card/`에 한정했다. 실제 모바일 여정에서 발견한 40px 버튼 터치 영역은 44px로 수정했다.
 
 ## 검증 상태
 
-- Flappy 전용: 18/18 변이, 12개 locale JSON, 로컬·프로덕션 390/1440px 시작→종료→재시작→공유→관련 경로 통과.
+- Memory Card 전용: 19/19 변이, 12개 locale JSON, 로컬·프로덕션 390/1440px 시작→단계 완료→다음 단계→게임 종료→재시작→공유→관련 경로 통과.
 - 공통 AdSense 계약: 11/11 변이 통과. 중단 페이지는 광고 로더 0개다.
-- 광고 위험 인벤토리: `critical 13`, `high 40`, `medium 6`, `info 52`, `clean 8`.
-- 전체 하네스 `2026-09-04T18-15-01-476Z`: 156/156 통과, analytics 9/9, runtime 6/6, submitted inventory 63/0.
+- 광고 위험 인벤토리: `critical 12`, `high 40`, `medium 6`, `info 52`, `clean 9`.
+- 전체 하네스 `2026-09-04T18-35-45-651Z`: 158/158 통과, analytics 9/9, runtime 6/6, submitted inventory 63/0.
 - 사용자 파일 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}`는 건드리지 않는다.
 
 ## 다음 실행 순서
