@@ -85,6 +85,7 @@ SOUNDSCAPE_*.txt
 !scripts/verify-stack-tower-suspension.js
 !scripts/verify-number-puzzle-suspension.js
 !scripts/verify-word-guess-suspension.js
+!scripts/verify-snake-suspension.js
 !scripts/verify-adsense-contract.js
 !scripts/ad-risk-inventory.js
 !scripts/verify-brain-training-bridge.js

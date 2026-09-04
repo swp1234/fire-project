@@ -47,6 +47,7 @@ const DEFAULT_PAGES = [
   path.join(ROOT, 'projects', 'zigzag-runner', 'index.html'),
   path.join(ROOT, 'projects', 'number-puzzle', 'index.html'),
   path.join(ROOT, 'projects', 'word-guess', 'index.html'),
+  path.join(ROOT, 'projects', 'snake-game', 'index.html'),
   path.join(ROOT, 'projects', 'word-scramble', 'index.html'),
   path.join(ROOT, 'projects', 'daily-tarot', 'index.html'),
   path.join(ROOT, 'projects', 'hsp-test', 'index.html'),

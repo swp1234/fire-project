@@ -19,19 +19,19 @@ This file contains only the current operating decision. Detailed evidence and re
 - Exclude deployment days, Singapore desktop Direct scans, concentrated non-organic bursts, AI-assistant referrals and legacy synthetic events from growth judgments.
 - Do not suppress a product with credible Organic acquisition or real completion signals merely because its total traffic is small.
 
-## Latest release: Word Guess containment and real-play funnel
+## Latest release: Snake containment and real-movement funnel
 
-- Word Guess was preserved because it retained four Organic sessions and 577 engagement seconds. The old page nevertheless combined duplicated Auto Ads loaders, two manual units, result interstitials and a rewarded-hint action, so its historical traffic could not safely justify monetization.
-- Word Guess `f260e62` is deployed by Pages run `33926542249`. It removes all ad/reward paths, fabricated aggregate-rating and hidden FAQ proof, synthetic engagement, generic retention/promotion helpers and a duplicate floating share control. The daily/practice game, native streak/statistics, hints, 12 locales and four attributable related routes remain.
-- Private exact-once funnel: `word_guess_view -> word_guess_start -> word_guess_progress -> word_guess_complete -> word_guess_share/word_guess_related_click`. Start requires the first accepted word and progress the second; page load, partial/invalid input, mode changes and resets do not qualify. Words, guesses, results, scores, timing, language and URLs are excluded.
-- Real-browser validation also found and fixed two product defects: `?mode=practice` previously opened Daily despite the PWA shortcut, and mode/difficulty controls were only 36 px high. Shortcut mode is now honored and controls meet the 44 px touch target.
-- The dedicated verifier detects 25/25 injected defects and passes local and production 390/1440px partial input, reset, two accepted guesses, completion, successful share and nested related-link journeys. Portfolio ad-risk is now `critical 3 / high 40 / medium 6 / info 52 / clean 18`.
+- Emoji Merge was preserved in the comparison: 79 PV, two China Organic sessions / six PV / 82 engagement seconds and one `game_over` user. Snake had 26 PV, of which Singapore desktop Direct supplied 23; its only Organic line was Spain desktop with two sessions / one PV / three seconds, and it had no game-stage event. Search Console returned no exact-page row for either route.
+- Snake `211f6a8` is deployed by Pages run `33928019401`. It removes Auto Ads, result interstitial/rewarded revive, fake ad surfaces, fabricated aggregate rating/hidden FAQ, synthetic engagement, score-bearing share URLs, generic retention/promotion helpers and dormant ad/share locale copy. The two-mode canvas game, keyboard/swipe/on-screen controls, power-ups, local leaderboard, 12 locales and four related routes remain.
+- Private exact-once funnel: `snake_view -> snake_start -> snake_progress -> snake_complete -> snake_share/snake_related_click`. Mode selection and reset do not qualify; start requires activating the board and progress requires the first completed grid movement. Score, rank, mode, duration, food, direction, language and URL are excluded.
+- Runtime validation found the share/menu controls rendered at 43 px; both now meet the 44 px touch target. The service worker and manifest are deployment-relative and app-scoped.
+- The dedicated verifier detects 22/22 injected defects and passes local and production 390/1440px menu, mode choice, actual board start, grid movement, game over, successful share and nested related-link journeys. Portfolio ad-risk is now `critical 2 / high 40 / medium 6 / info 52 / clean 19`.
 
 ## Validation and next action
 
 - Common AdSense contract: 11/11 mutations detected; all suspended products have zero ad loaders.
 - Submitted indexing inventory: 63 URLs, zero issues. Blog focus: 173 indexable, 208 redirects, 1,597 noindex.
-- Final harness `2026-09-04T22-27-09-377Z`: 177/177 stages passed, including analytics 9/9 and runtime 6/6.
-- Next: compare Emoji Merge and Snake using valid completion/acquisition evidence before containing the weaker risk surface. Keep trend publishing behind the distinct-intent and measurable-interaction gate.
+- Final harness `2026-09-04T22-49-20-274Z`: 179/179 stages passed, including analytics 9/9 and runtime 6/6.
+- Next: contain Emoji Merge without discarding its Organic and completion signals, then audit the remaining portal-level critical risk. Keep trend publishing behind the distinct-intent and measurable-interaction gate.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
