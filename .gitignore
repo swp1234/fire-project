@@ -76,6 +76,7 @@ SOUNDSCAPE_*.txt
 !scripts/verify-idle-clicker-suspension.js
 !scripts/verify-flappy-suspension.js
 !scripts/verify-memory-card-suspension.js
+!scripts/verify-maze-runner-suspension.js
 !scripts/verify-adsense-contract.js
 !scripts/ad-risk-inventory.js
 !scripts/verify-brain-training-bridge.js

@@ -18,25 +18,26 @@ Updated: 2026-09-05 KST
 - 상호작용 페이지의 수동 광고·보상형 광고·가짜 unlock·합성 광고 이벤트를 한 번에 한 제품씩 격리한다.
 - 오늘 AdSense 상태는 이미 확인했으므로 다음 완료일 전에는 재조회하지 않는다.
 
-## 최신 배포: Memory Card 광고 위험 격리
+## 최신 배포: Maze Runner 광고 위험 격리
 
-- 실데이터 56일: `35 PV / 34 users`. Singapore desktop Direct가 `28 PV / 28 sessions / 23 engaged / 483s`를 차지했다. Organic은 China Bing 1회·4초뿐이었고 Search Console 행과 실제 시작/완료 행동은 없었다.
-- 하위 저장소 `8667aca`, Pages `33906637827`이 배포됐다.
-- 게임·4개 테마·단계 진행·로컬 리더보드·12개 언어·4개 관련 경로는 유지했다. Auto Ads, 수동 광고 2개, 전면/보상형 광고, 가짜 `4.5/2,650` 평점, 합성 참여 계측, 중복 공유 UI와 일반 cross-promo는 제거했다.
-- 계측은 private exact-once `memory_card_view -> memory_card_start -> memory_card_progress -> memory_card_complete -> memory_card_share / memory_card_related_click`로 제한했다. 점수·결과·시간·URL은 보내지 않는다.
-- 서비스워커와 manifest를 `/memory-card/`에 한정했다. 실제 모바일 여정에서 발견한 40px 버튼 터치 영역은 44px로 수정했다.
+- 실데이터 56일: `34 PV / 34 users / 34 sessions / 21 engaged / 371s`. Singapore desktop Direct가 29 PV를 차지했고 Organic은 South Korea mobile 2회·총 5초뿐이었다. 실제 시작/완료 행동과 Search Console 행은 없었다.
+- `exception` 195건은 2026-08-06 하루의 다국가 데스크톱 스캔에만 몰렸고 Singapore가 161건/8명을 차지했다. 현재 운영 모바일 로드에서 재현되지 않았으며 리소스 오류까지 전송하던 지표라 제품 오류 근거에서 제외했다.
+- 하위 저장소 `a8d3917`, Pages `33908666393`이 배포됐다.
+- 게임·3개 모드·힌트·미니맵·12개 언어·4개 관련 경로는 유지했다. Auto Ads, 전면/보상형 광고, 가짜 `4.4/1,800` 평점, 합성 계측, 중복 공유/추천, 미검증 유지장치와 미사용 자산 4개는 제거했다.
+- 계측은 private exact-once `maze_runner_view -> maze_runner_start -> maze_runner_progress -> maze_runner_complete -> maze_runner_share / maze_runner_related_click`로 제한했다. 모드·단계·점수·시간·오류·URL은 보내지 않는다.
+- 실제 여정에서 번역 초기화가 두 번 실행돼 언어 메뉴가 즉시 닫히던 문제와 완료 효과가 390px 화면을 넘던 문제를 수정했다. 서비스워커와 manifest도 `/maze-runner/`에 한정했다.
 
 ## 검증 상태
 
-- Memory Card 전용: 19/19 변이, 12개 locale JSON, 로컬·프로덕션 390/1440px 시작→단계 완료→다음 단계→게임 종료→재시작→공유→관련 경로 통과.
+- Maze Runner 전용: 23/23 변이, 12개 locale JSON, 로컬·프로덕션 390/1440px 언어 전환→시작→단계 완료→다음 단계→게임 종료→재시작→공유→관련 경로 통과.
 - 공통 AdSense 계약: 11/11 변이 통과. 중단 페이지는 광고 로더 0개다.
-- 광고 위험 인벤토리: `critical 12`, `high 40`, `medium 6`, `info 52`, `clean 9`.
-- 전체 하네스 `2026-09-04T18-35-45-651Z`: 158/158 통과, analytics 9/9, runtime 6/6, submitted inventory 63/0.
+- 광고 위험 인벤토리: `critical 11`, `high 40`, `medium 6`, `info 52`, `clean 10`.
+- 전체 하네스 `2026-09-04T18-58-52-070Z`: 160/160 통과, analytics 9/9, runtime 6/6, submitted inventory 63/0.
 - 사용자 파일 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}`는 건드리지 않는다.
 
 ## 다음 실행 순서
 
-1. 남은 critical 후보를 유효 Organic·실제 행동·구현 위험으로 다시 비교한다. Number Puzzle의 36 start, Emoji Merge의 completion 1건, Word Guess의 Organic 4 sessions/577s는 보존 신호로 취급한다.
+1. 남은 critical 후보를 유효 Organic·실제 행동·구현 위험으로 다시 비교한다. Number Puzzle의 36 start, Emoji Merge의 completion 1건, Word Guess의 Organic 4 sessions/577s, Color Memory의 start 1건은 보존 신호로 취급한다.
 2. 선택한 한 제품에서 광고·보상·허위 증거만 격리하고 실제 검색/게임 경로는 유지하거나 개선한다.
 3. 전용 변이→실사용 여정→전체 하네스→하위 저장소→Pages→프로덕션→루트 순으로 배포한다.
 4. 트렌드·밈·게임·영화 후보는 공식 출처와 검색 의도, 기존 포트폴리오와 다른 상호작용 가설이 있을 때만 한 건씩 실험한다. 현재 제한을 우회하는 트래픽 확대 수단으로 사용하지 않는다.
