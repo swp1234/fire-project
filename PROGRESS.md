@@ -19,19 +19,19 @@ This file contains only the current operating decision. Detailed evidence and re
 - Exclude deployment days, Singapore desktop Direct scans, concentrated non-organic bursts, AI-assistant referrals and legacy synthetic events from growth judgments.
 - Do not suppress a product with credible Organic acquisition or real completion signals merely because its total traffic is small.
 
-## Latest release: Number Puzzle measurement correction and containment
+## Latest release: Word Guess containment and real-play funnel
 
-- The historical `game_start` signal with 36 users was invalid: source inspection proved it fired in the constructor on every page load, before any player input. It is no longer evidence of product use, so the route remains live only to collect a valid funnel rather than being promoted or immediately deleted.
-- Number Puzzle `5cb658a` is deployed by Pages run `33924867445`. The release removes Auto Ads, three manual units/pushes, interstitial/rewarded score paths, fabricated rating/hidden FAQ, synthetic telemetry, eight stale `/projects/*` recommendations, generic promotion and unused social images.
-- The 4x4 game, Undo, saved state, sound, 12 locales and four attributable related routes remain. `number_puzzle_start` now requires the first board-changing move; `number_puzzle_progress` requires three valid moves.
-- Private exact-once funnel: `number_puzzle_view -> number_puzzle_start -> number_puzzle_progress -> number_puzzle_complete -> number_puzzle_share/number_puzzle_related_click`. Scores, tiles, directions, results, timing and URLs are excluded.
-- The dedicated verifier detects 25/25 injected defects, including page-load false starts, and passes local and production 390/1440px reset, three valid moves, 2048 completion, share and nested related-link journeys. Portfolio ad-risk is now `critical 4 / high 40 / medium 6 / info 52 / clean 17`.
+- Word Guess was preserved because it retained four Organic sessions and 577 engagement seconds. The old page nevertheless combined duplicated Auto Ads loaders, two manual units, result interstitials and a rewarded-hint action, so its historical traffic could not safely justify monetization.
+- Word Guess `f260e62` is deployed by Pages run `33926542249`. It removes all ad/reward paths, fabricated aggregate-rating and hidden FAQ proof, synthetic engagement, generic retention/promotion helpers and a duplicate floating share control. The daily/practice game, native streak/statistics, hints, 12 locales and four attributable related routes remain.
+- Private exact-once funnel: `word_guess_view -> word_guess_start -> word_guess_progress -> word_guess_complete -> word_guess_share/word_guess_related_click`. Start requires the first accepted word and progress the second; page load, partial/invalid input, mode changes and resets do not qualify. Words, guesses, results, scores, timing, language and URLs are excluded.
+- Real-browser validation also found and fixed two product defects: `?mode=practice` previously opened Daily despite the PWA shortcut, and mode/difficulty controls were only 36 px high. Shortcut mode is now honored and controls meet the 44 px touch target.
+- The dedicated verifier detects 25/25 injected defects and passes local and production 390/1440px partial input, reset, two accepted guesses, completion, successful share and nested related-link journeys. Portfolio ad-risk is now `critical 3 / high 40 / medium 6 / info 52 / clean 18`.
 
 ## Validation and next action
 
 - Common AdSense contract: 11/11 mutations detected; all suspended products have zero ad loaders.
 - Submitted indexing inventory: 63 URLs, zero issues. Blog focus: 173 indexable, 208 redirects, 1,597 noindex.
-- Final harness `2026-09-04T22-03-28-113Z`: 175/175 stages passed, including analytics 9/9 and runtime 6/6.
-- Next: contain Word Guess without discarding its four Organic sessions, then re-evaluate Emoji Merge and Snake around their valid completion/acquisition signals. Keep trend publishing behind the distinct-intent and measurable-interaction gate.
+- Final harness `2026-09-04T22-27-09-377Z`: 177/177 stages passed, including analytics 9/9 and runtime 6/6.
+- Next: compare Emoji Merge and Snake using valid completion/acquisition evidence before containing the weaker risk surface. Keep trend publishing behind the distinct-intent and measurable-interaction gate.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
