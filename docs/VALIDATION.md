@@ -36,6 +36,7 @@ npm run verify:eq-trust
 npm run verify:2048-ad-policy
 npm run verify:sky-runner-suspension
 npm run verify:portfolio-retirement
+npm run verify:mbti-career-retirement
 npm run verify:hsp-reset-funnel
 npm run verify:sensory-reset
 npm run verify:ja-minesweeper-path
@@ -64,7 +65,7 @@ npm run verify:fr-minesweeper-path
 
 공용 `verify:adsense-contract`는 정상 페이지의 로더 1개와 중단 페이지의 로더 0개를 모두 검증한다. 2048 전용 검증은 게임·코치 양쪽의 중단 상태와 일반 Undo를, Sky Runner 전용 검증은 자연 게임오버·성공 공유·관련 링크·private telemetry를 검사한다. 운영 확인은 각 스크립트에 `--url https://dopabrain.com`을 붙여 반복한다.
 
-`ad-risk-inventory.js`는 각 하위 저장소의 추적된 HTML/JS만 검사한다. Auto Ads 존재 자체는 정보로 분리하고, 보상형 광고·자가 완료 unlock·수동 단위/push·중단 마커 충돌을 우선순위화한다. 알려진 위험이 남아 있는 동안 전체 인벤토리는 보고 모드로 실행하고, 탐지기의 8개 행동 변이는 하네스에서 항상 통과해야 한다.
+`ad-risk-inventory.js`는 각 하위 저장소의 현재 존재하는 tracked HTML/JS만 검사한다. 커밋 전 삭제된 tracked 파일은 건너뛴다. Auto Ads 존재 자체는 정보로 분리하고, 보상형 광고·자가 완료 unlock·수동 단위/push·중단 마커 충돌을 우선순위화한다. 알려진 위험이 남아 있는 동안 전체 인벤토리는 보고 모드로 실행하고, 탐지기의 9개 행동 변이는 하네스에서 항상 통과해야 한다.
 
 ## 분석 계약
 
@@ -93,7 +94,7 @@ npm run verify:fr-minesweeper-path
 
 IndexNow는 변경된 canonical만 보낸다. sitemap이 실제로 바뀐 경우에만 GSC sitemap을 한 번 제출한다. 무효 트래픽 제한 대응 중에는 발견 확대 제출을 중단한다.
 
-콘텐츠 은퇴는 원문을 작은 `noindex,follow` 리디렉트로 바꾸고 목록·관련 링크·hreflang에서 제거한다. `verify:portfolio-retirement`가 리디렉트 대상, 잔존 참조, 광고·분석 코드 재유입, 390/1440px 운영 여정을 검증한다.
+콘텐츠 은퇴는 원문을 작은 `noindex,follow` 리디렉트로 바꾸고 목록·관련 링크·hreflang에서 제거한다. 앱 전체를 은퇴할 때는 사용하지 않는 자산도 삭제하고, 기존 cache만 좁게 제거한 뒤 service worker가 스스로 해제되어야 한다. `quality-gate.sh`는 퇴역 stub에 active-app의 GA·schema·locale을 요구하지 않고 2KB 이하·무광고·canonical·SW 해제 계약을 검사한다. `verify:portfolio-retirement`와 `verify:mbti-career-retirement`가 잔존 참조, 재유입 결함과 390/1440px 운영 여정을 검증한다.
 
 ## 판정 원칙
 

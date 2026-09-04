@@ -193,6 +193,10 @@ function trackedSourceFiles(projectDir) {
   return names
     .filter((name) => TEXT_EXTENSIONS.has(path.extname(name).toLowerCase()))
     .filter((name) => !/(^|\/)(?:node_modules|vendor|dist|build)(?:\/|$)/i.test(name))
+    .filter((name) => {
+      const absolute = path.join(projectDir, name);
+      return fs.existsSync(absolute) && fs.statSync(absolute).isFile();
+    })
     .map((relative) => ({
       relative: relative.replace(/\\/g, '/'),
       source: fs.readFileSync(path.join(projectDir, relative), 'utf8'),
@@ -235,7 +239,10 @@ function runSelfTest() {
 
   const conflict = fixture('index.html', '<html data-ad-serving="suspended-invalid-traffic-2026-09-03"><script src="/portal/js/ad-loader.js"></script></html>');
   assert(ids(conflict).has('suspension_conflict') && conflict.severity === 'critical', 'suspension/ad-code conflict escaped');
-  console.log('[PASS] ad-risk inventory self-test: 8/8 behavior classes');
+
+  const workingTreeFiles = trackedSourceFiles(path.join(PROJECTS_ROOT, 'mbti-career'));
+  assert(workingTreeFiles.every((file) => fs.existsSync(path.join(PROJECTS_ROOT, 'mbti-career', file.relative))), 'deleted tracked file reached the scanner');
+  console.log('[PASS] ad-risk inventory self-test: 9/9 behavior classes including staged/unstaged deletion safety');
 }
 
 function printInventory(inventory, limit) {

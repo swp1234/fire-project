@@ -1,6 +1,6 @@
 # Hybrid Revenue Strategy
 
-Updated: 2026-08-29
+Updated: 2026-09-05
 
 ## Thesis
 
@@ -45,8 +45,9 @@ AdSense 도메인 RPM과 국가/device RPM은 시장 proxy다. 글 단위 귀속
 | `PROMOTE` | 신뢰 가능한 gate 2개 이상 | 인접 주제 1편 추가 |
 | `ITERATE` | 7일 이후 0~1개 | 제목·주제·bridge 중 하나만 수정 |
 | `SUPPRESS` | 14일 이후 Organic 20 + content view 20 표본과 credible fail | 홈·집중 discovery에서 제거, URL 유지 |
+| `RETIRE` | 56일 Organic·유효 행동 0 + 과장 주장·광고/유지 위험 | 자산 삭제, 카탈로그 제거, 관련 허브로 noindex 연결 |
 
-28일이 지나도 최소 표본이 없으면 억제하지 않고 discovery 문제로 남긴다. GA4·AdSense 값은 대상 pagePath/URL이 정확히 일치할 때만 페이지 귀속 신호다.
+28일이 지나도 최소 표본이 없으면 먼저 discovery 문제로 남긴다. 다만 56일에도 Organic과 유효 행동이 모두 없고 콘텐츠 신뢰·광고·유지 위험까지 큰 경우에는 퇴역한다. GA4·AdSense 값은 대상 pagePath/URL이 정확히 일치할 때만 페이지 귀속 신호다.
 
 자동 판정은 `scripts/culture-signal-review.js`의 JSON을 기준으로 하고 Markdown은 짧은 사람이 읽는 요약만 유지한다.
 

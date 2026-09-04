@@ -37,6 +37,46 @@ else
   FAIL=$((FAIL+1))
 fi
 
+# Retired routes intentionally omit analytics, ads, schema, PWA assets, and locale bundles.
+# Validate their narrow redirect/cleanup contract instead of treating them as active apps.
+if grep -Eq 'data-product-status="retired-[0-9]{4}-[0-9]{2}-[0-9]{2}"' "$APP_DIR/index.html" 2>/dev/null; then
+  HTML_BYTES=$(wc -c < "$APP_DIR/index.html" | tr -d '[:space:]')
+  if [ "$HTML_BYTES" -le 2048 ]; then
+    green "retired route stub is compact ($HTML_BYTES bytes)"
+  else
+    red "retired route stub exceeds 2048 bytes ($HTML_BYTES bytes)"
+    FAIL=$((FAIL+1))
+  fi
+  if grep -Eq 'name="robots" content="noindex,follow"' "$APP_DIR/index.html" \
+    && grep -Eq 'rel="canonical" href="https://dopabrain\.com/' "$APP_DIR/index.html"; then
+    green "retired route has noindex,follow and a DopaBrain canonical target"
+  else
+    red "retired route indexing or canonical contract missing"
+    FAIL=$((FAIL+1))
+  fi
+  if grep -Eqi 'pagead2\.googlesyndication\.com|<ins[^>]+adsbygoogle|adsbygoogle[^[:space:]]*\.push|googletagmanager|application/ld\+json' "$APP_DIR/index.html"; then
+    red "retired route contains ads, analytics, or structured data"
+    FAIL=$((FAIL+1))
+  else
+    green "retired route has no ads, analytics, or structured data"
+  fi
+  if [ -f "$APP_DIR/sw.js" ] && grep -q 'registration.unregister()' "$APP_DIR/sw.js" \
+    && ! grep -Eq "addEventListener\(['\"](fetch|push|sync|notificationclick)['\"]" "$APP_DIR/sw.js"; then
+    green "retired service worker clears legacy state and unregisters"
+  else
+    red "retired service-worker cleanup contract missing"
+    FAIL=$((FAIL+1))
+  fi
+  echo ""
+  echo "=== Results ==="
+  if [ "$FAIL" -eq 0 ]; then
+    green "PASS — retired route contract"
+    exit 0
+  fi
+  red "FAIL — $FAIL retired-route error(s)"
+  exit 1
+fi
+
 # 3. i18n: locale files must match the app's declared language set.
 DEFAULT_LANGS="ko en zh hi ru ja es pt id tr de fr"
 LANGS="$DEFAULT_LANGS"
