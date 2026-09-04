@@ -18,6 +18,7 @@
     "verify:brain-trust": "node scripts/verify-brain-type-trust.js --mutations",
     "verify:brain-training-bridge": "node scripts/verify-brain-training-bridge.js --mutations",
     "verify:2048-ad-policy": "node scripts/verify-2048-ad-policy.js --mutations",
+    "verify:sky-runner-suspension": "node scripts/verify-sky-runner-suspension.js --mutations",
     "verify:zh-2048-guide": "node scripts/verify-zh-2048-guide.js --mutations",
     "verify:culture-choice": "node scripts/verify-culture-choice.js --mutations",
     "verify:cross-promo-touch": "node scripts/verify-cross-promo-touch.js --mutations",

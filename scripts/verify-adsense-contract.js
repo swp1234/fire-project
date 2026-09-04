@@ -34,6 +34,7 @@ const DEFAULT_PAGES = [
   path.join(ROOT, 'projects', 'kpop-position', 'index.html'),
   path.join(ROOT, 'projects', 'puzzle-2048', 'index.html'),
   path.join(ROOT, 'projects', 'puzzle-2048', 'coach.html'),
+  path.join(ROOT, 'projects', 'sky-runner', 'index.html'),
   path.join(ROOT, 'projects', 'daily-tarot', 'index.html'),
   path.join(ROOT, 'projects', 'hsp-test', 'index.html'),
   path.join(ROOT, 'projects', 'hsp-test', 'reset.html'),

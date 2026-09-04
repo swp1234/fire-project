@@ -34,6 +34,7 @@ npm run verify:ad-risk-inventory
 npm run verify:stress-core
 npm run verify:eq-trust
 npm run verify:2048-ad-policy
+npm run verify:sky-runner-suspension
 npm run verify:hsp-reset-funnel
 npm run verify:sensory-reset
 npm run verify:ja-minesweeper-path
@@ -60,7 +61,7 @@ npm run verify:fr-minesweeper-path
 
 중단 마커가 있는 페이지에는 AdSense 로더, 수동 단위, push, 정적 광고 surface가 모두 0개여야 한다. `quality-gate.sh`와 indexing inventory가 마커-광고 충돌을 실패 처리한다. 중단 해제는 AdSense 제한 상태와 원인 점검 후 별도 변경으로 수행한다.
 
-공용 `verify:adsense-contract`는 정상 페이지의 로더 1개와 중단 페이지의 로더 0개를 모두 검증한다. 2048 전용 검증은 게임·코치 양쪽의 중단 상태, 일반 Undo, 즉시 게임오버, private telemetry를 검사하며 운영 확인은 `node scripts/verify-2048-ad-policy.js --url https://dopabrain.com`으로 반복한다.
+공용 `verify:adsense-contract`는 정상 페이지의 로더 1개와 중단 페이지의 로더 0개를 모두 검증한다. 2048 전용 검증은 게임·코치 양쪽의 중단 상태와 일반 Undo를, Sky Runner 전용 검증은 자연 게임오버·성공 공유·관련 링크·private telemetry를 검사한다. 운영 확인은 각 스크립트에 `--url https://dopabrain.com`을 붙여 반복한다.
 
 `ad-risk-inventory.js`는 각 하위 저장소의 추적된 HTML/JS만 검사한다. Auto Ads 존재 자체는 정보로 분리하고, 보상형 광고·자가 완료 unlock·수동 단위/push·중단 마커 충돌을 우선순위화한다. 알려진 위험이 남아 있는 동안 전체 인벤토리는 보고 모드로 실행하고, 탐지기의 8개 행동 변이는 하네스에서 항상 통과해야 한다.
 

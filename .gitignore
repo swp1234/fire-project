@@ -69,6 +69,7 @@ SOUNDSCAPE_*.txt
 !scripts/indexnow-submit.js
 !scripts/verify-blog-generator-interaction.js
 !scripts/verify-2048-ad-policy.js
+!scripts/verify-sky-runner-suspension.js
 !scripts/verify-adsense-contract.js
 !scripts/ad-risk-inventory.js
 !scripts/verify-brain-training-bridge.js

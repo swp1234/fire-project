@@ -20,30 +20,30 @@ Updated: 2026-09-05 KST
 - 상호작용형 페이지의 수동 광고·보상형 광고·가짜 unlock을 제거하고, 위험 페이지에는 명시적 광고 중단 계약을 한 번에 하나씩 배포한다.
 - 주소 PIN 지급 보류는 별도 계정 작업이며 광고 제한 원인으로 간주하지 않는다.
 
-## 최신 배포: 2048 보상 광고 중단
+## 최신 배포: Sky Runner 광고·보상 흐름 중단
 
-- 자식 저장소: `puzzle-2048 3855dfa`, Pages `33890388206` 성공, 프로덕션 검증 완료.
-- 남은 critical 앱 중 최근 28일 유입이 가장 컸다: 35 PV / 32 sessions / 23 engaged. Organic 유입은 보존하되 Singapore desktop Direct 6 PV 등 혼합 유입의 광고 노출 위험을 제거했다.
-- 게임과 코치에서 Auto Ads 로더를 제거하고, 게임 오버 전면광고·“광고 시청→점수 2배” 흐름·H5 Games 광고 모듈·합성 `page_engage`를 삭제했다.
-- 일반 Undo, 게임 규칙, 코치, 12개 언어는 유지했다. 이동 방향·점수·최고점은 분석 payload에서 제거하고 단계 이벤트만 남겼다.
-- 두 페이지 모두 `data-ad-serving="suspended-invalid-traffic-2026-09-03"` 상태이며 광고 DOM·스크립트·런타임 `GameAds`가 0개다.
+- 자식 저장소: `sky-runner 1a802e7`, Pages `33894909680` 성공, 프로덕션 검증 완료.
+- 최근 28일은 7 PV / 7 sessions였다. China Organic 1회와 Korea Organic 1회는 보존하되, Singapore/US desktop Direct와 무참여 유입이 섞인 소표본을 성장 근거로 쓰지 않는다.
+- Auto Ads, 가짜 광고 배너·5초 전면광고, “광고 시청→부활”, 광고 시청형 스킨 해제를 삭제했다. 10개 스킨의 실제 해제 조건과 로컬 기록만 남겼다.
+- 12개 언어와 게임은 유지하고 `view→start→complete→share/related_click` 단계만 측정한다. 점수·랭크·결과는 전송하지 않는다.
+- `data-ad-serving="suspended-invalid-traffic-2026-09-03"` 상태이며 광고 DOM·스크립트·런타임 광고 API가 0개다.
 
 ## 검증 상태
 
-- 광고 위험 인벤토리: 추적된 119개 프로젝트를 검사하며 8/8 행동 변이를 탐지한다. 2048 배포로 `critical 19→18`, `clean 2→3`이 됐다.
-- 2048: 25/25 변이, 390/1440px 이동→일반 Undo→즉시 게임오버→코치 여정과 프로덕션 모두 통과.
+- 광고 위험 인벤토리: 추적된 119개 프로젝트를 검사하며 8/8 행동 변이를 탐지한다. Sky Runner 배포로 `critical 18→17`, `clean 3→4`가 됐다.
+- Sky Runner: 16/16 변이, 390px 터치/1440px 키보드 시작→자연 게임오버→공유→관련 링크 여정과 프로덕션 모두 통과.
 - 공용 AdSense 계약: 정상 페이지는 로더 1개, 중단 페이지는 로더 0개를 강제하며 11/11 변이를 탐지한다.
 - 공통 analytics smoke: 9/9 통과.
 - submitted inventory: 63 URLs / issues 0.
-- 전체 하네스 `2026-09-04T15-46-23-691Z`: 모든 단계 통과, analytics 9/9, runtime 6/6, submitted inventory 63/0.
+- 전체 하네스 `2026-09-04T16-10-31-360Z`: 모든 단계 통과, analytics 9/9, runtime 6/6, submitted inventory 63/0.
 - 사용자 작업 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}`는 건드리지 않는다.
 
 ## 다음 실행 순서
 
-1. 광고 위험 인벤토리의 다음 critical 앱을 최근 유입·유입 품질과 결합해 하나만 고른다.
-2. 점수·생명·결과와 광고를 교환하는 흐름을 한 페이지씩 제거하고 광고 중단 계약을 배포한다.
-3. AdSense 경보와 완료된 KST 일별 impressions/clicks를 하루 한 번만 확인한다.
-4. 제한 해제 전까지 트렌드 콘텐츠·새 광고 실험·대규모 색인 확대는 보류한다.
+1. 남은 critical 앱 하나를 최근 유입·유입 품질과 결합해 정리한다. 다음 후보는 실데이터로 다시 고른다.
+2. 동시에 기존 콘텐츠를 유지·개선·통합·삭제로 재분류하되, 무노출·무참여·중복만으로 즉시 삭제하지 않고 검색 의도와 링크 대체 경로까지 확인한다.
+3. 최신 트렌드·게임·밈·영화 주제를 주기적으로 조사해 검색 수요, 시의성, 원본성, DopaBrain에서 가능한 상호작용을 점수화한다. 신규 제작은 한 건씩 검증한다.
+4. AdSense 경보와 완료된 KST 일별 impressions/clicks는 하루 한 번만 확인한다. 제한 해제 전에는 광고 실험과 대규모 색인 확대를 하지 않는다.
 
 ## 관찰창
 
