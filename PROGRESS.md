@@ -20,23 +20,22 @@ Updated: 2026-09-05 KST
 - 상호작용형 페이지의 수동 광고·보상형 광고·가짜 unlock을 제거하고, 위험 페이지에는 명시적 광고 중단 계약을 한 번에 하나씩 배포한다.
 - 주소 PIN 지급 보류는 별도 계정 작업이며 광고 제한 원인으로 간주하지 않는다.
 
-## 최신 배포: Minesweeper 보상 광고 중단
+## 최신 배포: 2048 보상 광고 중단
 
-- 자식 저장소: `minesweeper 564fcf3`, Pages `33887455042` 성공, 프로덕션 검증 완료.
-- 최근 28일 67 PV 중 중국 데스크톱 Direct가 61 PV였다. Organic Search는 스페인 1 PV뿐이므로 검색 성과가 아니라 무효 트래픽 노출면으로 취급한다.
-- Auto Ads 로더, H5 Games 광고 모듈, 패배 후 “광고 시청→두 번째 기회” 흐름과 광고 전용 CSS를 제거했다.
-- 승패·기록·힌트·12개 언어·연결 출처·공유 기능은 유지하며, 승패 결과는 광고 콜백 없이 즉시 표시한다.
-- `data-ad-serving="suspended-invalid-traffic-2026-09-03"` 상태에서 광고 DOM과 런타임 `GameAds`가 모두 0개다.
+- 자식 저장소: `puzzle-2048 3855dfa`, Pages `33890388206` 성공, 프로덕션 검증 완료.
+- 남은 critical 앱 중 최근 28일 유입이 가장 컸다: 35 PV / 32 sessions / 23 engaged. Organic 유입은 보존하되 Singapore desktop Direct 6 PV 등 혼합 유입의 광고 노출 위험을 제거했다.
+- 게임과 코치에서 Auto Ads 로더를 제거하고, 게임 오버 전면광고·“광고 시청→점수 2배” 흐름·H5 Games 광고 모듈·합성 `page_engage`를 삭제했다.
+- 일반 Undo, 게임 규칙, 코치, 12개 언어는 유지했다. 이동 방향·점수·최고점은 분석 payload에서 제거하고 단계 이벤트만 남겼다.
+- 두 페이지 모두 `data-ad-serving="suspended-invalid-traffic-2026-09-03"` 상태이며 광고 DOM·스크립트·런타임 `GameAds`가 0개다.
 
 ## 검증 상태
 
-- 광고 위험 인벤토리: 추적된 119개 프로젝트를 검사하며 8/8 행동 변이를 탐지한다. Minesweeper 배포로 `critical 20→19`, `clean 1→2`가 됐다.
-- Minesweeper: 일본어 18/18·프랑스어 17/17 변이, 390/1440px 시작→패배→즉시 결과→공유→복귀 여정과 프로덕션 모두 통과.
+- 광고 위험 인벤토리: 추적된 119개 프로젝트를 검사하며 8/8 행동 변이를 탐지한다. 2048 배포로 `critical 19→18`, `clean 2→3`이 됐다.
+- 2048: 25/25 변이, 390/1440px 이동→일반 Undo→즉시 게임오버→코치 여정과 프로덕션 모두 통과.
+- 공용 AdSense 계약: 정상 페이지는 로더 1개, 중단 페이지는 로더 0개를 강제하며 11/11 변이를 탐지한다.
 - 공통 analytics smoke: 9/9 통과.
 - submitted inventory: 63 URLs / issues 0.
-- 전체 하네스 `2026-09-04T15-17-12-519Z`: 모든 단계 통과, analytics 9/9, runtime 6/6, submitted inventory 63/0.
-- 첫 회귀에서 실제 2026-08-30 변경 뒤 갱신되지 않은 Animal Personality `dateModified`를 탐지했다. 오늘 날짜가 아닌 실제 변경일로 교정한 `3d6b1ec` 배포 후 전체 회귀를 다시 통과했다.
-- 전체 회귀 중 발견한 Blood Type 검증기의 `listen(0)` 금지 포트 결함을 공용 safe-port 할당기로 수정했다.
+- 전체 하네스 `2026-09-04T15-46-23-691Z`: 모든 단계 통과, analytics 9/9, runtime 6/6, submitted inventory 63/0.
 - 사용자 작업 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}`는 건드리지 않는다.
 
 ## 다음 실행 순서

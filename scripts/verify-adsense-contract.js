@@ -33,6 +33,7 @@ const DEFAULT_PAGES = [
   path.join(ROOT, 'projects', 'portal', 'tools', 'index.html'),
   path.join(ROOT, 'projects', 'kpop-position', 'index.html'),
   path.join(ROOT, 'projects', 'puzzle-2048', 'index.html'),
+  path.join(ROOT, 'projects', 'puzzle-2048', 'coach.html'),
   path.join(ROOT, 'projects', 'daily-tarot', 'index.html'),
   path.join(ROOT, 'projects', 'hsp-test', 'index.html'),
   path.join(ROOT, 'projects', 'hsp-test', 'reset.html'),
@@ -101,13 +102,18 @@ function inspectHtml(html) {
     paidImpressionClaims: count(source, /\bcontent_ad_impression\b/g),
     staticAdSurfaces: count(source, /\bdata-ad-surface\s*=/gi),
     manualPushes: count(source, /\badsbygoogle\b[\s\S]{0,80}\.push\s*\(/gi),
+    suspended: /\bdata-ad-serving\s*=\s*["']suspended-invalid-traffic-[^"']+["']/i.test(source),
   };
 }
 
 function verifyHtml(html, label) {
   const result = inspectHtml(html);
   const loaders = result.directLoaders + result.managedLoaders;
-  assert(loaders === 1, `${label}: expected exactly one Auto Ads loader, got ${loaders}`);
+  if (result.suspended) {
+    assert(loaders === 0, `${label}: suspended page must have zero Auto Ads loaders, got ${loaders}`);
+  } else {
+    assert(loaders === 1, `${label}: expected exactly one Auto Ads loader, got ${loaders}`);
+  }
   assert(result.loaderClients.every((client) => client === CLIENT), `${label}: AdSense client mismatch`);
   assert(result.invalidAutoSlots === 0, `${label}: invalid data-ad-slot="auto" detected`);
   assert(result.manualUnits === 0, `${label}: manual adsbygoogle unit detected without an active ad unit contract`);
@@ -184,8 +190,31 @@ function runMutations(baseline) {
   verifyHtml(commentDecoys, 'comment decoys');
   console.log('[PASS] comment decoys: non-DOM ad markup and telemetry ignored');
 
+  const loader = /<script\b[^>]*\bsrc\s*=\s*["'][^"']*pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=[^"']+["'][^>]*><\/script>/i;
+  const loaderTag = baseline.match(loader)?.[0] || '';
+  const suspended = replaceRequired(
+    replaceRequired(baseline, loader, '', 'suspended-baseline-loader'),
+    /<body\b/i,
+    '<body data-ad-serving="suspended-invalid-traffic-2026-09-03"',
+    'suspended-baseline-marker'
+  );
+  verifyHtml(suspended, 'suspended baseline');
+  console.log('[PASS] suspended baseline: marker present, loaders=0');
+
+  const suspensionMutations = [
+    {
+      name: 'suspended-loader-returned',
+      expected: 'suspended page must have zero Auto Ads loaders',
+      html: replaceRequired(suspended, /<\/head>/i, `${loaderTag}\n</head>`, 'suspended-loader-returned')
+    },
+    {
+      name: 'suspension-marker-removed',
+      expected: 'expected exactly one Auto Ads loader',
+      html: suspended.replace(' data-ad-serving="suspended-invalid-traffic-2026-09-03"', '')
+    }
+  ];
   const results = [];
-  for (const mutation of buildMutations(baseline)) {
+  for (const mutation of [...buildMutations(baseline), ...suspensionMutations]) {
     try {
       verifyHtml(mutation.html, mutation.name);
       results.push({ ...mutation, ok: false, message: 'verifier incorrectly passed' });

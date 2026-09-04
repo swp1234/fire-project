@@ -28,6 +28,7 @@ const TARGET_SELECTORS = Object.freeze([
 ]);
 const USAGE = `Usage:
   node scripts/verify-2048-ad-policy.js
+  node scripts/verify-2048-ad-policy.js --url https://dopabrain.com
   node scripts/verify-2048-ad-policy.js --mutations`;
 
 function assert(condition, message) {
@@ -65,6 +66,7 @@ function schemaHasType(value, expectedType) {
 function verifySource(projectDir = DEFAULT_PROJECT_DIR) {
   const root = path.resolve(projectDir);
   const indexHtml = readText(path.join(root, 'index.html'));
+  const coachHtml = readText(path.join(root, 'coach.html'));
   const appJs = readText(path.join(root, 'js', 'app.js'));
   const styleCss = readText(path.join(root, 'css', 'style.css'));
   const readme = readText(path.join(root, 'README.md'));
@@ -76,17 +78,16 @@ function verifySource(projectDir = DEFAULT_PROJECT_DIR) {
   assert(!/\bid=["']interstitial-ad["']/i.test(indexHtml), 'Fake interstitial overlay #interstitial-ad is present');
   assert(!/\bad-interstitial\b/i.test(indexHtml), 'Fake interstitial overlay class is present');
 
-  const headMatch = /<head\b[^>]*>([\s\S]*?)<\/head>/i.exec(indexHtml);
-  assert(headMatch, 'Document head is missing');
-  const autoAdsLoader = /<script\b(?=[^>]*\basync\b)(?=[^>]*\bsrc=["']https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-3600813755953882["'])(?=[^>]*\bcrossorigin=["']anonymous["'])[^>]*>\s*<\/script>/gi;
-  const loaderCount = countMatches(indexHtml, autoAdsLoader);
-  const headLoaderCount = countMatches(headMatch[1], autoAdsLoader);
-  assert(loaderCount === 1 && headLoaderCount === 1, `Auto Ads head loader count mismatch: document=${loaderCount}, head=${headLoaderCount}`);
-  assert(!/<ins\b[^>]*class=["'][^"']*\badsbygoogle\b/i.test(indexHtml), 'Manual AdSense <ins> unit is present');
-  assert(!/\bdata-ad-slot\s*=/i.test(indexHtml), 'Manual data-ad-slot attribute is present');
+  const allProductSource = `${indexHtml}\n${coachHtml}\n${appJs}`;
+  const suspensionMarker = /<body\b[^>]*\bdata-ad-serving=["']suspended-invalid-traffic-2026-09-03["'][^>]*>/i;
+  assert(suspensionMarker.test(indexHtml), 'Game suspension marker is missing');
+  assert(suspensionMarker.test(coachHtml), 'Coach suspension marker is missing');
+  assert(!/pagead2\.googlesyndication\.com|\/portal\/js\/ad-loader\.js/i.test(allProductSource), 'AdSense loader remains during suspension');
+  assert(!/<ins\b[^>]*class=["'][^"']*\badsbygoogle\b/i.test(allProductSource), 'Manual AdSense <ins> unit is present');
+  assert(!/\bdata-ad-slot\s*=/i.test(allProductSource), 'Manual data-ad-slot attribute is present');
   assert(
-    !/(?:window\.)?adsbygoogle\s*=|(?:window\.)?adsbygoogle[^;\n]*\.push\s*\(/i.test(`${indexHtml}\n${appJs}`),
-    'Manual adsbygoogle.push/bootstrap code is present outside the head loader'
+    !/(?:window\.)?adsbygoogle\s*=|(?:window\.)?adsbygoogle[^;\n]*\.push\s*\(/i.test(allProductSource),
+    'Manual adsbygoogle.push/bootstrap code is present'
   );
 
   const fakeProgressPatterns = [
@@ -119,20 +120,10 @@ function verifySource(projectDir = DEFAULT_PROJECT_DIR) {
   );
   assert(/case\s+['"]u['"]\s*:[\s\S]{0,180}?this\.undo\(\)/.test(appJs), 'Ordinary keyboard undo binding missing');
 
-  const officialCalls = [
-    ['GameAds.showInterstitial', /GameAds\.showInterstitial\s*\(/g],
-    ['GameAds.injectRewardButton', /GameAds\.injectRewardButton\s*\(/g],
-    ['GameAds.removeRewardButton', /GameAds\.removeRewardButton\s*\(/g],
-    ['GameAds.init', /GameAds\.init\s*\(/g]
-  ];
-  for (const [name, pattern] of officialCalls) {
-    const count = countMatches(appJs, pattern);
-    assert(count === 1, `${name} call count mismatch: expected 1, got ${count}`);
-  }
-  assert(
-    countMatches(indexHtml, /src=["']\/portal\/js\/game-ads\.js["']/gi) === 1,
-    'Shared /portal/js/game-ads.js include count mismatch'
-  );
+  assert(!/\bGameAds\b|\/portal\/js\/game-ads\.js|\badBreak\s*\(/i.test(allProductSource), 'Game ad API remains during suspension');
+  assert(!/watch\s+(?:an?\s+)?ad|rewardedAd|2x\s+score/i.test(allProductSource), 'Rewarded score path remains during suspension');
+  assert(!/\bpage_engage\b|engagement_time_msec/i.test(allProductSource), 'Synthetic engagement event remains');
+  assert(!/this\.trackEvent\(\s*["'][^"']+["']\s*,/i.test(appJs), 'Result values remain in game telemetry');
 
   assert(!/(?:\.ad-container|\.ad-top|\.ad-progress|\.ad-bottom|\.adsbygoogle)\b/i.test(styleCss), 'Removed manual ad surface CSS is present');
 
@@ -186,15 +177,15 @@ function verifySource(projectDir = DEFAULT_PROJECT_DIR) {
 
   const cacheMatch = /const\s+CACHE_NAME\s*=\s*['"]puzzle2048-v(\d+)['"]/.exec(serviceWorker);
   assert(cacheMatch, 'Service worker cache name is missing or malformed');
-  assert(Number(cacheMatch[1]) >= 8, `Service worker cache was not bumped for the cleanup: v${cacheMatch[1]}`);
+  assert(Number(cacheMatch[1]) >= 9, `Service worker cache was not bumped for the cleanup: v${cacheMatch[1]}`);
 
   const ids = [...indexHtml.matchAll(/\bid=["']([^"']+)["']/gi)].map((match) => match[1]);
   const duplicateIds = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
   assert(duplicateIds.length === 0, `Duplicate DOM IDs: ${duplicateIds.join(', ')}`);
 
   return {
+    adServing: 'suspended',
     locales: localeFiles.length,
-    officialGameAdsCalls: officialCalls.length,
     serviceWorkerCache: `v${cacheMatch[1]}`
   };
 }
@@ -279,7 +270,6 @@ function startStaticServer(projectDir) {
 
 function installTestState() {
   window.dataLayer = [];
-  window.adsbygoogle = [];
   localStorage.setItem('language', 'en');
   localStorage.setItem('puzzle2048_sound', 'false');
   localStorage.setItem('puzzle2048_bestScore', '0');
@@ -420,10 +410,9 @@ async function verifyViewport(browser, origin, viewport) {
     assert(await page.locator('ins.adsbygoogle').count() === 0, `${viewport.name}: manual AdSense unit rendered`);
     assert(await page.locator('[data-ad-slot]').count() === 0, `${viewport.name}: manual data-ad-slot rendered`);
     assert(await page.locator('#progress-ad').count() === 0, `${viewport.name}: fake progress ad wrapper rendered`);
-    assert(
-      await page.locator('head script[src^="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client="]').count() === 1,
-      `${viewport.name}: Auto Ads head loader runtime count mismatch`
-    );
+    assert(await page.locator('body[data-ad-serving="suspended-invalid-traffic-2026-09-03"]').count() === 1, `${viewport.name}: suspension marker missing at runtime`);
+    assert(await page.locator('script[src*="pagead2.googlesyndication.com"], script[src*="game-ads.js"]').count() === 0, `${viewport.name}: ad script rendered during suspension`);
+    assert(await page.evaluate(() => typeof GameAds === 'undefined'), `${viewport.name}: GameAds API is available during suspension`);
     await assertTargets(page, viewport.name);
     await assertNoOverflow(page, viewport.name);
 
@@ -461,7 +450,23 @@ async function verifyViewport(browser, origin, viewport) {
     const events = await readEventNames(page);
     assert(events.includes('puzzle2048_move'), `${viewport.name}: valid move event missing`);
     assert(events.includes('puzzle2048_undo'), `${viewport.name}: ordinary undo event missing`);
+    await page.evaluate(() => game.showGameOverModal());
+    assert(await page.locator('#game-over-modal').count() === 1, `${viewport.name}: game-over modal missing`);
+    assert(await page.locator('#game-over-modal').getAttribute('class').then((value) => !value.includes('hidden')), `${viewport.name}: game-over modal did not open immediately`);
+    assert(await page.locator('#game-over-modal button').filter({ hasText: /watch\s+(?:an?\s+)?ad/i }).count() === 0, `${viewport.name}: rewarded score button rendered`);
     await assertNoOverflow(page, viewport.name);
+    await page.waitForTimeout(50);
+    assert(runtimeErrors.length === 0, `${viewport.name}: Runtime errors: ${runtimeErrors.join(' | ')}`);
+
+    const coachResponse = await page.goto(`${origin}${APP_PATH}coach.html?lang=en&verifyAdPolicy=1`, {
+      waitUntil: 'domcontentloaded',
+      timeout: 15000
+    });
+    assert(coachResponse && coachResponse.ok(), `${viewport.name}: coach document failed to load`);
+    assert(await page.locator('body[data-ad-serving="suspended-invalid-traffic-2026-09-03"]').count() === 1, `${viewport.name}: coach suspension marker missing at runtime`);
+    assert(await page.locator('script[src*="pagead2.googlesyndication.com"], script[src*="game-ads.js"], ins.adsbygoogle, [data-ad-slot]').count() === 0, `${viewport.name}: coach ad surface rendered during suspension`);
+    assert(await page.locator('#boardEditor').count() === 1, `${viewport.name}: coach board editor missing`);
+    await assertNoOverflow(page, `${viewport.name} coach`);
     await page.waitForTimeout(50);
     assert(runtimeErrors.length === 0, `${viewport.name}: Runtime errors: ${runtimeErrors.join(' | ')}`);
   } finally {
@@ -469,14 +474,15 @@ async function verifyViewport(browser, origin, viewport) {
   }
 }
 
-async function verifyRuntime(projectDir = DEFAULT_PROJECT_DIR, viewports = VIEWPORTS) {
-  const localServer = await startStaticServer(path.resolve(projectDir));
+async function verifyRuntime(projectDir = DEFAULT_PROJECT_DIR, viewports = VIEWPORTS, externalOrigin = null) {
+  const localServer = externalOrigin ? null : await startStaticServer(path.resolve(projectDir));
+  const origin = externalOrigin ? new URL(externalOrigin).origin : localServer.origin;
   const browser = await chromium.launch({ headless: true });
   try {
-    for (const viewport of viewports) await verifyViewport(browser, localServer.origin, viewport);
+    for (const viewport of viewports) await verifyViewport(browser, origin, viewport);
   } finally {
     await browser.close();
-    await localServer.close();
+    if (localServer) await localServer.close();
   }
   return { viewports: viewports.map((item) => item.name) };
 }
@@ -486,7 +492,7 @@ async function verifyProject(options = {}) {
   const source = verifySource(projectDir);
   const runtime = options.runtime === false
     ? { viewports: [] }
-    : await verifyRuntime(projectDir, options.viewports || VIEWPORTS);
+    : await verifyRuntime(projectDir, options.viewports || VIEWPORTS, options.origin || null);
   return { projectDir, runtime, source };
 }
 
@@ -599,10 +605,20 @@ const MUTATIONS = Object.freeze([
     }
   },
   {
-    name: 'duplicate-auto-ads-loader',
-    expected: 'Auto Ads head loader count mismatch',
+    name: 'game-ad-loader-returned',
+    expected: 'AdSense loader remains during suspension',
     apply(projectDir) {
       mutateFile(projectDir, 'index.html', (html) => {
+        const loader = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>';
+        return replaceRequired(html, '</head>', `${loader}\n</head>`, this.name);
+      });
+    }
+  },
+  {
+    name: 'coach-ad-loader-returned',
+    expected: 'AdSense loader remains during suspension',
+    apply(projectDir) {
+      mutateFile(projectDir, 'coach.html', (html) => {
         const loader = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>';
         return replaceRequired(html, '</head>', `${loader}\n</head>`, this.name);
       });
@@ -636,46 +652,77 @@ const MUTATIONS = Object.freeze([
     }
   },
   {
-    name: 'missing-official-interstitial',
-    expected: 'GameAds.showInterstitial call count mismatch',
+    name: 'game-ad-api-returned',
+    expected: 'Game ad API remains during suspension',
     apply(projectDir) {
-      mutateFile(projectDir, 'js/app.js', (app) => replaceRequired(
-        app,
-        'GameAds.showInterstitial(',
-        'GameAds.showInterstitialMissing(',
+      mutateFile(projectDir, 'js/app.js', (app) => `${app}\nGameAds.showInterstitial({ onComplete: () => {} });\n`);
+    }
+  },
+  {
+    name: 'game-ad-include-returned',
+    expected: 'Game ad API remains during suspension',
+    apply(projectDir) {
+      mutateFile(projectDir, 'index.html', (html) => replaceRequired(
+        html,
+        '</body>',
+        '<script src="/portal/js/game-ads.js"></script>\n</body>',
         this.name
       ));
     }
   },
   {
-    name: 'missing-official-reward-injection',
-    expected: 'GameAds.injectRewardButton call count mismatch',
+    name: 'rewarded-score-returned',
+    expected: 'Rewarded score path remains during suspension',
     apply(projectDir) {
-      mutateFile(projectDir, 'js/app.js', (app) => replaceRequired(
-        app,
-        'GameAds.injectRewardButton(',
-        'GameAds.injectRewardButtonMissing(',
+      mutateFile(projectDir, 'js/app.js', (app) => `${app}\nconst rewardCopy = 'Watch Ad for 2x Score';\n`);
+    }
+  },
+  {
+    name: 'game-suspension-marker-removed',
+    expected: 'Game suspension marker is missing',
+    apply(projectDir) {
+      mutateFile(projectDir, 'index.html', (html) => replaceRequired(
+        html,
+        ' data-ad-serving="suspended-invalid-traffic-2026-09-03"',
+        '',
         this.name
       ));
     }
   },
   {
-    name: 'missing-official-reward-removal',
-    expected: 'GameAds.removeRewardButton call count mismatch',
+    name: 'coach-suspension-marker-removed',
+    expected: 'Coach suspension marker is missing',
     apply(projectDir) {
-      mutateFile(projectDir, 'js/app.js', (app) => replaceRequired(
-        app,
-        'GameAds.removeRewardButton(',
-        'GameAds.removeRewardButtonMissing(',
+      mutateFile(projectDir, 'coach.html', (html) => replaceRequired(
+        html,
+        ' data-ad-serving="suspended-invalid-traffic-2026-09-03"',
+        '',
         this.name
       ));
     }
   },
   {
-    name: 'missing-official-init',
-    expected: 'GameAds.init call count mismatch',
+    name: 'result-telemetry-returned',
+    expected: 'Result values remain in game telemetry',
     apply(projectDir) {
-      mutateFile(projectDir, 'js/app.js', (app) => replaceRequired(app, 'GameAds.init();', 'GameAds.initMissing();', this.name));
+      mutateFile(projectDir, 'js/app.js', (app) => replaceRequired(
+        app,
+        "this.trackEvent('undo');",
+        "this.trackEvent('undo', { score: this.score });",
+        this.name
+      ));
+    }
+  },
+  {
+    name: 'synthetic-engagement-returned',
+    expected: 'Synthetic engagement event remains',
+    apply(projectDir) {
+      mutateFile(projectDir, 'index.html', (html) => replaceRequired(
+        html,
+        '</body>',
+        "<script>gtag('event','page_engage',{engagement_time_msec:5000})</script>\n</body>",
+        this.name
+      ));
     }
   },
   {
@@ -786,8 +833,9 @@ async function runMutationSuite() {
 }
 
 function parseArgs(argv) {
-  if (argv.length === 0) return { mutations: false };
+  if (argv.length === 0) return { mutations: false, origin: null };
   if (argv.length === 1 && argv[0] === '--mutations') return { mutations: true };
+  if (argv.length === 2 && argv[0] === '--url') return { mutations: false, origin: new URL(argv[1]).origin };
   if (argv.length === 1 && (argv[0] === '--help' || argv[0] === '-h')) {
     console.log(USAGE);
     process.exit(0);
@@ -801,9 +849,9 @@ async function main() {
     await runMutationSuite();
     return;
   }
-  const result = await verifyProject();
+  const result = await verifyProject({ origin: options.origin });
   console.log(
-    `[PASS] 2048 ad-policy baseline: ${result.source.locales} locales, ${result.source.officialGameAdsCalls} official GameAds calls, ${result.runtime.viewports.length} viewports, SW ${result.source.serviceWorkerCache}`
+    `[PASS] 2048 ad-policy baseline: ${result.source.locales} locales, ads ${result.source.adServing}, ${result.runtime.viewports.length} viewports, SW ${result.source.serviceWorkerCache}`
   );
 }
 
