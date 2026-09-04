@@ -37,6 +37,7 @@ npm run verify:2048-ad-policy
 npm run verify:sky-runner-suspension
 npm run verify:portfolio-retirement
 npm run verify:mbti-career-retirement
+npm run verify:word-scramble-retirement
 npm run verify:pong-suspension
 npm run verify:idle-clicker-suspension
 npm run verify:flappy-suspension

@@ -9,7 +9,7 @@ const GAME_DIRS = [
   'snake-game', 'flappy-bird', 'minesweeper', 'maze-runner', 'reaction-test',
   'pong-game', 'zigzag-runner', 'color-memory', 'stack-tower', 'sky-runner',
   'emoji-merge', 'idle-clicker', 'block-puzzle', 'brick-breaker', 'puzzle-2048',
-  'memory-card', 'typing-speed', 'word-guess', 'word-scramble', 'road-shooter'
+  'memory-card', 'typing-speed', 'word-guess', 'road-shooter'
 ];
 
 const FOCUSED_DIRS = [

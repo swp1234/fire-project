@@ -18,28 +18,27 @@ Updated: 2026-09-05 KST
 - 상호작용 페이지의 수동 광고·보상형 광고·가짜 unlock·합성 광고 이벤트를 한 제품씩 격리한다.
 - 오늘 AdSense 상태는 이미 확인했으므로 다음 완료일 전에는 재조회하지 않는다.
 
-## 최신 배포: Color Memory 광고 위험 격리
+## 최신 배포: Word Scramble 제품군 퇴출
 
-- 56일 실데이터는 `30 PV / 30 users / 30 sessions / 25 engaged / 477s`였다. Singapore desktop Direct가 `27 PV / 27 sessions / 24 engaged / 388s`로 대부분을 차지했다. Organic은 Japan desktop 1회/13초뿐이고 Search Console exact-page 행은 없었다.
-- 유효 제품 신호는 `game_start` 사용자 1명뿐이었다. 기존 `page_engage`, `traffic_quality_*`, `cross_promo_view`는 제품 사용이나 수익 개선의 근거로 사용하지 않는다.
-- 하위 저장소 `37181cf`, Pages `33910357761`을 배포했다.
-- Simon형 게임, 3 lives, 진행형 라운드, 튜토리얼, 로컬 리더보드, 12개 언어, 4개 관련 경로는 유지했다. Auto Ads, 수동 광고 2개와 push, 전면/보상형 게임 광고, DailyStreak/Achievements, 가짜 `4.2/1,340` 평점, 합성 계측, 중복 공유와 일반 추천은 제거했다.
-- 계측은 private exact-once `color_memory_view -> color_memory_start -> color_memory_progress -> color_memory_complete -> color_memory_share / color_memory_related_click`로 제한했다. 점수·라운드·URL 같은 개인 결과는 보내지 않는다.
-- 실제 터치 한 번에 `touchstart`와 `click`이 모두 실행되어 입력이 두 번 들어가던 결함을 수정했다. 서비스워커와 manifest는 `/color-memory/` 범위로 제한했고 미사용 자산 약 102 KB를 삭제했다.
+- 앱의 56일 실데이터는 `21 PV / 21 users / 21 sessions / 7 engaged / 178s`였다. Singapore desktop Direct가 `19 PV / 19 sessions / 6 engaged / 102s`였고 나머지도 China/Iran Direct였다. Organic과 Search Console exact-page 행은 0이었다.
+- `game_start` 코드가 있었지만 실제 행동 이벤트는 하나도 없었다. 전용 영문 가이드도 같은 기간 GA4·GSC가 모두 0이고 이미 `noindex`였다.
+- Word Scramble 저장소 `39bad7b`, Pages `33913065844`; Portal `e9002ee`, Pages `33913178750`을 배포했다.
+- 앱은 4파일·1.35KB `noindex,follow` 스텁으로 줄여 유효 Organic 신호가 있는 `/word-guess/`로 보낸다. 기존 캐시만 지우고 해제하는 서비스워커 외에 게임 코드·12 locale·광고·보상·가짜 AI 분석·합성 계측·이미지를 포함한 5,138줄과 바이너리 2개를 제거했다.
+- 35KB 전용 가이드는 817B redirect로 바꾸고 Portal 카탈로그·게임 허브·brain-game-workout·관련 문서에서 Word Scramble 홍보를 제거하거나 Word Guess/Typing Speed로 교체했다.
 
 ## 검증 상태
 
-- Color Memory 전용: 17/17 변이 검출, 12개 locale, 로컬·프로덕션 390/1440px 실제 touch -> 진행 -> 강제 종료 -> 재시작 -> 공유 -> 중첩 관련 링크 통과.
+- Word Scramble 전용: 13/13 변이 검출, 로컬·프로덕션 390/1440px 앱 -> Word Guess와 가이드 -> Word Guess 가이드 통과.
 - 공통 AdSense 계약: 11/11 변이 통과. 중단 페이지의 광고 로더는 0개다.
-- 광고 위험 인벤토리: `critical 10`, `high 40`, `medium 6`, `info 52`, `clean 11`.
-- 전체 하네스 `2026-09-04T19-26-35-273Z`: 162/162 통과, analytics 9/9, runtime 6/6, submitted inventory 63/0.
-- 첫 전체 실행은 기존 Flappy의 실제 44px 높이가 Chromium에서 `43.999938...px`로 측정되어 실패했다. 소스의 40px 회귀는 계속 잡되 렌더링 경계만 `43.99px`로 보정했고 Flappy 18/18을 재검증했다.
+- 광고 위험 인벤토리: `critical 9`, `high 40`, `medium 6`, `info 52`, `clean 12`.
+- 블로그 포커스: indexable 173 유지, redirect 208, focused noindex 1,597. 제출 인벤토리는 63/0이다.
+- 전체 하네스 `2026-09-04T19-51-13-951Z`: 165/165 통과, analytics 9/9, runtime 6/6.
 - 사용자 파일 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}`는 건드리지 않는다.
 
 ## 다음 실행 순서
 
 1. 남은 critical 후보를 유효 Organic·실제 행동·구현 위험으로 다시 비교한다. Number Puzzle의 36 starts, Emoji Merge의 completion 1건, Word Guess의 Organic 4 sessions/577s는 보호 신호다.
-2. 보호 신호가 약한 Road Shooter, Word Scramble, Snake, Stack, Zigzag, Brick Breaker부터 exact-route GA4/GSC로 비교한다.
+2. 보호 신호가 약한 Road Shooter, Snake, Stack, Zigzag, Brick Breaker부터 exact-route GA4/GSC로 비교한다.
 3. 선택한 한 제품에서 광고·보상·허위 증거만 격리하고 실제 검색/게임 경로는 유지하거나 개선한다.
 4. 전용 변이·실제 여정·전체 하네스·하위 저장소·Pages·프로덕션 순으로 배포한다.
 5. 최신 영화·게임·밈·트렌드는 공식 출처와 지속 검색 의도가 확인되고 기존 실험보다 뚜렷한 상호작용 가설이 있을 때만 한 건씩 실험한다. 광고 제한 중에는 트래픽 우회 수단으로 쓰지 않는다.

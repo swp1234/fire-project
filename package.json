@@ -21,6 +21,7 @@
     "verify:sky-runner-suspension": "node scripts/verify-sky-runner-suspension.js --mutations",
     "verify:portfolio-retirement": "node scripts/verify-portfolio-retirement.js --mutations",
     "verify:mbti-career-retirement": "node scripts/verify-mbti-career-retirement.js --mutations",
+    "verify:word-scramble-retirement": "node scripts/verify-word-scramble-retirement.js --mutations",
     "verify:pong-suspension": "node scripts/verify-pong-suspension.js --mutations",
     "verify:idle-clicker-suspension": "node scripts/verify-idle-clicker-suspension.js --mutations",
     "verify:flappy-suspension": "node scripts/verify-flappy-suspension.js --mutations",
