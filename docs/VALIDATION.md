@@ -35,6 +35,7 @@ npm run verify:stress-core
 npm run verify:eq-trust
 npm run verify:2048-ad-policy
 npm run verify:sky-runner-suspension
+npm run verify:portfolio-retirement
 npm run verify:hsp-reset-funnel
 npm run verify:sensory-reset
 npm run verify:ja-minesweeper-path
@@ -91,6 +92,8 @@ npm run verify:fr-minesweeper-path
 6. 루트 gitlink·검증기·운영 문서 commit/push
 
 IndexNow는 변경된 canonical만 보낸다. sitemap이 실제로 바뀐 경우에만 GSC sitemap을 한 번 제출한다. 무효 트래픽 제한 대응 중에는 발견 확대 제출을 중단한다.
+
+콘텐츠 은퇴는 원문을 작은 `noindex,follow` 리디렉트로 바꾸고 목록·관련 링크·hreflang에서 제거한다. `verify:portfolio-retirement`가 리디렉트 대상, 잔존 참조, 광고·분석 코드 재유입, 390/1440px 운영 여정을 검증한다.
 
 ## 판정 원칙
 

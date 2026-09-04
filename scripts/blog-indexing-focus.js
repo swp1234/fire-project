@@ -148,7 +148,7 @@ function inspect({ apply = false } = {}) {
     if (!fs.existsSync(file)) failures.push(`${pathname}: retained page file is missing`);
   }
   if (counts.articles !== 1978) failures.push(`article inventory drift: expected 1978, got ${counts.articles}`);
-  if (counts.redirects !== 206) failures.push(`redirect inventory drift: expected 206, got ${counts.redirects}`);
+  if (counts.redirects !== 207) failures.push(`redirect inventory drift: expected 207, got ${counts.redirects}`);
   if (failures.length) fail(`${failures.length} indexing focus issue(s):\n- ${failures.slice(0, 20).join('\n- ')}`);
 
   console.log(`[PASS] blog indexing focus: articles=${counts.articles}, redirects=${counts.redirects}, kept=${counts.kept}, noindex=${counts.excluded}, changed=${counts.changed}`);

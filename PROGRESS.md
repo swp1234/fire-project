@@ -20,13 +20,13 @@ Updated: 2026-09-05 KST
 - 상호작용형 페이지의 수동 광고·보상형 광고·가짜 unlock을 제거하고, 위험 페이지에는 명시적 광고 중단 계약을 한 번에 하나씩 배포한다.
 - 주소 PIN 지급 보류는 별도 계정 작업이며 광고 제한 원인으로 간주하지 않는다.
 
-## 최신 배포: Sky Runner 광고·보상 흐름 중단
+## 최신 배포: 저가치 게임 트렌드 글 정리
 
-- 자식 저장소: `sky-runner 1a802e7`, Pages `33894909680` 성공, 프로덕션 검증 완료.
-- 최근 28일은 7 PV / 7 sessions였다. China Organic 1회와 Korea Organic 1회는 보존하되, Singapore/US desktop Direct와 무참여 유입이 섞인 소표본을 성장 근거로 쓰지 않는다.
-- Auto Ads, 가짜 광고 배너·5초 전면광고, “광고 시청→부활”, 광고 시청형 스킨 해제를 삭제했다. 10개 스킨의 실제 해제 조건과 로컬 기록만 남겼다.
-- 12개 언어와 게임은 유지하고 `view→start→complete→share/related_click` 단계만 측정한다. 점수·랭크·결과는 전송하지 않는다.
-- `data-ad-serving="suspended-invalid-traffic-2026-09-03"` 상태이며 광고 DOM·스크립트·런타임 광고 API가 0개다.
+- 포털 `1ad66bb`, Pages `33897597344` 성공, 프로덕션 검증 완료.
+- `/portal/blog/2026-online-games-trend.html`은 최근 56일간 Singapore desktop Direct 1회·3초뿐이고 Organic/Search Console 노출은 0이었다.
+- 언어·schema가 어긋난 50KB대 TOP 10 본문을 645바이트 `noindex` 리디렉트로 교체해 `/portal/games/`로 보낸다. 블로그 목록·관련 카드·잘못된 hreflang에서도 제거했다.
+- 집중 포트폴리오는 indexable 글 `174→173`, redirect `206→207`, 기존 noindex `1,598` 유지다.
+- 신규 트렌드 후보는 실시간 급상승만 보지 않는다. 기존 Culture Signal의 유효 Organic/Search 노출과 공식 출처, 검색 의도에 맞는 상호작용이 함께 있을 때 한 건씩 실험한다.
 
 ## 검증 상태
 
@@ -35,7 +35,7 @@ Updated: 2026-09-05 KST
 - 공용 AdSense 계약: 정상 페이지는 로더 1개, 중단 페이지는 로더 0개를 강제하며 11/11 변이를 탐지한다.
 - 공통 analytics smoke: 9/9 통과.
 - submitted inventory: 63 URLs / issues 0.
-- 전체 하네스 `2026-09-04T16-10-31-360Z`: 모든 단계 통과, analytics 9/9, runtime 6/6, submitted inventory 63/0.
+- 전체 하네스 `2026-09-04T16-40-06-455Z`: 모든 단계 통과, portfolio retirement 7/7, analytics 9/9, runtime 6/6, submitted inventory 63/0.
 - 사용자 작업 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}`는 건드리지 않는다.
 
 ## 다음 실행 순서
