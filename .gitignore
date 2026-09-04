@@ -81,6 +81,7 @@ SOUNDSCAPE_*.txt
 !scripts/verify-color-memory-suspension.js
 !scripts/verify-road-shooter-suspension.js
 !scripts/verify-brick-breaker-suspension.js
+!scripts/verify-zigzag-runner-suspension.js
 !scripts/verify-adsense-contract.js
 !scripts/ad-risk-inventory.js
 !scripts/verify-brain-training-bridge.js
