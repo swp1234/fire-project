@@ -333,6 +333,7 @@ function assessAdsense(html) {
   const directLoaders = Array.from(source.matchAll(/<script\b[^>]*\bsrc\s*=\s*["'][^"']*pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=([^"'&\s>]+)[^"']*["'][^>]*>\s*<\/script>/gi));
   const managedLoaders = countMatches(source, /<script\b[^>]*\bsrc\s*=\s*["'][^"']*\/portal\/js\/ad-loader\.js[^"']*["'][^>]*>\s*<\/script>/gi);
   return {
+    suspended: /\bdata-ad-serving\s*=\s*["']suspended-invalid-traffic-\d{4}-\d{2}-\d{2}["']/i.test(source),
     directLoaderClients: directLoaders.map((match) => match[1]),
     loaderCount: directLoaders.length + managedLoaders,
     invalidAutoSlotCount: countMatches(source, /data-ad-slot\s*=\s*["']auto["']/gi),
@@ -416,6 +417,10 @@ function runSelfTest() {
   assertSelfTest(wrongClient.loaderCount === 1 && wrongClient.directLoaderClients[0] === 'ca-pub-0000000000000000', 'direct loader client was not captured');
   const missingLoader = assessAdsense('<main>content</main>');
   assertSelfTest(missingLoader.loaderCount === 0 && missingLoader.invalidAutoSlotCount === 0, 'missing loader classification failed');
+  const suspended = assessAdsense('<html data-ad-serving="suspended-invalid-traffic-2026-09-03"><main>content</main></html>');
+  assertSelfTest(suspended.suspended && suspended.loaderCount === 0 && suspended.manualUnitCount === 0, 'valid incident suspension classification failed');
+  const conflictedSuspension = assessAdsense('<html data-ad-serving="suspended-invalid-traffic-2026-09-03"><script src="/portal/js/ad-loader.js"></script></html>');
+  assertSelfTest(conflictedSuspension.suspended && conflictedSuspension.loaderCount === 1, 'conflicted incident suspension was not detectable');
   const commentOnly = assessAdsense('<!-- <script src="/portal/js/ad-loader.js"></script><ins data-ad-slot="auto"></ins> -->');
   assertSelfTest(commentOnly.loaderCount === 0 && commentOnly.invalidAutoSlotCount === 0, 'commented ad markup changed the contract');
   const loaderWithCommentDecoy = assessAdsense('<script src="/portal/js/ad-loader.js"></script><!-- <ins data-ad-slot="auto"></ins> -->');
@@ -566,7 +571,11 @@ function auditUrl(entry, duplicateCount) {
   }
   if (!isRedirect) {
     const adsense = assessAdsense(html);
-    if (adsense.loaderCount !== 1) addIssue(issues, 'invalid_adsense_loader_count', 'medium', `expected one Auto Ads loader, found ${adsense.loaderCount}`);
+    if (adsense.suspended && adsense.loaderCount !== 0) {
+      addIssue(issues, 'invalid_adsense_suspension', 'high', `incident suspension marker conflicts with ${adsense.loaderCount} active loader(s)`);
+    } else if (!adsense.suspended && adsense.loaderCount !== 1) {
+      addIssue(issues, 'invalid_adsense_loader_count', 'medium', `expected one Auto Ads loader, found ${adsense.loaderCount}`);
+    }
     if (adsense.directLoaderClients.some((client) => client !== 'ca-pub-3600813755953882')) {
       addIssue(issues, 'invalid_adsense_client', 'high', 'direct Auto Ads loader uses the wrong client');
     }

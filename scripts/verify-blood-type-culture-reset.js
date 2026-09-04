@@ -3,6 +3,7 @@ const fs = require("fs");
 const http = require("http");
 const path = require("path");
 const { chromium } = require("playwright");
+const { listenOnSafePort } = require("./lib/safe-local-port");
 
 const ROOT = path.resolve(__dirname, "..");
 const APP_ROOT = path.join(ROOT, "projects", "blood-type");
@@ -128,7 +129,7 @@ function createServer() {
 
 async function verifyRuntime(live = false) {
   const server = live ? null : createServer();
-  if (server) await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
+  if (server) await listenOnSafePort(server);
   const origin = live ? "https://dopabrain.com" : `http://127.0.0.1:${server.address().port}`;
   const browser = await chromium.launch({ headless: true });
   try {

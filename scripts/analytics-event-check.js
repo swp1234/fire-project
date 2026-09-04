@@ -329,7 +329,7 @@ const scenarios = [
   {
     name: 'eq-test',
     path: '/eq-test/',
-    expected: ['premium_cta_view', 'premium_unlock_click', 'premium_unlock_complete', 'eq_related_click'],
+    expected: ['eq_test_start', 'eq_test_complete', 'eq_result_action_view', 'eq_next_click', 'eq_related_click'],
     async run(page) {
       await page.waitForSelector('#btn-start');
       await clickAndWait(page, '#btn-start');
@@ -340,10 +340,12 @@ const scenarios = [
         await page.waitForTimeout(1550);
       }
 
-      await page.waitForSelector('#btn-ai-unlock:not(.hidden)');
-      await assertEvents(page, ['premium_cta_view']);
-      await clickAndWait(page, '#btn-ai-unlock');
-      await page.waitForTimeout(1350);
+      await page.waitForSelector('#screen-result.active');
+      await page.locator('#result-primary-action').scrollIntoViewIfNeeded();
+      await page.waitForTimeout(650);
+      await assertEvents(page, ['eq_test_start', 'eq_test_complete', 'eq_result_action_view']);
+      await preventNavigation(page, '#btn-next');
+      await clickAndWait(page, '#btn-next');
       await preventNavigation(page, '.related-card');
       await clickAndWait(page, '.related-card');
     },

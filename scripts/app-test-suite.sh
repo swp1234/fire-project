@@ -228,13 +228,17 @@ fi
 echo ""
 echo "--- Tier 4: Monetization ---"
 
-# T4.1 AdSense tag
+# T4.1 AdSense active or explicit incident suspension contract
 if [ -f "$INDEX" ]; then
   if grep -q "ca-pub-3600813755953882" "$INDEX" 2>/dev/null; then
     green "AdSense publisher ID present"
     PASS=$((PASS+1))
+  elif grep -Eq 'data-ad-serving="suspended-invalid-traffic-[0-9]{4}-[0-9]{2}-[0-9]{2}"' "$INDEX" 2>/dev/null \
+      && ! grep -Eqi 'pagead2\.googlesyndication\.com|<ins[^>]+adsbygoogle|adsbygoogle[^[:space:]]*\.push|data-ad-slot=' "$INDEX" 2>/dev/null; then
+    green "AdSense intentionally suspended for invalid-traffic containment"
+    PASS=$((PASS+1))
   else
-    red "AdSense publisher ID missing"
+    red "AdSense publisher ID or valid incident suspension contract missing"
     FAIL=$((FAIL+1))
   fi
 fi
