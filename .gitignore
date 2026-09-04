@@ -72,6 +72,7 @@ SOUNDSCAPE_*.txt
 !scripts/verify-sky-runner-suspension.js
 !scripts/verify-portfolio-retirement.js
 !scripts/verify-mbti-career-retirement.js
+!scripts/verify-pong-suspension.js
 !scripts/verify-adsense-contract.js
 !scripts/ad-risk-inventory.js
 !scripts/verify-brain-training-bridge.js

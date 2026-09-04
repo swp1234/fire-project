@@ -21,6 +21,7 @@
     "verify:sky-runner-suspension": "node scripts/verify-sky-runner-suspension.js --mutations",
     "verify:portfolio-retirement": "node scripts/verify-portfolio-retirement.js --mutations",
     "verify:mbti-career-retirement": "node scripts/verify-mbti-career-retirement.js --mutations",
+    "verify:pong-suspension": "node scripts/verify-pong-suspension.js --mutations",
     "verify:zh-2048-guide": "node scripts/verify-zh-2048-guide.js --mutations",
     "verify:culture-choice": "node scripts/verify-culture-choice.js --mutations",
     "verify:cross-promo-touch": "node scripts/verify-cross-promo-touch.js --mutations",

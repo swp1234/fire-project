@@ -20,28 +20,28 @@ Updated: 2026-09-05 KST
 - 상호작용형 페이지의 수동 광고·보상형 광고·가짜 unlock을 제거하고, 위험 페이지에는 명시적 광고 중단 계약을 한 번에 하나씩 배포한다.
 - 주소 PIN 지급 보류는 별도 계정 작업이며 광고 제한 원인으로 간주하지 않는다.
 
-## 최신 배포: MBTI Career 퇴역
+## 최신 배포: Pong 광고 위험 격리
 
-- MBTI Career `f85ecd9`, Pages `33898609457` 성공. 포털 `b524a59`, Pages `33898622019`에서 메인 카탈로그 카드도 제거했다.
-- `/mbti-career/`는 56일간 Organic/Search Console 노출과 유효한 시작·완료가 모두 0이었다. 41 page users 중 대부분은 desktop Direct였고 기존 `page_engage`·timer·traffic-quality 이벤트는 합성 신호라 제외했다.
-- 근거 없는 TOP 10 직업 순위·평점·AI 심층 분석과 가짜 광고 완료 unlock을 포함한 6,289줄/19개 자산을 제거했다. 구형 URL은 1,351바이트 `noindex,follow` 경로로 유지해 `/portal/mbti/`로 연결하고, 구형 캐시를 지운 뒤 service worker를 해제한다.
-- 광고 위험 인벤토리는 `critical 17→16`, `clean 4→5`다. 신규 트렌드는 기존 Culture Signal의 Organic/Search 노출이 확인되기 전 복제하지 않고, 공식 출처·별도 검색 의도·상호작용 가설이 있는 한 건만 실험한다.
+- Pong `d68b3e6`, Pages `33900542418` 배포와 프로덕션 여정 검증을 완료했다.
+- `/pong-game/`의 56일 63 PV 중 Singapore desktop Direct가 58 PV로 92%였다. Organic/Search Console 유입은 0이고 실제 `game_start`는 1명, 완료는 0이라 성장 근거가 아니라 광고 노출 위험으로 판정했다.
+- 기존 링크망과 12개 언어 게임은 보존하되 Auto Ads·수동 광고·전면 광고·2배 점수 보상·가짜 `4.5/2,800` 평점·합성 `page_engage`를 제거했다. 결과 공유도 점수 없이 성공 후에만 기록한다.
+- 이벤트는 private exact-once `pong_view → pong_start → pong_complete → pong_share/pong_related_click`로 교체했고 service worker는 앱 경로·same-origin·성공 응답만 캐시한다. 광고 위험 인벤토리는 `critical 16→15`, `clean 5→6`이다.
 
 ## 검증 상태
 
-- 광고 위험 인벤토리: 추적된 119개 프로젝트를 검사하며 삭제 예정 tracked 파일도 안전하게 건너뛰고 9/9 행동 변이를 탐지한다. 현재 `critical 16`, `clean 5`다.
-- MBTI Career: 11/11 변이, 390/1440px 로컬·프로덕션 리디렉트, 무광고·noindex·4파일 footprint·구형 SW 해제를 통과.
+- 광고 위험 인벤토리: 추적된 119개 프로젝트를 검사하며 삭제 예정 tracked 파일도 안전하게 건너뛰고 9/9 행동 변이를 탐지한다. 현재 `critical 15`, `clean 6`이다.
+- Pong: 15/15 변이, 12개 언어, 390/1440px 시작→완료→재시작→공유→관련 링크 로컬·프로덕션 여정과 private telemetry를 통과.
 - 공용 AdSense 계약: 정상 페이지는 로더 1개, 중단 페이지는 로더 0개를 강제하며 11/11 변이를 탐지한다.
 - 공통 analytics smoke: 9/9 통과.
 - submitted inventory: 63 URLs / issues 0.
-- 전체 하네스 `2026-09-04T17-05-39-191Z`: 150단계 모두 통과, MBTI Career 11/11, analytics 9/9, runtime 6/6, submitted inventory 63/0.
+- 전체 하네스 `2026-09-04T17-27-06-988Z`: 152단계 모두 통과, Pong 15/15, analytics 9/9, runtime 6/6, submitted inventory 63/0.
 - 사용자 작업 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}`는 건드리지 않는다.
 
 ## 다음 실행 순서
 
-1. 남은 critical 앱 하나를 최근 유입·유입 품질과 결합해 정리한다. 현재 비교군은 Pong, Emoji Merge, Idle Clicker이며 다음 대상은 실데이터로 다시 고른다.
-2. 동시에 기존 콘텐츠를 유지·개선·통합·삭제로 재분류하되, 무노출·무참여·중복만으로 즉시 삭제하지 않고 검색 의도와 링크 대체 경로까지 확인한다.
-3. 최신 트렌드·게임·밈·영화 주제를 주기적으로 조사해 검색 수요, 시의성, 원본성, DopaBrain에서 가능한 상호작용을 점수화한다. 신규 제작은 한 건씩 검증한다.
+1. 다음 critical 후보는 Organic 2세션/완료 1명이 있는 Emoji Merge와 Organic 3세션/완료 0인 Idle Clicker를 구현 위험까지 비교해 한 곳만 고른다.
+2. 선택한 게임의 광고·보상·계측 위험을 격리하고 전용 변이·실여정·전체 하네스로 검증한다.
+3. 기존 콘텐츠를 유지·개선·통합·삭제로 재분류하고 최신 트렌드·게임·밈·영화 후보를 공식 출처·검색 의도·상호작용으로 점수화한다. 신규 제작은 한 건씩만 검증한다.
 4. AdSense 경보와 완료된 KST 일별 impressions/clicks는 하루 한 번만 확인한다. 제한 해제 전에는 광고 실험과 대규모 색인 확대를 하지 않는다.
 
 ## 관찰창
