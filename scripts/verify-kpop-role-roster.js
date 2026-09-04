@@ -1202,7 +1202,7 @@ async function verifyPositionJourney(browser, origin, viewport, locale) {
 
     await page.click('#btn-share');
     await page.waitForSelector('#share-modal:not(.hidden)');
-    assert(await page.evaluate(() => document.activeElement?.id) === 'share-close', `${viewport.name} ${locale} share modal did not focus the close button`);
+    await page.waitForFunction(() => document.activeElement?.id === 'share-close', null, { timeout: 3000 });
     await assertTargets(page, '#share-close,.share-btn,#share-native', `${viewport.name} ${locale} share modal control`);
     await assertNoOverflow(page, `${viewport.name} ${locale} share modal`);
     await page.keyboard.press('Shift+Tab');

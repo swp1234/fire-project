@@ -42,6 +42,7 @@ const DEFAULT_PAGES = [
   path.join(ROOT, 'projects', 'memory-card', 'index.html'),
   path.join(ROOT, 'projects', 'maze-runner', 'index.html'),
   path.join(ROOT, 'projects', 'color-memory', 'index.html'),
+  path.join(ROOT, 'projects', 'road-shooter', 'index.html'),
   path.join(ROOT, 'projects', 'word-scramble', 'index.html'),
   path.join(ROOT, 'projects', 'daily-tarot', 'index.html'),
   path.join(ROOT, 'projects', 'hsp-test', 'index.html'),
