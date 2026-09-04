@@ -19,19 +19,19 @@ This file contains only the current operating decision. Detailed evidence and re
 - Exclude deployment days, Singapore desktop Direct scans, concentrated non-organic bursts, AI-assistant referrals and legacy synthetic events from growth judgments.
 - Do not suppress a product with credible Organic acquisition or real completion signals merely because its total traffic is small.
 
-## Latest release: Stack Tower containment and measurement
+## Latest release: Number Puzzle measurement correction and containment
 
-- Exact-route GA4 for 2026-07-11 to 2026-09-04 had 65 page views / 30 sessions. Singapore desktop Direct dominated, but South Korea mobile Naver and Uruguay desktop Bing supplied Organic acquisition, including a six-page repeat session. Search Console returned no exact-page row.
-- Historical events contained only page-view, synthetic and ambient signals, so the route remains live while real play is measured. Stack Tower `424f75a` is deployed by Pages run `33923277993`.
-- The release removes Auto Ads, interstitial/rewarded paths, ad-gated power-ups and revive, fabricated rating/hidden FAQ, synthetic telemetry, generic promotion and unused error/social-image assets. Play, themes, local statistics, 12 locales and four attributable related routes remain.
-- New private exact-once funnel: `stack_tower_view -> stack_tower_start -> stack_tower_progress -> stack_tower_complete -> stack_tower_share/stack_tower_related_click`. Scores, floors, themes, outcomes, timing and URLs are excluded.
-- The dedicated verifier detects 24/24 injected defects and passes local and production 390/1440px play, successful placement, game over, retry, share and nested related-link journeys. Portfolio ad-risk is now `critical 5 / high 40 / medium 6 / info 52 / clean 16`.
+- The historical `game_start` signal with 36 users was invalid: source inspection proved it fired in the constructor on every page load, before any player input. It is no longer evidence of product use, so the route remains live only to collect a valid funnel rather than being promoted or immediately deleted.
+- Number Puzzle `5cb658a` is deployed by Pages run `33924867445`. The release removes Auto Ads, three manual units/pushes, interstitial/rewarded score paths, fabricated rating/hidden FAQ, synthetic telemetry, eight stale `/projects/*` recommendations, generic promotion and unused social images.
+- The 4x4 game, Undo, saved state, sound, 12 locales and four attributable related routes remain. `number_puzzle_start` now requires the first board-changing move; `number_puzzle_progress` requires three valid moves.
+- Private exact-once funnel: `number_puzzle_view -> number_puzzle_start -> number_puzzle_progress -> number_puzzle_complete -> number_puzzle_share/number_puzzle_related_click`. Scores, tiles, directions, results, timing and URLs are excluded.
+- The dedicated verifier detects 25/25 injected defects, including page-load false starts, and passes local and production 390/1440px reset, three valid moves, 2048 completion, share and nested related-link journeys. Portfolio ad-risk is now `critical 4 / high 40 / medium 6 / info 52 / clean 17`.
 
 ## Validation and next action
 
 - Common AdSense contract: 11/11 mutations detected; all suspended products have zero ad loaders.
 - Submitted indexing inventory: 63 URLs, zero issues. Blog focus: 173 indexable, 208 redirects, 1,597 noindex.
-- Final harness `2026-09-04T21-41-06-476Z`: 173/173 stages passed, including analytics 9/9 and runtime 6/6.
-- Next: compare the remaining critical candidates while protecting Number Puzzle starts, Emoji Merge completion, Word Guess Organic sessions and Snake Organic acquisition. Keep trend publishing behind the distinct-intent and measurable-interaction gate.
+- Final harness `2026-09-04T22-03-28-113Z`: 175/175 stages passed, including analytics 9/9 and runtime 6/6.
+- Next: contain Word Guess without discarding its four Organic sessions, then re-evaluate Emoji Merge and Snake around their valid completion/acquisition signals. Keep trend publishing behind the distinct-intent and measurable-interaction gate.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

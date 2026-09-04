@@ -48,6 +48,7 @@ npm run verify:road-shooter-suspension
 npm run verify:brick-breaker-suspension
 npm run verify:zigzag-runner-suspension
 npm run verify:stack-tower-suspension
+npm run verify:number-puzzle-suspension
 npm run verify:hsp-reset-funnel
 npm run verify:sensory-reset
 npm run verify:ja-minesweeper-path
