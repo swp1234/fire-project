@@ -35,6 +35,7 @@
     "verify:number-puzzle-suspension": "node scripts/verify-number-puzzle-suspension.js --mutations",
     "verify:word-guess-suspension": "node scripts/verify-word-guess-suspension.js --mutations",
     "verify:snake-suspension": "node scripts/verify-snake-suspension.js --mutations",
+    "verify:emoji-merge-suspension": "node scripts/verify-emoji-merge-suspension.js --mutations",
     "verify:zh-2048-guide": "node scripts/verify-zh-2048-guide.js --mutations",
     "verify:culture-choice": "node scripts/verify-culture-choice.js --mutations",
     "verify:cross-promo-touch": "node scripts/verify-cross-promo-touch.js --mutations",
