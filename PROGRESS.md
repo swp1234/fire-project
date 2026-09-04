@@ -20,27 +20,27 @@ Updated: 2026-09-05 KST
 - 상호작용형 페이지의 수동 광고·보상형 광고·가짜 unlock을 제거하고, 위험 페이지에는 명시적 광고 중단 계약을 한 번에 하나씩 배포한다.
 - 주소 PIN 지급 보류는 별도 계정 작업이며 광고 제한 원인으로 간주하지 않는다.
 
-## 최신 배포: Pong 광고 위험 격리
+## 최신 배포: Idle Clicker 광고 위험 격리
 
-- Pong `d68b3e6`, Pages `33900542418` 배포와 프로덕션 여정 검증을 완료했다.
-- `/pong-game/`의 56일 63 PV 중 Singapore desktop Direct가 58 PV로 92%였다. Organic/Search Console 유입은 0이고 실제 `game_start`는 1명, 완료는 0이라 성장 근거가 아니라 광고 노출 위험으로 판정했다.
-- 기존 링크망과 12개 언어 게임은 보존하되 Auto Ads·수동 광고·전면 광고·2배 점수 보상·가짜 `4.5/2,800` 평점·합성 `page_engage`를 제거했다. 결과 공유도 점수 없이 성공 후에만 기록한다.
-- 이벤트는 private exact-once `pong_view → pong_start → pong_complete → pong_share/pong_related_click`로 교체했고 service worker는 앱 경로·same-origin·성공 응답만 캐시한다. 광고 위험 인벤토리는 `critical 16→15`, `clean 5→6`이다.
+- Idle Clicker `f92a09e`, Pages `33902610149` 배포와 프로덕션 여정 검증을 완료했다.
+- 56일 55 PV/54명 중 Singapore desktop Direct가 44 PV/44세션이었다. China Bing Organic은 3세션 있었지만 게임 행동 이벤트가 전혀 없었고, 비교군 Emoji Merge에는 Bing Organic 2세션과 완료 1건이 있어 Idle을 먼저 격리했다.
+- 12개 언어·게임·5개 관련 링크는 보존하고 Auto Ads·보상형 오프라인 수익 2배·광고가 없어도 지급되던 2배 fallback·광고 뒤 분석·가짜 `4.5/2,148` 평점·합성 `page_engage`·광고 자리표시자를 제거했다.
+- private exact-once `idle_view → idle_start → idle_progress → idle_share/idle_related_click`로 교체하고 공유 수치·URL을 배제했다. 실여정이 발견한 0.08초 사운드의 음수 release 시각도 보정했다. 광고 위험 인벤토리는 `critical 15→14`, `clean 6→7`이다.
 
 ## 검증 상태
 
-- 광고 위험 인벤토리: 추적된 119개 프로젝트를 검사하며 삭제 예정 tracked 파일도 안전하게 건너뛰고 9/9 행동 변이를 탐지한다. 현재 `critical 15`, `clean 6`이다.
-- Pong: 15/15 변이, 12개 언어, 390/1440px 시작→완료→재시작→공유→관련 링크 로컬·프로덕션 여정과 private telemetry를 통과.
+- 광고 위험 인벤토리: 추적된 119개 프로젝트를 검사하며 삭제 예정 tracked 파일도 안전하게 건너뛰고 9/9 행동 변이를 탐지한다. 현재 `critical 14`, `clean 7`이다.
+- Idle Clicker: 18/18 변이, 12개 언어, 390/1440px 첫 공격→첫 장비 구매→무료 분석→공유→관련 링크 로컬·프로덕션 여정과 private telemetry를 통과.
 - 공용 AdSense 계약: 정상 페이지는 로더 1개, 중단 페이지는 로더 0개를 강제하며 11/11 변이를 탐지한다.
 - 공통 analytics smoke: 9/9 통과.
 - submitted inventory: 63 URLs / issues 0.
-- 전체 하네스 `2026-09-04T17-27-06-988Z`: 152단계 모두 통과, Pong 15/15, analytics 9/9, runtime 6/6, submitted inventory 63/0.
+- 전체 하네스 `2026-09-04T17-50-44-137Z`: 154단계 모두 통과, Idle Clicker 18/18, analytics 9/9, runtime 6/6, submitted inventory 63/0.
 - 사용자 작업 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}`는 건드리지 않는다.
 
 ## 다음 실행 순서
 
-1. 다음 critical 후보는 Organic 2세션/완료 1명이 있는 Emoji Merge와 Organic 3세션/완료 0인 Idle Clicker를 구현 위험까지 비교해 한 곳만 고른다.
-2. 선택한 게임의 광고·보상·계측 위험을 격리하고 전용 변이·실여정·전체 하네스로 검증한다.
+1. 다음 단일 광고 위험 후보를 유효 Organic·완료 행동·구현 위험으로 다시 고른다. Emoji Merge의 완료 1건은 보존 판단에 반영한다.
+2. 선택한 페이지의 광고·보상·허위 증거를 격리하되 확인된 유효 경로는 유지·개선한다.
 3. 기존 콘텐츠를 유지·개선·통합·삭제로 재분류하고 최신 트렌드·게임·밈·영화 후보를 공식 출처·검색 의도·상호작용으로 점수화한다. 신규 제작은 한 건씩만 검증한다.
 4. AdSense 경보와 완료된 KST 일별 impressions/clicks는 하루 한 번만 확인한다. 제한 해제 전에는 광고 실험과 대규모 색인 확대를 하지 않는다.
 
