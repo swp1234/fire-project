@@ -25,6 +25,7 @@ npm run harness:runtime
 npm run verify:indexing-inventory
 npm run verify:tracked-secrets
 npm run verify:adsense-contract
+npm run verify:ad-risk-inventory
 ```
 
 현재 핵심 경로:
@@ -34,6 +35,8 @@ npm run verify:stress-core
 npm run verify:eq-trust
 npm run verify:hsp-reset-funnel
 npm run verify:sensory-reset
+npm run verify:ja-minesweeper-path
+npm run verify:fr-minesweeper-path
 ```
 
 나머지 전용 검증기는 `package.json`의 `verify:*` 스크립트를 기준으로 한다. 새 검증기는 문법 검사와 실행을 `scripts/harness-workflow-check.js`에 함께 등록한다.
@@ -51,10 +54,12 @@ npm run verify:sensory-reset
 무효 트래픽 조사 중에는 다음 명시적 중단 계약을 사용할 수 있다.
 
 ```html
-<html data-ad-serving="suspended-invalid-traffic-YYYY-MM-DD">
+<body data-ad-serving="suspended-invalid-traffic-YYYY-MM-DD">
 ```
 
 중단 마커가 있는 페이지에는 AdSense 로더, 수동 단위, push, 정적 광고 surface가 모두 0개여야 한다. `quality-gate.sh`와 indexing inventory가 마커-광고 충돌을 실패 처리한다. 중단 해제는 AdSense 제한 상태와 원인 점검 후 별도 변경으로 수행한다.
+
+`ad-risk-inventory.js`는 각 하위 저장소의 추적된 HTML/JS만 검사한다. Auto Ads 존재 자체는 정보로 분리하고, 보상형 광고·자가 완료 unlock·수동 단위/push·중단 마커 충돌을 우선순위화한다. 알려진 위험이 남아 있는 동안 전체 인벤토리는 보고 모드로 실행하고, 탐지기의 8개 행동 변이는 하네스에서 항상 통과해야 한다.
 
 ## 분석 계약
 

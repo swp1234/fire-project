@@ -25,6 +25,8 @@
     "verify:indexing-inventory": "node scripts/indexing-inventory.js --self-test && node scripts/indexing-inventory.js --strict",
     "verify:tracked-secrets": "node scripts/verify-tracked-secrets.js --self-test && node scripts/verify-tracked-secrets.js",
     "verify:adsense-contract": "node scripts/verify-adsense-contract.js --mutations",
+    "audit:ad-risk": "node scripts/ad-risk-inventory.js",
+    "verify:ad-risk-inventory": "node scripts/ad-risk-inventory.js --self-test --limit 20",
     "verify:hsp-reset-funnel": "node scripts/verify-hsp-reset-funnel.js && node scripts/verify-hsp-reset-funnel.js --mutations",
     "verify:sensory-reset": "node scripts/verify-sensory-reset.js",
     "verify:kpop-role-roster": "node scripts/verify-kpop-role-roster.js --mutations",
