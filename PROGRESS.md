@@ -19,20 +19,19 @@ This file contains only the current operating decision. Detailed evidence and re
 - Exclude deployment days, Singapore desktop Direct scans, concentrated non-organic bursts, AI-assistant referrals and legacy synthetic events from growth judgments.
 - Do not suppress a product with credible Organic acquisition or real completion signals merely because its total traffic is small.
 
-## Latest release: Zigzag Runner containment and measurement
+## Latest release: Stack Tower containment and measurement
 
-- Exact-route GA4 for 2026-07-11 to 2026-09-04 had 30 page views / 30 sessions / 23 engaged sessions / 402 engagement seconds. Singapore desktop Direct supplied 23; China desktop Bing supplied the only two Organic sessions. Search Console returned no exact-page row.
-- Historical events contained only page-view, synthetic and ambient signals, so no valid game action was measurable. Stack Tower retained Organic acquisition from two engines and stronger repeat use, so Zigzag Runner was the weaker next containment target; the game and four attributable related routes remain live.
-- Zigzag Runner `712ddb0` is deployed by Pages run `33920495932`. It removes Auto Ads, interstitials, rewarded revive, fabricated rating/FAQ, synthetic engagement, generic promotion and about 102 KB of unused image/error assets.
-- New private exact-once funnel: `zigzag_runner_view -> zigzag_runner_start -> zigzag_runner_progress -> zigzag_runner_complete -> zigzag_runner_share/zigzag_runner_related_click`. Scores, coins, stages, themes, outcomes, timing and URLs are excluded.
-- The dedicated verifier detects 23/23 injected defects and passes local and production 390/1440px start, two-tap progress, result, retry, share and nested related-link journeys. Portfolio ad-risk is now `critical 6 / high 40 / medium 6 / info 52 / clean 15`.
+- Exact-route GA4 for 2026-07-11 to 2026-09-04 had 65 page views / 30 sessions. Singapore desktop Direct dominated, but South Korea mobile Naver and Uruguay desktop Bing supplied Organic acquisition, including a six-page repeat session. Search Console returned no exact-page row.
+- Historical events contained only page-view, synthetic and ambient signals, so the route remains live while real play is measured. Stack Tower `424f75a` is deployed by Pages run `33923277993`.
+- The release removes Auto Ads, interstitial/rewarded paths, ad-gated power-ups and revive, fabricated rating/hidden FAQ, synthetic telemetry, generic promotion and unused error/social-image assets. Play, themes, local statistics, 12 locales and four attributable related routes remain.
+- New private exact-once funnel: `stack_tower_view -> stack_tower_start -> stack_tower_progress -> stack_tower_complete -> stack_tower_share/stack_tower_related_click`. Scores, floors, themes, outcomes, timing and URLs are excluded.
+- The dedicated verifier detects 24/24 injected defects and passes local and production 390/1440px play, successful placement, game over, retry, share and nested related-link journeys. Portfolio ad-risk is now `critical 5 / high 40 / medium 6 / info 52 / clean 16`.
 
 ## Validation and next action
 
 - Common AdSense contract: 11/11 mutations detected; all suspended products have zero ad loaders.
 - Submitted indexing inventory: 63 URLs, zero issues. Blog focus: 173 indexable, 208 redirects, 1,597 noindex.
-- The integrated harness exposed a K-pop verifier race: it checked modal focus before the app's animation frame. The verifier now waits for the focus contract and its targeted suite passes 52/52 mutations.
-- Final harness `2026-09-04T21-19-48-375Z`: 171/171 stages passed, including analytics 9/9 and runtime 6/6.
-- Next: compare the remaining critical candidates while protecting Number Puzzle starts, Emoji Merge completion, Word Guess Organic sessions, Snake Organic acquisition and Stack Tower's multi-engine Organic acquisition.
+- Final harness `2026-09-04T21-41-06-476Z`: 173/173 stages passed, including analytics 9/9 and runtime 6/6.
+- Next: compare the remaining critical candidates while protecting Number Puzzle starts, Emoji Merge completion, Word Guess Organic sessions and Snake Organic acquisition. Keep trend publishing behind the distinct-intent and measurable-interaction gate.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
