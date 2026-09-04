@@ -19,19 +19,18 @@ This file contains only the current operating decision. Detailed evidence and re
 - Exclude deployment days, Singapore desktop Direct scans, concentrated non-organic bursts, AI-assistant referrals and legacy synthetic events from growth judgments.
 - Do not suppress a product with credible Organic acquisition or real completion signals merely because its total traffic is small.
 
-## Latest release: Emoji Merge containment and valid-play funnel
+## Latest release: portal shared-ad containment and stale-guide retirement
 
-- Emoji Merge stays live because it retained two China desktop Organic sessions / six page views / 82 engagement seconds and one source-valid `game_over` user. Search Console had no exact-page row. Its historical 79 `page_view` events are not valid visit evidence because the app duplicated GA's automatic page view on initialization.
-- Emoji Merge `f64d76c` is deployed by Pages run `33929567417`. It removes Auto Ads, H5/result/100-move interstitials, rewarded double score, fake ad surfaces, fabricated aggregate rating/hidden FAQ, synthetic engagement, deterministic “AI” analysis, private legacy events, generic retention/promotion helpers and dormant copy. The 2048-style board, four evolution chains, Undo, local stats/collection, 12 locales and four related routes remain.
-- Private exact-once funnel: `emoji_merge_view -> emoji_merge_start -> emoji_merge_progress -> emoji_merge_complete -> emoji_merge_share/emoji_merge_related_click`. Start requires the first successful move, progress the third, completion a board with no legal move, and sharing a successful system or clipboard action. Score, chain, board, tile, timing, result, language and URL are excluded.
-- The service worker and manifest are app-scoped and deployment-relative. Theme, sound and language controls no longer overlap at 390 px, and actions meet the 44 px touch minimum.
-- The dedicated verifier detects 24/24 injected defects and passes local and production 390/1440px menu/no-start, three-move progress, terminal-board completion, successful share and nested related-link journeys. Portfolio ad-risk is now `critical 1 / high 40 / medium 6 / info 52 / clean 20`.
+- The portal apps remain live because credible Organic signals exist: Past Life had two app sessions and its English guide had 16 Organic sessions / 10 engaged / 463 engagement seconds; the Chinese MBTI City guide had four Organic sessions, all engaged, and 465 seconds. Shared monetization risk was isolated instead of deleting those routes.
+- Portal `0d359ee` is deployed by Pages run `33930945759`. The shared 6,758-byte H5/reward module is now a 464-byte compatibility adapter that never requests, renders or rewards an ad, reports unavailable and preserves existing completion callbacks.
+- `/portal/blog/free-online-games.html` had only three Direct sessions / one engaged / 15 seconds in 56 days, zero Organic acquisition and no exact Search Console row. Its 79,097-byte page is now a 673-byte `noindex,follow` redirect to `/portal/games/`; ten catalog, feed, related-link and hreflang references no longer promote it.
+- The dedicated verifier detects 11/11 injected defects and passes local and production 390/1440px retirement journeys. The deployed adapter is exactly 464 bytes and contains no AdSense, H5 break or rewarded API. Portfolio ad-risk is now `critical 0 / high 41 / medium 6 / info 52 / clean 20`.
 
 ## Validation and next action
 
 - Common AdSense contract: 11/11 mutations detected; all suspended products have zero ad loaders.
-- Submitted indexing inventory: 63 URLs, zero issues. Blog focus: 173 indexable, 208 redirects, 1,597 noindex.
-- Final harness `2026-09-04T23-12-56-696Z`: 181/181 stages passed, including analytics 9/9 and runtime 6/6.
-- Next: audit and contain the remaining portal-level critical risk without disabling revenue on already-focused, loader-only pages. Keep trend publishing behind the distinct-intent and measurable-interaction gate.
+- Submitted indexing inventory: 63 URLs, zero issues. Blog focus: 173 indexable, 209 redirects, 1,596 noindex.
+- Final harness `2026-09-04T23-35-12-426Z`: 183/183 stages passed, including analytics 9/9 and runtime 6/6.
+- Next: rank the 41 remaining high-risk products by real Organic/action value, then isolate one manual-unit/direct-push surface without disabling focused loader-only revenue pages. Keep new trend content behind the distinct-intent and measurable-interaction gate.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
