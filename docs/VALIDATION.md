@@ -42,6 +42,7 @@ npm run verify:idle-clicker-suspension
 npm run verify:flappy-suspension
 npm run verify:memory-card-suspension
 npm run verify:maze-runner-suspension
+npm run verify:color-memory-suspension
 npm run verify:hsp-reset-funnel
 npm run verify:sensory-reset
 npm run verify:ja-minesweeper-path

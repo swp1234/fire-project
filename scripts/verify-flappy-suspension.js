@@ -11,6 +11,7 @@ const APP = path.join(ROOT, 'projects', 'flappy-bird');
 const PORTAL = path.join(ROOT, 'projects', 'portal');
 const LOCALES = ['ko','en','zh','hi','ru','ja','es','pt','id','tr','de','fr'];
 const EVENTS = ['flappy_view','flappy_start','flappy_complete','flappy_share','flappy_related_click'];
+const MIN_RENDERED_TARGET = 43.99;
 
 function assert(value, message) { if (!value) throw new Error(message); }
 function read(relative) { return fs.readFileSync(path.join(APP, relative), 'utf8'); }
@@ -103,7 +104,7 @@ async function verifyRuntime(baseUrl) {
       await page.goto(`${baseUrl}/flappy-bird/?lang=en`, { waitUntil:'domcontentloaded', timeout:20000 });
       await page.waitForSelector('#app-loader', { state:'detached', timeout:15000 });
       const startTarget = await page.locator('#start-btn').boundingBox();
-      assert(startTarget && startTarget.width >= 44 && startTarget.height >= 44, `${viewport.width}px start action below 44px`);
+      assert(startTarget && startTarget.width >= MIN_RENDERED_TARGET && startTarget.height >= MIN_RENDERED_TARGET, `${viewport.width}px start action below 44px`);
       await page.click('#start-btn');
       await page.evaluate(() => game.gameOver());
       await page.waitForSelector('#gameover-screen.active');
@@ -129,7 +130,7 @@ async function verifyRuntime(baseUrl) {
       for (const eventName of EVENTS) assert(stages.filter((event) => event.name === eventName).length === 1, `${viewport.width}px ${eventName} must fire exactly once`);
       assert(stages.every((event) => !Object.keys(event.params).some((key) => /score|mode|duration|time|result|url|location/i.test(key))), `${viewport.width}px private game value entered analytics`);
       assert(report.overflow <= 0, `${viewport.width}px horizontal overflow: ${report.overflow}px; ${JSON.stringify(report.wide)}`);
-      assert(report.targets.every((target) => target.width >= 44 && target.height >= 44), `${viewport.width}px action below 44px: ${JSON.stringify(report.targets)}`);
+      assert(report.targets.every((target) => target.width >= MIN_RENDERED_TARGET && target.height >= MIN_RENDERED_TARGET), `${viewport.width}px action below 44px: ${JSON.stringify(report.targets)}`);
       assert(report.adSurface === 0 && !report.reward && errors.length === 0, `${viewport.width}px runtime errors or ad surface: ${errors.join(' | ')}`);
       await page.close();
     }

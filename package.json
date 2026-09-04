@@ -26,6 +26,7 @@
     "verify:flappy-suspension": "node scripts/verify-flappy-suspension.js --mutations",
     "verify:memory-card-suspension": "node scripts/verify-memory-card-suspension.js --mutations",
     "verify:maze-runner-suspension": "node scripts/verify-maze-runner-suspension.js --mutations",
+    "verify:color-memory-suspension": "node scripts/verify-color-memory-suspension.js --mutations",
     "verify:zh-2048-guide": "node scripts/verify-zh-2048-guide.js --mutations",
     "verify:culture-choice": "node scripts/verify-culture-choice.js --mutations",
     "verify:cross-promo-touch": "node scripts/verify-cross-promo-touch.js --mutations",
