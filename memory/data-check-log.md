@@ -716,3 +716,13 @@
 - Production Seollal HTML matched local at 750 bytes / 4d1a2b740afe, retirement worker at 592 bytes / 07f183c77b35, and Greetings HTML at 19,712 bytes / ed3724b99dfb. The child changes removed 378 lines and added 31.
 - Inventory moved high 31 -> 30 and clean 29 -> 30, with critical 0 / medium 6 / info 53 unchanged. Final harness 2026-09-05T04-49-44-276Z passed 205/205, including analytics 9/9, runtime 6/6 and submitted inventory 63/0.
 - IndexNow and GSC submissions remain disabled during the invalid-traffic restriction. The next unit is an evidence-backed trend/content R&D refresh; publishing remains paused until the restriction clears.
+
+## 2026-09-05 trend R&D queue refresh
+
+- Google Trends KR was dominated by short-lived celebrity, incident and sports queries. Spider-Man: Brand New Day briefly appeared at 2K+ searches and then left the visible top 25 during the same review, demonstrating why a 24-hour spike is not a release gate.
+- The existing Korean Odyssey/Spider-Man page already owns that intent and cites Sony's official page. From 2026-08-29~09-04 it recorded four page-view users, two Direct landing sessions, one qualified choice view, zero choice selections, zero Organic landings and no Search Console row. A second URL would fragment an already undiscovered path.
+- Steam Korea's live revenue chart ranked Onimusha: Way of the Sword #1, Crimson Desert Enhanced #2, Palworld #11 and The Blood of Dawnwalker #14. Onimusha is held as a bounded play-style interaction hypothesis, requiring three observations across seven days before drafting.
+- Current Reels formats such as Let me guess, Two Best Friends and Recent Flops are packaging patterns, not sufficient article subjects. They may be applied to one existing measured interaction after the restriction clears.
+- PlayStation's September monthly-games list is verified but too schedule-bound and weakly connected to an existing DopaBrain action, so it was rejected. Celebrity, death, weather, politics, scores and rumor spikes were also excluded.
+- docs/STRATEGY.md now holds the compact three-item queue and promotion gates. The corrupted legacy marketing file was replaced by a short invalid-traffic guardrail.
+- The DopaBrain Culture Signal skill reference now requires an existing-URL search, current demand plus primary-source verification, exact-page GA4/GSC join, seven-day persistence for product/release topics and a no-publish rule during restrictions. Skill validation passed.

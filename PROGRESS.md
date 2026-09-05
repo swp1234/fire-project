@@ -26,6 +26,6 @@ Updated: 2026-09-05 KST. Release history is in memory/data-check-log.md; the rep
 - Seollal retirement verifier: 12/12 injected defects detected; local and production redirects passed at 390/1440 px.
 - Portfolio risk: critical 0 / high 30 / medium 6 / info 53 / clean 30.
 - Submitted inventory: 63 unique URLs, zero issues. Full harness 2026-09-05T04-49-44-276Z: 205/205 passed, including analytics 9/9 and runtime 6/6.
-- Next: refresh the evidence-backed trend/content R&D queue. Do not publish or expand traffic while the invalid-traffic restriction remains.
+- Trend R&D queue is refreshed in docs/STRATEGY.md. Next: continue score-110 cleanup while rechecking the held game signal across seven days; do not publish or expand traffic while the restriction remains.
 
 User-owned projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js} remains untouched.
