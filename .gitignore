@@ -94,6 +94,7 @@ SOUNDSCAPE_*.txt
 !scripts/verify-toxic-trait.js
 !scripts/verify-ai-personality.js
 !scripts/verify-emotion-temp.js
+!scripts/verify-overthinker.js
 !scripts/verify-adsense-contract.js
 !scripts/ad-risk-inventory.js
 !scripts/verify-brain-training-bridge.js
