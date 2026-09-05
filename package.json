@@ -41,6 +41,7 @@
     "verify:trauma-response": "node scripts/verify-trauma-response.js --mutations",
     "verify:anxiety-type": "node scripts/verify-anxiety-type.js --mutations",
     "verify:toxic-trait": "node scripts/verify-toxic-trait.js --mutations",
+    "verify:ai-personality": "node scripts/verify-ai-personality.js --mutations",
     "verify:zh-2048-guide": "node scripts/verify-zh-2048-guide.js --mutations",
     "verify:culture-choice": "node scripts/verify-culture-choice.js --mutations",
     "verify:cross-promo-touch": "node scripts/verify-cross-promo-touch.js --mutations",
