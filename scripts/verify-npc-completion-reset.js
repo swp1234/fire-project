@@ -25,7 +25,7 @@ function source(o={}){
  for(const name of STAGES)ok(count(v.app,new RegExp(`['"]${name}['"]`,'g'))===1,`stage call count drifted: ${name}`);
  ok(!/choice_key|choice_points|result_tier/.test(v.app),'private answer or result entered telemetry');
  ok(!/trackEvent\(['"](?:quiz_start|quiz_complete|result_view)['"]/.test(v.app),'duplicate generic stage telemetry remains');
- ok(count(v.html,/data-related-key=/g)===4&&v.html.includes('href="/eq-test/"')&&v.html.includes('href="/attachment-style/"')&&v.html.includes('href="/rizz-score/"')&&v.html.includes('href="/villain-type/"'),'focused related routes drifted');
+ok(count(v.html,/data-related-key=/g)===4&&v.html.includes('href="/eq-test/"')&&v.html.includes('href="/attachment-style/"')&&v.html.includes('href="/ick-factor/"')&&v.html.includes('href="/villain-type/"'),'focused related routes drifted');
  ok(/event\.target\.closest\('\.related-card'\)/.test(v.app),'nested related attribution missing');
  ok(/document\.documentElement\.lang = lang/.test(v.i18n),'language switch does not update document language');
  ok(/CACHE_PREFIX = 'npc-test-'/.test(v.sw)&&/url\.origin !== self\.location\.origin/.test(v.sw)&&/url\.pathname\.startsWith\(APP_PATH\)/.test(v.sw),'service worker cache boundary drifted');

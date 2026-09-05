@@ -46,7 +46,7 @@ This file keeps only evidence that still changes a product, traffic, or release 
 - Reward-risk games were contained or suspended: 2048, Sky Runner, Pong, Idle Clicker, Flappy Bird, Memory Card, Maze Runner, Color Memory, Road Shooter, Brick Breaker, Zigzag Runner, Stack Tower, Number Puzzle, Word Guess, Snake and Emoji Merge.
 - Claim-heavy reflections were reset around their actual authored rules: Trauma Response, Anxiety Type, Toxic Trait, AI Personality, Emotion Temperature, Overthinker, MBTI Love, Stress Response and Color Choice Mixer.
 - Seollal Fortune was reduced to a 750-byte `noindex,follow` redirect to Fortune Cookie. Its worker removes only `seollal-fortune-*` caches and unregisters so the stale app cannot revive offline.
-- Current ad-risk inventory after Sleep Animal retirement is `0 critical / 18 high / 6 medium / 53 info / 42 clean`. Remaining high items are containment candidates, not permission to broaden traffic.
+- Current ad-risk inventory after Rizz Score retirement is `0 critical / 17 high / 6 medium / 53 info / 43 clean`. Remaining high items are containment candidates, not permission to broaden traffic.
 
 ## 2026-09-05 release ledger
 
@@ -63,6 +63,7 @@ This file keeps only evidence that still changes a product, traffic, or release 
 | Hail Mary Mode | Retire: no credible acquisition or qualified action; remove score/rating, result telemetry, ads, push and promotions, redirect app/article to maintained stress paths | app `0ad86a4`, portal `c53617c`, Pages `33961391663`/`33961531649`, 10/10 mutations, 18 blob matches |
 | Luck Meter | Retire: zero 7-day visits/actions and zero 28-day GSC impressions; remove random score/proof/ads and redirect to Fortune Cookie, replacing stale recommendations | app `b91413b`, Fortune Cookie `76ef226`, portal `fca8319`, Pages `33962455925`/`33962460822`/`33962465861`, 8/8, 18 blob matches |
 | Sleep Animal | Retire: zero 7-day visits/actions and zero 28-day GSC impressions; remove unvalidated chronotype/results/ads and redirect to credible Animal Personality, replacing every stale backlink | app `27a743a`, Animal Personality `8608976`, portal `d03809f`, Pages `33963444659`/`33963482240`/`33963485815`, 8/8, 19 blob matches |
+| Rizz Score | Retire: zero 7-day GA4 rows/actions and zero 28-day GSC rows; remove unvalidated score/ads and redirect to Attachment Style, replacing live backlinks and stale Brainrot/Delulu cards | app `74cd5a2`, five app dependencies plus portal `94afaaa`, Pages `33964626238` through `33964649073`, 8/8, 13 blob matches |
 
 ## Trend queue
 
@@ -74,6 +75,6 @@ Current signal qualification and primary sources live in `docs/STRATEGY.md` and 
 ## Verification baseline
 
 - Pre-optimization harness `2026-09-05T04-49-44-276Z` passed 205/205 in 968.9 seconds. Its 97 duplicate syntax subprocesses used only 4.7 seconds but nearly doubled the step/report count.
-- Final harness `2026-09-05T11-32-10-298Z` passed 121/121 in 738.7 summed seconds after Sleep Animal retirement. It remains about 24% faster than the 205-step baseline; Sleep Animal caught 8/8 mutations, analytics 9/9, runtime 6/6 and inventory 63/0.
+- Final harness `2026-09-05T11-57-56-963Z` passed 122/122 in 788.7 summed seconds after Rizz Score retirement. It remains about 19% faster than the 205-step baseline; Rizz Score caught 8/8 mutations, analytics 9/9, runtime 6/6 and inventory 63/0.
 - Successful-step output is omitted from JSON: `latest.json` fell from 159.0 KB to about 14 KB. Safe gates use path-scoped clocks or isolated concurrency; qualified-exposure and crash-watch timers remain real.
 - GitHub Pages source must be queried per child repository before release. Working/development branch names are not deployment evidence.

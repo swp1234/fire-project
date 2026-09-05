@@ -249,6 +249,7 @@ async function main() {
     ['Hail Mary retirement mutations', process.execPath, ['scripts/verify-hail-mary-retirement.js', '--mutations']],
     ['Luck Meter retirement mutations', process.execPath, ['scripts/verify-luck-meter-retirement.js', '--mutations']],
     ['Sleep Animal retirement mutations', process.execPath, ['scripts/verify-sleep-animal-retirement.js', '--mutations']],
+    ['Rizz Score retirement mutations', process.execPath, ['scripts/verify-rizz-score-retirement.js', '--mutations']],
     ['MBTI Career retirement mutations', process.execPath, ['scripts/verify-mbti-career-retirement.js', '--mutations']],
     ['Word Scramble retirement mutations', process.execPath, ['scripts/verify-word-scramble-retirement.js', '--mutations']],
     ['Pong suspension mutations', process.execPath, ['scripts/verify-pong-suspension.js', '--mutations']],
