@@ -197,6 +197,28 @@ function resolveApps(arg) {
   return [arg];
 }
 
+function runtimeConcurrency(appCount) {
+  const requested = Number.parseInt(process.env.RUNTIME_CONCURRENCY || '3', 10);
+  if (!Number.isInteger(requested) || requested < 1) {
+    throw new Error('RUNTIME_CONCURRENCY must be a positive integer');
+  }
+  return Math.min(requested, appCount);
+}
+
+async function mapWithConcurrency(items, concurrency, worker) {
+  const results = new Array(items.length);
+  let cursor = 0;
+  async function runWorker() {
+    while (cursor < items.length) {
+      const index = cursor;
+      cursor += 1;
+      results[index] = await worker(items[index]);
+    }
+  }
+  await Promise.all(Array.from({ length: concurrency }, runWorker));
+  return results;
+}
+
 async function testApp(browser, appName, localOrigin) {
   const localPath = path.join(PROJECTS_DIR, appName, 'index.html');
   const hasLocal = fs.existsSync(localPath);
@@ -236,6 +258,7 @@ async function testApp(browser, appName, localOrigin) {
   let crashed = false;
   let ariaSnapshot = '';
   let artifactPath = '';
+  let observedMs = 0;
 
   // Collect console errors
   page.on('console', msg => {
@@ -266,6 +289,7 @@ async function testApp(browser, appName, localOrigin) {
   }
 
   if (!crashed) {
+    const observationStartedAt = Date.now();
     // Phase 1: observe for 5 seconds
     await page.waitForTimeout(OBSERVE_TIME);
     ariaSnapshot = await readAriaSnapshot(page);
@@ -277,12 +301,16 @@ async function testApp(browser, appName, localOrigin) {
 
     // Phase 2: observe for another 5 seconds after interaction
     await page.waitForTimeout(OBSERVE_TIME);
+    observedMs = Date.now() - observationStartedAt;
+    if (observedMs < (OBSERVE_TIME * 2) - 50) {
+      errors.push({ phase: 'observation', text: `Observation window ended early: ${observedMs}ms` });
+    }
   }
 
   errors.push(...await collectBufferedDiagnostics(page));
   const finalErrors = dedupeErrors(errors);
   const pass = finalErrors.length === 0;
-  const result = { appName, url, pass, errors: finalErrors, crashed, ariaSnapshot };
+  const result = { appName, url, pass, errors: finalErrors, crashed, observedMs, ariaSnapshot };
 
   if (shouldWriteArtifacts(pass)) {
     artifactPath = await writeFailureArtifacts(page, appName, result);
@@ -322,15 +350,14 @@ async function main() {
 
   console.log(`\n  Runtime Smoke Test — ${apps.length} app(s)\n`);
 
+  const concurrency = runtimeConcurrency(apps.length);
   const server = await startStaticServer();
   const browser = await chromium.launch({ headless: true });
-  const results = [];
+  let results = [];
 
   try {
-    for (const app of apps) {
-      const result = await testApp(browser, app, server.origin);
-      results.push(result);
-
+    results = await mapWithConcurrency(apps, concurrency, (app) => testApp(browser, app, server.origin));
+    for (const result of results) {
       const icon = result.pass ? 'PASS' : 'FAIL';
       const line = `  [${icon}] ${result.appName}`;
       if (result.pass) {
