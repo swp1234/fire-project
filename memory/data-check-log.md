@@ -46,7 +46,7 @@ This file keeps only evidence that still changes a product, traffic, or release 
 - Reward-risk games were contained or suspended: 2048, Sky Runner, Pong, Idle Clicker, Flappy Bird, Memory Card, Maze Runner, Color Memory, Road Shooter, Brick Breaker, Zigzag Runner, Stack Tower, Number Puzzle, Word Guess, Snake and Emoji Merge.
 - Claim-heavy reflections were reset around their actual authored rules: Trauma Response, Anxiety Type, Toxic Trait, AI Personality, Emotion Temperature, Overthinker, MBTI Love, Stress Response and Color Choice Mixer.
 - Seollal Fortune was reduced to a 750-byte `noindex,follow` redirect to Fortune Cookie. Its worker removes only `seollal-fortune-*` caches and unregisters so the stale app cannot revive offline.
-- Current ad-risk inventory after Delulu retirement is `0 critical / 21 high / 6 medium / 53 info / 39 clean`. Remaining high items are containment candidates, not permission to broaden traffic.
+- Current ad-risk inventory after Hail Mary retirement is `0 critical / 20 high / 6 medium / 53 info / 40 clean`. Remaining high items are containment candidates, not permission to broaden traffic.
 
 ## 2026-09-05 release ledger
 
@@ -60,6 +60,7 @@ This file keeps only evidence that still changes a product, traffic, or release 
 | Knowledge Sprint | Keep as conversion test: one IN Organic, zero starts; replace Korean-only random bank with 10 reviewed bilingual questions | `879185c`, Pages `33957622442`, 17/17, 12 blob matches |
 | Brainrot Score | Retire: only 2 SG desktop Direct scans, no qualified action; remove score, fake proof, ads, bundles and promotions, redirect to maintained detox/doomscrolling paths | app `5f92038`, portal `124da1f`, Pages `33958580365`/`33959125600`, 10/10 mutations |
 | Delulu Score | Retire: only 1 SG desktop Direct scan and no qualified action; remove score, result sharing, fake proof, ads and catalog card, redirect to Future Self | app `29043cb`, portal `89fa800`, Pages `33960469571`/`33960471975`, 8/8 mutations |
+| Hail Mary Mode | Retire: no credible acquisition or qualified action; remove score/rating, result telemetry, ads, push and promotions, redirect app/article to maintained stress paths | app `0ad86a4`, portal `c53617c`, Pages `33961391663`/`33961531649`, 10/10 mutations, 18 blob matches |
 
 ## Trend queue
 
@@ -71,6 +72,6 @@ Current signal qualification and primary sources live in `docs/STRATEGY.md` and 
 ## Verification baseline
 
 - Pre-optimization harness `2026-09-05T04-49-44-276Z` passed 205/205 in 968.9 seconds. Its 97 duplicate syntax subprocesses used only 4.7 seconds but nearly doubled the step/report count.
-- Final harness `2026-09-05T10-23-47-409Z` passed 118/118 in 739.1 summed seconds after Delulu retirement. It remains about 24% faster than the 968.9-second 205-step baseline; Brainrot caught 10/10 and Delulu 8/8 mutations, analytics 9/9, runtime 6/6 and inventory 63/0.
+- Final harness `2026-09-05T10-47-12-020Z` passed 119/119 in 741.5 summed seconds after Hail Mary retirement. It remains about 23% faster than the 205-step baseline; Hail Mary caught 10/10 mutations, analytics 9/9, runtime 6/6 and inventory 63/0.
 - Successful-step output is omitted from JSON: `latest.json` fell from 159.0 KB to about 14 KB. Safe gates use path-scoped clocks or isolated concurrency; qualified-exposure and crash-watch timers remain real.
 - GitHub Pages source must be queried per child repository before release. Working/development branch names are not deployment evidence.
