@@ -75,6 +75,7 @@
     "verify:dopamine-trust": "node scripts/verify-dopamine-trust.js --mutations",
     "verify:emotion-iceberg-trust": "node scripts/verify-emotion-iceberg-trust.js --mutations",
     "verify:mbti-coffee-trust": "node scripts/verify-mbti-coffee-trust.js --mutations",
+    "verify:aura-color-studio": "node scripts/verify-aura-color-studio.js --mutations",
     "verify:fake-unlock-gates": "node scripts/verify-fake-unlock-gates.js",
     "verify:rule-based-labels": "node scripts/verify-rule-based-labels.js",
     "verify:mental-age-trust": "node scripts/verify-mental-age-trust.js --mutations",

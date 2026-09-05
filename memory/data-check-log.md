@@ -46,7 +46,7 @@ This file keeps only evidence that still changes a product, traffic, or release 
 - Reward-risk games were contained or suspended: 2048, Sky Runner, Pong, Idle Clicker, Flappy Bird, Memory Card, Maze Runner, Color Memory, Road Shooter, Brick Breaker, Zigzag Runner, Stack Tower, Number Puzzle, Word Guess, Snake and Emoji Merge.
 - Claim-heavy reflections were reset around their actual authored rules: Trauma Response, Anxiety Type, Toxic Trait, AI Personality, Emotion Temperature, Overthinker, MBTI Love, Stress Response and Color Choice Mixer.
 - Seollal Fortune was reduced to a 750-byte `noindex,follow` redirect to Fortune Cookie. Its worker removes only `seollal-fortune-*` caches and unregisters so the stale app cannot revive offline.
-- Current ad-risk inventory after the Coffee Code release is `0 critical / 25 high / 6 medium / 53 info / 35 clean`. Remaining high items are the next containment candidates, not permission to broaden traffic.
+- Current ad-risk inventory after the Aura Color release is `0 critical / 24 high / 6 medium / 53 info / 36 clean`. Remaining high items are containment candidates, not permission to broaden traffic.
 
 ## Burnout reflection trust reset — 2026-09-05
 
@@ -69,6 +69,11 @@ This file keeps only evidence that still changes a product, traffic, or release 
 - Removed ads, fake 8,900+ and 4.5/1,380 proof, random match counts, hidden FAQ, synthetic engagement, personality claims and result leakage. The 2/1/2/1 points, E/S/T/J ties and 16-item authored lookup are visible; every locale distinguishes the game from the official assessment.
 - Child `cc7e849`, Pages `33955104573`: 17/17 mutations and 12-locale local/production journeys passed; 20 live assets match local bytes and risk moved to `0/25/6/53/35`.
 
+## Aura Color Studio reset — 2026-09-05
+
+- `/aura-reading/` had two users, including one South Korean mobile Organic visitor, but no valid start/completion in 2026-08-29 through 2026-09-04. Preserve as an acquisition-backed conversion test, not a growth winner.
+- Replaced aura/energy/personality claims, fake proof/rating/rarity, ads, hidden FAQ and result leakage with a disclosed `3+1` ten-scene palette mapping and fixed tie order. Child `3112cd3`, Pages `33956298791`: 17/17 mutations, 12-locale local/production journeys and 21 release-blob matches passed; risk moved to `0/24/6/53/36`.
+
 ## Trend queue
 
 1. Recheck Steam Korea game signals across seven days; Onimusha: Way of the Sword is a held play-style interaction hypothesis, not an approved article.
@@ -80,10 +85,7 @@ Current signal qualification and primary sources live in `docs/STRATEGY.md` and 
 ## Verification baseline
 
 - Pre-optimization harness `2026-09-05T04-49-44-276Z` passed 205/205 in 968.9 seconds. Its 97 duplicate syntax subprocesses used only 4.7 seconds but nearly doubled the step/report count.
-- Final harness `2026-09-05T08-24-48-143Z` passed 114/114 in 727.1 summed seconds after adding Coffee and Emotion gates. It remains 25% faster than the 968.9-second 205-step baseline. Both new gates caught 17/17 mutations; K-pop was 52/52, analytics 9/9, runtime 6/6 and submitted inventory 63/0.
-- Successful-step output is no longer copied into JSON: `latest.json` fell from 159.0 KB to 13.8 KB (91% smaller), while the Markdown summary is 5.9 KB. English Attachment Reflection fell from 115.2s to 10.2s and K-pop roster/guide from 122.7s to 32.3s by collapsing only app animation delays in their browser contexts; article qualification timers remain real.
-- Shared runtime smoke now runs at most three independent browser contexts concurrently. It fell from 61.8s to 21.1s; all six apps passed and recorded 10,024-10,052ms observation windows, so parallelism did not shorten the per-app crash watch.
-- Analytics smoke now runs at most three isolated scenarios concurrently and waits on EQ state instead of ten fixed 1.55s sleeps. It fell from 39.7s to 8.4s with 9/9 scenarios; EQ's 500ms qualified-action timer remains real.
-- English Shadow Reflection now runs its 12 locale journeys in isolated contexts four at a time. It fell from 37.1s to 4.4s while retaining 14/14 mutations, eight answers per locale, guide attribution, neutral sharing, mobile and fallback checks.
+- Final harness `2026-09-05T08-52-58-322Z` passed 115/115 in 730.5 summed seconds after adding Aura. It remains 25% faster than the 968.9-second 205-step baseline; Aura caught 17/17 mutations, K-pop 52/52, analytics 9/9, runtime 6/6 and inventory 63/0.
+- Successful-step output is omitted from JSON: `latest.json` fell from 159.0 KB to about 14 KB. Safe gates use path-scoped clocks or isolated concurrency; qualified-exposure and crash-watch timers remain real.
 - Current slow gates are root focus (33.9s), K-pop roster/guide (32.8s) and NPC reset (29.6s). Profile internals before changing them; never trade behavior or mutation coverage for a shorter run.
 - GitHub Pages source must be queried per child repository before release. Working/development branch names are not deployment evidence.
