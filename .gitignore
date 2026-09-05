@@ -90,6 +90,7 @@ SOUNDSCAPE_*.txt
 !scripts/verify-portal-ad-containment.js
 !scripts/verify-portal-auto-ads-only.js
 !scripts/verify-trauma-response.js
+!scripts/verify-stress-response.js
 !scripts/verify-anxiety-type.js
 !scripts/verify-toxic-trait.js
 !scripts/verify-ai-personality.js

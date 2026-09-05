@@ -14,19 +14,19 @@ Updated: 2026-09-05 KST. Release history is in `memory/data-check-log.md`; the r
 - Remove manual ads, rewarded/interstitial paths, fabricated proof and unverifiable paid-impression telemetry one measured product at a time.
 - Preserve routes with credible Organic acquisition or valid completion evidence; exclude Singapore desktop Direct scans and legacy synthetic events from growth judgments.
 
-## Latest release: MBTI Love
+## Latest release: Stress Response
 
-- MBTI Love retained 19 Organic sessions / 14 engaged / 617 engagement seconds and 17 completion users during 2026-07-11~09-04. Search Console had no exact-page row, so the route remains live.
-- Release `fc4a333` removes main and deck ad paths, arbitrary compatibility scores, fabricated proof, random percentile, fake analysis/premium output, result-rich sharing and sensitive telemetry. Ad serving is explicitly suspended.
-- The main route is now a 12-choice relationship-preference snapshot: every answer adds one disclosed point to its shown letter, with the first answer on a tied axis breaking the tie. It is not official MBTI or a compatibility assessment.
-- The useful 12-card conversation deck remains. Main and deck each expose seven exact-once stages without answers, scores, type, card, mode, locale, URL or timing.
-- Pages run `33941897896` deployed the exact child commit. Local and production 390/1440 px journeys passed and eight production assets matched local hashes.
+- Stress Response retained eight Organic sessions, all engaged, 1,223 engagement seconds and 18 completion users during 2026-07-11~09-04. Search Console had no exact-page row, so the route remains live.
+- Release `41b0a41` removes three manual ad units, direct pushes, synthetic engagement/ad events, fabricated `4.7 / 3,120` and `9.4K+` proof, hidden FAQ, arbitrary dimensions, fake analysis, result-image sharing and duplicate recommendations. Ad serving is explicitly suspended.
+- Eight existing scenarios now add one disclosed point to the displayed response label; the first matching label breaks ties. The result describes these choices only and is not a diagnosis or validated assessment.
+- One Stress Check action, two related reflections and one neutral success-gated share remain. Seven exact-once stages contain no answers, scores, result, locale, URL or timing.
+- Pages run `33943047616` deployed the exact child commit. Local and production 390/1440 px journeys passed and seven production assets matched local hashes.
 
 ## Validation and next action
 
-- MBTI Love verifier: 26/26 injected defects detected; main and deck runtime contracts passed.
-- Portfolio risk: `critical 0 / high 33 / medium 6 / info 53 / clean 27`; MBTI Love moved from score 130 to clean.
-- Submitted inventory: 63 unique URLs, zero issues. Full harness `2026-09-05T03-28-46-489Z`: 199/199 passed, including analytics 9/9 and runtime 6/6.
-- Next: compare Stress Response (`8 Organic / 8 engaged / 1,223 seconds / 18 completions`) with Color Personality (`11 / 10 / 1,802 / 21`) and improve only the weaker measured unit.
+- Stress Response verifier: 20/20 injected defects detected; 12 locale and real-browser contracts passed.
+- Portfolio risk: `critical 0 / high 32 / medium 6 / info 53 / clean 28`; Stress Response moved from score 130 to clean.
+- Submitted inventory: 63 unique URLs, zero issues. Full harness `2026-09-05T03-54-00-926Z`: 201/201 passed, including analytics 9/9 and runtime 6/6.
+- Next: inspect Color Personality, the only remaining score-130 product. Its 11 Organic sessions / 10 engaged / 1,802 seconds and 21 completions protect the route while its ad and proof surfaces are contained.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
