@@ -39,6 +39,8 @@ Runtime smoke는 최대 3개 context를 병렬 실행하되 앱별 5초+5초 관
 
 Analytics smoke도 독립 시나리오를 최대 3개 병렬 실행한다. EQ의 1.4초 피드백 애니메이션만 test clock으로 줄이고 500ms 노출 자격은 실제 시간으로 확인한다. `ANALYTICS_CONCURRENCY=1`은 직렬 재현이다.
 
+다국어 병렬 검증은 locale별 context를 격리해 저장소 간섭을 막는다.
+
 ## Artifacts
 
 - 성공 실행은 대형 screenshot/trace를 남기지 않는다.

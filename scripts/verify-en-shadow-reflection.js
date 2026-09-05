@@ -155,29 +155,57 @@ function assertPrivate(rows, label) {
   rows.forEach(row => Object.keys(row.params || {}).forEach(key => { if (forbidden.has(key)) fail(label + ': private analytics key ' + key); }));
 }
 
+async function appContext(browser) {
+  const context = await browser.newContext({ serviceWorkers:'block', reducedMotion:'reduce' });
+  await context.addInitScript(() => {
+    Object.defineProperty(navigator, 'clipboard', { configurable:true, value:{ writeText:async value => { window.__copied = value; } } });
+  });
+  return context;
+}
+
+async function mapWithConcurrency(items, limit, worker) {
+  const results = new Array(items.length);
+  let cursor = 0;
+  async function runWorker() {
+    while (cursor < items.length) {
+      const index = cursor;
+      cursor += 1;
+      results[index] = await worker(items[index]);
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, runWorker));
+  return results;
+}
+
+async function verifyLocaleJourney(browser, origin, language) {
+  const context = await appContext(browser);
+  const page = await context.newPage();
+  await blockExternal(page);
+  try {
+    await page.goto(origin + '/shadow-work/?lang=' + language, { waitUntil:'domcontentloaded' });
+    await page.locator('#app-loader.hidden').waitFor({ state:'attached', timeout:5000 });
+    if (await page.getAttribute('html', 'lang') !== language) fail(language + ': document language mismatch');
+    if ((await page.locator('[data-i18n="intro.boundary"]').textContent()).trim().length < 35) fail(language + ': start boundary missing');
+    await layout(page, language); await page.click('#start-btn'); await complete(page);
+    if (!(await page.locator('#result-title').textContent()).trim()) fail(language + ': result name missing');
+    if ((await page.locator('[data-i18n="result.boundary"]').textContent()).trim().length < 35) fail(language + ': result boundary missing');
+    const rows = await events(page);
+    for (const event of ['shadow_reflection_start','shadow_reflection_complete']) if (rows.filter(row => row.name === event).length !== 1) fail(language + ': ' + event + ' not exact-once');
+    assertPrivate(rows, language);
+  } finally {
+    await context.close();
+  }
+}
+
 async function verifyRuntime(liveBase) {
   const server = liveBase ? null : localServer();
   if (server) await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   const origin = liveBase ? liveBase.replace(/\/$/, '') : 'http://127.0.0.1:' + server.address().port;
   const browser = await chromium.launch({ headless:true });
-  const context = await browser.newContext({ serviceWorkers:'block' });
-  await context.addInitScript(() => {
-    Object.defineProperty(navigator, 'clipboard', { configurable:true, value:{ writeText:async value => { window.__copied = value; } } });
-  });
   try {
-    for (const language of LANGUAGES) {
-      const page = await context.newPage(); await blockExternal(page);
-      await page.goto(origin + '/shadow-work/?lang=' + language, { waitUntil:'domcontentloaded' });
-      await page.locator('#app-loader.hidden').waitFor({ state:'attached', timeout:5000 });
-      if (await page.getAttribute('html', 'lang') !== language) fail(language + ': document language mismatch');
-      if ((await page.locator('[data-i18n="intro.boundary"]').textContent()).trim().length < 35) fail(language + ': start boundary missing');
-      await layout(page, language); await page.click('#start-btn'); await complete(page);
-      if (!(await page.locator('#result-title').textContent()).trim()) fail(language + ': result name missing');
-      if ((await page.locator('[data-i18n="result.boundary"]').textContent()).trim().length < 35) fail(language + ': result boundary missing');
-      const rows = await events(page);
-      for (const event of ['shadow_reflection_start','shadow_reflection_complete']) if (rows.filter(row => row.name === event).length !== 1) fail(language + ': ' + event + ' not exact-once');
-      assertPrivate(rows, language); await page.close();
-    }
+    await mapWithConcurrency(LANGUAGES, 4, language => verifyLocaleJourney(browser, origin, language));
+
+    const context = await appContext(browser);
 
     const page = await context.newPage(); await blockExternal(page);
     await page.goto(origin + '/shadow-work/?lang=en&result=appease&score=9&surface=unknown', { waitUntil:'domcontentloaded' });
@@ -216,7 +244,8 @@ async function verifyRuntime(liveBase) {
     if (await fallback.getAttribute('html', 'lang') !== 'en') fail('locale fetch failure did not recover to English');
     await fallback.click('#start-btn'); await complete(fallback);
 
-    return { origin, locales:LANGUAGES.length, scenariosPerLocale:8, guideAutoStart:true, neutralShare:true, privateTelemetry:true, mobile:true, localeFallback:true };
+    await context.close();
+    return { origin, locales:LANGUAGES.length, localeConcurrency:4, scenariosPerLocale:8, guideAutoStart:true, neutralShare:true, privateTelemetry:true, mobile:true, localeFallback:true };
   } finally {
     await browser.close(); if (server) await new Promise(resolve => server.close(resolve));
   }
