@@ -11,10 +11,10 @@ npm run harness
 Use it for broad changes and the final root release. For one product, use the smaller release path during iteration:
 
 ```powershell
-node scripts/harness-workflow-check.js --target projects/qr-generator --release-verifier scripts/verify-qr-generator-trust.js
+npm run harness:red-flag-release
 ```
 
-Release mode runs the chosen registered verifier plus documentation, quality, submitted-index, secret and advertising safety gates. It does not replace the final full regression.
+Release aliases wrap `--target` and `--release-verifier`. Release mode runs that verifier plus documentation, quality, submitted-index, secret and advertising safety gates. It does not replace the final full regression.
 
 `--plan` validates unique step names, script existence and the verifier path without running checks. Product verifiers own feature contracts; the shared runtime owns portfolio smoke coverage.
 

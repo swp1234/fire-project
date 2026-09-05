@@ -27,7 +27,7 @@ This file keeps only evidence that still changes a product, traffic, or release 
 | Blog | Preserve the 175-page focused indexable cohort; leave low-signal inventory `noindex,follow` | The cohort retained about 90% of observed Organic blog sessions |
 | Games | Keep playable routes but suspend ad rewards/manual units during restriction | Game actions can be valid; ad exchange and adjacent-click risk cannot |
 | Reflections | Keep only disclosed scoring, visible limits, private stage telemetry and focused next actions | Unsupported ratings, percentiles, diagnoses and capability claims are not performance assets |
-| Retirements | Word Scramble, MBTI Career, Seollal, Brainrot, Delulu, Hail Mary, Luck Meter, Sleep Animal and Rizz Score stay retired | Their qualified action/search evidence did not justify the stale experiences |
+| Retirements | Word Scramble, MBTI Career, Seollal, Brainrot, Delulu, Hail Mary, Luck Meter, Sleep Animal, Rizz Score and Red Flag stay retired | Their qualified action/search evidence did not justify the stale experiences |
 
 ## Measured paths awaiting enough post-release evidence
 
@@ -46,11 +46,11 @@ This file keeps only evidence that still changes a product, traffic, or release 
 - Reward-risk games were contained or suspended: 2048, Sky Runner, Pong, Idle Clicker, Flappy Bird, Memory Card, Maze Runner, Color Memory, Road Shooter, Brick Breaker, Zigzag Runner, Stack Tower, Number Puzzle, Word Guess, Snake and Emoji Merge.
 - Claim-heavy reflections were reset around their actual authored rules: Trauma Response, Anxiety Type, Toxic Trait, AI Personality, Emotion Temperature, Overthinker, MBTI Love, Stress Response and Color Choice Mixer.
 - Seollal Fortune was reduced to a 750-byte `noindex,follow` redirect to Fortune Cookie. Its worker removes only `seollal-fortune-*` caches and unregisters so the stale app cannot revive offline.
-- Current ad-risk inventory after QR Generator containment is `0 critical / 16 high / 6 medium / 53 info / 44 clean`. Remaining high items are containment candidates, not permission to broaden traffic.
+- Current ad-risk inventory after Red Flag retirement is `0 critical / 15 high / 6 medium / 53 info / 45 clean`. Remaining high items are containment candidates, not permission to broaden traffic.
 
 ## Latest release evidence
 
-- QR Generator: keep as a contained utility after two US Direct visits but no qualified actions or Search Console rows. Child `91f23f3`, Pages `33965694291`, 18/18 mutations and 15 live blob matches prove the ad/privacy reset. Earlier release details remain in Git history.
+- Red Flag: retired after zero GA4 visits/actions in the complete seven-day window and no 28-day exact-page GSC rows. Attachment Style had seven starts, five completions and one related click in the same GA4 window. The old route is now a 1,500-byte attributed redirect; child commits `2c7f0d6`, `b846af1`, `cb915f7`, three successful Pages runs, 11/11 mutations and 19/19 live blob matches prove the transition. Earlier release details remain in Git history.
 
 ## Trend queue
 
@@ -62,6 +62,6 @@ Current signal qualification and primary sources live in `docs/STRATEGY.md` and 
 ## Verification baseline
 
 - Pre-optimization harness `2026-09-05T04-49-44-276Z` passed 205/205 in 968.9 seconds. Its 97 duplicate syntax subprocesses used only 4.7 seconds but nearly doubled the step/report count.
-- Product release harness `2026-09-05T12-22-54-697Z` passed 14/14 in 13.0 seconds for QR Generator. Final full harness `2026-09-05T12-23-25-469Z` passed 123/123 in 791.8 seconds, including analytics 9/9, runtime 6/6 and submitted inventory 63/0.
+- Product release harness `2026-09-05T12-55-32-921Z` passed 14/14 for Red Flag retirement. Final full harness `2026-09-05T12-56-26-497Z` passed 124/124 in 797.2 summed seconds, including analytics 9/9, runtime 6/6 and submitted inventory 63/0.
 - Successful-step output is omitted from JSON: `latest.json` fell from 159.0 KB to about 14 KB. Safe gates use path-scoped clocks or isolated concurrency; qualified-exposure and crash-watch timers remain real.
 - GitHub Pages source must be queried per child repository before release. Working/development branch names are not deployment evidence.

@@ -14,17 +14,16 @@ Updated: 2026-09-05 KST. Release history is in `memory/data-check-log.md`; the r
 - Remove manual ads, reward/interstitial exchanges, fabricated proof and unverifiable paid-impression telemetry one measured product at a time.
 - Preserve routes with credible Organic acquisition or valid action evidence. Exclude Singapore desktop Direct scans and legacy synthetic events from growth decisions.
 
-## Latest release: QR Generator trust reset
+## Latest release: Red Flag retirement
 
-- Kept `/qr-generator/` because it had two US Direct visits and useful guide dependencies, despite zero qualified actions and no 28-day Search Console rows.
-- Removed two manual ad units, the active loader, fabricated daily-use/rating proof, synthetic engagement and persisted payload history. Analytics now emits exact-once start/generate/download and successful neutral-share stages without QR input values.
-- Restricted the service worker to same-origin successful responses and `qr-generator*` cache cleanup. The app README fell from 209 to 9 lines; the shared harness guide fell from 2,297 to 1,635 bytes.
-- Child `91f23f3` deployed in Pages run `33965694291`; all 15 live product files match the deployed Git blobs.
+- Retired `/red-flag-test/` after GA4 showed zero visits/actions for 2026-08-29 through 2026-09-04 and GSC showed no exact-page rows across 28 days. Attachment Style had seven starts, five completions and one related click in the same GA4 window.
+- Replaced the 4,132-line stale app with a 1,500-byte `noindex,follow` redirect, narrow cache cleanup and no ads, analytics or unsupported scores. Active portal promotion now leads to Attachment Style with a private `red_flag_retirement` source.
+- Corrected the tests hub schema/card/12-locale badge count to 40. Child commits: Attachment `2c7f0d6`, Red Flag `b846af1`, Portal `cb915f7`; Pages runs `33967343730`, `33967345195`, `33967348956`.
 
 ## Validation and next action
 
-- QR trust verification caught 18/18 injected defects; local and production mobile/desktop generation and PNG download passed. Portfolio risk is now `0 critical / 16 high / 6 medium / 53 info / 44 clean`; submitted inventory remains 63/0.
-- Product release harness `2026-09-05T12-22-54-697Z` passed 14/14 in 13.0 seconds. Final full harness `2026-09-05T12-23-25-469Z` passed 123/123 in 791.8 summed seconds, including analytics 9/9 and runtime 6/6.
+- Retirement verification caught 11/11 injected defects; local and production mobile/desktop redirects passed, and 19/19 live files match deployed Git blobs. Portfolio risk is now `0 critical / 15 high / 6 medium / 53 info / 45 clean`; submitted inventory remains 63/0.
+- Product release harness `2026-09-05T12-55-32-921Z` passed 14/14. Final full harness `2026-09-05T12-56-26-497Z` passed 124/124 in 797.2 summed seconds, including analytics 9/9 and runtime 6/6.
 - Documentation budgets remain mutation-tested; current decisions stay here, while release narration and raw reports stay in Git/ignored logs.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
