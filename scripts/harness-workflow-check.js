@@ -296,6 +296,7 @@ async function main() {
     ['Stress core and mutations', process.execPath, ['scripts/verify-stress-core.js', '--mutations']],
     ['EQ trust and incident suspension', process.execPath, ['scripts/verify-eq-trust.js', '--mutations']],
     ['Burnout trust and incident suspension', process.execPath, ['scripts/verify-burnout-trust.js', '--mutations']],
+    ['Reward reflection trust and incident suspension', process.execPath, ['scripts/verify-dopamine-trust.js', '--mutations']],
     ['HSP reset funnel mutations', process.execPath, ['scripts/verify-hsp-reset-funnel.js', '--mutations']],
     ['sensory reset integration', process.execPath, ['scripts/verify-sensory-reset.js']],
     ['K-pop roster and guide mutations', process.execPath, ['scripts/verify-kpop-role-roster.js', '--mutations']],
