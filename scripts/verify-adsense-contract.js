@@ -53,6 +53,7 @@ const DEFAULT_PAGES = [
   path.join(ROOT, 'projects', 'hsp-test', 'index.html'),
   path.join(ROOT, 'projects', 'hsp-test', 'reset.html'),
   path.join(ROOT, 'projects', 'hsp-test', 'map.html'),
+  path.join(ROOT, 'projects', 'trauma-response', 'index.html'),
   ...SENSORY_LOCALES.map((locale) => path.join(
     ROOT,
     'projects',

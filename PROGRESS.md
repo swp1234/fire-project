@@ -19,18 +19,19 @@ This file contains only the current operating decision. Detailed evidence and re
 - Exclude deployment days, Singapore desktop Direct scans, concentrated non-organic bursts, AI-assistant referrals and legacy synthetic events from growth judgments.
 - Do not suppress a product with credible Organic acquisition or real completion signals merely because its total traffic is small.
 
-## Latest release: portal Auto Ads-only cleanup
+## Latest release: Trauma Response containment and result reset
 
-- Palworld's 56-day 459 page views were 94% Singapore desktop Direct scans. Only four Organic sessions existed, and valid actions were limited to three base-plan users and one field-plan user. Search Console returned no rows for the Palworld or MBTI type-page set.
-- Portal `3fc3cd2` is deployed by Pages run `33932446058`. It removes six manual units/direct pushes and nine client-authored ad-impression events from five tools, 16 MBTI type pages and three hubs while retaining one fixed-publisher Auto Ads loader on each of the 21 monetized target pages.
-- The risk scanner no longer mistakes `seenAds.push()` for an AdSense request or a compatibility adapter definition for an H5 call. It now detects product-prefixed synthetic ad-impression events; its self-test is 12/12.
-- The dedicated verifier detects 9/9 injected defects, accepts the former false-positive case, and passes local/production 390/1440px Palworld plan, Past Life story and MBTI type-action journeys. Thirty deployed sources were independently checked with zero risky code and zero loader issues. Portfolio ad-risk is now `critical 0 / high 40 / medium 6 / info 53 / clean 20`.
+- Trauma Response had 58 page views / 28 users and only two completions during 2026-07-11 to 2026-09-04. Its five Organic sessions were all engaged but totaled only 143 seconds; Search Console returned no exact-page row. The Organic signal is enough to preserve the route, not enough to preserve its risky implementation.
+- Release `067c356` removes three manual ad units, the result ad request/impression event, the active loader, fabricated `4.6 / 2,840` rating, hidden FAQ, random percentile, clinical-looking dimension output, duplicate promotion, result-bearing telemetry and premature result sharing. Ads are explicitly suspended.
+- The result now transparently counts one point per answer across four labels, states that the activity is author-created and non-diagnostic, and offers one primary Stress Check plan action plus two focused related routes. Twelve locale bundles retain only used, bounded result copy; the app lost 1,417 lines net and gained a 711-byte release contract.
+- Private exact-once stages are `trauma_response_view -> start -> progress -> complete`, plus success-only `next_click`, `share` and delegated `related_click`. Answers, result labels, scores, locale, URL and timing are excluded.
+- The dedicated verifier detects 20/20 injected defects and passes local and deployed 390/1440px eight-question journeys. Portfolio ad-risk is now `critical 0 / high 39 / medium 6 / info 53 / clean 21`.
 
 ## Validation and next action
 
 - Common AdSense contract: 11/11 mutations detected; all suspended products have zero ad loaders.
 - Submitted indexing inventory: 63 URLs, zero issues. Blog focus: 173 indexable, 209 redirects, 1,596 noindex.
-- Final harness `2026-09-05T00-01-54-669Z`: 185/185 stages passed, including analytics 9/9 and runtime 6/6.
-- Next: compare `anxiety-type` and `trauma-response`, the two highest remaining risks, using real Organic/action evidence; contain or retire the weaker product. Keep new trend content behind the distinct-intent and measurable-interaction gate.
+- Final harness `2026-09-05T00-34-10-042Z`: 187/187 stages passed, including analytics 9/9 and runtime 6/6. Production returned the exact 21,226-byte shell and 12,038-byte app with no ad surface.
+- Next: evaluate `anxiety-type` as the highest-risk product with the strongest credible Organic engagement, then contain its placement/measurement risk without suppressing its search route. Keep new trend content behind the distinct-intent and measurable-interaction gate.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
