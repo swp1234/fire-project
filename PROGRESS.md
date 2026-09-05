@@ -14,18 +14,18 @@ Updated: 2026-09-05 KST. Release history is in memory/data-check-log.md; the rep
 - Remove manual ads, rewarded/interstitial paths, fabricated proof and unverifiable paid-impression telemetry one measured product at a time.
 - Preserve routes with credible Organic acquisition or valid completion evidence; exclude Singapore desktop Direct scans and legacy synthetic events from growth judgments.
 
-## Latest release: Seollal Fortune retirement
+## Latest release: NPC completion reset
 
-- The score-110 comparison selected Seollal Fortune because 2026-07-11~09-04 had zero Organic landing sessions, zero fortune_draw actions and no exact Search Console row. It recorded 37 page views / 37 users, while 34 Singapore desktop Direct sessions matched the excluded scan pattern.
-- Release fa08267 replaces the stale 2026 random-fortune experience, two manual ads, direct pushes, synthetic engagement, fabricated 4.3 / 1,150 proof, unsupported fortune claims and result-rich sharing with a 750-byte noindex,follow redirect to evergreen Fortune Cookie.
-- A 592-byte retirement worker deletes only seollal-fortune-* caches, moves previously controlled clients to the target and unregisters. This prevents the old cache-first worker from reviving retired content.
-- Seollal Greetings release 524d8cd removes its retired recommendation and links to Zodiac Pair. Both production files and the redirect/worker matched local hashes exactly.
+- The current source already emitted completion correctly; the only observed starter stopped after four choices and four mandatory continue clicks. The route is preserved, but question typing waits and ten extra continue clicks are removed so ten choices complete the activity.
+- Manual ads, synthetic engagement, fabricated 4.5 / 1,850 rating, inaccurate FAQ schema, random percentile and zero-click generic cross-promo are removed. The disclosed score is the ten 0–3 choice values divided by 30, with a visible entertainment-only boundary.
+- Production commit d2134b7 is deployed from the repository's actual Pages source, gh-pages. Master commit dd1332c carries the same reset. Cache-bypassed production HTML, CSS, app, Korean locale, manifest and worker match local SHA-256 hashes.
 
 ## Validation and next action
 
-- Seollal retirement verifier: 12/12 injected defects detected; local and production redirects passed at 390/1440 px.
-- Portfolio risk: critical 0 / high 30 / medium 6 / info 53 / clean 30.
-- Submitted inventory: 63 unique URLs, zero issues. Full harness 2026-09-05T04-49-44-276Z: 205/205 passed, including analytics 9/9 and runtime 6/6.
-- Trend R&D queue is refreshed in docs/STRATEGY.md. Next: continue score-110 cleanup while rechecking the held game signal across seven days; do not publish or expand traffic while the restriction remains.
+- NPC verifier: 22/22 injected defects detected; local and production ten-choice journeys passed at 390/1440 px with three private exact-once stages and zero ads. Pages run 33946998363 succeeded.
+- Portfolio risk: critical 0 / high 29 / medium 6 / info 53 / clean 31. Submitted inventory remains 63 unique URLs with zero issues.
+- The 158 KB append-only decision log is reduced to a 7.8 KB current baseline. Optimized harness `2026-09-05T05-28-16-104Z` passed 109/109 after deleting 98 duplicate syntax subprocesses; all actual verifier, mutation, analytics 9/9 and runtime 6/6 coverage remains.
+- The full run took 1,038.2 seconds, confirming that English Attachment Reflection (115.2s) and K-pop roster/guide (122.7s), not syntax checks, are the time bottlenecks. Successful-step stdout is no longer duplicated into future JSON reports.
+- Next: time those two verifier internals before changing them. Trend publishing and traffic expansion remain paused during the restriction.
 
 User-owned projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js} remains untouched.

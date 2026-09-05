@@ -93,6 +93,8 @@ SOUNDSCAPE_*.txt
 !scripts/verify-stress-response.js
 !scripts/verify-color-personality.js
 !scripts/verify-seollal-retirement.js
+!scripts/verify-npc-completion-reset.js
+!scripts/verify-doc-budget.js
 !scripts/verify-anxiety-type.js
 !scripts/verify-toxic-trait.js
 !scripts/verify-ai-personality.js

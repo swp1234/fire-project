@@ -21,6 +21,8 @@ git -C projects/root-domain status --short
 
 변경한 하위 저장소를 먼저 검증·commit·push한다. 그다음 루트에서 submodule pointer, 공통 스크립트, 현재 문서를 commit·push한다.
 
+GitHub Pages 저장소는 작업 브랜치와 배포 브랜치가 다를 수 있다. 푸시 전에 `gh api repos/<owner>/<repo>/pages --jq .source.branch`로 실제 source를 확인하고, fast-forward 가능한 배포 커밋을 그 브랜치에도 올린다. Actions의 Pages run이 그 커밋으로 성공하기 전에는 production 배포로 보지 않는다.
+
 ## Change loop
 
 1. 현재 파일과 dirty state를 확인한다.

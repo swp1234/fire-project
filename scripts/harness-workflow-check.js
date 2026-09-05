@@ -17,6 +17,7 @@ function parseArgs(argv) {
     runtime: 'focused',
     skipAnalytics: false,
     skipRuntime: false,
+    planOnly: false,
   };
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -25,8 +26,9 @@ function parseArgs(argv) {
     else if (arg === '--runtime') options.runtime = argv[++i];
     else if (arg === '--skip-analytics') options.skipAnalytics = true;
     else if (arg === '--skip-runtime') options.skipRuntime = true;
+    else if (arg === '--plan') options.planOnly = true;
     else if (arg === '--help' || arg === '-h') {
-      console.log('Usage: node scripts/harness-workflow-check.js [--target projects/portal] [--runtime focused] [--skip-analytics] [--skip-runtime]');
+      console.log('Usage: node scripts/harness-workflow-check.js [--target projects/portal] [--runtime focused] [--skip-analytics] [--skip-runtime] [--plan]');
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);
@@ -95,6 +97,18 @@ function runStep(name, command, args, options = {}) {
   });
 }
 
+function validatePlan(steps) {
+  const names = new Set();
+  for (const [name, command, args] of steps) {
+    if (names.has(name)) throw new Error(`Duplicate harness step name: ${name}`);
+    names.add(name);
+    if (command === process.execPath && args[0] && args[0] !== '-e') {
+      const scriptPath = path.resolve(ROOT, args[0]);
+      if (!fs.existsSync(scriptPath)) throw new Error(`Missing harness script: ${args[0]}`);
+    }
+  }
+}
+
 function writeReport(run) {
   fs.mkdirSync(LOG_DIR, { recursive: true });
 
@@ -109,6 +123,7 @@ function writeReport(run) {
     `- Target: \`${run.options.target}\``,
     `- Runtime smoke target: \`${run.options.runtime}\``,
     `- Playwright: \`${run.playwrightVersion}\``,
+    '- Node syntax validation: `implicit in verifier execution`',
     `- Result: **${run.ok ? 'PASS' : 'FAIL'}**`,
     '',
     '| Step | Result | Duration |',
@@ -179,103 +194,7 @@ async function main() {
   const plannedSteps = [
     ['git diff check', 'git', ['diff', '--check']],
     ['playwright version floor', process.execPath, ['-e', `const v=require('playwright/package.json').version; if (!(${JSON.stringify(versionAtLeast(playwrightVersion, '1.60.0'))})) { console.error('Playwright 1.60.0+ required, got '+v); process.exit(1); } console.log('Playwright '+v+' OK');`]],
-    ['script syntax', process.execPath, ['--check', 'scripts/harness-workflow-check.js']],
-    ['analytics syntax', process.execPath, ['--check', 'scripts/analytics-event-check.js']],
-    ['runtime syntax', process.execPath, ['--check', 'scripts/runtime-check.js']],
-    ['root verifier syntax', process.execPath, ['--check', 'scripts/verify-root-focus.js']],
-    ['root mutation syntax', process.execPath, ['--check', 'scripts/verify-root-focus-mutations.js']],
-    ['brain trust verifier syntax', process.execPath, ['--check', 'scripts/verify-brain-type-trust.js']],
-    ['Palworld server console verifier syntax', process.execPath, ['--check', 'scripts/verify-palworld-server-console.js']],
-    ['MBTI compatibility focus verifier syntax', process.execPath, ['--check', 'scripts/verify-mbti-compatibility-focus.js']],
-    ['Future Self funnel verifier syntax', process.execPath, ['--check', 'scripts/verify-future-self-funnel.js']],
-    ['English Future Self guide verifier syntax', process.execPath, ['--check', 'scripts/verify-en-future-self-guide.js']],
-    ['Doomscrolling bridge verifier syntax', process.execPath, ['--check', 'scripts/verify-doomscrolling-bridge.js']],
-    ['Chinese browser-games verifier syntax', process.execPath, ['--check', 'scripts/verify-zh-browser-games.js']],
-    ['Chinese free-games controls verifier syntax', process.execPath, ['--check', 'scripts/verify-zh-free-games-controls.js']],
-    ['Spanish dopamine-break verifier syntax', process.execPath, ['--check', 'scripts/verify-es-dopamine-break.js']],
-    ['Spanish typing-speed verifier syntax', process.execPath, ['--check', 'scripts/verify-es-typing-speed.js']],
-    ['Chinese habit-tracker verifier syntax', process.execPath, ['--check', 'scripts/verify-zh-habit-tracker.js']],
-    ['Japanese Brain Type verifier syntax', process.execPath, ['--check', 'scripts/verify-ja-brain-type.js']],
-    ['Chinese cognitive-distortions verifier syntax', process.execPath, ['--check', 'scripts/verify-zh-cognitive-distortions.js']],
-    ['French cognitive-distortions verifier syntax', process.execPath, ['--check', 'scripts/verify-fr-cognitive-distortions.js']],
-    ['Spanish cognitive-distortions verifier syntax', process.execPath, ['--check', 'scripts/verify-es-cognitive-distortions.js']],
-    ['Korean psychology picker verifier syntax', process.execPath, ['--check', 'scripts/verify-ko-psychology-picker.js']],
-    ['Chinese HSP guide verifier syntax', process.execPath, ['--check', 'scripts/verify-zh-hsp-guide.js']],
-    ['English HSP coping verifier syntax', process.execPath, ['--check', 'scripts/verify-en-hsp-coping.js']],
-    ['Japanese reaction-time verifier syntax', process.execPath, ['--check', 'scripts/verify-ja-reaction-time.js']],
-    ['Japanese Minesweeper path verifier syntax', process.execPath, ['--check', 'scripts/verify-ja-minesweeper-path.js']],
-    ['French Minesweeper path verifier syntax', process.execPath, ['--check', 'scripts/verify-fr-minesweeper-path.js']],
-    ['Indonesian lottery random path verifier syntax', process.execPath, ['--check', 'scripts/verify-id-lottery-random-path.js']],
-    ['Chinese Block Puzzle path verifier syntax', process.execPath, ['--check', 'scripts/verify-zh-block-puzzle-path.js']],
-    ['French Developer Quiz path verifier syntax', process.execPath, ['--check', 'scripts/verify-fr-dev-quiz-path.js']],
-    ['English Past Life path verifier syntax', process.execPath, ['--check', 'scripts/verify-en-past-life-path.js']],
-    ['Chinese MBTI City path verifier syntax', process.execPath, ['--check', 'scripts/verify-zh-mbti-city-path.js']],
-    ['IQ completion-reset verifier syntax', process.execPath, ['--check', 'scripts/verify-iq-completion-reset.js']],
-    ['Blood Type culture-reset verifier syntax', process.execPath, ['--check', 'scripts/verify-blood-type-culture-reset.js']],
-    ['Zodiac pair-reset verifier syntax', process.execPath, ['--check', 'scripts/verify-zodiac-pair-reset.js']],
-    ['Chinese rejection-action verifier syntax', process.execPath, ['--check', 'scripts/verify-zh-rejection-action.js']],
-    ['Korean emotion-action path verifier syntax', process.execPath, ['--check', 'scripts/verify-ko-emotion-action-path.js']],
-    ['Indonesian emotion-action path verifier syntax', process.execPath, ['--check', 'scripts/verify-id-emotion-action-path.js']],
-    ['German emotion-action path verifier syntax', process.execPath, ['--check', 'scripts/verify-de-emotion-action-path.js']],
-    ['English attachment-reflection verifier syntax', process.execPath, ['--check', 'scripts/verify-en-attachment-reflection.js']],
-    ['French attachment-reflection verifier syntax', process.execPath, ['--check', 'scripts/verify-fr-attachment-reflection.js']],
-    ['English shadow-reflection verifier syntax', process.execPath, ['--check', 'scripts/verify-en-shadow-reflection.js']],
-    ['brain training bridge verifier syntax', process.execPath, ['--check', 'scripts/verify-brain-training-bridge.js']],
-    ['2048 ad policy verifier syntax', process.execPath, ['--check', 'scripts/verify-2048-ad-policy.js']],
-    ['Sky Runner suspension verifier syntax', process.execPath, ['--check', 'scripts/verify-sky-runner-suspension.js']],
-    ['portfolio retirement verifier syntax', process.execPath, ['--check', 'scripts/verify-portfolio-retirement.js']],
-    ['MBTI Career retirement verifier syntax', process.execPath, ['--check', 'scripts/verify-mbti-career-retirement.js']],
-    ['Word Scramble retirement verifier syntax', process.execPath, ['--check', 'scripts/verify-word-scramble-retirement.js']],
-    ['Pong suspension verifier syntax', process.execPath, ['--check', 'scripts/verify-pong-suspension.js']],
-    ['Idle Clicker suspension verifier syntax', process.execPath, ['--check', 'scripts/verify-idle-clicker-suspension.js']],
-    ['Flappy suspension verifier syntax', process.execPath, ['--check', 'scripts/verify-flappy-suspension.js']],
-    ['Memory Card suspension verifier syntax', process.execPath, ['--check', 'scripts/verify-memory-card-suspension.js']],
-    ['Maze Runner suspension verifier syntax', process.execPath, ['--check', 'scripts/verify-maze-runner-suspension.js']],
-    ['Color Memory suspension verifier syntax', process.execPath, ['--check', 'scripts/verify-color-memory-suspension.js']],
-    ['Road Shooter suspension verifier syntax', process.execPath, ['--check', 'scripts/verify-road-shooter-suspension.js']],
-    ['Brick Breaker suspension verifier syntax', process.execPath, ['--check', 'scripts/verify-brick-breaker-suspension.js']],
-    ['Zigzag Runner suspension verifier syntax', process.execPath, ['--check', 'scripts/verify-zigzag-runner-suspension.js']],
-    ['Stack Tower suspension verifier syntax', process.execPath, ['--check', 'scripts/verify-stack-tower-suspension.js']],
-    ['Number Puzzle suspension verifier syntax', process.execPath, ['--check', 'scripts/verify-number-puzzle-suspension.js']],
-    ['Word Guess suspension verifier syntax', process.execPath, ['--check', 'scripts/verify-word-guess-suspension.js']],
-    ['Snake suspension verifier syntax', process.execPath, ['--check', 'scripts/verify-snake-suspension.js']],
-    ['Emoji Merge suspension verifier syntax', process.execPath, ['--check', 'scripts/verify-emoji-merge-suspension.js']],
-    ['Portal ad containment verifier syntax', process.execPath, ['--check', 'scripts/verify-portal-ad-containment.js']],
-    ['Portal Auto Ads-only verifier syntax', process.execPath, ['--check', 'scripts/verify-portal-auto-ads-only.js']],
-    ['Trauma Response verifier syntax', process.execPath, ['--check', 'scripts/verify-trauma-response.js']],
-    ['Stress Response verifier syntax', process.execPath, ['--check', 'scripts/verify-stress-response.js']],
-    ['Color Personality verifier syntax', process.execPath, ['--check', 'scripts/verify-color-personality.js']],
-    ['Seollal retirement verifier syntax', process.execPath, ['--check', 'scripts/verify-seollal-retirement.js']],
-    ['Anxiety Type verifier syntax', process.execPath, ['--check', 'scripts/verify-anxiety-type.js']],
-    ['Toxic Trait verifier syntax', process.execPath, ['--check', 'scripts/verify-toxic-trait.js']],
-    ['AI Personality verifier syntax', process.execPath, ['--check', 'scripts/verify-ai-personality.js']],
-    ['Emotion Temp verifier syntax', process.execPath, ['--check', 'scripts/verify-emotion-temp.js']],
-    ['Overthinker verifier syntax', process.execPath, ['--check', 'scripts/verify-overthinker.js']],
-    ['MBTI Love verifier syntax', process.execPath, ['--check', 'scripts/verify-mbti-love.js']],
-    ['ZH 2048 guide verifier syntax', process.execPath, ['--check', 'scripts/verify-zh-2048-guide.js']],
-    ['culture choice verifier syntax', process.execPath, ['--check', 'scripts/verify-culture-choice.js']],
-    ['cross-promo touch verifier syntax', process.execPath, ['--check', 'scripts/verify-cross-promo-touch.js']],
-    ['culture review syntax', process.execPath, ['--check', 'scripts/culture-signal-review.js']],
-    ['GSC sitemap submit syntax', process.execPath, ['--check', 'scripts/gsc-submit-sitemaps.js']],
-    ['IndexNow submit syntax', process.execPath, ['--check', 'scripts/indexnow-submit.js']],
-    ['indexing inventory syntax', process.execPath, ['--check', 'scripts/indexing-inventory.js']],
-    ['content audit syntax', process.execPath, ['--check', 'scripts/blog-indexing-audit.js']],
-    ['blog page verifier syntax', process.execPath, ['--check', 'scripts/verify-blog-pages.js']],
-    ['tracked secret verifier syntax', process.execPath, ['--check', 'scripts/verify-tracked-secrets.js']],
-    ['AdSense contract verifier syntax', process.execPath, ['--check', 'scripts/verify-adsense-contract.js']],
-    ['ad-risk inventory syntax', process.execPath, ['--check', 'scripts/ad-risk-inventory.js']],
-    ['HSP reset funnel verifier syntax', process.execPath, ['--check', 'scripts/verify-hsp-reset-funnel.js']],
-    ['Stress core verifier syntax', process.execPath, ['--check', 'scripts/verify-stress-core.js']],
-    ['EQ trust verifier syntax', process.execPath, ['--check', 'scripts/verify-eq-trust.js']],
-    ['sensory reset integration verifier syntax', process.execPath, ['--check', 'scripts/verify-sensory-reset.js']],
-    ['K-pop roster verifier syntax', process.execPath, ['--check', 'scripts/verify-kpop-role-roster.js']],
-    ['KST date helper syntax', process.execPath, ['--check', 'scripts/lib/time-zone-date.js']],
-    ['KST date verifier syntax', process.execPath, ['--check', 'scripts/verify-kst-date.js']],
-    ['safe local port verifier syntax', process.execPath, ['--check', 'scripts/verify-safe-local-port.js']],
-    ['Daily Tarot verifier syntax', process.execPath, ['--check', 'scripts/verify-daily-tarot.js']],
-    ['blog indexing focus syntax', process.execPath, ['--check', 'scripts/blog-indexing-focus.js']],
-    ['indexable blog ad cleaner syntax', process.execPath, ['--check', 'scripts/clean-indexable-blog-ads.js']],
-    ['blog interaction generator syntax', process.execPath, ['--check', 'scripts/verify-blog-generator-interaction.js']],
+    ['documentation budget and mutations', process.execPath, ['scripts/verify-doc-budget.js', '--mutations']],
     ['portal locale audit', process.execPath, ['scripts/portal-hub-locale-audit.js']],
     ['quality gate', BASH, ['scripts/quality-gate.sh', options.target]],
     ['MBTI Career retirement quality gate', BASH, ['scripts/quality-gate.sh', 'projects/mbti-career']],
@@ -347,6 +266,7 @@ async function main() {
     ['Stress Response containment and mutations', process.execPath, ['scripts/verify-stress-response.js', '--mutations']],
     ['Color Personality containment and mutations', process.execPath, ['scripts/verify-color-personality.js', '--mutations']],
     ['Seollal retirement and mutations', process.execPath, ['scripts/verify-seollal-retirement.js', '--mutations']],
+    ['NPC completion reset and mutations', process.execPath, ['scripts/verify-npc-completion-reset.js', '--mutations']],
     ['Anxiety Type containment and mutations', process.execPath, ['scripts/verify-anxiety-type.js', '--mutations']],
     ['Toxic Trait containment and mutations', process.execPath, ['scripts/verify-toxic-trait.js', '--mutations']],
     ['AI Personality containment and mutations', process.execPath, ['scripts/verify-ai-personality.js', '--mutations']],
@@ -401,6 +321,18 @@ async function main() {
     ]);
   }
 
+  validatePlan(plannedSteps);
+  console.log('Node syntax validation: implicit in verifier execution\n');
+  if (options.planOnly) {
+    console.log(JSON.stringify({
+      steps: plannedSteps.length,
+      node: plannedSteps.filter(([, command]) => command === process.execPath).length,
+      shell: plannedSteps.filter(([, command]) => command === BASH).length,
+      other: plannedSteps.filter(([, command]) => command !== process.execPath && command !== BASH).length,
+    }, null, 2));
+    return;
+  }
+
   for (const [name, command, args, stepOptions] of plannedSteps) {
     console.log(`\n=== ${name} ===`);
     const result = await runStep(name, command, args, stepOptions || {});
@@ -408,12 +340,18 @@ async function main() {
     if (!result.ok) break;
   }
 
+  const reportSteps = steps.map((step) => step.ok ? {
+    name: step.name,
+    ok: step.ok,
+    code: step.code,
+    durationMs: step.durationMs,
+  } : step);
   const run = {
     runId: RUN_ID,
     ok: steps.every((step) => step.ok),
     options,
     playwrightVersion,
-    steps,
+    steps: reportSteps,
   };
   const reportPaths = writeReport(run);
 

@@ -55,7 +55,7 @@ npm run verify:ja-minesweeper-path
 npm run verify:fr-minesweeper-path
 ```
 
-나머지 전용 검증기는 `package.json`의 `verify:*` 스크립트를 기준으로 한다. 새 검증기는 문법 검사와 실행을 `scripts/harness-workflow-check.js`에 함께 등록한다.
+나머지 전용 검증기는 `package.json`의 `verify:*` 스크립트를 기준으로 한다. 새 검증기는 실제 실행을 `scripts/harness-workflow-check.js`에 등록한다. Node 실행이 문법 오류도 실패 처리하므로 별도 `node --check` 단계는 추가하지 않는다.
 
 ## AdSense 계약
 
