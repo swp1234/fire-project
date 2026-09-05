@@ -1177,13 +1177,13 @@ async function verifyPositionJourney(browser, origin, viewport, locale) {
       node.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       node.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
-    await waitForPositionState(
-      page,
-      () => document.querySelector('#progress-text')?.textContent.trim() === '2 / 12'
-        && document.querySelectorAll('.option-btn:not([disabled])').length === 4,
-      `${viewport.name} ${locale} position duplicate answer transition did not settle on question 2`,
-      4000,
-    );
+    // Two frames let every zero/one-millisecond transition created by a rapid
+    // double click settle. Checking the transient question-2 DOM can let the
+    // missing answer lock fail later under an unrelated focus assertion.
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    assert(await page.evaluate(() => document.querySelector('#progress-text')?.textContent.trim() === '2 / 12'
+      && document.querySelectorAll('.option-btn:not([disabled])').length === 4),
+    `${viewport.name} ${locale} position duplicate answer transition did not settle on question 2`);
     assert(await page.evaluate(() => document.activeElement?.id) === 'q-text', `${viewport.name} ${locale} position next-question focus mismatch`);
 
     for (let question = 2; question <= 12; question += 1) {

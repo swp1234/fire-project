@@ -14,18 +14,19 @@ Updated: 2026-09-05 KST. Release history is in memory/data-check-log.md; the rep
 - Remove manual ads, rewarded/interstitial paths, fabricated proof and unverifiable paid-impression telemetry one measured product at a time.
 - Preserve routes with credible Organic acquisition or valid completion evidence; exclude Singapore desktop Direct scans and legacy synthetic events from growth judgments.
 
-## Latest release: NPC completion reset
+## Latest release: Burnout reflection trust reset
 
-- The current source already emitted completion correctly; the only observed starter stopped after four choices and four mandatory continue clicks. The route is preserved, but question typing waits and ten extra continue clicks are removed so ten choices complete the activity.
-- Manual ads, synthetic engagement, fabricated 4.5 / 1,850 rating, inaccurate FAQ schema, random percentile and zero-click generic cross-promo are removed. The disclosed score is the ten 0–3 choice values divided by 30, with a visible entertainment-only boundary.
-- Production commit d2134b7 is deployed from the repository's actual Pages source, gh-pages. Master commit dd1332c carries the same reset. Cache-bypassed production HTML, CSS, app, Korean locale, manifest and worker match local SHA-256 hashes.
+- Keep `/burnout-test/`: 2026-08-29~09-04 had 14 page views, six users and four real starts/completions; Organic users appeared in India, Indonesia and South Korea. Completion is not the bottleneck.
+- Removed three manual ad units/loader, fabricated 12.8K and 4.8/2,850 proof, random percentile, answer-independent dimension bars, result-card export, generic cross-promo and sensitive result-label telemetry. The route is now ad-risk `clean 0` under the dated restriction marker.
+- The eight-question/six-label model remains. Its 0–3 authored weights, highest-total rule and listed-order tie rule are disclosed before start; results state that they are reflection prompts rather than measurements or diagnoses. Two localized next actions replace 12 competing cards.
+- Production commit `c4f9fab` deployed from the confirmed Pages source `master`; Pages run `33950596564` succeeded.
 
 ## Validation and next action
 
-- NPC verifier: 22/22 injected defects detected; local and production ten-choice journeys passed at 390/1440 px with three private exact-once stages and zero ads. Pages run 33946998363 succeeded.
-- Portfolio risk: critical 0 / high 29 / medium 6 / info 53 / clean 31. Submitted inventory remains 63 unique URLs with zero issues.
+- Burnout verifier: 14/14 injected defects detected; local and production journeys passed across 12 locales and eight answers with six private exact-once actions, duplicate-click protection, localized destinations and zero ads. An initial production failure exposed a verifier wait race, which was corrected to wait for app-owned action synchronization.
+- Portfolio risk: critical 0 / high 28 / medium 6 / info 53 / clean 32. Submitted inventory remains 63 unique URLs with zero issues.
 - The 158 KB append-only decision log is now a 7.9 KB current baseline. A mutation-tested documentation budget prevents root operating files from regrowing into session transcripts.
-- Final harness `2026-09-05T06-14-34-023Z` passed 110/110 in 693.4 seconds with analytics 9/9, runtime 6/6 and inventory 63/0. That is 28% faster than the 968.9-second 205-step baseline; JSON fell from 159.0 KB to 13.8 KB.
-- Path-scoped clocks and isolated concurrency reduced Attachment 115.2s -> 10.2s, K-pop 122.7s -> 32.8s, runtime 61.8s -> 21.1s, analytics 39.7s -> 8.5s and Shadow 37.1s -> 4.4s without shortening qualified exposure or per-app crash watches. Next: return to the highest-value containment/product bottleneck while traffic expansion remains paused.
+- Final harness `2026-09-05T06-59-16-387Z` passed 111/111 in 702.9 seconds with Burnout 14/14 mutations, K-pop 52/52, analytics 9/9, runtime 6/6 and inventory 63/0. That remains 27% faster than the 968.9-second 205-step baseline; JSON is 13.9 KB versus 159.0 KB.
+- Path-scoped clocks and isolated concurrency reduced Attachment 115.2s -> 10.2s, K-pop 122.7s -> 32.8s, runtime 61.8s -> 21.1s, analytics 39.7s -> 8.5s and Shadow 37.1s -> 4.4s without shortening qualified exposure or per-app crash watches. Next: choose the next high-risk route using credible acquisition/action evidence while traffic expansion remains paused.
 
 User-owned projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js} remains untouched.

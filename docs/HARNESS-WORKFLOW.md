@@ -19,6 +19,7 @@ Node 검증기의 실제 실행이 문법 검사도 담당한다. 성공 보고�
 ```powershell
 npm run verify:root
 npm run verify:root:mutations
+npm run verify:burnout-trust
 npm run harness:runtime
 ```
 

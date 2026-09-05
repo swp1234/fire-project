@@ -33,6 +33,7 @@ npm run verify:ad-risk-inventory
 ```powershell
 npm run verify:stress-core
 npm run verify:eq-trust
+npm run verify:burnout-trust
 npm run verify:2048-ad-policy
 npm run verify:sky-runner-suspension
 npm run verify:portfolio-retirement

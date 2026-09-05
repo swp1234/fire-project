@@ -46,15 +46,15 @@ This file keeps only evidence that still changes a product, traffic, or release 
 - Reward-risk games were contained or suspended: 2048, Sky Runner, Pong, Idle Clicker, Flappy Bird, Memory Card, Maze Runner, Color Memory, Road Shooter, Brick Breaker, Zigzag Runner, Stack Tower, Number Puzzle, Word Guess, Snake and Emoji Merge.
 - Claim-heavy reflections were reset around their actual authored rules: Trauma Response, Anxiety Type, Toxic Trait, AI Personality, Emotion Temperature, Overthinker, MBTI Love, Stress Response and Color Choice Mixer.
 - Seollal Fortune was reduced to a 750-byte `noindex,follow` redirect to Fortune Cookie. Its worker removes only `seollal-fortune-*` caches and unregisters so the stale app cannot revive offline.
-- Current ad-risk inventory after the NPC release is `0 critical / 29 high / 6 medium / 53 info / 31 clean`. Remaining high items are the next containment candidates, not permission to broaden traffic.
+- Current ad-risk inventory after the Burnout release is `0 critical / 28 high / 6 medium / 53 info / 32 clean`. Remaining high items are the next containment candidates, not permission to broaden traffic.
 
-## NPC completion reset — 2026-09-05
+## Burnout reflection trust reset — 2026-09-05
 
-- Historical source and GA4 agreed: `quiz_complete` was reachable and emitted at the result, but the only observed starter stopped after four choices and four required continue clicks. This was a real completion-friction signal, not missing instrumentation.
-- The route remains live because its meme/game framing is useful and the sample is too small for retirement. Ten scenes remain, but question typing waits and ten mandatory continue clicks are gone; one choice now advances automatically after a short visible reaction.
-- Manual ad code, fabricated 4.5/1,850 rating, inaccurate FAQ schema, random percentile, synthetic engagement and zero-click generic cross-promo were removed. The published score is the sum of ten visible 0–3 mappings divided by 30; copy states that it is entertainment rather than a validated assessment.
-- Analytics now records private exact-once `npc_test_start → npc_test_halfway → npc_test_complete` stages plus scene number only for choice progression. Answer keys, points, score and result label are excluded.
-- Child commits: `dd1332c` on `master`, production `d2134b7` on the actual Pages source `gh-pages`. Pages run `33946998363` succeeded. The verifier detects 22/22 injected defects and passes 390/1440px ten-choice journeys with zero ads.
+- The complete 2026-08-29~09-04 window had 14 page views, six users, four `quiz_start` users and four `quiz_complete` users. Organic acquisition appeared in India, Indonesia and South Korea, so this route was retained; its observed completion was already healthy.
+- Trust/policy risk was the measured bottleneck: three manual units plus an active loader, fabricated 12.8K and 4.8/2,850 proof, a random percentile, answer-independent dimension bars, result-specific sharing/export and result-label analytics were removed. The route moved from ad-risk `high 110` to `clean 0` with a dated suspension marker.
+- The existing eight-question model remains and now discloses its six 0–3 authored weights, highest-total rule and listed-order tie rule. A visible WHO-linked boundary says the output is a reflection prompt, not a measured score, diagnosis or population comparison. Twelve competing result cards became two language-preserving actions.
+- Child commit `c4f9fab` deployed from the confirmed Pages source `master`; Pages run `33950596564` succeeded. The dedicated gate catches 14/14 mutations and passes the full local and production journey in all 12 locales with duplicate-click protection, six private exact-once actions and zero ad nodes.
+- The first production gate failed because locale copy became visible just before app-owned action URLs synchronized. The page was correct; the verifier wait was racing two adjacent lifecycle steps. The gate now waits for the action contract itself before asserting, then passed production. This is a verifier defect fix, not a product regression.
 
 ## Trend queue
 
@@ -67,7 +67,7 @@ Current signal qualification and primary sources live in `docs/STRATEGY.md` and 
 ## Verification baseline
 
 - Pre-optimization harness `2026-09-05T04-49-44-276Z` passed 205/205 in 968.9 seconds. Its 97 duplicate syntax subprocesses used only 4.7 seconds but nearly doubled the step/report count.
-- Final harness `2026-09-05T06-14-34-023Z` passed 110/110 in 693.4 seconds. It is 28% faster than the 968.9-second 205-step baseline and 33% faster than the first 1,038.2-second structural run. All mutation, analytics 9/9, runtime 6/6 and submitted inventory 63/0 coverage remains.
+- Final harness `2026-09-05T06-59-16-387Z` passed 111/111 in 702.9 seconds after adding the Burnout gate. It remains 27% faster than the 968.9-second 205-step baseline. Burnout mutations were 14/14, K-pop 52/52, analytics 9/9, runtime 6/6 and submitted inventory 63/0.
 - Successful-step output is no longer copied into JSON: `latest.json` fell from 159.0 KB to 13.8 KB (91% smaller), while the Markdown summary is 5.9 KB. English Attachment Reflection fell from 115.2s to 10.2s and K-pop roster/guide from 122.7s to 32.3s by collapsing only app animation delays in their browser contexts; article qualification timers remain real.
 - Shared runtime smoke now runs at most three independent browser contexts concurrently. It fell from 61.8s to 21.1s; all six apps passed and recorded 10,024-10,052ms observation windows, so parallelism did not shorten the per-app crash watch.
 - Analytics smoke now runs at most three isolated scenarios concurrently and waits on EQ state instead of ten fixed 1.55s sleeps. It fell from 39.7s to 8.4s with 9/9 scenarios; EQ's 500ms qualified-action timer remains real.
