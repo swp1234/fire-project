@@ -78,6 +78,7 @@
     "verify:aura-color-studio": "node scripts/verify-aura-color-studio.js --mutations",
     "verify:knowledge-sprint": "node scripts/verify-knowledge-sprint.js --mutations",
     "verify:brainrot-retirement": "node scripts/verify-brainrot-retirement.js --mutations",
+    "verify:delulu-retirement": "node scripts/verify-delulu-retirement.js --mutations",
     "verify:fake-unlock-gates": "node scripts/verify-fake-unlock-gates.js",
     "verify:rule-based-labels": "node scripts/verify-rule-based-labels.js",
     "verify:mental-age-trust": "node scripts/verify-mental-age-trust.js --mutations",

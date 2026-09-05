@@ -245,6 +245,7 @@ async function main() {
     ['Sky Runner suspension mutations', process.execPath, ['scripts/verify-sky-runner-suspension.js', '--mutations']],
     ['portfolio retirement mutations', process.execPath, ['scripts/verify-portfolio-retirement.js', '--mutations']],
     ['Brainrot retirement mutations', process.execPath, ['scripts/verify-brainrot-retirement.js', '--mutations']],
+    ['Delulu retirement mutations', process.execPath, ['scripts/verify-delulu-retirement.js', '--mutations']],
     ['MBTI Career retirement mutations', process.execPath, ['scripts/verify-mbti-career-retirement.js', '--mutations']],
     ['Word Scramble retirement mutations', process.execPath, ['scripts/verify-word-scramble-retirement.js', '--mutations']],
     ['Pong suspension mutations', process.execPath, ['scripts/verify-pong-suspension.js', '--mutations']],
