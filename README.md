@@ -18,11 +18,9 @@
 ## Main checks
 
 ```powershell
-npm run verify:root
-npm run verify:root:mutations
-npm run verify:brain-trust
 npm run harness
-npm run harness:runtime
+npm run harness:release -- --target projects/<app> --release-verifier scripts/verify-<app>.js
+node scripts/harness-workflow-check.js --plan
 ```
 
-세부 완료 기준은 `docs/VALIDATION.md`, 배포 순서는 `docs/OPERATIONS.md`를 참고하세요.
+세부 완료 기준은 `docs/VALIDATION.md`, 하네스 구조는 `docs/HARNESS-WORKFLOW.md`, 배포 순서는 `docs/OPERATIONS.md`를 참고하세요.

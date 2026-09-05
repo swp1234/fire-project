@@ -10,6 +10,18 @@ const LOG_DIR = path.join(ROOT, 'logs', 'harness-workflow');
 const RUN_ID = new Date().toISOString().replace(/[:.]/g, '-');
 const REPORT_KEEP = Number.parseInt(process.env.HARNESS_WORKFLOW_REPORT_KEEP || '8', 10);
 const BASH = process.env.GIT_BASH || (process.platform === 'win32' ? 'C:/Program Files/Git/bin/bash.exe' : 'bash');
+const VERIFY_EXEMPTIONS = {
+  'scripts/clean-focused-auto-ads.js': 'legacy migration diagnostic; the active restriction contract is owned by verify-adsense-contract',
+  'scripts/verify-stress-plan.js': 'focused product diagnostic outside the current six-route portfolio smoke',
+  'scripts/verify-stress-plan-distribution.js': 'focused product distribution diagnostic outside the current six-route portfolio smoke',
+  'scripts/verify-rule-based-labels.js': 'legacy umbrella diagnostic superseded by product-specific trust verifiers',
+};
+
+function takeValue(argv, index, flag) {
+  const value = argv[index + 1];
+  if (!value || value.startsWith('--')) throw new Error(`${flag} requires a value`);
+  return value;
+}
 
 function parseArgs(argv) {
   const options = {
@@ -18,24 +30,31 @@ function parseArgs(argv) {
     skipAnalytics: false,
     skipRuntime: false,
     planOnly: false,
+    selfTest: false,
+    release: false,
     releaseVerifier: null,
   };
 
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
-    if (arg === '--target') options.target = argv[++i];
-    else if (arg === '--runtime') options.runtime = argv[++i];
+    if (arg === '--target') options.target = takeValue(argv, i++, arg);
+    else if (arg === '--runtime') options.runtime = takeValue(argv, i++, arg);
     else if (arg === '--skip-analytics') options.skipAnalytics = true;
     else if (arg === '--skip-runtime') options.skipRuntime = true;
-    else if (arg === '--release-verifier') options.releaseVerifier = argv[++i];
+    else if (arg === '--release') options.release = true;
+    else if (arg === '--release-verifier') options.releaseVerifier = takeValue(argv, i++, arg);
     else if (arg === '--plan') options.planOnly = true;
+    else if (arg === '--self-test') options.selfTest = true;
     else if (arg === '--help' || arg === '-h') {
-      console.log('Usage: node scripts/harness-workflow-check.js [--target projects/portal] [--release-verifier scripts/verify-product.js] [--runtime focused] [--skip-analytics] [--skip-runtime] [--plan]');
+      console.log('Usage: node scripts/harness-workflow-check.js [--release --target projects/app --release-verifier scripts/verify-product.js] [--runtime focused] [--skip-analytics] [--skip-runtime] [--plan | --self-test]');
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);
     }
   }
+
+  if (options.release && !options.releaseVerifier) throw new Error('--release requires --release-verifier');
+  if (options.releaseVerifier) options.release = true;
 
   return options;
 }
@@ -99,6 +118,59 @@ function runStep(name, command, args, options = {}) {
   });
 }
 
+function normalizeScript(value) {
+  return value.replace(/\\/g, '/');
+}
+
+function validateOptions(options) {
+  const target = normalizeScript(options.target).replace(/\/$/, '');
+  if (!/^projects\/[a-z0-9._-]+$/i.test(target)) throw new Error(`Unsafe harness target: ${options.target}`);
+  const targetPath = path.resolve(ROOT, target);
+  if (!fs.existsSync(targetPath) || !fs.statSync(targetPath).isDirectory()) throw new Error(`Missing harness target: ${target}`);
+  if (!/^[a-z0-9._-]+$/i.test(options.runtime)) throw new Error(`Unsafe runtime target: ${options.runtime}`);
+  options.target = target;
+}
+
+function verifierCoverage(steps, packageScripts = require(path.join(ROOT, 'package.json')).scripts, exemptions = VERIFY_EXEMPTIONS) {
+  const registered = new Set(steps.flatMap(([, , args]) => args.filter((arg) => typeof arg === 'string' && /^scripts\/[a-z0-9._-]+\.js$/i.test(normalizeScript(arg))).map(normalizeScript)));
+  const aliases = [];
+  for (const [alias, command] of Object.entries(packageScripts)) {
+    if (!alias.startsWith('verify:')) continue;
+    for (const match of command.matchAll(/scripts\/[a-z0-9._-]+\.js/gi)) aliases.push({ alias, script: normalizeScript(match[0]) });
+  }
+  const unclassified = aliases.filter(({ script }) => !registered.has(script) && !exemptions[script]);
+  if (unclassified.length) throw new Error(`Unclassified package verifier(s): ${unclassified.map((item) => `${item.alias} -> ${item.script}`).join(', ')}`);
+  const staleExemptions = Object.keys(exemptions).filter((script) => !aliases.some((item) => item.script === script));
+  if (staleExemptions.length) throw new Error(`Stale verifier exemption(s): ${staleExemptions.join(', ')}`);
+  return {
+    packageScripts: new Set(aliases.map((item) => item.script)).size,
+    registered: new Set(aliases.filter((item) => registered.has(item.script)).map((item) => item.script)).size,
+    diagnosticOnly: Object.entries(exemptions).map(([script, reason]) => ({ script, reason })),
+  };
+}
+
+function stepGroup([name, , args]) {
+  const value = `${name} ${args.join(' ')}`.toLowerCase();
+  if (/analytics event|runtime smoke/.test(value)) return 'telemetry-runtime';
+  if (/retirement|suspension/.test(value)) return 'containment';
+  if (/index|secret|adsense|ad-risk|auto ads|local browser port/.test(value)) return 'release-safety';
+  if (/chinese|french|spanish|korean|japanese|indonesian|german|english|culture|blog|content audit|bridge|funnel|path/.test(value)) return 'acquisition';
+  if (/git diff|playwright|documentation|harness structure|locale audit|quality gate/.test(value)) return 'foundation';
+  return 'product-contract';
+}
+
+function summarizePlan(steps) {
+  const groups = {};
+  for (const step of steps) groups[stepGroup(step)] = (groups[stepGroup(step)] || 0) + 1;
+  return {
+    steps: steps.length,
+    groups,
+    node: steps.filter(([, command]) => command === process.execPath).length,
+    shell: steps.filter(([, command]) => command === BASH).length,
+    other: steps.filter(([, command]) => command !== process.execPath && command !== BASH).length,
+  };
+}
+
 function validatePlan(steps) {
   const names = new Set();
   for (const [name, command, args] of steps) {
@@ -108,7 +180,36 @@ function validatePlan(steps) {
       const scriptPath = path.resolve(ROOT, args[0]);
       if (!fs.existsSync(scriptPath)) throw new Error(`Missing harness script: ${args[0]}`);
     }
+    if (command === BASH) {
+      const scriptPath = path.resolve(ROOT, args[0]);
+      if (!fs.existsSync(scriptPath)) throw new Error(`Missing harness shell script: ${args[0]}`);
+    }
   }
+}
+
+function expectFailure(name, action, expected) {
+  let message = '';
+  try { action(); } catch (error) { message = error.message; }
+  if (!message.includes(expected)) throw new Error(`${name} mutation escaped: ${message || 'passed'}`);
+  console.log(`[PASS] ${name}: ${message}`);
+}
+
+function runSelfTests() {
+  const good = [['docs', process.execPath, ['scripts/verify-doc-budget.js']]];
+  validatePlan(good);
+  expectFailure('duplicate-step', () => validatePlan([...good, good[0]]), 'Duplicate harness step name');
+  expectFailure('missing-node-script', () => validatePlan([['missing', process.execPath, ['scripts/not-real.js']]]), 'Missing harness script');
+  expectFailure('missing-flag-value', () => parseArgs(['--target']), '--target requires a value');
+  expectFailure('release-without-verifier', () => parseArgs(['--release']), '--release requires --release-verifier');
+  expectFailure('unsafe-target', () => validateOptions({ target: '../outside', runtime: 'focused' }), 'Unsafe harness target');
+  const packageScripts = {
+    'verify:docs': 'node scripts/verify-doc-budget.js',
+    'verify:unclassified': 'node scripts/verify-safe-local-port.js',
+  };
+  expectFailure('unclassified-package-verifier', () => verifierCoverage(good, packageScripts, {}), 'Unclassified package verifier');
+  const coverage = verifierCoverage(good, { 'verify:docs': packageScripts['verify:docs'] }, {});
+  if (coverage.registered !== 1) throw new Error('coverage baseline failed');
+  console.log('[PASS] harness structure mutation summary 6/6 detected');
 }
 
 function writeReport(run) {
@@ -129,9 +230,11 @@ function writeReport(run) {
     '- Node syntax validation: `implicit in verifier execution`',
     `- Result: **${run.ok ? 'PASS' : 'FAIL'}**`,
     '',
-    '| Step | Result | Duration |',
-    '|---|---:|---:|',
-    ...run.steps.map((step) => `| ${step.name} | ${step.ok ? 'PASS' : 'FAIL'} | ${(step.durationMs / 1000).toFixed(1)}s |`),
+    `- Package verifier coverage: \`${run.coverage.registered}/${run.coverage.packageScripts}\` registered, \`${run.coverage.diagnosticOnly.length}\` explicit diagnostics`,
+    '',
+    '| Group | Step | Result | Duration |',
+    '|---|---|---:|---:|',
+    ...run.steps.map((step) => `| ${step.group} | ${step.name} | ${step.ok ? 'PASS' : 'FAIL'} | ${(step.durationMs / 1000).toFixed(1)}s |`),
     '',
   ];
 
@@ -186,6 +289,11 @@ function pruneOldReports() {
 
 async function main() {
   const options = parseArgs(process.argv.slice(2));
+  if (options.selfTest) {
+    runSelfTests();
+    return;
+  }
+  validateOptions(options);
   const playwrightVersion = require('playwright/package.json').version;
   const steps = [];
 
@@ -197,6 +305,7 @@ async function main() {
   const plannedSteps = [
     ['git diff check', 'git', ['diff', '--check']],
     ['playwright version floor', process.execPath, ['-e', `const v=require('playwright/package.json').version; if (!(${JSON.stringify(versionAtLeast(playwrightVersion, '1.60.0'))})) { console.error('Playwright 1.60.0+ required, got '+v); process.exit(1); } console.log('Playwright '+v+' OK');`]],
+    ['harness structure mutations', process.execPath, ['scripts/harness-workflow-check.js', '--self-test']],
     ['documentation budget and mutations', process.execPath, ['scripts/verify-doc-budget.js', '--mutations']],
     ['portal locale audit', process.execPath, ['scripts/portal-hub-locale-audit.js']],
     ['quality gate', BASH, ['scripts/quality-gate.sh', options.target]],
@@ -204,6 +313,7 @@ async function main() {
     ['Word Scramble retirement quality gate', BASH, ['scripts/quality-gate.sh', 'projects/word-scramble']],
     ['K-pop position quality gate', BASH, ['scripts/quality-gate.sh', 'projects/kpop-position']],
     ['Future Self quality gate', BASH, ['scripts/quality-gate.sh', 'projects/future-self']],
+    ['fake unlock gate audit', process.execPath, ['scripts/verify-fake-unlock-gates.js']],
     ['root focus regression', process.execPath, ['scripts/verify-root-focus.js', '--no-screenshot']],
     ['root verifier mutations', process.execPath, ['scripts/verify-root-focus-mutations.js']],
     ['brain trust and mutations', process.execPath, ['scripts/verify-brain-type-trust.js', '--mutations']],
@@ -339,7 +449,10 @@ async function main() {
     ]);
   }
 
-  if (options.releaseVerifier) {
+  validatePlan(plannedSteps);
+  const coverage = verifierCoverage(plannedSteps);
+
+  if (options.release) {
     const verifier = options.releaseVerifier.replace(/\\/g, '/');
     if (!/^scripts\/[a-z0-9._-]+\.js$/i.test(verifier)) throw new Error(`Unsafe release verifier path: ${options.releaseVerifier}`);
     const selected = plannedSteps.find(([, command, args]) => command === process.execPath && args[0] === verifier);
@@ -347,6 +460,7 @@ async function main() {
     const releaseCore = new Set([
       'git diff check',
       'playwright version floor',
+      'harness structure mutations',
       'documentation budget and mutations',
       'quality gate',
       'GSC sitemap submit safety',
@@ -367,11 +481,9 @@ async function main() {
   console.log('Node syntax validation: implicit in verifier execution\n');
   if (options.planOnly) {
     console.log(JSON.stringify({
-      steps: plannedSteps.length,
-      mode: options.releaseVerifier ? 'release' : 'full',
-      node: plannedSteps.filter(([, command]) => command === process.execPath).length,
-      shell: plannedSteps.filter(([, command]) => command === BASH).length,
-      other: plannedSteps.filter(([, command]) => command !== process.execPath && command !== BASH).length,
+      ...summarizePlan(plannedSteps),
+      mode: options.release ? 'release' : 'full',
+      verifierCoverage: coverage,
     }, null, 2));
     return;
   }
@@ -385,16 +497,18 @@ async function main() {
 
   const reportSteps = steps.map((step) => step.ok ? {
     name: step.name,
+    group: stepGroup(plannedSteps.find((item) => item[0] === step.name)),
     ok: step.ok,
     code: step.code,
     durationMs: step.durationMs,
-  } : step);
+  } : { ...step, group: stepGroup(plannedSteps.find((item) => item[0] === step.name)) });
   const run = {
     runId: RUN_ID,
     ok: steps.every((step) => step.ok),
-    mode: options.releaseVerifier ? 'release' : 'full',
+    mode: options.release ? 'release' : 'full',
     options,
     playwrightVersion,
+    coverage,
     steps: reportSteps,
   };
   const reportPaths = writeReport(run);

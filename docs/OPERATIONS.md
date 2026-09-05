@@ -33,17 +33,16 @@ GitHub Pages 저장소는 작업 브랜치와 배포 브랜치가 다를 수 있
 6. production URL에서 다시 검증한다.
 7. `PROGRESS.md`는 현재 상태만 갱신한다.
 
-## Focused release
+## Release gates
 
 ```powershell
-npm run verify:root
-npm run verify:root:mutations
 npm run harness
-npm run harness:runtime
-node scripts/indexing-inventory.js
+npm run harness:release -- --target projects/<app> --release-verifier scripts/verify-<app>.js
 ```
 
-프로덕션 확인:
+전체 하네스는 runtime·analytics·indexing 안전 검사를 포함한다. 제품 반복에는 작은 release gate를 쓰고, root 배포 전에는 전체 하네스를 실행한다.
+
+프로덕션 root 확인:
 
 ```powershell
 node scripts/verify-root-focus.js https://dopabrain.com --no-screenshot

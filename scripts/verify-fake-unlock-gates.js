@@ -90,43 +90,46 @@ async function runBrowser() {
   const port = await listen(server);
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const localOrigin = `http://127.0.0.1:${port}`;
+  await context.route('**/*', route => {
+    const url = new URL(route.request().url());
+    if (url.origin === localOrigin) route.continue();
+    else route.abort();
+  });
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', error => errors.push(String(error)));
   try {
-    await page.goto(`http://127.0.0.1:${port}/blood-type/?lang=en`, { waitUntil: 'domcontentloaded' });
-    await page.click('.blood-type-btn[data-blood-type="A"]');
-    await page.waitForSelector('#results-screen.active');
+    await page.goto(`${localOrigin}/blood-type/?lang=en`, { waitUntil: 'domcontentloaded' });
+    await page.waitForSelector('#app-loader', { state: 'detached' });
     const bloodStart = Date.now();
-    await page.click('#premium-btn-personality');
-    await page.waitForSelector('.premium-analysis');
+    await page.click('.type-button[data-blood-type="A"]');
+    await page.waitForSelector('#result-screen:not([hidden])');
     const blood = await page.evaluate(() => ({
-      detail: document.querySelector('.premium-analysis')?.innerText || '',
-      hasFakeModal: Boolean(document.querySelector('#premium-modal, #watch-ad-btn')),
+      detail: [document.querySelector('#result-summary')?.innerText, document.querySelector('[data-i18n="result.evidence_body"]')?.innerText].filter(Boolean).join(' '),
+      hasFakeModal: Boolean(document.querySelector('#premium-modal, #watch-ad-btn, [id*="premium"]')),
       overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
     }));
     blood.elapsedMs = Date.now() - bloodStart;
 
-    await page.goto(`http://127.0.0.1:${port}/mbti-love/?lang=en`, { waitUntil: 'domcontentloaded' });
+    await page.goto(`${localOrigin}/mbti-love/?lang=en`, { waitUntil: 'domcontentloaded' });
+    await page.waitForSelector('#app-loader', { state: 'detached' });
     await page.click('#btn-start');
     for (let index = 0; index < 12; index += 1) {
-      await page.waitForSelector('.option-btn:not([disabled])');
-      await page.click('.option-btn:not([disabled])');
-      await page.waitForTimeout(380);
+      await page.waitForSelector('.option:not([disabled])');
+      await page.click('.option:not([disabled])');
+      await page.waitForTimeout(150);
     }
     await page.waitForSelector('#result-screen.active', { timeout: 10000 });
-    const mbtiStart = Date.now();
-    await page.click('#btn-premium');
-    await page.waitForSelector('#premium-result:not(.hidden)');
     const mbti = await page.evaluate(() => ({
-      detail: document.querySelector('#premium-result')?.innerText || '',
-      hasFakeModal: Boolean(document.querySelector('#ad-overlay, #ad-countdown')),
+      detail: document.querySelector('#axis-list')?.innerText || '',
+      cards: document.querySelectorAll('#axis-list .axis-item').length,
+      hasFakeModal: Boolean(document.querySelector('#ad-overlay, #ad-countdown, [id*="premium"]')),
       overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
     }));
-    mbti.elapsedMs = Date.now() - mbtiStart;
 
-    if (!blood.detail.includes('cultural folklore') || blood.hasFakeModal || blood.overflow > 0 || blood.elapsedMs > 1000) fail('Blood Type immediate detail contract failed');
-    if (!mbti.detail || mbti.hasFakeModal || mbti.overflow > 0 || mbti.elapsedMs > 1000) fail('MBTI Love immediate detail contract failed');
+    if (!blood.detail.includes('cultural stereotype') || !blood.detail.includes('do not support') || blood.hasFakeModal || blood.overflow > 0 || blood.elapsedMs > 1000) fail('Blood Type immediate detail contract failed');
+    if (!mbti.detail || mbti.cards !== 4 || mbti.hasFakeModal || mbti.overflow > 0) fail('MBTI Love immediate detail contract failed');
     if (errors.length) fail(`page errors: ${errors.join(' | ')}`);
     console.log(JSON.stringify({ blood, mbti, errors }, null, 2));
     console.log('PASS: fake unlock gates removed');

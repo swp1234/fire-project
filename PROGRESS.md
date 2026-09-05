@@ -14,17 +14,17 @@ Updated: 2026-09-05 KST. Release history is in `memory/data-check-log.md`; the r
 - Remove manual ads, reward/interstitial exchanges, fabricated proof and unverifiable paid-impression telemetry one measured product at a time.
 - Preserve routes with credible Organic acquisition or valid action evidence. Exclude Singapore desktop Direct scans and legacy synthetic events from growth decisions.
 
-## Latest release: Routine Planner trust reset
+## Latest release: documentation and harness reset
 
-- Kept `/routine-planner/` because the 56-day window contained two credible Organic sessions after excluding 45 Singapore desktop Direct scans. No working product-action event existed before this release.
-- Removed two manual ad units, two manual requests, fabricated rating/FAQ proof and the fake AI/ad gate. Fixed the overlapping theme/share controls, escaped stored routine text, clamped duration, and narrowed the worker cache boundary.
-- Added seven exact-once, fixed-field stages for view, plan creation, timer, task completion, export, successful share and related click. Twelve locales disclose local-only storage; README and stale code fell by a net 467 lines.
-- Child `0231950` deployed in Pages run `33968809256`; 18/18 live files match deployed Git blobs.
+- Replaced three accumulating product-specific release aliases with one parameterized `harness:release`; unsafe/missing arguments, duplicate steps and missing Node/Bash scripts now fail before execution.
+- The plan reports six functional groups and classifies every package verifier as full or reasoned diagnostic-only: 110/114 scripts are full-registered and four legacy/focused diagnostics are explicit.
+- Added a six-mutation harness self-test. Registering the previously omitted fake-unlock audit exposed stale Blood Type/MBTI Love selectors; it now runs the current immediate-result journeys with external network isolation and fails early.
+- Expanded the Markdown contract from eight to ten canonical files, added UTF-8-marker and local-link checks, and increased document mutations from 7 to 10. `VALIDATION.md` fell from 6,657 to 3,408 bytes while preserving the release, ad, privacy and production contracts.
 
 ## Validation and next action
 
-- Routine verification caught 15/15 injected defects; local and production 12-locale journeys, mobile/desktop layout, malicious input and private telemetry checks passed. Portfolio risk is now `0 critical / 14 high / 6 medium / 53 info / 46 clean`; submitted inventory remains 63/0.
-- Product release harness `2026-09-05T13-23-42-733Z` passed 14/14. Final full harness `2026-09-05T13-26-35-973Z` passed 125/125 in 805.8 summed seconds, including analytics 9/9 and runtime 6/6.
-- Documentation budgets remain mutation-tested; current decisions stay here, while release narration and raw reports stay in Git/ignored logs.
+- Generic release harness `2026-09-05T13-49-34-552Z` passed 15/15. The first full run correctly failed on the stale selector; final run `2026-09-05T14-02-27-501Z` passed 127/127 in 763.6 summed seconds.
+- The final run includes harness structure 6/6, documentation 10/10, analytics 9/9, runtime 6/6, ad risk `0 critical / 14 high / 6 medium / 53 info / 46 clean`, and submitted inventory 63/0.
+- No product repository or production asset changed in this release. Generated reports remain ignored and retention-bounded.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

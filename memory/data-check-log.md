@@ -62,7 +62,7 @@ Current signal qualification and primary sources live in `docs/STRATEGY.md` and 
 
 ## Verification baseline
 
-- Pre-optimization harness `2026-09-05T04-49-44-276Z` passed 205/205 in 968.9 seconds. Its 97 duplicate syntax subprocesses used only 4.7 seconds but nearly doubled the step/report count.
-- Product release harness `2026-09-05T13-23-42-733Z` passed 14/14 for Routine Planner. Final full harness `2026-09-05T13-26-35-973Z` passed 125/125 in 805.8 summed seconds, including analytics 9/9, runtime 6/6 and submitted inventory 63/0.
-- Successful-step output is omitted from JSON: `latest.json` fell from 159.0 KB to about 14 KB. Safe gates use path-scoped clocks or isolated concurrency; qualified-exposure and crash-watch timers remain real.
+- Generic release harness `2026-09-05T13-49-34-552Z` passed 15/15. The first expanded full run exposed an obsolete fake-unlock browser selector that the old 125-step plan never executed; the current Blood Type and MBTI Love journeys replaced it.
+- Final full harness `2026-09-05T14-02-27-501Z` passed 127/127 in 763.6 summed seconds, including structure mutations 6/6, document mutations 10/10, analytics 9/9, runtime 6/6 and submitted inventory 63/0.
+- Successful-step output remains omitted from JSON. Reports now carry functional groups and package-verifier coverage: 110 of 114 verifier scripts are full-registered, while four legacy or focused diagnostics have explicit reasons.
 - GitHub Pages source must be queried per child repository before release. Working/development branch names are not deployment evidence.
