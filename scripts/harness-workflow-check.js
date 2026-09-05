@@ -18,6 +18,7 @@ function parseArgs(argv) {
     skipAnalytics: false,
     skipRuntime: false,
     planOnly: false,
+    releaseVerifier: null,
   };
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -26,9 +27,10 @@ function parseArgs(argv) {
     else if (arg === '--runtime') options.runtime = argv[++i];
     else if (arg === '--skip-analytics') options.skipAnalytics = true;
     else if (arg === '--skip-runtime') options.skipRuntime = true;
+    else if (arg === '--release-verifier') options.releaseVerifier = argv[++i];
     else if (arg === '--plan') options.planOnly = true;
     else if (arg === '--help' || arg === '-h') {
-      console.log('Usage: node scripts/harness-workflow-check.js [--target projects/portal] [--runtime focused] [--skip-analytics] [--skip-runtime] [--plan]');
+      console.log('Usage: node scripts/harness-workflow-check.js [--target projects/portal] [--release-verifier scripts/verify-product.js] [--runtime focused] [--skip-analytics] [--skip-runtime] [--plan]');
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);
@@ -121,6 +123,7 @@ function writeReport(run) {
     `# Harness Workflow ${RUN_ID}`,
     '',
     `- Target: \`${run.options.target}\``,
+    `- Mode: \`${run.mode}\``,
     `- Runtime smoke target: \`${run.options.runtime}\``,
     `- Playwright: \`${run.playwrightVersion}\``,
     '- Node syntax validation: `implicit in verifier execution`',
@@ -250,6 +253,7 @@ async function main() {
     ['Luck Meter retirement mutations', process.execPath, ['scripts/verify-luck-meter-retirement.js', '--mutations']],
     ['Sleep Animal retirement mutations', process.execPath, ['scripts/verify-sleep-animal-retirement.js', '--mutations']],
     ['Rizz Score retirement mutations', process.execPath, ['scripts/verify-rizz-score-retirement.js', '--mutations']],
+    ['QR Generator trust and incident suspension', process.execPath, ['scripts/verify-qr-generator-trust.js', '--mutations']],
     ['MBTI Career retirement mutations', process.execPath, ['scripts/verify-mbti-career-retirement.js', '--mutations']],
     ['Word Scramble retirement mutations', process.execPath, ['scripts/verify-word-scramble-retirement.js', '--mutations']],
     ['Pong suspension mutations', process.execPath, ['scripts/verify-pong-suspension.js', '--mutations']],
@@ -333,11 +337,36 @@ async function main() {
     ]);
   }
 
+  if (options.releaseVerifier) {
+    const verifier = options.releaseVerifier.replace(/\\/g, '/');
+    if (!/^scripts\/[a-z0-9._-]+\.js$/i.test(verifier)) throw new Error(`Unsafe release verifier path: ${options.releaseVerifier}`);
+    const selected = plannedSteps.find(([, command, args]) => command === process.execPath && args[0] === verifier);
+    if (!selected) throw new Error(`Release verifier is not registered in the full harness: ${verifier}`);
+    const releaseCore = new Set([
+      'git diff check',
+      'playwright version floor',
+      'documentation budget and mutations',
+      'quality gate',
+      'GSC sitemap submit safety',
+      'IndexNow submit safety',
+      'indexing inventory self-test',
+      'submitted indexing inventory strict',
+      'safe local browser ports',
+      'tracked secret self-test',
+      'tracked secret scan',
+      'AdSense contract mutations',
+      'ad-risk inventory self-test',
+    ]);
+    if (options.target.replace(/\\/g, '/').replace(/\/$/, '') === 'projects/portal') releaseCore.add('portal locale audit');
+    plannedSteps.splice(0, plannedSteps.length, ...plannedSteps.filter((step) => releaseCore.has(step[0]) || step === selected));
+  }
+
   validatePlan(plannedSteps);
   console.log('Node syntax validation: implicit in verifier execution\n');
   if (options.planOnly) {
     console.log(JSON.stringify({
       steps: plannedSteps.length,
+      mode: options.releaseVerifier ? 'release' : 'full',
       node: plannedSteps.filter(([, command]) => command === process.execPath).length,
       shell: plannedSteps.filter(([, command]) => command === BASH).length,
       other: plannedSteps.filter(([, command]) => command !== process.execPath && command !== BASH).length,
@@ -361,6 +390,7 @@ async function main() {
   const run = {
     runId: RUN_ID,
     ok: steps.every((step) => step.ok),
+    mode: options.releaseVerifier ? 'release' : 'full',
     options,
     playwrightVersion,
     steps: reportSteps,

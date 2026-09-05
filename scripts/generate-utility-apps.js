@@ -249,7 +249,6 @@ function appIndex(tool) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>
   <meta name="robots" content="max-image-preview:large">
   <meta name="theme-color" content="${tool.color}">
   <meta name="description" content="${escapeAttr(tool.description)}">
@@ -279,7 +278,7 @@ ${langs}
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8GSWM40TV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-J8GSWM40TV');</script>
 </head>
-<body>
+<body data-ad-serving="suspended-invalid-traffic-2026-09-03">
   <a href="#main-content" class="skip-link" data-i18n="ui.skip">Skip to tool</a>
   <div class="app-loader" id="app-loader" role="status" aria-live="polite">
     <div class="loader-mark">${escapeHtml(tool.shortTitle.slice(0, 2).toUpperCase())}</div>
