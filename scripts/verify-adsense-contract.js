@@ -55,6 +55,7 @@ const DEFAULT_PAGES = [
   path.join(ROOT, 'projects', 'hsp-test', 'map.html'),
   path.join(ROOT, 'projects', 'trauma-response', 'index.html'),
   path.join(ROOT, 'projects', 'anxiety-type', 'index.html'),
+  path.join(ROOT, 'projects', 'toxic-trait-test', 'index.html'),
   ...SENSORY_LOCALES.map((locale) => path.join(
     ROOT,
     'projects',

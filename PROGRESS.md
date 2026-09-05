@@ -19,19 +19,19 @@ This file contains only the current operating decision. Detailed evidence and re
 - Exclude deployment days, Singapore desktop Direct scans, concentrated non-organic bursts, AI-assistant referrals and legacy synthetic events from growth judgments.
 - Do not suppress a product with credible Organic acquisition or real completion signals merely because its total traffic is small.
 
-## Latest release: Anxiety Type containment and scoring reset
+## Latest release: Toxic Trait containment and reflection reset
 
-- Anxiety Type earned preservation rather than retirement: 111 page views / 53 users, 11 starts, nine completions and seven engaged Organic sessions totaling about 868 seconds during 2026-07-11 to 2026-09-04. Search Console returned no exact-page row.
-- Release `3044a83` removes three manual ad units, the result ad request/impression event, the active loader, fabricated `4.6 / 2,840` rating, hidden FAQ, random percentile/radar output, fake `7.2K` proof, duplicate promotion, result-bearing telemetry and five result-rich share actions. Ads are explicitly suspended.
-- The retained eight questions now disclose an author-created rule: each selected option adds one point to its matching label and the first matching label breaks a tie. The page states that this is not a diagnosis or validated assessment. The result has one primary Stress Check action, two focused related routes and one neutral success-gated share.
-- Private exact-once stages are `anxiety_type_view -> start -> progress -> complete`, plus success-only `next_click`, `share` and delegated `related_click`. Answers, scores, result labels, locale, URL and timing are excluded.
-- The dedicated verifier detects 20/20 injected defects and passes local and deployed 390/1440px eight-question journeys. Portfolio ad-risk is now `critical 0 / high 38 / medium 6 / info 53 / clean 22`.
+- Toxic Trait had 34 page views / 32 users, 18 engaged sessions and 345 engagement seconds during 2026-07-11 to 2026-09-04. Its seven Organic sessions were all engaged but totaled only 124 seconds, and no valid start or completion event existed. Search Console returned no exact-page row. The Organic entries preserve the route; the missing action signal makes it the weakest remaining score-130 implementation.
+- Release `b83d2af` removes three manual ad units, two direct pushes, the active loader/H5 initialization, fabricated `4.7 / 2,340` rating, hidden FAQ, fake 12,000-profile comparison, random percentile, clinical-looking dimension output, duplicate recommendations and five result-bearing share actions. Ads are explicitly suspended.
+- The retained eight questions disclose an author-created rule: each answer adds one point to one mapped label and the first matching label breaks a tie. The page states that it is not a diagnosis or validated assessment. The result has one primary Stress Check action, two focused related routes and one neutral success-gated share.
+- Private exact-once stages are `toxic_trait_view -> start -> progress -> complete`, plus success-only `next_click`, `share` and delegated `related_click`. Answers, scores, result labels, locale, URL and timing are excluded.
+- The dedicated verifier detects 21/21 injected defects and passes local and deployed 390/1440px eight-question journeys. Portfolio ad-risk is now `critical 0 / high 37 / medium 6 / info 53 / clean 23`.
 
 ## Validation and next action
 
 - Common AdSense contract: 11/11 mutations detected; all suspended products have zero ad loaders.
 - Submitted indexing inventory: 63 URLs, zero issues. Blog focus: 173 indexable, 209 redirects, 1,596 noindex.
-- Final harness `2026-09-05T00-58-52-178Z`: 189/189 stages passed, including analytics 9/9 and runtime 6/6. Production returned the exact 21,905-byte shell and 13,380-byte app with no ad surface.
-- Next: compare the seven remaining score-130 products (`ai-personality`, `color-personality`, `emotion-temp`, `mbti-love`, `overthinker-test`, `stress-response`, `toxic-trait-test`) using credible Organic/action data before changing one. Keep new trend content behind the distinct-intent and measurable-interaction gate.
+- Final harness `2026-09-05T01-31-05-429Z`: 191/191 stages passed, including analytics 9/9 and runtime 6/6. Production returned the exact 33,505-byte shell and 1,161-byte scoped worker with no ad surface.
+- Next: contain `ai-personality`, the weakest of the six remaining score-130 products, while preserving its four engaged Organic sessions and three completions. Keep new trend content behind the distinct-intent and measurable-interaction gate.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
