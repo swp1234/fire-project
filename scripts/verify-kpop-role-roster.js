@@ -838,7 +838,25 @@ function assertExactParamKeys(actual, expectedKeys, label) {
 }
 
 async function newPage(browser, viewport, origin) {
-  const context = await browser.newContext({ viewport: { width: viewport.width, height: viewport.height }, serviceWorkers: 'block' });
+  const context = await browser.newContext({
+    viewport: { width: viewport.width, height: viewport.height },
+    serviceWorkers: 'block',
+    reducedMotion: 'reduce',
+  });
+  await context.addInitScript(() => {
+    // Preserve qualified article-exposure timers; collapse only quiz animation delays.
+    const nativeSetTimeout = window.setTimeout;
+    const nativeSetInterval = window.setInterval;
+    const verificationDelay = (delay) => location.pathname.startsWith('/kpop-position/')
+      ? Math.min(Math.max(Number(delay) || 0, 0), 1)
+      : delay;
+    window.setTimeout = function (callback, delay) {
+      return nativeSetTimeout.apply(window, [callback, verificationDelay(delay), ...Array.prototype.slice.call(arguments, 2)]);
+    };
+    window.setInterval = function (callback, delay) {
+      return nativeSetInterval.apply(window, [callback, verificationDelay(delay), ...Array.prototype.slice.call(arguments, 2)]);
+    };
+  });
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
