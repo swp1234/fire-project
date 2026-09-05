@@ -19,19 +19,19 @@ This file contains only the current operating decision. Detailed evidence and re
 - Exclude deployment days, Singapore desktop Direct scans, concentrated non-organic bursts, AI-assistant referrals and legacy synthetic events from growth judgments.
 - Do not suppress a product with credible Organic acquisition or real completion signals merely because its total traffic is small.
 
-## Latest release: AI Personality containment and character reset
+## Latest release: Emotion Temp containment and transparent scoring
 
-- AI Personality had 34 page views / 17 users / 17 sessions, 15 engaged sessions and 486 engagement seconds during 2026-07-11 to 2026-09-04. Four Organic sessions were all engaged and totaled 139 seconds; five users started and three completed. Search Console returned no exact-page row. Those credible acquisition and action signals preserve the route.
-- Release `1db0eac` removes three manual ad units, the direct result push, active loader, synthetic ad-impression/engagement/page-view events, fabricated `4.6 / 2,180` rating, hidden FAQ, fake `2.1M` proof, random percentile, arbitrary capability metrics, duplicate recommendations and result-bearing share actions. Ads are explicitly suspended.
-- The retained ten choices now disclose an author-created rule: each answer adds one point to one named AI character and the first listed character breaks a tie. The page states that the output is entertainment, not a personality assessment or official/current AI-model comparison.
-- The result has one primary private Future Self reflection, two focused related routes and one neutral success-gated share. Private exact-once stages are `ai_personality_view -> start -> progress -> complete`, plus success-only `next_click`, `share` and delegated `related_click`; answers, scores, result labels, locale, URL and timing are excluded.
-- Twelve locale bundles retain only rendered copy; HTML shrank from 29,500 to 19,082 bytes and app JS from 24,855 to 9,168 bytes. The dedicated verifier detects 23/23 injected defects and passes local and deployed 390/1440px ten-choice journeys. Portfolio ad-risk is now `critical 0 / high 36 / medium 6 / info 53 / clean 24`.
+- Emotion Temp had six Organic sessions / five engaged / 774 engagement seconds and five completions during 2026-07-11 to 2026-09-04. Search Console returned no exact-page row. Those credible discovery and action signals preserve the route.
+- Release `8b7af6b` removes the manual ad unit/push, active loader, synthetic ad-impression/engagement events, fabricated `4.6 / 2,800` proof, hidden FAQ, fake premium/ad wait, random percentile, diagnostic-looking traits/compatibility, result-image download, duplicate recommendations and result-bearing shares. Ads are explicitly suspended.
+- The retained ten choices disclose their 0–4 intensity points. The formula `round(-10 + total / 40 * 50)` maps the 0–40 total to a −10–40°C author-created metaphor and one of eight fixed ranges. The page states that this is not a psychological or health assessment.
+- The result has one primary private Stress Check, two related reflections and one neutral success-gated share. Seven exact-once stages exclude answers, total, temperature, result, locale, URL and timing.
+- The release removed 5,051 lines. HTML shrank from 24,478 to 8,605 bytes and app JS from 34,579 to 6,378 bytes. The verifier detects 21/21 defects and passes local/deployed 390/1440px journeys. Portfolio ad-risk is now `critical 0 / high 35 / medium 6 / info 53 / clean 25`.
 
 ## Validation and next action
 
 - Common AdSense contract: 11/11 mutations detected; all suspended products have zero ad loaders.
 - Submitted indexing inventory: 63 URLs, zero issues. Blog focus: 173 indexable, 209 redirects, 1,596 noindex.
-- Final harness `2026-09-05T01-59-39-003Z`: 193/193 stages passed, including analytics 9/9 and runtime 6/6. Pages run `33937771685` succeeded; production returned the exact 19,082-byte shell, 9,168-byte app and 1,281-byte scoped worker with no ad surface.
-- Next: contain `emotion-temp`, the weakest remaining score-130 product by completion count, while preserving its six Organic sessions / five engaged / 774 seconds and five completions. Keep new trend content behind the distinct-intent and measurable-interaction gate.
+- Final harness `2026-09-05T02-25-17-669Z`: 195/195 stages passed, including analytics 9/9 and runtime 6/6. Pages run `33939016757` succeeded; four cache-bypassed production files exactly matched local content.
+- Next: contain `overthinker-test`, now the weakest remaining score-130 product, while preserving its six Organic sessions / six engaged / 1,079 seconds and nine completions. Keep new trend content behind the distinct-intent and measurable-interaction gate.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
