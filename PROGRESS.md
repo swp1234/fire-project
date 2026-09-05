@@ -19,19 +19,19 @@ This file contains only the current operating decision. Detailed evidence and re
 - Exclude deployment days, Singapore desktop Direct scans, concentrated non-organic bursts, AI-assistant referrals and legacy synthetic events from growth judgments.
 - Do not suppress a product with credible Organic acquisition or real completion signals merely because its total traffic is small.
 
-## Latest release: Trauma Response containment and result reset
+## Latest release: Anxiety Type containment and scoring reset
 
-- Trauma Response had 58 page views / 28 users and only two completions during 2026-07-11 to 2026-09-04. Its five Organic sessions were all engaged but totaled only 143 seconds; Search Console returned no exact-page row. The Organic signal is enough to preserve the route, not enough to preserve its risky implementation.
-- Release `067c356` removes three manual ad units, the result ad request/impression event, the active loader, fabricated `4.6 / 2,840` rating, hidden FAQ, random percentile, clinical-looking dimension output, duplicate promotion, result-bearing telemetry and premature result sharing. Ads are explicitly suspended.
-- The result now transparently counts one point per answer across four labels, states that the activity is author-created and non-diagnostic, and offers one primary Stress Check plan action plus two focused related routes. Twelve locale bundles retain only used, bounded result copy; the app lost 1,417 lines net and gained a 711-byte release contract.
-- Private exact-once stages are `trauma_response_view -> start -> progress -> complete`, plus success-only `next_click`, `share` and delegated `related_click`. Answers, result labels, scores, locale, URL and timing are excluded.
-- The dedicated verifier detects 20/20 injected defects and passes local and deployed 390/1440px eight-question journeys. Portfolio ad-risk is now `critical 0 / high 39 / medium 6 / info 53 / clean 21`.
+- Anxiety Type earned preservation rather than retirement: 111 page views / 53 users, 11 starts, nine completions and seven engaged Organic sessions totaling about 868 seconds during 2026-07-11 to 2026-09-04. Search Console returned no exact-page row.
+- Release `3044a83` removes three manual ad units, the result ad request/impression event, the active loader, fabricated `4.6 / 2,840` rating, hidden FAQ, random percentile/radar output, fake `7.2K` proof, duplicate promotion, result-bearing telemetry and five result-rich share actions. Ads are explicitly suspended.
+- The retained eight questions now disclose an author-created rule: each selected option adds one point to its matching label and the first matching label breaks a tie. The page states that this is not a diagnosis or validated assessment. The result has one primary Stress Check action, two focused related routes and one neutral success-gated share.
+- Private exact-once stages are `anxiety_type_view -> start -> progress -> complete`, plus success-only `next_click`, `share` and delegated `related_click`. Answers, scores, result labels, locale, URL and timing are excluded.
+- The dedicated verifier detects 20/20 injected defects and passes local and deployed 390/1440px eight-question journeys. Portfolio ad-risk is now `critical 0 / high 38 / medium 6 / info 53 / clean 22`.
 
 ## Validation and next action
 
 - Common AdSense contract: 11/11 mutations detected; all suspended products have zero ad loaders.
 - Submitted indexing inventory: 63 URLs, zero issues. Blog focus: 173 indexable, 209 redirects, 1,596 noindex.
-- Final harness `2026-09-05T00-34-10-042Z`: 187/187 stages passed, including analytics 9/9 and runtime 6/6. Production returned the exact 21,226-byte shell and 12,038-byte app with no ad surface.
-- Next: evaluate `anxiety-type` as the highest-risk product with the strongest credible Organic engagement, then contain its placement/measurement risk without suppressing its search route. Keep new trend content behind the distinct-intent and measurable-interaction gate.
+- Final harness `2026-09-05T00-58-52-178Z`: 189/189 stages passed, including analytics 9/9 and runtime 6/6. Production returned the exact 21,905-byte shell and 13,380-byte app with no ad surface.
+- Next: compare the seven remaining score-130 products (`ai-personality`, `color-personality`, `emotion-temp`, `mbti-love`, `overthinker-test`, `stress-response`, `toxic-trait-test`) using credible Organic/action data before changing one. Keep new trend content behind the distinct-intent and measurable-interaction gate.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

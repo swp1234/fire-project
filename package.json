@@ -39,6 +39,7 @@
     "verify:portal-ad-containment": "node scripts/verify-portal-ad-containment.js --mutations",
     "verify:portal-auto-ads-only": "node scripts/verify-portal-auto-ads-only.js --mutations",
     "verify:trauma-response": "node scripts/verify-trauma-response.js --mutations",
+    "verify:anxiety-type": "node scripts/verify-anxiety-type.js --mutations",
     "verify:zh-2048-guide": "node scripts/verify-zh-2048-guide.js --mutations",
     "verify:culture-choice": "node scripts/verify-culture-choice.js --mutations",
     "verify:cross-promo-touch": "node scripts/verify-cross-promo-touch.js --mutations",
