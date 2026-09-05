@@ -81,6 +81,7 @@
     "verify:delulu-retirement": "node scripts/verify-delulu-retirement.js --mutations",
     "verify:hail-mary-retirement": "node scripts/verify-hail-mary-retirement.js --mutations",
     "verify:luck-meter-retirement": "node scripts/verify-luck-meter-retirement.js --mutations",
+    "verify:sleep-animal-retirement": "node scripts/verify-sleep-animal-retirement.js --mutations",
     "verify:fake-unlock-gates": "node scripts/verify-fake-unlock-gates.js",
     "verify:rule-based-labels": "node scripts/verify-rule-based-labels.js",
     "verify:mental-age-trust": "node scripts/verify-mental-age-trust.js --mutations",
