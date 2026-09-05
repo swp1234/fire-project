@@ -14,19 +14,19 @@ Updated: 2026-09-05 KST. Release history is in `memory/data-check-log.md`; the r
 - Remove manual ads, rewarded/interstitial paths, fabricated proof and unverifiable paid-impression telemetry one measured product at a time.
 - Preserve routes with credible Organic acquisition or valid completion evidence; exclude Singapore desktop Direct scans and legacy synthetic events from growth judgments.
 
-## Latest release: Stress Response
+## Latest release: Color Choice Mixer
 
-- Stress Response retained eight Organic sessions, all engaged, 1,223 engagement seconds and 18 completion users during 2026-07-11~09-04. Search Console had no exact-page row, so the route remains live.
-- Release `41b0a41` removes three manual ad units, direct pushes, synthetic engagement/ad events, fabricated `4.7 / 3,120` and `9.4K+` proof, hidden FAQ, arbitrary dimensions, fake analysis, result-image sharing and duplicate recommendations. Ad serving is explicitly suspended.
-- Eight existing scenarios now add one disclosed point to the displayed response label; the first matching label breaks ties. The result describes these choices only and is not a diagnosis or validated assessment.
-- One Stress Check action, two related reflections and one neutral success-gated share remain. Seven exact-once stages contain no answers, scores, result, locale, URL or timing.
-- Pages run `33943047616` deployed the exact child commit. Local and production 390/1440 px journeys passed and seven production assets matched local hashes.
+- Color Personality retained 11 Organic sessions / 10 engaged / 1,802 engagement seconds and 21 completion users during 2026-07-11~09-04. Search Console had no exact-page row, so the route remains live as a bounded color-choice activity.
+- Release `ed9ef8f` removes three manual ad units, direct pushes, synthetic engagement/ad events, fabricated `4.7 / 1,750` proof, hidden FAQ, personality and compatibility claims, arbitrary analysis, result-rich sharing and duplicate promotion. Ad serving is explicitly suspended.
+- Three spectrum selections and four visible palette choices now add exactly seven disclosed points across eight colors. The page displays all counts; the highest wins and fixed color order resolves ties. It does not infer personality.
+- One evidence-aware color guide, two related reflections and one neutral success-gated share remain. Seven exact-once stages contain no selected colors, scores, result, locale, URL or timing.
+- Pages run `33944295465` deployed the exact child commit. Local and production 390/1440 px journeys passed; six production assets matched local content, with expected LF normalization for `i18n.js`.
 
 ## Validation and next action
 
-- Stress Response verifier: 20/20 injected defects detected; 12 locale and real-browser contracts passed.
-- Portfolio risk: `critical 0 / high 32 / medium 6 / info 53 / clean 28`; Stress Response moved from score 130 to clean.
-- Submitted inventory: 63 unique URLs, zero issues. Full harness `2026-09-05T03-54-00-926Z`: 201/201 passed, including analytics 9/9 and runtime 6/6.
-- Next: inspect Color Personality, the only remaining score-130 product. Its 11 Organic sessions / 10 engaged / 1,802 seconds and 21 completions protect the route while its ad and proof surfaces are contained.
+- Color Choice Mixer verifier: 28/28 injected defects detected; 12 locale and real-browser contracts passed, including duplicate-input rejection.
+- Portfolio risk: `critical 0 / high 31 / medium 6 / info 53 / clean 29`; no score-130 product remains.
+- Submitted inventory: 63 unique URLs, zero issues. Full harness `2026-09-05T04-22-14-380Z`: 203/203 passed, including analytics 9/9 and runtime 6/6.
+- Next: compare the remaining score-110 products using credible Organic acquisition and valid action evidence, then contain or retire only the weakest measured unit. Do not expand traffic while the invalid-traffic restriction remains.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
