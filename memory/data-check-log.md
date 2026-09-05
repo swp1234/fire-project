@@ -46,7 +46,7 @@ This file keeps only evidence that still changes a product, traffic, or release 
 - Reward-risk games were contained or suspended: 2048, Sky Runner, Pong, Idle Clicker, Flappy Bird, Memory Card, Maze Runner, Color Memory, Road Shooter, Brick Breaker, Zigzag Runner, Stack Tower, Number Puzzle, Word Guess, Snake and Emoji Merge.
 - Claim-heavy reflections were reset around their actual authored rules: Trauma Response, Anxiety Type, Toxic Trait, AI Personality, Emotion Temperature, Overthinker, MBTI Love, Stress Response and Color Choice Mixer.
 - Seollal Fortune was reduced to a 750-byte `noindex,follow` redirect to Fortune Cookie. Its worker removes only `seollal-fortune-*` caches and unregisters so the stale app cannot revive offline.
-- Current ad-risk inventory after the Aura Color release is `0 critical / 24 high / 6 medium / 53 info / 36 clean`. Remaining high items are containment candidates, not permission to broaden traffic.
+- Current ad-risk inventory after the Knowledge Sprint release is `0 critical / 23 high / 6 medium / 53 info / 37 clean`. Remaining high items are containment candidates, not permission to broaden traffic.
 
 ## Burnout reflection trust reset — 2026-09-05
 
@@ -74,18 +74,21 @@ This file keeps only evidence that still changes a product, traffic, or release 
 - `/aura-reading/` had two users, including one South Korean mobile Organic visitor, but no valid start/completion in 2026-08-29 through 2026-09-04. Preserve as an acquisition-backed conversion test, not a growth winner.
 - Replaced aura/energy/personality claims, fake proof/rating/rarity, ads, hidden FAQ and result leakage with a disclosed `3+1` ten-scene palette mapping and fixed tie order. Child `3112cd3`, Pages `33956298791`: 17/17 mutations, 12-locale local/production journeys and 21 release-blob matches passed; risk moved to `0/24/6/53/36`.
 
+## World Knowledge Sprint reset — 2026-09-05
+
+- `/quiz-app/` had three users including one Indian Organic visitor but no action. Its claimed 12-language experience actually served 180+ Korean-only questions and immediately started a 15-second timer.
+- Replaced it with ten fixed English/Korean questions, explanations, no timer and literal correct-count scoring; removed ads/interstitials, fake rating/grades, AI gate, FAQ and result leakage. Child `879185c`, Pages `33957622442`: 17/17 mutations, bilingual production journey and 12 blob matches passed; risk moved to `0/23/6/53/37`.
+
 ## Trend queue
 
-1. Recheck Steam Korea game signals across seven days; Onimusha: Way of the Sword is a held play-style interaction hypothesis, not an approved article.
-2. Repackage one existing measured interaction with a current short-form format only after the restriction clears. Meme formats alone do not justify thin pages.
-3. Update the existing Odyssey/Spider-Man URL only after its current choice path is measured; do not fragment the intent.
+1. Recheck seven-day game signals; held hypotheses and meme formats do not justify thin pages.
+2. Improve the existing Odyssey/Spider-Man URL only after its choice path is measured; do not fragment the intent.
 
 Current signal qualification and primary sources live in `docs/STRATEGY.md` and the `dopabrain-growth-ops` culture-signal reference.
 
 ## Verification baseline
 
 - Pre-optimization harness `2026-09-05T04-49-44-276Z` passed 205/205 in 968.9 seconds. Its 97 duplicate syntax subprocesses used only 4.7 seconds but nearly doubled the step/report count.
-- Final harness `2026-09-05T08-52-58-322Z` passed 115/115 in 730.5 summed seconds after adding Aura. It remains 25% faster than the 968.9-second 205-step baseline; Aura caught 17/17 mutations, K-pop 52/52, analytics 9/9, runtime 6/6 and inventory 63/0.
+- Final harness `2026-09-05T09-20-21-366Z` passed 116/116 in 734.4 summed seconds after adding Knowledge Sprint. It remains 24% faster than the 968.9-second 205-step baseline; Knowledge Sprint and Aura each caught 17/17 mutations, analytics 9/9, runtime 6/6 and inventory 63/0.
 - Successful-step output is omitted from JSON: `latest.json` fell from 159.0 KB to about 14 KB. Safe gates use path-scoped clocks or isolated concurrency; qualified-exposure and crash-watch timers remain real.
-- Current slow gates are root focus (33.9s), K-pop roster/guide (32.8s) and NPC reset (29.6s). Profile internals before changing them; never trade behavior or mutation coverage for a shorter run.
 - GitHub Pages source must be queried per child repository before release. Working/development branch names are not deployment evidence.

@@ -14,18 +14,18 @@ Updated: 2026-09-05 KST. Release history is in `memory/data-check-log.md`; the r
 - Remove manual ads, reward/interstitial exchanges, fabricated proof and unverifiable paid-impression telemetry one measured product at a time.
 - Preserve routes with credible Organic acquisition or valid action evidence. Exclude Singapore desktop Direct scans and legacy synthetic events from growth decisions.
 
-## Latest release: Aura Color Studio
+## Latest release: World Knowledge Sprint
 
-- Keep `/aura-reading/` provisionally: 2026-08-29 through 2026-09-04 had two users, including one South Korean mobile Organic visitor, but no valid start or completion. This is acquisition evidence and a post-release conversion test, not proof of product-market fit.
-- Replaced the claim-heavy reading with an authored ten-scene color game. The existing questions and eight palette names remain; each choice visibly adds `3` points to a primary palette and `1` to a secondary, with an explicit eight-color tie order.
-- Removed two manual ad units/pushes and the loader, fabricated `127,000+` proof and `4.4/2,100` rating, random rarity, hidden FAQ, energy/personality/compatibility/famous-person claims, synthetic engagement, result leakage and competing rails. Source fell by 3,971 net lines; risk moved from `high 110` to `clean 0`.
-- Child commit `3112cd3` deployed from confirmed Pages source `main`; Pages run `33956298791` succeeded. All 21 deployed assets match the release commit byte-for-byte.
+- Keep `/quiz-app/` as a repaired acquisition test: 2026-08-29 through 2026-09-04 had three users, including one Indian Organic visitor, but no valid action. The old page advertised 12 languages while serving all 180+ questions only in Korean and started a 15-second timer immediately.
+- Replaced the stale/random bank with ten fixed, stable English/Korean questions, an explicit start, one point per correct answer, visible explanations and no timer. The result is only correct answers out of ten and explicitly makes no intelligence, education, rank or percentile claim.
+- Removed four manual ad units/pushes, interstitial and result ads, fabricated rating/grades, ad-gated “AI analysis,” hidden FAQ, synthetic engagement, result leakage and six competing rails. Removed 6,317 lines and 245 KB of unused PNGs; risk moved from `high 110` to `clean 0`.
+- Child `879185c` deployed from confirmed Pages source `main`; Pages run `33957622442` succeeded. All 12 release assets match the deployed commit byte-for-byte.
 
 ## Validation and next action
 
-- Aura gate caught 17/17 injected defects. Local and production mobile journeys passed across 12 locales and ten answers with duplicate-click protection, live language switching, two localized actions, seven parameter-free exact-once events and zero ads.
-- Portfolio risk is now `0 critical / 24 high / 6 medium / 53 info / 36 clean`. Submitted inventory remains 63 unique URLs with zero issues.
-- Final harness `2026-09-05T08-52-58-322Z` passed 115/115 in 730.5 summed seconds. Aura caught 17/17 mutations; analytics passed 9/9, runtime 6/6 and submitted inventory 63/0. Next: select the next high-risk route using credible acquisition/action evidence while traffic expansion remains paused.
+- Knowledge Sprint caught 17/17 injected defects. Local and production mobile journeys passed across both honest locales and ten answers with duplicate-click protection, two localized actions, seven parameter-free exact-once events and zero ads.
+- Portfolio risk is now `0 critical / 23 high / 6 medium / 53 info / 37 clean`. Submitted inventory remains 63 unique URLs with zero issues.
+- Final harness `2026-09-05T09-20-21-366Z` passed 116/116 in 734.4 summed seconds: Knowledge Sprint 17/17 mutations, Aura 17/17, analytics 9/9, runtime 6/6 and submitted inventory 63/0.
 - Documentation budgets remain mutation-tested: `PROGRESS.md` is current-state only, and durable evidence is compacted in the data log and skill references.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
