@@ -390,7 +390,7 @@ const scenarios = [
   },
   {
     name: 'portal-retention-personalization',
-    path: '/brainrot-score/',
+    path: '/detox-timer/',
     expected: ['cross_promo_click', 'hub_personalized_click'],
     async run(page) {
       await page.waitForSelector('.cp-card');
@@ -398,8 +398,9 @@ const scenarios = [
         const raw = localStorage.getItem('dopabrain_personalize');
         if (!raw) return false;
         const data = JSON.parse(raw);
-        return data.recent && data.recent[0] === 'brainrot-score' &&
-          data.visits && data.visits['brainrot-score'] >= 1;
+        return data.recent && data.recent[0] === 'detox-timer' &&
+          data.visits && data.visits['detox-timer'] >= 1 &&
+          !JSON.stringify(data).includes('brainrot-score');
       });
 
       const destinationId = await page.locator('.cp-card').first().getAttribute('data-destination-id');

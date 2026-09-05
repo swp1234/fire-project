@@ -46,38 +46,19 @@ This file keeps only evidence that still changes a product, traffic, or release 
 - Reward-risk games were contained or suspended: 2048, Sky Runner, Pong, Idle Clicker, Flappy Bird, Memory Card, Maze Runner, Color Memory, Road Shooter, Brick Breaker, Zigzag Runner, Stack Tower, Number Puzzle, Word Guess, Snake and Emoji Merge.
 - Claim-heavy reflections were reset around their actual authored rules: Trauma Response, Anxiety Type, Toxic Trait, AI Personality, Emotion Temperature, Overthinker, MBTI Love, Stress Response and Color Choice Mixer.
 - Seollal Fortune was reduced to a 750-byte `noindex,follow` redirect to Fortune Cookie. Its worker removes only `seollal-fortune-*` caches and unregisters so the stale app cannot revive offline.
-- Current ad-risk inventory after the Knowledge Sprint release is `0 critical / 23 high / 6 medium / 53 info / 37 clean`. Remaining high items are containment candidates, not permission to broaden traffic.
+- Current ad-risk inventory after Brainrot retirement is `0 critical / 22 high / 6 medium / 53 info / 38 clean`. Remaining high items are containment candidates, not permission to broaden traffic.
 
-## Burnout reflection trust reset — 2026-09-05
+## 2026-09-05 release ledger
 
-- Retained on 14 page views, six users, four real starts/completions and credible Organic acquisition in India, Indonesia and South Korea. The engine was healthy; unsupported proof, random/population metrics, manual ads, result export and sensitive telemetry were the bottleneck.
-- Child `c4f9fab`, Pages `33950596564`: 14/14 mutations and 12-locale production journeys passed. The first production failure exposed a verifier lifecycle race; the gate now waits for the app-owned destination contract.
-
-## Reward-preference trust reset — 2026-09-05
-
-- `/dopamine-type/` had 13 page views, seven users and four starts/completions in 2026-08-29~09-04. China, Hong Kong and South Korea supplied three credible Organic sessions, so the eight-question engine was retained.
-- Removed ads, fake proof/rating/neurotransmitter metrics, hidden FAQ, generic promotion and sensitive result telemetry. Child `cd34142`, Pages `33952662441`: 17/17 mutations and 12-locale local/production journeys passed; a mixed-CDN failure produced the versioned-asset/readiness contract now reused across reflections.
-
-## Emotion Iceberg reflection reset — 2026-09-05
-
-- Three page views/two users, credible Honduras/Indonesia Organic and one completion justified preserving the 10 scenarios. Ads, fake proof/rating, unsupported gap/percentile/analysis and result leakage were removed; frequent words, tie order and metaphor mapping are disclosed.
-- Child `8cb643f`, Pages `33954024124`: 17/17 mutations and 12-locale local/production journeys passed; 20 live assets match local bytes.
-
-## Coffee Code culture reset — 2026-09-05
-
-- `/mbti-coffee/` had one French Organic user and one completion in 2026-08-29~09-04. Preserve the eight café scenarios while treating the sample only as valid acquisition/action evidence.
-- Removed ads, fake 8,900+ and 4.5/1,380 proof, random match counts, hidden FAQ, synthetic engagement, personality claims and result leakage. The 2/1/2/1 points, E/S/T/J ties and 16-item authored lookup are visible; every locale distinguishes the game from the official assessment.
-- Child `cc7e849`, Pages `33955104573`: 17/17 mutations and 12-locale local/production journeys passed; 20 live assets match local bytes and risk moved to `0/25/6/53/35`.
-
-## Aura Color Studio reset — 2026-09-05
-
-- `/aura-reading/` had two users, including one South Korean mobile Organic visitor, but no valid start/completion in 2026-08-29 through 2026-09-04. Preserve as an acquisition-backed conversion test, not a growth winner.
-- Replaced aura/energy/personality claims, fake proof/rating/rarity, ads, hidden FAQ and result leakage with a disclosed `3+1` ten-scene palette mapping and fixed tie order. Child `3112cd3`, Pages `33956298791`: 17/17 mutations, 12-locale local/production journeys and 21 release-blob matches passed; risk moved to `0/24/6/53/36`.
-
-## World Knowledge Sprint reset — 2026-09-05
-
-- `/quiz-app/` had three users including one Indian Organic visitor but no action. Its claimed 12-language experience actually served 180+ Korean-only questions and immediately started a 15-second timer.
-- Replaced it with ten fixed English/Korean questions, explanations, no timer and literal correct-count scoring; removed ads/interstitials, fake rating/grades, AI gate, FAQ and result leakage. Child `879185c`, Pages `33957622442`: 17/17 mutations, bilingual production journey and 12 blob matches passed; risk moved to `0/23/6/53/37`.
+| Route | Decision evidence | Release proof |
+|---|---|---|
+| Burnout | Keep: 14 views, 6 users, 4 starts/completions and credible IN/ID/KR Organic; remove unsupported proof, ads, export and private telemetry | `c4f9fab`, Pages `33950596564`, 14/14 mutations, 12 locales |
+| Dopamine Type | Keep: 13 views, 7 users, 4 completions and 3 credible Organic sessions; remove fake chemistry metrics, ads and result leakage | `cd34142`, Pages `33952662441`, 17/17, 12 locales |
+| Emotion Iceberg | Keep: credible HN/ID Organic and one completion; disclose metaphor mapping and remove fake analysis | `8cb643f`, Pages `33954024124`, 17/17, 20 blob matches |
+| Coffee Code | Keep: one FR Organic completion; disclose authored lookup and remove personality/proof claims | `cc7e849`, Pages `33955104573`, 17/17, 20 blob matches |
+| Aura Studio | Keep as conversion test: one KR mobile Organic, zero starts; replace mystical claims with disclosed `3+1` palette game | `3112cd3`, Pages `33956298791`, 17/17, 21 blob matches |
+| Knowledge Sprint | Keep as conversion test: one IN Organic, zero starts; replace Korean-only random bank with 10 reviewed bilingual questions | `879185c`, Pages `33957622442`, 17/17, 12 blob matches |
+| Brainrot Score | Retire: only 2 SG desktop Direct scans, no qualified action; remove score, fake proof, ads, bundles and promotions, redirect to maintained detox/doomscrolling paths | app `5f92038`, portal `124da1f`, Pages `33958580365`/`33959125600`, 10/10 mutations |
 
 ## Trend queue
 
@@ -89,6 +70,6 @@ Current signal qualification and primary sources live in `docs/STRATEGY.md` and 
 ## Verification baseline
 
 - Pre-optimization harness `2026-09-05T04-49-44-276Z` passed 205/205 in 968.9 seconds. Its 97 duplicate syntax subprocesses used only 4.7 seconds but nearly doubled the step/report count.
-- Final harness `2026-09-05T09-20-21-366Z` passed 116/116 in 734.4 summed seconds after adding Knowledge Sprint. It remains 24% faster than the 968.9-second 205-step baseline; Knowledge Sprint and Aura each caught 17/17 mutations, analytics 9/9, runtime 6/6 and inventory 63/0.
+- Final harness `2026-09-05T10-06-21-987Z` passed 117/117 in 729.9 summed seconds after Brainrot retirement. It remains about 25% faster than the 968.9-second 205-step baseline; Brainrot caught 10/10 mutations, analytics 9/9, runtime 6/6 and inventory 63/0.
 - Successful-step output is omitted from JSON: `latest.json` fell from 159.0 KB to about 14 KB. Safe gates use path-scoped clocks or isolated concurrency; qualified-exposure and crash-watch timers remain real.
 - GitHub Pages source must be queried per child repository before release. Working/development branch names are not deployment evidence.

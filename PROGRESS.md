@@ -14,18 +14,17 @@ Updated: 2026-09-05 KST. Release history is in `memory/data-check-log.md`; the r
 - Remove manual ads, reward/interstitial exchanges, fabricated proof and unverifiable paid-impression telemetry one measured product at a time.
 - Preserve routes with credible Organic acquisition or valid action evidence. Exclude Singapore desktop Direct scans and legacy synthetic events from growth decisions.
 
-## Latest release: World Knowledge Sprint
+## Latest release: Brainrot retirement
 
-- Keep `/quiz-app/` as a repaired acquisition test: 2026-08-29 through 2026-09-04 had three users, including one Indian Organic visitor, but no valid action. The old page advertised 12 languages while serving all 180+ questions only in Korean and started a 15-second timer immediately.
-- Replaced the stale/random bank with ten fixed, stable English/Korean questions, an explicit start, one point per correct answer, visible explanations and no timer. The result is only correct answers out of ten and explicitly makes no intelligence, education, rank or percentile claim.
-- Removed four manual ad units/pushes, interstitial and result ads, fabricated rating/grades, ad-gated “AI analysis,” hidden FAQ, synthetic engagement, result leakage and six competing rails. Removed 6,317 lines and 245 KB of unused PNGs; risk moved from `high 110` to `clean 0`.
-- Child `879185c` deployed from confirmed Pages source `main`; Pages run `33957622442` succeeded. All 12 release assets match the deployed commit byte-for-byte.
+- Retired `/brainrot-score/`: 2026-08-29 through 2026-09-04 contained no credible acquisition or qualified action; its two visits were Singapore desktop Direct scan-like traffic.
+- Removed the unsupported behavior score, fake population percentile/rating, synthetic engagement, manual ad unit/request and 12-locale stale bundle. The legacy URL is now a 1.4 KB `noindex,follow` redirect to Digital Detox Timer with narrow cache cleanup.
+- Retired the unindexed companion trend article to the maintained doomscrolling guide and removed its app/catalog, country, cross-promo and multilingual article promotions. The two repositories lost 5,414 lines in total.
+- Child `5f92038` and portal `124da1f` deployed from confirmed Pages sources; runs `33958580365` and `33959125600` succeeded. The four checked live files match their deployed Git blobs.
 
 ## Validation and next action
 
-- Knowledge Sprint caught 17/17 injected defects. Local and production mobile journeys passed across both honest locales and ten answers with duplicate-click protection, two localized actions, seven parameter-free exact-once events and zero ads.
-- Portfolio risk is now `0 critical / 23 high / 6 medium / 53 info / 37 clean`. Submitted inventory remains 63 unique URLs with zero issues.
-- Final harness `2026-09-05T09-20-21-366Z` passed 116/116 in 734.4 summed seconds: Knowledge Sprint 17/17 mutations, Aura 17/17, analytics 9/9, runtime 6/6 and submitted inventory 63/0.
+- Brainrot retirement caught 10/10 injected defects; local and production mobile redirects passed. Portfolio risk is now `0 critical / 22 high / 6 medium / 53 info / 38 clean`; submitted inventory remains 63/0 because neither retired URL was submitted.
+- Final harness `2026-09-05T10-06-21-987Z` passed 117/117 in 729.9 summed seconds: Brainrot 10/10 mutations, analytics 9/9, runtime 6/6 and submitted inventory 63/0.
 - Documentation budgets remain mutation-tested: `PROGRESS.md` is current-state only, and durable evidence is compacted in the data log and skill references.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
