@@ -190,6 +190,39 @@ async function instrumentAnalytics(page) {
   });
 }
 
+async function instrumentTestClock(page) {
+  await page.addInitScript(() => {
+    const nativeSetTimeout = window.setTimeout.bind(window);
+    window.setTimeout = (handler, delay, ...args) => nativeSetTimeout(
+      handler,
+      location.pathname.startsWith('/eq-test/') && delay === 1400 ? 0 : delay,
+      ...args,
+    );
+  });
+}
+
+function analyticsConcurrency() {
+  const requested = Number.parseInt(process.env.ANALYTICS_CONCURRENCY || '3', 10);
+  if (!Number.isInteger(requested) || requested < 1) {
+    throw new Error('ANALYTICS_CONCURRENCY must be a positive integer');
+  }
+  return Math.min(requested, scenarios.length);
+}
+
+async function mapWithConcurrency(items, concurrency, worker) {
+  const results = new Array(items.length);
+  let cursor = 0;
+  async function runWorker() {
+    while (cursor < items.length) {
+      const index = cursor;
+      cursor += 1;
+      results[index] = await worker(items[index]);
+    }
+  }
+  await Promise.all(Array.from({ length: concurrency }, runWorker));
+  return results;
+}
+
 function isCrashError(text) {
   const lower = (text || '').toLowerCase();
   return CRASH_PATTERNS.some((pattern) => lower.includes(pattern.toLowerCase()));
@@ -337,7 +370,12 @@ const scenarios = [
       for (let round = 0; round < 10; round += 1) {
         await page.waitForSelector('.option-card');
         await page.locator('.option-card').first().click();
-        await page.waitForTimeout(1550);
+        if (round < 9) {
+          await page.waitForFunction(
+            (expected) => document.querySelector('#progress-label')?.textContent.trim() === `${expected} / 10`,
+            round + 2,
+          );
+        }
       }
 
       await page.waitForSelector('#screen-result.active');
@@ -396,6 +434,7 @@ async function runScenario(browser, scenario) {
   const page = await browser.newPage({ viewport: { width: 1440, height: 960 } });
   await blockExternalRequests(page);
   await instrumentAnalytics(page);
+  await instrumentTestClock(page);
 
   const pageErrors = [];
   page.on('pageerror', (error) => {
@@ -445,10 +484,7 @@ async function main() {
   const browser = await chromium.launch({ headless: true });
 
   try {
-    const results = [];
-    for (const scenario of scenarios) {
-      results.push(await runScenario(browser, scenario));
-    }
+    const results = await mapWithConcurrency(scenarios, analyticsConcurrency(), (scenario) => runScenario(browser, scenario));
 
     let failed = 0;
     console.log('\nAnalytics Event Smoke Check\n');

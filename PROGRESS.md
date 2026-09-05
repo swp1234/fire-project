@@ -26,6 +26,6 @@ Updated: 2026-09-05 KST. Release history is in memory/data-check-log.md; the rep
 - Portfolio risk: critical 0 / high 29 / medium 6 / info 53 / clean 31. Submitted inventory remains 63 unique URLs with zero issues.
 - The 158 KB append-only decision log is now a 7.9 KB current baseline. A mutation-tested documentation budget prevents root operating files from regrowing into session transcripts.
 - Optimized harness `2026-09-05T05-53-47-443Z` passed 110/110 in 813.7 seconds. It retains all verifier/mutation coverage plus analytics 9/9 and runtime 6/6 while using 110 steps instead of 205; JSON fell from 159.0 KB to 13.8 KB.
-- Path-scoped test clocks reduced English Attachment Reflection from 115.2s to 10.2s and K-pop roster/guide from 122.7s to 32.3s without accelerating qualified article-exposure timers. Shared runtime smoke now runs three isolated contexts at a time: 61.8s fell to 21.1s while every app retained a measured 10-second observation window. Next: profile analytics smoke (39.7s).
+- Path-scoped test clocks reduced English Attachment Reflection from 115.2s to 10.2s and K-pop roster/guide from 122.7s to 32.3s without accelerating qualified article-exposure timers. Shared runtime smoke fell from 61.8s to 21.1s with six measured 10-second watches; analytics smoke fell from 39.7s to 8.4s with 9/9 scenarios. Next: profile English Shadow Reflection (37.1s).
 
 User-owned projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js} remains untouched.
