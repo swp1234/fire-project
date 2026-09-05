@@ -297,6 +297,7 @@ async function main() {
     ['EQ trust and incident suspension', process.execPath, ['scripts/verify-eq-trust.js', '--mutations']],
     ['Burnout trust and incident suspension', process.execPath, ['scripts/verify-burnout-trust.js', '--mutations']],
     ['Reward reflection trust and incident suspension', process.execPath, ['scripts/verify-dopamine-trust.js', '--mutations']],
+    ['Emotion iceberg reflection trust and incident suspension', process.execPath, ['scripts/verify-emotion-iceberg-trust.js', '--mutations']],
     ['HSP reset funnel mutations', process.execPath, ['scripts/verify-hsp-reset-funnel.js', '--mutations']],
     ['sensory reset integration', process.execPath, ['scripts/verify-sensory-reset.js']],
     ['K-pop roster and guide mutations', process.execPath, ['scripts/verify-kpop-role-roster.js', '--mutations']],
