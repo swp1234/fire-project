@@ -222,8 +222,17 @@ async function verifyRuntime(live) {
   if (server) await new Promise(function (resolve) { server.listen(0, '127.0.0.1', resolve); });
   const origin = live ? 'https://dopabrain.com' : 'http://127.0.0.1:' + server.address().port;
   const browser = await chromium.launch({ headless: true });
-  const context = await browser.newContext({ serviceWorkers: 'block' });
+  const context = await browser.newContext({ serviceWorkers: 'block', reducedMotion: 'reduce' });
   await context.addInitScript(function () {
+    // Keep article exposure timers real; only collapse deliberate quiz animation delays.
+    const nativeSetTimeout = window.setTimeout;
+    window.setTimeout = function (callback, delay) {
+      const args = Array.prototype.slice.call(arguments, 2);
+      const effectiveDelay = location.pathname.startsWith('/attachment-style/')
+        ? Math.min(Number(delay) || 0, 1)
+        : delay;
+      return nativeSetTimeout.apply(window, [callback, effectiveDelay].concat(args));
+    };
     Object.defineProperty(navigator, 'clipboard', {
       configurable: true,
       value: { writeText: async function (value) { window.__copied = value; } },
