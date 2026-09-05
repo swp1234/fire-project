@@ -11,7 +11,7 @@ npm run harness
 Use it for broad changes and the final root release. For one product, use the smaller release path during iteration:
 
 ```powershell
-npm run harness:red-flag-release
+npm run harness:routine-release
 ```
 
 Release aliases wrap `--target` and `--release-verifier`. Release mode runs that verifier plus documentation, quality, submitted-index, secret and advertising safety gates. It does not replace the final full regression.

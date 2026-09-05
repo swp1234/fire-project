@@ -255,6 +255,7 @@ async function main() {
     ['Rizz Score retirement mutations', process.execPath, ['scripts/verify-rizz-score-retirement.js', '--mutations']],
     ['QR Generator trust and incident suspension', process.execPath, ['scripts/verify-qr-generator-trust.js', '--mutations']],
     ['Red Flag Test retirement mutations', process.execPath, ['scripts/verify-red-flag-retirement.js', '--mutations']],
+    ['Routine Planner trust and incident suspension', process.execPath, ['scripts/verify-routine-planner-trust.js', '--mutations']],
     ['MBTI Career retirement mutations', process.execPath, ['scripts/verify-mbti-career-retirement.js', '--mutations']],
     ['Word Scramble retirement mutations', process.execPath, ['scripts/verify-word-scramble-retirement.js', '--mutations']],
     ['Pong suspension mutations', process.execPath, ['scripts/verify-pong-suspension.js', '--mutations']],
