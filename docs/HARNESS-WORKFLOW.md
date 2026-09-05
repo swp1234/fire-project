@@ -14,6 +14,8 @@ npm run harness
 
 `npm run verify:docs`는 현재 상태 문서의 byte/line 예산, 중복 heading, 단일 latest release와 기록 보존 경계를 변이 검사한다.
 
+브라우저 검증에서 제품 애니메이션 대기를 줄일 때는 대상 앱 경로에만 test clock을 적용한다. 블로그 CTA의 50%/500ms 같은 노출 자격 타이머와 서비스 워커 타임아웃은 실제 시간으로 검증한다.
+
 ## Focused product gate
 
 ```powershell
