@@ -19,18 +19,18 @@ This file contains only the current operating decision. Detailed evidence and re
 - Exclude deployment days, Singapore desktop Direct scans, concentrated non-organic bursts, AI-assistant referrals and legacy synthetic events from growth judgments.
 - Do not suppress a product with credible Organic acquisition or real completion signals merely because its total traffic is small.
 
-## Latest release: portal shared-ad containment and stale-guide retirement
+## Latest release: portal Auto Ads-only cleanup
 
-- The portal apps remain live because credible Organic signals exist: Past Life had two app sessions and its English guide had 16 Organic sessions / 10 engaged / 463 engagement seconds; the Chinese MBTI City guide had four Organic sessions, all engaged, and 465 seconds. Shared monetization risk was isolated instead of deleting those routes.
-- Portal `0d359ee` is deployed by Pages run `33930945759`. The shared 6,758-byte H5/reward module is now a 464-byte compatibility adapter that never requests, renders or rewards an ad, reports unavailable and preserves existing completion callbacks.
-- `/portal/blog/free-online-games.html` had only three Direct sessions / one engaged / 15 seconds in 56 days, zero Organic acquisition and no exact Search Console row. Its 79,097-byte page is now a 673-byte `noindex,follow` redirect to `/portal/games/`; ten catalog, feed, related-link and hreflang references no longer promote it.
-- The dedicated verifier detects 11/11 injected defects and passes local and production 390/1440px retirement journeys. The deployed adapter is exactly 464 bytes and contains no AdSense, H5 break or rewarded API. Portfolio ad-risk is now `critical 0 / high 41 / medium 6 / info 52 / clean 20`.
+- Palworld's 56-day 459 page views were 94% Singapore desktop Direct scans. Only four Organic sessions existed, and valid actions were limited to three base-plan users and one field-plan user. Search Console returned no rows for the Palworld or MBTI type-page set.
+- Portal `3fc3cd2` is deployed by Pages run `33932446058`. It removes six manual units/direct pushes and nine client-authored ad-impression events from five tools, 16 MBTI type pages and three hubs while retaining one fixed-publisher Auto Ads loader on each of the 21 monetized target pages.
+- The risk scanner no longer mistakes `seenAds.push()` for an AdSense request or a compatibility adapter definition for an H5 call. It now detects product-prefixed synthetic ad-impression events; its self-test is 12/12.
+- The dedicated verifier detects 9/9 injected defects, accepts the former false-positive case, and passes local/production 390/1440px Palworld plan, Past Life story and MBTI type-action journeys. Thirty deployed sources were independently checked with zero risky code and zero loader issues. Portfolio ad-risk is now `critical 0 / high 40 / medium 6 / info 53 / clean 20`.
 
 ## Validation and next action
 
 - Common AdSense contract: 11/11 mutations detected; all suspended products have zero ad loaders.
 - Submitted indexing inventory: 63 URLs, zero issues. Blog focus: 173 indexable, 209 redirects, 1,596 noindex.
-- Final harness `2026-09-04T23-35-12-426Z`: 183/183 stages passed, including analytics 9/9 and runtime 6/6.
-- Next: rank the 41 remaining high-risk products by real Organic/action value, then isolate one manual-unit/direct-push surface without disabling focused loader-only revenue pages. Keep new trend content behind the distinct-intent and measurable-interaction gate.
+- Final harness `2026-09-05T00-01-54-669Z`: 185/185 stages passed, including analytics 9/9 and runtime 6/6.
+- Next: compare `anxiety-type` and `trauma-response`, the two highest remaining risks, using real Organic/action evidence; contain or retire the weaker product. Keep new trend content behind the distinct-intent and measurable-interaction gate.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

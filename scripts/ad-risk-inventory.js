@@ -128,13 +128,13 @@ function inspectProject(name, rawFiles) {
 
   const directLoader = /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js|\/portal\/js\/ad-loader\.js/gi;
   const manualUnit = /<ins\b[^>]*\bclass\s*=\s*["'][^"']*\badsbygoogle\b[^"']*["'][^>]*>/gi;
-  const manualPush = /\badsbygoogle\b[\s\S]{0,100}?\.push\s*\(/gi;
+  const manualPush = /(?:\(\s*(?:window\.)?adsbygoogle\s*=\s*window\.adsbygoogle\s*\|\|\s*\[\]\s*\)|(?:window\.)?adsbygoogle)\s*\.push\s*\(/gi;
   const rewardCall = /GameAds\s*\.\s*(?:injectRewardButton|showRewarded)\s*\(|adBreak\s*\(\s*\{[\s\S]{0,180}?\btype\s*:\s*["']reward["']/gi;
   const fakeCompletionControl = /(?:id|class)\s*=\s*["'][^"']*(?:watch-ad|ad-complete)[^"']*["']|광고\s*시청\s*완료/gi;
   const unlockHandler = /(?:unlockPremium|premiumUnlocked\s*=\s*true|classList\.remove\s*\(\s*["']hidden["']\s*\))/gi;
-  const h5Api = /(?:\bGameAds\b|\badBreak\s*\(|\badConfig\s*\(|\/_common\/js\/game-ads\.js)/gi;
+  const h5Api = /(?:\bGameAds\s*\.\s*(?:init|showInterstitial|showRewarded|injectRewardButton)\s*\(|\badBreak\s*\(|\badConfig\s*\(|\/_common\/js\/game-ads\.js)/gi;
   const rewardTelemetry = /gtag\s*\(\s*["']event["']\s*,\s*["']rewarded_ad["']/gi;
-  const syntheticImpression = /gtag\s*\(\s*["']event["']\s*,\s*["'](?:content_)?ad_impression["']/gi;
+  const syntheticImpression = /["'][a-z0-9_]*ad_impression["']/gi;
   const suspensionMarker = /data-ad-serving\s*=\s*["']suspended-invalid-traffic-[^"']+["']/gi;
 
   const loaderCount = countFiles(files, directLoader);
@@ -159,10 +159,10 @@ function inspectProject(name, rawFiles) {
     add('fake_ad_completion_unlock', evidence(files, /watch-ad|ad-complete|광고\s*시청\s*완료|unlockPremium|premiumUnlocked/i, 6), fakeCompletionCount);
   }
   add('manual_ad_unit', evidence(files, /<ins\b[^>]*\badsbygoogle\b/i), unitCount);
-  add('manual_adsbygoogle_push', evidence(files, /adsbygoogle[^\n]{0,100}\.push\s*\(/i), pushCount);
+  add('manual_adsbygoogle_push', evidence(files, /(?:\(\s*(?:window\.)?adsbygoogle\s*=\s*window\.adsbygoogle\s*\|\|\s*\[\]\s*\)|(?:window\.)?adsbygoogle)\s*\.push\s*\(/i), pushCount);
   add('reward_ad_telemetry', evidence(files, /["']rewarded_ad["']/i), rewardEventCount);
-  add('h5_ad_api', evidence(files, /\bGameAds\b|\badBreak\s*\(|\badConfig\s*\(|\/_common\/js\/game-ads\.js/i), h5Count);
-  add('synthetic_ad_impression', evidence(files, /["'](?:content_)?ad_impression["']/i), syntheticCount);
+  add('h5_ad_api', evidence(files, /\bGameAds\s*\.\s*(?:init|showInterstitial|showRewarded|injectRewardButton)\s*\(|\badBreak\s*\(|\badConfig\s*\(|\/_common\/js\/game-ads\.js/i), h5Count);
+  add('synthetic_ad_impression', evidence(files, /["'][a-z0-9_]*ad_impression["']/i), syntheticCount);
   add('active_ad_loader', evidence(files, /pagead2\.googlesyndication\.com|\/portal\/js\/ad-loader\.js/i), loaderCount);
 
   const score = findings.reduce((total, finding) => total + finding.score, 0);
@@ -234,6 +234,15 @@ function runSelfTest() {
   const manual = fixture('index.html', '<ins class="adsbygoogle" data-ad-slot="123"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>');
   assert(ids(manual).has('manual_ad_unit') && ids(manual).has('manual_adsbygoogle_push'), 'manual unit or push escaped');
 
+  const adjacentPush = fixture('app.js', "const node = element.querySelector('.adsbygoogle'); seenAds.push(element);");
+  assert(!ids(adjacentPush).has('manual_adsbygoogle_push'), 'unrelated Array.push was classified as an AdSense request');
+
+  const adapter = fixture('game-ads.js', 'const GameAds = (() => ({ init() {}, showInterstitial() {} }))();');
+  assert(!ids(adapter).has('h5_ad_api'), 'compatibility adapter definition was classified as an H5 API call');
+
+  const synthetic = fixture('app.js', "track('product_ad_impression');");
+  assert(ids(synthetic).has('synthetic_ad_impression'), 'product-prefixed synthetic ad impression escaped');
+
   const suspended = fixture('index.html', '<html data-ad-serving="suspended-invalid-traffic-2026-09-03"><main>Safe</main></html>');
   assert(suspended.suspended && suspended.severity === 'clean', 'clean suspension marker failed');
 
@@ -242,7 +251,7 @@ function runSelfTest() {
 
   const workingTreeFiles = trackedSourceFiles(path.join(PROJECTS_ROOT, 'mbti-career'));
   assert(workingTreeFiles.every((file) => fs.existsSync(path.join(PROJECTS_ROOT, 'mbti-career', file.relative))), 'deleted tracked file reached the scanner');
-  console.log('[PASS] ad-risk inventory self-test: 9/9 behavior classes including staged/unstaged deletion safety');
+  console.log('[PASS] ad-risk inventory self-test: 12/12 behavior classes including false-positive and deletion safety');
 }
 
 function printInventory(inventory, limit) {
