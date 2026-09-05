@@ -67,10 +67,10 @@ Current signal qualification and primary sources live in `docs/STRATEGY.md` and 
 ## Verification baseline
 
 - Pre-optimization harness `2026-09-05T04-49-44-276Z` passed 205/205 in 968.9 seconds. Its 97 duplicate syntax subprocesses used only 4.7 seconds but nearly doubled the step/report count.
-- Optimized harness `2026-09-05T05-53-47-443Z` passed 110/110 in 813.7 seconds. The 205-step baseline took 968.9 seconds; the first 109-step run took 1,038.2 seconds before targeted clock work. All mutation, analytics 9/9, runtime 6/6 and submitted inventory 63/0 coverage remains.
+- Final harness `2026-09-05T06-14-34-023Z` passed 110/110 in 693.4 seconds. It is 28% faster than the 968.9-second 205-step baseline and 33% faster than the first 1,038.2-second structural run. All mutation, analytics 9/9, runtime 6/6 and submitted inventory 63/0 coverage remains.
 - Successful-step output is no longer copied into JSON: `latest.json` fell from 159.0 KB to 13.8 KB (91% smaller), while the Markdown summary is 5.9 KB. English Attachment Reflection fell from 115.2s to 10.2s and K-pop roster/guide from 122.7s to 32.3s by collapsing only app animation delays in their browser contexts; article qualification timers remain real.
 - Shared runtime smoke now runs at most three independent browser contexts concurrently. It fell from 61.8s to 21.1s; all six apps passed and recorded 10,024-10,052ms observation windows, so parallelism did not shorten the per-app crash watch.
 - Analytics smoke now runs at most three isolated scenarios concurrently and waits on EQ state instead of ten fixed 1.55s sleeps. It fell from 39.7s to 8.4s with 9/9 scenarios; EQ's 500ms qualified-action timer remains real.
-- English Shadow Reflection now runs its 12 locale journeys in isolated contexts four at a time. It fell from 37.1s to 4.5s while retaining 14/14 mutations, eight answers per locale, guide attribution, neutral sharing, mobile and fallback checks.
-- Current slow gates are root focus (34.9s), K-pop roster/guide (32.3s) and NPC reset (29.6s). Profile internals before changing them; never trade behavior or mutation coverage for a shorter run.
+- English Shadow Reflection now runs its 12 locale journeys in isolated contexts four at a time. It fell from 37.1s to 4.4s while retaining 14/14 mutations, eight answers per locale, guide attribution, neutral sharing, mobile and fallback checks.
+- Current slow gates are root focus (33.9s), K-pop roster/guide (32.8s) and NPC reset (29.6s). Profile internals before changing them; never trade behavior or mutation coverage for a shorter run.
 - GitHub Pages source must be queried per child repository before release. Working/development branch names are not deployment evidence.

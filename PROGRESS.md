@@ -25,7 +25,7 @@ Updated: 2026-09-05 KST. Release history is in memory/data-check-log.md; the rep
 - NPC verifier: 22/22 injected defects detected; local and production ten-choice journeys passed at 390/1440 px with three private exact-once stages and zero ads. Pages run 33946998363 succeeded.
 - Portfolio risk: critical 0 / high 29 / medium 6 / info 53 / clean 31. Submitted inventory remains 63 unique URLs with zero issues.
 - The 158 KB append-only decision log is now a 7.9 KB current baseline. A mutation-tested documentation budget prevents root operating files from regrowing into session transcripts.
-- Optimized harness `2026-09-05T05-53-47-443Z` passed 110/110 in 813.7 seconds. It retains all verifier/mutation coverage plus analytics 9/9 and runtime 6/6 while using 110 steps instead of 205; JSON fell from 159.0 KB to 13.8 KB.
-- Path-scoped clocks reduced English Attachment Reflection from 115.2s to 10.2s and K-pop roster/guide from 122.7s to 32.3s without accelerating qualified article exposure. Shared runtime fell from 61.8s to 21.1s, analytics from 39.7s to 8.4s, and isolated four-way Shadow locale journeys from 37.1s to 4.5s. Next: run the complete integrated harness once more.
+- Final harness `2026-09-05T06-14-34-023Z` passed 110/110 in 693.4 seconds with analytics 9/9, runtime 6/6 and inventory 63/0. That is 28% faster than the 968.9-second 205-step baseline; JSON fell from 159.0 KB to 13.8 KB.
+- Path-scoped clocks and isolated concurrency reduced Attachment 115.2s -> 10.2s, K-pop 122.7s -> 32.8s, runtime 61.8s -> 21.1s, analytics 39.7s -> 8.5s and Shadow 37.1s -> 4.4s without shortening qualified exposure or per-app crash watches. Next: return to the highest-value containment/product bottleneck while traffic expansion remains paused.
 
 User-owned projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js} remains untouched.
