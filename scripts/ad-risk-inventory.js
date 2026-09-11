@@ -133,6 +133,7 @@ function inspectProject(name, rawFiles) {
   const fakeCompletionControl = /(?:id|class)\s*=\s*["'][^"']*(?:watch-ad|ad-complete)[^"']*["']|광고\s*시청\s*완료/gi;
   const unlockHandler = /(?:unlockPremium|premiumUnlocked\s*=\s*true|classList\.remove\s*\(\s*["']hidden["']\s*\))/gi;
   const h5Api = /(?:\bGameAds\s*\.\s*(?:init|showInterstitial|showRewarded|injectRewardButton)\s*\(|\badBreak\s*\(|\badConfig\s*\(|\/_common\/js\/game-ads\.js)/gi;
+  const h5Loader = /\/portal\/js\/game-ads\.js/gi;
   const rewardTelemetry = /gtag\s*\(\s*["']event["']\s*,\s*["']rewarded_ad["']/gi;
   const syntheticImpression = /["'][a-z0-9_]*ad_impression["']/gi;
   const suspensionMarker = /data-ad-serving\s*=\s*["']suspended-invalid-traffic-[^"']+["']/gi;
@@ -143,7 +144,7 @@ function inspectProject(name, rawFiles) {
   const rewardCallCount = countFiles(files, rewardCall);
   const fakeCompletionCount = count(combined, fakeCompletionControl);
   const unlockCount = count(combined, unlockHandler);
-  const h5Count = countFiles(files, h5Api);
+  const h5Count = countFiles(files, h5Loader) ? countFiles(files, h5Api) : 0;
   const rewardEventCount = countFiles(files, rewardTelemetry);
   const syntheticCount = countFiles(files, syntheticImpression);
   const suspended = suspensionMarker.test(combined);
@@ -240,6 +241,9 @@ function runSelfTest() {
   const adapter = fixture('game-ads.js', 'const GameAds = (() => ({ init() {}, showInterstitial() {} }))();');
   assert(!ids(adapter).has('h5_ad_api'), 'compatibility adapter definition was classified as an H5 API call');
 
+  const activeGameAds = fixture('index.html', '<script src="/portal/js/game-ads.js"></script><script>GameAds.showInterstitial({});</script>');
+  assert(ids(activeGameAds).has('h5_ad_api'), 'loaded H5 game-ad call escaped');
+
   const synthetic = fixture('app.js', "track('product_ad_impression');");
   assert(ids(synthetic).has('synthetic_ad_impression'), 'product-prefixed synthetic ad impression escaped');
 
@@ -290,4 +294,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { inspectProject, stripComments };
+module.exports = { buildInventory, inspectProject, stripComments };

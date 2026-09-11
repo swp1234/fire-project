@@ -413,6 +413,7 @@ async function main() {
     ['tracked secret self-test', process.execPath, ['scripts/verify-tracked-secrets.js', '--self-test']],
     ['tracked secret scan', process.execPath, ['scripts/verify-tracked-secrets.js']],
     ['AdSense contract mutations', process.execPath, ['scripts/verify-adsense-contract.js', '--mutations']],
+    ['restricted AdSense containment', process.execPath, ['scripts/verify-restricted-ad-projects.js', '--mutations']],
     ['ad-risk inventory self-test', process.execPath, ['scripts/ad-risk-inventory.js', '--self-test', '--limit', '0']],
     ['HSP reset funnel runtime', process.execPath, ['scripts/verify-hsp-reset-funnel.js']],
     ['Stress core and mutations', process.execPath, ['scripts/verify-stress-core.js', '--mutations']],

@@ -103,6 +103,8 @@ SOUNDSCAPE_*.txt
 !scripts/verify-mbti-love.js
 !scripts/verify-adsense-contract.js
 !scripts/ad-risk-inventory.js
+!scripts/suspend-restricted-ad-projects.js
+!scripts/verify-restricted-ad-projects.js
 !scripts/verify-brain-training-bridge.js
 !scripts/verify-kst-date.js
 !scripts/verify-zh-2048-guide.js

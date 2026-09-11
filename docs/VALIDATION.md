@@ -41,7 +41,7 @@ npm run harness:release -- --target projects/<app> --release-verifier scripts/ve
 ## 광고와 분석
 
 - 정상 페이지는 고정 publisher의 Auto Ads loader 하나만 허용한다.
-- `data-ad-serving="suspended-invalid-traffic-YYYY-MM-DD"` 페이지는 loader, 수동 unit, `adsbygoogle.push`, 정적 광고 surface가 모두 0이어야 한다.
+- `data-ad-serving="suspended-invalid-traffic-YYYY-MM-DD"` 페이지는 loader, 수동 unit, `adsbygoogle.push`, H5 game-ad loader, 정적 광고 surface가 모두 0이어야 한다. `npm run verify:restricted-ads`는 정적·변이·브라우저 검사를 함께 실행한다.
 - 광고 시청·클릭을 결과, 점수, 보상, 프리미엄 해제와 교환하지 않는다.
 - paid impression은 AdSense 자료로 판단하며 DOM 관찰이나 자체 이벤트로 추정하지 않는다.
 - view는 정의된 가시성·지속시간을 충족한 뒤 기록한다. start, complete, qualified view, primary click은 load당 exact-once다.
@@ -52,5 +52,5 @@ npm run harness:release -- --target projects/<app> --release-verifier scripts/ve
 1. 변경 범위의 정적·동작·변이 검사가 통과한다.
 2. 하위 저장소의 실제 Pages source branch에 fast-forward push하고 해당 run 성공을 확인한다.
 3. production에서 핵심 여정, 콘솔, mobile/desktop, 내부 목적지, 배포 파일 일치를 다시 검사한다.
-4. sitemap 변경 시 `npm run verify:indexing-inventory`; 광고 변경 시 `npm run verify:adsense-contract`와 `npm run verify:ad-risk-inventory`를 추가한다.
+4. sitemap 변경 시 `npm run verify:indexing-inventory`; 광고 변경 시 `npm run verify:adsense-contract`, `npm run verify:restricted-ads`, `npm run verify:ad-risk-inventory`를 추가한다.
 5. 실패는 제품·fixture·도구 결함으로 구분하며 같은 명령 반복으로 숨기지 않는다.
