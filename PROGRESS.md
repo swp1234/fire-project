@@ -1,29 +1,36 @@
 # DopaBrain current status
 
-Updated: 2026-09-11 KST. Release history is in `memory/data-check-log.md`; the repeatable loop is in the `dopabrain-growth-ops` skill.
+Updated: 2026-09-18 KST. Release history is in `memory/data-check-log.md`; the repeatable loop is in the `dopabrain-growth-ops` skill.
 
-## Target and blocker
+## Target and status
 
 - Target: `$1.40` per completed seven days (`$0.20/day`).
-- 2026-09-04 through 2026-09-10: `$0.04 / 1,898 page views / 51 impressions / 1 click`, or `$0.006/day`.
-- AdSense still returns the severe `adsense-traffic-throttled` alert. Address PIN verification is a separate payment hold, not the cause or remedy for serving limits.
+- **AdSense Serving Restriction Lifted (2026-09-13)**:
+  - Policy issues API returned 0 violations (`{}`). The severe `adsense-traffic-throttled` alert has completely disappeared from API alerts.
+  - Total earnings (2026-09-13 to 2026-09-18): **$0.34**, 1,310 page views, 292 impressions, 7 clicks, Page RPM $0.26.
+  - High-value Tier 1 contribution: United States ($0.08, RPM $2.65), Canada ($0.07, RPM $5.15).
+  - Production `dopabrain.com` generated 100% of the revenue.
+  - Address PIN verification remains an account-level payment threshold notice, not an ad delivery restriction.
 
-## Current rule
+## Current operating rules
 
-- Keep ad-layout experiments, traffic expansion, IndexNow and manual GSC submissions paused until the restriction clears.
-- The 1,186 Direct sessions include recurring Singapore-desktop, no-referrer multi-route bursts; exclude that scan-like traffic from growth decisions.
 - Keep 36 legacy apps in the invalid-traffic suspension contract: no loader, manual unit, request push, H5 game-ad loader, rewarded exchange, or ad-completion unlock.
-- Preserve routes with credible Organic acquisition or valid action evidence. Exclude Singapore desktop Direct scans and legacy synthetic events from growth decisions.
+- Exclude Singapore desktop Direct scans (average duration 4.5s) and China Direct bursts from growth and product performance decisions.
+- Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, HSP Test: 63s dwell time, Cortisol/MBTI guides: 100~200s dwell time).
+- Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: restricted-ad containment
+## Latest release: harness completion & killer product optimization (2026-09-18)
 
-- Added an explicit, idempotent restricted-ad migration and verifier. Its browser check loads Habit Tracker, 2048, Block Puzzle and Typing Speed with third-party traffic isolated; page errors, AdSense/H5 requests and manual ad DOM must all be zero.
-- Removed the remaining misleading 2048 ad-undo claim and the Habit Tracker self-declared ad-unlock UI.
-- Current inventory: `0 critical / 0 high / 0 medium / 53 info / 66 clean`. The remaining `info` entries are Auto Ads loaders and are not a signal to expand traffic while the restriction is active.
-
-## Validation and deployment state
-
-- `verify:restricted-ads`, `verify:adsense-contract`, and the ad-risk self-test pass; restricted-ad verification includes a loader-return mutation and four-app browser runtime check.
-- Deployment is intentionally pending: the affected independent app repositories already contain unrelated dirty work. Preserve those changes, split reviewable commits, then push child repositories and verify the actual Pages source before claiming production resolution.
+- **Harness & Contract Harmonization**:
+  - Resolved suspension vs. SEO guide verification conflicts across 9 multilingual verifiers (`verify-blood-type-culture-reset`, `verify-brain-type-trust`, `verify-en-past-life-path`, `verify-es-typing-speed`, `verify-fr-dev-quiz-path`, `verify-ja-reaction-time`, `verify-zh-block-puzzle-path`, `verify-zh-habit-tracker`, `verify-zh-mbti-city-path`) via adaptive `isSuspended ? 0 : 1` loader assertions.
+  - Automatically repaired 5 stale (>90d) inventory files for 2026-09-18.
+  - Completed **full 433-step `npm run harness` with 100% PASS** (exit code 0).
+- **Stress Check (Dwell Time #1) Funnel Optimization**:
+  - Dynamic language and source parameter injection (`lang=${currentLang}&source=stress_result`) into Related Cards (`/hsp-test/`, `/stress-response/`).
+  - Added clean GA4 telemetry `stress_related_click` for related test card interactions.
+  - Embedded bidirectional bridge links to Sensory Reset (`/hsp-test/reset.html`) and Doomscrolling Guide (`/portal/blog/${lang}/doom-scrolling-mental-health-effects.html`) in `plan.html` across all 12 supported locales.
+- **Culture Signal & Search Intent Enhancement**:
+  - Expanded FAQPage schema and visible FAQ entries in `odyssey-spider-man-identity-reset-2026.html` and `scripts/specs/trend-odyssey-spiderman-ko.json` with high-volume entity queries.
+  - Verified with zero regressions via `verify-culture-choice.js --mutations` (12/12) and `verify-blog-generator-interaction.js`.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
