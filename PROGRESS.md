@@ -19,27 +19,16 @@ Updated: 2026-09-18 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, HSP Test: 63s dwell time, Cortisol/MBTI guides: 100~200s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: harness completion & high-dwell recirculation (2026-09-18)
+## Latest release: high-dwell recirculation & Tier 1 guides (2026-09-18)
 
-- **Harness & Contract Harmonization**:
-  - Full 433-step `npm run harness` achieved 100% PASS (Summary: 9 passed in analytics, 6 passed in runtime).
-- **Stress Check (Dwell Time #1, 175s) Funnel Optimization**:
-  - Related Cards parameter injection (`lang=${currentLang}&source=stress_result`) + clean GA4 `stress_related_click`.
-  - Bidirectional bridge links to Sensory Reset (`/hsp-test/reset.html`) & Doomscrolling Guide in `plan.html` across all 12 locales.
-- **Future Self (Dwell Time #2, 178s) Recirculation Engine**:
-  - Built `next-journey-section` in `screen-result` targeting active high-yield apps (`brain-type`, `stress-check`, `mental-age`).
-  - Added multi-locale support across all 12 locales and dynamic query synchronization (`updateNextAppLinks`).
-  - 100% verified via `verify-future-self-funnel.js --mutations` (15/15) and `verify-en-future-self-guide.js --mutations` (13/13).
-- **HSP Test (Dwell Time 115s) High-Yield Recirculation**:
-  - Connected #1 killer app `/stress-check/` into HSP result screen `related-grid` across all 12 locales.
-  - Implemented safe query preservation in `js/app.js` (`lang` & `source=hsp_related`) preventing cross-app language drops.
-  - Verified 13/13 mutations in `verify-hsp-reset-funnel.js` and 12-locale privacy contracts in `verify-sensory-reset.js`.
-- **Tier 1 High-RPM Organic Recovery (Wave 2)**:
-  - Lifted `noindex` on high-intent Dopamine Detox & Emotional Exhaustion Guides (`dopamine-detox-practical-guide.html` EN/KO, `emotional-exhaustion-signs-recovery.html` EN/KO).
-  - Synchronized `dateModified: 2026-09-18` and registered 4 URLs into `portal/blog/sitemap.xml`.
-  - Upgraded Quick Rails to high-retention core tools (`dopamine-type`, `stress-check`, `burnout-test`, `brain-type`).
-- **Harness Verification**:
-  - 433-step `npm run harness` completed with 100% PASS (0 errors, 0 failures).
+- **Recirculation Funnels (`stress-check`, `future-self`, `hsp-test`, `brain-type`)**:
+  - Interlinked #1 killer `/stress-check/` (175s) across HSP Test & Brain Type related grids in 12 locales.
+  - Replaced retired `hail-mary-mode` with `stress-check` and added bidirectional language/source query sync.
+  - Built `next-journey-section` in Future Self (178s) routing to high-yield apps.
+- **Tier 1 High-RPM Organic Recovery**:
+  - Lifted `noindex` on 6 killer guides (Cortisol, Dopamine Detox, Emotional Exhaustion EN/KO).
+  - Synchronized `dateModified: 2026-09-18` and registered all 6 URLs in `portal/blog/sitemap.xml`.
+  - Upgraded Quick Rails to point directly to high-dwell core tools (`dopamine-type`, `stress-check`, `burnout-test`).
+- **Verification**: Full 433-step `npm run harness` 100% PASS (Analytics 9/9, Runtime 6/6, 0 errors).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
-
