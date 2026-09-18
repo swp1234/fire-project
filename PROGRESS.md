@@ -22,13 +22,11 @@ Updated: 2026-09-18 KST. Release history is in `memory/data-check-log.md`; the r
 ## Latest release: high-dwell recirculation & Tier 1 guides (2026-09-18)
 
 - **Recirculation Funnels (`stress-check`, `future-self`, `hsp-test`, `brain-type`)**:
-  - Interlinked #1 killer `/stress-check/` (175s) across HSP Test & Brain Type related grids in 12 locales.
-  - Replaced retired `hail-mary-mode` with `stress-check` and added bidirectional language/source query sync.
-  - Built `next-journey-section` in Future Self (178s) routing to high-yield apps.
-- **Tier 1 High-RPM Organic Recovery & GSC Alignment**:
-  - Registered missing killer apps (`future-self` 178s, `stress-response` 103s, `burnout-test`) into `root-domain/sitemap.xml`.
-  - Lifted `noindex` on 10 Tier 1 guides (Cortisol, Anxiety vs Panic, Burnout Prev, Detox, Exhaustion EN/KO).
-  - Upgraded Quick Rails to point directly to top core tools (`stress-check`, `stress-response`, `burnout-test`, `anxiety-type`).
+  - Interlinked #1 killer `/stress-check/` (175s) across HSP Test, Brain Type & Future Self with language/source query sync.
+- **Tier 1 High-RPM Organic Recovery & GSC Alignment (Waves 1~8)**:
+  - Registered missing killer apps (`future-self` 178s, `stress-response`, `burnout-test`) in root sitemap.
+  - Lifted `noindex` on 14 Tier 1 guides (Cortisol, Anxiety vs Panic, Burnout Prev, CBT Overthinking, Social Anxiety EN/KO).
+  - Upgraded Quick Rails to point directly to top killer tools (`stress-check`, `stress-response`, `burnout-test`, `overthinker-test`).
 - **Verification**: Full 433-step `npm run harness` 100% PASS (Analytics 9/9, Runtime 6/6, 0 errors).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
