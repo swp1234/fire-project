@@ -30,9 +30,16 @@ Updated: 2026-09-18 KST. Release history is in `memory/data-check-log.md`; the r
   - Built `next-journey-section` in `screen-result` targeting active high-yield apps (`brain-type`, `stress-check`, `mental-age`).
   - Added multi-locale support across all 12 locales and dynamic query synchronization (`updateNextAppLinks`).
   - 100% verified via `verify-future-self-funnel.js --mutations` (15/15) and `verify-en-future-self-guide.js --mutations` (13/13).
-- **Tier 1 High-RPM Organic Recovery**:
-  - Lifted `noindex` on high-dwell Cortisol Guides (`en/cortisol-lowering-techniques-guide.html`, `ko/cortisol-lowering-techniques-guide.html`), updated `dateModified: 2026-09-18`, and registered in `portal/blog/sitemap.xml`.
-  - Upgraded Quick Rails on Cortisol & MBTI guides to point directly to high-dwell core tools.
-  - Added `/nervous-system-quiz/` 301 canonical redirect stub to `/stress-response/` preventing 404 leakage.
+- **HSP Test (Dwell Time 115s) High-Yield Recirculation**:
+  - Connected #1 killer app `/stress-check/` into HSP result screen `related-grid` across all 12 locales.
+  - Implemented safe query preservation in `js/app.js` (`lang` & `source=hsp_related`) preventing cross-app language drops.
+  - Verified 13/13 mutations in `verify-hsp-reset-funnel.js` and 12-locale privacy contracts in `verify-sensory-reset.js`.
+- **Tier 1 High-RPM Organic Recovery (Wave 2)**:
+  - Lifted `noindex` on high-intent Dopamine Detox & Emotional Exhaustion Guides (`dopamine-detox-practical-guide.html` EN/KO, `emotional-exhaustion-signs-recovery.html` EN/KO).
+  - Synchronized `dateModified: 2026-09-18` and registered 4 URLs into `portal/blog/sitemap.xml`.
+  - Upgraded Quick Rails to high-retention core tools (`dopamine-type`, `stress-check`, `burnout-test`, `brain-type`).
+- **Harness Verification**:
+  - 433-step `npm run harness` completed with 100% PASS (0 errors, 0 failures).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
+
