@@ -19,18 +19,20 @@ Updated: 2026-09-18 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, HSP Test: 63s dwell time, Cortisol/MBTI guides: 100~200s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: harness completion & killer product optimization (2026-09-18)
+## Latest release: harness completion & high-dwell recirculation (2026-09-18)
 
 - **Harness & Contract Harmonization**:
-  - Resolved suspension vs. SEO guide verification conflicts across 9 multilingual verifiers (`verify-blood-type-culture-reset`, `verify-brain-type-trust`, `verify-en-past-life-path`, `verify-es-typing-speed`, `verify-fr-dev-quiz-path`, `verify-ja-reaction-time`, `verify-zh-block-puzzle-path`, `verify-zh-habit-tracker`, `verify-zh-mbti-city-path`) via adaptive `isSuspended ? 0 : 1` loader assertions.
-  - Automatically repaired 5 stale (>90d) inventory files for 2026-09-18.
-  - Completed **full 433-step `npm run harness` with 100% PASS** (exit code 0).
-- **Stress Check (Dwell Time #1) Funnel Optimization**:
-  - Dynamic language and source parameter injection (`lang=${currentLang}&source=stress_result`) into Related Cards (`/hsp-test/`, `/stress-response/`).
-  - Added clean GA4 telemetry `stress_related_click` for related test card interactions.
-  - Embedded bidirectional bridge links to Sensory Reset (`/hsp-test/reset.html`) and Doomscrolling Guide (`/portal/blog/${lang}/doom-scrolling-mental-health-effects.html`) in `plan.html` across all 12 supported locales.
-- **Culture Signal & Search Intent Enhancement**:
-  - Expanded FAQPage schema and visible FAQ entries in `odyssey-spider-man-identity-reset-2026.html` and `scripts/specs/trend-odyssey-spiderman-ko.json` with high-volume entity queries.
-  - Verified with zero regressions via `verify-culture-choice.js --mutations` (12/12) and `verify-blog-generator-interaction.js`.
+  - Full 433-step `npm run harness` achieved 100% PASS (Summary: 9 passed in analytics, 6 passed in runtime).
+- **Stress Check (Dwell Time #1, 175s) Funnel Optimization**:
+  - Related Cards parameter injection (`lang=${currentLang}&source=stress_result`) + clean GA4 `stress_related_click`.
+  - Bidirectional bridge links to Sensory Reset (`/hsp-test/reset.html`) & Doomscrolling Guide in `plan.html` across all 12 locales.
+- **Future Self (Dwell Time #2, 178s) Recirculation Engine**:
+  - Built `next-journey-section` in `screen-result` targeting active high-yield apps (`brain-type`, `stress-check`, `mental-age`).
+  - Added multi-locale support across all 12 locales and dynamic query synchronization (`updateNextAppLinks`).
+  - 100% verified via `verify-future-self-funnel.js --mutations` (15/15) and `verify-en-future-self-guide.js --mutations` (13/13).
+- **Tier 1 High-RPM Organic Recovery**:
+  - Lifted `noindex` on high-dwell Cortisol Guides (`en/cortisol-lowering-techniques-guide.html`, `ko/cortisol-lowering-techniques-guide.html`), updated `dateModified: 2026-09-18`, and registered in `portal/blog/sitemap.xml`.
+  - Upgraded Quick Rails on Cortisol & MBTI guides to point directly to high-dwell core tools.
+  - Added `/nervous-system-quiz/` 301 canonical redirect stub to `/stress-response/` preventing 404 leakage.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
