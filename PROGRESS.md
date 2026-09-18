@@ -25,9 +25,9 @@ Updated: 2026-09-18 KST. Release history is in `memory/data-check-log.md`; the r
   - Interlinked #1 killer `/stress-check/` (175s) across HSP Test & Brain Type related grids in 12 locales.
   - Replaced retired `hail-mary-mode` with `stress-check` and added bidirectional language/source query sync.
   - Built `next-journey-section` in Future Self (178s) routing to high-yield apps.
-- **Tier 1 High-RPM Organic Recovery**:
-  - Lifted `noindex` on 6 killer guides (Cortisol, Dopamine Detox, Emotional Exhaustion EN/KO).
-  - Synchronized `dateModified: 2026-09-18` and registered all 6 URLs in `portal/blog/sitemap.xml`.
+- **Tier 1 High-RPM Organic Recovery & GSC Alignment**:
+  - Registered missing killer apps (`future-self` 178s, `stress-response` 103s, `burnout-test`) into `root-domain/sitemap.xml`.
+  - Lifted `noindex` on 6 killer guides (Cortisol, Dopamine Detox, Emotional Exhaustion EN/KO) with `dateModified: 2026-09-18`.
   - Upgraded Quick Rails to point directly to high-dwell core tools (`dopamine-type`, `stress-check`, `burnout-test`).
 - **Verification**: Full 433-step `npm run harness` 100% PASS (Analytics 9/9, Runtime 6/6, 0 errors).
 
