@@ -56,7 +56,12 @@ function verifySource(data) {
 
   assert(html.includes('data-habit-tracker-contract="2026-08-30"'),'Habit Tracker release marker is missing');
   assert(html.includes('<meta name="dateModified" content="2026-08-30">'),'Habit Tracker dateModified is stale');
-  assert(count(html,/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/gi)===1,'Habit Tracker must have exactly one Auto Ads loader');
+  const isSuspended = /data-ad-serving="suspended-invalid-traffic-/i.test(html);
+  if (isSuspended) {
+    assert(count(html, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/gi) === 0, 'Suspended Habit Tracker must have zero Auto Ads loaders');
+  } else {
+    assert(count(html, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/gi) === 1, 'Habit Tracker must have exactly one Auto Ads loader');
+  }
   assert(!/AggregateRating|page_engage|data-ad-slot=|adsbygoogle\.push|habit-result-ad|premium-modal/i.test(html),'Habit Tracker retains fabricated proof, synthetic engagement, or manual ads');
   assert(!/premiumAnalysis|generateAnalysis|result_ad_impression|21 days to form a habit/i.test(js),'Habit Tracker retains the fake AI or ad-gated analysis');
   assert(!/"premium"\s*:|"analysis"\s*:/i.test(Object.values(locales).join('\n')),'Habit Tracker locale bundles retain fake premium analysis');

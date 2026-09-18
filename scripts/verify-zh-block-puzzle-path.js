@@ -28,7 +28,8 @@ function source(v){
   ok(v.sitemap.includes('<loc>'+GUIDE_LIVE+'</loc><lastmod>2026-09-01</lastmod>'),'focused sitemap row missing');
 
   ok(v.html.includes('data-block-puzzle-contract="2026-09-01"'),'app release contract missing');
-  ok(count(v.html,/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/g)===1,'app must load Auto Ads once');
+  const appSuspended = /data-ad-serving="suspended-invalid-traffic-/i.test(v.html);
+  ok(count(v.html,/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/g)===(appSuspended ? 0 : 1),'app must load Auto Ads once');
   ok(!/AggregateRating|FAQPage|page_engage|content_ad_impression|ad-placeholder|interstitial-overlay|shareTwitterBtn|shareUrlBtn|daily-streak|achievements|cross-promo\.js/.test(v.html+'\n'+v.js),'app fake proof, synthetic UI, or generic promotion remains');
   ok(!/injectRewardButton|removeRewardButton|DailyStreak|GameAchievements|game_start|game_over|gtag\('event',\s*'engagement'/.test(v.js),'score reward or legacy analytics remains');
   ok(v.html.indexOf('sources=new Set')<v.html.indexOf('googletagmanager.com/gtag/js'),'query sanitizer must precede analytics');

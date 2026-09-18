@@ -56,8 +56,9 @@ function verifySource(bundle) {
   for (const event of EVENTS) {
     if (!new RegExp(`track\\(["']${event}["']`).test(bundle.app)) fail(`missing stage event: ${event}`);
   }
+  const appSuspended = /data-ad-serving="suspended-invalid-traffic-/i.test(bundle.html);
   const adLoaders = bundle.html.match(/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-3600813755953882/g) || [];
-  if (adLoaders.length !== 1 || /data-ad-slot|adsbygoogle\s*\.\s*push/.test(bundle.html)) fail("app is not Auto Ads loader-only");
+  if (adLoaders.length !== (appSuspended ? 0 : 1) || /data-ad-slot|adsbygoogle\s*\.\s*push/.test(bundle.html)) fail("app is not Auto Ads loader-only");
   if (!/window\.i18n\s*=\s*i18n/.test(bundle.i18n)) fail("i18n singleton is not exposed to the app");
   if (!/requestUrl\.pathname\.startsWith\(APP_ROOT\.pathname\)/.test(bundle.sw)) fail("service-worker cache is not app scoped");
   if (/clients\.openWindow|notificationclick|\/portal\//.test(bundle.sw)) fail("service worker crosses the app boundary");

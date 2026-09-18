@@ -74,12 +74,13 @@ function source(v) {
     ).length === 1,
     "Japanese reaction guide Auto Ads drifted",
   );
+  const appSuspended = /data-ad-serving="suspended-invalid-traffic-/i.test(v.appHtml);
   ok(
     (
       v.appHtml.match(
         /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/g,
       ) || []
-    ).length === 1,
+    ).length === (appSuspended ? 0 : 1),
     "Reaction app Auto Ads drifted",
   );
   ok(

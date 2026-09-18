@@ -25,7 +25,8 @@ function source(v){
   ok(v.sitemap.includes('<loc>'+LIVE+GUIDE+'</loc><lastmod>2026-09-01</lastmod>'),'focused sitemap row missing');
 
   ok(v.html.includes('data-mbti-city-contract="2026-09-01"'),'app contract missing');
-  ok(count(v.html,/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/g)===1,'app Auto Ads loader count');
+  const appSuspended = /data-ad-serving="suspended-invalid-traffic-/i.test(v.html);
+  ok(count(v.html,/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/g)===(appSuspended ? 0 : 1),'app Auto Ads loader count');
   ok(!/AggregateRating|FAQPage|page_engage|quiz_complete|data-ad-slot|participant|15,200|4\.3 \/ 5|cross-promo\.js|translateDOM|city-rarity|rareStat|error-handler\.js/i.test(v.html+'\n'+v.app+'\n'+v.i18n+'\n'+v.locales.join('\n')),'fake proof, broken completion or legacy surface remains');
   ok(v.html.indexOf('sources=new Set')<v.html.indexOf('googletagmanager.com/gtag/js')&&/sources=new Set\(\['zh_mbti_city_guide'\]\)/.test(v.html),'query sanitizer order or allowlist drifted');
   ok(count(v.app,/\{ key: 'q\d', axis: '[A-Z]{2}' \}/g)===8,'eight-question engine required');

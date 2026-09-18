@@ -30,7 +30,7 @@ function clone(value) {
 
 function verify(fixture) {
   const { html, app, guide, index, sitemap, locales } = fixture;
-  assert(/<html\s+lang="en"/i.test(html), 'Default document language must be English');
+  assert(/<html\b[^>]*\blang="en"/i.test(html), 'Default document language must be English');
   const publicSource = `${html}\n${app}\n${Object.values(locales).join('\n')}`;
   for (const [label, pattern] of [
     ['fabricated social proof', /(?:1,?950|brains scanned today|aggregateRating|socialProof)/i],

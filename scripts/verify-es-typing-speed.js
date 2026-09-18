@@ -78,7 +78,12 @@ function verifySource(data) {
 
   assert(appHtml.includes('data-typing-speed-contract="2026-08-30"'), 'Typing Speed app release marker is missing');
   assert(appHtml.includes('<meta name="dateModified" content="2026-08-30">'), 'Typing Speed app dateModified is stale');
-  assert(count(appHtml, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/gi) === 1, 'Typing Speed app must have exactly one Auto Ads loader');
+  const isSuspended = /data-ad-serving="suspended-invalid-traffic-/i.test(appHtml);
+  if (isSuspended) {
+    assert(count(appHtml, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/gi) === 0, 'Suspended Typing Speed app must have zero Auto Ads loaders');
+  } else {
+    assert(count(appHtml, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/gi) === 1, 'Typing Speed app must have exactly one Auto Ads loader');
+  }
   assert(!/AggregateRating|FAQPage|page_engage|result-percentile|result-grade|ad-banner/i.test(appHtml), 'Typing Speed app retains fabricated proof, hidden schema, or fake ad surfaces');
   assert(!/percentile|injectRewardButton|2x WPM|page_view|getGrade\(|resultGrade/i.test(appJs), 'Typing Speed app retains fabricated ranking, reward inflation, or duplicate page view');
   assert(!/\{grade\}|percentile/i.test(Object.values(locales).join('')), 'Typing Speed locale bundles retain unsupported grade or percentile output');

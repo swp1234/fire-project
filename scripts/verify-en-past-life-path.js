@@ -25,7 +25,8 @@ function source(v){
   ok(v.sitemap.includes('<loc>'+LIVE+GUIDE+'</loc><lastmod>2026-09-01</lastmod>'),'focused sitemap row missing');
 
   ok(v.html.includes('data-past-life-contract="2026-09-01"'),'app contract missing');
-  ok(count(v.html,/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/g)===1,'app Auto Ads loader count');
+  const appSuspended = /data-ad-serving="suspended-invalid-traffic-/i.test(v.html);
+  ok(count(v.html,/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/g)===(appSuspended ? 0 : 1),'app Auto Ads loader count');
   ok(!/AggregateRating|FAQPage|page_engage|past_life_result_ad_impression|data-ad-slot|ad-banner|participant-count|cross-promo\.js|error-handler\.js|resultCanvas|percentile|compatPercent|save_image/i.test(v.html+'\n'+v.app+'\n'+v.i18n),'fake proof, manual ad, legacy error or result surface remains');
   ok(v.html.indexOf('sources=new Set')<v.html.indexOf('googletagmanager.com/gtag/js')&&/sources=new Set\(\['en_past_life_guide'\]\)/.test(v.html),'query sanitizer order or allowlist drifted');
   ok(count(v.app,/id:'(?:egypt|medieval|renaissance|exploration|industrial|modern)'/g)===6,'six-scene engine required');
