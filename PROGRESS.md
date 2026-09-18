@@ -27,7 +27,7 @@ Updated: 2026-09-18 KST. Release history is in `memory/data-check-log.md`; the r
   - Built `next-journey-section` in Future Self (178s) routing to high-yield apps.
 - **Tier 1 High-RPM Organic Recovery & GSC Alignment**:
   - Registered missing killer apps (`future-self` 178s, `stress-response` 103s, `burnout-test`) into `root-domain/sitemap.xml`.
-  - Lifted `noindex` on 8 Tier 1 guides (Cortisol, Anxiety vs Panic, Dopamine Detox, Emotional Exhaustion EN/KO).
+  - Lifted `noindex` on 10 Tier 1 guides (Cortisol, Anxiety vs Panic, Burnout Prev, Detox, Exhaustion EN/KO).
   - Upgraded Quick Rails to point directly to top core tools (`stress-check`, `stress-response`, `burnout-test`, `anxiety-type`).
 - **Verification**: Full 433-step `npm run harness` 100% PASS (Analytics 9/9, Runtime 6/6, 0 errors).
 
