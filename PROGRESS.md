@@ -23,10 +23,10 @@ Updated: 2026-09-18 KST. Release history is in `memory/data-check-log.md`; the r
 
 - **Recirculation Funnels (`stress-check`, `future-self`, `hsp-test`, `brain-type`)**:
   - Interlinked #1 killer `/stress-check/` (175s) across HSP Test, Brain Type & Future Self with language/source query sync.
-- **Tier 1 High-RPM Organic Recovery & GSC Alignment (Waves 1~40)**:
+- **Tier 1 High-RPM Organic Recovery & GSC Alignment (Waves 1~41)**:
   - Registered missing killer apps (`future-self` 178s, `stress-response`, `burnout-test`) in root sitemap.
-  - Lifted `noindex` on 78 Tier 1 guides (Love Bombing Signs, Abandonment Issues Healing, Emotional Flashbacks C-PTSD, Narcissistic Abuse Recovery, Personality Tests Hub, Attachment Style Quiz Guide, Avoidant Dating, Imposter Syndrome, Emotional Unavailability, Rumination EN/KO).
-  - Upgraded Quick Rails to point directly to top killer tools (`stress-response`, `stress-check`, `attachment-style`, `brain-type`).
-- **Verification**: Full test suite PASS (Analytics 9/9, Runtime 6/6, Indexing Inventory 153 clean, 0 errors).
+  - Lifted `noindex` on 80 Tier 1 guides (Stress Management Techniques, Love Bombing Signs, Abandonment Issues Healing, Emotional Flashbacks C-PTSD, Narcissistic Abuse Recovery, Personality Tests Hub, Attachment Style Quiz Guide, Avoidant Dating, Imposter Syndrome EN/KO).
+  - Upgraded Quick Rails to point directly to top killer tools (`stress-response`, `stress-check`, `burnout-test`, `brain-type`).
+- **Verification**: Full test suite PASS (Analytics 9/9, Runtime 6/6, Indexing Inventory 155 clean, 0 errors).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
