@@ -1,6 +1,6 @@
 # DopaBrain Project Rules
 
-이 파일은 프로젝트 공통 규칙만 담는다. Codex 격리 규칙은 `AGENTS.md`가 우선한다.
+이 파일은 프로젝트 공통 규칙을 담는다 (Claude, Antigravity/Gemini, Codex 공통). Codex 격리 규칙은 [AGENTS.md](AGENTS.md)가 우선한다.
 
 ## Product
 
@@ -41,4 +41,9 @@
 - 재발 가능성이 있는 도구·배포·검증 실패만 `memory/failures.jsonl`에 한 줄로 남긴다.
 - 해결된 일회성 출력이나 전체 콘솔 로그는 문서에 복사하지 않는다.
 
-세부 운영은 `docs/OPERATIONS.md`, 검증은 `docs/VALIDATION.md`, 전략은 `docs/STRATEGY.md`를 따른다.
+## Multi-Agent Architecture
+
+- 지식 단일 출처(SSOT): 모든 AI 도구는 `CLAUDE.md`와 `docs/`의 규칙을 공유한다.
+- 도구별 진입 어댑터: Antigravity/Gemini(`GEMINI.md`), Codex(`AGENTS.md`), Cursor(`.cursorrules`), Copilot(`.github/`), Windsurf(`.windsurfrules`).
+
+세부 운영은 [docs/OPERATIONS.md](docs/OPERATIONS.md), 검증은 [docs/VALIDATION.md](docs/VALIDATION.md), 전략은 [docs/STRATEGY.md](docs/STRATEGY.md)를 따른다.

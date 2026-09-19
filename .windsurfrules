@@ -1,0 +1,19 @@
+# Windsurf Cascade Rules for DopaBrain
+
+> **Primary Source of Truth:** `CLAUDE.md`
+> All operational invariants, coding standards, and repository boundaries are defined in `CLAUDE.md`.
+
+## Core Invariants
+- **Operational URL:** `https://dopabrain.com/`
+- **Core Routes:** Stress Check, HSP Test, 2048 Coach (Secondary: Brain Type, IQ Test, Future Self, K-pop Role Roster).
+- **12 Supported Locales:** `ko en zh hi ru ja es pt id tr de fr` (via `data-i18n` and JSON locales).
+- **Mobile First:** Touch target >= 44px, 0 horizontal overflow.
+- **Git Submodules:** `projects/*` may be independent Git repositories. Commit/push submodules first, then root pointer.
+- **Documentation:** Never accumulate session transcripts in Markdown. Keep `PROGRESS.md` current and commit history in Git.
+
+## Documentation Reference
+- Realtime Status: `PROGRESS.md`
+- Operations: `docs/OPERATIONS.md`
+- Validation Gates: `docs/VALIDATION.md`
+- Design System: `docs/UX-DESIGN.md`
+- Multi-Agent Rules: `AGENTS.md`, `GEMINI.md`

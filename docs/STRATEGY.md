@@ -1,41 +1,37 @@
 # DopaBrain growth strategy
 
-Updated: 2026-09-05 KST
+Updated: 2026-09-19 KST
 
 ## Goal and constraint
 
-- Revenue target: $0.20/day, measured as $1.40 per completed seven days.
-- Invalid-traffic restriction active since 2026-09-03.
-- Until it clears: no traffic expansion, ad-layout test, IndexNow, manual GSC submission, or new trend URL.
+- Revenue target: $0.20/day, evaluated as at least $1.40 across seven complete days.
+- AdSense status: Serving restriction lifted on 2026-09-13 (0 violations, alerts cleared).
+- Growth focus: Organic discovery and high-dwell recirculation on core products (Stress Check, HSP Test, 2048 Coach, Brain Type, Future Self).
+- Invalid-traffic containment program remains permanently in force for suspended routes.
 
 ## Portfolio rule
 
-- Protect products with credible Organic landings or valid actions.
-- Ignore Singapore desktop Direct scans and legacy synthetic events when judging demand.
-- Remove manual/rewarded/interstitial ads, fabricated proof, private telemetry and unsupported claims one measured product at a time.
-- Retire after a 56-day window only when Organic landings and valid actions are both zero and the page also carries stale, misleading, or policy-risk content.
+- Focus resources on verified high-engagement products with credible Organic landings.
+- Filter out synthetic scans (Singapore desktop Direct scans, automated probes) from analytics decisions.
+- Maintain ad-safety contract: one Auto Ads loader on active pages; zero ad code, rewarded exchange, or ad gates on suspended routes.
+- Prioritize user dwell time and qualified conversion actions over raw, unengaged pageviews.
 
 ## Current trend R&D queue
 
-1. Existing Spider-Man/Odyssey article: iterate, do not create a second URL.
-   - Google Trends KR briefly showed Spider-Man: Brand New Day at 2K+ searches, then it left the visible top 25 during the same review. This is high-interest but high-churn.
-   - 2026-08-29~09-04: 4 page-view users, 2 Direct landing sessions, 1 qualified choice view, 0 choice selects, 0 Organic landings and no GSC row.
-   - After the restriction clears, test one sharper intro/choice CTA on the existing page only.
-   - Sources: https://trends.google.com/trending?geo=KR&hl=ko and https://www.sonypictures.com/movies/spidermanbrandnewday
+1. Existing Spider-Man/Odyssey article:
+   - Iterate on intro and choice CTA on the single existing URL; avoid creating duplicate URLs.
+   - Sources: Google Trends KR and Sony Pictures official releases.
 
-2. Onimusha play-style interaction: research hold.
-   - Steam Korea currently ranks Onimusha: Way of the Sword #1, Crimson Desert Enhanced #2, Palworld #11 and The Blood of Dawnwalker #14.
-   - Require three checks across seven days before drafting. Prefer one bounded play-style choice over news aggregation.
-   - Source: https://store.steampowered.com/charts/topselling/KR
+2. Onimusha play-style interaction:
+   - Monitor multi-day search and store interest before drafting.
+   - Prefer bounded interactive choices over thin news summaries.
 
-3. Short-form packaging: reuse, not a new topic.
-   - Current Reels formats include Let me guess, Two Best Friends and Recent Flops.
-   - Apply the contrast/recognition format to an existing measured route or Couple Deck after the restriction; do not create thin meme pages.
+3. Short-form packaging:
+   - Connect social/culture trends to established tools (Couple Deck, Stress Check) rather than standalone meme pages.
 
 ## Release gate
 
-- One URL and one hypothesis at a time.
-- Define page path, Organic landing, qualified interaction and destination action before editing.
-- Observe seven complete days after release.
-- Promote only with credible Organic discovery plus a valid action signal.
-- If discovery is absent, fix indexing/title intent before adding content.
+- One URL, hypothesis, and measurement plan at a time.
+- Define expected organic intent, user interaction, and downstream recirculation path before authoring.
+- Verify across all 12 supported languages using automated harness suites.
+- Promote only after establishing clean indexing and verifiable user engagement signals.

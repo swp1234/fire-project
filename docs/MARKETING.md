@@ -1,16 +1,14 @@
 # Marketing guardrail
 
-Updated: 2026-09-05 KST
+Updated: 2026-09-19 KST
 
-Outbound promotion is paused while the AdSense invalid-traffic restriction is active.
+AdSense invalid-traffic restriction was lifted on 2026-09-13. Outbound promotion follows measured, quality-first guardrails:
 
-After clearance:
+- Promote only production-verified URLs with path-specific GA4 event verification.
+- Test one attributable channel and UTM source tag at a time.
+- Strict ad integrity: never click or encourage clicking ads.
+- Zero tolerance for purchased traffic, click exchanges, pop unders, or manufactured engagement.
+- Protect privacy: never send raw answers, test scores, or user inputs to analytics or URLs.
+- Halt and re-evaluate any channel exhibiting scan-like, unengaged, or unattributable traffic.
 
-- Promote only a production-verified URL with path-specific GA4 events.
-- Use one attributable channel and source tag at a time.
-- Never click or ask others to click ads.
-- Do not buy traffic, exchange clicks, use pop traffic, or manufacture engagement.
-- Keep result sharing neutral and success-gated; never expose answers, scores or results in analytics.
-- Stop a channel if traffic is scan-like, unengaged or cannot be attributed.
-
-The current experiment and decision rules live in STRATEGY.md. Release history lives in ../memory/data-check-log.md.
+Strategy rules live in [STRATEGY.md](STRATEGY.md). Baseline evidence lives in [../memory/data-check-log.md](../memory/data-check-log.md).

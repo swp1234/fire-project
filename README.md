@@ -12,8 +12,9 @@
 - `scripts/`: 검증, 분석, 운영 자동화.
 - `docs/`: 현재 전략과 운영 기준.
 - `PROGRESS.md`: 현재 상태, blocker, 다음 판단.
-- `AGENTS.md`: Codex 격리 규칙.
-- `CLAUDE.md`: 제품 공통 불변 조건.
+- `CLAUDE.md`: 제품 공통 불변 조건 (지식 단일 출처 SSOT).
+- `GEMINI.md`: Antigravity / Gemini 환경 규칙 어댑터.
+- `AGENTS.md`: Codex / 일반 에이전트 격리 규칙 어댑터.
 
 ## Main checks
 
@@ -23,4 +24,4 @@ npm run harness:release -- --target projects/<app> --release-verifier scripts/ve
 node scripts/harness-workflow-check.js --plan
 ```
 
-세부 완료 기준은 `docs/VALIDATION.md`, 하네스 구조는 `docs/HARNESS-WORKFLOW.md`, 배포 순서는 `docs/OPERATIONS.md`를 참고하세요.
+세부 완료 기준은 [docs/VALIDATION.md](docs/VALIDATION.md), 하네스 구조는 [docs/HARNESS-WORKFLOW.md](docs/HARNESS-WORKFLOW.md), 배포 순서는 [docs/OPERATIONS.md](docs/OPERATIONS.md)를 참고하세요.
