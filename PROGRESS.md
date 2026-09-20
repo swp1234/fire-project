@@ -19,14 +19,13 @@ Updated: 2026-09-18 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, HSP Test: 63s dwell time, Cortisol/MBTI guides: 100~200s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: high-dwell recirculation & Tier 1 guides (2026-09-19)
+## Latest release: Tier 2 organic recovery & killer recirculation (2026-09-20)
 
-- **Recirculation Funnels (`stress-check`, `future-self`, `hsp-test`, `brain-type`)**:
-  - Interlinked #1 killer `/stress-check/` (175s) across HSP Test, Brain Type & Future Self with language/source query sync.
-- **Tier 1 High-RPM Organic Recovery & GSC Alignment (Waves 1~142 Complete)**:
-  - Registered missing killer apps (`future-self` 178s, `stress-response`, `burnout-test`) in root sitemap.
-  - Lifted `noindex` on 282 Tier 1 guides (All high-value mental/cognitive inventory complete).
-  - Upgraded Quick Rails to point directly to top killer tools (`iq-test`, `eq-test`, `brain-type`, `stress-check`).
-- **Verification**: Full test suite PASS (Analytics 9/9, Runtime 6/6, Indexing Inventory 357 clean, 0 errors).
+- **Tier 1 & Tier 2 Guides Restorations Complete (Waves 1~178 Complete)**:
+  - Completed Tier 2 restorations across 58 high-intent psychology, cognitive, and self-reflection guides (Waves 143~178).
+  - Bound all guides to high-dwell killer apps (`stress-check` 175s, `future-self` 178s, `brain-type` 122s, `hsp-test` 63s) via 4-card localized Quick Rails.
+  - Preserved 36 legacy games in strict invalid-traffic containment (`noindex,follow`, 0 ad code).
+  - Sitemaps synchronized: 415 clean unique URLs with 0 errors, 0 blockers.
+- **Verification**: Full test suite PASS (Indexing Inventory 415/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
