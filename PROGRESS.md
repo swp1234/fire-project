@@ -19,15 +19,16 @@ Updated: 2026-09-20 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: Full Tier 3 Global Restoration & Triangular Killer Funnel (2026-09-20)
+## Latest release: 4-Way Killer Recirculation Loop & Global Scale (2026-09-20)
 
-- **Tier 3 Multilingual Guides Restored (40 URLs across 8 Languages)**:
-  - Completed all 5 top-intent guide topics (Burnout, Attachment, Decision Fatigue, Boundaries, Anxiety) across JA, DE, ES, FR, PT, RU, ID, TR.
-  - Bound to killer apps via standardized 4-card localized Quick Rails with strict DOM contracts and telemetry.
-  - Sitemaps synchronized: 455 clean unique URLs with 0 errors, 0 blockers.
-- **Triangular Killer App Recirculation Funnel Completed**:
-  - Connected HSP Test (63s) ↔ Stress Check (175s) ↔ Future Self (178s) ↔ Brain Type (122s) across all 12 locales.
-  - Completely purged legacy suspended app links from HSP Test result screen.
-- **Verification**: Full test suite PASS (Indexing Inventory 455/0, AdSense Contract 11/11, Restricted Ads 36/36, Cross-Promo Touch 4/4, Doc Budget 10/10).
+- **4-Way Closed Killer Recirculation Funnel Completed**:
+  - Connected Brain Type (122s) ↔ Future Self (178s) ↔ Stress Check (175s) ↔ HSP Test (63s) across all 12 locales with full query sync (`?lang=...&source=brain_type_result`).
+  - Purged all suspended/low-dwell routes from primary result recommendations.
+- **Global & High-RPM Scale: 15 Guides Restored (470 Unique URLs Total)**:
+  - Unlocked massive population markets: Restored 10 guides across Chinese (ZH) and Hindi (HI) for Burnout, Attachment, Decision Fatigue, Boundaries, and Anxiety.
+  - Expanded high-RPM English longtail: Restored 5 guides for Future Self, HSP, Stress Prevention, Brain Type, and Stress & Burnout.
+  - Each guide equipped with standard 4-card Quick Rails, single Auto Ads loader, `robots: index, follow`, `dateModified: 2026-09-20`.
+  - Sitemaps synchronized: 470 clean unique URLs with 0 issues, 0 blockers, 0 high-risk URLs.
+- **Verification**: Full test suite PASS (Indexing Inventory 470/0, Brain Trust & Bridge 20/20, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
