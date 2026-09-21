@@ -19,15 +19,18 @@ Updated: 2026-09-21 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 500 Clean URLs Milestone & Tier 6 Multilingual High-Intent Guides (2026-09-21)
+## Latest release: 510 Clean URLs Milestone & Tier 7 High-Traffic Restorations (2026-09-21)
 
 - **4-Way Closed Recirculation Hardened**:
   - Replaced legacy `/mental-age/` link in Future Self next-discovery card with `/hsp-test/` (🔮 HSP Sensitivity Test) across all 12 locales (`en`, `ko`, `zh`, `hi`, `ru`, `ja`, `es`, `pt`, `id`, `tr`, `de`, `fr`).
   - Passed 15/15 funnel verification tests; Future Self committed and pushed to origin.
-- **Tier 6 Multilingual Expansion (500 Clean URLs Milestone)**:
-  - Restored 20 localized high-intent psychology guides across 10 global languages (sensory overload, emotional regulation, overthinking at night).
-  - Each guide equipped with single Auto Ads loader, 4-card Quick Rails, `robots: index, follow`, `dateModified: 2026-09-20`.
-  - Portal sitemap synchronized: exactly **500 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 500/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
+- **Tier 6 & 7 Expansion (510 Clean URLs Milestone)**:
+  - Tier 6: Restored 20 localized high-intent psychology guides across 10 global languages (sensory overload, emotional regulation, overthinking at night).
+  - Tier 7: Restored 10 proven high-historical-traffic guides in French, Spanish, German, and Chinese (Cognitive Distortions, Daily Tarot, RSD, Personality Tests, Attachment & Rumination Guides).
+  - Each guide equipped with single Auto Ads loader, 4-card Quick Rails wired to killer tools, `robots: index, follow`, `dateModified: 2026-09-21`.
+  - Portal sitemaps synchronized: exactly **510 clean unique URLs (0 issues, 0 blockers)**.
+- **Live Search Engine Protocol Pings**:
+  - Batches 1, 2, 3, and 4 (55 URLs total) submitted directly to IndexNow protocol and acknowledged with **HTTP 200**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 510/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
