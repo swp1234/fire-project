@@ -1,15 +1,15 @@
 # DopaBrain current status
 
-Updated: 2026-09-20 KST. Release history is in `memory/data-check-log.md`; the repeatable loop is in the `dopabrain-growth-ops` skill.
+Updated: 2026-09-21 KST. Release history is in `memory/data-check-log.md`; the repeatable loop is in the `dopabrain-growth-ops` skill.
 
 ## Target and status
 
 - Target: `$1.40` per completed seven days (`$0.20/day`).
-- **AdSense Serving Restriction Lifted (2026-09-13)**:
-  - Policy issues API returned 0 violations (`{}`). The severe `adsense-traffic-throttled` alert has completely disappeared.
-  - Total earnings (2026-09-13 to 2026-09-19): **$0.47**, yesterday: **$0.11**, today: **$0.02**.
-  - High-value Tier 1 contribution: United States ($0.08, RPM $2.65), Canada ($0.07, RPM $5.15).
-  - Production `dopabrain.com` generated 100% of the revenue.
+- **AdSense Health & Revenue Status (2026-09-21)**:
+  - Policy issues API: 0 violations (`{}`). The serving restriction remains completely lifted.
+  - Earnings trajectory: Today (2026-09-21) reached **$0.09** (up from $0.04 yesterday), nearing the $0.20/day target. Monthly total crossed **$1.01**.
+  - Tier 1 & High-Value RPM: US RPM reached **$8.90**, Saudi Arabia **$16.56**, SK **$1.57**.
+  - Production `dopabrain.com` generated 100% of impressions and revenue.
   - Address PIN verification remains an account-level payment threshold notice, not an ad delivery restriction.
 
 ## Current operating rules
@@ -19,16 +19,15 @@ Updated: 2026-09-20 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 4-Way Killer Recirculation Loop & 480 Clean Indexable URLs (2026-09-20)
+## Latest release: 500 Clean URLs Milestone & Tier 6 Multilingual High-Intent Guides (2026-09-21)
 
-- **4-Way Closed Killer Recirculation Funnel Completed**:
-  - Connected Brain Type (122s) ↔ Future Self (178s) ↔ Stress Check (175s) ↔ HSP Test (63s) across all 12 locales with full query sync (`?lang=...&source=brain_type_result`).
-  - Purged all suspended/low-dwell routes from primary result recommendations.
-- **High-RPM English & Global Expansion: 25 Guides Restored (480 Unique URLs Total)**:
-  - Tier 4: Restored 10 guides across Chinese (ZH) and Hindi (HI) for Burnout, Attachment, Decision Fatigue, Boundaries, and Anxiety.
-  - Tier 5: Restored 15 high-intent guides in English (Future Self, HSP, Stress Check, Brain Type, Digital Detox, Emotion Temp, Daily Affirmation, Detox Timer, Love Frequency, White Noise, Pomodoro, etc.).
-  - Each guide equipped with standard 4-card Quick Rails, single Auto Ads loader, `robots: index, follow`, `dateModified: 2026-09-20`.
-  - Sitemaps synchronized: 480 clean unique URLs with 0 issues, 0 blockers, 0 high-risk URLs.
-- **Verification & Deployment**: Full test suite PASS (Indexing Inventory 480/0, Brain Trust & Bridge 20/20, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules and root committed and pushed to origin.
+- **4-Way Closed Recirculation Hardened**:
+  - Replaced legacy `/mental-age/` link in Future Self next-discovery card with `/hsp-test/` (🔮 HSP Sensitivity Test) across all 12 locales (`en`, `ko`, `zh`, `hi`, `ru`, `ja`, `es`, `pt`, `id`, `tr`, `de`, `fr`).
+  - Passed 15/15 funnel verification tests; Future Self committed and pushed to origin.
+- **Tier 6 Multilingual Expansion (500 Clean URLs Milestone)**:
+  - Restored 20 localized high-intent psychology guides across 10 global languages (sensory overload, emotional regulation, overthinking at night).
+  - Each guide equipped with single Auto Ads loader, 4-card Quick Rails, `robots: index, follow`, `dateModified: 2026-09-20`.
+  - Portal sitemap synchronized: exactly **500 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 500/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
