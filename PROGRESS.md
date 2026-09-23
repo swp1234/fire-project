@@ -19,12 +19,12 @@ Updated: 2026-09-23 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 730 Clean URLs Milestone & Tier 29 Narcissistic Abuse (2026-09-23)
+## Latest release: 740 Clean URLs Milestone & Tier 30 Self-Sabotage (2026-09-23)
 
-- **Tier 29 Narcissistic Abuse Global Cluster (730 Clean URLs Milestone)**:
-  - Restored 10 comprehensive guides (>55,000 words total): Narcissistic Abuse Cycle, Gaslighting, No Contact & Somatic Trauma Recovery across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
-  - Each guide equipped with single Auto Ads loader, trauma recovery tools, `robots: index, follow`, `dateModified: 2026-09-23`.
-  - Portal sitemaps synchronized: exactly **730 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 730/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
+- **Tier 30 Self-Sabotage Global Cluster (740 Clean URLs Milestone)**:
+  - Restored 10 comprehensive guides (>48,000 words total): Self-Sabotage Patterns, Fear of Success/Failure, Upper Limiting & Subconscious Resistance across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
+  - Each guide equipped with single Auto Ads loader, behavioural reprogramming tools, `robots: index, follow`, `dateModified: 2026-09-23`.
+  - Portal sitemaps synchronized: exactly **740 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 740/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
