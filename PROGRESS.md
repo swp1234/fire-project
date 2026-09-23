@@ -1,14 +1,14 @@
 # DopaBrain current status
 
-Updated: 2026-09-21 KST. Release history is in `memory/data-check-log.md`; the repeatable loop is in the `dopabrain-growth-ops` skill.
+Updated: 2026-09-23 KST. Release history is in `memory/data-check-log.md`; the repeatable loop is in the `dopabrain-growth-ops` skill.
 
 ## Target and status
 
 - Target: `$1.40` per completed seven days (`$0.20/day`).
-- **AdSense Health & Revenue Status (2026-09-21)**:
-  - Policy issues API: 0 violations (`{}`). The serving restriction remains completely lifted.
-  - Earnings trajectory: Today (2026-09-21) reached **$0.09** (up from $0.04 yesterday), nearing the $0.20/day target. Monthly total crossed **$1.01**.
-  - Tier 1 & High-Value RPM: US RPM reached **$8.90**, Saudi Arabia **$16.56**, SK **$1.57**.
+- **AdSense Health & Revenue Status (2026-09-23)**:
+  - Policy issues API: 0 violations (`{}`). Serving restriction completely lifted.
+  - Earnings trajectory: Today (2026-09-23) so far **$0.02**, yesterday (2026-09-22) **$0.07**, 2026-09-21 **$0.09**. Monthly total crossed **$1.11** (last 30 days $1.83).
+  - High-Value Tier 1 RPM: US RPM **$2.75**, Canada **$3.81**, Germany **$2.63**, UK **$8.91**, Poland **$10.21**, Cyprus **$61.47**, Saudi Arabia **$8.28**.
   - Production `dopabrain.com` generated 100% of impressions and revenue.
   - Address PIN verification remains an account-level payment threshold notice, not an ad delivery restriction.
 
@@ -19,18 +19,15 @@ Updated: 2026-09-21 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 520 Clean URLs Milestone & Tier 8 Deep Expansion (2026-09-21)
+## Latest release: 530 Clean URLs Milestone & Tier 9 Global Cluster (2026-09-23)
 
 - **4-Way Closed Recirculation Hardened**:
   - Replaced legacy `/mental-age/` link in Future Self next-discovery card with `/hsp-test/` (🔮 HSP Sensitivity Test) across all 12 locales (`en`, `ko`, `zh`, `hi`, `ru`, `ja`, `es`, `pt`, `id`, `tr`, `de`, `fr`).
   - Passed 15/15 funnel verification tests; Future Self committed and pushed to origin.
-- **Tier 6, 7 & 8 Expansion (520 Clean URLs Milestone)**:
-  - Tier 6: Restored 20 localized high-intent psychology guides across 10 global languages (sensory overload, emotional regulation, overthinking at night).
-  - Tier 7 & 8: Restored 20 high-historical-traffic and deep psychology guides in German, Spanish, French, Indonesian, Japanese, Russian, and English (Nervous System, HSP Coping, CPTSD Flashbacks, RSD, Cognitive Distortions, Personality Tests).
-  - Each guide equipped with single Auto Ads loader, 4-card Quick Rails wired to killer tools, `robots: index, follow`, `dateModified: 2026-09-21`.
-  - Portal sitemaps synchronized: exactly **520 clean unique URLs (0 issues, 0 blockers)**.
-- **Live Search Engine Protocol Pings**:
-  - Batches 1, 2, 3, 4, and 5 (65 URLs total) submitted directly to IndexNow protocol and acknowledged with **HTTP 200**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 520/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
+- **Tier 9 Nervous System Global Cluster (530 Clean URLs Milestone)**:
+  - Restored 10 comprehensive guides (over 52,000 words total): Nervous System Regulation across 9 languages (`zh`, `de`, `fr`, `ja`, `hi`, `ru`, `pt`, `id`, `tr`) plus German Disorganized Attachment.
+  - Each guide equipped with single Auto Ads loader, 4-card Quick Rails wired to killer tools, `robots: index, follow`, `dateModified: 2026-09-23`.
+  - Portal sitemaps synchronized: exactly **530 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 530/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
