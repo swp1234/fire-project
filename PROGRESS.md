@@ -19,12 +19,12 @@ Updated: 2026-09-23 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 710 Clean URLs Milestone & Tier 27 Self-Compassion (2026-09-23)
+## Latest release: 720 Clean URLs Milestone & Tier 28 People Pleasing (2026-09-23)
 
-- **Tier 27 Self-Compassion Global Cluster (710 Clean URLs Milestone)**:
-  - Restored 10 comprehensive guides (>53,000 words total): Self-Compassion Mental Health, Kristin Neff 3 Components, Inner Critic Transformation across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
-  - Each guide equipped with single Auto Ads loader, self-compassion tools, `robots: index, follow`, `dateModified: 2026-09-23`.
-  - Portal sitemaps synchronized: exactly **710 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 710/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
+- **Tier 28 People Pleasing Global Cluster (720 Clean URLs Milestone)**:
+  - Restored 10 comprehensive guides (>50,000 words total): People Pleasing Signs, Fawn Trauma Response, Boundaries & Assertiveness Recovery across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
+  - Each guide equipped with single Auto Ads loader, somatic boundary setting tools, `robots: index, follow`, `dateModified: 2026-09-23`.
+  - Portal sitemaps synchronized: exactly **720 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 720/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
