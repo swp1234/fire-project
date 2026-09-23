@@ -19,12 +19,12 @@ Updated: 2026-09-23 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 640 Clean URLs Milestone & Tier 20 Rumination & Somatic Anxiety (2026-09-23)
+## Latest release: 650 Clean URLs Milestone & Tier 21 Abandonment Issues (2026-09-23)
 
-- **Tier 20 Rumination & Somatic Anxiety Guides (640 Clean URLs Milestone)**:
-  - Restored 10 comprehensive guides (>60,000 words total): Repetitive Rumination Thought Cycles & Somatic Anxiety Body Symptoms across 10 locales (`fr`, `es`, `pt`, `ja`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`, `zh`.
-  - Each guide equipped with single Auto Ads loader, somatic nervous system regulation tools, `robots: index, follow`, `dateModified: 2026-09-23`.
-  - Portal sitemaps synchronized: exactly **640 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 640/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
+- **Tier 21 Abandonment Issues Global Cluster (650 Clean URLs Milestone)**:
+  - Restored 10 comprehensive guides (>55,000 words total): Childhood Abandonment Trauma, Relationship Insecurity & Attachment Healing across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
+  - Each guide equipped with single Auto Ads loader, emotional security grounding tools, `robots: index, follow`, `dateModified: 2026-09-23`.
+  - Portal sitemaps synchronized: exactly **650 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 650/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
