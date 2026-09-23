@@ -19,12 +19,12 @@ Updated: 2026-09-23 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 750 Clean URLs Milestone & Tier 31 Emotional Triggers (2026-09-23)
+## Latest release: 760 Clean URLs Milestone & Tier 32 Emotional Intelligence (2026-09-23)
 
-- **Tier 31 Emotional Triggers Global Cluster (750 Clean URLs Milestone)**:
-  - Restored 10 comprehensive guides (>51,000 words total): Emotional Triggers, Amygdala Hijack, Somatic De-escalation & Trigger Management across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
-  - Each guide equipped with single Auto Ads loader, emotional self-regulation tools, `robots: index, follow`, `dateModified: 2026-09-23`.
-  - Portal sitemaps synchronized: exactly **750 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 750/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
+- **Tier 32 Emotional Intelligence Global Cluster (760 Clean URLs Milestone)**:
+  - Restored 10 comprehensive guides (>50,000 words total): Emotional Intelligence (EQ) in Relationships, Active Listening, Empathy Deficit Repair & Non-Violent Communication across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
+  - Each guide equipped with single Auto Ads loader, emotional communication tools, `robots: index, follow`, `dateModified: 2026-09-23`.
+  - Portal sitemaps synchronized: exactly **760 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 760/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
