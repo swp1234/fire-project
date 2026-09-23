@@ -19,15 +19,12 @@ Updated: 2026-09-23 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 530 Clean URLs Milestone & Tier 9 Global Cluster (2026-09-23)
+## Latest release: 540 Clean URLs Milestone & Tier 10 Sleep, Mind & Self Guides (2026-09-23)
 
-- **4-Way Closed Recirculation Hardened**:
-  - Replaced legacy `/mental-age/` link in Future Self next-discovery card with `/hsp-test/` (🔮 HSP Sensitivity Test) across all 12 locales (`en`, `ko`, `zh`, `hi`, `ru`, `ja`, `es`, `pt`, `id`, `tr`, `de`, `fr`).
-  - Passed 15/15 funnel verification tests; Future Self committed and pushed to origin.
-- **Tier 9 Nervous System Global Cluster (530 Clean URLs Milestone)**:
-  - Restored 10 comprehensive guides (over 52,000 words total): Nervous System Regulation across 9 languages (`zh`, `de`, `fr`, `ja`, `hi`, `ru`, `pt`, `id`, `tr`) plus German Disorganized Attachment.
+- **Tier 10 Sleep, Mind & Self Guides (540 Clean URLs Milestone)**:
+  - Restored 10 comprehensive guides (>31,000 words total): Sleep Science & Dream Meanings (EN), Gaslighting Recovery, Personality Tests, Focus Methods, Routine Planner, Inner Child (ZH), Blood Type & Mental Age (PT, ES).
   - Each guide equipped with single Auto Ads loader, 4-card Quick Rails wired to killer tools, `robots: index, follow`, `dateModified: 2026-09-23`.
-  - Portal sitemaps synchronized: exactly **530 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 530/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **540 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 540/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
