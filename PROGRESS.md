@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,010 Clean URLs & Tier 57 Reaction Time Guide (2026-09-26)
+## Latest release: 1,020 Clean URLs & Tier 58 Red Flag Warning Signs (2026-09-26)
 
-- **Tier 57 Reaction Time Test Guide Global Cluster (1,010 Clean URLs)**:
-  - Restored 10 comprehensive guides (>41,000 words total): Human Reflex Benchmarks, Cognitive Processing Speed, Direct Reaction Time Assessment across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
-  - Each guide equipped with single Auto Ads loader, interactive 4-card quick rail, `robots: index, follow`, `dateModified: 2026-09-26`.
-  - Portal sitemaps synchronized: exactly **1,010 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1010/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
+- **Tier 58 Red Flag Test Relationship Warning Signs Cluster (1,020 Clean URLs)**:
+  - Restored 10 comprehensive guides: Emotional Manipulation Patterns, Behavioral Red Flags, Toxic Dynamics across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
+  - Single Auto Ads loader, interactive 4-card quick rail, `robots: index, follow`, `dateModified: 2026-09-26`.
+  - Portal sitemaps synchronized: exactly **1,020 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1020/0, Restricted Ads 36/36, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
