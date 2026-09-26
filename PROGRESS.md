@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 850 Clean URLs Milestone & Tier 41 Emotional Exhaustion (2026-09-26)
+## Latest release: 860 Clean URLs Milestone & Tier 42 Emotional Unavailability (2026-09-26)
 
-- **Tier 41 Emotional Exhaustion Signs Global Cluster (850 Clean URLs Milestone)**:
-  - Restored 10 comprehensive guides (>45,000 words total): Emotional Exhaustion Signs, Burnout vs Fatigue, Nervous System Depletion & Science-Backed Recovery Strategies across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
-  - Each guide equipped with single Auto Ads loader, emotional energy audit tools, `robots: index, follow`, `dateModified: 2026-09-26`.
-  - Portal sitemaps synchronized: exactly **850 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 850/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
+- **Tier 42 Emotional Unavailability Signs Global Cluster (860 Clean URLs Milestone)**:
+  - Restored 10 comprehensive guides (>55,000 words total): Emotional Unavailability Signs, Avoidant Patterns, Hot-and-Cold Cycles & Relationship Boundary Setting across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
+  - Each guide equipped with single Auto Ads loader, emotional availability self-assessment tools, `robots: index, follow`, `dateModified: 2026-09-26`.
+  - Portal sitemaps synchronized: exactly **860 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 860/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
