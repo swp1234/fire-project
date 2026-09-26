@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 950 Clean URLs & Tier 51 Workplace Stress Relief (2026-09-26)
+## Latest release: 960 Clean URLs & Tier 52 BMI Calculator (2026-09-26)
 
-- **Tier 51 Workplace Stress Relief Guide Global Cluster (950 Clean URLs)**:
-  - Restored 10 comprehensive guides (>44,000 words total): Workplace Chronic Stress Protocols, Digital Detox Framework, Office Mindfulness Strategies across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
+- **Tier 52 BMI Calculator Guide Global Cluster (960 Clean URLs)**:
+  - Restored 10 comprehensive guides (>40,000 words total): Body Mass Index Calculation, Metabolic Health Standards, Nutritional Balance Strategies across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
   - Each guide equipped with single Auto Ads loader, interactive 4-card quick rail, `robots: index, follow`, `dateModified: 2026-09-26`.
-  - Portal sitemaps synchronized: exactly **950 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 950/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **960 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 960/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
