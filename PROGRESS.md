@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 910 Clean URLs & Tier 47 Dopamine Detox Quiz (2026-09-26)
+## Latest release: 920 Clean URLs & Tier 48 Free IQ Test (2026-09-26)
 
-- **Tier 47 Dopamine Detox Quiz Global Cluster (910 Clean URLs)**:
-  - Restored 10 comprehensive guides (>40,000 words total): Dopamine Baseline Reset, Reward System Neuroscience, Interactive Dopamine Type Quiz across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
+- **Tier 48 Free IQ Test Guide Global Cluster (920 Clean URLs)**:
+  - Restored 10 comprehensive guides (>45,000 words total): Cognitive Intelligence Measurement, IQ Percentile Distributions, Interactive Assessment Funnel across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
   - Each guide equipped with single Auto Ads loader, interactive 4-card quick rail, `robots: index, follow`, `dateModified: 2026-09-26`.
-  - Portal sitemaps synchronized: exactly **910 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 910/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **920 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 920/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
