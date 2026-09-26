@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,020 Clean URLs & Tier 58 Red Flag Warning Signs (2026-09-26)
+## Latest release: 1,030 Clean URLs & Tier 59 Stress Management (2026-09-26)
 
-- **Tier 58 Red Flag Test Relationship Warning Signs Cluster (1,020 Clean URLs)**:
-  - Restored 10 comprehensive guides: Emotional Manipulation Patterns, Behavioral Red Flags, Toxic Dynamics across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
+- **Tier 59 Stress Management Techniques Guide Global Cluster (1,030 Clean URLs)**:
+  - Restored 10 comprehensive guides: Cortisol Reduction, Acute vs Chronic Stress Relief, Nervous System Regulation across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
   - Single Auto Ads loader, interactive 4-card quick rail, `robots: index, follow`, `dateModified: 2026-09-26`.
-  - Portal sitemaps synchronized: exactly **1,020 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1020/0, Restricted Ads 36/36, Doc Budget 10/10). All submodules committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **1,030 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1030/0, Restricted Ads 36/36, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
