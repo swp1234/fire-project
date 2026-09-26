@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,090 Clean URLs & Tier 65 HSP Signs (2026-09-27)
+## Latest release: 1,100 Clean URLs Landmark & Tier 66 Toxic Trait (2026-09-27)
 
-- **Tier 65 Highly Sensitive Person Signs Guide Global Cluster (1,090 Clean URLs)**:
-  - Restored 10 comprehensive guides: Sensory Processing Sensitivity, Emotional Depth, Overstimulation Coping across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
+- **Tier 66 Toxic Trait Test Guide Global Cluster (1,100 Clean URLs Landmark)**:
+  - Restored 10 comprehensive guides: Shadow Archetypes, Self-Sabotaging Patterns, Interpersonal Blindspots across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
   - Single Auto Ads loader, interactive 4-card quick rail, full 13-hreflang matrix, `robots: index, follow`, `dateModified: 2026-09-26`.
-  - Portal sitemaps synchronized: exactly **1,090 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1090/0, Restricted Ads 36/36, Doc Budget 10/10). All submodules committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **1,100 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1100/0, Restricted Ads 36/36, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
