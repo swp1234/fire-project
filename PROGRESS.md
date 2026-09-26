@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 780 Clean URLs Milestone & Tier 34 Toxic Relationship Patterns (2026-09-26)
+## Latest release: 790 Clean URLs Milestone & Tier 35 Social Anxiety (2026-09-26)
 
-- **Tier 34 Toxic Relationship Patterns Global Cluster (780 Clean URLs Milestone)**:
-  - Restored 10 comprehensive guides (>44,000 words total): Toxic Relationship Patterns, Trauma Bonding, Coercive Control & Somatic Safety across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
-  - Each guide equipped with single Auto Ads loader, relationship health tools, `robots: index, follow`, `dateModified: 2026-09-23`.
-  - Portal sitemaps synchronized: exactly **780 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 780/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
+- **Tier 35 Social Anxiety Global Cluster (790 Clean URLs Milestone)**:
+  - Restored 10 comprehensive guides (>32,000 words total): Social Anxiety Signs, Physical Symptoms, Exposure Therapy & Cognitive Restructuring across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
+  - Each guide equipped with single Auto Ads loader, anxiety self-assessment tools, `robots: index, follow`, `dateModified: 2026-09-23`.
+  - Portal sitemaps synchronized: exactly **790 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 790/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
