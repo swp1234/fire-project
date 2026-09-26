@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 830 Clean URLs Milestone & Tier 39 Doomscrolling Mental Health (2026-09-26)
+## Latest release: 840 Clean URLs Milestone & Tier 40 Functional Freeze (2026-09-26)
 
-- **Tier 39 Doomscrolling Mental Health Global Cluster (830 Clean URLs Milestone)**:
-  - Restored 10 comprehensive guides (>40,000 words total): Doomscrolling Compulsive Cycle, Dopamine Hijacking, Anxiety Amplification & 60-Second Stop Plan across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
-  - Each guide equipped with single Auto Ads loader, GA4 telemetry, grounding stop plans, `robots: index, follow`, `dateModified: 2026-09-26`.
-  - Portal sitemaps synchronized: exactly **830 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 830/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
+- **Tier 40 Functional Freeze Signs Global Cluster (840 Clean URLs Milestone)**:
+  - Restored 10 comprehensive guides (>38,000 words total): Functional Freeze Signs, Polyvagal Shutdown, Trauma Freezing vs Laziness & 7 Thawing Strategies across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
+  - Each guide equipped with single Auto Ads loader, somatic grounding tools, `robots: index, follow`, `dateModified: 2026-09-26`.
+  - Portal sitemaps synchronized: exactly **840 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 840/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
