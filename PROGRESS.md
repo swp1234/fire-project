@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 880 Clean URLs Milestone & Tier 44 HSP vs Empath Difference (2026-09-26)
+## Latest release: 890 Clean URLs Milestone & Tier 45 EQ Test & Emotional Intelligence (2026-09-26)
 
-- **Tier 44 HSP vs Empath Difference Global Cluster (880 Clean URLs Milestone)**:
-  - Restored 10 comprehensive guides (>42,000 words total): Highly Sensitive Person vs Empath Difference, Emotional Absorption, Boundary Protection & Sensitivity Flourishing across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
-  - Each guide equipped with single Auto Ads loader, sensory sensitivity self-tests, `robots: index, follow`, `dateModified: 2026-09-26`.
-  - Portal sitemaps synchronized: exactly **880 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 880/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
+- **Tier 45 EQ Test & Emotional Intelligence Global Cluster (890 Clean URLs Milestone)**:
+  - Restored 10 comprehensive guides (>44,000 words total): Emotional Quotient Scenario Quiz, Empathy & Social Skill Dimension Scoring, EQ vs IQ Comparisons across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
+  - Each guide equipped with single Auto Ads loader, interactive emotional scenario assessment tools, `robots: index, follow`, `dateModified: 2026-09-26`.
+  - Portal sitemaps synchronized: exactly **890 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 890/0, AdSense Contract 11/11, Restricted Ads 36/36, Culture Review 13/13, Doc Budget 10/10). All submodules committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
