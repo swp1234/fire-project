@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,240 Clean URLs & Tier 80 Disorganized & Dopamine (2026-09-27)
+## Latest release: 1,250 Clean URLs & Tier 81 Dopamine & Mental Age (2026-09-27)
 
-- **Tier 80 Disorganized Attachment & Dopamine Detox Cluster (1,240 Clean URLs)**:
-  - Restored 10 comprehensive guides: Fearful-Avoidant Healing, Neurological Dopamine Reset across 10 locales (`ja`, `hi`, `ru`, `id`, `tr` disorganized + `de`, `fr`, `pt`, `ja`, `hi` dopamine detox) plus synchronized existing locales.
+- **Tier 81 Dopamine Detox & Mental Age Test Cluster (1,250 Clean URLs)**:
+  - Restored 10 comprehensive guides: Neurological Dopamine Reset Completion, Cognitive-Emotional Mental Age Diagnostics across 10 locales (`ru`, `id`, `tr` dopamine detox + `ja`, `de`, `fr`, `hi`, `ru`, `id`, `tr` mental age test) plus synchronized existing locales.
   - Single Auto Ads loader, interactive 4-card quick rail, full 13-hreflang matrix, `robots: index, follow`, `dateModified: 2026-09-27`.
-  - Portal sitemaps synchronized: exactly **1,240 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1240/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **1,250 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1250/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
