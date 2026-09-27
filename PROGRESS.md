@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,220 Clean URLs & Tier 78 Emotional Flashbacks (2026-09-27)
+## Latest release: 1,230 Clean URLs & Tier 79 Reaction Time (2026-09-27)
 
-- **Tier 78 Emotional Flashbacks CPTSD & Disorganized Cluster (1,220 Clean URLs)**:
-  - Restored 10 comprehensive guides: Amygdala Hijack De-escalation, Somatic Flashback Safety Protocols, Disorganized Re-regulation across 10 locales (`fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr` + `es` disorganized) plus synchronized existing locales.
+- **Tier 79 Reaction Time Test & Disorganized Cluster (1,230 Clean URLs)**:
+  - Restored 10 comprehensive guides: Simple Visual Reaction Metrics, Neurological Latency, Disorganized Re-regulation across 10 locales (`de`, `fr`, `es`, `pt`, `zh`, `hi`, `ru`, `id`, `tr` + `pt` disorganized) plus synchronized existing locales.
   - Single Auto Ads loader, interactive 4-card quick rail, full 13-hreflang matrix, `robots: index, follow`, `dateModified: 2026-09-27`.
-  - Portal sitemaps synchronized: exactly **1,220 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1220/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **1,230 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1230/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
