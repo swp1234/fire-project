@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,440 Clean URLs & Tier 100 Centennial Landmark (2026-09-27)
+## Latest release: 1,450 Clean URLs & Tier 101 Guide Expansion (2026-09-27)
 
-- **Tier 100 Centennial Milestone — 1,440 Clean Unique URLs Reached**:
-  - Restored 10 strategic high-intent guides across cognitive training, personality, and brain science: 2026 Brain Training Games (`en`), 2026 Free Brain Games Top 10 (`ja`), 2048 Puzzle Strategy (`ja`), Animal Personality vs MBTI (`en`), Aura Reading Energy Quiz (`en`), Best Free Brain Games (`en`), Best Brain Training Games (`ja`), Best Browser Games 2026 (`en`), Biorhythm Love Compatibility (`en`), and Block Puzzle Guide (`ja`).
+- **Tier 101 Multi-Vertical Guide Cluster (1,450 Clean URLs)**:
+  - Restored 10 specialized guides: Classic Brick Breaker (`en`), Color Memory Mechanics (`en`), Color Personality Psychology (`zh`), Dev Quiz Challenge (`en`), Digital Detox Practice (`ru`), Emoji Merge Strategies (`en`), Emotional Temperature Assessment (`en`), Flappy Bird Pro Tips (`en`), Idle Clicker Psychology (`en`), and K-Pop Role Assessment (`en`).
   - Single Auto Ads loader, interactive 4-card quick rail, full 13-hreflang matrix, `robots: index, follow`, `dateModified: 2026-09-27`.
-  - Portal sitemaps synchronized: exactly **1,440 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1440/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **1,450 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1450/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
