@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,460 Clean URLs & Tier 102 Cognitive Guides (2026-09-27)
+## Latest release: 1,470 Clean URLs & Tier 103 Catalog Maximization (2026-09-27)
 
-- **Tier 102 Cognitive & Utility Cluster (1,460 Clean URLs)**:
-  - Restored 10 strategic guides: Love Frequency Sound Therapy (`ja`), Memory Card Concentration (`en`), Mental Age Brain Quiz (`zh`), 2048 Number Strategy (`en`), Numerology Life Path (`en`), Past Life Archetype Test (`en`), Personality Stack Builder (`en`), Pong Browser Game (`en`), QR Code Generator Guide (`en`), and Quick Casual Break Games (`en`).
+- **Tier 103 Catalog Maximization Milestone (1,470 Clean URLs)**:
+  - Restored final 10 high-value guides: Quiz Knowledge App Architecture (`en`), Road Shooter Reflex (`en`), Routine Planning Psychology (`ja`), Smart Shopping Calculator (`en`), Sleep Architecture & Circadian Science (`ru`), Classic Snake Strategy (`en`), 2026 Top Browser Games (`en`), Valentine Romance Compatibility (`en`), White Noise Sleep Acoustics (`ja`), and Wordle Cognitive Strategy (`en`).
   - Single Auto Ads loader, interactive 4-card quick rail, full 13-hreflang matrix, `robots: index, follow`, `dateModified: 2026-09-27`.
-  - Portal sitemaps synchronized: exactly **1,460 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1460/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **1,470 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1470/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
