@@ -19,13 +19,13 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,542 Clean URLs - Roblox Codes & Movie Genre Psychology Supercluster (2026-09-27)
+## Latest release: 1,566 Clean URLs - Roblox Studio & Ghibli Psychology Supercluster (2026-09-28)
 
-- **Roblox Codes & Movie Genre Psychology Supercluster (Tiers 108-109 - 1,542 Clean URLs)**:
-  - Tier 108: 12-language Roblox Promo Codes, Free Items & Avatar Guide `roblox-promo-codes-free-items-guide.html`.
-  - Tier 109: 12-language Movie Genre Psychology & Personality Guide `movie-genre-psychology-personality-guide.html`.
-  - Complete 12-market reciprocal hreflang matrix, FAQ schemas, 4 high-dwell tool bridges (`reaction-test`, `puzzle-2048`, `stress-check`, `brain-type`).
-  - Canonical inventory verified: exactly **1,542 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 1527/0, `indexing-inventory` 1542/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed and pushed.
+- **Roblox Studio & Studio Ghibli Psychology Supercluster (Tiers 110-111 - 1,566 Clean URLs)**:
+  - Tier 110: 12-language Roblox Studio Beginner & Lua Game Development Guide `roblox-studio-beginners-game-development-guide.html`.
+  - Tier 111: 12-language Studio Ghibli & Cozy Anime Media Psychology Guide `studio-ghibli-cozy-anime-psychology-guide.html`.
+  - Complete 12-market reciprocal hreflang matrix, FAQ schemas, 4 high-dwell tool bridges (`iq-test`, `reaction-test`, `stress-check`, `hsp-test`).
+  - Canonical inventory verified: exactly **1,566 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 1551/0, `indexing-inventory` 1566/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
