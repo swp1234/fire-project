@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,320 Clean URLs & Tier 88 Block Puzzle (2026-09-27)
+## Latest release: 1,330 Clean URLs & Tier 89 Block Puzzle & Snake (2026-09-27)
 
-- **Tier 88 Block Puzzle Cognitive Spatial Strategy Cluster (1,320 Clean URLs)**:
-  - Restored 10 comprehensive guides: Spatial Tessellation & Clearing Tactics across 10 locales (`en`, `ko`, `zh`, `es`, `ja`, `de`, `fr`, `pt`, `hi`, `ru`).
+- **Tier 89 Block Puzzle Completion & Snake Game Guide Cluster (1,330 Clean URLs)**:
+  - Restored 10 comprehensive guides: Block Puzzle 12-Market Completion, Classic Grid Navigation & Spatial Pathing Tactics across 10 locales (`id`, `tr` block puzzle + `en`, `ko`, `zh`, `es`, `ja`, `de`, `fr`, `pt` snake game).
   - Single Auto Ads loader, interactive 4-card quick rail, full 13-hreflang matrix, `robots: index, follow`, `dateModified: 2026-09-27`.
-  - Portal sitemaps synchronized: exactly **1,320 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1320/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **1,330 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1330/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
