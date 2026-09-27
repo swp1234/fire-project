@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,280 Clean URLs & Tier 84 EQ & HSP Coping (2026-09-27)
+## Latest release: 1,290 Clean URLs & Tier 85 HSP & Habit Tracker (2026-09-27)
 
-- **Tier 84 EQ Improvement Completion & HSP Coping Cluster (1,280 Clean URLs)**:
-  - Restored 10 comprehensive guides: Emotional Intelligence Completion, High Sensitivity Stress Shielding & Regulation across 10 locales (`ru`, `id`, `tr` EQ + `zh`, `ja`, `fr`, `pt`, `hi`, `ru`, `id` HSP coping) plus synchronized existing locales.
+- **Tier 85 HSP Coping Completion & Habit Tracker Cluster (1,290 Clean URLs)**:
+  - Restored 10 comprehensive guides: High Sensitivity Overload Prevention Completion, Habit Stacking & Behavioral Loop Diagnostics across 10 locales (`tr` HSP coping + `es`, `ja`, `de`, `fr`, `pt`, `hi`, `ru`, `id`, `tr` habit tracker) plus synchronized existing locales.
   - Single Auto Ads loader, interactive 4-card quick rail, full 13-hreflang matrix, `robots: index, follow`, `dateModified: 2026-09-27`.
-  - Portal sitemaps synchronized: exactly **1,280 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1280/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **1,290 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1290/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
