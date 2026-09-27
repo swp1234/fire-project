@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,390 Clean URLs & Tier 95 Free Games & Lottery (2026-09-27)
+## Latest release: 1,400 Clean URLs & Tier 96 Historic Milestone (2026-09-27)
 
-- **Tier 95 Free Games Completion & Lottery Guide (1,390 Clean URLs)**:
-  - Restored 10 strategic guides: Free Games Directory 12-Market Completion (`tr`) and Lottery Number & Probability Psychology (`en`, `ko`, `zh`, `es`, `ja`, `de`, `fr`, `pt`, `hi`).
+- **Tier 96 Historic Milestone — 1,400 Clean Unique URLs Reached**:
+  - Restored 10 high-intent guides: Lottery Guide 12-Market Completion (`ru`, `tr`), Reaction Test Game Guide (`en`, `ko`, `zh`, `ja`, `hi`), and Daily Tarot Reading Guide (`en`, `zh`, `ja`).
   - Single Auto Ads loader, interactive 4-card quick rail, full 13-hreflang matrix, `robots: index, follow`, `dateModified: 2026-09-27`.
-  - Portal sitemaps synchronized: exactly **1,390 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1390/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **1,400 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1400/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
