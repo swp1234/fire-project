@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,140 Clean URLs & Tier 70 Overthinker (2026-09-27)
+## Latest release: 1,150 Clean URLs & Tier 71 Color Psychology (2026-09-27)
 
-- **Tier 70 Overthinker Test Guide Global Cluster (1,140 Clean URLs)**:
-  - Restored 10 comprehensive guides: Rumination Cycles, Analysis Paralysis, Cognitive Calming Protocols across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
+- **Tier 71 Color Psychology Guide Global Cluster (1,150 Clean URLs)**:
+  - Restored 10 comprehensive guides: Personality Meanings, Emotional Symbolism, Subconscious Preferences across 10 locales (`de`, `fr`, `es`, `pt`, `ja`, `zh`, `hi`, `ru`, `id`, `tr`) plus synchronized `en`, `ko`.
   - Single Auto Ads loader, interactive 4-card quick rail, full 13-hreflang matrix, `robots: index, follow`, `dateModified: 2026-09-27`.
-  - Portal sitemaps synchronized: exactly **1,140 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1140/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **1,150 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1150/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
