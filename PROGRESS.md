@@ -19,13 +19,13 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,662 Clean URLs - Roblox Combat & Sci-Fi Dystopia Psychology Supercluster (2026-09-28)
+## Latest release: 1,686 Clean URLs - Roblox Horror & Horror Cinema Psychology Supercluster (2026-09-28)
 
-- **Roblox Combat & Sci-Fi Dystopia Psychology Supercluster (Tiers 118-119 - 1,662 Clean URLs)**:
-  - Tier 118: 12-language Roblox Combat & FPS Guide `roblox-fps-combat-movement-lag-guide.html`.
-  - Tier 119: 12-language Sci-Fi & Dystopian Fiction Psychology Guide `sci-fi-dystopia-psychology-existential-dread.html`.
-  - Complete 12-market reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`reaction-test`, `future-self`, `stress-check`, `brain-type`).
-  - Canonical inventory verified: exactly **1,662 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 1647/0, `indexing-inventory` 1662/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed and pushed.
+- **Roblox Horror & Horror Cinema Psychology Supercluster (Tiers 120-121 - 1,686 Clean URLs)**:
+  - Tier 120: 12-language Roblox Horror Game Design Guide `roblox-horror-game-design-mechanics-guide.html`.
+  - Tier 121: 12-language Horror Cinema & Catharsis Psychology Guide `horror-cinema-psychology-fear-catharsis.html`.
+  - Complete 12-market reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`stress-check`, `hsp-test`, `brain-type`, `future-self`).
+  - Canonical inventory verified: exactly **1,686 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 1671/0, `indexing-inventory` 1686/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
