@@ -19,13 +19,13 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,614 Clean URLs - Roblox Tycoon & Superhero Psychology Supercluster (2026-09-28)
+## Latest release: 1,638 Clean URLs - Roblox Trading & True Crime Psychology Supercluster (2026-09-28)
 
-- **Roblox Tycoon & Superhero Psychology Supercluster (Tiers 114-115 - 1,614 Clean URLs)**:
-  - Tier 114: 12-language Roblox Tycoon Game Mechanics & Monetization Guide `roblox-tycoon-game-mechanics-guide.html`.
-  - Tier 115: 12-language Superhero Psychology & Marvel vs DC Archetypes Guide `superhero-psychology-marvel-dc-archetypes.html`.
-  - Complete 12-market reciprocal hreflang matrix, FAQ schemas, 4 high-dwell tool bridges (`attachment-style`, `brain-type`, `stress-check`, `puzzle-2048`).
-  - Canonical inventory verified: exactly **1,614 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 1599/0, `indexing-inventory` 1614/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed and pushed.
+- **Roblox Trading & True Crime Psychology Supercluster (Tiers 116-117 - 1,638 Clean URLs)**:
+  - Tier 116: 12-language Roblox Roleplay & Trading Economy Guide `roblox-roleplay-trading-economy-guide.html`.
+  - Tier 117: 12-language True Crime & Psychological Thriller Appeal Guide `true-crime-thriller-psychology-curiosity-guide.html`.
+  - Complete 12-market reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`stress-check`, `brain-type`, `attachment-style`, `puzzle-2048`).
+  - Canonical inventory verified: exactly **1,638 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 1623/0, `indexing-inventory` 1638/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
