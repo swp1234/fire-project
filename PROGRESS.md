@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,260 Clean URLs & Tier 82 Somatic Anxiety & RSD (2026-09-27)
+## Latest release: 1,270 Clean URLs & Tier 83 RSD & EQ Improvement (2026-09-27)
 
-- **Tier 82 Somatic Anxiety & Rejection Sensitivity Dysphoria Cluster (1,260 Clean URLs)**:
-  - Restored 10 comprehensive guides: Physical Anxiety Somatization, ADHD/Autistic RSD Regulation across 10 locales (`zh`, `ja`, `de`, `fr`, `hi`, `ru`, `id`, `tr` somatic anxiety + `es`, `fr` RSD) plus synchronized existing locales.
+- **Tier 83 RSD Completion & EQ Improvement Cluster (1,270 Clean URLs)**:
+  - Restored 10 comprehensive guides: Neurodivergent Rejection Dysphoria Completion, Emotional Intelligence & Self-Regulation across 10 locales (`pt`, `hi`, `id`, `tr` RSD + `zh`, `es`, `ja`, `de`, `pt`, `hi` EQ improvement) plus synchronized existing locales.
   - Single Auto Ads loader, interactive 4-card quick rail, full 13-hreflang matrix, `robots: index, follow`, `dateModified: 2026-09-27`.
-  - Portal sitemaps synchronized: exactly **1,260 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1260/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **1,270 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1270/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
