@@ -29,6 +29,10 @@ Updated: 2026-09-19 KST
 3. Short-form packaging:
    - Connect social/culture trends to established tools (Couple Deck, Stress Check) rather than standalone meme pages.
 
+4. Root & Portal UI/Content Revamp (Completed):
+   - Revamped UI layout and content ordering for `https://dopabrain.com/` and `https://dopabrain.com/portal/`.
+   - Implemented sorting by Popularity (인기순) and Newest/Recency (최신순) for high-dwell discovery and core product recirculation.
+
 ## Release gate
 
 - One URL, hypothesis, and measurement plan at a time.

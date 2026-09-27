@@ -1,6 +1,6 @@
 # DopaBrain current status
 
-Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the repeatable loop is in the `dopabrain-growth-ops` skill.
+Updated: 2026-09-28 KST. Release history is in `memory/data-check-log.md`; the repeatable loop is in the `dopabrain-growth-ops` skill.
 
 ## Target and status
 
@@ -18,14 +18,14 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Exclude Singapore desktop Direct scans (average duration 4.5s) and China Direct bursts from growth and product performance decisions.
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
+- **Next roadmap priority**: Monitor user dwell and recirculation uplift from Popular/Latest sort tabs across root and portal; expand core tool bridges on top tier URLs.
 
-## Latest release: 1,758 Clean URLs - Roblox Plugin Dev & Fantasy Escapism Psychology (2026-09-28)
+## Latest release: Home & Portal UI Revamp - Popularity & Newest Sorting (2026-09-28)
 
-- **Roblox Plugin Dev & Fantasy Escapism Psychology (Tiers 126-127 - 1,758 Clean URLs)**:
-  - Tier 126: 12-language Roblox Studio Plugin Dev Guide `roblox-studio-plugin-development-guide.html`.
-  - Tier 127: 12-language Fantasy & Escapism Psychology Guide `fantasy-fiction-psychology-worldbuilding-escapism.html`.
-  - Complete 12-market reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `reaction-test`, `burnout-test`, `stress-check`, `future-self`).
-  - Canonical inventory verified: exactly **1,758 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 1758/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed and pushed.
+- **Root Domain & Portal UI Revamp**:
+  - `projects/root-domain`: Added interactive Popular/Latest sort tabs with full 12-language localization, touch targets >= 44px, GA4 tracking `root_sort_toggle`, and strictly 0px mobile overflow on 360px viewport.
+  - `projects/portal`: Enabled flat Popularity rank badges (🥇 #1, 🥈 #2, 🥉 #3, #4+) and Latest badges (✨ NEW), bypassing grouped category sections under active sort.
+  - Retention weighting boosted for flagship high-dwell apps (`stress-check`, `brain-type`, `hsp-test`, `future-self`, `puzzle-2048`, `coach-2048`).
+- **Verification & Deployment**: Mobile overflow 0px verified across 360px viewport, 12 locale JSON files valid, pre-push quality gates PASSED for both submodules. Submodules `projects/root-domain` and `projects/portal` committed and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
