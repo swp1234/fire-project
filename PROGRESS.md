@@ -19,13 +19,13 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,518 Clean URLs - Roblox Safety & Movie Psychology Supercluster (2026-09-27)
+## Latest release: 1,542 Clean URLs - Roblox Codes & Movie Genre Psychology Supercluster (2026-09-27)
 
-- **Roblox Safety & Movie Character Psychology Supercluster (Tiers 106-107 - 1,518 Clean URLs)**:
-  - Tier 106: 12-language Roblox Beginner Safety, Controls & Anti-Scam guide `roblox-beginners-guide-safety-controls.html`.
-  - Tier 107: 12-language Movie & Pop Culture Character Psychology guide `movie-character-psychology-villains-heroes.html`.
-  - Complete 12-market reciprocal hreflang matrix, FAQ schemas, 4 high-dwell tool bridges (`reaction-test`, `attachment-style`, `brain-type`, `stress-check`).
-  - Canonical inventory verified: exactly **1,518 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 1503/0, `indexing-inventory` 1518/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed and pushed.
+- **Roblox Codes & Movie Genre Psychology Supercluster (Tiers 108-109 - 1,542 Clean URLs)**:
+  - Tier 108: 12-language Roblox Promo Codes, Free Items & Avatar Guide `roblox-promo-codes-free-items-guide.html`.
+  - Tier 109: 12-language Movie Genre Psychology & Personality Guide `movie-genre-psychology-personality-guide.html`.
+  - Complete 12-market reciprocal hreflang matrix, FAQ schemas, 4 high-dwell tool bridges (`reaction-test`, `puzzle-2048`, `stress-check`, `brain-type`).
+  - Canonical inventory verified: exactly **1,542 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 1527/0, `indexing-inventory` 1542/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
