@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,370 Clean URLs & Tier 93 Top 10 Mini Games (2026-09-27)
+## Latest release: 1,380 Clean URLs & Tier 94 Free Games Hub (2026-09-27)
 
-- **Tier 93 Top 10 Mini Games 12-Market Completion (1,370 Clean URLs)**:
-  - Restored 10 high-value guides: Top 10 Free Mini Games for Brain Breaks 12-market completion across 10 locales (`zh`, `es`, `ja`, `de`, `fr`, `pt`, `hi`, `ru`, `id`, `tr`).
+- **Tier 94 Free Games Hub Guide (1,380 Clean URLs)**:
+  - Restored 10 high-traffic guides: Comprehensive Free Games Directory & cognitive leisure strategy across 10 major global markets (`en`, `ko`, `es`, `ja`, `de`, `fr`, `pt`, `hi`, `ru`, `id`).
   - Single Auto Ads loader, interactive 4-card quick rail, full 13-hreflang matrix, `robots: index, follow`, `dateModified: 2026-09-27`.
-  - Portal sitemaps synchronized: exactly **1,370 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1370/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **1,380 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1380/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
