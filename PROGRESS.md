@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,410 Clean URLs & Tier 97 Interactive Tools Cluster (2026-09-27)
+## Latest release: 1,420 Clean URLs & Tier 98 Cognitive Tools Cluster (2026-09-27)
 
-- **Tier 97 Interactive Utilities & Reflex Cluster (1,410 Clean URLs)**:
-  - Restored 10 interactive cognitive and utility guides: MBTI Career Compatibility (`en`, `zh`, `ja`), Retro Pong Reflex Guide (`en`, `zh`, `ja`), Dynamic QR Code Security (`zh`, `ja`, `de`), and Unit Converter Architecture (`en`).
+- **Tier 98 Cognitive Training & Developer Utilities (1,420 Clean URLs)**:
+  - Restored 10 strategic guides: Unit Converter Engineering (`zh`, `ja`), Brain Training Games Strategy (`en`, `hi`), Brick Breaker Physics (`en`, `ja`), D-Day Countdown Psychology (`en`, `zh`), and Dev Tech Quiz Architecture (`zh`, `ja`).
   - Single Auto Ads loader, interactive 4-card quick rail, full 13-hreflang matrix, `robots: index, follow`, `dateModified: 2026-09-27`.
-  - Portal sitemaps synchronized: exactly **1,410 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1410/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **1,420 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1420/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
