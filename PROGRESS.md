@@ -19,13 +19,13 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,590 Clean URLs - Roblox Obby & K-Drama Psychology Supercluster (2026-09-28)
+## Latest release: 1,614 Clean URLs - Roblox Tycoon & Superhero Psychology Supercluster (2026-09-28)
 
-- **Roblox Obby & K-Drama Psychology Supercluster (Tiers 112-113 - 1,590 Clean URLs)**:
-  - Tier 112: 12-language Roblox Obby Level Design & Checkpoint Script Guide `roblox-obby-game-design-guide.html`.
-  - Tier 113: 12-language K-Drama Binge Psychology & Dopamine Cliffhangers Guide `kdrama-psychology-dopamine-cliffhangers-guide.html`.
-  - Complete 12-market reciprocal hreflang matrix, FAQ schemas, 4 high-dwell tool bridges (`reaction-test`, `puzzle-2048`, `attachment-style`, `stress-check`).
-  - Canonical inventory verified: exactly **1,590 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 1575/0, `indexing-inventory` 1590/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed and pushed.
+- **Roblox Tycoon & Superhero Psychology Supercluster (Tiers 114-115 - 1,614 Clean URLs)**:
+  - Tier 114: 12-language Roblox Tycoon Game Mechanics & Monetization Guide `roblox-tycoon-game-mechanics-guide.html`.
+  - Tier 115: 12-language Superhero Psychology & Marvel vs DC Archetypes Guide `superhero-psychology-marvel-dc-archetypes.html`.
+  - Complete 12-market reciprocal hreflang matrix, FAQ schemas, 4 high-dwell tool bridges (`attachment-style`, `brain-type`, `stress-check`, `puzzle-2048`).
+  - Canonical inventory verified: exactly **1,614 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 1599/0, `indexing-inventory` 1614/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
