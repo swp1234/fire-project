@@ -19,12 +19,12 @@ Updated: 2026-09-26 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Latest release: 1,350 Clean URLs & Tier 91 Stack Tower & Zigzag (2026-09-27)
+## Latest release: 1,360 Clean URLs & Tier 92 Zigzag & Top 10 Games (2026-09-27)
 
-- **Tier 91 Stack Tower Completion & Zigzag Runner Cluster (1,350 Clean URLs)**:
-  - Restored 10 comprehensive guides: Stack Tower 12-Market Completion, High-Speed Directional Reflex Tactics across 10 locales (`fr`, `pt`, `hi`, `ru`, `id`, `tr` stack tower + `en`, `ko`, `zh`, `es` zigzag runner).
+- **Tier 92 Zigzag Completion & Top 10 Mini Games (1,360 Clean URLs)**:
+  - Restored 10 high-value guides: Zigzag Runner 12-Market Completion, Top 10 Free Mini Games for Brain Breaks (`ja`, `de`, `fr`, `pt`, `hi`, `ru`, `id`, `tr` zigzag runner + `en`, `ko` top 10 mini games).
   - Single Auto Ads loader, interactive 4-card quick rail, full 13-hreflang matrix, `robots: index, follow`, `dateModified: 2026-09-27`.
-  - Portal sitemaps synchronized: exactly **1,350 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1350/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
+  - Portal sitemaps synchronized: exactly **1,360 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (Indexing Inventory 1360/0, Restricted Ads 36/36, Doc Budget 10/10). Submodule committed and pushed to origin.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
