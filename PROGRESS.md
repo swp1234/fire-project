@@ -18,14 +18,15 @@ Updated: 2026-09-28 KST. Release history is in `memory/data-check-log.md`; the r
 - Exclude Singapore desktop Direct scans (average duration 4.5s) and China Direct bursts from growth and product performance decisions.
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
-- **Next roadmap priority**: Monitor user dwell and recirculation uplift from Popular/Latest sort tabs across root and portal; expand core tool bridges on top tier URLs.
+- **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: Home & Portal UI Revamp - Popularity & Newest Sorting (2026-09-28)
+## Latest release: 1,782 Clean URLs - Roblox DataStore & Mystery Psychology (2026-09-28)
 
-- **Root Domain & Portal UI Revamp**:
-  - `projects/root-domain`: Added interactive Popular/Latest sort tabs with full 12-language localization, touch targets >= 44px, GA4 tracking `root_sort_toggle`, and strictly 0px mobile overflow on 360px viewport.
-  - `projects/portal`: Enabled flat Popularity rank badges (🥇 #1, 🥈 #2, 🥉 #3, #4+) and Latest badges (✨ NEW), bypassing grouped category sections under active sort.
-  - Retention weighting boosted for flagship high-dwell apps (`stress-check`, `brain-type`, `hsp-test`, `future-self`, `puzzle-2048`, `coach-2048`).
-- **Verification & Deployment**: Mobile overflow 0px verified across 360px viewport, 12 locale JSON files valid, pre-push quality gates PASSED for both submodules. Submodules `projects/root-domain` and `projects/portal` committed and pushed.
+- **Roblox DataStore & Mystery Psychology (Tiers 128-129 - 1,782 Clean URLs)**:
+  - Tier 128: 12-language Roblox DataStore & ProfileService Persistence Guide `roblox-datastore-profileservice-persistence-guide.html`.
+  - Tier 129: 12-language Mystery & Whodunit Psychology Guide `mystery-whodunit-psychology-deduction-puzzles.html`.
+  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `iq-test`, `stress-check`, `puzzle-2048`).
+  - Canonical inventory verified: exactly **1,782 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 1782/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
