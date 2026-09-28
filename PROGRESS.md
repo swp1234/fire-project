@@ -20,13 +20,13 @@ Updated: 2026-09-28 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 1,878 Clean URLs - Roblox Character Controller & Cryptids Psychology (2026-09-28)
+## Latest release: 1,902 Clean URLs - Roblox Lighting & Psychology of Secrets (2026-09-28)
 
-- **Roblox Character Controller & Cryptids Psychology (Tiers 136-137 - 1,878 Clean URLs)**:
-  - Tier 136: 12-language Roblox Custom Character Controllers Guide `roblox-custom-character-controller-movement-guide.html`.
-  - Tier 137: 12-language Folklore Monsters & Cryptids Psychology Guide `folklore-monsters-cryptids-psychology-fear.html`.
-  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `reaction-test`/`animal-personality`, `stress-check`, `puzzle-2048`/`future-self`).
-  - Canonical inventory verified: exactly **1,878 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 1878/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`5bbe0d7`) and pushed.
+- **Roblox Lighting & Psychology of Secrets (Tiers 138-139 - 1,902 Clean URLs)**:
+  - Tier 138: 12-language Roblox Lighting & Post-Processing Guide `roblox-lighting-post-processing-atmosphere-guide.html`.
+  - Tier 139: 12-language Psychology of Secrets & Confession Guide `psychology-of-secrets-confession-catharsis.html`.
+  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `reaction-test`/`stress-check`, `burnout-test`, `puzzle-2048`/`future-self`).
+  - Canonical inventory verified: exactly **1,902 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 1902/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`14e1d49`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
