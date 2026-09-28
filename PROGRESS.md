@@ -20,13 +20,13 @@ Updated: 2026-09-28 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 1,926 Clean URLs - Tactical FPS & Action RPG Combat (2026-09-28)
+## Latest release: 1,950 Clean URLs - Minecraft Redstone & MOBA Macro Strategy (2026-09-28)
 
-- **Tactical FPS & Action RPG Combat (Tiers 140-141 - 1,926 Clean URLs)**:
-  - Tier 140: 12-language Tactical FPS Crosshair Placement & Reaction Guide `tactical-fps-crosshair-placement-reaction-guide.html`.
-  - Tier 141: 12-language Action RPG Combat Mechanics & i-Frames Guide `action-rpg-combat-mechanics-iframes-rotation-guide.html`.
-  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`reaction-test`, `brain-type`, `stress-check`, `puzzle-2048`).
-  - Canonical inventory verified: exactly **1,926 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 1926/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`dbd53c3`) and pushed.
+- **Minecraft Redstone & MOBA Macro Strategy (Tiers 142-143 - 1,950 Clean URLs)**:
+  - Tier 142: 12-language Minecraft Redstone Logic & Automation Mechanics Guide `minecraft-redstone-logic-automation-mechanics-guide.html`.
+  - Tier 143: 12-language MOBA Wave Management & Macro Strategy Guide `moba-wave-management-macro-strategy-guide.html`.
+  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`puzzle-2048`, `reaction-test`, `brain-type`, `stress-check`).
+  - Canonical inventory verified: exactly **1,950 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 1950/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`6788ded`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
