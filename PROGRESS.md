@@ -20,13 +20,13 @@ Updated: 2026-09-28 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 1,830 Clean URLs - Roblox Spatial Query & Mythology Psychology (2026-09-28)
+## Latest release: 1,854 Clean URLs - Roblox Network Ownership & Cosmic Horror (2026-09-28)
 
-- **Roblox Spatial Query & Mythology Psychology (Tiers 132-133 - 1,830 Clean URLs)**:
-  - Tier 132: 12-language Roblox Spatial Query & Combat Hitboxes Guide `roblox-spatial-query-collision-hitbox-detection-guide.html`.
-  - Tier 133: 12-language Mythology & Folklore Psychology Guide `mythology-folklore-psychology-collective-unconscious.html`.
-  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `reaction-test`/`burnout-test`, `stress-check`, `puzzle-2048`/`future-self`).
-  - Canonical inventory verified: exactly **1,830 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 1830/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`89bcb2d`) and pushed.
+- **Roblox Network Ownership & Cosmic Horror (Tiers 134-135 - 1,854 Clean URLs)**:
+  - Tier 134: 12-language Roblox Network Ownership & Physics Sync Guide `roblox-network-ownership-physics-sync-guide.html`.
+  - Tier 135: 12-language Cosmic Horror Psychology Guide `cosmic-horror-psychology-fear-of-the-unknown.html`.
+  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `reaction-test`/`stress-check`, `burnout-test`, `puzzle-2048`/`future-self`).
+  - Canonical inventory verified: exactly **1,854 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 1854/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`994d7fa`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
