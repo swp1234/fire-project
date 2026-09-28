@@ -20,13 +20,13 @@ Updated: 2026-09-28 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 1,806 Clean URLs - Roblox Pathfinding AI & Dystopian Psychology (2026-09-28)
+## Latest release: 1,830 Clean URLs - Roblox Spatial Query & Mythology Psychology (2026-09-28)
 
-- **Roblox Pathfinding AI & Dystopian Psychology (Tiers 130-131 - 1,806 Clean URLs)**:
-  - Tier 130: 12-language Roblox PathfindingService & AI Navigation Guide `roblox-pathfinding-service-ai-navigation-guide.html`.
-  - Tier 131: 12-language Dystopian Fiction & Societal Control Psychology Guide `dystopian-fiction-psychology-societal-anxiety-control.html`.
+- **Roblox Spatial Query & Mythology Psychology (Tiers 132-133 - 1,830 Clean URLs)**:
+  - Tier 132: 12-language Roblox Spatial Query & Combat Hitboxes Guide `roblox-spatial-query-collision-hitbox-detection-guide.html`.
+  - Tier 133: 12-language Mythology & Folklore Psychology Guide `mythology-folklore-psychology-collective-unconscious.html`.
   - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `reaction-test`/`burnout-test`, `stress-check`, `puzzle-2048`/`future-self`).
-  - Canonical inventory verified: exactly **1,806 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 1806/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed and pushed.
+  - Canonical inventory verified: exactly **1,830 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 1830/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`89bcb2d`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
