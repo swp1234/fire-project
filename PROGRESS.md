@@ -20,13 +20,13 @@ Updated: 2026-09-28 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 1,974 Clean URLs - Roblox DataStore & Flow State Gaming Psychology (2026-09-28)
+## Latest release: 1,998 Clean URLs - Roblox StreamingEnabled & Spatial Navigation Cognition (2026-09-28)
 
-- **Roblox DataStore & Flow State Gaming Psychology (Tiers 144-145 - 1,974 Clean URLs)**:
-  - Tier 144: 12-language Roblox DataStore Budget & Throttle Optimization Guide `roblox-datastore-budget-throttle-optimization-guide.html`.
-  - Tier 145: 12-language Flow State in Gaming & Optimal Performance Guide `flow-state-gaming-psychology-optimal-performance.html`.
-  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `puzzle-2048`, `reaction-test`, `stress-check` / `burnout-test`).
-  - Canonical inventory verified: exactly **1,974 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 1974/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`d9cd0fd`) and pushed.
+- **Roblox StreamingEnabled & Spatial Navigation Cognition (Tiers 146-147 - 1,998 Clean URLs)**:
+  - Tier 146: 12-language Roblox StreamingEnabled & Open-World Map Optimization Guide `roblox-streaming-enabled-large-map-optimization-guide.html`.
+  - Tier 147: 12-language Spatial Navigation & Working Memory in 3D Gaming Guide `spatial-navigation-working-memory-gaming-cognition.html`.
+  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `puzzle-2048`, `reaction-test`, `stress-check`).
+  - Canonical inventory verified: exactly **1,998 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 1998/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`58ffe48`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
