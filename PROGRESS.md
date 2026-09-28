@@ -20,13 +20,13 @@ Updated: 2026-09-28 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 1,950 Clean URLs - Minecraft Redstone & MOBA Macro Strategy (2026-09-28)
+## Latest release: 1,974 Clean URLs - Roblox DataStore & Flow State Gaming Psychology (2026-09-28)
 
-- **Minecraft Redstone & MOBA Macro Strategy (Tiers 142-143 - 1,950 Clean URLs)**:
-  - Tier 142: 12-language Minecraft Redstone Logic & Automation Mechanics Guide `minecraft-redstone-logic-automation-mechanics-guide.html`.
-  - Tier 143: 12-language MOBA Wave Management & Macro Strategy Guide `moba-wave-management-macro-strategy-guide.html`.
-  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`puzzle-2048`, `reaction-test`, `brain-type`, `stress-check`).
-  - Canonical inventory verified: exactly **1,950 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 1950/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`6788ded`) and pushed.
+- **Roblox DataStore & Flow State Gaming Psychology (Tiers 144-145 - 1,974 Clean URLs)**:
+  - Tier 144: 12-language Roblox DataStore Budget & Throttle Optimization Guide `roblox-datastore-budget-throttle-optimization-guide.html`.
+  - Tier 145: 12-language Flow State in Gaming & Optimal Performance Guide `flow-state-gaming-psychology-optimal-performance.html`.
+  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `puzzle-2048`, `reaction-test`, `stress-check` / `burnout-test`).
+  - Canonical inventory verified: exactly **1,974 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 1974/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`d9cd0fd`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
