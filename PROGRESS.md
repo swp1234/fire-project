@@ -20,13 +20,13 @@ Updated: 2026-09-28 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 1,782 Clean URLs - Roblox DataStore & Mystery Psychology (2026-09-28)
+## Latest release: 1,806 Clean URLs - Roblox Pathfinding AI & Dystopian Psychology (2026-09-28)
 
-- **Roblox DataStore & Mystery Psychology (Tiers 128-129 - 1,782 Clean URLs)**:
-  - Tier 128: 12-language Roblox DataStore & ProfileService Persistence Guide `roblox-datastore-profileservice-persistence-guide.html`.
-  - Tier 129: 12-language Mystery & Whodunit Psychology Guide `mystery-whodunit-psychology-deduction-puzzles.html`.
-  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `iq-test`, `stress-check`, `puzzle-2048`).
-  - Canonical inventory verified: exactly **1,782 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 1782/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed and pushed.
+- **Roblox Pathfinding AI & Dystopian Psychology (Tiers 130-131 - 1,806 Clean URLs)**:
+  - Tier 130: 12-language Roblox PathfindingService & AI Navigation Guide `roblox-pathfinding-service-ai-navigation-guide.html`.
+  - Tier 131: 12-language Dystopian Fiction & Societal Control Psychology Guide `dystopian-fiction-psychology-societal-anxiety-control.html`.
+  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `reaction-test`/`burnout-test`, `stress-check`, `puzzle-2048`/`future-self`).
+  - Canonical inventory verified: exactly **1,806 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 1806/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
