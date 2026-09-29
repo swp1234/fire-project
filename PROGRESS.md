@@ -20,13 +20,13 @@ Updated: 2026-09-29 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,238 Clean URLs - Roblox Procedural Dungeons & Battle Royale Endgames (2026-09-29)
+## Latest release: 2,262 Clean URLs - Roblox Vehicle Physics & Tactical FPS Economy (2026-09-29)
 
-- **Roblox Procedural Dungeons & Battle Royale Endgames (Tiers 166-167 - 2,238 Clean URLs)**:
-  - Tier 166: 12-language Roblox Procedural Dungeon Generation, BSP & Delaunay Guide `roblox-procedural-dungeon-generation-delaunay-bsp-guide.html`.
-  - Tier 167: 12-language Battle Royale Endgame Pinwheel Rotations & Neuroscience Guide `battle-royale-endgame-pinwheel-rotations-gatekeeping-neuroscience.html`.
-  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`puzzle-2048`, `brain-type`, `reaction-test`, `stress-check` / `burnout-test`).
-  - Canonical inventory verified: exactly **2,238 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2238/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`9779b22`) and pushed.
+- **Roblox Vehicle Physics & Tactical FPS Economy (Tiers 168-169 - 2,262 Clean URLs)**:
+  - Tier 168: 12-language Roblox Custom Vehicle Physics, Raycast Suspension & Springs Guide `roblox-custom-vehicle-physics-raycast-suspension-springs-guide.html`.
+  - Tier 169: 12-language Tactical FPS Economy Management, Anti-Eco & Loss Streak Guide `tactical-fps-economy-management-anti-eco-snowball-neuroscience.html`.
+  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`reaction-test`, `brain-type`, `puzzle-2048`, `stress-check` / `burnout-test`).
+  - Canonical inventory verified: exactly **2,262 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2262/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`db5c834`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
