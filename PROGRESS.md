@@ -20,13 +20,13 @@ Updated: 2026-09-29 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,142 Clean URLs - Roblox Networking & Souls-like Boss Psychology (2026-09-29)
+## Latest release: 2,166 Clean URLs - Roblox Wall Running & Battle Royale Spatial Neuroscience (2026-09-29)
 
-- **Roblox Networking & Souls-like Psychology (Tiers 158-159 - 2,142 Clean URLs)**:
-  - Tier 158: 12-language Roblox Networking & Remote Optimization Guide `roblox-networking-remote-events-packet-optimization-guide.html`.
-  - Tier 159: 12-language Souls-like Boss Design Psychology Guide `soulslike-boss-design-psychology-operant-conditioning-flow.html`.
+- **Roblox Wall Running & Battle Royale Neuroscience (Tiers 160-161 - 2,166 Clean URLs)**:
+  - Tier 160: 12-language Roblox Custom Movement & Wall Running Guide `roblox-custom-character-controller-wall-running-vectorforce-guide.html`.
+  - Tier 161: 12-language Battle Royale Spatial Psychology & Threat Modeling Guide `battle-royale-spatial-decision-making-zone-rotation-neuroscience.html`.
   - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`reaction-test`, `brain-type`, `puzzle-2048`, `stress-check` / `burnout-test`).
-  - Canonical inventory verified: exactly **2,142 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2142/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`a5a7c65`) and pushed.
+  - Canonical inventory verified: exactly **2,166 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2166/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`03c8299`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
