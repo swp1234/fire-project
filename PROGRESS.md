@@ -20,13 +20,13 @@ Updated: 2026-09-29 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,286 Clean URLs - Roblox Quest DAGs & RTS Cognitive APM (2026-09-29)
+## Latest release: 2,310 Clean URLs - Roblox World Streaming & Survival Horror Scarcity (2026-09-29)
 
-- **Roblox Quest DAGs & RTS Cognitive APM (Tiers 170-171 - 2,286 Clean URLs)**:
-  - Tier 170: 12-language Roblox Quest Architecture: DAGs, State Machines & Branching Dialogue Trees `roblox-quest-system-state-machine-dialogue-tree-guide.html`.
-  - Tier 171: 12-language RTS APM & Macro Multitasking: Cognitive Saccades & Attention Partitioning `rts-apm-macro-multitasking-cognitive-saccades-neuroscience.html`.
+- **Roblox World Streaming & Survival Horror Scarcity (Tiers 172-173 - 2,310 Clean URLs)**:
+  - Tier 172: 12-language Roblox StreamingEnabled, ModelStreamingMode & Mobile Memory Optimization `roblox-streamingenabled-world-streaming-memory-optimization-guide.html`.
+  - Tier 173: 12-language Survival Horror Cognitive Mechanics: Scarcity Psychology & Auditory Paranoia `survival-horror-cognitive-scarcity-amygdala-auditory-paranoia-neuroscience.html`.
   - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `puzzle-2048`, `reaction-test`, `stress-check` / `burnout-test`).
-  - Canonical inventory verified: exactly **2,286 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2286/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`7bde9ba`) and pushed.
+  - Canonical inventory verified: exactly **2,310 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2310/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`00ca3fa`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
