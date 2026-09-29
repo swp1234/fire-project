@@ -20,13 +20,13 @@ Updated: 2026-09-28 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,070 Clean URLs - Roblox UI/UX & Roguelike Procedural Neurobiology (2026-09-29)
+## Latest release: 2,094 Clean URLs - Roblox Vehicle Physics & Stealth Threat Perception (2026-09-29)
 
-- **Roblox UI/UX & Roguelike Procedural Neurobiology (Tiers 152-153 - 2,070 Clean URLs)**:
-  - Tier 152: 12-language Roblox UI/UX Architecture Guide `roblox-ui-ux-design-device-scaling-fluid-layout-guide.html`.
-  - Tier 153: 12-language Procedural Generation & Roguelike Psychology Guide `procedural-generation-cognitive-curiosity-roguelike-psychology.html`.
-  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `puzzle-2048`, `reaction-test`, `stress-check` / `burnout-test`).
-  - Canonical inventory verified: exactly **2,070 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2070/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`819fa27`) and pushed.
+- **Roblox Vehicle Physics & Stealth Threat Perception (Tiers 154-155 - 2,094 Clean URLs)**:
+  - Tier 154: 12-language Roblox Physics Architecture Guide `roblox-physics-simulation-vehicle-spring-constraints-guide.html`.
+  - Tier 155: 12-language Stealth Games Threat Perception Guide `stealth-games-psychology-suspense-threat-perception-guide.html`.
+  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `reaction-test`, `puzzle-2048`, `stress-check` / `hsp-test`).
+  - Canonical inventory verified: exactly **2,094 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2094/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`86797b0`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
