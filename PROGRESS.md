@@ -20,13 +20,13 @@ Updated: 2026-09-28 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,046 Clean URLs - Roblox NPC AI & FPS Aim Neuroscience (2026-09-29)
+## Latest release: 2,070 Clean URLs - Roblox UI/UX & Roguelike Procedural Neurobiology (2026-09-29)
 
-- **Roblox NPC AI & FPS Aim Neuroscience (Tiers 150-151 - 2,046 Clean URLs)**:
-  - Tier 150: 12-language Roblox NPC AI Architecture Guide `roblox-npc-behavior-tree-finite-state-machine-guide.html`.
-  - Tier 151: 12-language FPS Aim Training Neuroscience Guide `fps-aim-training-visual-tracking-reaction-neuroscience.html`.
-  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`reaction-test`, `brain-type`, `stress-check`, `puzzle-2048` / `burnout-test`).
-  - Canonical inventory verified: exactly **2,046 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2046/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`11b7275`) and pushed.
+- **Roblox UI/UX & Roguelike Procedural Neurobiology (Tiers 152-153 - 2,070 Clean URLs)**:
+  - Tier 152: 12-language Roblox UI/UX Architecture Guide `roblox-ui-ux-design-device-scaling-fluid-layout-guide.html`.
+  - Tier 153: 12-language Procedural Generation & Roguelike Psychology Guide `procedural-generation-cognitive-curiosity-roguelike-psychology.html`.
+  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `puzzle-2048`, `reaction-test`, `stress-check` / `burnout-test`).
+  - Canonical inventory verified: exactly **2,070 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2070/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`819fa27`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
