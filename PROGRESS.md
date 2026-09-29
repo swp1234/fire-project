@@ -20,13 +20,13 @@ Updated: 2026-09-29 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,310 Clean URLs - Roblox World Streaming & Survival Horror Scarcity (2026-09-29)
+## Latest release: 2,334 Clean URLs - Roblox Voxel Terrain & MMORPG Raid Group Flow (2026-09-29)
 
-- **Roblox World Streaming & Survival Horror Scarcity (Tiers 172-173 - 2,310 Clean URLs)**:
-  - Tier 172: 12-language Roblox StreamingEnabled, ModelStreamingMode & Mobile Memory Optimization `roblox-streamingenabled-world-streaming-memory-optimization-guide.html`.
-  - Tier 173: 12-language Survival Horror Cognitive Mechanics: Scarcity Psychology & Auditory Paranoia `survival-horror-cognitive-scarcity-amygdala-auditory-paranoia-neuroscience.html`.
-  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `puzzle-2048`, `reaction-test`, `stress-check` / `burnout-test`).
-  - Canonical inventory verified: exactly **2,310 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2310/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`00ca3fa`) and pushed.
+- **Roblox Voxel Terrain & MMORPG Raid Group Flow (Tiers 174-175 - 2,334 Clean URLs)**:
+  - Tier 174: 12-language Roblox Procedural Voxel Terrain: 3D Perlin Noise, Biome Blending & WriteVoxels `roblox-procedural-terrain-generation-voxel-perlin-noise-guide.html`.
+  - Tier 175: 12-language MMORPG Raid Progression: Transactive Memory, Shotcalling & Collective Working Memory `mmorpg-raid-progression-transactive-memory-shotcalling-neuroscience.html`.
+  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`puzzle-2048`, `brain-type`, `reaction-test`, `stress-check` / `burnout-test`).
+  - Canonical inventory verified: exactly **2,334 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2334/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`11c6887`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
