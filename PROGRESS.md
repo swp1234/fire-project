@@ -20,13 +20,13 @@ Updated: 2026-09-28 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,022 Clean URLs - Roblox SoundService & Gaming Tilt Psychology (2026-09-28)
+## Latest release: 2,046 Clean URLs - Roblox NPC AI & FPS Aim Neuroscience (2026-09-29)
 
-- **Roblox SoundService & Gaming Tilt Psychology (Tiers 148-149 - 2,022 Clean URLs)**:
-  - Tier 148: 12-language Roblox SoundService & 3D Spatial Audio Guide `roblox-soundservice-dynamic-audio-spatialization-guide.html`.
-  - Tier 149: 12-language Gaming Tilt Psychology & Emotional Regulation Guide `gaming-tilt-psychology-emotional-regulation-recovery.html`.
-  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`brain-type`, `reaction-test`, `stress-check`, `puzzle-2048` / `burnout-test`).
-  - Canonical inventory verified: exactly **2,022 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2022/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`d4937ae`) and pushed.
+- **Roblox NPC AI & FPS Aim Neuroscience (Tiers 150-151 - 2,046 Clean URLs)**:
+  - Tier 150: 12-language Roblox NPC AI Architecture Guide `roblox-npc-behavior-tree-finite-state-machine-guide.html`.
+  - Tier 151: 12-language FPS Aim Training Neuroscience Guide `fps-aim-training-visual-tracking-reaction-neuroscience.html`.
+  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`reaction-test`, `brain-type`, `stress-check`, `puzzle-2048` / `burnout-test`).
+  - Canonical inventory verified: exactly **2,046 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2046/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`11b7275`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
