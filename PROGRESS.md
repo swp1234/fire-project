@@ -20,13 +20,13 @@ Updated: 2026-09-29 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,190 Clean URLs - Roblox Gun Framework & MOBA Vision Psychology (2026-09-29)
+## Latest release: 2,214 Clean URLs - Roblox Inventory Architecture & Fighting Game Neuroscience (2026-09-29)
 
-- **Roblox Gun Framework & MOBA Vision Psychology (Tiers 162-163 - 2,190 Clean URLs)**:
-  - Tier 162: 12-language Roblox Gun Framework & FastCast Ballistics Guide `roblox-gun-framework-fastcast-bullet-drop-recoil-guide.html`.
-  - Tier 163: 12-language MOBA Vision Control & Fog of War Psychology Guide `moba-vision-control-fog-of-war-information-asymmetry-neuroscience.html`.
+- **Roblox Inventory Architecture & Fighting Game Neuroscience (Tiers 164-165 - 2,214 Clean URLs)**:
+  - Tier 164: 12-language Roblox Inventory Architecture, Weight Budgets & Stacking Guide `roblox-inventory-system-weight-stacking-datastore-guide.html`.
+  - Tier 165: 12-language Fighting Game Mind Games, Frame Traps & Mental Stack Guide `fighting-games-yomi-mind-games-frame-data-neuroscience.html`.
   - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`reaction-test`, `brain-type`, `puzzle-2048`, `stress-check` / `burnout-test`).
-  - Canonical inventory verified: exactly **2,190 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2190/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`d6894eb`) and pushed.
+  - Canonical inventory verified: exactly **2,214 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2214/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`e5305cd`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
