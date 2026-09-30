@@ -20,12 +20,12 @@ Updated: 2026-09-30 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,526 Clean URLs - Roblox Anti-Cheat & Rhythm Game Neuro (2026-09-30)
+## Latest release: 2,550 Clean URLs - Roblox Spatial Audio & Survival Base Neuro (2026-09-30)
 
-- **Roblox Anti-Cheat & Rhythm Game Neuro (Tiers 190-191 - 2,526 Clean URLs)**:
-  - Tier 190: 12-language Roblox Server-Authoritative Anti-Cheat Architecture: Speed Hacks, Noclip Detection & Spatial Physics Validation `roblox-anti-cheat-server-validation-speed-noclip-physics-guide.html`.
-  - Tier 191: 12-language Rhythm Game Cognitive Neuroscience: Sub-Second Perceptual Timing, Audio-Visual Sync & Cerebellar Motor Models `rhythm-game-sub-second-perceptual-timing-audio-visual-sync-neuroscience.html`.
-  - Canonical inventory verified: exactly **2,526 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2526/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`6858ee6`) and pushed.
+- **Roblox Spatial Audio & Survival Base Neuro (Tiers 192-193 - 2,550 Clean URLs)**:
+  - Tier 192: 12-language Roblox Spatial Audio Architecture: SoundGroups Hierarchy, Dynamic Reverb Zones & Raycast Occlusion `roblox-spatial-audio-sound-groups-dynamic-reverb-zones-guide.html`.
+  - Tier 193: 12-language Sandbox Survival Base Architecture & Spatial Neuroscience: Cognitive Mapping, Hebbian Chunking & Defensive Schemas `sandbox-survival-base-building-spatial-memory-chunking-neuroscience.html`.
+  - Canonical inventory verified: exactly **2,550 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2550/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`c05524c`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
