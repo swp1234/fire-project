@@ -20,12 +20,12 @@ Updated: 2026-09-30 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,910 Clean URLs - Roblox Raycast Suspension & MMO Tanking Geometry (2026-09-30)
+## Latest release: 2,934 Clean URLs - Roblox Water Buoyancy & Fighting Frame Advantage (2026-09-30)
 
-- **Roblox Raycast Suspension & MMO Tanking Geometry Neuroscience (Tiers 222-223 - 2,910 Clean URLs - 2,900 Milestone Breached)**:
-  - Tier 222: 12-language Roblox Raycast Suspension: Hooke's Law Spring-Damper, Anti-Roll Bars & Drift Slip `roblox-custom-vehicle-suspension-raycast-wheel-physics-guide.html`.
-  - Tier 223: 12-language MMO Tanking: Threat Table Math, Conical Cleave Geometry & Multi-Target Working Memory `mmo-tanking-threat-table-spatial-positioning-neuroscience.html`.
-  - Canonical inventory verified: exactly **2,910 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 2910/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`728ba45`) and pushed.
+- **Roblox Custom Buoyancy & Fighting Game Frame Advantage Neuroscience (Tiers 224-225 - 2,934 Clean URLs)**:
+  - Tier 224: 12-language Roblox Water Buoyancy: Gerstner Wave Vectors, Multi-Probe Archimedes Physics & Drag `roblox-custom-water-buoyancy-fluid-simulation-guide.html`.
+  - Tier 225: 12-language Fighting Game Frame Advantage: Hit Stun Math, Plus-on-Block Traps & Basal Ganglia Motor Inhibition `fighting-game-frame-advantage-hit-stun-neuroscience.html`.
+  - Canonical inventory verified: exactly **2,934 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 2934/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`3798681`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
