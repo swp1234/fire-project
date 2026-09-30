@@ -20,13 +20,13 @@ Updated: 2026-09-30 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,382 Clean URLs - Roblox Combat Lag Compensation & Fighting Game Yomi Neuro (2026-09-30)
+## Latest release: 2,406 Clean URLs - Roblox Spatial Audio & Survival Crafting Nesting Neuro (2026-09-30)
 
-- **Roblox Combat Lag Compensation & Fighting Game Yomi Neuro (Tiers 178-179 - 2,382 Clean URLs)**:
-  - Tier 178: 12-language Roblox Combat Architecture: Server Hitbox Verification, Lag Compensation & Rollback Buffers `roblox-combat-hitbox-lag-compensation-rollback-guide.html`.
-  - Tier 179: 12-language Fighting Game Cognitive Neuroscience: Yomi Level 3, Mental Stack Overload & Fuzzy Guarding `fighting-games-yomi-conditioning-fuzzy-guard-mental-stack-neuroscience.html`.
+- **Roblox Spatial Audio & Survival Crafting Nesting Neuro (Tiers 180-181 - 2,406 Clean URLs)**:
+  - Tier 180: 12-language Roblox Spatial Audio Engine: AudioEmitter, AudioListener, Wires & Acoustic Occlusion `roblox-spatial-audio-audioemitter-audiolistener-sound-design-guide.html`.
+  - Tier 181: 12-language Survival Crafting Cognitive Psychology: Evolutionary Nesting, Spatial Safety & Digital Hoarding `survival-crafting-base-building-nesting-instinct-spatial-safety-neuroscience.html`.
   - Date hygiene maintenance: refreshed dateModified on `test-animal-espiritual-guia.html` maintaining 0 issues across inventory.
-  - Canonical inventory verified: exactly **2,382 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2382/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`2834cb1`) and pushed.
+  - Canonical inventory verified: exactly **2,406 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2406/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`0f8f573`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
