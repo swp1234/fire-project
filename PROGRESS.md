@@ -20,12 +20,12 @@ Updated: 2026-09-30 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,502 Clean URLs - Roblox Custom Inventory & Hero Shooter Neuro (2026-09-30)
+## Latest release: 2,526 Clean URLs - Roblox Anti-Cheat & Rhythm Game Neuro (2026-09-30)
 
-- **Roblox Custom Inventory & Hero Shooter Neuro (Tiers 188-189 - 2,502 Clean URLs)**:
-  - Tier 188: 12-language Roblox Custom Inventory & Hotbar Architecture: ReplicatedStorage, Client Prediction & Buffer Serialization `roblox-custom-inventory-hotbar-replicated-storage-serialization-guide.html`.
-  - Tier 189: 12-language Hero Shooter Tactical Neuroscience: Ultimate Economy, Ult Tracking & Working Memory Game Sense `hero-shooter-ultimate-economy-game-sense-working-memory-neuroscience.html`.
-  - Canonical inventory milestone verified: exactly **2,502 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2502/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`6e487be`) and pushed.
+- **Roblox Anti-Cheat & Rhythm Game Neuro (Tiers 190-191 - 2,526 Clean URLs)**:
+  - Tier 190: 12-language Roblox Server-Authoritative Anti-Cheat Architecture: Speed Hacks, Noclip Detection & Spatial Physics Validation `roblox-anti-cheat-server-validation-speed-noclip-physics-guide.html`.
+  - Tier 191: 12-language Rhythm Game Cognitive Neuroscience: Sub-Second Perceptual Timing, Audio-Visual Sync & Cerebellar Motor Models `rhythm-game-sub-second-perceptual-timing-audio-visual-sync-neuroscience.html`.
+  - Canonical inventory verified: exactly **2,526 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2526/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`6858ee6`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
