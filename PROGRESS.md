@@ -20,12 +20,12 @@ Updated: 2026-09-30 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,742 Clean URLs - Roblox Custom Lighting & Card Battler Thinning (2026-09-30)
+## Latest release: 2,766 Clean URLs - Roblox Responsive HUD & Fighting Game Okizeme (2026-09-30)
 
-- **Roblox Custom Lighting & Card Battler Probability Neuroscience (Tiers 208-209 - 2,742 Clean URLs)**:
-  - Tier 208: 12-language Roblox Custom Lighting: Future Lighting Shadows, Volumetric Clouds, Post-FX & Mobile Budget Tuning `roblox-custom-lighting-shadows-volumetric-atmosphere-guide.html`.
-  - Tier 209: 12-language Card Battler Deck Thinning: Expected Value Calculations, Hypergeometric Probability & Draw Dopamine `card-battler-deck-thinning-expected-value-probability-neuroscience.html`.
-  - Canonical inventory verified: exactly **2,742 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2742/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`daaa802`) and pushed.
+- **Roblox Responsive HUD & Fighting Game Okizeme Neuroscience (Tiers 210-211 - 2,766 Clean URLs)**:
+  - Tier 210: 12-language Roblox Responsive HUD: UIAspectRatioConstraint, CanvasGroup Caching & Mobile Touch Ergonomics `roblox-custom-hud-gui-scaling-layout-optimization-guide.html`.
+  - Tier 211: 12-language Fighting Game Okizeme: Vortex Conditioning, Wake-Up Fuzzies, Asymmetric Risk & Limbic Freeze `fighting-game-okizeme-vortex-neuroscience-conditional-probability.html`.
+  - Canonical inventory verified: exactly **2,766 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2766/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`4c96d08`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
