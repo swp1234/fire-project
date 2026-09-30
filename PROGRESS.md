@@ -20,13 +20,13 @@ Updated: 2026-09-30 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,454 Clean URLs - Roblox Flipbook VFX & Autobattler Neuro (2026-09-30)
+## Latest release: 2,478 Clean URLs - Roblox Ragdoll Physics & Souls-Like Neuro (2026-09-30)
 
-- **Roblox Flipbook VFX & Autobattler Neuro (Tiers 184-185 - 2,454 Clean URLs)**:
-  - Tier 184: 12-language Roblox ParticleEmitters, Flipbook Textures & Mobile GPU VFX Optimization `roblox-particle-emitters-flipbook-textures-vfx-optimization-guide.html`.
-  - Tier 185: 12-language Autobattler Strategy Neuroscience: Synergy Heuristics, Pivot Resistance & Roll-Down Cognitive Overhead `autobattler-synergy-heuristics-roll-down-cognitive-load-neuroscience.html`.
+- **Roblox Ragdoll Physics & Souls-Like Neuro (Tiers 186-187 - 2,478 Clean URLs)**:
+  - Tier 186: 12-language Roblox Ragdoll Physics Architecture: BallSocketConstraints, CollisionGroups & Smooth Recovery `roblox-ragdoll-physics-constraints-ballsocket-collision-filtering-guide.html`.
+  - Tier 187: 12-language Souls-Like Combat Neuroscience: Delayed Telegraphy, Pattern Recognition & Frustration Tolerance `souls-like-boss-telegraphy-pattern-recognition-flow-state-neuroscience.html`.
   - Date hygiene maintenance: refreshed dateModified on `test-animal-espiritual-guia.html` maintaining 0 issues across inventory.
-  - Canonical inventory verified: exactly **2,454 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2454/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`750871c`) and pushed.
+  - Canonical inventory verified: exactly **2,478 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2478/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`7262cc6`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
