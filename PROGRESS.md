@@ -20,12 +20,12 @@ Updated: 2026-09-30 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,694 Clean URLs - Roblox Mesh LOD Batching & Visual Saliency Camouflage (2026-09-30)
+## Latest release: 2,718 Clean URLs - Roblox Spatial Occlusion & Raid Healing Triage (2026-09-30)
 
-- **Roblox Mesh LOD Geometry & Visual Saliency Neuroscience (Tiers 204-205 - 2,694 Clean URLs)**:
-  - Tier 204: 12-language Roblox Mesh LOD: Dynamic Geometry Streaming, Draw Call Batching & Material Variant Instancing `roblox-mesh-lod-geometry-streaming-draw-call-optimization-guide.html`.
-  - Tier 205: 12-language Visual Saliency: Camouflage Breaking, Ventral/Dorsal Streams & Attentional Clutter `esports-visual-saliency-camouflage-detection-clutter-neuroscience.html`.
-  - Canonical inventory verified: exactly **2,694 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2694/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`a329016`) and pushed.
+- **Roblox Audio Occlusion & MMO Raid Triage Neuroscience (Tiers 206-207 - 2,718 Clean URLs)**:
+  - Tier 206: 12-language Roblox Spatial Occlusion: Dynamic Raycasting Wall Penetration, EqualizerSoundEffect Filtering & Reverb Zones `roblox-spatial-audio-occlusion-raycasting-reverb-zones-guide.html`.
+  - Tier 207: 12-language Raid Healing Triage: Miller's Law Working Memory, Attention Tunneling & Emergency Grid Heuristics `mmo-raid-healing-triage-working-memory-cognitive-load-neuroscience.html`.
+  - Canonical inventory verified: exactly **2,718 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2718/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`5fb81fb`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
