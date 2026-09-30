@@ -20,12 +20,12 @@ Updated: 2026-09-30 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,814 Clean URLs - Roblox Crafting & Stealth Suspicion (2026-09-30)
+## Latest release: 2,838 Clean URLs - Roblox Drag-Drop & Sim Racing Braking (2026-09-30)
 
-- **Roblox Crafting Architecture & Stealth Vigilance Neuroscience (Tiers 214-215 - 2,814 Clean URLs - 2,800 Milestone Breached)**:
-  - Tier 214: 12-language Roblox Crafting Engine: Recipe Grid Normalization, Graph Hashing & Inventory Transactions `roblox-custom-crafting-recipe-matrix-serialization-guide.html`.
-  - Tier 215: 12-language Stealth Suspicion Cognition: Vigilance Decrement, Signal Detection Thresholds & Startle Reflex `stealth-game-enemy-suspicion-meter-vigilance-neuroscience.html`.
-  - Canonical inventory verified: exactly **2,814 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2814/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`90f89cb`) and pushed.
+- **Roblox Hotbar Drag-Drop & Sim Racing Optical Flow Neuroscience (Tiers 216-217 - 2,838 Clean URLs)**:
+  - Tier 216: 12-language Roblox Inventory Controller: Drag-and-Drop Ghosting, Pointer Events & Slot Swapping `roblox-custom-inventory-hotbar-drag-drop-controller-guide.html`.
+  - Tier 217: 12-language Sim Racing Braking Points: Optical Flow Vectors, Tau Theory Time-to-Contact & Trail Braking `racing-sim-braking-point-optical-flow-neuroscience.html`.
+  - Canonical inventory verified: exactly **2,838 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2838/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`9543743`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
