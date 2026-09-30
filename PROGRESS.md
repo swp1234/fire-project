@@ -20,13 +20,13 @@ Updated: 2026-09-30 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,358 Clean URLs - Roblox IKControl & Roguelike Deckbuilder Neuro (2026-09-30)
+## Latest release: 2,382 Clean URLs - Roblox Combat Lag Compensation & Fighting Game Yomi Neuro (2026-09-30)
 
-- **Roblox IKControl & Roguelike Deckbuilder Neuro (Tiers 176-177 - 2,358 Clean URLs)**:
-  - Tier 176: 12-language Roblox Procedural Animation: IKControl Foot Planting, Terrain Adaptation & Weapon Recoil `roblox-procedural-animation-ikcontrol-foot-planting-recoil-guide.html`.
-  - Tier 177: 12-language Roguelike Deckbuilder Cognitive Neuroscience: Probability Heuristics & Balatro Mechanics `roguelike-deckbuilder-probability-heuristics-reward-prediction-error-neuroscience.html`.
+- **Roblox Combat Lag Compensation & Fighting Game Yomi Neuro (Tiers 178-179 - 2,382 Clean URLs)**:
+  - Tier 178: 12-language Roblox Combat Architecture: Server Hitbox Verification, Lag Compensation & Rollback Buffers `roblox-combat-hitbox-lag-compensation-rollback-guide.html`.
+  - Tier 179: 12-language Fighting Game Cognitive Neuroscience: Yomi Level 3, Mental Stack Overload & Fuzzy Guarding `fighting-games-yomi-conditioning-fuzzy-guard-mental-stack-neuroscience.html`.
   - Date hygiene maintenance: refreshed dateModified on `test-animal-espiritual-guia.html` maintaining 0 issues across inventory.
-  - Canonical inventory verified: exactly **2,358 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2358/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`1ebd10b`) and pushed.
+  - Canonical inventory verified: exactly **2,382 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2382/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`2834cb1`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
