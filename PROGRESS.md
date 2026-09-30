@@ -20,12 +20,12 @@ Updated: 2026-09-30 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,718 Clean URLs - Roblox Spatial Occlusion & Raid Healing Triage (2026-09-30)
+## Latest release: 2,742 Clean URLs - Roblox Custom Lighting & Card Battler Thinning (2026-09-30)
 
-- **Roblox Audio Occlusion & MMO Raid Triage Neuroscience (Tiers 206-207 - 2,718 Clean URLs)**:
-  - Tier 206: 12-language Roblox Spatial Occlusion: Dynamic Raycasting Wall Penetration, EqualizerSoundEffect Filtering & Reverb Zones `roblox-spatial-audio-occlusion-raycasting-reverb-zones-guide.html`.
-  - Tier 207: 12-language Raid Healing Triage: Miller's Law Working Memory, Attention Tunneling & Emergency Grid Heuristics `mmo-raid-healing-triage-working-memory-cognitive-load-neuroscience.html`.
-  - Canonical inventory verified: exactly **2,718 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2718/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`5fb81fb`) and pushed.
+- **Roblox Custom Lighting & Card Battler Probability Neuroscience (Tiers 208-209 - 2,742 Clean URLs)**:
+  - Tier 208: 12-language Roblox Custom Lighting: Future Lighting Shadows, Volumetric Clouds, Post-FX & Mobile Budget Tuning `roblox-custom-lighting-shadows-volumetric-atmosphere-guide.html`.
+  - Tier 209: 12-language Card Battler Deck Thinning: Expected Value Calculations, Hypergeometric Probability & Draw Dopamine `card-battler-deck-thinning-expected-value-probability-neuroscience.html`.
+  - Canonical inventory verified: exactly **2,742 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2742/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`daaa802`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
