@@ -1,6 +1,6 @@
 # DopaBrain current status
 
-Updated: 2026-09-29 KST. Release history is in `memory/data-check-log.md`; the repeatable loop is in the `dopabrain-growth-ops` skill.
+Updated: 2026-09-30 KST. Release history is in `memory/data-check-log.md`; the repeatable loop is in the `dopabrain-growth-ops` skill.
 
 ## Target and status
 
@@ -20,13 +20,13 @@ Updated: 2026-09-29 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,334 Clean URLs - Roblox Voxel Terrain & MMORPG Raid Group Flow (2026-09-29)
+## Latest release: 2,358 Clean URLs - Roblox IKControl & Roguelike Deckbuilder Neuro (2026-09-30)
 
-- **Roblox Voxel Terrain & MMORPG Raid Group Flow (Tiers 174-175 - 2,334 Clean URLs)**:
-  - Tier 174: 12-language Roblox Procedural Voxel Terrain: 3D Perlin Noise, Biome Blending & WriteVoxels `roblox-procedural-terrain-generation-voxel-perlin-noise-guide.html`.
-  - Tier 175: 12-language MMORPG Raid Progression: Transactive Memory, Shotcalling & Collective Working Memory `mmorpg-raid-progression-transactive-memory-shotcalling-neuroscience.html`.
-  - Full reciprocal hreflang matrix, BreadcrumbList/FAQ schemas, 4 high-dwell tool bridges (`puzzle-2048`, `brain-type`, `reaction-test`, `stress-check` / `burnout-test`).
-  - Canonical inventory verified: exactly **2,334 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2334/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`11c6887`) and pushed.
+- **Roblox IKControl & Roguelike Deckbuilder Neuro (Tiers 176-177 - 2,358 Clean URLs)**:
+  - Tier 176: 12-language Roblox Procedural Animation: IKControl Foot Planting, Terrain Adaptation & Weapon Recoil `roblox-procedural-animation-ikcontrol-foot-planting-recoil-guide.html`.
+  - Tier 177: 12-language Roguelike Deckbuilder Cognitive Neuroscience: Probability Heuristics & Balatro Mechanics `roguelike-deckbuilder-probability-heuristics-reward-prediction-error-neuroscience.html`.
+  - Date hygiene maintenance: refreshed dateModified on `test-animal-espiritual-guia.html` maintaining 0 issues across inventory.
+  - Canonical inventory verified: exactly **2,358 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2358/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`1ebd10b`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
