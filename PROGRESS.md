@@ -20,12 +20,12 @@ Updated: 2026-09-30 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,766 Clean URLs - Roblox Responsive HUD & Fighting Game Okizeme (2026-09-30)
+## Latest release: 2,790 Clean URLs - Roblox Quests & MOBA Fog of War (2026-09-30)
 
-- **Roblox Responsive HUD & Fighting Game Okizeme Neuroscience (Tiers 210-211 - 2,766 Clean URLs)**:
-  - Tier 210: 12-language Roblox Responsive HUD: UIAspectRatioConstraint, CanvasGroup Caching & Mobile Touch Ergonomics `roblox-custom-hud-gui-scaling-layout-optimization-guide.html`.
-  - Tier 211: 12-language Fighting Game Okizeme: Vortex Conditioning, Wake-Up Fuzzies, Asymmetric Risk & Limbic Freeze `fighting-game-okizeme-vortex-neuroscience-conditional-probability.html`.
-  - Canonical inventory verified: exactly **2,766 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2766/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`4c96d08`) and pushed.
+- **Roblox Quests & MOBA Fog of War Spatial Cognition (Tiers 212-213 - 2,790 Clean URLs)**:
+  - Tier 212: 12-language Roblox Quest Engine: Finite State Machines, Dialogue Trees & DataStore Persistence `roblox-custom-quest-dialogue-tree-state-machine-guide.html`.
+  - Tier 213: 12-language MOBA Fog of War: Spatial Working Memory, Hippocampal Grid Cells & Gank Anticipation `moba-vision-fog-of-war-spatial-working-memory-neuroscience.html`.
+  - Canonical inventory verified: exactly **2,790 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2790/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`0780897`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
