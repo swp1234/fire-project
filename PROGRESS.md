@@ -20,12 +20,12 @@ Updated: 2026-09-30 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,598 Clean URLs - Roblox Character Controller & Speedrun Glitch Execution (2026-09-30)
+## Latest release: 2,622 Clean URLs - Roblox Boat Buoyancy & MMO Auction House Arbitrage (2026-09-30)
 
-- **Roblox Character Controller & Speedrun Glitch Neuroscience (Tiers 196-197 - 2,598 Clean URLs)**:
-  - Tier 196: 12-language Roblox Custom Character Controller: Kinematic Movement, Ground Raycast Snapping & Slope Angle Sliding `roblox-custom-character-controller-rootmotion-procedural-movement-guide.html`.
-  - Tier 197: 12-language Speedrunning Cognitive Neuroscience: Sub-Frame Motor Chunking, Cerebellar Internal Forward Models & 16.6ms Buffer Windows `speedrun-glitch-execution-sub-frame-muscle-memory-neuroscience.html`.
-  - Canonical inventory verified: exactly **2,598 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2598/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`e44744a`) and pushed.
+- **Roblox Boat Buoyancy & MMO Market Neuroscience (Tiers 198-199 - 2,622 Clean URLs)**:
+  - Tier 198: 12-language Roblox Water Physics & Boat Buoyancy: Multi-point Archimedes Raycasting, Luau Gerstner Waves & Fluid Drag Tensors `roblox-custom-physics-boat-buoyancy-water-simulation-guide.html`.
+  - Tier 199: 12-language MMORPG Market Psychology: vmPFC Valuation, Temporal Discounting, Panic Undercutting & Dopamine Prediction Error `mmo-economic-auction-house-arbitrage-market-psychology-neuroscience.html`.
+  - Canonical inventory verified: exactly **2,622 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`check-blog-hreflang` 0 missing, `indexing-inventory` 2622/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`2d5c987`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
