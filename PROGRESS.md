@@ -20,15 +20,16 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 3,222 Clean URLs - Roblox Multi-Limbed Procedural IK & Survival Horror Limbic Dread (2026-10-01)
+## Latest release: 3,246 Clean URLs - Roblox Grappling Hook Pendulum Physics & Tactical FPS Saccadic Masking (2026-10-01)
 
-- **Roblox Multi-Limbed Procedural IK & Survival Horror Limbic Dread (Tiers 248-249 - 3,222 Clean URLs - 3,200 Breached!)**:
-  - Tier 248: 12-language Roblox Multi-Joint IK: FABRIK Solvers, Terrain Raycasting & Bézier Arachnid Gait `roblox-custom-inverse-kinematics-multi-limbed-spider-quadruped-guide.html`.
-  - Tier 249: 12-language Survival Horror Neuroscience: Amygdala Low-Road Bypass, Infrasound Startle & Cortisol Dread `survival-horror-limbic-system-acoustic-jump-scare-neuroscience.html`.
-  - Canonical inventory verified: exactly **3,222 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3222/0, Restricted Ads 36/36, Mobile Overflow 0px). Submodule `projects/portal` committed (`90387b6`) and pushed.
+- **Roblox Grappling Hook Pendulum Physics & Tactical FPS Saccadic Masking (Tiers 250-251 - 3,246 Clean URLs)**:
+  - Tier 250: 12-language Roblox Constrained Grapple: Spherical Pendulum Tension, Corner Wrapping & Momentum Boost `roblox-custom-inverse-kinematics-grappling-hook-swing-physics-guide.html`.
+  - Tier 251: 12-language Tactical FPS Neuroscience: Saccadic Suppression Blindness, Angle Slicing & 140ms Reaction Floor `tactical-fps-crosshair-placement-saccadic-masking-neuroscience.html`.
+  - Canonical inventory verified: exactly **3,246 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3246/0, Restricted Ads 36/36, Mobile Overflow 0px). Submodule `projects/portal` committed (`7aa0d48`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
+
 
 
 
