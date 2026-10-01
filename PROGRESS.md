@@ -20,13 +20,14 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 3,150 Clean URLs - Roblox Planetary Gravity & Stealth Acoustic Masking (2026-10-01)
+## Latest release: 3,174 Clean URLs - Roblox Seamless Portals & Rhythm Game Audio-Visual Binding (2026-10-01)
 
-- **Roblox Planetary Gravity & Stealth Acoustic Masking (Tiers 242-243 - 3,150 Clean URLs)**:
-  - Tier 242: 12-language Roblox Arbitrary Gravity: RK4 Orbital Solvers & Spherical Planet Walk `roblox-custom-gravity-planetary-orbit-nbody-physics-guide.html`.
-  - Tier 243: 12-language Stealth Acoustic Masking: Auditory Scene Analysis & Threat Saccades `stealth-game-sensory-deprivation-auditory-masking-neuroscience.html`.
-  - Canonical inventory verified: exactly **3,150 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3150/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`b36d72e`) and pushed.
+- **Roblox Seamless Portals & Rhythm Audio-Visual Binding (Tiers 244-245 - 3,174 Clean URLs)**:
+  - Tier 244: 12-language Roblox Non-Euclidean Portals: Stencil Viewports, CFrame Transforms & Momentum Preservation `roblox-custom-portal-seamless-teleportation-stencil-guide.html`.
+  - Tier 245: 12-language Rhythm Game Neuroscience: Sub-Frame Audio-Visual Binding & Gamma Oscillations `rhythm-game-sub-frame-auditory-visual-binding-neuroscience.html`.
+  - Canonical inventory verified: exactly **3,174 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3174/0, Restricted Ads 36/36, Mobile Overflow 0px). Submodule `projects/portal` committed (`022b212`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
+
 
