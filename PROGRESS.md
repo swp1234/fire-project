@@ -20,13 +20,13 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 3,126 Clean URLs - Roblox Foliage Wind & TCG Probability Neuroscience (2026-10-01)
+## Latest release: 3,150 Clean URLs - Roblox Planetary Gravity & Stealth Acoustic Masking (2026-10-01)
 
-- **Roblox Foliage Wind & TCG Probability Neuroscience (Tiers 240-241 - 3,126 Clean URLs)**:
-  - Tier 240: 12-language Roblox Dynamic Wind & Foliage: Perlin Vector Fields & EditableMesh Sway `roblox-custom-dynamic-wind-vegetation-foliage-sway-guide.html`.
-  - Tier 241: 12-language TCG & Card Game Probability: Hypergeometric Outs & Tilt Suppression `tcg-card-counting-hypergeometric-distribution-poker-neuroscience.html`.
-  - Canonical inventory verified: exactly **3,126 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3126/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`f9a8df0`) and pushed.
+- **Roblox Planetary Gravity & Stealth Acoustic Masking (Tiers 242-243 - 3,150 Clean URLs)**:
+  - Tier 242: 12-language Roblox Arbitrary Gravity: RK4 Orbital Solvers & Spherical Planet Walk `roblox-custom-gravity-planetary-orbit-nbody-physics-guide.html`.
+  - Tier 243: 12-language Stealth Acoustic Masking: Auditory Scene Analysis & Threat Saccades `stealth-game-sensory-deprivation-auditory-masking-neuroscience.html`.
+  - Canonical inventory verified: exactly **3,150 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3150/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`b36d72e`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
 
