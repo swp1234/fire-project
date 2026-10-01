@@ -20,12 +20,12 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 3,318 Clean URLs - Roblox Dual-Arm Firearm IK & Bullet Hell Danmaku Neuroscience (2026-10-01)
+## Latest release: 3,342 Clean URLs - Roblox Stealth Light Occlusion & Fighting Game Mental Stack Neuroscience (2026-10-01)
 
-- **Roblox Dual-Arm Firearm IK & Bullet Hell Danmaku Visual Chunking (Tiers 256-257 - 3,318 Clean URLs)**:
-  - Tier 256: 12-language Roblox Procedural Weapon Dynamics: Two-Bone Analytical IK, Spine Pitch Conformance & Second-Order Recoil Springs `roblox-custom-inverse-kinematics-dual-arm-firearm-aim-guide.html`.
-  - Tier 257: 12-language Bullet Hell Danmaku Neurobiology: Optical Flow Chunking, Foveal Micro-Fixation & Microsaccadic Drift `bullet-hell-danmaku-visual-chunking-microsaccade-neuroscience.html`.
-  - Canonical inventory verified: exactly **3,318 clean unique URLs (0 issues, 0 blockers - 3,300 Milestone Breached!)**.
-- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3318/0, Restricted Ads 36/36, Mobile Overflow 0px). Submodule `projects/portal` committed (`9e79a2a`) and pushed.
+- **Roblox Stealth Vision Light Occlusion & Fighting Game Mental Stack (Tiers 258-259 - 3,342 Clean URLs)**:
+  - Tier 258: 12-language Roblox Stealth Vision Architecture: Dynamic Light Raycasting, Shadow Volume Sampling & Acoustic Attenuation `roblox-custom-stealth-shadow-detection-light-occlusion-guide.html`.
+  - Tier 259: 12-language Fighting Game Mental Stack Cognitive Neurobiology: 60 FPS Frame Traps, Working Memory Overload & Counter-Hit Conditioning `fighting-game-mental-stack-frame-trap-neuroscience.html`.
+  - Canonical inventory verified: exactly **3,342 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3342/0, Restricted Ads 36/36, Mobile Overflow 0px). Submodule `projects/portal` committed (`345b9b1`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
