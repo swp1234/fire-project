@@ -20,15 +20,16 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 3,270 Clean URLs - Roblox Building Destruction & Soulsborne Panic-Roll Neuroscience (2026-10-01)
+## Latest release: 3,294 Clean URLs - Roblox Hovercraft PID Levitation & MMO Raid Shotcalling Neuroscience (2026-10-01)
 
-- **Roblox Building Destruction & Soulsborne Panic-Roll Neuroscience (Tiers 252-253 - 3,270 Clean URLs)**:
-  - Tier 252: 12-language Roblox Procedural Destruction: Voronoi Cell Fracturing, Structural Integrity Graphs & Debris Optimization `roblox-custom-dynamic-destructible-buildings-voronoi-shattering-guide.html`.
-  - Tier 253: 12-language Soulsborne Boss Neuroscience: Delayed Attack Windups, rIFG Motor Inhibition & Panic-Roll Traps `soulsborne-boss-telegraph-delayed-attacks-motor-inhibition-neuroscience.html`.
-  - Canonical inventory verified: exactly **3,270 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3270/0, Restricted Ads 36/36, Mobile Overflow 0px). Submodule `projects/portal` committed (`bb09ae1`) and pushed.
+- **Roblox Hovercraft PID Levitation & MMO Raid Shotcalling Neuroscience (Tiers 254-255 - 3,294 Clean URLs)**:
+  - Tier 254: 12-language Roblox Hovercraft Physics: Closed-Loop PID Altitudes, 4-Point Raycast Suspensions & Ground-Effect Lift `roblox-custom-hovercraft-thruster-pid-levitation-guide.html`.
+  - Tier 255: 12-language MMO Raid Leadership Neuroscience: Working Memory Dual-Tasking, Cocktail Party Filtering & Callout Compression `mmo-raid-shotcalling-cognitive-bandwidth-working-memory-neuroscience.html`.
+  - Canonical inventory verified: exactly **3,294 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3294/0, Restricted Ads 36/36, Mobile Overflow 0px). Submodule `projects/portal` committed (`9665640`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
+
 
 
 
