@@ -20,13 +20,13 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 3,102 Clean URLs - Roblox Active Ragdoll & Speedrun Muscle Memory (2026-10-01)
+## Latest release: 3,126 Clean URLs - Roblox Foliage Wind & TCG Probability Neuroscience (2026-10-01)
 
-- **Roblox Active Ragdoll & Speedrun Muscle Memory Neuroscience (Tiers 238-239 - 3,102 Clean URLs - 3,100 Breached)**:
-  - Tier 238: 12-language Roblox Active Ragdoll: Motor6D Decoupling, PD Torque & Balance Recovery `roblox-custom-ragdoll-active-joint-balancing-guide.html`.
-  - Tier 239: 12-language Speedrunning Muscle Memory: 16.6ms Windows, Motor Chunking & Proprioception `speedrunning-frame-perfect-muscle-memory-proprioception-neuroscience.html`.
-  - Canonical inventory verified: exactly **3,102 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3102/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`79c331b`) and pushed.
+- **Roblox Foliage Wind & TCG Probability Neuroscience (Tiers 240-241 - 3,126 Clean URLs)**:
+  - Tier 240: 12-language Roblox Dynamic Wind & Foliage: Perlin Vector Fields & EditableMesh Sway `roblox-custom-dynamic-wind-vegetation-foliage-sway-guide.html`.
+  - Tier 241: 12-language TCG & Card Game Probability: Hypergeometric Outs & Tilt Suppression `tcg-card-counting-hypergeometric-distribution-poker-neuroscience.html`.
+  - Canonical inventory verified: exactly **3,126 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3126/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`f9a8df0`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
 
