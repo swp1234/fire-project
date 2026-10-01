@@ -20,12 +20,12 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,982 Clean URLs - Roblox Air Strafe & Souls Boss Telegraphs (2026-10-01)
+## Latest release: 3,006 Clean URLs - Roblox Guided Missiles & Tactical Recoil (2026-10-01)
 
-- **Roblox Air Strafe Bhop & Souls-like Boss Telegraph Neuroscience (Tiers 228-229 - 2,982 Clean URLs)**:
-  - Tier 228: 12-language Roblox Air Strafe: Quake Vector Projections, Friction Grace Frames & Bhop `roblox-custom-character-controller-air-strafe-bunnyhop-guide.html`.
-  - Tier 229: 12-language Souls-like Boss Telegraphs: Delayed Feints, Saccade Anchoring & Micro-Parry Timing `souls-like-boss-telegraph-parry-reaction-neuroscience.html`.
-  - Canonical inventory verified: exactly **2,982 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 2982/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`b98b2c2`) and pushed.
+- **Roblox Homing Missiles & Tactical Shooter Recoil Neuroscience (Tiers 230-231 - 3,006 Clean URLs - 3,000 Milestone Breached)**:
+  - Tier 230: 12-language Roblox Guided Missiles: Proportional Navigation, 3-Axis PID Steer & Proximity Fuzes `roblox-custom-projectile-homing-missile-pid-controller-guide.html`.
+  - Tier 231: 12-language Tactical Shooter Recoil: Motor Chunking, Saccadic Decoupling & Spray Inversion `tactical-shooter-recoil-pattern-motor-chunking-neuroscience.html`.
+  - Canonical inventory verified: exactly **3,006 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3006/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`010b52e`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
