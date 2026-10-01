@@ -20,12 +20,12 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 3,342 Clean URLs - Roblox Stealth Light Occlusion & Fighting Game Mental Stack Neuroscience (2026-10-01)
+## Latest release: 3,366 Clean URLs - Roblox Voxel Mining & Stealth Sensory Deprivation Neuroscience (2026-10-01)
 
-- **Roblox Stealth Vision Light Occlusion & Fighting Game Mental Stack (Tiers 258-259 - 3,342 Clean URLs)**:
-  - Tier 258: 12-language Roblox Stealth Vision Architecture: Dynamic Light Raycasting, Shadow Volume Sampling & Acoustic Attenuation `roblox-custom-stealth-shadow-detection-light-occlusion-guide.html`.
-  - Tier 259: 12-language Fighting Game Mental Stack Cognitive Neurobiology: 60 FPS Frame Traps, Working Memory Overload & Counter-Hit Conditioning `fighting-game-mental-stack-frame-trap-neuroscience.html`.
-  - Canonical inventory verified: exactly **3,342 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3342/0, Restricted Ads 36/36, Mobile Overflow 0px). Submodule `projects/portal` committed (`345b9b1`) and pushed.
+- **Roblox Voxel Terrain Mining & Stealth Sensory Deprivation (Tiers 260-261 - 3,366 Clean URLs)**:
+  - Tier 260: 12-language Roblox Dynamic Voxel Terrain Architecture: Real-Time Smooth Terrain APIs, Voxel Density Operations & Debris Physics `roblox-custom-voxel-terrain-digging-dynamic-mesh-guide.html`.
+  - Tier 261: 12-language Stealth Game Neurobiology: Sensory Deprivation, Acoustic Hypervigilance & Parasympathetic Rebound `stealth-game-sensory-deprivation-auditory-hypervigilance-neuroscience.html`.
+  - Canonical inventory verified: exactly **3,366 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3366/0, Restricted Ads 36/36, Mobile Overflow 0px). Submodule `projects/portal` committed (`4b4333e`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
