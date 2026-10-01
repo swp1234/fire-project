@@ -18,7 +18,16 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 - Exclude Singapore desktop Direct scans (average duration 4.5s) and China Direct bursts from growth and product performance decisions.
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
-- **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
+
+## Tomorrow Roadmap (내일 작업 목록)
+
+- **[최우선] DopaBrain 전체 콘텐츠 탐색성 개선 (좌측 카테고리별 목록 네비게이션)**:
+  - 사용자가 DopaBrain 내의 다양한 콘텐츠(심리/성격 테스트, 인지/두뇌 훈련 게임, 감정 회복 도구, 게임 테크 & e스포츠 뇌과학 가이드)를 한눈에 쉽게 파악하고 탐색할 수 있도록 좌측 카테고리별 목록(Sidebar / Drawer Nav) UI 구축.
+  - 데스크톱: 좌측 카테고리별 아코디언/트리 뷰 메뉴 (블로그 레이아웃과 조화).
+  - 모바일: 햄버거 드로어 또는 접이식 카테고리 바 (터치 타깃 최소 44px, 가로 오버플로 0px 엄수).
+- **콘텐츠 지속 확장 (Tiers 262-263 준비 완료)**:
+  - Tier 262: `roblox-custom-dynamic-weather-rain-snow-particle-guide` (카메라 상대 날씨 파티클, 지붕 차폐 레이캐스트).
+  - Tier 263: `horror-game-jump-scare-acoustic-startle-limbic-neuroscience` (청각 놀람 반사, 편도체 하이재킹).
 
 ## Latest release: 3,366 Clean URLs - Roblox Voxel Mining & Stealth Sensory Deprivation Neuroscience (2026-10-01)
 
