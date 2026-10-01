@@ -20,14 +20,15 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 3,174 Clean URLs - Roblox Seamless Portals & Rhythm Game Audio-Visual Binding (2026-10-01)
+## Latest release: 3,198 Clean URLs - Roblox Gerstner Wave Buoyancy & Grand Strategy Executive Fatigue (2026-10-01)
 
-- **Roblox Seamless Portals & Rhythm Audio-Visual Binding (Tiers 244-245 - 3,174 Clean URLs)**:
-  - Tier 244: 12-language Roblox Non-Euclidean Portals: Stencil Viewports, CFrame Transforms & Momentum Preservation `roblox-custom-portal-seamless-teleportation-stencil-guide.html`.
-  - Tier 245: 12-language Rhythm Game Neuroscience: Sub-Frame Audio-Visual Binding & Gamma Oscillations `rhythm-game-sub-frame-auditory-visual-binding-neuroscience.html`.
-  - Canonical inventory verified: exactly **3,174 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3174/0, Restricted Ads 36/36, Mobile Overflow 0px). Submodule `projects/portal` committed (`022b212`) and pushed.
+- **Roblox Gerstner Wave Buoyancy & Grand Strategy Executive Fatigue (Tiers 246-247 - 3,198 Clean URLs)**:
+  - Tier 246: 12-language Roblox Hydrodynamic Waves: Gerstner Summation, EditableMesh Deformations & Multi-Probe Hull Buoyancy `roblox-custom-water-surface-buoyancy-gerstner-wave-guide.html`.
+  - Tier 247: 12-language Grand Strategy Games Neuroscience: dlPFC Working Memory Saturation, Attentional Blink & Heuristic Decay `grand-strategy-cognitive-fatigue-information-overload-neuroscience.html`.
+  - Canonical inventory verified: exactly **3,198 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3198/0, Restricted Ads 36/36, Mobile Overflow 0px). Submodule `projects/portal` committed (`414d614`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
+
 
 
