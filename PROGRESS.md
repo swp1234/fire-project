@@ -20,13 +20,13 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 3,078 Clean URLs - Roblox Marching Cubes & Hero Shooter Economy (2026-10-01)
+## Latest release: 3,102 Clean URLs - Roblox Active Ragdoll & Speedrun Muscle Memory (2026-10-01)
 
-- **Roblox Marching Cubes & Hero Shooter Ultimate Economy (Tiers 236-237 - 3,078 Clean URLs)**:
-  - Tier 236: 12-language Roblox Voxel Terrain: 3D Density Fields, Marching Cubes & EditableMesh `roblox-custom-voxel-terrain-marching-cubes-guide.html`.
-  - Tier 237: 12-language Hero Shooter Ultimate Economy: Nash Equilibria, Ult Staggers & Cooldown Sync `hero-shooter-ultimate-economy-game-theory-neuroscience.html`.
-  - Canonical inventory verified: exactly **3,078 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3078/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`b72426b`) and pushed.
+- **Roblox Active Ragdoll & Speedrun Muscle Memory Neuroscience (Tiers 238-239 - 3,102 Clean URLs - 3,100 Breached)**:
+  - Tier 238: 12-language Roblox Active Ragdoll: Motor6D Decoupling, PD Torque & Balance Recovery `roblox-custom-ragdoll-active-joint-balancing-guide.html`.
+  - Tier 239: 12-language Speedrunning Muscle Memory: 16.6ms Windows, Motor Chunking & Proprioception `speedrunning-frame-perfect-muscle-memory-proprioception-neuroscience.html`.
+  - Canonical inventory verified: exactly **3,102 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3102/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`79c331b`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
 
