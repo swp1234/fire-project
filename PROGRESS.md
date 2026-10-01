@@ -20,13 +20,13 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 3,030 Clean URLs - Roblox Flight Aerodynamics & Battle Royale Third-Party Timing (2026-10-01)
+## Latest release: 3,054 Clean URLs - Roblox Verlet Physics & MOBA Macro Rotations (2026-10-01)
 
-- **Roblox Flight Aerodynamics & BR Third-Party Neuroscience (Tiers 232-233 - 3,030 Clean URLs)**:
-  - Tier 232: 12-language Roblox Flight Aerodynamics: Lift-Drag Polars, Induced Drag & Stall Dynamics `roblox-custom-flight-aerodynamics-lift-drag-guide.html`.
-  - Tier 233: 12-language Battle Royale Third-Party Timing: Auditory Heuristics & Spatial Attentional Funnels `battle-royale-third-party-timing-auditory-heuristics-neuroscience.html`.
-  - Canonical inventory verified: exactly **3,030 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3030/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`eb1d2ad`) and pushed.
+- **Roblox Verlet Physics & MOBA Macro Rotations (Tiers 234-235 - 3,054 Clean URLs)**:
+  - Tier 234: 12-language Roblox Verlet Physics: Distance Relaxation, Pinned Anchors & Cloth Meshes `roblox-custom-ropes-cables-verlet-cloth-simulation-guide.html`.
+  - Tier 235: 12-language MOBA Macro Rotations: Tempo Loss, Cross-Map Trade Heuristics & Working Memory `moba-macro-rotation-cross-map-trade-neuroscience.html`.
+  - Canonical inventory verified: exactly **3,054 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3054/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`bab86cd`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
 
