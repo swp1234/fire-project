@@ -20,12 +20,12 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 2,958 Clean URLs - Roblox Foot IK & MMO Auction Arbitrage (2026-10-01)
+## Latest release: 2,982 Clean URLs - Roblox Air Strafe & Souls Boss Telegraphs (2026-10-01)
 
-- **Roblox Procedural Foot IK & MMO Market Arbitrage Neuroscience (Tiers 226-227 - 2,958 Clean URLs)**:
-  - Tier 226: 12-language Roblox Foot IK: Two-Bone Cosine Law, Pelvic Drop & Ankle Normal Alignment `roblox-custom-inverse-kinematics-foot-placement-guide.html`.
-  - Tier 227: 12-language MMO Auction House: Bid-Ask Spreads, Raid Reset Inelasticity & Dopamine RPE `mmo-auction-house-arbitrage-market-psychology-neuroscience.html`.
-  - Canonical inventory verified: exactly **2,958 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 2958/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`2b256d2`) and pushed.
+- **Roblox Air Strafe Bhop & Souls-like Boss Telegraph Neuroscience (Tiers 228-229 - 2,982 Clean URLs)**:
+  - Tier 228: 12-language Roblox Air Strafe: Quake Vector Projections, Friction Grace Frames & Bhop `roblox-custom-character-controller-air-strafe-bunnyhop-guide.html`.
+  - Tier 229: 12-language Souls-like Boss Telegraphs: Delayed Feints, Saccade Anchoring & Micro-Parry Timing `souls-like-boss-telegraph-parry-reaction-neuroscience.html`.
+  - Canonical inventory verified: exactly **2,982 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 2982/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`b98b2c2`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
