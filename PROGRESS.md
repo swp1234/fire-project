@@ -20,13 +20,13 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 3,054 Clean URLs - Roblox Verlet Physics & MOBA Macro Rotations (2026-10-01)
+## Latest release: 3,078 Clean URLs - Roblox Marching Cubes & Hero Shooter Economy (2026-10-01)
 
-- **Roblox Verlet Physics & MOBA Macro Rotations (Tiers 234-235 - 3,054 Clean URLs)**:
-  - Tier 234: 12-language Roblox Verlet Physics: Distance Relaxation, Pinned Anchors & Cloth Meshes `roblox-custom-ropes-cables-verlet-cloth-simulation-guide.html`.
-  - Tier 235: 12-language MOBA Macro Rotations: Tempo Loss, Cross-Map Trade Heuristics & Working Memory `moba-macro-rotation-cross-map-trade-neuroscience.html`.
-  - Canonical inventory verified: exactly **3,054 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3054/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`bab86cd`) and pushed.
+- **Roblox Marching Cubes & Hero Shooter Ultimate Economy (Tiers 236-237 - 3,078 Clean URLs)**:
+  - Tier 236: 12-language Roblox Voxel Terrain: 3D Density Fields, Marching Cubes & EditableMesh `roblox-custom-voxel-terrain-marching-cubes-guide.html`.
+  - Tier 237: 12-language Hero Shooter Ultimate Economy: Nash Equilibria, Ult Staggers & Cooldown Sync `hero-shooter-ultimate-economy-game-theory-neuroscience.html`.
+  - Canonical inventory verified: exactly **3,078 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3078/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`b72426b`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
 
