@@ -20,12 +20,13 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 - **Next roadmap priority**: Continuous parallel expansion (Option A: Roblox Game Tech / Option B: Psychology & Narrative Cognition); maintain 0px mobile overflow and clean indexable inventory.
 
-## Latest release: 3,006 Clean URLs - Roblox Guided Missiles & Tactical Recoil (2026-10-01)
+## Latest release: 3,030 Clean URLs - Roblox Flight Aerodynamics & Battle Royale Third-Party Timing (2026-10-01)
 
-- **Roblox Homing Missiles & Tactical Shooter Recoil Neuroscience (Tiers 230-231 - 3,006 Clean URLs - 3,000 Milestone Breached)**:
-  - Tier 230: 12-language Roblox Guided Missiles: Proportional Navigation, 3-Axis PID Steer & Proximity Fuzes `roblox-custom-projectile-homing-missile-pid-controller-guide.html`.
-  - Tier 231: 12-language Tactical Shooter Recoil: Motor Chunking, Saccadic Decoupling & Spray Inversion `tactical-shooter-recoil-pattern-motor-chunking-neuroscience.html`.
-  - Canonical inventory verified: exactly **3,006 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3006/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`010b52e`) and pushed.
+- **Roblox Flight Aerodynamics & BR Third-Party Neuroscience (Tiers 232-233 - 3,030 Clean URLs)**:
+  - Tier 232: 12-language Roblox Flight Aerodynamics: Lift-Drag Polars, Induced Drag & Stall Dynamics `roblox-custom-flight-aerodynamics-lift-drag-guide.html`.
+  - Tier 233: 12-language Battle Royale Third-Party Timing: Auditory Heuristics & Spatial Attentional Funnels `battle-royale-third-party-timing-auditory-heuristics-neuroscience.html`.
+  - Canonical inventory verified: exactly **3,030 clean unique URLs (0 issues, 0 blockers)**.
+- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3030/0, Restricted Ads 36/36, Doc Budget PASS). Submodule `projects/portal` committed (`eb1d2ad`) and pushed.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
+
