@@ -25,19 +25,19 @@ Updated: 2026-10-04 KST. 모델 무관 단일 실행 설계안. 진행 상태는
 - `scripts/blog-indexing-focus.js --apply`: 2,174개 페이지 `noindex,follow` 적용. portal `163e74a`.
 
 ### P1 — 핵심 도구 깊이·신뢰 강화 (배포 완료)
-- 대상: `/stress-check/`, `/hsp-test/`, `/brain-type/` (향후 `/future-self/`).
+- 대상: `/stress-check/`, `/hsp-test/`, `/brain-type/`, `/future-self/`.
 - 크롤 가능한 본문 섹션(i18n 12개 언어):
-  1. 측정 프레임워크(PSS-10, Aron SPS DOES 모델, 5개 인지 차원). 진단 불가 명시.
+  1. 측정 프레임워크(PSS-10, Aron SPS DOES, 5개 인지 차원, Future Self Continuity). 진단 불가 명시.
   2. 점수/반응 구간별 해석 및 실천 가이드.
-  3. FAQ 4~5개, 학술 참고문헌(APA, WHO, Aron, Kahneman 등), 검토 메타데이터.
-- 배포: stress-check `e3dccae`, hsp-test `f78024d`, brain-type `f2c5c10`.
+  3. FAQ 3~5개, 학술 참고문헌(APA, WHO, Aron, Kahneman, Hershfield 등), 검토 메타데이터.
+- 배포: stress-check `e3dccae`, hsp-test `f78024d`, brain-type `5ec10cc`, future-self `276d977`.
 
 ### P2 — 광고 UX (AdSense UI 완료)
 - dopabrain.com Auto Ads 설정: 광고 인텐트(의도 기반 형식) 끄기, 광고 로드 1단계 하향.
 
 ### P3 — 색인 요청·신호 (완료)
 - GSC UI: 핵심 5개 URL 색인 요청 완료.
-- IndexNow: `scripts/indexnow-submit.js`로 3개 핵심 도구 갱신 제출 (HTTP 200).
+- IndexNow: `scripts/indexnow-submit.js`로 4개 핵심 도구 갱신 제출 (HTTP 200).
 
 ### P4 — 주간 측정 루프
 1. AdSense: `npm run adsense:keepalive` → 7일 수익, Tier 1 RPM.
