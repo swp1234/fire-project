@@ -26,7 +26,7 @@ function source(v){
   const schemas=[...v.guide.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(row=>JSON.parse(row[1]));
   ok(schemas.length===1&&schemas[0]['@graph'].map(item=>item['@type']).join(',')==='Article,BreadcrumbList','schema graph drifted');
   ok(v.catalog.includes('HSP Coping Strategies: A Practical Sensory Plan')&&v.catalog.includes("'6 min'"),'English catalog stale');
-  ok(v.sitemap.includes('<loc>'+LIVE+GUIDE+'</loc><lastmod>2026-09-03</lastmod>'),'focused sitemap row missing');
+  ok(v.sitemap.includes('<loc>'+LIVE+GUIDE+'</loc><lastmod>2026-09-27</lastmod>'),'focused sitemap row missing');
   ok(v.inventory.includes('`${ORIGIN}'+GUIDE+'`'),'focused rail allowlist missing');
   for(const code of[v.resetHtml,v.resetJs,v.mapJs])ok(code.includes('blog_sensory_bridge'),'linked tool source allowlist missing');
   ok(!/(?:profile|result|trigger|place|capacity)=/.test(v.guide),'private selection entered guide URL');

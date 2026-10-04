@@ -47,7 +47,7 @@ function verifySource(source) {
   if (count(source.guide, /<a[^>]+class="quick-card"[^>]+data-content-surface="quick_rail"[^>]+data-target-slug=/g) !== 2) fail('focused rail must contain exactly two attributed cards');
   if (count(source.guide, /\/portal\/js\/ad-loader\.js/g) !== 1 || /data-ad-slot|<ins[^>]+adsbygoogle|adsbygoogle\s*(?:=|\.push)/.test(source.guide)) fail('guide is not managed Auto Ads only');
   if (!/Style d’attachement : repères, limites et réflexion privée/.test(source.catalog) || !/6 min/.test(source.catalog)) fail('French catalog card drifted');
-  if (!/attachment-style-test-quiz\.html<\/loc><lastmod>2026-09-01<\/lastmod><changefreq>monthly<\/changefreq><priority>0\.8/.test(source.sitemap)) fail('blog sitemap release row drifted');
+  if (!/attachment-style-test-quiz\.html<\/loc><lastmod>2026-09-27<\/lastmod><changefreq>monthly<\/changefreq><priority>0\.8/.test(source.sitemap)) fail('blog sitemap release row drifted');
 
   for (const value of ['direct', 'en_avoidant_guide_primary', 'fr_attachment_guide_primary', 'clarity_board', 'clarity_header', 'clarity_footer']) {
     if (!source.js.includes("'" + value + "'")) fail('source or surface allowlist missing: ' + value);
@@ -81,7 +81,7 @@ function verifyMutations() {
     ['cta-drift', function (s) { s.guide = s.guide.replace('source=fr_attachment_guide_primary', 'source=unknown'); }],
     ['missing-primary-source', function (s) { s.guide = s.guide.replace('PMC3954965', 'removed-study'); }],
     ['catalog-drift', function (s) { s.catalog = s.catalog.replace('Style d’attachement : repères, limites et réflexion privée', 'Ancien test'); }],
-    ['sitemap-drift', function (s) { s.sitemap = s.sitemap.replace('attachment-style-test-quiz.html</loc><lastmod>2026-09-01', 'attachment-style-test-quiz.html</loc><lastmod>2026-06-19'); }],
+    ['sitemap-drift', function (s) { s.sitemap = s.sitemap.replace('attachment-style-test-quiz.html</loc><lastmod>2026-09-27', 'attachment-style-test-quiz.html</loc><lastmod>2026-06-19'); }],
     ['missing-fr-source', function (s) { s.js = s.js.replace(/'fr_attachment_guide_primary'/g, "'removed_fr_source'"); }],
     ['private-result-event', function (s) { s.js += "trackEvent('x',{result_type:currentResult.primary})"; }],
     ['private-share', function (s) { s.js = s.js.replace("url.searchParams.set('lang', i18n.currentLang || 'en');", "url.searchParams.set('lang', i18n.currentLang || 'en');url.searchParams.set('attachment_style',currentResult.primary);"); }],

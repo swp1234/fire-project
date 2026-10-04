@@ -115,7 +115,7 @@ function source(v) {
     "Chinese thought-check interaction telemetry incomplete",
   );
   ok(
-    v.sitemap.includes(`<loc>${LIVE}</loc><lastmod>2026-08-30</lastmod>`),
+    v.sitemap.includes(`<loc>${LIVE}</loc><lastmod>2026-09-27</lastmod>`),
     "Chinese thought-check sitemap stale",
   );
   ok(/识别与证据检查/.test(v.index), "Chinese thought-check catalog stale");

@@ -50,7 +50,7 @@ function verifySource(data) {
   assert(JSON.stringify(quick)===JSON.stringify(QUICK),'Chinese habit quick-route set drifted');
   assert(/intersectionRatio>=\.5/.test(guide)&&/},500\)/.test(guide)&&/content_zh_habit_plan_view/.test(guide),'Chinese habit qualified exposure contract is incomplete');
   assert(/content_cta_click/.test(guide)&&/content_related_click/.test(guide),'Chinese habit click telemetry is incomplete');
-  assert(sitemap.includes(`<loc>${LIVE_GUIDE}</loc><lastmod>2026-08-30</lastmod>`),'Chinese habit sitemap row/date is missing');
+  assert(sitemap.includes(`<loc>${LIVE_GUIDE}</loc><lastmod>2026-09-27</lastmod>`),'Chinese habit sitemap row/date is missing');
   const card=index.match(/<a href="\/portal\/blog\/zh\/habit-tracker-guide\.html"[\s\S]*?<\/a>/)?.[0]||'';
   assert(/先做一个7天记录/.test(card)&&/更新 2026-08/.test(card),'Chinese habit catalog card is stale');
 

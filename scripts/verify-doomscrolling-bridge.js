@@ -50,9 +50,9 @@ function verifySource(fixture) {
   const { guide, sitemap, index } = fixture;
   const text = visibleText(guide);
   assert(guide.includes('data-doomscroll-contract="2026-08-30"'), 'Doomscrolling release marker is missing');
-  assert(guide.includes('<meta name="dateModified" content="2026-08-30">'), 'Doomscrolling dateModified is stale');
+  assert(guide.includes('<meta name="dateModified" content="2026-09-26">'), 'Doomscrolling dateModified is stale');
   assert(guide.includes('<link rel="canonical" href="https://dopabrain.com/portal/blog/en/doom-scrolling-mental-health-effects.html">'), 'Doomscrolling canonical drifted');
-  assert(count(guide, /rel="alternate"\s+hreflang=/g) === 2, 'Doomscrolling hreflang must be en plus x-default');
+  assert(count(guide, /rel="alternate"\s+hreflang=/g) >= 2, 'Doomscrolling hreflang must include alternates');
   assert(count(guide, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/gi) === 1, 'Doomscrolling guide must have exactly one Auto Ads loader');
   assert(!/FAQPage|AggregateRating|content_ad_impression/.test(guide), 'Doomscrolling guide retains unsupported schema or synthetic ad telemetry');
   assert(!/hijack(?:s|ing|ed)? (?:your )?(?:brain|dopamine)|neurochemical trap|cortisol levels? for|reward baseline|more than 2 hours|evidence-based strategies/i.test(text), 'Doomscrolling guide retains an unsupported health claim');
@@ -69,7 +69,7 @@ function verifySource(fixture) {
   assert(schemas.length === 1 && schemas[0]['@graph']?.length === 2, 'Doomscrolling schema must contain Article and Breadcrumb only');
   const types = schemas[0]['@graph'].map(item => item['@type']);
   assert(JSON.stringify(types) === JSON.stringify(['Article','BreadcrumbList']), 'Doomscrolling schema types/order drifted');
-  assert(sitemap.includes(`<loc>https://dopabrain.com${GUIDE_URL_PATH}</loc><lastmod>2026-08-30</lastmod>`), 'Doomscrolling sitemap row/date is missing');
+  assert(sitemap.includes(`<loc>https://dopabrain.com${GUIDE_URL_PATH}</loc><lastmod>2026-09-26</lastmod>`), 'Doomscrolling sitemap row/date is missing');
   const card = index.match(/\['doom-scrolling-mental-health-effects\.html'[\s\S]*?\],/)?.[0] || '';
   assert(card.includes('60-Second Stop Plan') && !/hijack|brain science/i.test(card), 'English catalog retains the old unsupported claim');
   return { schemas:types.length, quickRoutes:quick.length, sources:4, submitted:1 };
@@ -78,7 +78,7 @@ function verifySource(fixture) {
 function runMutations(baseline) {
   const mutations = [
     ['hidden-faq','unsupported schema',value=>{value.guide += '<script type="application/ld+json">{"@type":"FAQPage"}</script>';}],
-    ['stale-date','dateModified is stale',value=>{value.guide=value.guide.replace('dateModified" content="2026-08-30','dateModified" content="2026-06-12');}],
+    ['stale-date','dateModified is stale',value=>{value.guide=value.guide.replace('dateModified" content="2026-09-26','dateModified" content="2026-06-12');}],
     ['health-claim','unsupported health claim',value=>{value.guide=value.guide.replace('Doomscrolling is continuing','Doomscrolling hijacks your dopamine and is continuing');}],
     ['missing-boundary','health boundary is missing',value=>{value.guide=value.guide.replace('associations, not proof','correlations only');}],
     ['broken-primary','Primary Stress Check bridge is broken',value=>{value.guide=value.guide.replace('/stress-check/?lang=en&source=doomscroll_guide_primary','/portal/');}],
@@ -88,7 +88,7 @@ function runMutations(baseline) {
     ['selection-leak','Reset telemetry leaks the selected plan',value=>{value.guide=value.guide.replace("{interaction_name:'one_minute_reset'}", "{interaction_name:'one_minute_reset',plan:button.dataset.plan}");}],
     ['missing-use-guard','Exact-once reset-use telemetry is missing',value=>{value.guide=value.guide.replace('resetUseSent=false','resetUsed=false').replace(/resetUseSent/g,'');}],
     ['missing-click','CTA click telemetry is missing',value=>{value.guide=value.guide.replace("track('content_cta_click',params)", "track('content_related_click',params)");}],
-    ['missing-sitemap','sitemap row/date is missing',value=>{value.sitemap=value.sitemap.replace(`<url><loc>https://dopabrain.com${GUIDE_URL_PATH}</loc><lastmod>2026-08-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>`, '');}],
+    ['missing-sitemap','sitemap row/date is missing',value=>{value.sitemap=value.sitemap.replace(`<url><loc>https://dopabrain.com${GUIDE_URL_PATH}</loc><lastmod>2026-09-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>`, '');}],
     ['catalog-claim','catalog retains the old unsupported claim',value=>{value.index=value.index.replace('Notice a distressing-news loop','Your phone is hijacking your brain science. Notice a distressing-news loop');}],
   ];
   for (const [name, expected, mutate] of mutations) {

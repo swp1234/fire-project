@@ -21,21 +21,16 @@ Updated: 2026-10-04 KST. Release history is in `memory/data-check-log.md`; repea
 - **동결**: Tier 파이프라인(262/263 취소), 좌측 사이드바 내비 보류.
 - **P0 품질 정리 — 배포 완료**: portal `163e74a`, root `91de5c7`. `blog-topic-prune.js`로 사이트맵 1,884행 제거(1,207 유지). `blog-indexing-focus.js` noindex 2,174 적용.
 - **P1 핵심 페이지 강화 — 배포 완료**:
-  - Stress Check (`e3dccae`): PSS-10 프레임워크, 4개 점수 구간, 5개 FAQ, 학술 참고문헌, 12개 언어 i18n 동기화 (`verify:stress-core` 16/16).
-  - HSP Test (`f78024d`): SPS 프레임워크, 3단계 감각 구간, 5개 FAQ, Aron 1997 등 문헌, 12개 언어 i18n 동기화 (`verify:hsp-reset-funnel` 13/13).
-  - Brain Type (`5ec10cc`): 5개 인지 차원, 4개 인지 FAQ, Kahneman/Sternberg 문헌, 12개 언어 i18n 동기화 (`verify:brain-trust` 10/10).
-  - Future Self (`276d977`): Future Self Continuity 프레임워크, 8개 아키타입, 3개 FAQ, Hershfield/Seligman 문헌, 12개 언어 i18n 동기화 (`verify:future-self-funnel` 15/15).
-  - IQ Test (`fedf1c4`): 4개 인지 영역(Pattern/Sequence/Logic/Spatial), 점수 해석, 5개 FAQ, Raven/Cattell 문헌, 12개 언어 i18n 동기화 (`verify:iq-completion-reset` 10/10).
-  - Animal Personality (`7cb147e`): canonical drift 고정, 허위 평점/타이머 제거, 4 바이옴·12 유형 프레임워크 및 5개 FAQ, 12개 언어 i18n 동기화 (`verify:animal-personality` 10/10).
-  - K-pop Position (`e179d54`): canonical 고정, 12개 언어 sw.js 프리캐시, 5대 역할군 가이드·5개 FAQ (`verify:kpop-position` 10/10, `verify:kpop-role-roster` 52/52).
-  - Daily Tarot (`4d16547`): 5개 FAQ DOM·스키마 일치, 12개 언어 i18n 동기화, hreflang drift 수정, overflow-x hidden (`verify:daily-tarot` 8/8 mutations).
+  - Stress Check (`e3dccae`), HSP Test (`f78024d`), Brain Type (`5ec10cc`), Future Self (`276d977`), IQ Test (`fedf1c4`), Animal Personality (`7cb147e`), K-pop Position (`e179d54`), Daily Tarot (`4d16547`): 학술 프레임워크, FAQ 스키마/DOM 일치, 12개 언어 i18n 동기화, hreflang 고정 완료.
 - **P2 AdSense UI 설정 완료**: 광고 인텐트(의도 기반 형식) 비활성화로 모바일 레이아웃 보호, 광고 로드 1단계 하향.
 - **P3 색인 신호 전송 — 완료**: GSC 5개 URL 색인 요청 + IndexNow 10개 핵심 도구 및 가이드 갱신 제출 (HTTP 200).
 
-## Latest release: P0 Topic Pruning & P1 Core Content Enrichment (2026-10-04)
+## Latest release: Full Harness Gate Pass & Core Focus (2026-10-04)
 
-- Submodules: portal `0fdb23a`, stress-check `e3dccae`, hsp-test `f78024d`, brain-type `5ec10cc`, future-self `276d977`, iq-test `fedf1c4`, animal-personality `7cb147e`, kpop-position `e179d54`, daily-tarot `4d16547`, root-domain `77ac8b8`.
-- Carl Jung Shadow guide (`0fdb23a`): focused quick rail 복구, `verify:en-shadow-reflection` 14/14 패스, IndexNow 제출 (HTTP 200).
-- Tier 확장은 이후 동결 유지.
+- Submodules: portal `cf7defd`, root-domain `f6e2407`, daily-tarot `4d16547`, stress-check `e3dccae`, hsp-test `f78024d`, brain-type `5ec10cc`, future-self `276d977`, iq-test `fedf1c4`, animal-personality `7cb147e`, kpop-position `e179d54`.
+- Root domain (`f6e2407`): 정규 6선 `top-picks` 복구 및 비정상 정렬 탭 제거, `verify:root` & `verify:root:mutations` 14/14 패스.
+- Portal (`cf7defd`): 768개 색인 블로그 잔존 수동 광고/인텐트 정리 완료(단일 Auto Ads 로더 원칙 준수), `ko/2026-brain-training-top-10` hreflang 정규화.
+- 전체 하네스 워크플로(`node scripts/harness-workflow-check.js`): 100+개 테스트, 뮤테이션, 텔레메트리, 런타임 스모크 전 항목 100% PASS 달성.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
+

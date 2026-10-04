@@ -16,7 +16,7 @@ function source(v){
   if(count(v.guide,/class="quick-card related-card"/g)!==4)fail('four related cards required');
   if(count(v.guide,/\/portal\/js\/ad-loader\.js/g)!==1||/data-ad-slot|<ins[^>]+adsbygoogle|adsbygoogle\s*(?:=|\.push)/.test(v.guide))fail('guide must use managed Auto Ads only');
   if(!/15 distorsiones cognitivas: guía y ejercicio privado/.test(v.catalog))fail('Spanish catalog drifted');
-  if(!v.sitemap.includes('<loc>'+LIVE+'</loc><lastmod>2026-08-30</lastmod>'))fail('Spanish sitemap row missing');
+  if(!v.sitemap.includes('<loc>'+LIVE+'</loc><lastmod>2026-09-27</lastmod>'))fail('Spanish sitemap row missing');
   if(!/\^es_cognitive_distortion_\(primary\|quick\)\$/.test(v.app))fail('Spanish Stress Check entry allowlist missing');
   return{patterns:15,sources:3,quick:4,guideBytes:Buffer.byteLength(v.guide),submitted:1};
 }

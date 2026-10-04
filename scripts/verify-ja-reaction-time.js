@@ -132,7 +132,7 @@ function source(v) {
     "Japanese reaction guide leaks a selection",
   );
   ok(
-    v.sitemap.includes(`<loc>${LIVE}</loc><lastmod>2026-08-30</lastmod>`),
+    v.sitemap.includes(`<loc>${LIVE}</loc><lastmod>2026-09-27</lastmod>`),
     "Japanese reaction sitemap stale",
   );
   ok(

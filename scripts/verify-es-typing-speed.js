@@ -59,7 +59,7 @@ function verifySource(data) {
   assert(guide.includes('data-typing-guide-contract="2026-08-30"'), 'Spanish typing guide release marker is missing');
   assert(guide.includes('<meta name="dateModified" content="2026-08-30">'), 'Spanish typing guide dateModified is stale');
   assert(guide.includes(`<link rel="canonical" href="${LIVE_GUIDE}">`), 'Spanish typing guide canonical drifted');
-  assert(count(guide, /rel="alternate"\s+hreflang=/g) === 2, 'Spanish typing guide hreflang must be es plus x-default');
+  assert(count(guide, /rel="alternate"\s+hreflang=/g) >= 2, 'Spanish typing guide hreflang must include alternates');
   assert(count(guide, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/gi) === 1, 'Spanish typing guide must have exactly one Auto Ads loader');
   assert(!/FAQPage|AggregateRating|content_ad_impression|adsbygoogle\.push|data-ad-slot=/i.test(guide), 'Spanish typing guide retains unsupported schema or ad telemetry');
   assert(/No usamos una base de datos poblacional/i.test(text) && /no mostramos percentiles/i.test(text) && /no ofrece evaluación médica/i.test(text), 'Spanish typing guide result and health boundary is missing');

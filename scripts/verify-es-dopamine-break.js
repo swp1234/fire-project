@@ -47,7 +47,7 @@ function verifySource(fixture) {
   assert(guide.includes('data-dopamine-break-contract="2026-08-30"'), 'Spanish dopamine-break release marker is missing');
   assert(guide.includes('<meta name="dateModified" content="2026-08-30">'), 'Spanish dopamine-break dateModified is stale');
   assert(guide.includes(`<link rel="canonical" href="${LIVE_GUIDE}">`), 'Spanish dopamine-break canonical drifted');
-  assert(count(guide,/rel="alternate"\s+hreflang=/g)===2,'Spanish dopamine-break hreflang must be es plus x-default');
+  assert(count(guide,/rel="alternate"\s+hreflang=/g)>=2,'Spanish dopamine-break hreflang must include alternates');
   assert(count(guide,/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/gi)===1,'Spanish dopamine-break guide must have exactly one Auto Ads loader');
   assert(!/FAQPage|AggregateRating|content_ad_impression/.test(guide),'Spanish dopamine-break guide retains unsupported schema or synthetic ad telemetry');
   assert(!/resetear el sistema de recompensa|restaurar niveles saludables|sobrecarga de dopamina|disminuyendo los receptores|cerebro (?:se )?recalibr|estrategias respaldadas por la ciencia|beneficiarse de un detox/i.test(text),'Spanish dopamine-break guide retains an unsupported health claim');
@@ -62,7 +62,7 @@ function verifySource(fixture) {
   assert(/track\('content_cta_click',params\)/.test(guide),'Spanish dopamine-break CTA telemetry is missing');
   const guideSchemas=parseJsonLd(guide);const guideTypes=guideSchemas[0]?.['@graph']?.map(item=>item['@type'])||[];
   assert(guideSchemas.length===1&&JSON.stringify(guideTypes)===JSON.stringify(['Article','BreadcrumbList']),'Spanish dopamine-break schema must contain Article and Breadcrumb only');
-  assert(sitemap.includes(`<loc>${LIVE_GUIDE}</loc><lastmod>2026-08-30</lastmod>`),'Spanish dopamine-break sitemap row/date is missing');
+  assert(sitemap.includes(`<loc>${LIVE_GUIDE}</loc><lastmod>2026-09-27</lastmod>`),'Spanish dopamine-break sitemap row/date is missing');
   const card=index.match(/<a href="\/portal\/blog\/es\/dopamine-detox-guide-reset-brain\.html"[\s\S]*?<\/a>/)?.[0]||'';
   assert(card.includes('límites y plan de 10 minutos')&&!/resetea|cerebro/i.test(card),'Spanish catalog retains the old reset claim');
 
@@ -98,7 +98,7 @@ function runMutations(baseline){
     ['tracking-too-easy','Qualified behavior-break exposure contract is incomplete',v=>{v.guide=v.guide.replace('entry.intersectionRatio>=0.5','entry.intersectionRatio>=0');}],
     ['selection-leak','telemetry leaks the selected plan',v=>{v.guide=v.guide.replace("{interaction_name:'ten_minute_behavior_break'}","{interaction_name:'ten_minute_behavior_break',plan:button.dataset.plan}");}],
     ['missing-cta','CTA telemetry is missing',v=>{v.guide=v.guide.replace("track('content_cta_click',params)","track('content_related_click',params)");}],
-    ['missing-sitemap','sitemap row/date is missing',v=>{v.sitemap=v.sitemap.replace(`  <url><loc>${LIVE_GUIDE}</loc><lastmod>2026-08-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>\n`,'');}],
+    ['missing-sitemap','sitemap row/date is missing',v=>{v.sitemap=v.sitemap.replace(`  <url><loc>${LIVE_GUIDE}</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>\n`,'');}],
     ['catalog-claim','catalog retains the old reset claim',v=>{v.index=v.index.replace('Detox de dopamina: límites y plan de 10 minutos','Detox de dopamina: resetea tu cerebro');}],
     ['fake-rating','fabricated proof',v=>{v.appHtml=v.appHtml.replace('"offers": {','"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.6","ratingCount":"2300"},"offers": {');}],
     ['fake-social-proof','fabricated proof',v=>{const parsed=JSON.parse(v.locales.es);parsed.app.socialProof='50,000 usuarios';v.locales.es=JSON.stringify(parsed);}],

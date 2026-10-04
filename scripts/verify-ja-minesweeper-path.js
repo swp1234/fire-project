@@ -18,7 +18,7 @@ function source(v){
   ok(!/selected_answer|data-answer:|answer:button|correct:/.test(v.guide),'guide answer leaks into telemetry');
   ok(count(v.guide,/\/portal\/js\/ad-loader\.js/g)===1&&!/<ins[^>]+adsbygoogle|data-ad-slot|adsbygoogle\s*(?:=|\.push)|content_ad_impression|cross-promo\.js|FAQPage|AggregateRating/.test(v.guide),'guide trust or Auto Ads contract drifted');
   ok(v.catalog.includes('/portal/blog/ja/minesweeper-strategy-guide.html')&&v.catalog.includes('マインスイーパー攻略：安全マスの読み方'),'Japanese catalog route stale');
-  ok(v.sitemap.includes('<loc>'+GUIDE_LIVE+'</loc><lastmod>2026-09-01</lastmod>'),'focused sitemap row missing');
+  ok(v.sitemap.includes('<loc>'+GUIDE_LIVE+'</loc><lastmod>2026-09-27</lastmod>'),'focused sitemap row missing');
   ok(!/aggregateRating|FAQPage|data-ad-slot|<ins[^>]+adsbygoogle|adsbygoogle\s*(?:=|\.push)|pagead2\.googlesyndication\.com|\/portal\/js\/game-ads\.js|\bGameAds\b|\badBreak\s*\(|watch ad|rewarded_ad|page_engage|gtag\('event',\s*'page_view'|shareTwitterBtn|shareUrlBtn/i.test(v.html+'\n'+v.js),'app fake proof, ad reward, ad code, or duplicate telemetry remains');
   ok(v.html.includes('data-ad-serving="suspended-invalid-traffic-2026-09-03"'),'invalid-traffic ad suspension marker missing');
   ok(v.html.indexOf('allowedSources')<v.html.indexOf('googletagmanager.com/gtag/js'),'query sanitizer must precede analytics');
