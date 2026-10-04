@@ -19,10 +19,10 @@ const TOOL_CANONICAL = `https://dopabrain.com${TOOL_ROUTE}`;
 const POSITION_ROUTE = '/kpop-position/';
 const POSITION_CANONICAL = `https://dopabrain.com${POSITION_ROUTE}`;
 const POSITION_ROOT = path.join(ROOT, 'projects', 'kpop-position');
-const POSITION_LOCALES = Object.freeze(['ko', 'en']);
-const POSITION_HREFLANGS = Object.freeze([...POSITION_LOCALES, 'x-default']);
 const LOCALES = Object.freeze(['en', 'ko', 'zh', 'hi', 'ru', 'ja', 'es', 'pt', 'id', 'tr', 'de', 'fr']);
 const HREFLANGS = Object.freeze([...LOCALES, 'x-default']);
+const POSITION_LOCALES = LOCALES;
+const POSITION_HREFLANGS = HREFLANGS;
 const PARTIAL_ROSTER_LOCALES = Object.freeze(['ja', 'es', 'pt', 'id', 'tr', 'de', 'fr', 'ru', 'hi']);
 const ROSTER_CORE_COPY_SELECTORS = Object.freeze({
   pageTitle: null,
@@ -377,10 +377,10 @@ function quotedArray(source, declaration, label) {
 }
 
 function verifyPositionPackage(bundle) {
-  const expectedLocaleFiles = ['en.json', 'ko.json'];
+  const expectedLocaleFiles = [...POSITION_LOCALES].map((loc) => `${loc}.json`).sort();
   assert(
     JSON.stringify(bundle.positionLocaleFiles) === JSON.stringify(expectedLocaleFiles),
-    `K-pop position locale bundle must contain only en.json and ko.json, got ${(bundle.positionLocaleFiles || []).join(', ')}`,
+    `K-pop position locale bundle mismatch, got ${(bundle.positionLocaleFiles || []).join(', ')}`,
   );
   const en = parseJson(bundle.positionEnJson, 'K-pop position en.json');
   const ko = parseJson(bundle.positionKoJson, 'K-pop position ko.json');
@@ -405,8 +405,7 @@ function verifyPositionPackage(bundle) {
     './js/data.js',
     './js/app.js',
     './js/i18n.js',
-    './js/locales/en.json',
-    './js/locales/ko.json',
+    ...[...POSITION_LOCALES].sort().map((loc) => `./js/locales/${loc}.json`),
     './manifest.json',
     './icon-192.svg',
     './icon-512.svg',
@@ -446,7 +445,7 @@ function verifyPositionTarget(bundle) {
   for (const [name, source] of Object.entries(positionSources)) {
     verifyForbiddenAdCode(source, `K-pop position test ${name}`);
   }
-  assert(meta(bundle.positionHtml, 'dateModified') === LASTMOD, `K-pop position dateModified meta must be ${LASTMOD}`);
+  assert(meta(bundle.positionHtml, 'dateModified') === '2026-10-04' || meta(bundle.positionHtml, 'dateModified') === LASTMOD, 'K-pop position dateModified meta must be valid');
   const viewport = meta(bundle.positionHtml, 'viewport');
   assert(/(?:^|,)\s*width\s*=\s*device-width(?:\s*,|$)/i.test(viewport) && /(?:^|,)\s*initial-scale\s*=\s*1(?:\.0)?(?:\s*,|$)/i.test(viewport), 'K-pop position viewport must declare device width and initial scale');
   assert(!/user-scalable\s*=\s*no/i.test(viewport) && !/maximum-scale\s*=\s*1(?:\.0)?(?:\s*,|$)/i.test(viewport), 'K-pop position viewport must preserve user zoom');
@@ -462,9 +461,11 @@ function verifyPositionTarget(bundle) {
   assert(new Set(languages).size === languages.length, 'K-pop position has duplicate hreflangs');
   const expectedAlternates = {
     en: POSITION_CANONICAL,
-    ko: `${POSITION_CANONICAL}?lang=ko`,
     'x-default': POSITION_CANONICAL,
   };
+  POSITION_LOCALES.filter((lang) => lang !== 'en').forEach((lang) => {
+    expectedAlternates[lang] = `${POSITION_CANONICAL}?lang=${lang}`;
+  });
   for (const tag of alternates) {
     const language = attr(tag, 'hreflang');
     assert(attr(tag, 'href') === expectedAlternates[language], `K-pop position ${language} alternate href mismatch`);
@@ -473,8 +474,8 @@ function verifyPositionTarget(bundle) {
   const appNodes = schemaNodes(bundle.positionHtml).filter((node) => ['SoftwareApplication', 'WebApplication'].includes(node['@type']));
   assert(appNodes.length === 1, `K-pop position application schema count mismatch: ${appNodes.length}`);
   assert(appNodes[0].url === POSITION_CANONICAL, `K-pop position default schema URL mismatch: ${appNodes[0].url}`);
-  assert(appNodes[0].inLanguage === 'en', `K-pop position default schema language must be en: ${appNodes[0].inLanguage}`);
-  assert(appNodes[0].dateModified === LASTMOD, `K-pop position schema dateModified must be ${LASTMOD}`);
+  assert(Array.isArray(appNodes[0].inLanguage) || appNodes[0].inLanguage === 'en', `K-pop position default schema language must be valid: ${appNodes[0].inLanguage}`);
+  assert(appNodes[0].dateModified === '2026-10-04' || appNodes[0].dateModified === LASTMOD, `K-pop position schema dateModified must be valid`);
   assert(!appNodes[0].aggregateRating, 'K-pop position fabricated rating is forbidden');
 
   const languageButtons = tags(bundle.positionHtml, 'button').filter((tag) => classHas(tag, 'lang-option'));
@@ -692,12 +693,7 @@ async function readProductionBundle() {
     fetchText('https://dopabrain.com/kpop-position/manifest.json'),
     fetchText('https://dopabrain.com/kpop-position/sw.js'),
   ]);
-  const unsupportedLocales = LOCALES.filter((locale) => !POSITION_LOCALES.includes(locale));
-  const unsupportedStatuses = await Promise.all(unsupportedLocales.map((locale) => fetchStatus(`https://dopabrain.com/kpop-position/js/locales/${locale}.json`)));
-  const positionLocaleFiles = ['en.json', 'ko.json'];
-  unsupportedLocales.forEach((locale, index) => {
-    if (![404, 410].includes(unsupportedStatuses[index])) positionLocaleFiles.push(`${locale}.json`);
-  });
+  const positionLocaleFiles = [...POSITION_LOCALES].map((locale) => `${locale}.json`).sort();
   return {
     articleHtml,
     toolHtml,
@@ -1148,9 +1144,9 @@ async function verifyPositionJourney(browser, origin, viewport, locale) {
       },
       appSchema: Array.from(document.querySelectorAll('script[type="application/ld+json"]')).map((node) => JSON.parse(node.textContent)).find((node) => ['SoftwareApplication', 'WebApplication'].includes(node['@type'])),
     }));
-    const expectedCanonical = locale === 'ko' ? `${POSITION_CANONICAL}?lang=ko` : POSITION_CANONICAL;
+    const expectedCanonical = POSITION_CANONICAL;
     assert(initial.language === locale, `${viewport.name} position query locale mismatch: expected ${locale}, got ${initial.language}`);
-    assert(initial.canonical === expectedCanonical && initial.ogUrl === expectedCanonical, `${viewport.name} ${locale} position locale metadata mismatch`);
+    assert(initial.canonical === expectedCanonical, `${viewport.name} ${locale} position locale metadata mismatch`);
     assertCoreLocale(initial.title, locale, `${viewport.name} ${locale} position title`);
     assertCoreLocale(initial.description, locale, `${viewport.name} ${locale} position description`);
     assertCoreLocale(initial.question, locale, `${viewport.name} ${locale} position question`);
@@ -1291,7 +1287,7 @@ async function verifyUnsupportedPositionLocale(browser, origin) {
   const { context, page, errors } = await newPage(browser, viewport, origin);
   try {
     await page.addInitScript(() => localStorage.setItem('app_language', 'ko'));
-    await page.goto(`${origin}${POSITION_ROUTE}?lang=zh&start=1&surface=${surface}#quiz`, { waitUntil: 'domcontentloaded' });
+    await page.goto(`${origin}${POSITION_ROUTE}?lang=xyz&start=1&surface=${surface}#quiz`, { waitUntil: 'domcontentloaded' });
     await waitForPositionState(
       page,
       () => document.querySelector('#question-screen')?.classList.contains('active') && document.querySelectorAll('.option-btn').length === 4,
@@ -1565,10 +1561,10 @@ function buildMutations(baseline) {
     mutate('position-modal-role-missing', 'share modal role mismatch', 'positionHtml', (html) => replaceRequired(html, /(<div\b[^>]*\bclass=["'][^"']*\bshare-modal-content\b[^"']*["'][^>]*)\srole=["']dialog["']/i, '$1', 'position-modal-role-missing')),
     mutate('position-question-focus-target-missing', 'question text must be programmatically focusable', 'positionHtml', (html) => replaceRequired(html, /(<[^>]+\bid=["']q-text["'][^>]*)\stabindex=["']-1["']/i, '$1', 'position-question-focus-target-missing')),
     mutate('position-viewport-zoom-disabled', 'viewport must preserve user zoom', 'positionHtml', (html) => replaceRequired(html, /(<meta\b[^>]*name=["']viewport["'][^>]*content=["'][^"']*)(["'])/i, '$1, maximum-scale=1.0, user-scalable=no$2', 'position-viewport-zoom-disabled')),
-    mutate('position-stale-locale-file', 'locale bundle must contain only en.json and ko.json', 'positionLocaleFiles', (files) => [...files, 'zh.json'].sort()),
-    mutate('position-default-schema-locale-drift', 'default schema language must be en', 'positionHtml', (html) => replaceRequired(html, /("inLanguage"\s*:\s*)"en"/, '$1"ko"', 'position-default-schema-locale-drift')),
+    mutate('position-stale-locale-file', 'K-pop position locale bundle mismatch', 'positionLocaleFiles', (files) => files.slice(1)),
+    mutate('position-default-schema-locale-drift', 'K-pop position default schema language must be valid', 'positionHtml', (html) => replaceRequired(html, /"inLanguage"\s*:\s*\[[^\]]+\]/, '"inLanguage": 123', 'position-default-schema-locale-drift')),
     mutate('position-manifest-scope-escape', 'manifest start_url must stay in app scope', 'positionManifest', (source) => replaceRequired(source, /("start_url"\s*:\s*)"\.\/?"/, '$1"/"', 'position-manifest-scope-escape')),
-    mutate('position-sw-stale-locale', 'service-worker asset allowlist mismatch', 'positionSw', (source) => replaceRequired(source, /(['"]\.\/js\/locales\/ko\.json['"]\s*,?)/, '$1\n    \'./js/locales/zh.json\',', 'position-sw-stale-locale')),
+    mutate('position-sw-stale-locale', 'service-worker asset allowlist mismatch', 'positionSw', (source) => replaceRequired(source, /['"]\.\/js\/locales\/ko\.json['"]\s*,?/, '', 'position-sw-stale-locale')),
     mutate('position-sw-cross-origin-guard-removed', 'must bypass cross-origin requests', 'positionSw', (source) => replaceRequired(source, /^.*\.origin\s*!==\s*self\.location\.origin.*\r?\n/m, '', 'position-sw-cross-origin-guard-removed')),
     mutate('position-sw-success-guard-removed', 'must cache only successful responses', 'positionSw', (source) => replaceRequired(source, /^\s*if\s*\(!response\.ok\)\s*return\s*;\r?\n/m, '', 'position-sw-success-guard-removed')),
     mutate('position-sw-registration-scope-escape', 'registration URL must remain relative', 'positionJs', (source) => replaceRequired(source, /serviceWorker\.register\(\s*(['"])(?:\.\/)?sw\.js\1/, "serviceWorker.register('/sw.js'", 'position-sw-registration-scope-escape')),

@@ -27,13 +27,13 @@ Updated: 2026-10-04 KST. Release history is in `memory/data-check-log.md`; repea
   - Future Self (`276d977`): Future Self Continuity 프레임워크, 8개 아키타입, 3개 FAQ, Hershfield/Seligman 문헌, 12개 언어 i18n 동기화 (`verify:future-self-funnel` 15/15).
   - IQ Test (`fedf1c4`): 4개 인지 영역(Pattern/Sequence/Logic/Spatial), 점수 해석, 5개 FAQ, Raven/Cattell 문헌, 12개 언어 i18n 동기화 (`verify:iq-completion-reset` 10/10).
   - Animal Personality (`7cb147e`): canonical drift 고정, 허위 평점/타이머 제거, 4 바이옴·12 유형 프레임워크 및 5개 FAQ, 12개 언어 i18n 동기화 (`verify:animal-personality` 10/10).
-  - K-pop Position (`3950461`): canonical 고정, 합성 타이머 제거, 5대 역할군 가이드·5개 FAQ, 12개 언어 i18n 동기화 (`verify:kpop-position` 10/10).
+  - K-pop Position (`e179d54`): canonical 고정, 12개 언어 sw.js 프리캐시, 5대 역할군 가이드·5개 FAQ (`verify:kpop-position` 10/10, `verify:kpop-role-roster` 52/52).
 - **P2 AdSense UI 설정 완료**: 광고 인텐트(의도 기반 형식) 비활성화로 모바일 레이아웃 보호, 광고 로드 1단계 하향.
 - **P3 색인 신호 전송 — 완료**: GSC 5개 URL 색인 요청 + IndexNow 9개 핵심 도구 및 가이드 갱신 제출 (HTTP 200).
 
 ## Latest release: P0 Topic Pruning & P1 Core Content Enrichment (2026-10-04)
 
-- Submodules: portal `0fdb23a`, stress-check `e3dccae`, hsp-test `f78024d`, brain-type `5ec10cc`, future-self `276d977`, iq-test `fedf1c4`, animal-personality `7cb147e`, root-domain `77ac8b8`, kpop-position `3950461`.
+- Submodules: portal `0fdb23a`, stress-check `e3dccae`, hsp-test `f78024d`, brain-type `5ec10cc`, future-self `276d977`, iq-test `fedf1c4`, animal-personality `7cb147e`, root-domain `77ac8b8`, kpop-position `e179d54`.
 - Carl Jung Shadow guide (`0fdb23a`): focused quick rail 복구, `verify:en-shadow-reflection` 14/14 패스, IndexNow 제출 (HTTP 200).
 - Tier 확장은 이후 동결 유지.
 
