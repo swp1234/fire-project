@@ -28,11 +28,11 @@ Updated: 2026-10-04 KST. Release history is in `memory/data-check-log.md`; repea
   - IQ Test (`fedf1c4`): 4개 인지 영역(Pattern/Sequence/Logic/Spatial), 점수 해석, 5개 FAQ, Raven/Cattell 문헌, 12개 언어 i18n 동기화 (`verify:iq-completion-reset` 10/10).
   - Animal Personality (`7cb147e`): canonical drift 고정, 허위 평점/타이머 제거, 4 바이옴·12 유형 프레임워크 및 5개 FAQ, 12개 언어 i18n 동기화 (`verify:animal-personality` 10/10).
 - **P2 AdSense UI 설정 완료**: 광고 인텐트(의도 기반 형식) 비활성화로 모바일 레이아웃 보호, 광고 로드 1단계 하향.
-- **P3 색인 신호 전송 — 완료**: GSC 5개 URL 색인 요청 + IndexNow 7개 핵심 도구 및 가이드 갱신 제출 (HTTP 200).
+- **P3 색인 신호 전송 — 완료**: GSC 5개 URL 색인 요청 + IndexNow 8개 핵심 도구 및 가이드 갱신 제출 (HTTP 200, attachment-style sitemap 등록 포함).
 
 ## Latest release: P0 Topic Pruning & P1 Core Content Enrichment (2026-10-04)
 
-- Submodules: portal `64b1105`, stress-check `e3dccae`, hsp-test `f78024d`, brain-type `5ec10cc`, future-self `276d977`, iq-test `fedf1c4`, animal-personality `7cb147e`.
+- Submodules: portal `64b1105`, stress-check `e3dccae`, hsp-test `f78024d`, brain-type `5ec10cc`, future-self `276d977`, iq-test `fedf1c4`, animal-personality `7cb147e`, root-domain `77ac8b8`.
 - Tier 확장은 이후 동결 유지.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
