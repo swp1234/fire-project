@@ -428,6 +428,7 @@ async function main() {
     ['HSP reset funnel mutations', process.execPath, ['scripts/verify-hsp-reset-funnel.js', '--mutations']],
     ['sensory reset integration', process.execPath, ['scripts/verify-sensory-reset.js']],
     ['K-pop roster and guide mutations', process.execPath, ['scripts/verify-kpop-role-roster.js', '--mutations']],
+    ['Animal Personality trust and mutations', process.execPath, ['scripts/verify-animal-personality.js', '--mutations']],
     ['KST midnight boundary', process.execPath, ['scripts/verify-kst-date.js']],
     ['blog interaction generator', process.execPath, ['scripts/verify-blog-generator-interaction.js']],
   ];

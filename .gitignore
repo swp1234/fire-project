@@ -108,6 +108,7 @@ SOUNDSCAPE_*.txt
 !scripts/verify-brain-training-bridge.js
 !scripts/verify-kst-date.js
 !scripts/verify-zh-2048-guide.js
+!scripts/verify-animal-personality.js
 !scripts/lib/
 !scripts/lib/time-zone-date.js
 !scripts/generate-utility-apps.js
