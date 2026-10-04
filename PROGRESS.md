@@ -25,12 +25,13 @@ Updated: 2026-10-04 KST. Release history is in `memory/data-check-log.md`; repea
   - HSP Test (`f78024d`): SPS 프레임워크, 3단계 감각 구간, 5개 FAQ, Aron 1997 등 문헌, 12개 언어 i18n 동기화 (`verify:hsp-reset-funnel` 13/13).
   - Brain Type (`5ec10cc`): 5개 인지 차원, 4개 인지 FAQ, Kahneman/Sternberg 문헌, 12개 언어 i18n 동기화 (`verify:brain-trust` 10/10).
   - Future Self (`276d977`): Future Self Continuity 프레임워크, 8개 아키타입, 3개 FAQ, Hershfield/Seligman 문헌, 12개 언어 i18n 동기화 (`verify:future-self-funnel` 15/15).
+  - IQ Test (`fedf1c4`): 4개 인지 영역(Pattern/Sequence/Logic/Spatial), 점수 해석, 5개 FAQ, Raven/Cattell 문헌, 12개 언어 i18n 동기화 (`verify:iq-completion-reset` 10/10).
 - **P2 AdSense UI 설정 완료**: 광고 인텐트(의도 기반 형식) 비활성화로 모바일 레이아웃 보호, 광고 로드 1단계 하향.
-- **P3 색인 신호 전송 — 완료**: GSC 5개 URL 색인 요청 + IndexNow 4개 핵심 도구 갱신 제출 (HTTP 200).
+- **P3 색인 신호 전송 — 완료**: GSC 5개 URL 색인 요청 + IndexNow 5개 핵심 도구 갱신 제출 (HTTP 200).
 
 ## Latest release: P0 Topic Pruning & P1 Core Content Enrichment (2026-10-04)
 
-- Submodules: portal `163e74a`, stress-check `e3dccae`, hsp-test `f78024d`, brain-type `5ec10cc`, future-self `276d977`.
+- Submodules: portal `163e74a`, stress-check `e3dccae`, hsp-test `f78024d`, brain-type `5ec10cc`, future-self `276d977`, iq-test `fedf1c4`.
 - Tier 확장은 이후 동결 유지.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

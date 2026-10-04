@@ -406,6 +406,7 @@ async function main() {
     ['safe local browser ports', process.execPath, ['scripts/verify-safe-local-port.js']],
     ['Daily Tarot trust mutations', process.execPath, ['scripts/verify-daily-tarot.js', '--mutations']],
     ['blog indexing focus', process.execPath, ['scripts/blog-indexing-focus.js', '--self-test']],
+    ['blog topic prune', process.execPath, ['scripts/blog-topic-prune.js', '--self-test']],
     ['indexable blog ads', process.execPath, ['scripts/clean-indexable-blog-ads.js', '--self-test']],
     ['content audit self-test', process.execPath, ['scripts/blog-indexing-audit.js', '--self-test']],
     ['content audit smoke', process.execPath, ['scripts/blog-indexing-audit.js', '--lang', 'ko', '--limit', '1']],
