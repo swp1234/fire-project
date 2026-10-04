@@ -23,13 +23,13 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 
 - 진단: Google 비-`site:` 노출 3회/3개월, 핵심 도구 `Crawled - currently not indexed`. 최근 7일 `$0.55` (`$0.079/day`). 원인 = 주제이탈 대량 블로그 + 얇은 핵심 페이지 + above-the-fold 광고 과밀.
 - **동결**: Tier 파이프라인(262/263 취소), 좌측 사이드바 내비 보류.
-- **P0 품질 정리 — 로컬 적용 완료, 미배포**:
-  - `scripts/blog-topic-prune.js` 추가(`npm run verify:blog-topic-prune`). 블로그 사이트맵 1,884행 제거(1,207 유지).
-  - `blog-indexing-focus.js --apply`로 noindex 2,174 / 유지 1,491. drift 기준 3874.
-  - 다음: `verify:indexing-inventory`·`verify:adsense-contract`·`verify:restricted-ads` → `projects/portal` commit/push → 운영 확인 → 루트 commit/push.
+- **P0 품질 정리 — 배포 완료 (2026-10-04)**: portal `163e74a`, root `91de5c7`.
+  - `scripts/blog-topic-prune.js` 추가(`npm run verify:blog-topic-prune`). 블로그 사이트맵 1,884행 제거(운영 1,207행, roblox 0 확인).
+  - `blog-indexing-focus.js --apply`로 noindex 2,174 / 유지 1,491. drift 기준 3874. 인벤토리 1,482 unique / 0 issue. adsense-contract 11/11, restricted-ads 36/36 PASS.
+  - 운영 샘플 확인: Roblox·게임신경과학 기사 `noindex,follow`, 유지 심리 기사 `index`.
 - P1 핵심 페이지(stress-check, hsp-test, brain-type) 본문·FAQ·schema·About: 미착수.
 - P2 AdSense UI(관련 검색 끄기/제외 영역, 광고 로드 1단계 하향): 사용자 액션 대기.
-- P3 GSC 사이트맵 재제출·핵심 URL 10개 색인 요청·IndexNow 재통지: P0 배포 후.
+- P3: GSC MCP는 읽기 전용(`submit_sitemap` Insufficient Permission), `npm run gsc:submit-sitemaps`는 Codex 격리 설정 필요 → **사용자가 GSC UI에서 사이트맵 3개 재제출 + 핵심 URL 10개 색인 요청**(목록은 `docs/STRATEGY.md` P3). IndexNow 재통지는 미실행.
 
 ## Last content release: Tiers 260-261 (2026-10-01), `projects/portal` `4b4333e`. Tier 확장은 이후 동결.
 
