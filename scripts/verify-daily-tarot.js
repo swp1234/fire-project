@@ -41,12 +41,26 @@ function verify(source) {
 
   const schemas = Array.from(source.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)).map((match) => JSON.parse(match[1]));
   assert(schemas.some((schema) => schema['@type'] === 'WebApplication'), 'WebApplication schema is missing');
+  const faqSchema = schemas.find((schema) => schema['@type'] === 'FAQPage');
+  assert(faqSchema && Array.isArray(faqSchema.mainEntity) && faqSchema.mainEntity.length >= 5, 'FAQPage schema with at least 5 questions is required');
+  assert((source.html.match(/class="faq-item"/g) || []).length >= 5, 'FAQ DOM elements matching schema questions are required');
+  for (let i = 1; i <= 5; i++) {
+    assert(source.html.includes(`data-i18n="faq.q${i}Title"`), `DOM missing FAQ question data-i18n for q${i}`);
+  }
+
   for (const locale of LOCALES) {
+    if (locale === 'en') {
+      assert(source.html.includes('<link rel="alternate" hreflang="en" href="https://dopabrain.com/daily-tarot/">'), 'Canonical English hreflang missing');
+    } else {
+      assert(source.html.includes(`<link rel="alternate" hreflang="${locale}" href="https://dopabrain.com/daily-tarot/?lang=${locale}">`), `${locale}: localized hreflang missing`);
+    }
     const data = JSON.parse(source.locales[locale]);
     assert(data.premium?.badge && data.premium?.title && data.premium?.deepReading, `${locale}: reflection copy is missing`);
+    assert(data.faq?.faqTitle && data.faq?.q1Title && data.faq?.q5Desc, `${locale}: FAQ translations missing`);
     assert(!data.ads, `${locale}: dead fake-ad copy remains`);
     assert(!data.engage?.proof, `${locale}: dead social-proof copy remains`);
   }
+  assert(source.html.includes('<link rel="alternate" hreflang="x-default" href="https://dopabrain.com/daily-tarot/">'), 'x-default hreflang missing');
 }
 
 function runMutations(baseline) {
@@ -57,6 +71,8 @@ function runMutations(baseline) {
     ['fake-social-proof', 'Fabricated rating', (s) => ({ ...s, html: s.html.replace('</main>', '<div class="social-proof-badge">54,000+ readings today</div></main>') })],
     ['fake-ad-gate', 'Fake ad gate', (s) => ({ ...s, app: `${s.app}\nfunction showInterstitialAd(){}` })],
     ['ai-claim', 'Unsupported AI claim', (s) => ({ ...s, manifest: s.manifest.replace('guided daily reflection', 'AI deep analysis') })],
+    ['missing-faq-dom', 'FAQ DOM elements matching schema', (s) => ({ ...s, html: s.html.replace(/<details class="faq-item">[\s\S]*?<\/details>/g, '') })],
+    ['broken-hreflang', 'es: localized hreflang missing', (s) => ({ ...s, html: s.html.replace('href="https://dopabrain.com/daily-tarot/?lang=es"', 'href="https://dopabrain.com/daily-tarot/"') })],
   ];
   for (const [name, expected, mutate] of mutations) {
     try {
