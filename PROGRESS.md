@@ -33,7 +33,8 @@ Updated: 2026-10-04 KST. Release history is in `memory/data-check-log.md`; repea
 
 ## Latest release: P0 Topic Pruning & P1 Core Content Enrichment (2026-10-04)
 
-- Submodules: portal `64b1105`, stress-check `e3dccae`, hsp-test `f78024d`, brain-type `5ec10cc`, future-self `276d977`, iq-test `fedf1c4`, animal-personality `7cb147e`, root-domain `77ac8b8`, kpop-position `3950461`.
+- Submodules: portal `0fdb23a`, stress-check `e3dccae`, hsp-test `f78024d`, brain-type `5ec10cc`, future-self `276d977`, iq-test `fedf1c4`, animal-personality `7cb147e`, root-domain `77ac8b8`, kpop-position `3950461`.
+- Carl Jung Shadow guide (`0fdb23a`): focused quick rail 복구, `verify:en-shadow-reflection` 14/14 패스, IndexNow 제출 (HTTP 200).
 - Tier 확장은 이후 동결 유지.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

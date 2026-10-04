@@ -18,6 +18,7 @@ const FOCUSED_QUICK_RAIL_URLS = new Set([
   `${ORIGIN}/portal/blog/en/avoidant-attachment-healing-guide.html`,
   `${ORIGIN}/portal/blog/fr/attachment-style-test-quiz.html`,
   `${ORIGIN}/portal/blog/en/hsp-coping-strategies-highly-sensitive.html`,
+  `${ORIGIN}/portal/blog/en/carl-jung-shadow-self-explained.html`,
 ]);
 const TODAY = (process.env.INDEXING_AUDIT_TODAY || todayInTimeZone()).slice(0, 10);
 const REPORT_DIR = path.join(ROOT, 'logs', 'indexing-audit');
