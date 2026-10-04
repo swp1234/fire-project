@@ -69,6 +69,7 @@
     "verify:safe-local-port": "node scripts/verify-safe-local-port.js",
     "verify:daily-tarot": "node scripts/verify-daily-tarot.js --mutations",
     "verify:blog-indexing-focus": "node scripts/blog-indexing-focus.js --self-test",
+    "verify:blog-topic-prune": "node scripts/blog-topic-prune.js --self-test",
     "verify:indexable-blog-ads": "node scripts/clean-indexable-blog-ads.js --self-test",
     "verify:focused-auto-ads": "node scripts/clean-focused-auto-ads.js --self-test",
     "verify:stress-plan": "node scripts/verify-stress-plan.js && node scripts/verify-stress-plan-distribution.js",

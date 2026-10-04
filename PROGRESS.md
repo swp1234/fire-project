@@ -19,22 +19,18 @@ Updated: 2026-10-01 KST. Release history is in `memory/data-check-log.md`; the r
 - Focus organic traffic growth on high-engagement core products (Stress Check: 95~175s dwell time, Future Self: 178s dwell time, HSP Test: 63s dwell time, Brain Type: 122s dwell time).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Tomorrow Roadmap (내일 작업 목록)
+## Active plan (2026-10-04) — 상세 설계는 `docs/STRATEGY.md`
 
-- **[최우선] DopaBrain 전체 콘텐츠 탐색성 개선 (좌측 카테고리별 목록 네비게이션)**:
-  - 사용자가 DopaBrain 내의 다양한 콘텐츠(심리/성격 테스트, 인지/두뇌 훈련 게임, 감정 회복 도구, 게임 테크 & e스포츠 뇌과학 가이드)를 한눈에 쉽게 파악하고 탐색할 수 있도록 좌측 카테고리별 목록(Sidebar / Drawer Nav) UI 구축.
-  - 데스크톱: 좌측 카테고리별 아코디언/트리 뷰 메뉴 (블로그 레이아웃과 조화).
-  - 모바일: 햄버거 드로어 또는 접이식 카테고리 바 (터치 타깃 최소 44px, 가로 오버플로 0px 엄수).
-- **콘텐츠 지속 확장 (Tiers 262-263 준비 완료)**:
-  - Tier 262: `roblox-custom-dynamic-weather-rain-snow-particle-guide` (카메라 상대 날씨 파티클, 지붕 차폐 레이캐스트).
-  - Tier 263: `horror-game-jump-scare-acoustic-startle-limbic-neuroscience` (청각 놀람 반사, 편도체 하이재킹).
+- 진단: Google 비-`site:` 노출 3회/3개월, 핵심 도구 `Crawled - currently not indexed`. 최근 7일 `$0.55` (`$0.079/day`). 원인 = 주제이탈 대량 블로그 + 얇은 핵심 페이지 + above-the-fold 광고 과밀.
+- **동결**: Tier 파이프라인(262/263 취소), 좌측 사이드바 내비 보류.
+- **P0 품질 정리 — 로컬 적용 완료, 미배포**:
+  - `scripts/blog-topic-prune.js` 추가(`npm run verify:blog-topic-prune`). 블로그 사이트맵 1,884행 제거(1,207 유지).
+  - `blog-indexing-focus.js --apply`로 noindex 2,174 / 유지 1,491. drift 기준 3874.
+  - 다음: `verify:indexing-inventory`·`verify:adsense-contract`·`verify:restricted-ads` → `projects/portal` commit/push → 운영 확인 → 루트 commit/push.
+- P1 핵심 페이지(stress-check, hsp-test, brain-type) 본문·FAQ·schema·About: 미착수.
+- P2 AdSense UI(관련 검색 끄기/제외 영역, 광고 로드 1단계 하향): 사용자 액션 대기.
+- P3 GSC 사이트맵 재제출·핵심 URL 10개 색인 요청·IndexNow 재통지: P0 배포 후.
 
-## Latest release: 3,366 Clean URLs - Roblox Voxel Mining & Stealth Sensory Deprivation Neuroscience (2026-10-01)
-
-- **Roblox Voxel Terrain Mining & Stealth Sensory Deprivation (Tiers 260-261 - 3,366 Clean URLs)**:
-  - Tier 260: 12-language Roblox Dynamic Voxel Terrain Architecture: Real-Time Smooth Terrain APIs, Voxel Density Operations & Debris Physics `roblox-custom-voxel-terrain-digging-dynamic-mesh-guide.html`.
-  - Tier 261: 12-language Stealth Game Neurobiology: Sensory Deprivation, Acoustic Hypervigilance & Parasympathetic Rebound `stealth-game-sensory-deprivation-auditory-hypervigilance-neuroscience.html`.
-  - Canonical inventory verified: exactly **3,366 clean unique URLs (0 issues, 0 blockers)**.
-- **Verification & Deployment**: Full verification suite PASS (`indexing-inventory` 3366/0, Restricted Ads 36/36, Mobile Overflow 0px). Submodule `projects/portal` committed (`4b4333e`) and pushed.
+## Last content release: Tiers 260-261 (2026-10-01), `projects/portal` `4b4333e`. Tier 확장은 이후 동결.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
