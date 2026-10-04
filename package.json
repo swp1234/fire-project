@@ -45,6 +45,7 @@
     "verify:seollal-retirement": "node scripts/verify-seollal-retirement.js --mutations",
     "verify:npc-completion-reset": "node scripts/verify-npc-completion-reset.js --mutations",
     "verify:animal-personality": "node scripts/verify-animal-personality.js --mutations",
+    "verify:kpop-position": "node scripts/verify-kpop-position.js --mutations",
     "verify:docs": "node scripts/verify-doc-budget.js --mutations",
     "verify:anxiety-type": "node scripts/verify-anxiety-type.js --mutations",
     "verify:toxic-trait": "node scripts/verify-toxic-trait.js --mutations",
