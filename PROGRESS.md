@@ -27,8 +27,9 @@ Updated: 2026-10-04 KST. Release history is in `memory/data-check-log.md`; repea
 
 ## Latest release: Full Harness Gate Pass & Core Focus (2026-10-04)
 
-- Submodules: portal `cf7defd`, root-domain `f6e2407`, daily-tarot `4d16547`, stress-check `e3dccae`, hsp-test `f78024d`, brain-type `5ec10cc`, future-self `276d977`, iq-test `fedf1c4`, animal-personality `7cb147e`, kpop-position `e179d54`.
+- Submodules: portal `cf7defd`, root-domain `f6e2407`, puzzle-2048 `2543471`, daily-tarot `4d16547`, stress-check `e3dccae`, hsp-test `f78024d`, brain-type `5ec10cc`, future-self `276d977`, iq-test `fedf1c4`, animal-personality `7cb147e`, kpop-position `e179d54`.
 - Root domain (`f6e2407`): 정규 6선 `top-picks` 복구 및 비정상 정렬 탭 제거, `verify:root` & `verify:root:mutations` 14/14 패스.
+- 2048 Coach (`2543471`): JSON-LD FAQ 스키마와 본문 DOM 일치(3개 질문 DOM 아코디언 구현), 다국어(EN/KO/ZH) 번역 및 CSS 동기화 완료.
 - Portal (`cf7defd`): 768개 색인 블로그 잔존 수동 광고/인텐트 정리 완료(단일 Auto Ads 로더 원칙 준수), `ko/2026-brain-training-top-10` hreflang 정규화.
 - 전체 하네스 워크플로(`node scripts/harness-workflow-check.js`): 100+개 테스트, 뮤테이션, 텔레메트리, 런타임 스모크 전 항목 100% PASS 달성.
 
