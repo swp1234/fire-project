@@ -24,6 +24,9 @@ Updated: 2026-10-04 KST. Release history is in `memory/data-check-log.md`; repea
   - Stress Check (`e3dccae`), HSP Test (`f78024d`), Brain Type (`5ec10cc`), Future Self (`276d977`), IQ Test (`fedf1c4`), Animal Personality (`7cb147e`), K-pop Position (`e179d54`), Daily Tarot (`4d16547`): 학술 프레임워크, FAQ 스키마/DOM 일치, 12개 언어 i18n 동기화, hreflang 고정 완료.
 - **P2 AdSense UI 설정 완료**: 광고 인텐트(의도 기반 형식) 비활성화로 모바일 레이아웃 보호, 광고 로드 1단계 하향.
 - **P3 색인 신호 전송 — 완료**: GSC 5개 URL 색인 요청 + IndexNow 10개 핵심 도구 및 가이드 갱신 제출 (HTTP 200).
+- **P5 포털·블로그 미노출 컨텐츠 전수 조사 & 최신순 목차/목록 네비게이션 설계 (예정)**:
+  - root (`/`), portal (`/portal/`), portal blog (`/portal/blog/`) 하위 미노출/비인덱스 콘텐츠 전수 점검.
+  - 최신순 정렬 시 모든 유효 콘텐츠 노출 보장, 왼쪽 또는 하단 메뉴에 목차(TOC) 및 컨텐츠 목록 탐색 바 추가.
 
 ## Latest release: Full Harness Gate Pass & Core Focus (2026-10-04)
 
