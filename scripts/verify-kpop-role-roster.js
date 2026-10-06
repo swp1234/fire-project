@@ -1122,6 +1122,11 @@ async function verifyPositionJourney(browser, origin, viewport, locale) {
       () => document.querySelector('#question-screen')?.classList.contains('active') && document.querySelectorAll('.option-btn').length === 4,
       `${viewport.name} ${locale} position auto-start did not open question 1`,
     );
+    await page.waitForFunction(
+      () => document.activeElement?.id === 'q-text',
+      null,
+      { timeout: 1500 },
+    ).catch(() => {});
 
     const initial = await page.evaluate(() => ({
       language: document.documentElement.lang,
