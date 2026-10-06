@@ -5,7 +5,7 @@ Updated: 2026-10-04 KST. Release history is in `memory/data-check-log.md`; repea
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
-- **AdSense Status (2026-09-26~10-02)**: Policy violations 0 (`{}`). Completed 7 days total **$0.55** (~$0.079/day). Tier 1 RPM: US $4.25, DE $5.87, CA $7.38. Address PIN remains threshold notice, not delivery block.
+- **AdSense Status (2026-10-05~10-06)**: Policy violations 0 (`{}`). 10-05 **$0.09**, 10-06 **$0.11** (최근 2일 합계 **$0.20**로 일간 목표 $0.20/day 도달). 30일 누적 **$1.56**. Tier 1 RPM: CA $4.81, US $1.91, AU $1.66. Stress Check 체류시간 634초 기록. Address PIN은 기준치 도달 안내 상태 유지(게재 차단 없음).
 - Production `dopabrain.com` generated 100% of impressions and revenue.
 
 ## Current operating rules
