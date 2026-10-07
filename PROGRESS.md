@@ -1,11 +1,11 @@
 # DopaBrain current status
 
-Updated: 2026-10-04 KST. Release history is in `memory/data-check-log.md`; repeatable loop is in `dopabrain-growth-ops`.
+Updated: 2026-10-07 KST. Release history is in `memory/data-check-log.md`; repeatable loop is in `dopabrain-growth-ops`.
 
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
-- **AdSense Status (2026-10-05~10-06)**: Policy violations 0 (`{}`). 10-05 **$0.09**, 10-06 **$0.11** (최근 2일 합계 **$0.20**로 일간 목표 $0.20/day 도달). 30일 누적 **$1.56**. Tier 1 RPM: CA $4.81, US $1.91, AU $1.66. Stress Check 체류시간 634초 기록. Address PIN은 기준치 도달 안내 상태 유지(게재 차단 없음).
+- **AdSense Status (2026-10-07)**: Policy violations 0 (`{}`). 10-06 **$0.11**, 10-07 누적 **$0.02**. 7일 누적 **$0.51**, 30일 누적 **$1.67**. Tier 1 RPM 안정 유지, Address PIN 기준치 도달 안내 상태 유지(게재 차단 없음).
 - Production `dopabrain.com` generated 100% of impressions and revenue.
 
 ## Current operating rules
@@ -15,26 +15,25 @@ Updated: 2026-10-04 KST. Release history is in `memory/data-check-log.md`; repea
 - Focus organic growth on core tools (Stress Check 95~175s, Future Self 178s, HSP Test 63s, Brain Type 122s).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Active plan (2026-10-04) — 상세 설계: `docs/STRATEGY.md`
+## Active plan (2026-10-07) — 상세 설계: `docs/STRATEGY.md`
 
-- 진단: Google 비-`site:` 노출 3회/3개월, 핵심 도구 `Crawled - currently not indexed`. 원인 = 주제이탈 블로그 + 얇은 핵심 페이지 + above-the-fold 광고 과밀.
-- **동결**: Tier 파이프라인(262/263 취소), 좌측 사이드바 내비 보류.
-- **P0 품질 정리 — 배포 완료**: portal `163e74a`, root `91de5c7`. `blog-topic-prune.js`로 사이트맵 1,884행 제거(1,207 유지). `blog-indexing-focus.js` noindex 2,174 적용.
-- **P1 핵심 페이지 강화 — 배포 완료**:
-  - Stress Check (`e3dccae`), HSP Test (`f78024d`), Brain Type (`5ec10cc`), Future Self (`276d977`), IQ Test (`fedf1c4`), Animal Personality (`7cb147e`), K-pop Position (`e179d54`), Daily Tarot (`4d16547`): 학술 프레임워크, FAQ 스키마/DOM 일치, 12개 언어 i18n 동기화, hreflang 고정 완료.
-- **P2 AdSense UI 설정 완료**: 광고 인텐트(의도 기반 형식) 비활성화로 모바일 레이아웃 보호, 광고 로드 1단계 하향.
-- **P3 색인 신호 전송 — 완료**: GSC 5개 URL 색인 요청 + IndexNow 10개 핵심 도구 및 가이드 갱신 제출 (HTTP 200).
-- **P5 포털·블로그 미노출 컨텐츠 전수 조사 & 최신순 목차/목록 네비게이션 설계 (예정)**:
-  - root (`/`), portal (`/portal/`), portal blog (`/portal/blog/`) 하위 미노출/비인덱스 콘텐츠 전수 점검.
-  - 최신순 정렬 시 모든 유효 콘텐츠 노출 보장, 왼쪽 또는 하단 메뉴에 목차(TOC) 및 컨텐츠 목록 탐색 바 추가.
+- **P0 포털·블로그 미노출 컨텐츠 전수 조사 & 최신순 목차 네비게이션 완료**:
+  - `portal/blog/index.html`: 40개 하드코딩 배열을 1,696개 전수 색인 카탈로그(`blog-catalog-data.js`)와 연동. 최신순(latest) 정렬 시 2026-03 등 최신 글 전수 노출 보장.
+  - 데스크톱 좌측 TOC 사이드바 (실시간 최신순 Top 8, 카테고리별 목차, 12개 언어 허브, 인기 테스트 바로가기) 및 모바일 하단 목차 섹션/플로팅 FAB 추가.
+  - `portal/blog/ko/index.html`: 상단 목차 배너(TOC) 추가로 최신 글 Top 5 및 카테고리 빠른 탐색 링크 제공.
+  - `portal/index.html`: 하단 전체 컨텐츠 디렉토리/목차 보강 (100+ 무료 앱/도구 전체 목록, 최신 발행 심리 가이드 12선, MBTI 및 유틸리티 허브 직관적 노출).
+- **P1 품질 & 광고 규약 검증 완료**:
+  - Auto Ads 단일 로더 규약 100% 준수 (`verify:portal-auto-ads-only`, `clean-indexable-blog-ads`).
+  - 모바일 가로 오버플로 0px 및 터치 타깃 44px 이상 유지.
 
-## Latest release: Full Harness Gate Pass & Core Focus (2026-10-04)
+## Latest release: Full Directory & Latest-First Catalog (2026-10-07)
 
-- Submodules: portal `cf7defd`, root-domain `f6e2407`, puzzle-2048 `2543471`, daily-tarot `4d16547`, stress-check `e3dccae`, hsp-test `f78024d`, brain-type `5ec10cc`, future-self `276d977`, iq-test `fedf1c4`, animal-personality `7cb147e`, kpop-position `e179d54`.
-- Root domain (`f6e2407`): 정규 6선 `top-picks` 복구 및 비정상 정렬 탭 제거, `verify:root` & `verify:root:mutations` 14/14 패스.
-- 2048 Coach (`2543471`): JSON-LD FAQ 스키마와 본문 DOM 일치(3개 질문 DOM 아코디언 구현), 다국어(EN/KO/ZH) 번역 및 CSS 동기화 완료.
-- Portal (`cf7defd`): 768개 색인 블로그 잔존 수동 광고/인텐트 정리 완료(단일 Auto Ads 로더 원칙 준수), `ko/2026-brain-training-top-10` hreflang 정규화.
-- 전체 하네스 워크플로(`node scripts/harness-workflow-check.js`): 100+개 테스트, 뮤테이션, 텔레메트리, 런타임 스모크 전 항목 100% PASS 달성.
+- Submodules: portal (수정 완료), root-domain (정규 유지).
+- Portal (`projects/portal`):
+  - `blog-catalog-data.js`: 전수 1,696개 아티클 최신순 정렬 카탈로그 생성.
+  - `blog/index.html`: 반응형 2열 목차 레이아웃, 언어 필터(KO/EN/JA/ES/DE/전체), 최신순 정렬.
+  - `blog/ko/index.html`: 상단 목차 & 빠른 탐색 컴포넌트 추가.
+  - `index.html`: 100+ 앱 & 최신 블로그 전수 목차 디렉토리 개편.
+- 전체 하네스 워크플로 및 검증 게이트 100% 통과.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
-
