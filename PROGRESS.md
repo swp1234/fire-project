@@ -26,13 +26,13 @@ Updated: 2026-10-08 KST. Release history is in `memory/data-check-log.md`; repea
   - Auto Ads 단일 로더 규약 100% 준수 (`verify:portal-auto-ads-only`, `verify:portal-ad-containment`).
   - `npm run harness` 전수 통과 (모든 하네스 검증 [PASS]).
 
-## Latest release: Neon Glassmorphism Catalog & Directory UI (2026-10-08)
+## Latest release: Neon Glassmorphism UI & 2026 Content Elevation (2026-10-09)
 
-- Submodules: portal (`7b21dbd` 선푸시 완료), root-domain (정규 유지).
+- Submodules: portal (`a019e75` 선푸시 완료), root-domain (정규 유지).
 - Portal (`projects/portal`):
-  - `index.html`: 목차 디렉토리 마크업 개편, 시각적 계층화, 마이크로 뱃지 연동.
-  - `css/style.css`: 네온 글래스모피즘 카드 컨테이너, 호버 애니메이션, 모바일 쿼리 최적화.
-- 전체 하네스 워크플로 및 검증 게이트 100% 통과.
+  - `index.html`: 목차 디렉토리 네온 글래스모피즘 카탈로그 개편, 매거진 섹션에 2026 최신 심리 가이드 전면 연동.
+  - `css/style.css`: Hero 위너 카드 3D 림 라이트 및 글래스 질감 강화, Language selector CSS 구문 수정.
+- 전체 하네스 워크플로 및 검증 게이트 100% 통과 ([PASS]).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
 
