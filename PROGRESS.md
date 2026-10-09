@@ -28,11 +28,13 @@ Updated: 2026-10-09 KST. Release history is in `memory/data-check-log.md`; repea
 
 ## Latest release: Homepage Cyber-Neon Glassmorphism & Dopamine Trend Elevation (2026-10-09)
 
-- Submodules: root-domain (`7324f08` 선푸시 완료), portal (`dd71f5d` 선푸시 완료), stress-check (`dd43205` 선푸시 완료).
+- Submodules: root-domain (`7324f08` 선푸시 완료), portal (`19eb3de` 선푸시 완료), stress-check (`dd43205` 선푸시 완료).
 - Root-domain (`projects/root-domain`):
   - `index.html`: 오딧세이/스파이더맨 영화 리뷰 시그널을 고수요 '2026 도파민 디톡스 & 뇌 피로 리셋 가이드'(`dopamine-detox-guide-reset-brain.html`)로 전면 교체.
   - 히어로 CTA, 첫 클릭 추천 카드(3종), 상위 픽 칩(6종) 등 홈페이지 전반을 사이버 네온 글래스모피즘(3D 림 라이트, 발광 호버, 마이크로 칩 뱃지)으로 전면 환골탈태.
   - 12개 지원 언어(`ko en zh hi ru ja es pt id tr de fr`) 로케일 동기화 및 모바일 뷰포트 반응형 최적화(높이 44~96px 유지, 가로 오버플로 0px).
+- Portal (`projects/portal`):
+  - `blog/ko/index.html`: 한국어 블로그 허브 TOC 배너에 킬러 즉시 진단 도구 4종(`HOT`/`NEW`/`AI`) 퀵 링크 컬럼 신설.
 - Root test harness: `verify:root`, `verify:root:mutations`, `npm run harness` 100% 통과 ([PASS]).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
