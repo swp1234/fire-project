@@ -17,25 +17,27 @@ Updated: 2026-10-09 KST. Release history is in `memory/data-check-log.md`; repea
 
 ## Active plan (2026-10-09) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 포털 메인 & 블로그 허브 목차 디렉토리 2026 네온 글래스모피즘 전면 개편 완료**:
-  - `projects/portal/index.html` & `css/style.css`: 'DopaBrain Catalog & Directory' 허브로 전면 개편 (글래스 패널, `HOT`/`NEW`/`AI` 마이크로 칩 뱃지, 호버 글로우).
-  - `projects/portal/blog/en/index.html`: "Featured Topics & Quick Catalog" TOC 배너 신설 (최신 인기 심리 가이드 8종 및 킬러 테스트 도구 4종 다이렉트 연동).
-  - 모바일 반응형 1~2열 최적화 (터치 타깃 44px 이상, 모바일 가로 오버플로 0px 유지).
-- **P1 다국어 초기화 & 하네스 검증 완료**:
-  - `projects/stress-check/index.html`: URL `lang` 파라미터 감지 시 `document.documentElement.lang` 즉시 동기화로 브리지 레이스 컨디션 해결.
-  - Auto Ads 단일 로더 규약 100% 준수 (`verify:portal-auto-ads-only`, `verify:portal-ad-containment`).
-  - `npm run harness` 전수 통과 (모든 하네스 검증 [PASS]).
+- **P0 GSC 검색 크롤러 차단 요소(Thin Content) 전면 해소**:
+  - `stress-check`, `hsp-test`, `future-self`, `iq-test`: 접혀있던 학술 방법론/점수기준/FAQ `<details open>` 전면 기본 노출 전환.
+  - 서브모듈 선푸시 완료: `stress-check`(`1f49653`), `hsp-test`(`ecb50d8`), `future-self`(`b682a2e`), `iq-test`(`c9d63b7`).
+  - IndexNow 즉시 제출 완료: `stress-check`, `hsp-test`, `future-self`, `iq-test`, `animal-personality`, `brain-type`.
+- **P1 소셜 트렌드 기반 신규 킬러 콘텐츠 배포**:
+  - Reddit/Reels 실시간 화제(ADHD 마비, 열린 탭 100개, 도파민 번아웃) 분석 반영.
+  - `portal/blog/ko/adhd-paralysis-open-tabs-dopamine-burnout.html` 배포 (인터랙티브 탭 진단 위젯 및 즉시 진단 도구 연동).
+  - `portal` (`3bb5ba3` 선푸시 완료): 한국어 블로그 Top 5 및 최신 글 1열에 연동.
 
-## Latest release: Homepage Cyber-Neon Glassmorphism & Dopamine Trend Elevation (2026-10-09)
+## Latest release: Crawler Indexing Unblock & ADHD Dopamine Trend Launch (2026-10-09)
 
-- Submodules: root-domain (`7324f08` 선푸시 완료), portal (`19eb3de` 선푸시 완료), stress-check (`dd43205` 선푸시 완료).
-- Root-domain (`projects/root-domain`):
-  - `index.html`: 오딧세이/스파이더맨 영화 리뷰 시그널을 고수요 '2026 도파민 디톡스 & 뇌 피로 리셋 가이드'(`dopamine-detox-guide-reset-brain.html`)로 전면 교체.
-  - 히어로 CTA, 첫 클릭 추천 카드(3종), 상위 픽 칩(6종) 등 홈페이지 전반을 사이버 네온 글래스모피즘(3D 림 라이트, 발광 호버, 마이크로 칩 뱃지)으로 전면 환골탈태.
-  - 12개 지원 언어(`ko en zh hi ru ja es pt id tr de fr`) 로케일 동기화 및 모바일 뷰포트 반응형 최적화(높이 44~96px 유지, 가로 오버플로 0px).
-- Portal (`projects/portal`):
-  - `blog/ko/index.html`: 한국어 블로그 허브 TOC 배너에 킬러 즉시 진단 도구 4종(`HOT`/`NEW`/`AI`) 퀵 링크 컬럼 신설.
-- Root test harness: `verify:root`, `verify:root:mutations`, `npm run harness` 100% 통과 ([PASS]).
+- Submodules: stress-check (`1f49653`), hsp-test (`ecb50d8`), future-self (`b682a2e`), iq-test (`c9d63b7`), portal (`3bb5ba3`).
+- Crawler & Indexing:
+  - 핵심 진입 도구의 `<details open>` 기본 노출 전환으로 '크롤링됨 - 현재 색인 생성되지 않음' 저품질 판정 위험 차단.
+  - IndexNow API 통한 즉각 인덱싱 제출 (HTTP 200).
+- Trend Content:
+  - '열린 탭 100개와 ADHD 마비: 도파민 번아웃 0~100% 자가진단 및 뇌 피로 리셋법' 발행.
+  - 인터랙티브 '탭 과적형 vs 앱 방랑형' 선택 위젯, 4종 즉시 진단 카드, Auto Ads 단일 로더, 모바일 가로 오버플로 0px 검증 통과.
+- Test Harness & Ports:
+  - 감정 조절 플래너 검증기(`verify-{de,id,ko}-emotion-action-path.js`)에 `listenOnSafePort` 적용하여 Chromium `ERR_UNSAFE_PORT` 방지.
+  - `npm run harness` 전수 통과 ([PASS]).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
 

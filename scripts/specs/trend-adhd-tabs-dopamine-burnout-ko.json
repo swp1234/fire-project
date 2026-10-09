@@ -1,0 +1,204 @@
+{
+  "lang": "ko",
+  "slug": "adhd-paralysis-open-tabs-dopamine-burnout",
+  "title": "열린 탭 100개와 ADHD 마비: 도파민 번아웃 0~100% 자가진단 및 뇌 피로 리셋법",
+  "h1": "열린 탭 100개와 ADHD 마비: 도파민 번아웃 탈출 가이드",
+  "description": "브라우저에 쌓인 100개의 열린 탭과 메모. ADHD 실행기능 마비와 도파민 번아웃의 신경과학적 원인 및 즉시 실행 가능한 3단계 뇌 피로 리셋 루틴을 알아봅니다.",
+  "keywords": [
+    "ADHD 마비",
+    "열린 탭 도파민",
+    "도파민 번아웃 자가진단",
+    "실행기능 장애",
+    "뇌 피로 리셋",
+    "디지털 호딩"
+  ],
+  "category": "tests",
+  "tag": "Trend",
+  "tagColor": "#6366f1",
+  "readTime": "8분",
+  "themeColor": "#6366f1",
+  "contentGroup": "trend_growth",
+  "contentSlug": "adhd-paralysis-open-tabs-dopamine-burnout",
+  "ogImage": "https://dopabrain.com/portal/img/og/stress-check.png",
+  "date": "2026-10-09",
+  "dateModified": "2026-10-09",
+  "quickRail": {
+    "title": "내 뇌 상태에 맞는 즉시 진단 도구",
+    "description": "글을 읽기 전, 나의 피로도와 주의력 패턴을 바로 확인해보세요.",
+    "cards": [
+      {
+        "title": "스트레스 레벨 체크",
+        "description": "15문항으로 인지 과부하와 피로도를 5개 영역으로 분석합니다.",
+        "url": "https://dopabrain.com/stress-check/?lang=ko",
+        "surface": "adhd_tabs_quick_stress",
+        "targetSlug": "stress-check"
+      },
+      {
+        "title": "뇌 인지 유형 테스트",
+        "description": "계획형 vs 즉흥형, 직관적 선택 패턴을 도출합니다.",
+        "url": "https://dopabrain.com/brain-type/?lang=ko",
+        "surface": "adhd_tabs_quick_brain_type",
+        "targetSlug": "brain-type"
+      },
+      {
+        "title": "HSP 감각 민감도 테스트",
+        "description": "디지털 자극과 소음 과부하에 얼마나 취약한지 확인합니다.",
+        "url": "https://dopabrain.com/hsp-test/?lang=ko",
+        "surface": "adhd_tabs_quick_hsp",
+        "targetSlug": "hsp-test"
+      },
+      {
+        "title": "미래의 나 선택 테스트",
+        "description": "장기적 목표와 현재 충동 사이의 연결감을 점검합니다.",
+        "url": "https://dopabrain.com/future-self/?lang=ko",
+        "surface": "adhd_tabs_quick_future_self",
+        "targetSlug": "future-self"
+      }
+    ]
+  },
+  "cta": {
+    "title": "지금 나의 뇌 피로도와 스트레스 레벨은?",
+    "body": "머릿속이 100개의 탭처럼 엉켜있나요? 15가지 질문으로 현재 인지 부하와 도파민 피로 상태를 진단해보세요.",
+    "label": "15문항 스트레스 레벨 측정하기 →",
+    "url": "https://dopabrain.com/stress-check/?lang=ko&start=1&source=adhd_tabs_guide_primary",
+    "surface": "adhd_tabs_primary_cta",
+    "targetSlug": "stress-check"
+  },
+  "interaction": {
+    "id": "adhd-tab-overload-mode",
+    "name": "tab_overload_choice",
+    "surface": "adhd_tab_fork",
+    "title": "지금 당신의 브라우저와 뇌 상태는 어느 쪽에 가깝나요?",
+    "help": "의학적 진단이 아닌, 현재 나의 작업 기억과 인지 과부하 상태를 점검하는 신호입니다.",
+    "legend": "탭 과적형 vs 앱 방랑형 중 하나 선택",
+    "replaceSectionHeading": "3. 나의 도파민 번아웃 단계: 0% to 100% 자가 진단",
+    "choices": [
+      {
+        "id": "tab_hoarder",
+        "label": "탭 과적형 — '언젠가 볼 거야' 100개 이상 열어둠",
+        "shareLabel": "탭 과적형",
+        "summary": "정보를 잃어버릴까 두려운 인지적 불안(Information FOMO) 상태입니다. 뇌의 작업 기억(Working Memory)이 배경에서 열린 탭들을 무의식적으로 추적하느라 뇌의 인지 대역폭이 소모되고 있습니다. 탭 닫기는 포기가 아니라 뇌 RAM을 확보하는 행위입니다.",
+        "ctaSurface": "adhd_tab_hoarder_choice"
+      },
+      {
+        "id": "task_hopper",
+        "label": "앱 방랑형 — 이거 하려다 딴 앱 켜고 30분 순삭",
+        "shareLabel": "앱 방랑형",
+        "summary": "작업 간 전환 비용(Switching Cost)이 극대화된 상태입니다. 원래 해야 할 일의 도파민 보상이 즉각적이지 않아 뇌가 손쉬운 초단기 자극(SNS, 숏폼, 알림)으로 도피하는 전형적인 ADHD 실행 마비 패턴입니다.",
+        "ctaSurface": "adhd_task_hopper_choice"
+      }
+    ],
+    "ctaLabel": "스트레스 & 번아웃 정밀 측정 시작 →",
+    "ctaUrl": "https://dopabrain.com/stress-check/?lang=ko&start=1",
+    "ctaTargetSlug": "stress-check",
+    "shareLabel": "내 뇌 상태 진단 공유",
+    "shareSurface": "adhd_tab_result",
+    "shareTemplate": "내 뇌 상태는 ‘{choice}’! 열린 탭 100개와 도파민 번아웃 탈출 루틴 점검 완료. 당신의 뇌 상태는?",
+    "shareTitle": "열린 탭 100개와 ADHD 마비 진단",
+    "shareSuccess": "진단 결과를 공유했습니다.",
+    "shareFailure": "공유하지 못했습니다. 다시 시도해 주세요.",
+    "copySuccess": "결과와 링크를 클립보드에 복사했습니다.",
+    "copyFailure": "복사하지 못했습니다. 브라우저 주소창 링크를 복사해 주세요."
+  },
+  "sections": [
+    {
+      "heading": "1. 100개의 열린 탭: 왜 닫지 못하고 쌓아둘까?",
+      "paragraphs": [
+        "스마트폰 사파리나 크롬 브라우저를 열었을 때 '탭 수: :D' 웃는 얼굴 모양이나 99+ 아이콘을 마주한 적이 있나요? 나중에 꼭 읽어야지 하며 캡처해 둔 스크린샷 수천 장, 북마크해 둔 아티클, 노션이나 메모장에 흩어진 아이디어들은 현대인의 뇌를 소리 없이 잠식합니다.",
+        "인지 심리학에서는 이를 '인지적 외부 저장 실패(Cognitive Offloading Failure)'라고 부릅니다. 뇌는 자신이 가진 작업 기억(Working Memory, 대략 4~7개 정보 단위)의 한계를 알기 때문에 디지털 기기에 정보를 위탁합니다. 하지만 이를 분류하고 소화할 인지 자원이 부족해지면, 저장해 둔 목록 자체가 거대한 부채(Debt)가 되어 뇌를 짓누릅니다."
+      ],
+      "bullets": [
+        "열어둔 탭을 끄지 못하는 이유: '이 정보를 잊어버리면 소중한 기회를 놓칠 것 같다'는 손실 회피(Loss Aversion) 심리.",
+        "메모만 쌓이고 실행은 0인 이유: 정보를 저장하는 순간 뇌는 '이미 실행을 시작했다'는 착각과 가짜 도파민을 소비함.",
+        "배경 인지 부하: 컴퓨터에 백그라운드 프로그램 100개가 켜져 있으면 CPU가 과열되듯, 열린 탭은 시각적 주의력을 지속적으로 분산시킴."
+      ]
+    },
+    {
+      "heading": "2. ADHD 마비(Paralysis)와 도파민 보상 결핍의 신경 메커니즘",
+      "paragraphs": [
+        "해야 할 중요한 업무가 눈앞에 있는데 몸이 굳은 듯 꼼짝할 수 없고, 결국 엉뚱하게 서랍을 정리하거나 숏폼을 1시간째 보고 있는 상태를 겪어보셨나요? 이는 단순한 게으름이 아니라 신경생리학적 'ADHD 실행 마비(Executive Dysfunction / ADHD Paralysis)' 현상입니다.",
+        "전두엽(Prefrontal Cortex)은 행동을 개시(Initiation)하고, 우선순위를 정하며, 방해 요소를 억제하는 사령탑 역할을 합니다. 이때 뇌의 신경전달물질인 도파민과 노르에피네프린이 적정 농도로 분비되어야 시동이 걸립니다. 도파민 기저치가 고갈되었거나 보상이 먼 미래에 있는 작업에 직면하면, 전두엽은 작업에 착수할 연료를 얻지 못해 마비 상태에 빠집니다."
+      ],
+      "bullets": [
+        "작업 착수 마비(Task Initiation Paralysis): 시작하기 위해 필요한 인지 에너지가 너무 높아 0에서 1로 나아가지 못함.",
+        "선택 과부하 마비(Choice Overload): 선택지가 너무 많거나 순서가 모호할 때 뇌가 결정을 포기하고 정지함.",
+        "과몰입 전환 마비(Hyperfocus Inertia): 덜 중요한 비본질적 작업(예: 화장실 청소, 탭 정리)에 도파민이 꽂혀 정작 중요한 일로 전환하지 못함."
+      ]
+    },
+    {
+      "heading": "3. 나의 도파민 번아웃 단계: 0% to 100% 자가 진단",
+      "paragraphs": [
+        "현재 당신의 인지 배터리는 몇 퍼센트 남아있을까요? 증상이 심해지기 전에 나의 뇌 피로도 단계를 객관적으로 파악해야 적절한 리셋 방법을 적용할 수 있습니다."
+      ],
+      "bullets": [
+        "0~25% (정상 및 가벼운 피로): 가끔 탭을 잊지만 하루 끝에 닫을 수 있고, 휴식 후 집중력이 회복됨.",
+        "26~50% (주의 집중 분산 단계): 브라우저 탭이 30개 이상 누적되고, 한 작업을 하다가 다른 알림에 쉽게 주의를 빼앗김.",
+        "51~75% (도파민 과부하 단계): 탭 80개 초과, 저장한 메모를 다시 볼 엄두가 나지 않으며, 해야 할 일 앞에서 극심한 뇌 안개(Brain Fog)와 저항감 발생.",
+        "76~100% (완전 방전 / ADHD 마비 상태): 탭 100개 이상, 일상적인 이메일 확인이나 답장조차 공포스럽게 느껴지며 수면 패턴과 일상이 무너짐."
+      ]
+    },
+    {
+      "heading": "4. 탭 100개 증후군을 끄는 3단계 '뇌 RAM 초기화' 루틴",
+      "paragraphs": [
+        "의지력으로 탭 100개를 하나씩 검토해서 닫으려 하지 마세요. 그것 자체가 이미 방전된 전두엽에게는 치명적인 결정 피로(Decision Fatigue)를 유발합니다. 뇌 신경망을 보호하는 가장 빠르고 효과적인 3단계 리셋 프로토콜을 제안합니다."
+      ],
+      "bullets": [
+        "1단계: '도축 대신 냉동' (One-Click Tab Archive): 탭을 하나하나 판단하지 말고, '모든 탭 북마크 폴더로 저장'을 누른 뒤 과감히 전체 창을 닫으세요. 뇌에게 '정보를 버린 게 아니라 안전하게 보관했다'는 안도감을 주면서 RAM을 즉시 0으로 비웁니다.",
+        "2단계: '5분 미시 행동(Micro-step)': 거창한 목표 대신 '문서 열기', '이메일 수신함 열기' 등 실패할 수 없을 만큼 작은 행동 1개만 실행합니다. 전두엽은 일단 5분간 물리적 행동을 시작하면 도파민을 분비하며 가속도를 붙입니다.",
+        "3단계: '자극 단절 10분 멍때리기': 스마트폰을 다른 방에 두고 10분 동안 창밖을 보거나 눈을 감으세요. 뇌의 디폴트 모드 네트워크(DMN)가 활성화되어 분산되었던 기억 파편을 정리하고 도파민 수용체를 재감작화(Resensitization)합니다."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "열린 탭을 끄지 못하는 것도 성인 ADHD의 전형적인 증상인가요?",
+      "answer": "성인 ADHD의 핵심 특징 중 하나인 '작업 기억 결핍'과 '정리 정돈의 어려움'이 디지털 환경에서 열린 탭이나 파일 무질서로 나타나는 경우가 매우 흔합니다. 다만 단순한 디지털 피로와 번아웃에서도 유사한 증상이 나타날 수 있으므로 단정적인 진단보다는 전반적인 주의 집중 패턴을 관찰하는 것이 중요합니다."
+    },
+    {
+      "question": "도파민 디톡스를 하면 뇌 피로가 즉각 개선되나요?",
+      "answer": "도파민 자체를 없애는 것이 아니라, 초자극(숏폼, 끝없는 스크롤)에 둔감해진 수용체 감도를 회복하는 과정입니다. 2~3일간 고자극 미디어를 줄이고 단일 작업에 몰입하면 뇌 안개와 산만함이 유의미하게 감소합니다."
+    },
+    {
+      "question": "실행 마비가 왔을 때 가장 먼저 해야 할 일은 무엇인가요?",
+      "answer": "자책을 멈추고 몸을 물리적으로 움직이는 것입니다. 자리에서 일어나 물 한 잔을 마시거나 창문을 열어 환기를 시키는 등 30초짜리 물리적 신체 행동이 마비된 전두엽 회로에 신선한 산소와 신경 신호를 공급합니다."
+    },
+    {
+      "question": "DopaBrain 자가진단 도구는 병원 검사를 대신할 수 있나요?",
+      "answer": "아닙니다. DopaBrain의 스트레스 체크와 뇌 유형 도구는 일상적 자기 점검과 웰니스를 돕는 교육용 인터랙티브 도구이며, 정신건강의학과의 임상적 진단이나 의료 행위를 대체하지 않습니다."
+    }
+  ],
+  "related": [
+    {
+      "label": "스트레스 레벨 체크",
+      "url": "https://dopabrain.com/stress-check/",
+      "surface": "related_stress_check",
+      "targetSlug": "stress-check"
+    },
+    {
+      "label": "뇌 인지 유형 테스트",
+      "url": "https://dopabrain.com/brain-type/",
+      "surface": "related_brain_type",
+      "targetSlug": "brain-type"
+    },
+    {
+      "label": "2048 집중력 코치",
+      "url": "https://dopabrain.com/puzzle-2048/coach.html",
+      "surface": "related_2048_coach",
+      "targetSlug": "2048-coach"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Barkley, R. A. (2012). Executive Functions: What They Are and How They Work. Guilford Press.",
+      "url": "https://www.guilford.com/books/Executive-Functions/Russell-Barkley/9781462505357"
+    },
+    {
+      "label": "Sweller, J. (1988). Cognitive Load During Problem Solving. Cognitive Science, 12(2), 257-285.",
+      "url": "https://doi.org/10.1207/s15516709cog1202_4"
+    },
+    {
+      "label": "American Psychological Association: Stress and Executive Function",
+      "url": "https://www.apa.org/topics/stress"
+    }
+  ]
+}

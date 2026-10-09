@@ -3,6 +3,7 @@ const fs = require('fs');
 const http = require('http');
 const path = require('path');
 const { chromium } = require('playwright');
+const { listenOnSafePort } = require('./lib/safe-local-port');
 
 const ROOT = path.resolve(__dirname, '..');
 const PORTAL = path.join(ROOT, 'projects', 'portal');
@@ -116,8 +117,10 @@ async function linkedJourney(browser, origin, viewport) {
   await page.close();
 }
 async function verifyRuntime(live=false) {
-  const local=live?null:server(); if(local) await new Promise(resolve=>local.listen(0,'127.0.0.1',resolve));
-  const origin=live?'https://dopabrain.com':`http://127.0.0.1:${local.address().port}`;
+  const local=live?null:server();
+  let address=null;
+  if(local) address = await listenOnSafePort(local);
+  const origin=live?'https://dopabrain.com':`http://127.0.0.1:${address.port}`;
   const browser=await chromium.launch({headless:true});
   try {
     for (const language of LANGUAGES) {

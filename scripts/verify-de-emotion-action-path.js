@@ -3,6 +3,7 @@ const fs=require('fs');
 const http=require('http');
 const path=require('path');
 const {chromium}=require('playwright');
+const {listenOnSafePort}=require('./lib/safe-local-port');
 
 const ROOT=path.resolve(__dirname,'..');
 const PORTAL=path.join(ROOT,'projects','portal');
@@ -112,6 +113,6 @@ async function journey(browser,origin,viewport,local){
     if((await events(page)).find(row=>row.name==='emotion_action_view')?.params?.entry_source!=='direct')fail(`${viewport.width}: unknown source did not normalize`);
   }finally{await page.close()}
 }
-async function runtime(live=false){const local=live?null:server();if(local)await new Promise(resolve=>local.listen(0,'127.0.0.1',resolve));const origin=live?'https://dopabrain.com':`http://127.0.0.1:${local.address().port}`,browser=await chromium.launch({headless:true});try{for(const viewport of[{width:390,height:844},{width:1440,height:1000}])await journey(browser,origin,viewport,!live);return{environment:live?'live':'local',locale:'de',viewports:[390,1440],events:9,private:true,sanitized:true}}finally{await browser.close();if(local)await new Promise(resolve=>local.close(resolve))}}
+async function runtime(live=false){const local=live?null:server();let address=null;if(local)address=await listenOnSafePort(local);const origin=live?'https://dopabrain.com':`http://127.0.0.1:${address.port}`,browser=await chromium.launch({headless:true});try{for(const viewport of[{width:390,height:844},{width:1440,height:1000}])await journey(browser,origin,viewport,!live);return{environment:live?'live':'local',locale:'de',viewports:[390,1440],events:9,private:true,sanitized:true}}finally{await browser.close();if(local)await new Promise(resolve=>local.close(resolve))}}
 
 (async()=>{const source=verifySource(load());console.log('[PASS] source contract',source);if(process.argv.includes('--mutations'))runMutations();console.log('[PASS] runtime contract',await runtime(process.argv.includes('--live')));console.log('[PASS] German emotion action path verified')})().catch(error=>{console.error(`[FAIL] ${error.message}`);process.exit(1)});
