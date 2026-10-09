@@ -5,37 +5,32 @@ Updated: 2026-10-09 KST. Release history is in `memory/data-check-log.md`; repea
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
-- **AdSense Status (2026-10-09)**: Policy violations 0 (`{}`). 10-06 **$0.11**, 10-07 **$0.02**, 10-08 **$0.06** (반등!, Brazil $0.02, US $0.03), 10-09 진행 중 ($0.01). 7일 누적 **$0.55**, 30일 누적 **$1.69**.
-- 핵심 대책: PV당 노출률 11~25%대 유지하며 체류시간이 검증된 킬러 진입면과 최신 바이럴 진단 가이드를 전면 배치하여 고가치 오가닉 유입 및 클릭 활성화 도모.
+- **AdSense Status (2026-10-09)**: Policy violations 0 (`{}`). 10-06 **$0.11**, 10-07 **$0.02**, 10-08 **$0.06** (반등!, Brazil $0.02, US $0.03), 10-09 진행 중 ($0.02). 7일 누적 **$0.55**, 30일 누적 **$1.69**.
+- 핵심 대책: PV당 노출률 11~25%대 유지하며 체류시간 1위 진입면과 고수익 로케일(US/BR/LATAM) 최신 바이럴 인터랙티브 가이드를 전면 배치하여 오가닉 유입 및 CTR 증대.
 
 ## Current operating rules
 
 - Keep 36 legacy apps in invalid-traffic suspension contract.
-- Exclude Singapore desktop Direct scans (4.5s) and China bursts from decisions.
 - Focus organic growth on core tools (Stress Check 95~175s, Future Self 178s, HSP Test 63s, Brain Type 122s, Mental Age).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
 ## Active plan (2026-10-09) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 GSC 검색 크롤러 차단 요소(Thin Content) 전면 해소**:
-  - `mental-age`: 7개 인지 영역 설명 및 E-E-A-T FAQ `<section class="about-section">` `<details open>` 기본 노출 전환 (Thin Content 해소).
-  - `stress-check`, `hsp-test`, `future-self`, `iq-test`, `puzzle-2048`: 접힌 아코디언 기본 노출 전환.
-  - 서브모듈 선푸시: `mental-age`(`e41ea44`), `stress-check`, `hsp-test`, `future-self`, `iq-test`, `puzzle-2048`.
-- **P1 소셜 트렌드 기반 신규 킬러 콘텐츠 배포**:
-  - 신규 배포: `adhd-paralysis`, `brain-battery`, `brain-rot`, `revenge-bedtime-procrastination` (각 ko/en 인터랙티브 진단).
-  - 서브모듈 선푸시: `portal`(`150be60`), `emoji-merge`(`14ed27c`), `mental-age`(`92437e3`), `root-domain`(`f137d55`).
-  - 엄격 인덱싱 인벤토리 검증(`verify:indexing-inventory`): 1,491개 URL 전수 이슈 0건(Clean) 달성.
+- **P0 GSC 검색 크롤러 차단 요소(Robots 메타 & Thin Content) 전면 해소**:
+  - `stress-check`, `hsp-test`, `reaction-test`, `puzzle-2048`, `social-battery`, `root-domain`: `index, follow` robots 지시어 명시 및 누락 태그 전면 정상화.
+  - 서브모듈 선푸시: `stress-check`(`ea09923`), `hsp-test`(`57b0440`), `reaction-test`(`3180316`), `puzzle-2048`(`69a497c`), `social-battery`(`d5c9e6d`), `root-domain`(`32e5bfb`).
+- **P1 브라질(pt)/남미(es) 고수익 로케일 트렌드 킬러 콘텐츠 배포**:
+  - `brain-rot` 포르투갈어(`pt`) & 스페인어(`es`) 인터랙티브 진단 가이드 배포 및 포털 인덱스 연동.
+  - 서브모듈 선푸시: `portal`(`70f62f2`). IndexNow 100% 제출 완료 (HTTP 200).
+  - 엄격 인덱싱 인벤토리 검증(`verify:indexing-inventory`): 1,493개 URL 전수 이슈 0건(Clean) 달성.
 
-## Latest release: Revenge Bedtime Procrastination & Crawler Optimization (2026-10-09)
+## Latest release: Robots Directives Fix & LATAM Expansion (2026-10-09)
 
-- Submodules: mental-age (`92437e3`), emoji-merge (`14ed27c`), root-domain (`f137d55`), portal (`150be60`).
+- Submodules: stress-check (`ea09923`), hsp-test (`57b0440`), reaction-test (`3180316`), puzzle-2048 (`69a497c`), social-battery (`d5c9e6d`), root-domain (`32e5bfb`), portal (`70f62f2`).
 - Crawler & Indexing:
-  - Mental Age 7대 인지 메커니즘 정적 콘텐츠 확충으로 Thin Content 탈피 및 IndexNow 즉시 제출 (HTTP 200).
-  - Portal & Emoji-merge 중복 robots 메타태그 정리로 크롤러 혼선 해소 및 재제출 완료.
-  - 신규 바이럴 가이드 4종(ADHD 탭 마비, 뇌 배터리 12%, 브레인 롯, 보복성 취침 미루기) sitemap & IndexNow 완료.
-- Trend Content & Portal UX:
-  - 보복성 취침 미루기 & 수면 부채 실시간 진단기 배포, 포털 히어로 1순위에 Stress Check 전면 배치.
+  - 6개 핵심 진입면 robots 태그에 `index, follow` 명시화로 GSC 'Crawled - currently not indexed' 병목 원인 해소.
+  - 포르투갈어/스페인어 브레인 롯 가이드 배포, 사이트맵 등록 및 IndexNow 성공.
 - Test Harness:
-  - 아티클 인벤토리 3,882건 및 하네스 전수 검증 100% 통과 (1,491개 URL 0 issues).
+  - 아티클 인벤토리 3,884건, sitemap 1,493개 URL 전수 검사 0 issues, 0 blockers 통과.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
