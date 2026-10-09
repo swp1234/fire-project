@@ -14,7 +14,7 @@ const PICK_PATHS = [
   '/stress-check/', '/hsp-test/', '/puzzle-2048/coach.html',
   '/brain-type/', '/iq-test/', '/portal/tools/kpop-role-roster.html',
 ];
-const SIGNAL_PATH = '/portal/blog/ko/odyssey-spider-man-identity-reset-2026.html';
+const SIGNAL_PATH = '/portal/blog/ko/dopamine-detox-guide-reset-brain.html';
 const HEALTH_PATHS = [...new Set([...PICK_PATHS, SIGNAL_PATH, '/portal/', '/portal/privacy-policy.html'])];
 const REQUIRED_SCHEMA_TYPES = ['CollectionPage', 'ItemList', 'Organization', 'WebSite'];
 const CRASH_PATTERN = /ReferenceError|TypeError|SyntaxError|Unhandled|is not defined|is not a function/i;
@@ -232,7 +232,7 @@ function assertPageState(state, locale, lang, viewport) {
   assert(state.signal.compactCount === 1, `${lang}/${viewport.name}: Culture signal compact count mismatch`);
   assert(state.signal.eventCount === 1 && state.signal.event === 'root_trend_click', `${lang}/${viewport.name}: Culture signal event binding mismatch`);
   assert(state.signal.surface === 'culture_signal', `${lang}/${viewport.name}: Culture signal surface mismatch`);
-  assert(state.signal.app === 'odyssey-spiderman-2026', `${lang}/${viewport.name}: Culture signal app mismatch`);
+  assert(state.signal.app === 'dopamine-detox-guide', `${lang}/${viewport.name}: Culture signal app mismatch`);
   assert(state.signal.previousIsHero, `${lang}/${viewport.name}: Culture signal must follow hero actions`);
   assert(state.signal.nextIsStart, `${lang}/${viewport.name}: Culture signal must precede Start Here`);
   assert(state.signal.legacyWrapperCount === 0, `${lang}/${viewport.name}: Legacy culture signal wrapper remains`);
@@ -285,7 +285,7 @@ async function assertAnalytics(page) {
   assert(trendEvents.length === 1, 'root_trend_click must fire exactly once for one child click');
   assert(trendEvents[0].params.surface === 'culture_signal', 'root_trend_click surface mismatch');
   assert(trendEvents[0].params.destination === SIGNAL_PATH, 'root_trend_click destination mismatch');
-  assert(trendEvents[0].params.app_id === 'odyssey-spiderman-2026', 'root_trend_click app mismatch');
+  assert(trendEvents[0].params.app_id === 'dopamine-detox-guide', 'root_trend_click app mismatch');
   await page.locator('#lang-toggle').click();
   await page.locator('.lang-option[data-lang="fr"]').click();
   await waitForEvent(() => window.__rootVerifierEvents.some((event) => event.name === 'root_language_change' && event.params.language === 'fr'));

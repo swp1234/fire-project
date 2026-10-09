@@ -62,7 +62,7 @@ const mutations = [
   {
     name: 'broken-culture-signal-route', expected: 'Culture signal path mismatch',
     apply(rootDir) {
-      mutateIndex(rootDir, (html) => html.replace('/portal/blog/ko/odyssey-spider-man-identity-reset-2026.html', '/portal/blog/ko/missing-culture-signal.html'));
+      mutateIndex(rootDir, (html) => html.replace('/portal/blog/ko/dopamine-detox-guide-reset-brain.html', '/portal/blog/ko/missing-culture-signal.html'));
     },
   },
   {

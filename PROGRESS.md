@@ -26,16 +26,14 @@ Updated: 2026-10-09 KST. Release history is in `memory/data-check-log.md`; repea
   - Auto Ads 단일 로더 규약 100% 준수 (`verify:portal-auto-ads-only`, `verify:portal-ad-containment`).
   - `npm run harness` 전수 통과 (모든 하네스 검증 [PASS]).
 
-## Latest release: Neon Glassmorphism UI & Multi-Hub Catalog Elevation (2026-10-09)
+## Latest release: Homepage Cyber-Neon Glassmorphism & Dopamine Trend Elevation (2026-10-09)
 
-- Submodules: portal (`dd71f5d` 선푸시 완료), stress-check (`dd43205` 선푸시 완료).
-- Portal (`projects/portal`):
-  - `index.html`: 목차 디렉토리 네온 글래스모피즘 카탈로그 개편, 매거진 섹션에 2026 최신 심리 가이드 전면 연동.
-  - `css/style.css`: Hero 위너 카드 3D 림 라이트 및 글래스 질감 강화, Language selector CSS 구문 수정.
-  - `blog/en/index.html`: 영문 블로그 허브 네온 글래스 TOC 배너 주입 및 트렌딩 아티클·도구 연결.
-- Stress Check (`projects/stress-check`):
-  - `index.html`: 초기 lang 동기화 보강으로 브리지 레이스 컨디션 제거.
-- 전체 하네스 워크플로 및 검증 게이트 100% 통과 ([PASS]).
+- Submodules: root-domain (`7324f08` 선푸시 완료), portal (`dd71f5d` 선푸시 완료), stress-check (`dd43205` 선푸시 완료).
+- Root-domain (`projects/root-domain`):
+  - `index.html`: 오딧세이/스파이더맨 영화 리뷰 시그널을 고수요 '2026 도파민 디톡스 & 뇌 피로 리셋 가이드'(`dopamine-detox-guide-reset-brain.html`)로 전면 교체.
+  - 히어로 CTA, 첫 클릭 추천 카드(3종), 상위 픽 칩(6종) 등 홈페이지 전반을 사이버 네온 글래스모피즘(3D 림 라이트, 발광 호버, 마이크로 칩 뱃지)으로 전면 환골탈태.
+  - 12개 지원 언어(`ko en zh hi ru ja es pt id tr de fr`) 로케일 동기화 및 모바일 뷰포트 반응형 최적화(높이 44~96px 유지, 가로 오버플로 0px).
+- Root test harness: `verify:root`, `verify:root:mutations`, `npm run harness` 100% 통과 ([PASS]).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
 
