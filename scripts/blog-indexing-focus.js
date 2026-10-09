@@ -147,7 +147,7 @@ function inspect({ apply = false } = {}) {
     const file = path.join(PORTAL, pathname.replace(/^\/portal\//, '').split('/').join(path.sep));
     if (!fs.existsSync(file)) failures.push(`${pathname}: retained page file is missing`);
   }
-  if (counts.articles !== 3875) failures.push(`article inventory drift: expected 3875, got ${counts.articles}`);
+  if (counts.articles !== 3876) failures.push(`article inventory drift: expected 3876, got ${counts.articles}`);
   if (counts.redirects !== 209) failures.push(`redirect inventory drift: expected 209, got ${counts.redirects}`);
   if (failures.length) fail(`${failures.length} indexing focus issue(s):\n- ${failures.slice(0, 20).join('\n- ')}`);
 

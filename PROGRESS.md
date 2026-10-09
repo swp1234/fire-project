@@ -23,21 +23,21 @@ Updated: 2026-10-09 KST. Release history is in `memory/data-check-log.md`; repea
   - IndexNow 즉시 제출 완료: `stress-check`, `hsp-test`, `future-self`, `iq-test`, `animal-personality`, `brain-type`.
 - **P1 소셜 트렌드 기반 신규 킬러 콘텐츠 배포**:
   - Reddit/Reels 실시간 화제(ADHD 마비, 열린 탭 100개, 도파민 번아웃) 분석 반영.
-  - `portal/blog/ko/adhd-paralysis-open-tabs-dopamine-burnout.html` 배포 (인터랙티브 탭 진단 위젯 및 즉시 진단 도구 연동).
-  - `portal` (`3bb5ba3` 선푸시 완료): 한국어 블로그 Top 5 및 최신 글 1열에 연동.
+  - `portal/blog/ko/adhd-paralysis-open-tabs-dopamine-burnout.html` 및 `portal/blog/en/adhd-paralysis-100-tabs-dopamine-burnout.html` 배포 (인터랙티브 탭 진단 위젯 및 즉시 진단 도구 연동).
+  - `portal` (`c64e62a` 선푸시 완료): 한국어 및 영어 블로그 Trending & Top 5 연동.
 
 ## Latest release: Crawler Indexing Unblock & ADHD Dopamine Trend Launch (2026-10-09)
 
-- Submodules: stress-check (`1f49653`), hsp-test (`ecb50d8`), future-self (`b682a2e`), iq-test (`c9d63b7`), portal (`3bb5ba3`).
+- Submodules: stress-check (`1f49653`), hsp-test (`ecb50d8`), future-self (`b682a2e`), iq-test (`c9d63b7`), portal (`c64e62a`).
 - Crawler & Indexing:
   - 핵심 진입 도구의 `<details open>` 기본 노출 전환으로 '크롤링됨 - 현재 색인 생성되지 않음' 저품질 판정 위험 차단.
   - IndexNow API 통한 즉각 인덱싱 제출 (HTTP 200).
 - Trend Content:
-  - '열린 탭 100개와 ADHD 마비: 도파민 번아웃 0~100% 자가진단 및 뇌 피로 리셋법' 발행.
+  - '열린 탭 100개와 ADHD 마비' 국문/영문 인터랙티브 가이드 동시 발행.
   - 인터랙티브 '탭 과적형 vs 앱 방랑형' 선택 위젯, 4종 즉시 진단 카드, Auto Ads 단일 로더, 모바일 가로 오버플로 0px 검증 통과.
 - Test Harness & Ports:
   - 감정 조절 플래너 검증기(`verify-{de,id,ko}-emotion-action-path.js`)에 `listenOnSafePort` 적용하여 Chromium `ERR_UNSAFE_PORT` 방지.
-  - `npm run harness` 전수 통과 ([PASS]).
+  - 아티클 인벤토리 3,876건 동기화 및 `npm run harness` 전수 통과 ([PASS]).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
 

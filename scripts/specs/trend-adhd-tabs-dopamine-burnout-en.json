@@ -1,0 +1,204 @@
+{
+  "lang": "en",
+  "slug": "adhd-paralysis-100-tabs-dopamine-burnout",
+  "title": "100+ Open Tabs & ADHD Paralysis: Dopamine Burnout & 3-Step Focus Reset",
+  "h1": "100+ Open Tabs & ADHD Paralysis: The Neuroscience of Dopamine Burnout",
+  "description": "Drowning in 100 open browser tabs, unread bookmarks, and task paralysis? Explore the neuroscience of ADHD executive dysfunction, dopamine depletion, and a 3-step brain RAM reset protocol.",
+  "keywords": [
+    "ADHD paralysis",
+    "100 open tabs",
+    "dopamine burnout",
+    "executive dysfunction",
+    "digital hoarding",
+    "brain fog reset"
+  ],
+  "category": "tests",
+  "tag": "Trend",
+  "tagColor": "#6366f1",
+  "readTime": "8 min",
+  "themeColor": "#6366f1",
+  "contentGroup": "trend_growth",
+  "contentSlug": "adhd-paralysis-100-tabs-dopamine-burnout",
+  "ogImage": "https://dopabrain.com/portal/img/og/stress-check.png",
+  "date": "2026-10-09",
+  "dateModified": "2026-10-09",
+  "quickRail": {
+    "title": "Instant Assessment Tools For Your State",
+    "description": "Before reading, gauge your current cognitive load and attentional rhythm.",
+    "cards": [
+      {
+        "title": "Stress Level Check",
+        "description": "15 questions evaluating cognitive load, emotional pressure, and burnout risk.",
+        "url": "https://dopabrain.com/stress-check/?lang=en",
+        "surface": "adhd_en_quick_stress",
+        "targetSlug": "stress-check"
+      },
+      {
+        "title": "Brain Type Assessment",
+        "description": "Discover whether your cognitive instincts lean toward structured planning or spontaneous action.",
+        "url": "https://dopabrain.com/brain-type/?lang=en",
+        "surface": "adhd_en_quick_brain_type",
+        "targetSlug": "brain-type"
+      },
+      {
+        "title": "HSP Sensitivity Test",
+        "description": "Measure how deeply you process external sensory inputs, digital noise, and stimulus overload.",
+        "url": "https://dopabrain.com/hsp-test/?lang=en",
+        "surface": "adhd_en_quick_hsp",
+        "targetSlug": "hsp-test"
+      },
+      {
+        "title": "Future Self Reflection",
+        "description": "Explore the psychological connection between immediate impulses and long-term values.",
+        "url": "https://dopabrain.com/future-self/?lang=en",
+        "surface": "adhd_en_quick_future_self",
+        "targetSlug": "future-self"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Assess Your Cognitive Load & Burnout Risk",
+    "body": "Is your working memory cluttered like an overloaded browser? Take the 15-question stress & burnout assessment to measure your cognitive exhaustion.",
+    "label": "Take the Free Stress Check →",
+    "url": "https://dopabrain.com/stress-check/?lang=en&start=1&source=adhd_tabs_en_guide",
+    "surface": "adhd_tabs_en_primary_cta",
+    "targetSlug": "stress-check"
+  },
+  "interaction": {
+    "id": "adhd-tab-overload-mode-en",
+    "name": "tab_overload_choice_en",
+    "surface": "adhd_tab_fork_en",
+    "title": "Which Cognitive Overload Pattern Best Describes Your State?",
+    "help": "An educational reflection signal on current working memory bandwidth, not a medical diagnosis.",
+    "legend": "Tab Hoarder vs Task Hopper",
+    "replaceSectionHeading": "3. The Dopamine Battery: 0% to 100% Burnout Spectrum",
+    "choices": [
+      {
+        "id": "tab_hoarder",
+        "label": "Tab Hoarder — 100+ tabs kept open for 'someday'",
+        "shareLabel": "Tab Hoarder",
+        "summary": "You are experiencing cognitive loss aversion and information FOMO. Your working memory is continuously monitoring background tabs, draining executive RAM. Archiving tabs is not giving up—it is freeing cognitive processing bandwidth.",
+        "ctaSurface": "adhd_tab_hoarder_choice_en"
+      },
+      {
+        "id": "task_hopper",
+        "label": "Task Hopper — Swapping apps every 2 minutes without finishing",
+        "shareLabel": "Task Hopper",
+        "summary": "You are experiencing high switching costs driven by dopamine deficit. When primary tasks lack immediate neurochemical rewards, your brain seeks micro-stimulations (notifications, feeds, shopping). This is a hallmark of task-initiation inertia.",
+        "ctaSurface": "adhd_task_hopper_choice_en"
+      }
+    ],
+    "ctaLabel": "Check Your Stress & Burnout Level →",
+    "ctaUrl": "https://dopabrain.com/stress-check/?lang=en&start=1",
+    "ctaTargetSlug": "stress-check",
+    "shareLabel": "Share My Brain State",
+    "shareSurface": "adhd_tab_result_en",
+    "shareTemplate": "My brain state: ‘{choice}’. Checked my 100+ open tabs & dopamine burnout score on DopaBrain. What is yours?",
+    "shareTitle": "100+ Open Tabs & ADHD Paralysis Check",
+    "shareSuccess": "Shared successfully.",
+    "shareFailure": "Could not share. Please try again.",
+    "copySuccess": "Copied results and link to clipboard.",
+    "copyFailure": "Could not copy. Please copy the URL from your browser address bar."
+  },
+  "sections": [
+    {
+      "heading": "1. Why We Keep 100 Tabs Open: The Science of Digital Hoarding",
+      "paragraphs": [
+        "Open your mobile browser right now. Are you greeting a ':D' smiley face or a '99+' symbol instead of a tab count? Thousands of saved screenshots in your camera roll, endless bookmarks labeled 'must read', and abandoned Notion pages are not signs of personal failure—they represent cognitive offloading in overdrive.",
+        "Cognitive psychology identifies this phenomenon as Cognitive Offloading Failure (Sweller, 1988). The human prefrontal cortex holds a working memory capacity of roughly 4 to 7 informational chunks. Recognizing this biological constraint, our brains offload reminders to digital tabs. However, without dedicated executive bandwidth to digest or categorize them, every open tab becomes cognitive debt—a silent background loop taxing mental resources."
+      ],
+      "bullets": [
+        "Loss Aversion Trap: Closing a tab triggers an irrational fear that you will permanently forfeit an essential idea or opportunity.",
+        "Phantom Accomplishment: Bookmarking an article gives the brain a quick dopamine reward that mimics the feeling of having actually read and integrated it.",
+        "Background CPU Drag: Just as 100 active browser tabs overheat a laptop, open visual markers continuously fragment sustained attention."
+      ]
+    },
+    {
+      "heading": "2. ADHD Paralysis & The Dopamine Deficit Mechanism",
+      "paragraphs": [
+        "Have you ever stared at a critical deadline with your body feeling frozen to the couch, only to spend the next 45 minutes obsessively color-coding a spreadsheet or deep-cleaning the bathroom? This state is not laziness; it is a neurobiological manifestation known as ADHD Paralysis or Executive Dysfunction (Barkley, 2012).",
+        "The prefrontal cortex coordinates task initiation, priority ranking, and inhibitory control. These neural pathways depend heavily on optimal baseline levels of dopamine and norepinephrine. When baseline dopamine is depleted—or when a required task provides delayed rather than immediate gratification—the executive circuitry cannot generate the neurochemical activation energy needed to bridge the gap from intention to physical execution."
+      ],
+      "bullets": [
+        "Task-Initiation Paralysis: The cognitive hurdle to begin feels insurmountable, stranding you at step zero despite urgent desire.",
+        "Choice Overload Paralysis: Ambiguous sequences or excessive options prompt the executive network to shut down into an overwhelmed freeze state.",
+        "Hyperfocus Inertia: The brain latches onto an easy, high-dopamine micro-task (like reorganizing tabs) and resists shifting to high-priority work."
+      ]
+    },
+    {
+      "heading": "3. The Dopamine Battery: 0% to 100% Burnout Spectrum",
+      "paragraphs": [
+        "Where does your mental battery currently sit on the depletion curve? Understanding your specific tier of cognitive fatigue enables you to select the appropriate recovery strategy before full burnout sets in."
+      ],
+      "bullets": [
+        "0% to 25% (Mild Fatigue): Occasional tab accumulation, but tasks are completed on schedule and mental sharpness restores with standard rest.",
+        "26% to 50% (Attentional Fragmentation): 30+ tabs open, frequent distractibility, difficulty maintaining uninterrupted focus for more than 15 minutes.",
+        "51% to 75% (Dopamine Overload): 80+ tabs, persistent brain fog, deep aversion to opening saved notes, and chronic task avoidance.",
+        "76% to 100% (Executive Freeze / Full Burnout): 100+ tabs, daily tasks trigger visceral anxiety, decision paralysis dominates, and sleep quality degrades."
+      ]
+    },
+    {
+      "heading": "4. The 3-Step 'Brain RAM Reset' Protocol",
+      "paragraphs": [
+        "Do not attempt to review and close 100 tabs one by one. That evaluation process introduces intense Decision Fatigue to an already depleted prefrontal cortex. Instead, deploy this clinical behavioral reset protocol to clear cognitive RAM in minutes."
+      ],
+      "bullets": [
+        "Step 1: 'Freeze, Don't Sift' (One-Click Archive): Never evaluate tabs individually. Click 'Bookmark All Tabs into a Dated Folder' and close the entire browser window immediately. This satisfies your brain's loss aversion while instantly zeroing active RAM.",
+        "Step 2: 'The 5-Minute Micro-Action': Choose a physical micro-step so small it cannot fail (e.g., opening a blank document and typing the date). Once physical motor initiation occurs for 5 minutes, dopamine circuits self-sustain momentum.",
+        "Step 3: 'Sensory Deprivation Reset': Place your phone in another room and sit in quiet stillness for 10 minutes without screens. This activates the Default Mode Network (DMN), allowing fragmented memory chunks to consolidate and dopamine receptors to resensitize."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Is keeping 100 tabs open a clinical symptom of adult ADHD?",
+      "answer": "Working memory limitations and organizational friction are common manifestations of adult ADHD executive dysfunction in digital settings. However, severe digital fatigue and general cognitive burnout produce nearly identical symptoms. A comprehensive evaluation by a licensed healthcare provider is recommended for clinical diagnosis."
+    },
+    {
+      "question": "Does a dopamine fast instantly cure brain fog?",
+      "answer": "Dopamine fasting is not about eliminating dopamine, but rather recalibrating receptor sensitivity away from hyper-stimulating digital feeds. Stepping away from short-form loops for 48 to 72 hours substantially improves attention span and reduces subjective mental fatigue."
+    },
+    {
+      "question": "What is the single best emergency action when experiencing ADHD freeze?",
+      "answer": "Engage your physical body. Stand up, drink a large glass of cold water, or step outdoors for 60 seconds. Physical somatic movement bypasses cognitive deadlock and delivers oxygenated blood and neurochemical activation to the prefrontal cortex."
+    },
+    {
+      "question": "Can DopaBrain self-assessments replace medical evaluations?",
+      "answer": "No. DopaBrain tests and guides provide educational, reflective self-discovery tools designed to promote digital wellness and self-awareness. They do not constitute clinical psychological or psychiatric diagnoses."
+    }
+  ],
+  "related": [
+    {
+      "label": "Stress Level Check",
+      "url": "https://dopabrain.com/stress-check/",
+      "surface": "related_stress_check_en",
+      "targetSlug": "stress-check"
+    },
+    {
+      "label": "Brain Type Assessment",
+      "url": "https://dopabrain.com/brain-type/",
+      "surface": "related_brain_type_en",
+      "targetSlug": "brain-type"
+    },
+    {
+      "label": "2048 Focus Coach",
+      "url": "https://dopabrain.com/puzzle-2048/coach.html",
+      "surface": "related_2048_coach_en",
+      "targetSlug": "2048-coach"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Barkley, R. A. (2012). Executive Functions: What They Are and How They Work. Guilford Press.",
+      "url": "https://www.guilford.com/books/Executive-Functions/Russell-Barkley/9781462505357"
+    },
+    {
+      "label": "Sweller, J. (1988). Cognitive Load During Problem Solving. Cognitive Science, 12(2), 257-285.",
+      "url": "https://doi.org/10.1207/s15516709cog1202_4"
+    },
+    {
+      "label": "American Psychological Association: Stress and Executive Function",
+      "url": "https://www.apa.org/topics/stress"
+    }
+  ]
+}
