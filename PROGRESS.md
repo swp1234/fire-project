@@ -22,22 +22,20 @@ Updated: 2026-10-09 KST. Release history is in `memory/data-check-log.md`; repea
   - `stress-check`, `hsp-test`, `future-self`, `iq-test`, `puzzle-2048`: 접힌 아코디언 기본 노출 전환.
   - 서브모듈 선푸시: `mental-age`(`e41ea44`), `stress-check`, `hsp-test`, `future-self`, `iq-test`, `puzzle-2048`.
 - **P1 소셜 트렌드 기반 신규 킬러 콘텐츠 배포**:
-  - 신규 배포 1: `adhd-paralysis-open-tabs-dopamine-burnout.html` (ko/en, 인터랙티브 탭 진단 위젯).
-  - 신규 배포 2: `brain-battery-sensory-overload-recharge-guide.html` (ko/en, 실시간 뇌 배터리 게이지 위젯).
-  - 신규 배포 3: `brain-rot-short-form-attention-span-test.html` (ko/en, 60초 팝콘 브레인 위험도 게이지 및 72h 도파민 회복).
-  - 서브모듈 선푸시: `portal`(`5b3f99f`), `emoji-merge`(`14ed27c`), `mental-age`(`92437e3`), `root-domain`(`f137d55`).
-  - 엄격 인덱싱 인벤토리 검증(`verify:indexing-inventory`): 1,489개 URL 전수 이슈 0건(Clean) 달성.
+  - 신규 배포: `adhd-paralysis`, `brain-battery`, `brain-rot`, `revenge-bedtime-procrastination` (각 ko/en 인터랙티브 진단).
+  - 서브모듈 선푸시: `portal`(`a91ae37`), `emoji-merge`(`14ed27c`), `mental-age`(`92437e3`), `root-domain`(`f137d55`).
+  - 엄격 인덱싱 인벤토리 검증(`verify:indexing-inventory`): 1,491개 URL 전수 이슈 0건(Clean) 달성.
 
-## Latest release: Indexing Barrier Resolution & Portal Hero Optimization (2026-10-09)
+## Latest release: Revenge Bedtime Procrastination & Crawler Optimization (2026-10-09)
 
-- Submodules: mental-age (`92437e3`), emoji-merge (`14ed27c`), root-domain (`f137d55`), portal (`5b3f99f`).
+- Submodules: mental-age (`92437e3`), emoji-merge (`14ed27c`), root-domain (`f137d55`), portal (`a91ae37`).
 - Crawler & Indexing:
   - Mental Age 7대 인지 메커니즘 정적 콘텐츠 확충으로 Thin Content 탈피 및 IndexNow 즉시 제출 (HTTP 200).
   - Portal & Emoji-merge 중복 robots 메타태그 정리로 크롤러 혼선 해소 및 재제출 완료.
-  - 신규 바이럴 가이드 3종(ADHD 탭 마비, 뇌 배터리 12%, 브레인 롯) sitemap & IndexNow 완료.
+  - 신규 바이럴 가이드 4종(ADHD 탭 마비, 뇌 배터리 12%, 브레인 롯, 보복성 취침 미루기) sitemap & IndexNow 완료.
 - Trend Content & Portal UX:
-  - 브레인 롯/팝콘 브레인 60초 인터랙티브 진단기 배포, 포털 히어로 1순위에 체류시간 1위인 Stress Check 전면 배치.
+  - 보복성 취침 미루기 & 수면 부채 실시간 진단기 배포, 포털 히어로 1순위에 Stress Check 전면 배치.
 - Test Harness:
-  - 아티클 인벤토리 3,880건 및 하네스 전수 검증 100% 통과 (1,489개 URL 0 issues).
+  - 아티클 인벤토리 3,882건 및 하네스 전수 검증 100% 통과 (1,491개 URL 0 issues).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
