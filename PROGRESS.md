@@ -25,18 +25,19 @@ Updated: 2026-10-09 KST. Release history is in `memory/data-check-log.md`; repea
   - 신규 배포 1: `adhd-paralysis-open-tabs-dopamine-burnout.html` (ko/en, 인터랙티브 탭 진단 위젯).
   - 신규 배포 2: `brain-battery-sensory-overload-recharge-guide.html` (ko/en, 실시간 뇌 배터리 게이지 위젯).
   - 신규 배포 3: `brain-rot-short-form-attention-span-test.html` (ko/en, 60초 팝콘 브레인 위험도 게이지 및 72h 도파민 회복).
-  - 서브모듈 선푸시: `portal`(`e2668f5`), `mental-age`(`92437e3`), `root-domain`(`f137d55`).
+  - 서브모듈 선푸시: `portal`(`5b3f99f`), `emoji-merge`(`14ed27c`), `mental-age`(`92437e3`), `root-domain`(`f137d55`).
   - 엄격 인덱싱 인벤토리 검증(`verify:indexing-inventory`): 1,489개 URL 전수 이슈 0건(Clean) 달성.
 
-## Latest release: Mental Age Indexing Barrier Fix & Brain Rot Launch (2026-10-09)
+## Latest release: Indexing Barrier Resolution & Portal Hero Optimization (2026-10-09)
 
-- Submodules: mental-age (`92437e3`), root-domain (`f137d55`), portal (`e2668f5`).
+- Submodules: mental-age (`92437e3`), emoji-merge (`14ed27c`), root-domain (`f137d55`), portal (`5b3f99f`).
 - Crawler & Indexing:
   - Mental Age 7대 인지 메커니즘 정적 콘텐츠 확충으로 Thin Content 탈피 및 IndexNow 즉시 제출 (HTTP 200).
-  - 신규 바이럴 가이드 3종(ADHD 탭 마비, 뇌 배터리 12%, 브레인 롯/팝콘 브레인) 국문/영문 sitemap 및 IndexNow 제출 완료.
-- Trend Content:
-  - 브레인 롯 & 팝콘 브레인 숏폼 도파민 자가진단 인터랙티브 위젯 탑재, Auto Ads 단일 로더 규약 준수, 모바일 가로 오버플로 0px 유지.
+  - Portal & Emoji-merge 중복 robots 메타태그 정리로 크롤러 혼선 해소 및 재제출 완료.
+  - 신규 바이럴 가이드 3종(ADHD 탭 마비, 뇌 배터리 12%, 브레인 롯) sitemap & IndexNow 완료.
+- Trend Content & Portal UX:
+  - 브레인 롯/팝콘 브레인 60초 인터랙티브 진단기 배포, 포털 히어로 1순위에 체류시간 1위인 Stress Check 전면 배치.
 - Test Harness:
-  - 아티클 인벤토리 3,880건 동기화 및 인덱싱 무결성 검증 100% 통과 (1,489개 URL 0 issues).
+  - 아티클 인벤토리 3,880건 및 하네스 전수 검증 100% 통과 (1,489개 URL 0 issues).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
