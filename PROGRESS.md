@@ -23,12 +23,12 @@ Updated: 2026-10-09 KST. Release history is in `memory/data-check-log.md`; repea
   - 서브모듈 선푸시: `mental-age`(`e41ea44`), `stress-check`, `hsp-test`, `future-self`, `iq-test`, `puzzle-2048`.
 - **P1 소셜 트렌드 기반 신규 킬러 콘텐츠 배포**:
   - 신규 배포: `adhd-paralysis`, `brain-battery`, `brain-rot`, `revenge-bedtime-procrastination` (각 ko/en 인터랙티브 진단).
-  - 서브모듈 선푸시: `portal`(`a91ae37`), `emoji-merge`(`14ed27c`), `mental-age`(`92437e3`), `root-domain`(`f137d55`).
+  - 서브모듈 선푸시: `portal`(`150be60`), `emoji-merge`(`14ed27c`), `mental-age`(`92437e3`), `root-domain`(`f137d55`).
   - 엄격 인덱싱 인벤토리 검증(`verify:indexing-inventory`): 1,491개 URL 전수 이슈 0건(Clean) 달성.
 
 ## Latest release: Revenge Bedtime Procrastination & Crawler Optimization (2026-10-09)
 
-- Submodules: mental-age (`92437e3`), emoji-merge (`14ed27c`), root-domain (`f137d55`), portal (`a91ae37`).
+- Submodules: mental-age (`92437e3`), emoji-merge (`14ed27c`), root-domain (`f137d55`), portal (`150be60`).
 - Crawler & Indexing:
   - Mental Age 7대 인지 메커니즘 정적 콘텐츠 확충으로 Thin Content 탈피 및 IndexNow 즉시 제출 (HTTP 200).
   - Portal & Emoji-merge 중복 robots 메타태그 정리로 크롤러 혼선 해소 및 재제출 완료.
