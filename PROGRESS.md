@@ -18,9 +18,9 @@ Updated: 2026-10-09 KST. Release history is in `memory/data-check-log.md`; repea
 ## Active plan (2026-10-09) — 상세 설계: `docs/STRATEGY.md`
 
 - **P0 GSC 검색 크롤러 차단 요소(Thin Content) 전면 해소**:
-  - `stress-check`, `hsp-test`, `future-self`, `iq-test`: 접혀있던 학술 방법론/점수기준/FAQ `<details open>` 전면 기본 노출 전환.
-  - 서브모듈 선푸시 완료: `stress-check`(`1f49653`), `hsp-test`(`ecb50d8`), `future-self`(`b682a2e`), `iq-test`(`c9d63b7`).
-  - IndexNow 즉시 제출 완료: `stress-check`, `hsp-test`, `future-self`, `iq-test`, `animal-personality`, `brain-type`.
+  - `stress-check`, `hsp-test`, `future-self`, `iq-test`, `puzzle-2048`: 접혀있던 학술 방법론/FAQ `<details open>` 전면 기본 노출 전환.
+  - 서브모듈 선푸시 완료: `stress-check`(`1f49653`), `hsp-test`(`ecb50d8`), `future-self`(`b682a2e`), `iq-test`(`c9d63b7`), `puzzle-2048`(`9014209`).
+  - IndexNow 즉시 제출 완료: `stress-check`, `hsp-test`, `future-self`, `iq-test`, `animal-personality`, `brain-type`, `puzzle-2048/coach.html`.
 - **P1 소셜 트렌드 기반 신규 킬러 콘텐츠 배포**:
   - Reddit/Reels 실시간 화제(ADHD 마비, 열린 탭 100개, 도파민 번아웃) 분석 반영.
   - `portal/blog/ko/adhd-paralysis-open-tabs-dopamine-burnout.html` 및 `portal/blog/en/adhd-paralysis-100-tabs-dopamine-burnout.html` 배포 (인터랙티브 탭 진단 위젯 및 즉시 진단 도구 연동).
@@ -28,9 +28,9 @@ Updated: 2026-10-09 KST. Release history is in `memory/data-check-log.md`; repea
 
 ## Latest release: Crawler Indexing Unblock & ADHD Dopamine Trend Launch (2026-10-09)
 
-- Submodules: stress-check (`1f49653`), hsp-test (`ecb50d8`), future-self (`b682a2e`), iq-test (`c9d63b7`), portal (`c64e62a`).
+- Submodules: stress-check (`1f49653`), hsp-test (`ecb50d8`), future-self (`b682a2e`), iq-test (`c9d63b7`), puzzle-2048 (`9014209`), portal (`c64e62a`).
 - Crawler & Indexing:
-  - 핵심 진입 도구의 `<details open>` 기본 노출 전환으로 '크롤링됨 - 현재 색인 생성되지 않음' 저품질 판정 위험 차단.
+  - 핵심 진입 도구 및 2048 코치의 `<details open>` 기본 노출 전환으로 '크롤링됨 - 현재 색인 생성되지 않음' 저품질 판정 위험 차단.
   - IndexNow API 통한 즉각 인덱싱 제출 (HTTP 200).
 - Trend Content:
   - '열린 탭 100개와 ADHD 마비' 국문/영문 인터랙티브 가이드 동시 발행.
