@@ -22,22 +22,24 @@ Updated: 2026-10-09 KST. Release history is in `memory/data-check-log.md`; repea
   - 서브모듈 선푸시 완료: `stress-check`(`1f49653`), `hsp-test`(`ecb50d8`), `future-self`(`b682a2e`), `iq-test`(`c9d63b7`), `puzzle-2048`(`9014209`).
   - IndexNow 즉시 제출 완료: `stress-check`, `hsp-test`, `future-self`, `iq-test`, `animal-personality`, `brain-type`, `puzzle-2048/coach.html`.
 - **P1 소셜 트렌드 기반 신규 킬러 콘텐츠 배포**:
-  - Reddit/Reels 실시간 화제(ADHD 마비, 열린 탭 100개, 도파민 번아웃) 분석 반영.
-  - `portal/blog/ko/adhd-paralysis-open-tabs-dopamine-burnout.html` 및 `portal/blog/en/adhd-paralysis-100-tabs-dopamine-burnout.html` 배포 (인터랙티브 탭 진단 위젯 및 즉시 진단 도구 연동).
-  - `portal` (`c64e62a` 선푸시 완료): 한국어 및 영어 블로그 Trending & Top 5 연동.
+  - Reddit/Reels 실시간 화제(ADHD 마비 100개 탭, 퇴근 후 뇌 배터리 12% 방전 및 감각 과부하) 분석 반영.
+  - 신규 배포 1: `adhd-paralysis-open-tabs-dopamine-burnout.html` (ko/en, 인터랙티브 탭 진단 위젯).
+  - 신규 배포 2: `brain-battery-sensory-overload-recharge-guide.html` (ko/en, 실시간 뇌 배터리 게이지 위젯).
+  - 서브모듈 선푸시 완료: `portal`(`b0fb3e6`), `root-domain`(`f137d55`).
+  - IndexNow 즉각 제출 완료: 국문/영문 신규 가이드 4종 전수 HTTP 200 성공.
+  - 엄격 인덱싱 인벤토리 검증(`verify:indexing-inventory`): 1,487개 URL 전수 이슈 0건(Clean) 달성.
 
-## Latest release: Crawler Indexing Unblock & ADHD Dopamine Trend Launch (2026-10-09)
+## Latest release: Brain Battery & ADHD Dopamine Trend Launch (2026-10-09)
 
-- Submodules: stress-check (`1f49653`), hsp-test (`ecb50d8`), future-self (`b682a2e`), iq-test (`c9d63b7`), puzzle-2048 (`9014209`), portal (`c64e62a`).
+- Submodules: stress-check (`1f49653`), hsp-test (`ecb50d8`), future-self (`b682a2e`), iq-test (`c9d63b7`), puzzle-2048 (`9014209`), root-domain (`f137d55`), portal (`b0fb3e6`).
 - Crawler & Indexing:
-  - 핵심 진입 도구 및 2048 코치의 `<details open>` 기본 노출 전환으로 '크롤링됨 - 현재 색인 생성되지 않음' 저품질 판정 위험 차단.
-  - IndexNow API 통한 즉각 인덱싱 제출 (HTTP 200).
+  - 핵심 진입 도구 `<details open>` 전환 및 인덱싱 인벤토리 엄격 스펙 100% 무결성 유지 (이슈 0건).
+  - IndexNow API 통한 국문/영문 바이럴 가이드 즉각 인덱싱 제출 (HTTP 200).
 - Trend Content:
-  - '열린 탭 100개와 ADHD 마비' 국문/영문 인터랙티브 가이드 동시 발행.
-  - 인터랙티브 '탭 과적형 vs 앱 방랑형' 선택 위젯, 4종 즉시 진단 카드, Auto Ads 단일 로더, 모바일 가로 오버플로 0px 검증 통과.
-- Test Harness & Ports:
-  - 감정 조절 플래너 검증기(`verify-{de,id,ko}-emotion-action-path.js`)에 `listenOnSafePort` 적용하여 Chromium `ERR_UNSAFE_PORT` 방지.
-  - 아티클 인벤토리 3,876건 동기화 및 `npm run harness` 전수 통과 ([PASS]).
+  - '열린 탭 100개와 ADHD 마비' & '퇴근 후 뇌 배터리 12%와 감각 과부하 리셋' 인터랙티브 가이드 동시 발행.
+  - 실시간 배터리 게이지 진단기 위젯 탑재, Auto Ads 단일 로더 규약, 모바일 가로 오버플로 0px 유지.
+- Test Harness:
+  - 아티클 인벤토리 3,878건 동기화 및 인덱싱 무결성 검증 완전 통과.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
 
