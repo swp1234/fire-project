@@ -1,12 +1,12 @@
 # DopaBrain current status
 
-Updated: 2026-10-08 KST. Release history is in `memory/data-check-log.md`; repeatable loop is in `dopabrain-growth-ops`.
+Updated: 2026-10-09 KST. Release history is in `memory/data-check-log.md`; repeatable loop is in `dopabrain-growth-ops`.
 
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
-- **AdSense Status (2026-10-08)**: Policy violations 0 (`{}`). 10-06 **$0.11** (클릭 2회), 10-07 **$0.02** (노출 급감 42회, 클릭 0회), 10-08 **$0.04** (노출 55회, US $0.03). 7일 누적 **$0.51**, 30일 누적 **$1.67**.
-- 수익 변동 핵심 원인: Ad Intents off 및 광고 빈도 축소 후 PV당 노출률 11~25%로 감소 + 10-07/10-08 유효 클릭 0건. 고체류 도구(Animal Personality 805s, Stress Check 436s, Future Self 178s) 전면 배치 및 모던 UI로 세션 참여 증대 필요.
+- **AdSense Status (2026-10-09)**: Policy violations 0 (`{}`). 10-06 **$0.11** (클릭 2회), 10-07 **$0.02** (저점), 10-08 **$0.06** (반등!, 노출 64회, Brazil $0.02, US $0.03), 10-09 진행 중 ($0.01). 7일 누적 **$0.55**, 30일 누적 **$1.69**.
+- 수익 변동 핵심 원인 및 대책: Ad Intents off 및 빈도 최적화 후 PV당 노출률 11~25%대 유지 상태에서 유효 클릭 증대가 핵심. 체류시간이 검증된 킬러 진입면(Animal Personality, Stress Check, Future Self)과 2026 최신 가이드를 포털 메인 및 블로그 허브 전면에 배치하여 고가치 오가닉 유입 및 클릭 활성화 도모.
 
 ## Current operating rules
 
@@ -15,23 +15,26 @@ Updated: 2026-10-08 KST. Release history is in `memory/data-check-log.md`; repea
 - Focus organic growth on core tools (Stress Check 95~175s, Future Self 178s, HSP Test 63s, Brain Type 122s).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Active plan (2026-10-08) — 상세 설계: `docs/STRATEGY.md`
+## Active plan (2026-10-09) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 포털 메인 & 목차 디렉토리 2026 모던 네온 글래스모피즘 전면 리디자인 완료**:
-  - `projects/portal/index.html` & `css/style.css`: 투박한 회색 박스 나열 디렉토리를 세련된 'DopaBrain Catalog & Directory' 허브로 환골탈태.
-  - 카테고리별 글래스 카드 패널(심리·성격, 두뇌 게임, 웰빙, 전문 허브, 최신 블로그) 구조화.
-  - 마이크로 칩 뱃지(`HOT`, `NEW`, `AI`, 날짜 캡슐) 및 인터랙티브 호버 글로우/리프트 적용.
+- **P0 포털 메인 & 블로그 허브 목차 디렉토리 2026 네온 글래스모피즘 전면 개편 완료**:
+  - `projects/portal/index.html` & `css/style.css`: 'DopaBrain Catalog & Directory' 허브로 전면 개편 (글래스 패널, `HOT`/`NEW`/`AI` 마이크로 칩 뱃지, 호버 글로우).
+  - `projects/portal/blog/en/index.html`: "Featured Topics & Quick Catalog" TOC 배너 신설 (최신 인기 심리 가이드 8종 및 킬러 테스트 도구 4종 다이렉트 연동).
   - 모바일 반응형 1~2열 최적화 (터치 타깃 44px 이상, 모바일 가로 오버플로 0px 유지).
-- **P1 품질 & 광고 규약 검증 완료**:
+- **P1 다국어 초기화 & 하네스 검증 완료**:
+  - `projects/stress-check/index.html`: URL `lang` 파라미터 감지 시 `document.documentElement.lang` 즉시 동기화로 브리지 레이스 컨디션 해결.
   - Auto Ads 단일 로더 규약 100% 준수 (`verify:portal-auto-ads-only`, `verify:portal-ad-containment`).
   - `npm run harness` 전수 통과 (모든 하네스 검증 [PASS]).
 
-## Latest release: Neon Glassmorphism UI & 2026 Content Elevation (2026-10-09)
+## Latest release: Neon Glassmorphism UI & Multi-Hub Catalog Elevation (2026-10-09)
 
-- Submodules: portal (`a019e75` 선푸시 완료), root-domain (정규 유지).
+- Submodules: portal (`dd71f5d` 선푸시 완료), stress-check (`dd43205` 선푸시 완료).
 - Portal (`projects/portal`):
   - `index.html`: 목차 디렉토리 네온 글래스모피즘 카탈로그 개편, 매거진 섹션에 2026 최신 심리 가이드 전면 연동.
   - `css/style.css`: Hero 위너 카드 3D 림 라이트 및 글래스 질감 강화, Language selector CSS 구문 수정.
+  - `blog/en/index.html`: 영문 블로그 허브 네온 글래스 TOC 배너 주입 및 트렌딩 아티클·도구 연결.
+- Stress Check (`projects/stress-check`):
+  - `index.html`: 초기 lang 동기화 보강으로 브리지 레이스 컨디션 제거.
 - 전체 하네스 워크플로 및 검증 게이트 100% 통과 ([PASS]).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
