@@ -24,13 +24,13 @@ Updated: 2026-10-10 KST. Release history is in `memory/data-check-log.md`; repea
   - 서브모듈 선푸시: `portal`(`eb2f70d`). IndexNow 100% 제출 완료 (HTTP 200).
   - 엄격 인덱싱 인벤토리 검증(`verify:indexing-inventory`): 1,497개 URL 전수 이슈 0건(Clean) 달성.
 
-## Latest release: LATAM ADHD Tabs & Revenge Bedtime Expansion (2026-10-10)
+## Latest release: Portal Hubs Robots Fix & Games Indexing (2026-10-10)
 
-- Submodules: portal (`eb2f70d`), stress-check (`ea09923`), hsp-test (`57b0440`), reaction-test (`3180316`), puzzle-2048 (`69a497c`), social-battery (`d5c9e6d`), root-domain (`32e5bfb`).
+- Submodules: portal (`7eab476`), stress-check (`ea09923`), hsp-test (`57b0440`), reaction-test (`3180316`), puzzle-2048 (`69a497c`), social-battery (`d5c9e6d`), root-domain (`32e5bfb`).
 - Crawler & Indexing:
-  - 100+ Tabs ADHD Paralysis & Revenge Bedtime pt/es 인터랙티브 가이드 배포, 사이트맵 등록 및 IndexNow 성공.
-  - 6개 핵심 진입면 robots 태그 `index, follow` 명시화로 GSC 색인 병목 원인 해소.
+  - 포털 메인 Featured 및 목차 개편(오딧세이 대신 최신 트렌드/핵심 도구 전면 배치).
+  - 20개 포털 허브/MBTI 페이지 robots 태그 `index, follow` 정상화 및 `portal/games/` 사이트맵 등록/IndexNow 제출.
 - Test Harness:
-  - 아티클 인벤토리 3,888건, sitemap 1,497개 URL 전수 검사 0 issues, 0 blockers 통과.
+  - 아티클 인벤토리 3,888건, sitemap 1,498개 URL 전수 검사 0 issues, 0 blockers 통과.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
