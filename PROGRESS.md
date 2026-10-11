@@ -18,23 +18,21 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 
 - **P0 GSC 크롤링 페널티 & 정규 URL 불일치 전면 해소**:
   - 1,678개 블로그 미일치 템플릿 FAQPage 스키마 전수 제거 및 JSON-LD 무결성 검증.
-  - `animal-personality`, `iq-test`, `blood-type`의 hreflang-canonical 정합성 완전 정상화.
-  - 36개 레거시 앱 무효 트래픽 광고 격리 계약 준수 (`social-battery` 합성 타이머 제거).
-  - 서브모듈 선푸시: `portal`(`55a1e0b`), `animal-personality`(`e673057`), `blood-type`(`cd440a9`), `iq-test`(`5459d0d`), `social-battery`(`8151b8a`), `root-domain`(`a9c8a35`).
-  - GSC sitemaps 3종 및 핵심 18개 URL IndexNow 200 전송 완료.
+  - 12개 진입면 앱 hreflang-canonical 언어 쿼리 uncollapse 전면 적용 (`?lang=en` 등).
+  - 36개 레거시 앱 무효 트래픽 광고 격리 계약 준수 유지.
+  - 서브모듈 선푸시 후 루트 포인터 갱신 및 IndexNow 200 전송 완료.
 - **P1 핵심 진입면 색인 정상화 & 바이럴 트렌드 지속 배포**:
-  - '뇌 배터리 12% / 감각 과부하 리셋' 인터랙티브 가이드 4개 언어(en, ko, es, pt) 전면 배포.
+  - '뇌 배터리 12% / 감각 과부하 리셋' 인터랙티브 가이드 8개 언어 전면 배포 및 사이트맵 반영.
 
-## Latest release: Brain Battery Multi-Locale Interactive Rollout (2026-10-11)
+## Latest release: High-Traffic Core Apps Hreflang & SEO Uncollapse (2026-10-11)
 
-- Submodules: portal (`94b6dd2`), root-domain (`d0df5cb`), animal-personality (`e673057`), blood-type (`cd440a9`), iq-test (`5459d0d`), social-battery (`5dd6504`), dream-fortune (`2ee4b95`), white-noise (`9ca7a31`), future-self (`c87189d`), eq-test (`84a1352`).
+- Submodules: trauma-response (`d8e5336`), anxiety-type (`2373550`), color-personality (`2e81ee6`), color-memory (`c82607b`), toxic-trait (`02e4554`), toxic-trait-test (`31bbc8e`), future-self (`c87189d`), eq-test (`84a1352`), portal (`94b6dd2`).
 - Crawler & Indexing:
-  - 1,678개 블로그 내 미렌더링 영어 FAQPage 구조화 데이터 완전 박멸로 Google 스팸 페널티 원인 해소.
-  - `animal-personality`, `iq-test`, `blood-type`, `social-battery`, `dream-fortune`, `white-noise`, `future-self`, `eq-test` canonical-hreflang 정합성 정상화.
+  - `trauma-response`, `anxiety-type`, `color-personality`, `color-memory`, `toxic-trait`, `toxic-trait-test` 12개국어 hreflang 전면 uncollapse 및 IndexNow 전송.
+  - `robots` 태그에 `index, follow, max-image-preview:large` 명시하여 글로벌 검색 로봇 탐색 허용.
   - 뇌 배터리 12% 감각 과부하 리셋 가이드 8개 언어(ko, en, es, pt, ja, de, zh, fr) 전면 배포 및 sitemap 갱신.
-  - `root-domain` 404 안내 칩을 핵심 도구(Stress Check, HSP Test 등)로 전환 및 GA4 ID 정상화.
 - Test Harness:
   - 아티클 3,898건, 사이트맵 1,508개 URL 전수 검사 0 issues 통과 (`verify:indexing-inventory`).
-  - `verify:root` 14/14, `verify:portal-auto-ads-only` 9/9, `verify:docs` 10/10 100% mutation PASS.
+  - `verify:trauma-response`, `verify:anxiety-type`, `verify:color-personality`, `verify:color-memory-suspension`, `verify:toxic-trait` 100% mutation PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
