@@ -27,11 +27,11 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 
 ## Latest release: Dopamine Menu 8-Locale Expansion & Mobile UX Polish (2026-10-11)
 
-- Submodules: portal (`160354d`), biorhythm (`f328d14`), ick-factor (`505af9e`), pomodoro-timer (`ff82b6f`), social-battery (`528a1b1`), work-style (`ef3d79b`), stress-check (`3aff627`), trauma-response (`d8e5336`), anxiety-type (`2373550`), color-personality (`2e81ee6`), color-memory (`c82607b`), toxic-trait (`02e4554`), toxic-trait-test (`31bbc8e`), future-self (`c87189d`), eq-test (`84a1352`).
+- Submodules: portal (`160354d`), ai-personality (`368aa1b`), biorhythm (`f328d14`), ick-factor (`505af9e`), pomodoro-timer (`ff82b6f`), social-battery (`528a1b1`), stress-response (`65169eb`), work-style (`ef3d79b`), stress-check (`3aff627`), trauma-response (`d8e5336`), anxiety-type (`2373550`), color-personality (`2e81ee6`), color-memory (`c82607b`), toxic-trait (`02e4554`), toxic-trait-test (`31bbc8e`), future-self (`c87189d`), eq-test (`84a1352`).
 - Content & SEO:
   - 신규 인터랙티브 가이드: '도파민 메뉴(Dopamine Menu)' 8개 언어(ko, en, es, pt, ja, de, zh, fr) 전면 배포, 8-way hreflang 동기화 및 sitemap 반영.
   - 내장 인터랙티브 메뉴판 생성기 및 Stress Check, Brain Type, Future Self, HSP Test 4대 핵심 툴 전환 연계.
-  - `social-battery`, `pomodoro-timer`, `work-style`, `biorhythm`, `ick-factor` 모바일 줌 제한 전면 해제(WCAG 준수), robots 명시, hreflang uncollapse 및 IndexNow 200 전송.
+  - `stress-response`, `ai-personality`, `social-battery`, `pomodoro-timer`, `work-style`, `biorhythm`, `ick-factor` 12개국어 hreflang uncollapse, 모바일 줌 제한 해제, IndexNow 200 완료.
 - Test Harness:
   - 아티클 3,906건, 사이트맵 1,516개 URL 전수 검사 0 issues 통과 (`verify:indexing-inventory`).
   - `verify:portal-auto-ads-only` 9/9, `verify:blog-indexing-focus` PASS.
