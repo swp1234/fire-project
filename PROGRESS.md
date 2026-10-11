@@ -27,10 +27,10 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 
 ## Latest release: Brain Battery Multi-Locale Interactive Rollout (2026-10-11)
 
-- Submodules: portal (`94b6dd2`), root-domain (`d0df5cb`), animal-personality (`e673057`), blood-type (`cd440a9`), iq-test (`5459d0d`), social-battery (`5dd6504`), dream-fortune (`2ee4b95`).
+- Submodules: portal (`94b6dd2`), root-domain (`d0df5cb`), animal-personality (`e673057`), blood-type (`cd440a9`), iq-test (`5459d0d`), social-battery (`5dd6504`), dream-fortune (`2ee4b95`), white-noise (`9ca7a31`).
 - Crawler & Indexing:
   - 1,678개 블로그 내 미렌더링 영어 FAQPage 구조화 데이터 완전 박멸로 Google 스팸 페널티 원인 해소.
-  - `animal-personality`, `iq-test`, `blood-type`, `social-battery`, `dream-fortune` canonical-hreflang 정합성 정상화.
+  - `animal-personality`, `iq-test`, `blood-type`, `social-battery`, `dream-fortune`, `white-noise` canonical-hreflang 정합성 정상화.
   - 뇌 배터리 12% 감각 과부하 리셋 가이드 8개 언어(ko, en, es, pt, ja, de, zh, fr) 전면 배포 및 sitemap 갱신.
   - `root-domain` 404 안내 칩을 핵심 도구(Stress Check, HSP Test 등)로 전환 및 GA4 ID 정상화.
 - Test Harness:
