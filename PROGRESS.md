@@ -27,13 +27,13 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 
 ## Latest release: Dopamine Menu Interactive Reset & Balanced Growth Rollout (2026-10-11)
 
-- Submodules: portal (`b6e4892`), stress-check (`3aff627`), trauma-response (`d8e5336`), anxiety-type (`2373550`), color-personality (`2e81ee6`), color-memory (`c82607b`), toxic-trait (`02e4554`), toxic-trait-test (`31bbc8e`), future-self (`c87189d`), eq-test (`84a1352`).
+- Submodules: portal (`8daed78`), stress-check (`3aff627`), trauma-response (`d8e5336`), anxiety-type (`2373550`), color-personality (`2e81ee6`), color-memory (`c82607b`), toxic-trait (`02e4554`), toxic-trait-test (`31bbc8e`), future-self (`c87189d`), eq-test (`84a1352`).
 - Content & SEO:
-  - 신규 인터랙티브 가이드: '도파민 메뉴(Dopamine Menu)' ko/en 정식 배포 및 sitemap 반영.
+  - 신규 인터랙티브 가이드: '도파민 메뉴(Dopamine Menu)' 4개 언어(ko, en, es, pt) 전면 배포, 4-way hreflang 동기화 및 sitemap 반영.
   - 내장 인터랙티브 도파민 메뉴판 생성기(클립보드 복사 위젯) 및 Stress Check, Brain Type, Future Self, HSP Test 4대 핵심 툴 연계.
   - `stress-check`, `trauma-response`, `anxiety-type` 등 12개국어 hreflang 전면 uncollapse 및 IndexNow 200 완료.
 - Test Harness:
-  - 아티클 3,900건, 사이트맵 1,510개 URL 전수 검사 0 issues 통과 (`verify:indexing-inventory`).
+  - 아티클 3,902건, 사이트맵 1,512개 URL 전수 검사 0 issues 통과 (`verify:indexing-inventory`).
   - `verify:portal-auto-ads-only` 9/9, `verify:blog-indexing-focus` PASS, `verify:stress-core` 16/16 PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
