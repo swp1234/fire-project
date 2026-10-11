@@ -27,13 +27,14 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 
 ## Latest release: Brain Battery Multi-Locale Interactive Rollout (2026-10-11)
 
-- Submodules: portal (`49dcfc5`), animal-personality (`e673057`), blood-type (`cd440a9`), iq-test (`5459d0d`), social-battery (`8151b8a`), root-domain (`a9c8a35`).
+- Submodules: portal (`49dcfc5`), root-domain (`d0df5cb`), animal-personality (`e673057`), blood-type (`cd440a9`), iq-test (`5459d0d`), social-battery (`8151b8a`).
 - Crawler & Indexing:
   - 1,678개 블로그 내 미렌더링 영어 FAQPage 구조화 데이터 완전 박멸로 Google 스팸 페널티 원인 해소.
   - `animal-personality`, `iq-test`, `blood-type` canonical-hreflang 불일치 해소 및 IndexNow 실배포 검증.
   - 뇌 배터리 12% 감각 과부하 리셋 가이드 6개 언어(ko, en, es, pt, ja, de) 전면 배포 및 sitemap 갱신.
+  - `root-domain` 404 안내 칩을 핵심 도구(Stress Check, HSP Test 등)로 전환 및 GA4 ID 정상화.
 - Test Harness:
   - 아티클 3,896건, 사이트맵 1,506개 URL 전수 검사 0 issues 통과 (`verify:indexing-inventory`).
-  - `verify:animal-personality`, `verify:portal-ad-containment`, `verify:portal-auto-ads-only` 100% mutation PASS.
+  - `verify:root` 14/14, `verify:portal-auto-ads-only` 9/9, `verify:docs` 10/10 100% mutation PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
