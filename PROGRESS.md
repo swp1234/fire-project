@@ -26,13 +26,13 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 
 ## Latest release: High-Traffic Core Apps Hreflang & SEO Uncollapse (2026-10-11)
 
-- Submodules: trauma-response (`d8e5336`), anxiety-type (`2373550`), color-personality (`2e81ee6`), color-memory (`c82607b`), toxic-trait (`02e4554`), toxic-trait-test (`31bbc8e`), future-self (`c87189d`), eq-test (`84a1352`), portal (`94b6dd2`).
+- Submodules: stress-check (`3aff627`), trauma-response (`d8e5336`), anxiety-type (`2373550`), color-personality (`2e81ee6`), color-memory (`c82607b`), toxic-trait (`02e4554`), toxic-trait-test (`31bbc8e`), future-self (`c87189d`), eq-test (`84a1352`), portal (`94b6dd2`).
 - Crawler & Indexing:
-  - `trauma-response`, `anxiety-type`, `color-personality`, `color-memory`, `toxic-trait`, `toxic-trait-test` 12개국어 hreflang 전면 uncollapse 및 IndexNow 전송.
+  - `stress-check`, `trauma-response`, `anxiety-type`, `color-personality`, `color-memory`, `toxic-trait`, `toxic-trait-test` 12개국어 hreflang 전면 uncollapse 및 IndexNow 전송.
   - `robots` 태그에 `index, follow, max-image-preview:large` 명시하여 글로벌 검색 로봇 탐색 허용.
   - 뇌 배터리 12% 감각 과부하 리셋 가이드 8개 언어(ko, en, es, pt, ja, de, zh, fr) 전면 배포 및 sitemap 갱신.
 - Test Harness:
   - 아티클 3,898건, 사이트맵 1,508개 URL 전수 검사 0 issues 통과 (`verify:indexing-inventory`).
-  - `verify:trauma-response`, `verify:anxiety-type`, `verify:color-personality`, `verify:color-memory-suspension`, `verify:toxic-trait` 100% mutation PASS.
+  - `verify:stress-core` 16/16, `verify:trauma-response`, `verify:anxiety-type`, `verify:color-personality`, `verify:color-memory-suspension`, `verify:toxic-trait` 100% mutation PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
