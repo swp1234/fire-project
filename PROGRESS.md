@@ -25,13 +25,12 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
   - '도파민 메뉴(Dopamine Menu): 팝콘 브레인 4코스 리셋' 인터랙티브 빌더 ko/en 배포 및 사이트맵 반영.
   - '뇌 배터리 12% / 감각 과부하 리셋' 8개 언어 배포 완료 및 핵심 4대 도구 백링크 연계.
 
-## Latest release: Brain Battery & Dopamine Menu 12-Locale Complete Full Deployment (2026-10-13)
+## Latest release: MBTI Tips, Soul Age & Love Frequency 12-Locale SEO Uncollapse (2026-10-14)
 
-- Submodules: portal (`09a6132`), root-domain (`0bbdcb9`), puzzle-2048 (`14f7e30`), love-language (`3831688`), typing-speed (`b58a835`), reaction-test (`6cd4bd6`), stress-type (`58cf271`), red-green-flag (`81b2fdf`), fortune-cookie (`b75f037`), dark-core (`0d7e227`), emotional-age (`11dd627`), ai-personality (`368aa1b`), biorhythm (`f328d14`), ick-factor (`505af9e`), pomodoro-timer (`ff82b6f`), social-battery (`528a1b1`), stress-response (`65169eb`), work-style (`ef3d79b`), stress-check (`3aff627`), trauma-response (`d8e5336`), anxiety-type (`2373550`), color-personality (`2e81ee6`), color-memory (`c82607b`), toxic-trait (`02e4554`), toxic-trait-test (`31bbc8e`), future-self (`c87189d`), eq-test (`84a1352`).
+- Submodules: mbti-tips (`fa23f78`), soul-age (`0668997`), love-frequency (`b1e97e5`), portal (`09a6132`), puzzle-2048 (`14f7e30`), love-language (`3831688`), typing-speed (`b58a835`), reaction-test (`6cd4bd6`), stress-type (`58cf271`), red-green-flag (`81b2fdf`), fortune-cookie (`b75f037`), dark-core (`0d7e227`), emotional-age (`11dd627`), ai-personality (`368aa1b`), biorhythm (`f328d14`), ick-factor (`505af9e`), pomodoro-timer (`ff82b6f`), social-battery (`528a1b1`), stress-response (`65169eb`), work-style (`ef3d79b`), stress-check (`3aff627`), trauma-response (`d8e5336`), anxiety-type (`2373550`), color-personality (`2e81ee6`), color-memory (`c82607b`), toxic-trait (`02e4554`), toxic-trait-test (`31bbc8e`), future-self (`c87189d`), eq-test (`84a1352`).
 - Content & SEO:
-  - 신규 인터랙티브 가이드 2종('도파민 메뉴' & '뇌 배터리 12% 리셋') 12개 전 언어(ko, en, es, pt, ja, de, zh, fr, hi, ru, id, tr) 전면 배포 완료, 12-way hreflang 대칭 동기화 및 sitemap 반영.
-  - 내장 인터랙티브 배터리 게이지/메뉴판 생성기 및 Stress Check, Brain Type, Future Self, HSP Test 4대 핵심 툴 전환 연계.
-  - `root-domain`, `puzzle-2048`, `love-language`, `typing-speed`, `reaction-test`, `stress-type`, `red-green-flag`, `fortune-cookie` 12개국어 hreflang uncollapse, IndexNow 200 완료.
+  - `mbti-tips`, `soul-age`, `love-frequency` 12개 언어 hreflang 고유 쿼리 파라미터(`?lang=en` 등) uncollapse 전면 적용 및 i18n URL 검색 파라미터 감지 연동.
+  - 신규 인터랙티브 가이드 2종('도파민 메뉴' & '뇌 배터리 12% 리셋') 12개 전 언어 배포 완료 및 IndexNow 200 전송 완료.
 - Test Harness:
   - 아티클 3,914건, 사이트맵 1,524개 URL 전수 검사 0 issues 통과 (`verify:indexing-inventory`).
   - `verify:portal-auto-ads-only` 9/9, `verify:blog-indexing-focus` PASS.
