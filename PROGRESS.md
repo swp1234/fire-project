@@ -25,14 +25,12 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
   - '도파민 메뉴(Dopamine Menu): 팝콘 브레인 4코스 리셋' 인터랙티브 빌더 ko/en 배포 및 사이트맵 반영.
   - '뇌 배터리 12% / 감각 과부하 리셋' 8개 언어 배포 완료 및 핵심 4대 도구 백링크 연계.
 
-## Latest release: Arcade & Puzzle Games 12-Locale SEO Uncollapse (2026-10-16)
+## Latest release: Arcade, Puzzle & Utility Tools 12-Locale SEO Uncollapse (2026-10-16)
 
-- Submodules: flappy-bird (`c7ec0be`), pong-game (`a044443`), snake-game (`0916a17`), brick-breaker (`51d1401`), number-puzzle (`5dad530`), word-guess (`03f75bf`), zigzag-runner (`d9cfdee`), color-blindness (`c448ad2`), color-palette (`5bee387`), affirmation (`4cead14`), bmi-calculator (`108a0d3`), life-in-numbers (`a662f4d`), villain-origin (`c9a74f4`), aura-score (`754790b`), would-you-rather (`7a8054f`), mbti-tips (`fa23f78`), soul-age (`0668997`), love-frequency (`b1e97e5`), portal (`09a6132`), puzzle-2048 (`14f7e30`), stress-check (`3aff627`), future-self (`c87189d`), eq-test (`84a1352`).
+- Submodules: idle-clicker, memory-card, road-shooter, sky-runner, stack-tower, emoji-merge, qr-generator, routine-planner, aspect-ratio-calc, data-transfer-calc, file-ext-calc, file-size-calc, img-fmt-calc, img-size-calc, json-formatter, text-case-calc, timezone-calc, todo-list, unix-timestamp-calc, dday-counter.
 - Content & SEO:
-  - 7개 아케이드/퍼즐(`flappy-bird`, `pong-game`, `snake-game`, `brick-breaker`, `number-puzzle`, `word-guess`, `zigzag-runner`) 12개 언어 hreflang 고유 쿼리 파라미터(`?lang=en` 등) uncollapse 전면 적용 및 IndexNow 200 전송 완료.
-  - 신규 인터랙티브 가이드 2종('도파민 메뉴' & '뇌 배터리 리셋') 12개 언어 배포 완료.
+  - 20+개 아케이드 및 유틸리티 도구 12개 언어 hreflang 고유 쿼리(`?lang=<locale>`) uncollapse 전면 적용, 무효트래픽 광고 격리 마커 일괄 커밋 및 IndexNow 200 전송 완료.
 - Test Harness:
-  - 아티클 3,914건, 사이트맵 1,524개 URL 전수 검사 0 issues 통과 (`verify:indexing-inventory`).
-  - `verify:portal-auto-ads-only` 9/9, `verify:blog-indexing-focus` PASS.
+  - `verify:restricted-ads`, `verify:qr-generator-trust`, `verify:routine-planner-trust`, `verify:emoji-merge-suspension` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
