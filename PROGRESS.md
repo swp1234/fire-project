@@ -18,20 +18,17 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 ## Active plan (2026-10-16) — 상세 설계: `docs/STRATEGY.md`
 
 - **P0 수익화 트래픽 누수 차단 및 활성 도구 라우팅**:
-  - `cross-promo.js` 내 블로그 브릿지/스티키 스프린트 대상 목록을 광고 활성 앱으로 전면 전환 완료.
-  - 모바일 스티키 터치 타깃 44px 및 변이 테스트 통과 (`verify:cross-promo-touch`).
-  - 서브모듈 선푸시 후 루트 포인터 갱신 및 IndexNow 200 전송 완료.
-- **P1 핵심 진입면 인덱싱 회복 & GSC 재크롤링 유도**:
-  - '크롤링됨 - 현재 색인 생성되지 않음' 상태인 핵심 앱(stress-check, hsp-test, 2048-coach) 재인덱싱 유도.
-  - Auto Ads 신호 안정성 및 뷰포트 오버플로 0px 유지.
+  - `cross-promo.js`, `/portal/`, `/portal/mbti/`(256 매트릭스 모달 및 16개 유형 페이지), `/portal/tests/` 피처드 카드, 15개 마켓 `country-content.js` 레일, 상위 유입 EN 블로그 5종의 CTA를 활성 수익화 앱(`stress-check`, `hsp-test`, `future-self`, `attachment-style`, `animal-personality`)으로 전면 전환 완료.
+  - 모바일 스티키 터치 타깃 44px 및 변이 테스트 통과 (`verify:cross-promo-touch`, `portal-hub-locale-audit`, `verify:portal-auto-ads-only`).
+- **P1 핵심 진입면 인덱싱 회복 & 앱 내 후속 퍼널 강화**:
+  - 활성 수익화 앱 완료 후 추천 카드가 무광고 앱으로 유출되지 않도록 내부 순환 퍼널 점검 및 강화.
 
-## Latest release: Monetization Traffic Routing & Cross-Promo Recovery (2026-10-16)
+## Latest release: Portal Hub, MBTI Matrix & Top Blog Monetization Routing (2026-10-16)
 
-- Submodule: `projects/portal` (`js/cross-promo.js`).
+- Submodule: `projects/portal` (`index.html`, `mbti/index.html`, `mbti/type-page-enhancer.js`, `tests/index.html`, `js/app.js`, `js/country-content.js`, `js/personalize.js`, 상위 EN 블로그 5종).
 - Monetization & SEO:
-  - 블로그 및 포털 유입 트래픽이 광고 비활성화 앱으로 유실되던 라우팅 버그 수정 (`stress-check`, `hsp-test`, `future-self`, `attachment-style` 우선 배정).
-  - 모바일 스티키 스프린트 대체 링크(`cp-sticky-alt`) 터치 타깃 44px 보장 및 마켓별 대응 최적화.
+  - GA4 상위 유입 2위 `/portal/mbti/` 및 16개 유형 페이지, `/portal/` 히어로/국가별 레일, `/portal/tests/` 상단 피처드 카드에서 광고 정지/은퇴 앱(`brain-type`, `mbti-love`, `eq-test`, `mbti-career`) 링크를 활성 수익화 앱으로 교체.
 - Test Harness:
-  - `verify:cross-promo-touch`, `verify:restricted-ads`, `verify:kpop-role-roster`, `verify:zh-2048-guide` 100% PASS.
+  - `portal-hub-locale-audit`, `verify:portal-auto-ads-only`, `verify:red-flag-retirement`, `verify:adsense-contract` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
