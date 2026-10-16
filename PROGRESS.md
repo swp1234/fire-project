@@ -21,14 +21,14 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
   - `cross-promo.js`, `/portal/`, `/portal/mbti/`(256 매트릭스 모달 및 16개 유형 페이지), `/portal/tests/` 피처드 카드, 15개 마켓 `country-content.js` 레일, 상위 유입 EN 블로그 5종의 CTA를 활성 수익화 앱(`stress-check`, `hsp-test`, `future-self`, `attachment-style`, `animal-personality`)으로 전면 전환 완료.
   - 모바일 스티키 터치 타깃 44px 및 변이 테스트 통과 (`verify:cross-promo-touch`, `portal-hub-locale-audit`, `verify:portal-auto-ads-only`).
 - **P1 핵심 진입면 인덱싱 회복 & 앱 내 후속 퍼널 강화**:
-  - 활성 수익화 6대 앱(`animal-personality`, `kpop-position`, `daily-tarot`, `hsp-test`, `iq-test`, `future-self`) 완료 후 추천 카드가 무광고 앱으로 유출되지 않도록 내부 순환 퍼널 전면 전환 완료.
+  - 활성 수익화 22개 앱(`animal-personality`, `kpop-position`, `daily-tarot`, `hsp-test`, `iq-test`, `future-self` + `dream-fortune`, `biorhythm`, `bmi-calculator`, `dday-counter`, `pomodoro-timer`, `emotional-age`, `soul-age`, `love-language`, `name-match`, `red-green-flag`, `dark-core`, `toxic-trait`, `villain-origin`, `stress-type`, `work-style`, `mbti-tips`) 완료 후 추천 카드가 무광고 앱/은퇴 스텁으로 유출되지 않도록 내부 순환 퍼널 전면 전환 완료.
 
-## Latest release: Post-Result Related Test Funnel Routing Across 6 Active Monetized Apps (2026-10-16)
+## Latest release: Post-Result Related Test Funnel Routing Across 16 Active Monetized Apps (2026-10-16)
 
-- Submodules: `projects/animal-personality`, `projects/kpop-position`, `projects/daily-tarot`, `projects/hsp-test`, `projects/iq-test`, `projects/future-self`.
+- Submodules: `dream-fortune`, `biorhythm`, `bmi-calculator`, `dday-counter`, `pomodoro-timer`, `emotional-age`, `soul-age`, `love-language`, `name-match`, `red-green-flag`, `dark-core`, `toxic-trait`, `villain-origin`, `stress-type`, `work-style`, `mbti-tips`.
 - Monetization & SEO:
-  - 6대 핵심 수익화 앱의 결과 화면(Best Next Step, Related Tests, Next Discovery)에서 무광고 앱(`brain-type`, `color-personality`, `mbti-love`, `dopamine-type`, `burnout-test`, `stress-response`, `anxiety-type`, `aura-reading`, `past-life`, `mental-age`)으로 향하던 아웃바운드 링크를 100% 활성 수익화 앱으로 전환하고 12개 언어 로케일 반영.
+  - 16개 활성 수익화 앱의 결과/하단 추천 카드에서 은퇴 스텁(`luck-meter`) 및 무광고 앱(`habit-tracker`, `routine-planner`, `todo-list`, `mental-age`, `eq-test`, `emotion-iceberg`, `aura-reading`, `past-life`, `mbti-love`, `mbti-career`, `mbti-coffee`, `mbti-city`, `villain-type`, `npc-test`, `brain-type`)으로 향하던 아웃바운드 링크를 100% 활성 수익화 앱으로 전환하고 192개 로케일 JSON 및 인라인 사전에 반영.
 - Test Harness:
-  - `verify:animal-personality`, `verify:kpop-position`, `verify:daily-tarot`, `verify:hsp-reset-funnel`, `verify:iq-completion-reset`, `verify:future-self-funnel`, `verify:adsense-contract` 100% PASS.
+  - `verify:restricted-ads`, `verify:adsense-contract`, `verify:docs` 및 전 서브모듈 Pre-push Quality Gate 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
