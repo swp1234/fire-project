@@ -23,12 +23,15 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 핵심 진입면 인덱싱 회복 & 앱 내 후속 퍼널 강화**:
   - 활성 수익화 33개 앱 및 블로그 1,070개 전 게시물에서 무광고/은퇴 스텁으로 유출되던 내부 아웃바운드 링크를 100% 활성 수익화 앱(`stress-check`, `hsp-test`, `future-self`, `attachment-style` 등)으로 전환 완료.
 
-## Latest release: Omnichannel Monetization Funnel Routing Across 33 Apps and 1,070 Blog Posts (2026-10-16)
+## Latest release: Complete Elimination of Suspended Traffic Leaks Across 3,392 Blog Posts & Portal Hubs (2026-10-17)
 
-- Submodules: `projects/portal`, `dream-fortune`, `biorhythm`, `bmi-calculator`, `dday-counter`, `pomodoro-timer`, `emotional-age`, `soul-age`, `love-language`, `name-match`, `red-green-flag`, `dark-core`, `toxic-trait`, `villain-origin`, `stress-type`, `work-style`, `mbti-tips`, `shadow-work`, `numerology`, `zodiac-match`, `aura-score`, `pick-me`, `seollal-greetings`, `unit-converter`, `color-blindness`, `color-palette`, `password-generator`, `would-you-rather`.
-- Monetization & SEO:
-  - 1,070개 다국어 블로그의 indexing-quick-rail과 상위 스트레스 가이드 CTA, 그리고 33개 활성 수익화 앱의 후속 추천 카드를 전면 교체하여 광고 없는 앱으로의 트래픽 누수를 원천 차단.
+- Submodules: `projects/portal` (`09ade5e`), `projects/root-domain` (`9fe5ec0`).
+- Monetization & Traffic Routing:
+  - 포털 TOC, 카탈로그, tests/games/tools 허브 및 `app-data.js` 인기 순위를 전면 개편하여 광고 없는 정지 앱 노출을 차단하고 100% 활성 수익화 앱(`stress-check`, `hsp-test`, `future-self`, `iq-test` 등)으로 재배치.
+  - 3,392개 다국어 블로그 아티클 본문 내 레거시 링크(`brain-type`, `reaction-test`, `burnout-test` 등)를 100% 활성 수익화 타깃으로 일괄 치환 완료.
+  - 루트 도메인 404 추천 칩 및 redirect stub(`nervous-system-quiz`, `word-chain`) 활성 수익화 도구로 전환.
 - Test Harness:
-  - `verify:restricted-ads`, `verify:adsense-contract`, `verify:rizz-score-retirement`, `verify:docs` 100% PASS.
+  - `verify:restricted-ads`, `verify-adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:cross-promo-touch`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
+
