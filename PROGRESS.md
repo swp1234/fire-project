@@ -23,16 +23,16 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: TR, HI Top 10 Mini Games Guides Monetization Routing (2026-10-17)
+## Latest release: EN, DE, ES, FR Zigzag Runner Guides Monetization Routing (2026-10-17)
 
-- Submodules: `projects/portal` (`5576c03`).
+- Submodules: `projects/portal` (`9bcdc57`).
 - Monetization & High-Intent Conversion Routing:
-  - 튀르키예어/힌디어 두뇌 휴식 미니게임 가이드(`blog/{tr,hi}/top-10-free-mini-games-brain-breaks.html`):
-    - 퀵 레일 및 팔로우업 섹션 내 미작동 링크를 활성 수익화 도구(`/puzzle-2048/coach.html?lang=...`, `/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/future-self/?lang=...`)로 개편.
-    - 본문 10개 앱 추천 카드 중 정지된 레거시 스텁 6개를 활성 수익화 앱(`/stress-check/reset.html`, `/reaction-test/`, `/stress-check/`, `/hsp-test/`, `/daily-tarot/`, `/attachment-style/`, `/hsp-test/map.html`)으로 현지화 전환 완료.
-    - 미니게임 10선 가이드 12개 전 언어 클린스윕 달성: 잔존 누수 링크 0개 완료.
+  - 영어/독일어/스페인어/프랑스어 지그재그 러너 가이드(`blog/{en,de,es,fr}/zigzag-runner-game-guide.html`):
+    - 퀵 레일 내 미작동 링크를 활성 수익화 도구(`/puzzle-2048/coach.html?lang=...`, `/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/future-self/?lang=...`)로 개편.
+    - 정지된 앱(`zigzag-runner`, `sky-runner`)을 가리키던 상/하단 CTA 박스를 순발력/반사신경에 정확히 부합하는 정밀 반응속도 테스트(`/reaction-test/?lang=...`) 및 전략 코치(`/puzzle-2048/coach.html?lang=...`), 감각 리셋(`/stress-check/reset.html?lang=...`)으로 전면 전환.
+    - 하단 관련 링크 6종을 100% 활성 고유지율/Auto Ads 도구로 현지화 교체.
 - Mobile & Ad Quality:
-  - Playwright 기준 390x844 모바일 가로 오버플로 2개 파일 모두 0px 검증 완료.
+  - Playwright 기준 390x844 모바일 가로 오버플로 4개 파일 모두 0px 검증 완료.
   - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:restricted-ads`, `verify:zh-2048-guide`, `verify:ja-reaction-time`, `harness:analytics`, `verify:root`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
