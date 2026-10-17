@@ -23,13 +23,14 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: JA, PT, RU Top 10 Mini Games Guides Monetization Routing (2026-10-17)
+## Latest release: KO, ZH, ID Top 10 Mini Games Guides Monetization Routing (2026-10-17)
 
-- Submodules: `projects/portal` (`4f859d9`).
+- Submodules: `projects/portal` (`5aff679`).
 - Monetization & High-Intent Conversion Routing:
-  - 일본어/포르투갈어/러시아어 두뇌 휴식 미니게임 가이드(`blog/{ja,pt,ru}/top-10-free-mini-games-brain-breaks.html`):
+  - 한국어/중국어/인도네시아어 두뇌 휴식 미니게임 가이드(`blog/{ko,zh,id}/top-10-free-mini-games-brain-breaks.html`):
     - 퀵 레일 및 팔로우업 섹션 내 미작동 링크를 활성 수익화 도구(`/puzzle-2048/coach.html?lang=...`, `/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/future-self/?lang=...`)로 개편.
     - 본문 10개 앱 추천 카드 중 정지된 레거시 스텁 6개를 활성 수익화 앱(`/stress-check/reset.html`, `/reaction-test/`, `/stress-check/`, `/hsp-test/`, `/daily-tarot/`, `/attachment-style/`, `/hsp-test/map.html`)으로 현지화 전환 완료.
+    - ZH FAQ 스키마 내 잔존 미작동 레거시 링크 정리 완료.
 - Mobile & Ad Quality:
   - Playwright 기준 390x844 모바일 가로 오버플로 3개 파일 모두 0px 검증 완료.
   - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:restricted-ads`, `verify:zh-2048-guide`, `verify:ja-reaction-time`, `harness:analytics`, `verify:root`, `verify:docs` 100% PASS.
