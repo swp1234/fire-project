@@ -23,13 +23,13 @@ Updated: 2026-10-17 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: High-Traffic Sensory & Dopamine Detox Guides Clean Sweep (2026-10-17)
+## Latest release: Multilingual Avoidant Attachment Dating Guides Clean Sweep (2026-10-17)
 
-- Submodules: `projects/portal` (`179669c`).
+- Submodules: `projects/portal` (`1e78c17`).
 - Monetization & Routing:
-  - 4개 고유입 인덱스 가이드(`blog/en/hsp-workplace-survival-guide.html`, `blog/ko/hsp-workplace-survival-guide.html`, `blog/en/dopamine-detox-guide-reset-brain.html`, `blog/ko/dopamine-detox-guide-reset-brain.html`):
-    - 퀵 레일, 본문 카드, 인트로 및 중간 CTA, 관련 리소스 내 데드/정지/비수익 스텁 링크(`/iq-test/`, `/animal-personality/`, `/dopamine-type/`, `/work-style/` 등)를 활성 Auto Ads 앱(`/hsp-test/?lang=...`, `/stress-check/?lang=...`, `/stress-check/reset.html?lang=...`, `/future-self/?lang=...`, `/reaction-test/?lang=...`, `/puzzle-2048/coach.html?lang=...`)으로 전면 전환.
-    - 한국어 문서 내 영문 라벨 오염 전면 정비.
+  - 4개 핵심 애착/연애 가이드(`blog/en/avoidant-attachment-dating-patterns.html`, `blog/ko/avoidant-attachment-dating-patterns.html`, `blog/zh/avoidant-attachment-dating-guide.html`, `blog/es/avoidant-attachment-dating-guide.html`):
+    - 퀵 레일, 인트로 CTA, 관련 리소스 내 데드 링크(`/iq-test/`) 및 정지 앱(`/animal-personality/`) 링크를 활성 Auto Ads 앱(`/attachment-style/?lang=...`, `/stress-check/?lang=...`, `/stress-check/reset.html?lang=...`, `/future-self/?lang=...`, `/hsp-test/?lang=...`, `/puzzle-2048/coach.html?lang=...`)으로 전면 전환.
+    - 스페인어/한국어 문서 내 영문 라벨 오염 전면 해소.
 - Mobile & Ad Quality:
   - Playwright 기준 390x844 모바일 가로 오버플로 4개 파일 모두 0px 검증 완료.
   - `verify:adsense-contract` (11/11), `verify:portal-auto-ads-only` (9/9), `verify:portal-ad-containment` (11/11), `harness:analytics` (9/9), `verify:root` (24/24), `verify:docs` (10/10) 전원 100% PASS.
