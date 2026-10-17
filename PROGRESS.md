@@ -25,9 +25,9 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 
 ## Latest release: Organic Focus Blog Guides Monetization Routing (2026-10-17)
 
-- Submodules: `projects/portal` (`d60b0d1`), `projects/social-battery` (`0fafd74`), 10 Utility submodules, `projects/inner-child-test` (`7a78618`), `projects/villain-type` (`f7c847a`).
+- Submodules: `projects/portal` (`ac9ef90`), `projects/social-battery` (`0fafd74`), 10 Utility submodules, `projects/inner-child-test` (`7a78618`), `projects/villain-type` (`f7c847a`).
 - Monetization & Traffic Routing:
-  - 오가닉 유입 상위 71개 블로그 가이드(전 세계 12개 언어 가스라이팅, 피플플리징/폰반응, 트라우마본딩, 관계패턴, 사회불안, 자기파괴, 럽바밍, 자닉학대, 신경계조절, EQ, 내면아이, 스트레스vs불안 등)에서 0광고 정지 스텁(`color-personality`, `dopamine-type`, `mbti-love`, `red-flag-test`, `trauma-response`, `anxiety-type`, `toxic-trait-test`, `stress-type`)으로 유실되던 링크를 활성 Auto Ads 수익화 앱(`stress-check`, `hsp-test`, `animal-personality`, `portal/mbti`, `detox-timer`, `red-green-flag`, `dark-core`, `future-self`, `aura-score`, `iq-test`)으로 전면 교체.
+  - 오가닉 유입 상위 94개 블로그 가이드(전 세계 12개 언어 트라우마반응 4F가이드, 공동의존/관계경계, 가스라이팅, 피플플리징/폰반응, 트라우마본딩, 관계패턴, 사회불안, 자기파괴, 럽바밍, 자닉학대, 신경계조절, EQ 등)에서 0광고 정지 스텁(`color-personality`, `dopamine-type`, `mbti-love`, `red-flag-test`, `trauma-response`, `anxiety-type`, `toxic-trait-test`, `stress-type`)으로 유실되던 링크를 활성 Auto Ads 수익화 앱(`stress-check`, `hsp-test`, `animal-personality`, `portal/mbti`, `detox-timer`, `red-green-flag`, `dark-core`, `future-self`, `aura-score`, `iq-test`)으로 전면 교체.
   - 10개 유틸리티 앱 및 생성기 템플릿의 관련 도구 링크를 정지된 `qr-generator`에서 활성 `pomodoro-timer`로 교체 완료.
   - `inner-child-test`, `villain-type`, `social-battery` 정지 규약 준수 및 관련 그리드를 활성 수익화 앱으로 전면 라우팅.
 - Test Harness:
