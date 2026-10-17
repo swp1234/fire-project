@@ -23,16 +23,17 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: KO, ZH, ID Stack Tower Guides Monetization Routing (2026-10-17)
+## Latest release: TR, HI Stack Tower Guides 12-Language Complete Clean Sweep (2026-10-17)
 
-- Submodules: `projects/portal` (`ca9e783`).
+- Submodules: `projects/portal` (`f0be801`).
 - Monetization & High-Intent Conversion Routing:
-  - 한국어/중국어/인도네시아어 스택 타워 가이드(`blog/{ko,zh,id}/stack-tower-game-guide.html`):
+  - 튀르키예어/힌디어 스택 타워 가이드(`blog/{tr,hi}/stack-tower-game-guide.html`):
     - 퀵 레일 내 정지 링크를 활성 수익화 도구(`/puzzle-2048/coach.html?lang=...`, `/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/future-self/?lang=...`)로 개편.
     - 정지된 `stack-tower`를 가리키던 상/하단 CTA 박스를 공간 지각 및 타이밍 집중 훈련에 최적화된 2048 코치(`/puzzle-2048/coach.html?lang=...`), 반응속도 테스트(`/reaction-test/?lang=...`), 센서리 리셋(`/stress-check/reset.html?lang=...`)으로 전면 전환.
     - 하단 관련 링크 6종을 100% 활성 고유지율/Auto Ads 도구로 현지화 교체.
+  - **12개 전 언어 스택 타워 가이드(`stack-tower-game-guide.html`) 누수 0건 달성**: 총 12개 언어 전체에서 정지된 스텁 및 무수익 링크 0건 클린 스윕 완료.
 - Mobile & Ad Quality:
-  - Playwright 기준 390x844 모바일 가로 오버플로 3개 파일 모두 0px 검증 완료.
+  - Playwright 기준 390x844 모바일 가로 오버플로 2개 파일 모두 0px 검증 완료.
   - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:restricted-ads`, `verify:zh-2048-guide`, `verify:ja-reaction-time`, `harness:analytics`, `verify:root`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
