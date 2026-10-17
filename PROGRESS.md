@@ -25,9 +25,9 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 
 ## Latest release: Organic Focus Blog Guides Monetization Routing (2026-10-17)
 
-- Submodules: `projects/portal` (`962aba9`), `projects/social-battery` (`0fafd74`), 10 Utility submodules, `projects/inner-child-test` (`7a78618`), `projects/villain-type` (`f7c847a`).
+- Submodules: `projects/portal` (`a317701`), `projects/social-battery` (`0fafd74`), 10 Utility submodules, `projects/inner-child-test` (`7a78618`), `projects/villain-type` (`f7c847a`).
 - Monetization & Traffic Routing:
-  - 오가닉 유입 상위 659개 블로그 가이드(감정지능/경계설정/투쟁도피/사회불안/나르시시즘 155개, 정서탈진/섀도우워크/내면아이/상호의존 136개, 애착/CPTSD/임포스터 116개, 도파민/피플플리징 62개, 독성/레드플래그 60개 등)에서 0광고 정지 스텁(`color-personality`, `dopamine-type`, `mbti-love`, `red-flag-test`, `trauma-response`, `anxiety-type`, `toxic-trait-test`, `stress-type`)으로 유실되던 링크를 활성 Auto Ads 수익화 앱(`dark-core`, `red-green-flag`, `stress-check`, `hsp-test`, `detox-timer`, `animal-personality`, `portal/mbti`, `future-self`, `aura-score`, `iq-test`)으로 전면 교체 (>2,900개 누수 차단).
+  - 오가닉 유입 상위 1,007개 블로그 가이드(게이밍 뇌과학/인지심리/세계관 348개, 감정지능/경계설정/투쟁도피/사회불안 155개, 정서탈진/내면아이/상호의존 136개, 애착/CPTSD/임포스터 116개, 도파민/피플플리징 62개, 독성/레드플래그 60개 등)에서 0광고 정지 스텁(`color-personality`, `dopamine-type`, `mbti-love`, `red-flag-test`, `trauma-response`, `anxiety-type`, `toxic-trait-test`, `stress-type`)으로 유실되던 링크를 활성 Auto Ads 수익화 앱(`dark-core`, `red-green-flag`, `stress-check`, `hsp-test`, `detox-timer`, `animal-personality`, `portal/mbti`, `future-self`, `aura-score`, `iq-test`)으로 전면 교체 (>3,200개 누수 차단).
   - 10개 유틸리티 앱 및 생성기 템플릿의 관련 도구 링크를 정지된 `qr-generator`에서 활성 `pomodoro-timer`로 교체 완료.
   - `inner-child-test`, `villain-type`, `social-battery` 정지 규약 준수 및 관련 그리드를 활성 수익화 앱으로 전면 라우팅.
 - Test Harness:
