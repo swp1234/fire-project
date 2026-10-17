@@ -23,16 +23,16 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: EN, KO, ZH Reaction Time Test Guides Clean Sweep (2026-10-17)
+## Latest release: Global 8-Language Reaction Time Test Guides Clean Sweep (2026-10-17)
 
-- Submodules: `projects/portal` (`52b2437`).
+- Submodules: `projects/portal` (`647fd73`).
 - Monetization & High-Intent Conversion Routing:
-  - 핵심 반응속도 테스트 인덱싱 가이드 3종(`blog/{en,ko,zh}/reaction-time-test-guide.html`):
-    - 퀵 레일 및 본문 내 오타겟/정지 링크(`/iq-test/`, `/minesweeper/`, `/brick-breaker/`, `/color-memory/`, `/snake-game/` 등 총 30개)를 활성 Auto Ads 도구(`/reaction-test/?lang=...`, `/puzzle-2048/coach.html?lang=...`, `/stress-check/?lang=...`, `/stress-check/reset.html?lang=...`)로 전면 개편.
-    - 반응속도 가이드의 핵심 CTA 버튼을 실제 동작하는 반응속도 테스트 및 2048 전술 코치로 직결하여 전환 누수 원천 차단.
-    - **결과: 인덱싱 반응속도 가이드 3개 언어 전면 무결화 달성 (트래픽 누수 0건)**.
+  - 글로벌 반응속도 테스트 인덱싱 가이드 8개 언어(`blog/{de,es,fr,hi,id,pt,ru,tr}/reaction-time-test-guide.html`):
+    - 퀵 레일 및 본문 내 오타겟/정지 링크(`/iq-test/`, `/minesweeper/`, `/brick-breaker/`, `/memory-card/`, `/color-memory/`, `/snake-game/` 등 총 80개)를 활성 Auto Ads 도구(`/reaction-test/?lang=...`, `/puzzle-2048/coach.html?lang=...`, `/stress-check/?lang=...`, `/stress-check/reset.html?lang=...`)로 전면 개편.
+    - 반응속도 가이드의 핵심 CTA 버튼과 관련 추천 그리드를 8개 언어별 실제 동작하는 반응속도 테스트, 2048 전술 코치, 감각 리셋으로 직결.
+    - **결과: 인덱싱 반응속도 가이드 8개 언어 전면 무결화 달성 (트래픽 누수 0건)**.
 - Mobile & Ad Quality:
-  - Playwright 기준 390x844 모바일 가로 오버플로 3개 파일 모두 0px 검증 완료.
+  - Playwright 기준 390x844 모바일 가로 오버플로 8개 파일 모두 0px 검증 완료.
   - `verify:ja-reaction-time`, `verify:zh-2048-guide`, `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:restricted-ads`, `verify:root`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
