@@ -23,16 +23,17 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: KO, ZH, ID Block Puzzle Guides Monetization Routing (2026-10-17)
+## Latest release: TR, HI Block Puzzle Guides 12-Language Clean Sweep (2026-10-17)
 
-- Submodules: `projects/portal` (`0d9373f`).
+- Submodules: `projects/portal` (`b4ef233`).
 - Monetization & High-Intent Conversion Routing:
-  - 한국어/중국어/인도네시아어 블록 퍼즐 가이드(`blog/{ko,zh,id}/block-puzzle-game-guide.html`):
+  - 튀르키예어/힌디어 블록 퍼즐 가이드(`blog/{tr,hi}/block-puzzle-game-guide.html`):
     - 퀵 레일 내 정지 링크(`/minesweeper/`, `/brick-breaker/`)를 활성 수익화 도구(`/puzzle-2048/coach.html?lang=...`, `/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/future-self/?lang=...`)로 개편.
-    - 한국어/중국어 본문 내 정지된 `brick-breaker` 카드 링크를 밀리초 순발력 측정용 반응속도 테스트(`/reaction-test/?lang=...`)로 교체 및 하단 후속 도구 그리드 100% 활성 앱화.
-    - 인도네시아어 상/하단 CTA 박스 및 관련 링크 6종을 2048 전술 코치, 반응속도 테스트, 센서리 리셋, 스트레스 측정, 미래의 나, HSP 테스트로 전면 전환.
+    - 힌디어 본문 내 정지된 `brick-breaker` 카드 링크를 밀리초 순발력 반응속도 테스트(`/reaction-test/?lang=hi`)로 교체 및 하단 후속 도구 그리드 100% 활성 앱화.
+    - 튀르키예어 상/하단 CTA 박스 및 관련 링크 6종을 2048 전술 코치, 반응속도 테스트, 센서리 리셋, 스트레스 측정, 미래의 나, HSP 테스트로 전면 전환.
+    - **결과: `block-puzzle-game-guide.html` 12개 전 언어 트래픽 누수 0건 달성 (완전 무결화)**.
 - Mobile & Ad Quality:
-  - Playwright 기준 390x844 모바일 가로 오버플로 3개 파일 모두 0px 검증 완료.
+  - Playwright 기준 390x844 모바일 가로 오버플로 2개 파일 모두 0px 검증 완료.
   - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:restricted-ads`, `verify:zh-2048-guide`, `verify:ja-reaction-time`, `harness:analytics`, `verify:root`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
