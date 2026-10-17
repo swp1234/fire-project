@@ -23,15 +23,15 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: DE, ES, FR Stress & Nervous System Guides Monetization Routing (2026-10-17)
+## Latest release: EN, DE, ES, FR Reaction Time Guides Monetization Routing (2026-10-17)
 
-- Submodules: `projects/portal` (`990174f`).
+- Submodules: `projects/portal` (`b2c822b`).
 - Monetization & High-Intent Conversion Routing:
-  - 독일어/스페인어/프랑스어 9개 주요 스트레스·트라우마·신경계 가이드(`blog/{de,es,fr}/{nervous-system-regulation-techniques,trauma-response-test-guide,disorganized-attachment-style}`, `blog/de/stress-vs-anxiety-difference-test`):
-    - 퀵 레일 영문 라벨을 현지 언어로 전면 번역하고 미작동 링크 대신 타깃 일치 활성 도구(`/stress-check/?lang={de,es,fr}`, `/hsp-test/?lang={de,es,fr}`, `/attachment-style/?lang={de,es,fr}`, `/future-self/?lang={de,es,fr}`)로 재배치.
-    - 본문 CTA 버튼 및 관련 테스트의 불일치 링크(`iq-test`, 구버전 스텁, 언어 파라미터 누락)를 100% 현지화 쿼리 활성 앱으로 교체.
+  - 영어/독일어/스페인어/프랑스어 4개 핵심 반응속도 가이드(`blog/{en,de,es,fr}/reaction-time-test-how-fast-are-you.html`):
+    - 퀵 레일 4개 카드 및 타이틀을 현지화하고 미작동/정지 게임 대신 활성 수익화 도구(`/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/hsp-test/?lang=...`, `/future-self/?lang=...`)로 전면 개편.
+    - 본문 CTA 1/2, 인라인 링크, FAQ 및 하단 관련 도구 그리드 내 16개 트래픽 누수 링크(`iq-test` 오작동 및 정지 게임 스텁)를 활성 앱(`/reaction-test/?lang=...`, `/puzzle-2048/coach.html?lang=...` 등)으로 100% 교체.
 - Mobile & Ad Quality:
-  - 390x844 모바일 가로 오버플로 9개 수정 파일 모두 0px 검증 완료.
+  - 390x844 모바일 가로 오버플로 4개 파일 모두 0px 검증 완료.
   - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:restricted-ads`, `harness:analytics`, `verify:root`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
