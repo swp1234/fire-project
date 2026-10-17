@@ -23,19 +23,20 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: EN, JA, KO Brick Breaker Guides Clean Sweep (2026-10-17)
+## Latest release: EN, JA Maze Runner & Sky Runner Guides Clean Sweep (2026-10-17)
 
-- Submodules: `projects/portal` (`c242af0`).
+- Submodules: `projects/portal` (`0caceb3`).
 - Monetization & High-Intent Conversion Routing:
-  - 벽돌깨기 핵심 인덱싱 가이드 4종(`blog/en/brick-breaker-game-classic.html`, `blog/{en,ja}/brick-breaker-game-guide.html`, `blog/ko/brick-breaker-retro-game-guide.html`):
+  - 메이즈 러너 및 스카이 러너 핵심 인덱싱 가이드 4종(`blog/{en,ja}/maze-runner-game-guide.html`, `blog/{en,ja}/sky-runner-game-guide.html`):
     - 퀵 레일 내 정지/오타겟 링크(`/minesweeper/`, `/brick-breaker/`, `/iq-test/`)를 100% 활성 수익화 도구(`/puzzle-2048/coach.html?lang=...`, `/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/stress-check/reset.html?lang=...`)로 개편.
-    - 내비게이션, 본문 CTA, 추천 컨텐츠 그리드의 정지 앱 링크(`/../brick-breaker/`, `/../number-puzzle/`, `/../color-memory/`, `/../quiz-app/`)를 반응속도 테스트, 2048 전술 코치, 감각 리셋 호흡 등으로 전면 전환.
-    - **결과: 인덱싱 벽돌깨기 가이드 4종 전면 무결화 달성 (트래픽 누수 0건)**.
+    - 본문 상/하단 CTA 버튼과 추천 게임/관련 링크 그리드를 반응속도 테스트, 2048 전술 코치, 감각 리셋, 스트레스 측정기, 미래의 나, HSP 테스트 등 6종 활성 Auto Ads 도구로 전면 전환.
+    - **결과: 인덱싱 메이즈/스카이 러너 가이드 4종 전면 무결화 달성 (트래픽 누수 0건)**.
 - Mobile & Ad Quality:
   - Playwright 기준 390x844 모바일 가로 오버플로 4개 파일 모두 0px 검증 완료.
   - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:restricted-ads`, `verify:zh-2048-guide`, `verify:ja-reaction-time`, `harness:analytics`, `verify:root`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
+
 
 
 
