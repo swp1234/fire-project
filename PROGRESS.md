@@ -23,16 +23,16 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: FR, PT, KO, ID, TR, HI Snake Game Guides 12-Language Clean Sweep (2026-10-17)
+## Latest release: EN, DE, ES, FR Block Puzzle Guides Monetization Routing (2026-10-17)
 
-- Submodules: `projects/portal` (`d1ba821`).
+- Submodules: `projects/portal` (`52028ee`).
 - Monetization & High-Intent Conversion Routing:
-  - 프랑스어/포르투갈어/한국어/인도네시아어/튀르키예어/힌디어 스네이크 게임 가이드(`blog/{fr,pt,ko,id,tr,hi}/snake-game-guide.html`):
+  - 영어/독일어/스페인어/프랑스어 블록 퍼즐 가이드(`blog/{en,de,es,fr}/block-puzzle-game-guide.html`):
     - 퀵 레일 내 정지 링크(`/minesweeper/`, `/brick-breaker/`)를 활성 수익화 도구(`/puzzle-2048/coach.html?lang=...`, `/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/future-self/?lang=...`)로 개편.
-    - 정지된 `snake-game`을 가리키던 CTA 섹션을 반응속도 및 공간 경로 제어에 최적화된 2048 전술 코치(`/puzzle-2048/coach.html?lang=...`), 반응속도 테스트(`/reaction-test/?lang=...`)로 전면 전환.
-  - **12개 전 언어 스네이크 게임 가이드(`snake-game-guide.html`) 누수 0건 달성**: 총 12개 언어 전체에서 정지된 스텁 및 무수익 링크 0건 클린 스윕 완료.
+    - 정지된 `emoji-merge` 및 스텁 링크를 가리키던 상/하단 CTA 박스를 공간 로직 및 패턴 배치 훈련에 최적화된 2048 전술 코치(`/puzzle-2048/coach.html?lang=...`), 반응속도 테스트(`/reaction-test/?lang=...`), 센서리 리셋(`/stress-check/reset.html?lang=...`)으로 전면 전환.
+    - 하단 관련 링크 6종을 100% 활성 고유지율/Auto Ads 도구로 현지화 교체.
 - Mobile & Ad Quality:
-  - Playwright 기준 390x844 모바일 가로 오버플로 6개 파일 모두 0px 검증 완료.
+  - Playwright 기준 390x844 모바일 가로 오버플로 4개 파일 모두 0px 검증 완료.
   - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:restricted-ads`, `verify:zh-2048-guide`, `verify:ja-reaction-time`, `harness:analytics`, `verify:root`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
