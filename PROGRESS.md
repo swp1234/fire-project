@@ -23,16 +23,16 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: EN Snake Game & Top 10 Browser Games Clean Sweep (2026-10-17)
+## Latest release: Multilingual Typing Speed Test Guides Clean Sweep (2026-10-17)
 
-- Submodules: `projects/portal` (`8401b97`).
+- Submodules: `projects/portal` (`b6145a3`).
 - Monetization & High-Intent Conversion Routing:
-  - 핵심 게임 인덱싱 가이드 2종(`blog/en/snake-game-classic-online.html`, `blog/en/top-10-browser-games-2026.html`):
-    - 퀵 레일 내 정지/오타겟 링크(`/minesweeper/`, `/brick-breaker/`, `/iq-test/`)를 활성 수익화 도구(`/puzzle-2048/coach.html?lang=en`, `/reaction-test/?lang=en`, `/stress-check/?lang=en`, `/stress-check/reset.html?lang=en`)로 전면 개편.
-    - 본문 내 10개 게임 카드 링크 및 CTA 버튼을 반응속도 테스트, 2048 전술 코치, 감각 리셋, HSP 테스트, 미래의 나 등 활성 고유지율 Auto Ads 도구로 100% 전환.
-    - **결과: 인덱싱 스네이크/Top 10 브라우저 게임 가이드 2종 트래픽 누수 0건 달성**.
+  - 다국어 타이핑 속도 테스트 가이드 4종(`blog/{en,ja,ko,zh}/typing-speed-test-guide.html`):
+    - 퀵 레일 및 본문 내 오타겟/정지 링크(`/iq-test/`, `/minesweeper/`, `/brick-breaker/`, `/animal-personality/` 등 총 43개)를 100% 활성 고유지율 Auto Ads 도구(`/reaction-test/?lang=...`, `/puzzle-2048/coach.html?lang=...`, `/stress-check/?lang=...`, `/stress-check/reset.html?lang=...`)로 전면 개편.
+    - 본문 상/하단 CTA 버튼과 추천 도구 그리드를 각 언어별 반응속도 테스트, 2048 전술 코치, 감각 리셋, 스트레스 진단으로 매핑.
+    - **결과: 인덱싱 타이핑 가이드 4개 언어 전면 무결화 달성 (트래픽 누수 0건)**.
 - Mobile & Ad Quality:
-  - Playwright 기준 390x844 모바일 가로 오버플로 2개 파일 모두 0px 검증 완료.
+  - Playwright 기준 390x844 모바일 가로 오버플로 4개 파일 모두 0px 검증 완료.
   - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:restricted-ads`, `verify:root`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
