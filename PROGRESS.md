@@ -23,18 +23,19 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: EN, JA, ZH Pong Game Guides Clean Sweep (2026-10-17)
+## Latest release: EN, JA Flappy Bird Guides Clean Sweep (2026-10-17)
 
-- Submodules: `projects/portal` (`43c79e8`).
+- Submodules: `projects/portal` (`6ef20a9`).
 - Monetization & High-Intent Conversion Routing:
-  - 영어/일본어/중국어 퐁 게임 가이드(`blog/{en,ja,zh}/pong-game-guide.html`):
-    - 퀵 레일 내 비활성/정지 링크(`/minesweeper/`, `/brick-breaker/`, `/snake-game/`, `/maze-runner/`)를 100% 활성 수익화 도구(`/puzzle-2048/coach.html?lang=...`, `/reaction-test/?lang=...`, `/stress-check/reset.html?lang=...`)로 개편.
-    - 본문 내 오프타겟/정지 링크 및 하단 CTA 버튼을 2048 전술 코치 및 반응속도 테스트(`/reaction-test/?lang=...`)로 전면 전환.
-    - 하단 관련 가이드/도구 6종 그리드를 활성 고유지율/Auto Ads 도구로 현지화 교체.
-    - **결과: `pong-game-guide.html` 3개 언어 전면 무결화 달성 (트래픽 누수 0건)**.
+  - 플래피 버드 핵심 인덱싱 가이드 3종(`blog/{en,ja}/flappy-bird-game-guide.html`, `blog/en/flappy-bird-strategy-tips-2026.html`):
+    - 퀵 레일 내 비활성/정지 링크(`/minesweeper/`, `/brick-breaker/`, `/animal-personality/`) 및 `/iq-test/` 오라우팅을 100% 활성 수익화 도구(`/puzzle-2048/coach.html?lang=...`, `/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/stress-check/reset.html?lang=...`, `/future-self/?lang=...`)로 개편.
+    - 본문 내 정지 앱 링크 및 상/중/하단 CTA 버튼을 반응속도 테스트(`/reaction-test/?lang=...`) 및 2048 전술 코치로 전면 전환.
+    - 하단 관련 링크 그리드를 활성 고유지율/Auto Ads 도구 6종으로 현지화 교체.
+    - **결과: 인덱싱 플래피 버드 가이드 전면 무결화 달성 (트래픽 누수 0건)**.
 - Mobile & Ad Quality:
   - Playwright 기준 390x844 모바일 가로 오버플로 3개 파일 모두 0px 검증 완료.
   - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:restricted-ads`, `verify:zh-2048-guide`, `verify:ja-reaction-time`, `harness:analytics`, `verify:root`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
+
 
