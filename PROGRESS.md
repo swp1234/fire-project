@@ -23,17 +23,17 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: EN, JA Maze Runner & Sky Runner Guides Clean Sweep (2026-10-17)
+## Latest release: EN Snake Game & Top 10 Browser Games Clean Sweep (2026-10-17)
 
-- Submodules: `projects/portal` (`0caceb3`).
+- Submodules: `projects/portal` (`8401b97`).
 - Monetization & High-Intent Conversion Routing:
-  - 메이즈 러너 및 스카이 러너 핵심 인덱싱 가이드 4종(`blog/{en,ja}/maze-runner-game-guide.html`, `blog/{en,ja}/sky-runner-game-guide.html`):
-    - 퀵 레일 내 정지/오타겟 링크(`/minesweeper/`, `/brick-breaker/`, `/iq-test/`)를 100% 활성 수익화 도구(`/puzzle-2048/coach.html?lang=...`, `/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/stress-check/reset.html?lang=...`)로 개편.
-    - 본문 상/하단 CTA 버튼과 추천 게임/관련 링크 그리드를 반응속도 테스트, 2048 전술 코치, 감각 리셋, 스트레스 측정기, 미래의 나, HSP 테스트 등 6종 활성 Auto Ads 도구로 전면 전환.
-    - **결과: 인덱싱 메이즈/스카이 러너 가이드 4종 전면 무결화 달성 (트래픽 누수 0건)**.
+  - 핵심 게임 인덱싱 가이드 2종(`blog/en/snake-game-classic-online.html`, `blog/en/top-10-browser-games-2026.html`):
+    - 퀵 레일 내 정지/오타겟 링크(`/minesweeper/`, `/brick-breaker/`, `/iq-test/`)를 활성 수익화 도구(`/puzzle-2048/coach.html?lang=en`, `/reaction-test/?lang=en`, `/stress-check/?lang=en`, `/stress-check/reset.html?lang=en`)로 전면 개편.
+    - 본문 내 10개 게임 카드 링크 및 CTA 버튼을 반응속도 테스트, 2048 전술 코치, 감각 리셋, HSP 테스트, 미래의 나 등 활성 고유지율 Auto Ads 도구로 100% 전환.
+    - **결과: 인덱싱 스네이크/Top 10 브라우저 게임 가이드 2종 트래픽 누수 0건 달성**.
 - Mobile & Ad Quality:
-  - Playwright 기준 390x844 모바일 가로 오버플로 4개 파일 모두 0px 검증 완료.
-  - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:restricted-ads`, `verify:zh-2048-guide`, `verify:ja-reaction-time`, `harness:analytics`, `verify:root`, `verify:docs` 100% PASS.
+  - Playwright 기준 390x844 모바일 가로 오버플로 2개 파일 모두 0px 검증 완료.
+  - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:restricted-ads`, `verify:root`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
 
