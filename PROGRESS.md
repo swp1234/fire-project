@@ -23,19 +23,19 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: JA & ZH Top Blog Guide Intent & App Routing Optimization (2026-10-17)
+## Latest release: DE, FR, ES Blog Guide Intent & App Routing Optimization (2026-10-17)
 
-- Submodules: `projects/portal` (`b1eed40`).
+- Submodules: `projects/portal` (`a9276e9`).
 - Monetization & High-Intent Conversion Routing:
-  - 일본어 상위 블로그 7개 가이드(`attachment-style-quiz-guide`, `avoidant-attachment-dating-guide`, `disorganized-attachment-style`, `trauma-response-test-guide`, `nervous-system-regulation-techniques`, `people-pleasing-fawn-response-guide`, `codependency-recovery-steps-guide`):
-    - CTA 및 관련 테스트 텍스트-URL 불일치(애착 가이드에서 'EQ테스트'/'트라우마반응' 버튼 등)를 타깃 일치 활성 앱(`/attachment-style/?lang=ja`, `/stress-check/?lang=ja`, `/hsp-test/?lang=ja`, `/future-self/?lang=ja`)으로 전면 재정렬.
-    - 일본어 네이티브 쿼리 `?lang=ja` 누락 수정 및 내부 가이드 교차 링크 정상화.
-  - 중국어 상위 가이드(`daily-tarot-reading-guide`): 미검증 AI 홍보 문구 정비 및 CTA 버튼을 `/daily-tarot/?lang=zh`로 직접 연결.
+  - 독일어/프랑스어/스페인어 고RPM 권역 주요 애착 가이드(`blog/{de,fr,es}/attachment-style-quiz-guide.html`):
+    - 헤더 내비게이션, 상/하단 CTA 버튼, 관련 테스트 목록, 푸터 링크의 불일치(IQ/EQ 링크 등)를 타깃 언어 쿼리가 적용된 활성 앱(`/attachment-style/?lang={de,fr,es}`, `/stress-check/?lang={de,fr,es}`, `/hsp-test/?lang={de,fr,es}`)으로 전면 정비.
+    - 블로그 내부 링크를 현지화된 심층 가이드(`inner-child-wounds-types.html`)로 정상 연결하여 체류 시간 및 페이지뷰 증대.
 - Mobile & Ad Quality:
-  - 390x844 모바일 가로 오버플로 8개 수정 파일 모두 0px 검증 완료.
+  - 390x844 모바일 가로 오버플로 3개 수정 파일 모두 0px 검증 완료.
   - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:restricted-ads`, `harness:analytics`, `verify:root`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
+
 
 
 
