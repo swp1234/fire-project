@@ -23,16 +23,16 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: EN, DE, ES, FR Block Puzzle Guides Monetization Routing (2026-10-17)
+## Latest release: JA, PT, RU Block Puzzle Guides Monetization Routing (2026-10-17)
 
-- Submodules: `projects/portal` (`52028ee`).
+- Submodules: `projects/portal` (`f81ab81`).
 - Monetization & High-Intent Conversion Routing:
-  - 영어/독일어/스페인어/프랑스어 블록 퍼즐 가이드(`blog/{en,de,es,fr}/block-puzzle-game-guide.html`):
+  - 일본어/포르투갈어/러시아어 블록 퍼즐 가이드(`blog/{ja,pt,ru}/block-puzzle-game-guide.html`):
     - 퀵 레일 내 정지 링크(`/minesweeper/`, `/brick-breaker/`)를 활성 수익화 도구(`/puzzle-2048/coach.html?lang=...`, `/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/future-self/?lang=...`)로 개편.
     - 정지된 `emoji-merge` 및 스텁 링크를 가리키던 상/하단 CTA 박스를 공간 로직 및 패턴 배치 훈련에 최적화된 2048 전술 코치(`/puzzle-2048/coach.html?lang=...`), 반응속도 테스트(`/reaction-test/?lang=...`), 센서리 리셋(`/stress-check/reset.html?lang=...`)으로 전면 전환.
     - 하단 관련 링크 6종을 100% 활성 고유지율/Auto Ads 도구로 현지화 교체.
 - Mobile & Ad Quality:
-  - Playwright 기준 390x844 모바일 가로 오버플로 4개 파일 모두 0px 검증 완료.
+  - Playwright 기준 390x844 모바일 가로 오버플로 3개 파일 모두 0px 검증 완료.
   - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:restricted-ads`, `verify:zh-2048-guide`, `verify:ja-reaction-time`, `harness:analytics`, `verify:root`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
