@@ -23,16 +23,17 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: Portal Homepage, Games Hub & Blog Monetization Routing (2026-10-17)
+## Latest release: JA & ZH Top Blog Guide Intent & App Routing Optimization (2026-10-17)
 
-- Submodules: `projects/portal` (`7d6666c`), `projects/social-battery` (`0fafd74`), 10 Utility submodules, `projects/inner-child-test` (`7a78618`), `projects/villain-type` (`f7c847a`).
-- Monetization & Traffic Routing:
-  - 포털 메인 디렉토리(`portal/index.html`), 게임 허브(`games/index.html`), 칼 융/HSP/발렌타인 블로그의 정지 스텁(`mbti-love`, `anxiety-type`, `dopamine-type`, `toxic-trait-test`, `color-personality`, `trauma-response`) 링크를 활성 Auto Ads 앱(`portal/mbti`, `stress-check`, `detox-timer`, `toxic-trait`, `overthinker-test`, `attachment-style`)으로 전면 전환.
-  - 16개 MBTI 가이드 및 RSD/감정조절/습관형성/바운더리 등 47개 가이드 내 0광고 스텁 링크를 활성 앱으로 전환 완료 (누적 1,770개 가이드/허브, >4,460개 트래픽 누수 차단).
-  - 10개 유틸리티 앱 및 생성기 템플릿의 관련 도구 링크를 정지된 `qr-generator`에서 활성 `pomodoro-timer`로 교체 완료.
-  - `inner-child-test`, `villain-type`, `social-battery` 정지 규약 준수 및 관련 그리드를 활성 수익화 앱으로 전면 라우팅.
-- Test Harness:
-  - `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:adsense-contract`, `verify:restricted-ads`, `verify:docs`, `verify:root` 100% PASS.
+- Submodules: `projects/portal` (`b1eed40`).
+- Monetization & High-Intent Conversion Routing:
+  - 일본어 상위 블로그 7개 가이드(`attachment-style-quiz-guide`, `avoidant-attachment-dating-guide`, `disorganized-attachment-style`, `trauma-response-test-guide`, `nervous-system-regulation-techniques`, `people-pleasing-fawn-response-guide`, `codependency-recovery-steps-guide`):
+    - CTA 및 관련 테스트 텍스트-URL 불일치(애착 가이드에서 'EQ테스트'/'트라우마반응' 버튼 등)를 타깃 일치 활성 앱(`/attachment-style/?lang=ja`, `/stress-check/?lang=ja`, `/hsp-test/?lang=ja`, `/future-self/?lang=ja`)으로 전면 재정렬.
+    - 일본어 네이티브 쿼리 `?lang=ja` 누락 수정 및 내부 가이드 교차 링크 정상화.
+  - 중국어 상위 가이드(`daily-tarot-reading-guide`): 미검증 AI 홍보 문구 정비 및 CTA 버튼을 `/daily-tarot/?lang=zh`로 직접 연결.
+- Mobile & Ad Quality:
+  - 390x844 모바일 가로 오버플로 8개 수정 파일 모두 0px 검증 완료.
+  - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:restricted-ads`, `harness:analytics`, `verify:root`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
 
