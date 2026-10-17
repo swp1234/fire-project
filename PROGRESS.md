@@ -23,12 +23,12 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: Organic Focus Blog Guides & MBTI Hub Monetization Routing (2026-10-17)
+## Latest release: Portal Homepage, Games Hub & Blog Monetization Routing (2026-10-17)
 
-- Submodules: `projects/portal` (`7c0452f`), `projects/social-battery` (`0fafd74`), 10 Utility submodules, `projects/inner-child-test` (`7a78618`), `projects/villain-type` (`f7c847a`).
+- Submodules: `projects/portal` (`7d6666c`), `projects/social-battery` (`0fafd74`), 10 Utility submodules, `projects/inner-child-test` (`7a78618`), `projects/villain-type` (`f7c847a`).
 - Monetization & Traffic Routing:
-  - 16개 MBTI 유형별 가이드(`enfj`~`istp`)의 하단 CTA 링크를 정지된 0광고 스텁(`mbti-love`, `mbti-career`)에서 활성 Auto Ads 앱(`attachment-style`, `animal-personality`, `portal/mbti`)으로 전환.
-  - RSD 가이드(10개 언어), 감정조절(8개 언어), 습관형성(5개 언어), 바운더리(2개 언어), 발렌타인/K-POP 가이드 등 47개 파일 내 정지 스텁(`anxiety-type`, `toxic-trait-test`, `dopamine-type`, `red-flag-test`, `trauma-response`) 링크를 활성 수익화 앱(`stress-check`, `hsp-test/reset.html`, `detox-timer`, `red-green-flag`, `toxic-trait`)으로 전면 전환 (누적 1,765개 가이드, >4,450개 누수 차단).
+  - 포털 메인 디렉토리(`portal/index.html`), 게임 허브(`games/index.html`), 칼 융/HSP/발렌타인 블로그의 정지 스텁(`mbti-love`, `anxiety-type`, `dopamine-type`, `toxic-trait-test`, `color-personality`, `trauma-response`) 링크를 활성 Auto Ads 앱(`portal/mbti`, `stress-check`, `detox-timer`, `toxic-trait`, `overthinker-test`, `attachment-style`)으로 전면 전환.
+  - 16개 MBTI 가이드 및 RSD/감정조절/습관형성/바운더리 등 47개 가이드 내 0광고 스텁 링크를 활성 앱으로 전환 완료 (누적 1,770개 가이드/허브, >4,460개 트래픽 누수 차단).
   - 10개 유틸리티 앱 및 생성기 템플릿의 관련 도구 링크를 정지된 `qr-generator`에서 활성 `pomodoro-timer`로 교체 완료.
   - `inner-child-test`, `villain-type`, `social-battery` 정지 규약 준수 및 관련 그리드를 활성 수익화 앱으로 전면 라우팅.
 - Test Harness:
