@@ -23,15 +23,16 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: Organic Focus Blog Guides Monetization Routing (2026-10-17)
+## Latest release: Organic Focus Blog Guides & MBTI Hub Monetization Routing (2026-10-17)
 
-- Submodules: `projects/portal` (`e3a7397`), `projects/social-battery` (`0fafd74`), 10 Utility submodules, `projects/inner-child-test` (`7a78618`), `projects/villain-type` (`f7c847a`).
+- Submodules: `projects/portal` (`7c0452f`), `projects/social-battery` (`0fafd74`), 10 Utility submodules, `projects/inner-child-test` (`7a78618`), `projects/villain-type` (`f7c847a`).
 - Monetization & Traffic Routing:
-  - 오가닉 유입 상위 1,718개 블로그 가이드(색채심리/감각과부하/인지왜곡/정신연령 50개, 컬러팔레트/내면아이/오라/정서방임 63개, 별자리/나르시시즘/프리즈/야간과생각 148개, 게이밍 뇌과학 2차 336개, 정신건강 114개, 게이밍 1차 348개, 감정지능 155개 등)에서 0광고 정지 스텁(`color-personality`, `dopamine-type`, `mbti-love`, `red-flag-test`, `trauma-response`, `anxiety-type`, `toxic-trait-test`, `stress-type`)으로 유실되던 링크를 활성 Auto Ads 수익화 앱(`dark-core`, `red-green-flag`, `stress-check`, `hsp-test`, `detox-timer`, `animal-personality`, `portal/mbti`, `future-self`, `aura-score`, `iq-test`)으로 전면 교체 (>4,300개 누수 차단).
+  - 16개 MBTI 유형별 가이드(`enfj`~`istp`)의 하단 CTA 링크를 정지된 0광고 스텁(`mbti-love`, `mbti-career`)에서 활성 Auto Ads 앱(`attachment-style`, `animal-personality`, `portal/mbti`)으로 전환.
+  - RSD 가이드(10개 언어), 감정조절(8개 언어), 습관형성(5개 언어), 바운더리(2개 언어), 발렌타인/K-POP 가이드 등 47개 파일 내 정지 스텁(`anxiety-type`, `toxic-trait-test`, `dopamine-type`, `red-flag-test`, `trauma-response`) 링크를 활성 수익화 앱(`stress-check`, `hsp-test/reset.html`, `detox-timer`, `red-green-flag`, `toxic-trait`)으로 전면 전환 (누적 1,765개 가이드, >4,450개 누수 차단).
   - 10개 유틸리티 앱 및 생성기 템플릿의 관련 도구 링크를 정지된 `qr-generator`에서 활성 `pomodoro-timer`로 교체 완료.
   - `inner-child-test`, `villain-type`, `social-battery` 정지 규약 준수 및 관련 그리드를 활성 수익화 앱으로 전면 라우팅.
 - Test Harness:
-  - `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:adsense-contract`, `verify:restricted-ads`, `verify:docs` 100% PASS.
+  - `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:adsense-contract`, `verify:restricted-ads`, `verify:docs`, `verify:root` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
 
