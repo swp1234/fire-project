@@ -23,16 +23,15 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: TR, HI Reaction Time Guides Monetization Routing (2026-10-17)
+## Latest release: EN, DE, ES, FR Top 10 Mini Games Guides Monetization Routing (2026-10-17)
 
-- Submodules: `projects/portal` (`744a3c3`).
+- Submodules: `projects/portal` (`be17663`).
 - Monetization & High-Intent Conversion Routing:
-  - 터키어/힌디어 반응속도 가이드(`blog/{tr,hi}/reaction-time-test-how-fast-are-you.html`):
-    - 퀵 레일 카드 및 타이틀을 현지화하고 미작동/정지 게임 대신 활성 수익화 도구(`/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/hsp-test/?lang=...`, `/future-self/?lang=...`)로 전면 개편.
-    - 본문 CTA 1/2, 인라인 링크, FAQ 및 하단 관련 도구 그리드 내 16개 트래픽 누수 링크(`iq-test` 오작동 및 정지 게임 스텁)를 활성 앱(`/reaction-test/?lang=...`, `/puzzle-2048/coach.html?lang=...` 등)으로 100% 교체.
-    - 전체 12개 언어 반응속도 메인 가이드 트래픽 누수 100% 제거 완료.
+  - 영어/독일어/스페인어/프랑스어 두뇌 휴식 미니게임 가이드(`blog/{en,de,es,fr}/top-10-free-mini-games-brain-breaks.html`):
+    - 퀵 레일 및 팔로우업 섹션 내 미작동 링크를 활성 수익화 도구(`/puzzle-2048/coach.html?lang=...`, `/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/future-self/?lang=...`)로 개편.
+    - 본문 10개 앱 추천 카드 중 정지된 레거시 게임 스텁(Color Memory, Zigzag Runner, Stack Tower, Sky Runner, MBTI tips, Emotion Temp) 6개를 활성 수익화 앱(`/stress-check/reset.html`, `/reaction-test/`, `/stress-check/`, `/hsp-test/`, `/daily-tarot/`, `/attachment-style/`, `/hsp-test/map.html`)으로 전면 전환.
 - Mobile & Ad Quality:
-  - 390x844 모바일 가로 오버플로 수정 파일 모두 0px 검증 완료.
+  - 390x844 모바일 가로 오버플로 4개 파일 모두 0px 검증 완료.
   - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:restricted-ads`, `verify:zh-2048-guide`, `verify:ja-reaction-time`, `harness:analytics`, `verify:root`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
