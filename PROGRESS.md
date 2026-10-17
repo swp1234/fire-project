@@ -23,15 +23,17 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: Utility Suite & Personality Funnel Traffic Monetization (2026-10-17)
+## Latest release: Blog High-Traffic Guides Monetization Routing (2026-10-17)
 
-- Submodules: 10 Utility submodules (`aspect-ratio-calculator` 등), `projects/inner-child-test` (`7a78618`), `projects/villain-type` (`f7c847a`).
+- Submodules: `projects/portal` (`adc91d6`), 10 Utility submodules, `projects/inner-child-test` (`7a78618`), `projects/villain-type` (`f7c847a`).
 - Monetization & Traffic Routing:
-  - 10개 유틸리티 앱 및 생성기 템플릿의 관련 도구 링크를 정지된 `qr-generator`에서 활성 Auto Ads 탑재 `pomodoro-timer`로 교체 완료.
-  - `inner-child-test` 및 `villain-type`의 광고 서빙 정지 규약 준수 및 관련 링크를 `dark-core`, `stress-check`, `future-self`, `emotional-age`, `attachment-style`로 전면 라우팅.
+  - 고유입 영문 블로그 가이드(`blood-type-personality-guide.html`, `trauma-response-4f-fight-flight-freeze-fawn.html`)에서 0광고 정지 스텁(`color-personality`, `dopamine-type`, `mbti-love`, `red-flag-test`, `trauma-response`, `anxiety-type`)으로 새던 아웃바운드 링크를 활성 Auto Ads 수익화 앱(`stress-check`, `hsp-test`, `animal-personality`, `portal/mbti`, `detox-timer`, `red-green-flag`, `dark-core`)으로 전면 교체.
+  - 10개 유틸리티 앱 및 생성기 템플릿의 관련 도구 링크를 정지된 `qr-generator`에서 활성 `pomodoro-timer`로 교체 완료.
+  - `inner-child-test`, `villain-type` 정지 규약 준수 및 관련 그리드를 활성 수익화 앱으로 전면 라우팅.
 - Test Harness:
-  - `verify:adsense-contract`, `verify:restricted-ads`, `verify:qr-generator-trust`, `verify:docs` 100% PASS.
+  - `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:adsense-contract`, `verify:restricted-ads`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
+
 
 
