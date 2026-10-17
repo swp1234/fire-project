@@ -23,17 +23,17 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: JA, PT, RU Reaction Time Guides Monetization Routing & Contract Hardening (2026-10-17)
+## Latest release: KO, ZH, ID Reaction Time Guides Monetization Routing & ZH Contract Locking (2026-10-17)
 
-- Submodules: `projects/portal` (`c2c57c0`).
+- Submodules: `projects/portal` (`598fc34`).
 - Monetization & High-Intent Conversion Routing:
-  - 일본어/포르투갈어/러시아어 반응속도 가이드(`blog/{ja,pt,ru}/reaction-time-test-how-fast-are-you.html`, `blog/ja/reaction-time-test-guide.html`):
+  - 한국어/중국어/인도네시아어 반응속도 가이드(`blog/{ko,zh,id}/reaction-time-test-how-fast-are-you.html`):
     - 퀵 레일 카드 및 타이틀을 현지화하고 미작동/정지 게임 대신 활성 수익화 도구(`/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/hsp-test/?lang=...`, `/future-self/?lang=...`)로 전면 개편.
-    - 본문 CTA 1/2, 인라인 링크, FAQ 및 하단 관련 도구 그리드 내 16개 트래픽 누수 링크(`iq-test` 오작동 및 정지 게임 스텁)를 활성 앱(`/reaction-test/?lang=...`, `/puzzle-2048/coach.html?lang=...` 등)으로 100% 교체.
-    - 일본어 반응시간 가이드 계약 검증(`verify:ja-reaction-time`) 100% PASS 복구 및 고정.
+    - 본문 CTA 1/2, 인라인 링크, FAQ 및 하단 관련 도구 그리드 내 14~16개 트래픽 누수 링크(`iq-test` 오작동 및 정지 게임 스텁)를 활성 앱(`/reaction-test/?lang=...`, `/puzzle-2048/coach.html?lang=...` 등)으로 100% 교체.
+    - 중국어 2048 가이드 계약 검증(`verify:zh-2048-guide`) 20/20 PASS 복구 및 불변 고정.
 - Mobile & Ad Quality:
   - 390x844 모바일 가로 오버플로 수정 파일 모두 0px 검증 완료.
-  - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:restricted-ads`, `verify:ja-reaction-time`, `harness:analytics`, `verify:root`, `verify:docs` 100% PASS.
+  - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:restricted-ads`, `verify:zh-2048-guide`, `verify:ja-reaction-time`, `harness:analytics`, `verify:root`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
 
