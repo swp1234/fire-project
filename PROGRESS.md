@@ -23,16 +23,16 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: EN, DE, ES, FR Stack Tower Guides Monetization Routing (2026-10-17)
+## Latest release: JA, PT, RU Stack Tower Guides Monetization Routing (2026-10-17)
 
-- Submodules: `projects/portal` (`02b26af`).
+- Submodules: `projects/portal` (`5d06ce3`).
 - Monetization & High-Intent Conversion Routing:
-  - 영어/독일어/스페인어/프랑스어 스택 타워 가이드(`blog/{en,de,es,fr}/stack-tower-game-guide.html`):
-    - 퀵 레일 내 미작동 링크를 활성 수익화 도구(`/puzzle-2048/coach.html?lang=...`, `/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/future-self/?lang=...`)로 개편.
-    - 정지된 앱(`stack-tower`)을 가리키던 상/하단 CTA 박스를 공간 지각 및 블록 퍼즐 전략에 최적화된 2048 전술 코치(`/puzzle-2048/coach.html?lang=...`) 및 반응속도 테스트(`/reaction-test/?lang=...`), 감각 리셋(`/stress-check/reset.html?lang=...`)으로 전면 전환.
+  - 일본어/포르투갈어/러시아어 스택 타워 가이드(`blog/{ja,pt,ru}/stack-tower-game-guide.html`):
+    - 퀵 레일 내 정지 링크를 활성 수익화 도구(`/puzzle-2048/coach.html?lang=...`, `/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/future-self/?lang=...`)로 개편.
+    - 정지된 `stack-tower`를 가리키던 CTA 박스를 공간 지각 및 타이밍 집중 훈련에 최적화된 2048 코치(`/puzzle-2048/coach.html?lang=...`), 반응속도 테스트(`/reaction-test/?lang=...`), 감각 리셋(`/stress-check/reset.html?lang=...`)으로 전면 전환.
     - 하단 관련 링크 6종을 100% 활성 고유지율/Auto Ads 도구로 현지화 교체.
 - Mobile & Ad Quality:
-  - Playwright 기준 390x844 모바일 가로 오버플로 4개 파일 모두 0px 검증 완료.
+  - Playwright 기준 390x844 모바일 가로 오버플로 3개 파일 모두 0px 검증 완료.
   - `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:portal-ad-containment`, `verify:restricted-ads`, `verify:zh-2048-guide`, `verify:ja-reaction-time`, `harness:analytics`, `verify:root`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
