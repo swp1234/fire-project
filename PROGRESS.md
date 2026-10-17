@@ -5,8 +5,8 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
-- **AdSense Status (2026-10-17)**: Policy violations 0 (`{}`). 10-17 **$0.03** (반등 추세, Canada $0.05 / US $0.04). 7일 누적 **$0.30**, 30일 누적 **$1.71**.
-- 핵심 대책: 직접 유입 정지 앱(`brain-type`, `social-battery`) 및 영문 공략 가이드 아웃바운드 링크를 활성 수익화 앱(`iq-test`, `stress-check`, `hsp-test`, `future-self`)으로 전면 전환하여 수익 누수 차단.
+- **AdSense Status (2026-10-17)**: Policy violations 0 (`{}`). 10-17 **$0.04** (반등, 10-16 $0.01 대비 4배). 7일 누적 **$0.26**, 30일 누적 **$1.72**.
+- 핵심 대책: 직접 유입 정지 앱 및 10개 유틸리티 도구의 관련 링크를 활성 수익화 도구(`pomodoro-timer`, `dark-core`, `stress-check`, `future-self`, `emotional-age`)로 전면 전환하여 유입 트래픽 누수 원천 차단.
 
 ## Current operating rules
 
@@ -18,21 +18,19 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 ## Active plan (2026-10-17) — 상세 설계: `docs/STRATEGY.md`
 
 - **P0 수익화 트래픽 누수 차단 및 활성 도구 라우팅**:
-  - `brain-type` 결과 화면 Primary CTA 및 관련 그리드를 정지 스텁(`eq-test`, `mental-age`)에서 활성 수익화 앱(`iq-test`, `stress-check`, `hsp-test`, `future-self`)으로 전면 전환.
-  - `social-battery` 결과 화면 관련 그리드에서 정지 스텁 4종 제거, 100% 활성 수익화 앱 유지.
-  - 영문 고-CPM 아티클(`number-puzzle-2048-tips.html`, `dopamine-detox-guide-reset-brain.html`) 내 아웃바운드 링크를 2048 Coach 및 활성 도구로 전환.
+  - 10개 유틸리티 앱의 정지 스텁(`qr-generator`) 링크를 활성 Auto Ads 앱(`pomodoro-timer`)으로 전면 전환.
+  - 직접 유입 정지 심리테스트(`inner-child-test`, `villain-type`)의 관련 그리드를 활성 수익화 앱으로 전환 및 서브모듈 푸시 완료.
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
-  - 유저 체류시간 3,790초 초고유지율 허브와 동반 수익화 테스트 간 상호 연결 완성.
+  - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: Direct-Landing Outbound Funnel Recovery & English Strategy Monetization (2026-10-17)
+## Latest release: Utility Suite & Personality Funnel Traffic Monetization (2026-10-17)
 
-- Submodules: `projects/portal` (`ff8084e`), `projects/brain-type` (`e5977c4`), `projects/social-battery` (`059dddb`).
+- Submodules: 10 Utility submodules (`aspect-ratio-calculator` 등), `projects/inner-child-test` (`7a78618`), `projects/villain-type` (`f7c847a`).
 - Monetization & Traffic Routing:
-  - 직접 유입 상위 정지 앱(`brain-type`, `social-battery`)의 결과 화면 Primary CTA 및 관련 그리드를 활성 수익화 앱(`iq-test`, `stress-check`, `hsp-test`, `future-self`, `anxiety-type`)으로 전면 개편.
-  - 2048 전략 가이드(`number-puzzle-2048-tips.html`) 내 무광고 `number-puzzle` 링크를 2048 Coach 및 IQ Test/Stress Check로 교체.
-  - 도파민 디톡스 영문 가이드 관련 링크 라벨 및 목적지를 활성 수익화 앱(`detox-timer`, `stress-check`, `future-self`, `iq-test` 등)으로 정합성 갱신.
+  - 10개 유틸리티 앱 및 생성기 템플릿의 관련 도구 링크를 정지된 `qr-generator`에서 활성 Auto Ads 탑재 `pomodoro-timer`로 교체 완료.
+  - `inner-child-test` 및 `villain-type`의 광고 서빙 정지 규약 준수 및 관련 링크를 `dark-core`, `stress-check`, `future-self`, `emotional-age`, `attachment-style`로 전면 라우팅.
 - Test Harness:
-  - `verify:adsense-contract`, `verify:restricted-ads`, `verify:brain-trust`, `verify:2048-ad-policy`, `verify:docs` 100% PASS.
+  - `verify:adsense-contract`, `verify:restricted-ads`, `verify:qr-generator-trust`, `verify:docs` 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
 

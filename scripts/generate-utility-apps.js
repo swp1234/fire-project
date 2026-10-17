@@ -331,7 +331,7 @@ ${LANGS.map((lang) => `        <option value="${lang}">${lang.toUpperCase()}</op
       <div class="related-grid">
         <a href="/unit-converter/">Unit Converter</a>
         <a href="/password-generator/">Password Generator</a>
-        <a href="/qr-generator/">QR Generator</a>
+        <a href="/pomodoro-timer/">Pomodoro Timer</a>
         <a href="/portal/tools/">All Tools</a>
       </div>
     </section>
