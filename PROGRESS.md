@@ -23,13 +23,13 @@ Updated: 2026-10-11 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach)에서 다국어 가이드 및 게임 허브로의 유기적 수익 순환 유지.
 
-## Latest release: EN, DE, ES Snake Game Guides Monetization Routing (2026-10-17)
+## Latest release: JA, RU, ZH Snake Game Guides Monetization Routing (2026-10-17)
 
-- Submodules: `projects/portal` (`d738615`).
+- Submodules: `projects/portal` (`6ee3a88`).
 - Monetization & High-Intent Conversion Routing:
-  - 영어/독일어/스페인어 스네이크 게임 가이드(`blog/{en,de,es}/snake-game-guide.html`):
+  - 일본어/러시아어/중국어 스네이크 게임 가이드(`blog/{ja,ru,zh}/snake-game-guide.html`):
     - 퀵 레일 내 정지 링크(`/minesweeper/`, `/brick-breaker/`)를 활성 수익화 도구(`/puzzle-2048/coach.html?lang=...`, `/reaction-test/?lang=...`, `/stress-check/?lang=...`, `/future-self/?lang=...`)로 개편.
-    - 정지된 `snake-game` 및 `maze-runner`를 가리키던 상/하단 CTA 박스를 반응속도 및 그리드 공간 경로 훈련에 최적화된 2048 전술 코치(`/puzzle-2048/coach.html?lang=...`), 반응속도 테스트(`/reaction-test/?lang=...`), 센서리 리셋(`/stress-check/reset.html?lang=...`)으로 전면 전환.
+    - 정지된 `snake-game`을 가리키던 히어로/하단 CTA 박스를 반응속도 및 그리드 공간 경로 훈련에 최적화된 2048 전술 코치(`/puzzle-2048/coach.html?lang=...`), 반응속도 테스트(`/reaction-test/?lang=...`), 센서리 리셋(`/stress-check/reset.html?lang=...`)으로 전면 전환.
     - 하단 관련 링크 6종을 100% 활성 고유지율/Auto Ads 도구로 현지화 교체.
 - Mobile & Ad Quality:
   - Playwright 기준 390x844 모바일 가로 오버플로 3개 파일 모두 0px 검증 완료.
