@@ -23,14 +23,14 @@ Updated: 2026-10-18 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach 200.1s) 및 핵심 셀프체크 허브로의 유기적 수익 순환 유지.
 
-## Latest release: 2,903 Multilingual Guides Funnel Localization & Suspended Quiz Link Clean Sweep (2026-10-18)
+## Latest release: 11-Locale Quick-Rail & Followup Localization + 2,903-Guide Funnel Clean Sweep (2026-10-18)
 
-- Submodules: `projects/portal` (`4d4b767`, `1b0dd86`, `634c3ae`, `8a79f97`).
+- Submodules: `projects/portal` (`4d4b767`, `1b0dd86`, `634c3ae`, `8a79f97`, `2348cbc`).
 - Monetization & Routing:
-  - 다국어 블로그 가이드 2,903개 문서 전반에서 정지된 심리/성격 퀴즈 앱 링크 총 860+건(`/overthinker-test/` 347건, `/emotion-iceberg/` 204건, `/emotion-temp/` 93건, `/ai-personality/` 72건, `/mbti-coffee/` 55건, `/dopamine-type/` 32건, `/anxiety-type/` 29건, `/mbti-career/` 24건 등)을 활성 Auto Ads 도구(`/stress-check/?lang=...`, `/emotional-age/?lang=...`, `/future-self/?lang=...`, `/mbti-tips/?lang=...`, `/work-style/?lang=...`, `/detox-timer/?lang=...`, `/hsp-test/reset.html?lang=...`)로 전수 전환.
-  - 610개 다국어 가이드 내 EQ/감성지능 라벨(`EQ Test`, `data-target-slug="eq-test"`) 오연결(`/iq-test/`) 1,080건을 활성 감성지능 도구(`/emotional-age/?lang=...`)로 복구하고, 활성 Auto Ads 앱 앵커 10,565건에 `?lang=<locale>` 파라미터를 일괄 부여해 로케일 유실 차단.
+  - 비영어권 11개 언어(`ko, ja, zh, es, pt, de, fr, ru, hi, id, tr`) 블로그 가이드 1,403개 문서에서 영문으로 잔존하던 상단 Quick-Rail 카드 4,444건 및 하단 Followup CTA 버튼 1,320건을 각 언어로 현지화하고, 267개 문서의 Quick-Rail 중복 목적지 카드를 고체류 Auto Ads 도구(`/stress-type/`, `/iq-test/`, `/emotional-age/`, `/puzzle-2048/coach.html`, `/hsp-test/reset.html`)로 분산 복구.
+  - 다국어 블로그 2,903개 문서에서 정지된 심리/성격 앱 링크 860+건 및 EQ 오연결 1,080건을 활성 Auto Ads 도구로 전환하고, 활성 앱 앵커 10,565건에 `?lang=<locale>` 파라미터를 부여해 로케일 유실 차단.
 - Mobile & Ad Quality:
-  - Playwright 기준 390x844 모바일 가로 오버플로 12개 지원 언어 대표 가이드 및 수동 보강 문서 전원 0px 검증 완료.
+  - Playwright 기준 390x844 모바일 가로 오버플로 12개 지원 언어 대표 가이드 전원 0px 검증 완료.
   - `verify:adsense-contract` (11/11), `verify:portal-auto-ads-only` (9/9), `verify:portal-ad-containment` (11/11), `harness:analytics` (9/9), `verify:root` (24/24), `verify:docs` (10/10) 전원 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
