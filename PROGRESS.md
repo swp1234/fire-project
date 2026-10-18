@@ -23,12 +23,13 @@ Updated: 2026-10-18 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach 200.1s) 및 핵심 셀프체크 허브로의 유기적 수익 순환 유지.
 
-## Latest release: 11-Locale Quick-Rail & Followup Localization + 2,903-Guide Funnel Clean Sweep (2026-10-18)
+## Latest release: 3,990-Source Portal Profitability, Localization & Funnel Clean Sweep (2026-10-18)
 
-- Submodules: `projects/portal` (`4d4b767`, `1b0dd86`, `634c3ae`, `8a79f97`, `2348cbc`).
+- Submodules: `projects/portal` (`4d4b767`, `1b0dd86`, `634c3ae`, `8a79f97`, `2348cbc`, `4d39940`, `87c8b1a`, `397616d`, `aabc632`, `b9d5e5b`).
 - Monetization & Routing:
-  - 비영어권 11개 언어(`ko, ja, zh, es, pt, de, fr, ru, hi, id, tr`) 블로그 가이드 1,403개 문서에서 영문으로 잔존하던 상단 Quick-Rail 카드 4,444건 및 하단 Followup CTA 버튼 1,320건을 각 언어로 현지화하고, 267개 문서의 Quick-Rail 중복 목적지 카드를 고체류 Auto Ads 도구(`/stress-type/`, `/iq-test/`, `/emotional-age/`, `/puzzle-2048/coach.html`, `/hsp-test/reset.html`)로 분산 복구.
-  - 다국어 블로그 2,903개 문서에서 정지된 심리/성격 앱 링크 860+건 및 EQ 오연결 1,080건을 활성 Auto Ads 도구로 전환하고, 활성 앱 앵커 10,565건에 `?lang=<locale>` 파라미터를 부여해 로케일 유실 차단.
+  - 비계약 라이브 블로그 전체에서 정지된 앱(`loaders=0`) 링크를 전수 제거(0건)하고 고체류 활성 Auto Ads 도구(`/stress-check/`, `/stress-type/`, `/iq-test/`, `/hsp-test/`, `/hsp-test/reset.html`, `/detox-timer/`, `/future-self/`, `/emotional-age/`, `/dream-fortune/`) 및 `/puzzle-2048/coach.html`로 전환.
+  - 비영어권 11개 언어(`ko, ja, zh, es, pt, de, fr, ru, hi, id, tr`) 가이드 내 영문 UI(Quick-Rail 7,246카드, Followup/Portal CTA 2,168건, FAQ/Conclusion 헤더 1,153건, 작성자/읽기시간 메타바 627건) 전수 현지화 및 2,115개 그리드 중복 카드 0건 달성.
+  - 활성 앱 링크 10,565건, `/puzzle-2048/coach.html` 683건, `/portal/` 허브 1,928건, `<nav>`/`<footer>` 루트 링크 1,018건에 `?lang=<locale>`을 부여하고 GA4 `data-target-slug` 불일치 395건을 동기화.
 - Mobile & Ad Quality:
   - Playwright 기준 390x844 모바일 가로 오버플로 12개 지원 언어 대표 가이드 전원 0px 검증 완료.
   - `verify:adsense-contract` (11/11), `verify:portal-auto-ads-only` (9/9), `verify:portal-ad-containment` (11/11), `harness:analytics` (9/9), `verify:root` (24/24), `verify:docs` (10/10) 전원 100% PASS.
