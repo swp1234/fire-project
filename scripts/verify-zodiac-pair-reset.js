@@ -18,8 +18,8 @@ const REQUIRED = [
   "result.label","result.pair_title","result.elements","result.boundary","result.prompt1_title","result.prompt1_body",
   "result.prompt2_title","result.prompt2_body","result.prompt3_title","result.prompt3_body","result.evidence_title",
   "result.evidence_body","result.source_relationship","result.source_personality","common.back","share.button","share.title",
-  "share.text","share.success","share.copied","share.error","related.title","related.reaction","related.reaction_desc",
-  "related.iq","related.iq_desc","related.blood","related.blood_desc","footer.privacy","footer.home","accessibility.skip",
+  "share.text","share.success","share.copied","share.error","related.title","related.tarot","related.tarot_desc",
+  "related.iq","related.iq_desc","related.attachment","related.attachment_desc","footer.privacy","footer.home","accessibility.skip",
 ];
 
 function fail(message) { throw new Error(message); }
@@ -126,7 +126,7 @@ async function verifyRuntime(live=false) {
     const events=await page.evaluate(()=>(window.dataLayer||[]).map(item=>Array.from(item)).filter(item=>item[0]==="event")); const names=events.map(item=>item[1]);
     for(const name of EVENTS)if(!names.includes(name))fail(`runtime event missing: ${name}`);
     for(const [,name,params] of events.filter(item=>String(item[1]).startsWith("zodiac_pair_"))){const bad=Object.keys(params||{}).filter(key=>/sign|zodiac|pair_result|score|answer|selected/i.test(key));if(bad.length)fail(`${name}: private payload ${bad.join(",")}`);}
-    const related=events.find(item=>item[1]==="zodiac_pair_related_click");if(related?.[2]?.target_slug!=="reaction_test"||related?.[2]?.target_rank!==1)fail("related click payload drifted");
+    const related=events.find(item=>item[1]==="zodiac_pair_related_click");if(related?.[2]?.target_slug!=="daily_tarot"||related?.[2]?.target_rank!==1)fail("related click payload drifted");
     await page.close(); return {environment:live?"live":"local",localeJourneys:LANGUAGES.length,desktopJourneys:1,linkedJourney:1,events:EVENTS.length,private:true};
   } finally { await browser.close(); if(server)await new Promise(resolve=>server.close(resolve)); }
 }

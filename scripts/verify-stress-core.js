@@ -17,7 +17,7 @@ function source(v){
   for(const linkedSource of['doomscroll_guide_primary','doomscroll_guide_quick','doomscroll_guide_footer'])ok(v.html.includes(linkedSource),'linked source missing: '+linkedSource);
   ok(count(v.html,/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/g)===1&&!/data-ad-slot|<ins[^>]+adsbygoogle|adsbygoogle\.push/.test(v.html+'\n'+v.app),'Auto Ads contract drifted');
   ok(count(v.data,/id:\s*\d+/g)===15,'exactly 15 questions required');
-  ok(count(v.html,/class="related-card"/g)===2,'result must keep exactly two related choices');
+  ok(count(v.html,/class="related-card"/g)===4,'result must keep exactly four related choices');
   const actionIndex=v.html.indexOf('id="result-primary-action"'),detailIndex=v.html.indexOf('id="radar-list"');
   ok(actionIndex>=0&&detailIndex>=0&&actionIndex<detailIndex,'primary plan action must precede result detail');
   ok(!/gauge-percent|result-canvas|btn-save-image|btn-share|recommendations-section|seo-links|cross-promo\.js/.test(v.html),'retired result clutter returned');
@@ -30,7 +30,7 @@ function source(v){
   const manifest=JSON.parse(v.manifest);ok(manifest.scope==='/stress-check/','manifest scope drifted');
   ok(v.locales.length===12&&v.locales.every(text=>{const j=JSON.parse(text);return!text.includes('\uFFFD')&&j.trust?.rule&&j.trust?.boundary&&j.trust?.resultBoundary&&j.button?.actionPlan&&j.result?.title}),'12-locale trust/action contract missing');
   const schemas=[...v.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(row=>JSON.parse(row[1]));ok(schemas.map(x=>x['@type']).join(',')==='SoftwareApplication,BreadcrumbList'&&schemas[0].dateModified==='2026-09-03','schema contract drifted');
-  return{questions:15,locales:12,related:2,appBytes:Buffer.byteLength(v.html)+Buffer.byteLength(v.app)+Buffer.byteLength(v.data)};
+  return{questions:15,locales:12,related:4,appBytes:Buffer.byteLength(v.html)+Buffer.byteLength(v.app)+Buffer.byteLength(v.data)};
 }
 function mutations(){const cases=[
   ['contract',v=>v.html=v.html.replace('data-stress-check-contract','broken-contract')],
