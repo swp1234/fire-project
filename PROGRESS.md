@@ -23,14 +23,14 @@ Updated: 2026-10-18 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
   - GA4 1위 체류 페이지(2048 Coach 200.1s) 및 핵심 셀프체크 허브로의 유기적 수익 순환 유지.
 
-## Latest release: Sensory Reset 404 Clean Sweep & Top-Dwell Guides Monetization Routing (2026-10-18)
+## Latest release: 354 Multilingual Guides Suspended-App Link Clean Sweep & Top-Dwell Funnel Routing (2026-10-18)
 
-- Submodules: `projects/portal` (`4d4b767`).
+- Submodules: `projects/portal` (`1b0dd86`, `634c3ae`).
 - Monetization & Routing:
-  - 98개 다국어 블로그 문서의 데드 링크(`/stress-check/reset.html`) 191건을 활성 Auto Ads 감각 리셋 페이지(`/hsp-test/reset.html`)로 전수 복구.
-  - GA4 최상위 체류/유입 5대 가이드(`blog/en/dopamine-detox-practical-guide.html`, `blog/pt/emotional-regulation-techniques.html`, `blog/en/emotional-regulation-techniques.html`, `blog/en/15-signs-highly-sensitive-person.html`, `blog/en/vulnerability-courage-connection-guide.html`)의 정지 앱(`/emotion-temp/`, `/overthinker-test/`)·중복 링크·영문 라벨 오염을 해소하고 활성 Auto Ads 앱(`?lang=...`)으로 전면 라우팅.
+  - 다국어 블로그 가이드 354개 문서 내 정지된 심리 앱(`/overthinker-test/` 337건, `/emotion-temp/` 93건, `/dopamine-type/` 32건, `/anxiety-type/` 29건 등 총 500+건) 앵커 링크를 활성 Auto Ads 도구(`/stress-check/?lang=...`, `/hsp-test/reset.html?lang=...`, `/detox-timer/?lang=...`, `/emotional-age/?lang=...`, `/hsp-test/?lang=...`)로 일괄 전환.
+  - GA4 상위 유입/체류 가이드 27종(`blog/zh/daily-tarot-reading-guide.html`, `blog/es/stress-management-techniques-guide.html`, `blog/emotion-management-guide.html`, `blog/pt/eq-vs-iq-which-matters-more.html`, `blog/en/overthinking-at-night-how-to-stop.html`, `blog/en/rumination-repetitive-thinking-stop.html`, `blog/en/cognitive-distortions-list.html` 등)의 퀵레일 영문 라벨 오염·중복 카드·폴로업 섹션을 현지화 및 정밀 라우팅.
 - Mobile & Ad Quality:
-  - Playwright 기준 390x844 모바일 가로 오버플로 5개 가이드 모두 0px 검증 완료.
+  - Playwright 기준 390x844 모바일 가로 오버플로 수동 정밀 보강 가이드 전원 0px 검증 완료.
   - `verify:adsense-contract` (11/11), `verify:portal-auto-ads-only` (9/9), `verify:portal-ad-containment` (11/11), `harness:analytics` (9/9), `verify:root` (24/24), `verify:docs` (10/10) 전원 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
