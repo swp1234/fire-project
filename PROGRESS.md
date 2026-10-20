@@ -1,12 +1,12 @@
 # DopaBrain current status
 
-Updated: 2026-10-18 KST. Release history is in `memory/data-check-log.md`; repeatable loop is in `dopabrain-growth-ops`.
+Updated: 2026-10-20 KST. Release history is in `memory/data-check-log.md`; repeatable loop is in `dopabrain-growth-ops`.
 
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
-- **AdSense Status (2026-10-18)**: Policy violations 0 (`{}`). 10-17 **$0.05**, 10-18 당일 중간 **$0.04**. 7일 누적 **$0.26**, 이달 누적 **$0.91**.
-- 핵심 대책: 포털 블로그 전반의 404 감각 리셋 데드 링크(`/stress-check/reset.html`) 191건을 활성 Auto Ads 감각 리셋 세션(`/hsp-test/reset.html`)으로 전수 복구하고, GA4 최상위 체류 가이드의 유입 누수를 활성 수익화 도구로 전면 전환.
+- **AdSense Status (2026-10-20)**: Policy violations 0 (`{}`). 7일 누적 **$0.33** (직전 $0.26 대비 +27%), 이달 누적 **$1.04** (직전 $0.91 대비 +14%).
+- 핵심 대책: 포털 블로그 404 데드 링크 전수 복구 완료 상태 유지, GSC 사이트맵 및 IndexNow 8대 핵심 진입면 URL 갱신 통보로 인덱싱 복구 가속, 모바일 44px 터치 타깃 불변식 엄수.
 
 ## Current operating rules
 
@@ -15,25 +15,23 @@ Updated: 2026-10-18 KST. Release history is in `memory/data-check-log.md`; repea
 - Focus organic growth on core tools (Stress Check 95~175s, Future Self 178s, HSP Test 63s, 2048 Coach 200s).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Active plan (2026-10-18) — 상세 설계: `docs/STRATEGY.md`
+## Active plan (2026-10-20) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 수익화 트래픽 누수 차단 및 활성 도구 라우팅**:
-  - 98개 다국어 블로그 가이드 내 잘못 연결된 `/stress-check/reset.html`(404) 191건을 활성 Auto Ads 페이지(`/hsp-test/reset.html`)로 일괄 복구.
-  - GA4 최상위 체류시간 가이드(`dopamine-detox-practical-guide` 235.8s, `pt/emotional-regulation-techniques` 232.6s 등)의 정지/중복 링크를 활성 Auto Ads 도구로 전환 완료.
-- **P1 고유지율 허브(`/puzzle-2048/coach.html`) & 진입면 수익 연결**:
-  - GA4 1위 체류 페이지(2048 Coach 200.1s) 및 핵심 셀프체크 허브로의 유기적 수익 순환 유지.
+- **P0 색인 갱신 및 유기적 검색 회복**:
+  - GSC Webmasters API로 3종 사이트맵(`sitemap.xml`, `portal/sitemap.xml`, `portal/blog/sitemap.xml`) 갱신 및 IndexNow 8대 진입면 통보 완료.
+  - 검색 콘솔 '크롤링됨 - 현재 색인 생성되지 않음' 상태의 핵심 진입면(`stress-check`, `hsp-test`, `2048/coach`, `brain-type`, `future-self`) 유기적 순위 회복 촉진.
+- **P1 모바일 a11y & 터치 타깃 불변식 보장**:
+  - 모바일(390x844) 가로 오버플로 0px 및 최소 터치 타깃 44px 엄격 준수.
 
-## Latest release: 3,990-Source Portal Profitability, Localization & Funnel Clean Sweep (2026-10-18)
+## Latest release: Mobile Touch-Target, HTML Nesting & Indexation Hygiene (2026-10-20)
 
-- Submodules: `projects/portal` (`4d4b767`..`89e656b`), `projects/zodiac-match` (`82fe65e`, `bd411ac`).
-- Monetization & Routing:
-  - 비계약 라이브 블로그 전체(3,627개 문서)에서 정지된 앱(`loaders=0`) 링크를 전수 제거(0건)하고 고체류 활성 Auto Ads 도구(`/stress-check/`, `/stress-type/`, `/iq-test/`, `/hsp-test/`, `/hsp-test/reset.html`, `/detox-timer/`, `/future-self/`, `/emotional-age/`, `/dream-fortune/`) 및 `/puzzle-2048/coach.html`로 전환.
-  - 비영어권 11개 언어(`ko, ja, zh, es, pt, de, fr, ru, hi, id, tr`) 가이드 내 영문 UI(Quick-Rail 7,323카드, Followup/Portal CTA 2,630건, FAQ/Conclusion 헤더 1,615건, 작성자/읽기시간 메타바 1,009건, Home/Blog 라벨 109건) 전수 현지화 및 그리드 중복 카드 0건 달성.
-  - 활성 앱 링크 10,581건, `/puzzle-2048/coach.html` 985건, `/portal/` 및 `/portal/blog/` 허브 3,220건, `<nav>`/`<footer>` 루트 링크 2,506건에 `?lang=<locale>` 부여 및 GA4 `data-target-slug` 534건 동기화.
-  - 404 `og:image`/파비콘/JSON-LD 이미지 5,352건을 `/portal/icon-512.svg`로 복구(`og:image` 누락 337건 추가), 정지 앱 명칭 CTA 1,895건을 도착 도구명으로 교정, 리디렉트 스텁 hreflang 378건 제거.
-  - 검증 계약 가이드 13종(Future-Self, Blood-Type, Browser-Games, Free-Games, Typing-Speed, Habit-Tracker, Brain-Type, Dev-Quiz, Past-Life, MBTI-City, Brain-Training, Kpop-Roster, Stress-Check) 라우팅/도구카탈로그 완전 복원 및 하네스 전면 동기화.
-- Mobile & Ad Quality:
-  - Playwright 기준 390x844 모바일 가로 오버플로 12개 지원 언어 대표 가이드 전원 0px 검증 완료.
-  - `harness` (100% all suites), `verify:adsense-contract`, `verify:portal-auto-ads-only`, `verify:root`, `verify:docs` 전원 100% PASS.
+- Submodules: `projects/stress-check` (`fe677a5`), `projects/puzzle-2048` (`04d7c67`), `projects/future-self` (`0030835`), `projects/root-domain` (`d5e9788`).
+- UX & Accessibility:
+  - 44px 터치 타깃 불변식 적용: Root `.skip-link` 및 개인정보처리방침 링크, Future Self `.skip-link` 및 `.lang-option`, 2048 Coach `#playTop` 및 `.presets button`, `.ghost`.
+  - Stress Check: `<main>` 태그 및 스크린 컨테이너(`intro-screen`, `question-screen`, `result-screen`) DOM nesting 구조 결함 전면 교정.
+- Indexing & Verification:
+  - GSC Webmasters API 3종 사이트맵 재제출 및 IndexNow 8대 핵심 진입면 즉각 갱신 통보 완료 (HTTP 200).
+  - Playwright 기반 프로덕션 `https://dopabrain.com` 및 로컬 12개 언어 모바일 뷰포트 전수 검증 통과 (오버플로 0px).
+  - AdSense Auto Ads 단일 로더 및 무효 트래픽 방지 계약 100% 준수 (전체 계약 검증기 및 뮤테이션 테스트 100% PASS).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
