@@ -23,13 +23,13 @@ Updated: 2026-10-20 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 모바일 a11y & 터치 타깃 불변식 보장**:
   - 모바일(390x844) 가로 오버플로 0px 및 최소 터치 타깃 44px 엄격 준수.
 
-## Latest release: Mobile Touch-Target & UX Invariant Audit Across 12 Submodules (2026-10-20)
+## Latest release: Mobile Touch-Target & UX Invariant Audit Across 10 Submodules (2026-10-20)
 
-- Submodules: `brain-type` (`dc068ba`), `iq-test` (`d989356`), `stress-type` (`e0694ef`), `emotional-age` (`90efa42`), `eq-test` (`478190f`), `daily-tarot` (`713ab62`), `fortune-cookie` (`3da562b`), `blood-type` (`56fc23d`), `stress-check` (`fe677a5`), `puzzle-2048` (`04d7c67`), `future-self` (`0030835`), `root-domain` (`d5e9788`).
+- Submodules: `anxiety-type` (`8292adc`), `trauma-response` (`875e7cc`), `stress-response` (`44dca30`), `dopamine-type` (`000476e`), `burnout-test` (`36b8d11`), `overthinker-test` (`56a5838`), `animal-personality` (`c0112ca`), `social-battery` (`92a5f98`), `soul-age` (`e934810`), `inner-child-test` (`7302041`).
 - UX & Touch Target Compliance:
-  - 8개 서브모듈(Brain Type, IQ Test, Stress Type, Emotional Age, EQ Test, Daily Tarot, Fortune Cookie, Blood Type) 대상 44px 최소 터치 타깃 불변식 전면 확장 (`.skip-link`, `.related-games a`, `.lang-btn`, `.back-link`, `.brand`, `footer a`).
-  - 모바일(390x844) 가로 오버플로 0px 유지 및 12개 로케일 UI 정렬 완료. GitHub Pages 전 서브모듈 배포 상태 `built` 확인.
+  - 10개 서브모듈 전수 Playwright 검사: `.skip-link`, `.home-link`, `.back-link`, `.brand`, `.theme-toggle`, `.lang-current`, `.lang-btn`, `.seo-links a`, `footer a` 대상 44px 최소 터치 타깃 불변식 확장 완료.
+  - 모바일(390x844) 가로 오버플로 0px 유지 및 12개 로케일 UI 정렬 완료. GitHub Pages 10개 서브모듈 배포 상태 `built` 확인.
 - Indexing & Verification:
-  - GSC 3종 사이트맵 갱신 및 IndexNow 8대 핵심 진입면 즉각 통보 완료. 전용 릴리스 검증 스크립트 및 뮤테이션 테스트 100% PASS.
+  - 각 서브모듈 전용 신뢰/계약 검증기 (`verify-anxiety-type`, `verify-trauma-response`, `verify-stress-response`, `verify-dopamine-trust`, `verify-burnout-trust`, `verify-overthinker`, `verify-animal-personality`) 및 뮤테이션 테스트 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
