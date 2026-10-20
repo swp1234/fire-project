@@ -23,15 +23,13 @@ Updated: 2026-10-20 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 모바일 a11y & 터치 타깃 불변식 보장**:
   - 모바일(390x844) 가로 오버플로 0px 및 최소 터치 타깃 44px 엄격 준수.
 
-## Latest release: Mobile Touch-Target, HTML Nesting & Indexation Hygiene (2026-10-20)
+## Latest release: Mobile Touch-Target & UX Invariant Audit Across 12 Submodules (2026-10-20)
 
-- Submodules: `projects/stress-check` (`fe677a5`), `projects/puzzle-2048` (`04d7c67`), `projects/future-self` (`0030835`), `projects/root-domain` (`d5e9788`).
-- UX & Accessibility:
-  - 44px 터치 타깃 불변식 적용: Root `.skip-link` 및 개인정보처리방침 링크, Future Self `.skip-link` 및 `.lang-option`, 2048 Coach `#playTop` 및 `.presets button`, `.ghost`.
-  - Stress Check: `<main>` 태그 및 스크린 컨테이너(`intro-screen`, `question-screen`, `result-screen`) DOM nesting 구조 결함 전면 교정.
+- Submodules: `brain-type` (`dc068ba`), `iq-test` (`d989356`), `stress-type` (`e0694ef`), `emotional-age` (`90efa42`), `eq-test` (`478190f`), `daily-tarot` (`713ab62`), `fortune-cookie` (`3da562b`), `blood-type` (`56fc23d`), `stress-check` (`fe677a5`), `puzzle-2048` (`04d7c67`), `future-self` (`0030835`), `root-domain` (`d5e9788`).
+- UX & Touch Target Compliance:
+  - 8개 서브모듈(Brain Type, IQ Test, Stress Type, Emotional Age, EQ Test, Daily Tarot, Fortune Cookie, Blood Type) 대상 44px 최소 터치 타깃 불변식 전면 확장 (`.skip-link`, `.related-games a`, `.lang-btn`, `.back-link`, `.brand`, `footer a`).
+  - 모바일(390x844) 가로 오버플로 0px 유지 및 12개 로케일 UI 정렬 완료. GitHub Pages 전 서브모듈 배포 상태 `built` 확인.
 - Indexing & Verification:
-  - GSC Webmasters API 3종 사이트맵 재제출 및 IndexNow 8대 핵심 진입면 즉각 갱신 통보 완료 (HTTP 200).
-  - Playwright 기반 프로덕션 `https://dopabrain.com` 및 로컬 12개 언어 모바일 뷰포트 전수 검증 통과 (오버플로 0px).
-  - AdSense Auto Ads 단일 로더 및 무효 트래픽 방지 계약 100% 준수 (전체 계약 검증기 및 뮤테이션 테스트 100% PASS).
+  - GSC 3종 사이트맵 갱신 및 IndexNow 8대 핵심 진입면 즉각 통보 완료. 전용 릴리스 검증 스크립트 및 뮤테이션 테스트 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
