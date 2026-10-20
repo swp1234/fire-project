@@ -23,13 +23,13 @@ Updated: 2026-10-20 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 모바일 a11y & 터치 타깃 불변식 보장**:
   - 모바일(390x844) 가로 오버플로 0px 및 최소 터치 타깃 44px 엄격 준수.
 
-## Latest release: Mobile Touch-Target & UX Invariant Audit Across 10 Submodules (2026-10-20)
+## Latest release: Mobile Touch-Target & UX Invariant Audit Across 11 Submodules (2026-10-20)
 
-- Submodules: `anxiety-type` (`8292adc`), `trauma-response` (`875e7cc`), `stress-response` (`44dca30`), `dopamine-type` (`000476e`), `burnout-test` (`36b8d11`), `overthinker-test` (`56a5838`), `animal-personality` (`c0112ca`), `social-battery` (`92a5f98`), `soul-age` (`e934810`), `inner-child-test` (`7302041`).
+- Submodules: `ai-personality` (`fad709c`), `toxic-trait` (`64d99cf`), `mbti-love` (`16537d5`), `emotion-iceberg` (`7b7c1c6`), `mbti-coffee` (`04c8a38`), `routine-planner` (`9e8ebf0`), `shadow-work` (`ecd46fc`), `villain-origin` (`9a1b7cd`), `dark-core` (`35b60e5`), `pomodoro-timer` (`1087548`), `habit-tracker` (`b0056f4`).
 - UX & Touch Target Compliance:
-  - 10개 서브모듈 전수 Playwright 검사: `.skip-link`, `.home-link`, `.back-link`, `.brand`, `.theme-toggle`, `.lang-current`, `.lang-btn`, `.seo-links a`, `footer a` 대상 44px 최소 터치 타깃 불변식 확장 완료.
-  - 모바일(390x844) 가로 오버플로 0px 유지 및 12개 로케일 UI 정렬 완료. GitHub Pages 10개 서브모듈 배포 상태 `built` 확인.
+  - 11개 서브모듈 전수 Playwright 검사: `.skip-link`, `.brand`, `.back-link`, `.lang-btn`, `#theme-toggle`, `.trust-panel a`, `footer a` 대상 44px 최소 터치 타깃 규격 전면 확장 완료.
+  - 모바일(390x844) 가로 오버플로 0px 유지 및 12개 로케일 UI 정렬 완료. GitHub Pages 11개 서브모듈 배포 상태 `built` 확인.
 - Indexing & Verification:
-  - 각 서브모듈 전용 신뢰/계약 검증기 (`verify-anxiety-type`, `verify-trauma-response`, `verify-stress-response`, `verify-dopamine-trust`, `verify-burnout-trust`, `verify-overthinker`, `verify-animal-personality`) 및 뮤테이션 테스트 100% PASS.
+  - 각 서브모듈 전용 신뢰/계약 검증기 (`verify-ai-personality`, `verify-toxic-trait`, `verify-mbti-love`, `verify-emotion-iceberg-trust`, `verify-mbti-coffee-trust`, `verify-routine-planner-trust`, `verify-en-shadow-reflection`) 및 뮤테이션 테스트 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
