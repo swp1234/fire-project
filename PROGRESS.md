@@ -18,10 +18,10 @@ Updated: 2026-10-20 KST. Release history is in `memory/data-check-log.md`; repea
 ## Active plan (2026-10-20) — 상세 설계: `docs/STRATEGY.md`
 
 - **P0 색인 갱신 및 유기적 검색 회복**:
-  - GSC Webmasters API로 3종 사이트맵(`sitemap.xml`, `portal/sitemap.xml`, `portal/blog/sitemap.xml`) 갱신 및 IndexNow 8대 진입면 통보 완료.
-  - 검색 콘솔 '크롤링됨 - 현재 색인 생성되지 않음' 상태의 핵심 진입면(`stress-check`, `hsp-test`, `2048/coach`, `brain-type`, `future-self`) 유기적 순위 회복 촉진.
+  - GSC 사이트맵 및 IndexNow API로 14대 핵심 진입면·상위 유기적 랜딩 URL(HTTP 200) 통보 완료.
+  - 검색 콘솔 '크롤링됨' 대기 진입면(`stress-check`, `hsp-test`, `2048/coach`, `future-self`, `iq-test`) 및 Bing 유입 순위 회복 가속.
 - **P1 모바일 a11y & 터치 타깃 불변식 보장**:
-  - 모바일(390x844) 가로 오버플로 0px 및 최소 터치 타깃 44px 엄격 준수.
+  - 모바일(390x844) 가로 오버플로 0px 및 최소 터치 타깃 44px 전수 준수.
 
 ## Latest release: Mobile Touch-Target & UX Invariant Audit Across 11 Submodules (2026-10-20)
 
