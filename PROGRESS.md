@@ -23,14 +23,14 @@ Updated: 2026-10-21 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 모바일 a11y & 터치 타깃 불변식 보장**:
   - 모바일(390x844) 가로 오버플로 0px 및 최소 터치 타깃 44px 전수 준수.
 
-## Latest release: Mobile Touch-Target & UX Invariant Audit Across 11 Submodules — Batch 5 (2026-10-21)
+## Latest release: Mobile Touch-Target & UX Invariant Audit Across 11 Submodules — Batch 6 (2026-10-21)
 
-- Submodules: `affirmation` (`e2db2ee`), `biorhythm` (`bdd0a51`), `love-language` (`0d50b6b`), `zodiac-match` (`f4f5e26`), `aura-score` (`61337c8`), `bmi-calculator` (`15c004f`), `name-match` (`0df8056`), `work-style` (`d3ab45a`), `would-you-rather` (`1a64200`), `password-generator` (`e050ddf`), `numerology` (`053f9d4`).
+- Submodules: `color-palette` (`a575721`), `color-blindness` (`8198eaa`), `ick-factor` (`00bec46`), `life-in-numbers` (`ff911f8`), `mbti-tips` (`047c2ce`), `red-green-flag` (`9aea044`) (완전 무결 0-issue 검증 완료: `detox-timer`, `white-noise`, `dday-counter`, `valentine`, `pick-me`).
 - UX & Touch Target Compliance:
   - 11개 서브모듈 Playwright 모바일(390x844) 전수 검사 0 issues (100% PERFECT).
-  - `affirmation` 달력 스트릭 요일명(minmax grid) 및 `name-match` app-icon pulse 애니메이션으로 인한 모바일 가로 오버플로 완전 제거(0px 유지).
-  - `.skip-link`, `.back-link`, `.lang-btn`, `#theme-toggle`, `.unit-btn`, `.history-copy-btn`, `.clear-history-btn`, `.tab-btn`, `.primary-btn`, `footer a` 대상 44px 최소 터치 타깃 규격 전면 확장 완료.
-  - 11개 서브모듈 Pre-push 품질 게이트 전원 PASS 및 원격 저장소 배포 완료.
+  - `color-palette`의 22개 타깃(`.color-action-btn copy-btn`, `.lock-btn`, `.mode-select`, `.format-btn`, `.export-btn`, `.clear-history-btn`, `.modal-close`, `.copy-export-btn`, `.back-link`), `color-blindness`의 `.skip-link`, `ick-factor`의 모바일 `.lang-btn`, `life-in-numbers`의 `.skip-link`, `mbti-tips`의 `.compare-select`, `red-green-flag`의 `.footer-link` 대상 44px 최소 터치 타깃 규격 전면 확장 완료.
+  - 모바일(390x844) 가로 오버플로 0px 유지 및 12개 로케일 UI 정렬 완료.
+  - 수정된 서브모듈 Pre-push 품질 게이트 전원 PASS 및 원격 저장소 배포 완료.
 - Verification & Invariants:
   - `verify:root`, `verify:indexing-inventory`, `verify:adsense-contract` (11/11 mutations), `verify:tracked-secrets` 전수 100% PASS.
 
