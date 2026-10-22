@@ -23,14 +23,14 @@ Updated: 2026-10-23 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 모바일 a11y & 터치 타깃 불변식 보장**:
   - 모바일(390x844) 가로 오버플로 0px 및 최소 터치 타깃 44px 전수 준수.
 
-## Latest release: Mobile Touch-Target & UX Invariant Audit Across 10 Interactive Submodules — Batch 11 (2026-10-23)
+## Latest release: Mobile Touch-Target & UX Invariant Audit Across 11 Reflection Submodules — Batch 12 (2026-10-23)
 
-- Submodules: `brick-breaker` (`7cc52a1`), `road-shooter` (`85cd542`), `maze-runner` (`f123551`), `idle-clicker` (`2c61af2`), `password-generator` (`aa627db`) (완전 무결 0-issue 검증 완료: `sky-runner`, `stack-tower`, `zigzag-runner`, `emoji-merge`, `dday-counter`).
+- Submodules: `biorhythm` (`5bf760a`) (완전 무결 0-issue 검증 완료: `affirmation`, `detox-timer`, `numerology`, `mbti-tips`, `valentine`, `zodiac-match`, `love-language`, `eq-test`, `stress-type`, `work-style`).
 - UX & Touch Target Compliance:
-  - 10개 인터랙티브·아케이드 게임 및 도구 서브모듈 Playwright 모바일(390x844) 전수 감사 결과 0 issues (100% PERFECT).
-  - 테마/사운드/언어 토글(44px 원형 버튼), 뒤로가기 링크(`.back-link`, `.home-link`), 본문 건너뛰기(`.skip-link`), 튜토리얼 액션 버튼(`.tutorial-skip-btn`, `.tutorial-next-btn`), 옵션 체크박스 래퍼(`.option-checkbox`) 전수 44px 이상 터치 영역 확장 및 `touch-action: manipulation` 적용 완료.
+  - 11개 라이프·성향 분석 서브모듈 Playwright 모바일(390x844) 전수 감사 결과 0 issues (100% PERFECT).
+  - 궁합 모드 토글 라벨(`.compat-toggle label`) 대상 44px 최소 터치 영역 확장 및 `touch-action: manipulation` 적용 완료.
   - 모바일(390x844) 가로 오버플로 0px 엄수.
-  - 5개 수정 서브모듈 Pre-push 품질 게이트(Quality Gate) 전원 PASS 및 origin 원격 배포 완료.
+  - 수정 서브모듈 Pre-push 품질 게이트(Quality Gate) PASS 및 origin 원격 배포 완료.
 - Verification & Invariants:
   - `verify:root` (24/24), `verify:indexing-inventory` (0 issues), `verify:adsense-contract` (11/11 mutations), `verify:tracked-secrets` (232 files), `verify:docs` (10/10) 전수 100% PASS.
 
