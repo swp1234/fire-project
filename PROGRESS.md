@@ -23,16 +23,14 @@ Updated: 2026-10-23 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 모바일 a11y & 터치 타깃 불변식 보장**:
   - 모바일(390x844) 가로 오버플로 0px 및 최소 터치 타깃 44px 전수 준수.
 
-## Latest release: Mobile Touch-Target & UX Invariant Audit Across 11 Submodules — Batch 8 (2026-10-23)
+## Latest release: Mobile Touch-Target & UX Invariant Audit Across 11 Submodules — Batch 9 (2026-10-23)
 
-- Submodules: `shopping-calc` (`07a59f3`), `dev-quiz` (`76e2490`), `quiz-app` (`c5144db`), `past-life` (`af49085`), `toxic-trait-test` (`773058e`) (완전 무결 0-issue 검증 완료: `sebatdon-calc`, `love-frequency`, `color-personality`, `emotion-temp`, `villain-type`, `npc-test`).
+- Submodules: `file-extension-converter` (`dfba9df`), `file-size-converter` (`9c07bab`), `image-format-converter` (`25c4fa9`), `image-size-converter` (`b155445`), `aspect-ratio-calculator` (`b05b24a`), `data-transfer-calculator` (`5dee5bc`), `unix-timestamp-converter` (`3154eb3`), `timezone-converter` (`68196c0`), `text-case-converter` (`a21e030`), `json-formatter` (`b84bf5c`) (완전 무결 0-issue 검증 완료: `tax-refund-preview`).
 - UX & Touch Target Compliance:
   - 11개 서브모듈 Playwright 모바일(390x844) 전수 검사 0 issues (100% PERFECT).
-  - `shopping-calc` 통화 선택기 셀렉트박스(`.currency-box select`) 48px 최소 터치 규격 확장.
-  - `dev-quiz`, `past-life`의 `.skip-link`, 브랜드 링크, 푸터 링크 44px 최소 규격 확장.
-  - `quiz-app` 헤더 브랜드 링크, 언어 선택창, 스킵 링크 44px 최소 터치 규격 확장.
-  - `toxic-trait-test`의 `.skip-link` 44px 최소 규격 교정 완료.
-  - 5개 수정 서브모듈 Pre-push 품질 게이트 전원 PASS 및 원격 저장소 배포 완료.
+  - 10대 유틸리티 변환기 서브모듈 전수 상단 브랜드 링크(`.brand`) 및 푸터 네비게이션 링크(`.footer a`) 대상 44px 최소 터치 타깃 규격 전면 확장 완료.
+  - 모바일(390x844) 가로 오버플로 0px 유지 및 다국어 뷰포트 정렬 완료.
+  - 10개 수정 서브모듈 Pre-push 품질 게이트 전원 PASS 및 원격 저장소 배포 완료.
 - Verification & Invariants:
   - `verify:root` (24/24), `verify:indexing-inventory` (0 issues), `verify:adsense-contract` (11/11 mutations), `verify:tracked-secrets` (232 files), `verify:docs` (10/10) 전수 100% PASS.
 
