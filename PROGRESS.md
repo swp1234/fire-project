@@ -23,14 +23,14 @@ Updated: 2026-10-23 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 모바일 a11y & 터치 타깃 불변식 보장**:
   - 모바일(390x844) 가로 오버플로 0px 및 최소 터치 타깃 44px 전수 준수.
 
-## Latest release: Mobile Touch-Target & UX Invariant Audit Across 11 Reflection Submodules — Batch 12 (2026-10-23)
+## Latest release: Mobile Touch-Target & UX Invariant Audit Across 11 Reflection Submodules — Batch 13 (2026-10-23)
 
-- Submodules: `biorhythm` (`5bf760a`) (완전 무결 0-issue 검증 완료: `affirmation`, `detox-timer`, `numerology`, `mbti-tips`, `valentine`, `zodiac-match`, `love-language`, `eq-test`, `stress-type`, `work-style`).
+- Submodules: `aura-score` (`ee56996`), `pick-me` (`efd2990`) (완전 무결 0-issue 검증 완료: `name-match`, `would-you-rather`, `color-blindness`, `red-green-flag`, `toxic-trait`, `social-battery`, `dark-core`, `soul-age`, `emotional-age`).
 - UX & Touch Target Compliance:
-  - 11개 라이프·성향 분석 서브모듈 Playwright 모바일(390x844) 전수 감사 결과 0 issues (100% PERFECT).
-  - 궁합 모드 토글 라벨(`.compat-toggle label`) 대상 44px 최소 터치 영역 확장 및 `touch-action: manipulation` 적용 완료.
+  - 11개 성향 및 성격 분석 서브모듈 Playwright 모바일(390x844) 전수 감사 결과 0 issues (100% PERFECT).
+  - 하단 홈 네비게이션 링크(`footer a`) 대상 44px 이상 터치 영역 확장 및 `touch-action: manipulation` 적용 완료.
   - 모바일(390x844) 가로 오버플로 0px 엄수.
-  - 수정 서브모듈 Pre-push 품질 게이트(Quality Gate) PASS 및 origin 원격 배포 완료.
+  - 2개 수정 서브모듈 Pre-push 품질 게이트(Quality Gate) PASS 및 origin 원격 배포 완료.
 - Verification & Invariants:
   - `verify:root` (24/24), `verify:indexing-inventory` (0 issues), `verify:adsense-contract` (11/11 mutations), `verify:tracked-secrets` (232 files), `verify:docs` (10/10) 전수 100% PASS.
 
