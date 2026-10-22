@@ -1,6 +1,6 @@
 # DopaBrain current status
 
-Updated: 2026-10-21 KST. Release history is in `memory/data-check-log.md`; repeatable loop is in `dopabrain-growth-ops`.
+Updated: 2026-10-23 KST. Release history is in `memory/data-check-log.md`; repeatable loop is in `dopabrain-growth-ops`.
 
 ## Target and status
 
@@ -15,7 +15,7 @@ Updated: 2026-10-21 KST. Release history is in `memory/data-check-log.md`; repea
 - Focus organic growth on core tools (Stress Check 95~175s, Future Self 178s, HSP Test 63s, 2048 Coach 200s).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Active plan (2026-10-21) — 상세 설계: `docs/STRATEGY.md`
+## Active plan (2026-10-23) — 상세 설계: `docs/STRATEGY.md`
 
 - **P0 색인 갱신 및 유기적 검색 회복**:
   - GSC 사이트맵 및 IndexNow API로 14대 핵심 진입면·상위 유기적 랜딩 URL(HTTP 200) 통보 완료.
@@ -23,15 +23,16 @@ Updated: 2026-10-21 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 모바일 a11y & 터치 타깃 불변식 보장**:
   - 모바일(390x844) 가로 오버플로 0px 및 최소 터치 타깃 44px 전수 준수.
 
-## Latest release: Mobile Touch-Target & UX Invariant Audit Across 11 Submodules — Batch 6 (2026-10-21)
+## Latest release: Mobile Touch-Target & UX Invariant Audit Across 11 Submodules — Batch 7 (2026-10-23)
 
-- Submodules: `color-palette` (`a575721`), `color-blindness` (`8198eaa`), `ick-factor` (`00bec46`), `life-in-numbers` (`ff911f8`), `mbti-tips` (`047c2ce`), `red-green-flag` (`9aea044`) (완전 무결 0-issue 검증 완료: `detox-timer`, `white-noise`, `dday-counter`, `valentine`, `pick-me`).
+- Submodules: `block-puzzle` (`914f619`), `qr-generator` (`c8dcb0a`), `minesweeper` (`72c464f`), `todo-list` (`546443c`), `unit-converter` (`7680dcd`) (완전 무결 0-issue 검증 완료: `hsp-test`, `mental-age`, `dream-fortune`, `kpop-position`, `typing-speed`, `reaction-test`).
 - UX & Touch Target Compliance:
   - 11개 서브모듈 Playwright 모바일(390x844) 전수 검사 0 issues (100% PERFECT).
-  - `color-palette`의 22개 타깃(`.color-action-btn copy-btn`, `.lock-btn`, `.mode-select`, `.format-btn`, `.export-btn`, `.clear-history-btn`, `.modal-close`, `.copy-export-btn`, `.back-link`), `color-blindness`의 `.skip-link`, `ick-factor`의 모바일 `.lang-btn`, `life-in-numbers`의 `.skip-link`, `mbti-tips`의 `.compare-select`, `red-green-flag`의 `.footer-link` 대상 44px 최소 터치 타깃 규격 전면 확장 완료.
-  - 모바일(390x844) 가로 오버플로 0px 유지 및 12개 로케일 UI 정렬 완료.
-  - 수정된 서브모듈 Pre-push 품질 게이트 전원 PASS 및 원격 저장소 배포 완료.
+  - `unit-converter`의 186px 모바일 가로 오버플로 완전 해소 (0px 달성) 및 탭 버튼/단위 입력필드 44px 규격 확장.
+  - `todo-list`의 필터 버튼, 카테고리/우선순위 선택창, 편집/삭제 버튼, 체크박스 래퍼, 공유/가이드 링크 44px 규격 확장.
+  - `minesweeper`, `qr-generator`, `block-puzzle`의 테마/사운드/언어 토글 및 하단 가이드/홈 링크 44px 최소 터치 규격 확장.
+  - 5개 수정 서브모듈 Pre-push 품질 게이트 전원 PASS 및 원격 저장소 배포 완료.
 - Verification & Invariants:
-  - `verify:root`, `verify:indexing-inventory`, `verify:adsense-contract` (11/11 mutations), `verify:tracked-secrets` 전수 100% PASS.
+  - `verify:root` (24/24), `verify:indexing-inventory` (0 issues), `verify:adsense-contract` (11/11 mutations), `verify:tracked-secrets` (232 files), `verify:docs` (10/10) 전수 100% PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
