@@ -23,14 +23,14 @@ Updated: 2026-10-23 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 모바일 a11y & 터치 타깃 불변식 보장**:
   - 모바일(390x844) 가로 오버플로 0px 및 최소 터치 타깃 44px 전수 준수.
 
-## Latest release: Mobile Touch-Target & UX Invariant Audit Across 11 Submodules — Batch 9 (2026-10-23)
+## Latest release: Mobile Touch-Target & UX Invariant Audit Across 10 Interactive Submodules — Batch 10 (2026-10-23)
 
-- Submodules: `file-extension-converter` (`dfba9df`), `file-size-converter` (`9c07bab`), `image-format-converter` (`25c4fa9`), `image-size-converter` (`b155445`), `aspect-ratio-calculator` (`b05b24a`), `data-transfer-calculator` (`5dee5bc`), `unix-timestamp-converter` (`3154eb3`), `timezone-converter` (`68196c0`), `text-case-converter` (`a21e030`), `json-formatter` (`b84bf5c`) (완전 무결 0-issue 검증 완료: `tax-refund-preview`).
+- Submodules: `lottery` (`21bbe41`), `aura-reading` (`2d315b3`), `mbti-city` (`00e1c34`), `number-puzzle` (`e38fd56`), `color-memory` (`898111d`), `word-guess` (`185185b`), `snake-game` (`a735057`), `memory-card` (`6d8d803`), `pong-game` (`fb71790`), `flappy-bird` (`de4ecd0`).
 - UX & Touch Target Compliance:
-  - 11개 서브모듈 Playwright 모바일(390x844) 전수 검사 0 issues (100% PERFECT).
-  - 10대 유틸리티 변환기 서브모듈 전수 상단 브랜드 링크(`.brand`) 및 푸터 네비게이션 링크(`.footer a`) 대상 44px 최소 터치 타깃 규격 전면 확장 완료.
-  - 모바일(390x844) 가로 오버플로 0px 유지 및 다국어 뷰포트 정렬 완료.
-  - 10개 수정 서브모듈 Pre-push 품질 게이트 전원 PASS 및 원격 저장소 배포 완료.
+  - 10개 인터랙티브·게임 서브모듈 Playwright 모바일(390x844) 전수 감사 결과 0 issues (100% PERFECT).
+  - 테마/사운드 토글(44px 원형 버튼), 뒤로가기 링크(`.back-link`, `.home-link`), 본문 건너뛰기(`.skip-link`), 난이도 버튼(`.diff-btn`), 체크박스 래퍼(`.skip-preview-toggle`) 등 전수 44px 이상 터치 영역 확장 및 `touch-action: manipulation` 적용 완료.
+  - 모바일(390x844) 가로 오버플로 0px 엄수.
+  - 10개 서브모듈 Pre-push 품질 게이트(Quality Gate) 전원 PASS 및 origin 원격 배포 완료.
 - Verification & Invariants:
   - `verify:root` (24/24), `verify:indexing-inventory` (0 issues), `verify:adsense-contract` (11/11 mutations), `verify:tracked-secrets` (232 files), `verify:docs` (10/10) 전수 100% PASS.
 
