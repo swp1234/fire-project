@@ -23,14 +23,15 @@ Updated: 2026-10-23 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 모바일 a11y & 터치 타깃 불변식 보장**:
   - 모바일(390x844) 가로 오버플로 0px 및 최소 터치 타깃 44px 전수 준수.
 
-## Latest release: Mobile Touch-Target & UX Invariant Audit Across 11 Submodules — Batch 7 (2026-10-23)
+## Latest release: Mobile Touch-Target & UX Invariant Audit Across 11 Submodules — Batch 8 (2026-10-23)
 
-- Submodules: `block-puzzle` (`914f619`), `qr-generator` (`c8dcb0a`), `minesweeper` (`72c464f`), `todo-list` (`546443c`), `unit-converter` (`7680dcd`) (완전 무결 0-issue 검증 완료: `hsp-test`, `mental-age`, `dream-fortune`, `kpop-position`, `typing-speed`, `reaction-test`).
+- Submodules: `shopping-calc` (`07a59f3`), `dev-quiz` (`76e2490`), `quiz-app` (`c5144db`), `past-life` (`af49085`), `toxic-trait-test` (`773058e`) (완전 무결 0-issue 검증 완료: `sebatdon-calc`, `love-frequency`, `color-personality`, `emotion-temp`, `villain-type`, `npc-test`).
 - UX & Touch Target Compliance:
   - 11개 서브모듈 Playwright 모바일(390x844) 전수 검사 0 issues (100% PERFECT).
-  - `unit-converter`의 186px 모바일 가로 오버플로 완전 해소 (0px 달성) 및 탭 버튼/단위 입력필드 44px 규격 확장.
-  - `todo-list`의 필터 버튼, 카테고리/우선순위 선택창, 편집/삭제 버튼, 체크박스 래퍼, 공유/가이드 링크 44px 규격 확장.
-  - `minesweeper`, `qr-generator`, `block-puzzle`의 테마/사운드/언어 토글 및 하단 가이드/홈 링크 44px 최소 터치 규격 확장.
+  - `shopping-calc` 통화 선택기 셀렉트박스(`.currency-box select`) 48px 최소 터치 규격 확장.
+  - `dev-quiz`, `past-life`의 `.skip-link`, 브랜드 링크, 푸터 링크 44px 최소 규격 확장.
+  - `quiz-app` 헤더 브랜드 링크, 언어 선택창, 스킵 링크 44px 최소 터치 규격 확장.
+  - `toxic-trait-test`의 `.skip-link` 44px 최소 규격 교정 완료.
   - 5개 수정 서브모듈 Pre-push 품질 게이트 전원 PASS 및 원격 저장소 배포 완료.
 - Verification & Invariants:
   - `verify:root` (24/24), `verify:indexing-inventory` (0 issues), `verify:adsense-contract` (11/11 mutations), `verify:tracked-secrets` (232 files), `verify:docs` (10/10) 전수 100% PASS.
