@@ -69,7 +69,7 @@
       "status": "VERIFIED_PASSED"
     },
     "portal": {
-      "headCommit": "89e656b0ff0f7418087b564a03ececc2fde06546",
+      "headCommit": "6741f22f7845352d58eba8c32ba98e9dc424fe25",
       "branch": "main",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
@@ -325,7 +325,7 @@
       "status": "VERIFIED_PASSED"
     },
     "root-domain": {
-      "headCommit": "d5e9788c827439901f403db821dd218c4fe4bae6",
+      "headCommit": "9411febf18e25af013864fa6dbdea3d9d0460d31",
       "branch": "main",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
