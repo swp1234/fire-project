@@ -54,6 +54,7 @@ SOUNDSCAPE_*.txt
 !scripts/adsense-mcp-keepalive.ps1
 !scripts/install-adsense-mcp-keepalive-task.ps1
 *.js
+!.agents/**
 !scripts/analytics-event-check.js
 !scripts/create-blog-article.js
 !scripts/harness-workflow-check.js

@@ -14,9 +14,17 @@
   - AdSense publisher: `ca-pub-3600813755953882` (Auto Ads 로더 1개 원칙, 수동 광고 슬롯/보상형 교환 금지)
   - GSC property: `https://dopabrain.com/` (`sc-domain:` 사용 금지)
 - **Git 서브모듈 경계:** `projects/*`는 독립 Git 저장소일 수 있으므로 하위 저장소를 먼저 commit/push하고 마지막에 루트를 갱신한다.
+- **감사 레지스트리 및 토큰 절약:** [memory/audit-registry.json](memory/audit-registry.json)에 기록된 HEAD 커밋과 일치하는 서브모듈은 중복 감사하지 않고 스킵한다.
 - **문서 예산:** 세션 로그/보고서를 Markdown에 누적하지 않고, 현재 상태는 [PROGRESS.md](PROGRESS.md)에 갱신한다.
 
+## 에이전트 전용 스킬 (`.agents/skills/`)
+- `dopabrain-touch-audit`: 390x844 모바일 뷰포트 오버플로 0px 및 44px 터치 타깃 자동 검증.
+- `dopabrain-submodule-ops`: 브랜치 정렬, 커밋 메시지 버퍼, child push 및 root 포인터 자동 동기화.
+- `dopabrain-health-guard`: AdSense 인증, Auto Ads 계약, 색인 인벤토리, 비밀값, 문서 예산 통합 점검.
+
 ## 상세 가이드 링크
+- **운영 교훈 & 안티패턴:** [docs/ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md)
+- **완료된 감사 내역:** [docs/COMPLETED-AUDITS.md](docs/COMPLETED-AUDITS.md)
 - **공통 규칙:** [CLAUDE.md](CLAUDE.md)
 - **진행 상황 & Blocker:** [PROGRESS.md](PROGRESS.md)
 - **에이전트 격리 규칙:** [AGENTS.md](AGENTS.md)

@@ -1,12 +1,12 @@
 # DopaBrain current status
 
-Updated: 2026-10-23 KST. Release history is in `memory/data-check-log.md`; repeatable loop is in `dopabrain-growth-ops`.
+Updated: 2026-10-24 KST. Release history is in `memory/data-check-log.md`; repeatable loop is in `dopabrain-growth-ops`.
 
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
-- **AdSense Status (2026-10-21)**: Policy violations 0 (`{}`). 오늘 **$0.03**, 7일 누적 **$0.30**, 이달 누적 **$1.08**, 30일 누적 **$1.76**.
-- 핵심 대책: 포털 블로그 404 데드 링크 전수 복구 완료 상태 유지, GSC 사이트맵 및 IndexNow 8대 핵심 진입면 URL 갱신 통보로 인덱싱 복구 가속, 모바일 44px 터치 타깃 불변식 엄수.
+- **AdSense Status (2026-10-24)**: Policy violations 0 (`{}`). 오늘 **$0.01**, 어제 **$0.07**, 7일 누적 **$0.37**, 이달 누적 **$1.20**, 30일 누적 **$1.69**.
+- 핵심 대책: 119개 전 서브모듈 44px 터치/0px 오버플로 감사 완료 및 영구 레지스트리 구축, 운영 실수 방지 지침([docs/ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md)) 준수, 핵심 진입면 SEO/UX 지속 최적화.
 
 ## Current operating rules
 
@@ -15,23 +15,22 @@ Updated: 2026-10-23 KST. Release history is in `memory/data-check-log.md`; repea
 - Focus organic growth on core tools (Stress Check 95~175s, Future Self 178s, HSP Test 63s, 2048 Coach 200s).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Active plan (2026-10-23) — 상세 설계: `docs/STRATEGY.md`
+## Active plan (2026-10-24) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 색인 갱신 및 유기적 검색 회복**:
-  - GSC 사이트맵 및 IndexNow API로 14대 핵심 진입면·상위 유기적 랜딩 URL(HTTP 200) 통보 완료.
-  - 검색 콘솔 '크롤링됨' 대기 진입면(`stress-check`, `hsp-test`, `2048/coach`, `future-self`, `iq-test`) 및 Bing 유입 순위 회복 가속.
-- **P1 모바일 a11y & 터치 타깃 불변식 보장**:
-  - 모바일(390x844) 가로 오버플로 0px 및 최소 터치 타깃 44px 전수 준수.
+- **P0 자율 개발 실수 방지 및 토큰 낭비 차단**:
+  - `memory/audit-registry.json` 및 [docs/COMPLETED-AUDITS.md](docs/COMPLETED-AUDITS.md) 기반 중복 검증 스킵.
+  - 작업 전 [docs/ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md) 숙지 (무효트래픽 방지, 블로그 남발 금지, 터치 44px 엄수).
+- **P1 핵심 진입면 유기적 검색 강화 및 전환 최적화**:
+  - Stress Check, HSP Test, 2048 Coach, Future Self 체류시간 및 연계 완료율 극대화.
 
-## Latest release: Mobile Touch-Target & UX Invariant Audit Across 11 Reflection Submodules — Batch 14 (2026-10-23)
+## Latest release: Autonomous Development Reliability System & 119 Submodule Audit Baseline (2026-10-24)
 
-- Submodules: `ick-factor` (`def09f0`), `red-flag-test` (`0579fa8`), `seollal-greetings` (`a04fbab`) (완전 무결 0-issue 검증 완료: `villain-origin`, `life-in-numbers`, `emotion-iceberg`, `mbti-coffee`, `ai-personality`, `dopamine-type`, `shadow-work`, `inner-child-test`).
-- UX & Touch Target Compliance:
-  - 11개 성향 및 라이프 분석 서브모듈 Playwright 모바일(390x844) 전수 감사 결과 0 issues (100% PERFECT).
-  - 푸터 홈 링크(`footer a`, `.app-footer a`) 및 리다이렉트 안내 액션 링크 최소 44px 터치 영역 확장 및 `touch-action: manipulation` 적용 완료.
-  - 모바일(390x844) 가로 오버플로 0px 엄수.
-  - 3개 수정 서브모듈 Pre-push 품질 게이트(Quality Gate) PASS 및 origin 원격 배포 완료.
+- Reliability & Operational Guard:
+  - 과거 운영 실수 및 수익 저해요인 체계화: [docs/ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md) 작성 (무효 클릭 리스크, 블로그 색인 붕괴, 터치 미달 방지).
+  - 작업 재실행 방지 레지스트리 구축: `memory/audit-registry.json` & [docs/COMPLETED-AUDITS.md](docs/COMPLETED-AUDITS.md) (119개 서브모듈 100% 검증 기록).
+  - 재사용 가능 작업 스킬 패키징: `.agents/skills/` (`dopabrain-touch-audit`, `dopabrain-submodule-ops`, `dopabrain-health-guard`).
 - Verification & Invariants:
-  - `verify:root` (24/24), `verify:indexing-inventory` (0 issues), `verify:adsense-contract` (11/11 mutations), `verify:tracked-secrets` (232 files), `verify:docs` (10/10) 전수 100% PASS.
+  - 119개 전 서브모듈 모바일(390x844) 가로 오버플로 0px, 인터랙티브 터치 타깃 44px 이상 100% 준수 (`ef75b45`).
+  - `verify:root` (24/24), `verify:indexing-inventory` (0 issues), `verify:adsense-contract` (PASS), `verify:tracked-secrets` (PASS), `verify:docs` (PASS).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
