@@ -50,6 +50,14 @@ node scripts/verify-root-focus.js https://dopabrain.com --no-screenshot
 
 검증 의미와 위험도별 선택은 `docs/VALIDATION.md`를 따른다.
 
+## Autonomous skills & registry
+
+- Mobile UX 390x844 audit: `.agents/skills/dopabrain-touch-audit/`
+- Submodule branch & push: `.agents/skills/dopabrain-submodule-ops/`
+- Full health suite: `.agents/skills/dopabrain-health-guard/`
+- Audit registry: `memory/audit-registry.json` 일치 서브모듈은 재감사 스킵 (`docs/COMPLETED-AUDITS.md`).
+- Operating lessons & anti-patterns: `docs/ANTI-PATTERNS.md`.
+
 ## Documentation budget
 
 - `PROGRESS.md`: 현재 상태, blocker, 다음 판단만.
