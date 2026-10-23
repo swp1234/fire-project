@@ -130,6 +130,7 @@ logs/indexing-audit/
 logs/adsense-mcp-keepalive.jsonl
 logs/app-suite-batch-*/
 logs/dirty-apps-*.txt
+logs/touch-audit-*.json
 
 # MCP 서버 (로컬 전용)
 .mcp-servers/
