@@ -28,7 +28,8 @@ Updated: 2026-10-24 KST. Release history is in `memory/data-check-log.md`; repea
 - Reliability & Operational Guard:
   - 과거 운영 실수 및 수익 저해요인 체계화: [docs/ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md) 작성 (무효 클릭 리스크, 블로그 색인 붕괴, 터치 미달 방지).
   - 작업 재실행 방지 레지스트리 구축: `memory/audit-registry.json` & [docs/COMPLETED-AUDITS.md](docs/COMPLETED-AUDITS.md) (119개 서브모듈 100% 검증 기록).
-  - 재사용 가능 작업 스킬 패키징: `.agents/skills/` (`dopabrain-touch-audit`, `dopabrain-submodule-ops`, `dopabrain-health-guard`).
+  - 재사용 가능 작업 스킬 패키징: `.agents/skills/` (`dopabrain-touch-audit`, `dopabrain-submodule-ops`, `dopabrain-health-guard`) 및 npm 스크립트 연동 (`skill:*`).
+  - 1,524개 sitemap URL 전수 조사: 60일 이상 경과 URL 0건 (100% 최신성 확보).
 - Verification & Invariants:
   - 119개 전 서브모듈 모바일(390x844) 가로 오버플로 0px, 인터랙티브 터치 타깃 44px 이상 100% 준수 (`ef75b45`).
   - `verify:root` (24/24), `verify:indexing-inventory` (0 issues), `verify:adsense-contract` (PASS), `verify:tracked-secrets` (PASS), `verify:docs` (PASS).
