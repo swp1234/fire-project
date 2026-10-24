@@ -72,6 +72,8 @@
   - `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}`는 사용자 직접 관리 파일이므로 자율 개발 시 절대 수정하거나 덮어쓰지 말 것.
 - **Claude / Codex 런타임 격리 준수**:
   - `%USERPROFILE%\.claude*` 및 `E:\Fire Project\.claude\` 경로는 건드리지 않음.
+- **IndexNow 키 불일치로 인한 403 에러 방지**:
+  - 임의의 키/해시 문자열을 인라인으로 생성해 제출하면 원격 `dopabrain.com`의 키 파일과 불일치하여 HTTP 403이 반환됨. 반드시 표준 스크립트인 `node scripts/indexnow-submit.js --url <url>`을 사용하여 `projects/root-domain/da41d463f68842ffa3ae58ee92c4105f.txt` 정식 계약 키로 제출할 것.
 
 ---
 
