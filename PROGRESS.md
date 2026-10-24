@@ -23,14 +23,16 @@ Updated: 2026-10-24 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 핵심 진입면 유기적 검색 강화 및 전환 최적화**:
   - Stress Check, HSP Test, 2048 Coach, Future Self 체류시간 및 연계 완료율 극대화.
 
-## Latest release: AI Assistant Authority Directory & Portal Cross-Promotion Funnel (2026-10-24)
+## Latest release: High-Traffic Viral Apps Quality & Trust Overhaul (2026-10-24)
 
-- AI Assistant Authority & Indexing:
-  - `root-domain`의 `llms.txt` 및 `llms-full.txt`를 12개 언어 지원, PSS-10, Aron SPS, Hershfield 등 학술 체계와 정규 사양으로 전면 쇄신 (`9411feb`).
-  - 루트 sitemap 최신성 갱신 및 IndexNow 제출 성공 (HTTP 200).
-- Cross-Promotion Funnel Fix:
-  - `portal/js/cross-promo.js`의 `.html` 경로 인식 버그 수정으로 고트래픽 유틸리티(Palworld 등)에서 핵심 도구 4종(Stress Check, HSP Test, Future Self, Attachment Style) 추천 카드 정상 노출 및 48px 터치 타깃 보장 (`6741f22`).
+- Trust & SEO Compliance Overhaul:
+  - 고트래픽 바이럴 앱 5종(`dark-core`, `emotional-age`, `love-language`, `red-green-flag`, `toxic-trait`)의 과거 레거시 찌꺼기 전면 제거.
+  - 인위적 5초 타이머(`page_engage`), 조작된 리뷰 점수(`aggregateRating`), 숨김 FAQ 스키마, `Math.random()` 가짜 통계 완전 박멸.
+  - 최신 수정일(`dateModified: 2026-10-24`) 갱신 및 IndexNow 5개 URL 전원 제출 완료 (HTTP 200).
+- Core Funnel Bridge:
+  - 5개 앱의 연관 추천 그리드를 핵심 유료/고체류 도구(Stress Check, HSP Test, Future Self, Attachment Style)로 일괄 개편.
 - Verification & Invariants:
-  - `health-guard` (6/6 PASS), `verify:palworld-server-console` (PASS), `verify:cross-promo-touch` (PASS with mutations), `verify:indexing-inventory` (0 issues), `verify:docs` (PASS).
+  - 5개 서브모듈 커밋·푸시 완료(`cca79c4`, `0f88f57`, `fee834e`, `0bca6fe`, `858e357`).
+  - `health-guard` (6/6 PASS), `verify:indexing-inventory` (0 issues), `verify:docs` (PASS), 모바일 오버플로 0px & 44px 터치 100% 준수.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

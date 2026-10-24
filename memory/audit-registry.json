@@ -445,7 +445,7 @@
       "status": "VERIFIED_PASSED"
     },
     "love-language": {
-      "headCommit": "0d50b6b6b780568aa551a346932ce739c8a9e437",
+      "headCommit": "fee834edf1c8b8e54a271da48340ad51585f2eff",
       "branch": "master",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
@@ -517,7 +517,7 @@
       "status": "VERIFIED_PASSED"
     },
     "red-green-flag": {
-      "headCommit": "9aea044e8c0041c6694f2a944230e91210fc7211",
+      "headCommit": "0bca6fe1a196c374da84ed89723fca502548a6ed",
       "branch": "master",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
@@ -525,7 +525,7 @@
       "status": "VERIFIED_PASSED"
     },
     "toxic-trait": {
-      "headCommit": "64d99cf712be4d02188dd97f7e21b8f9c89b8605",
+      "headCommit": "858e3570bed450895e670af1c6a868ccff9eb836",
       "branch": "master",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
@@ -701,7 +701,7 @@
       "status": "VERIFIED_PASSED"
     },
     "dark-core": {
-      "headCommit": "35b60e5f1db644099d6bd3ff17bd089a152811c8",
+      "headCommit": "cca79c42bb5bb2e53afdd201ccaea51feb45556e",
       "branch": "master",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
@@ -725,7 +725,7 @@
       "status": "VERIFIED_PASSED"
     },
     "emotional-age": {
-      "headCommit": "90efa42261728797a9680655f248187ea90a0db3",
+      "headCommit": "0f88f57ec0a1c965348ccf2558968282b77a3523",
       "branch": "master",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
