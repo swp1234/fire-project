@@ -29,6 +29,7 @@ Updated: 2026-10-24 KST. Release history is in `memory/data-check-log.md`; repea
   - `attachment-style`: 4개 애착유형별 동적 히어로 추천 장착(불안형->스트레스, 회피형->감정빙산, 공포형->HSP, 안정형->미래자아) 및 2x2 관련 그리드 12개 언어 동기화 완료 (터치 타깃 준수, clarity 파일 무변경 보존).
   - `brain-type` & `animal-personality` & `dream-fortune`: 수익화 핵심 진입면(스트레스·HSP) 추천 우선순위 개편 및 결과/푸터 링크 언어 유지(`?lang=`) 전면 적용.
   - `portal` & `portal/mbti`: 블로그 51개 링크 언어 누락 해결, MBTI 모달 및 뒤로가기/닫기 터치 타깃 44px 규격화.
+  - `iq-test`: 점수 연동형 히어로 추천 장착(고득점->2048 Coach, 중득점->Brain Type, 저득점->Stress Check) 및 12개 언어 번역 완비.
   - `sitemap.xml`: dream-fortune, portal/mbti, emotion-iceberg 신규 등록 및 lastmod 최신화, IndexNow 200 전송 완료.
 - 119/119 Submodules Clean:
   - `trust-audit --all`: 118개 스킵(Zero-Token), Pre-push 품질 게이트 전원 통과.

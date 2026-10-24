@@ -230,7 +230,7 @@
       "trustCompliant": true
     },
     "iq-test": {
-      "headCommit": "d989356b9404b855f7399a8a95e80feaa9fd2237",
+      "headCommit": "bfda3171f1ca6d257e74f8a3d8ab52a7a6073ca4",
       "branch": "master",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
@@ -365,7 +365,7 @@
       "trustCompliant": true
     },
     "root-domain": {
-      "headCommit": "5e0328af8dcb1b2d3829981863725fdd43bbd438",
+      "headCommit": "fb7a5f49fa893cc6642783cee27d7753c2d0ad38",
       "branch": "main",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
