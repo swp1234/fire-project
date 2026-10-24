@@ -23,13 +23,13 @@ Updated: 2026-10-24 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 핵심 진입면 유기적 검색 강화 및 전환 최적화**:
   - Stress Check, HSP Test, 2048 Coach, Future Self 체류시간 및 연계 완료율 극대화.
 
-## Latest release: Global Funnel Hardening & MBTI Hubs (2026-10-24)
+## Latest release: Funnel Continuity & Verification Hardening (2026-10-24)
 
-- Cross-Assessment Funnel Expansion:
-  - `portal/js/cross-promo.js`: 전역 위젯 내 중단된 앱(routine-planner, todo-list, puzzle-2048, brick-breaker 등) 7종을 iq-test, color-blindness, animal-personality, kpop-position, pomodoro, detox, future-self 등 100% 활성 수익화 도구로 완전 교체.
-  - `portal/mbti`: 16개 성격 유형 허브에 44px 터치 규격 적용, 동적 언어 파라미터 연속성 및 `&start=1` 직행 퍼널 연결, `dateModified: 2026-10-24` 및 `sitemap.xml` 완전 동기화.
-  - `dream-fortune` & `emotional-age`: 푸터 4대 핵심 브릿지(Stress Check, HSP, Future Self, Attachment Style)에 동적 언어 파라미터 및 `&start=1` 직행 퍼널 배포, 44px 터치/0px 오버플로 검증 완료.
-  - `scripts/verify-kpop-position.js`: 최신 `dateModified` 일치 계약 갱신 (10/10 변이 및 브라우저 검증 100% 통과).
+- Core Funnels Hardened:
+  - `hsp-test`: Reset funnel 계약 복구(verify-hsp-reset-funnel 13/13 변이/브라우저 통과), 4개 연계 카드에 동적 언어 보존(`?lang=`) 및 `&start=1` 직행 연결, `.back-link` 44px 터치 규격 확보.
+  - `kpop-position`: 4대 연계 카드(`animal-personality`, `stress-check`, `attachment-style`, `future-self`)에 `start=1` 직행 파라미터 적용 (10/10 변이 및 브라우저 검증 통과).
+  - `portal/js/cross-promo.js` & `portal/mbti`: 전역 위젯 내 7개 중단 앱을 100% 수익화 앱으로 교체, 16개 MBTI 허브 44px 터치 및 언어 연속성 배포.
+  - `dream-fortune` & `emotional-age`: 핵심 브릿지 동적 언어 파라미터 및 `&start=1` 직행 퍼널 배포 완료.
 - 119/119 Submodules Clean:
   - `health-guard`: 6/6 전 배터리 PASS, Pre-push 품질 게이트 및 IndexNow 200 전송 완료.
 
