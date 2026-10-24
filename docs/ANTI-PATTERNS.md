@@ -99,3 +99,18 @@
 - **비임상 자가진단 도구에 대한 과장된 의료/진단 표현 금지**:
   - `Clinical-grade check`, `diagnostic benchmarks` 등 임상/의료적 오해를 유발하는 표현은 구글 E-E-A-T 정책 위반(YMYL) 및 의료법적 위험을 초래하므로 "Self-reflection check", "Trait exploration" 등으로 엄격히 대체할 것.
 
+---
+
+## 8. 다국어 및 크로스 프로모션 퍼널 안티패턴 (Cross-Promotion & Funnel Leakage)
+
+- **언어 파라미터 강제 삭제 버그 (`this.currentLang === 'en'` stripping)**:
+  - 다국어 i18n 링크 업데이트 로직에서 영어가 기본값이라고 가정하여 `url.searchParams.delete('lang')`를 실행할 경우, 한국어가 기본값인 서브모듈(`/animal-personality/`, `/future-self/` 등)로 이동할 때 영어 사용자가 한국어 기본 페이지로 떨어져 즉시 이탈(Bounce)하는 문제 발생.
+  - **대책**: 모든 크로스 프로모션 링크는 현재 활성 언어(`this.currentLang`)를 명시적으로 `url.searchParams.set('lang', this.currentLang)`로 유지하여 언어 연속성을 보장할 것.
+- **허브/블로그 카드 목적지 불일치 (Destination-Description Mismatch)**:
+  - 게임 허브나 블로그에서 카드의 제목/설명(예: "Flappy Bird", "Road Shooter")과 실제 링크 목적지(`href="/future-self/"`, `href="/daily-tarot/"`)가 불일치하여 클릭 시 사용자 혼란 및 즉각 이탈을 유발.
+  - **대책**: 추천/허브 카드는 항상 실제 콘텐츠와 일치하는 정직한 메타데이터를 유지하고, 트래픽 유도가 필요한 경우 해당 수익화 도구의 정식 명칭과 가치 제안(Value Proposition)을 정면으로 노출할 것.
+- **Sitemap `lastmod`와 HTML `dateModified` 불일치 (`sitemap_lastmod_mismatch`)**:
+  - 사이트맵에 `<lastmod>2026-10-24</lastmod>`를 기록했으나 HTML 메타/JSON-LD가 과거 일자(`2026-08-30` 등)로 남아있을 경우 색인 인벤토리 무결성 실패 발생. 두 값은 항상 동기화되어야 함.
+- **분석 텔레메트리 내 사용자 점수/결과값 전송 금지 (`Telemetry Result Leak`)**:
+  - 클릭 이벤트나 전환 이벤트에 사용자의 점수(`stress_score`, `score`), 결과 유형(`result_type`), 백분위 등을 파라미터로 포함할 경우 개인정보 보호 불변 조건(Privacy Invariant) 위반 및 회귀 검증기(`verify-*.js`) 실패 발생. 모든 분석 이벤트는 개인 점수/결과를 완전히 배제하고 오직 `target_key`, `surface` 등 기술적 탐색 속성만 전송할 것.
+

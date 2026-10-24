@@ -29,7 +29,7 @@ function source(v){
   ok(/CACHE_NAME = 'stress-check-v6'/.test(v.sw)&&/SCOPE = '\/stress-check\/'/.test(v.sw)&&/url\.origin !== self\.location\.origin/.test(v.sw)&&/url\.pathname\.startsWith\(SCOPE\)/.test(v.sw)&&/if \(r\.ok\)/.test(v.sw),'service-worker boundary drifted');
   const manifest=JSON.parse(v.manifest);ok(manifest.scope==='/stress-check/','manifest scope drifted');
   ok(v.locales.length===12&&v.locales.every(text=>{const j=JSON.parse(text);return!text.includes('\uFFFD')&&j.trust?.rule&&j.trust?.boundary&&j.trust?.resultBoundary&&j.button?.actionPlan&&j.result?.title}),'12-locale trust/action contract missing');
-  const schemas=[...v.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(row=>JSON.parse(row[1]));ok(schemas.map(x=>x['@type']).join(',')==='SoftwareApplication,BreadcrumbList'&&schemas[0].dateModified==='2026-09-03','schema contract drifted');
+  const schemas=[...v.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(row=>JSON.parse(row[1]));ok(schemas.map(x=>x['@type']).join(',')==='SoftwareApplication,BreadcrumbList'&&schemas[0].dateModified==='2026-10-24','schema contract drifted');
   return{questions:15,locales:12,related:4,appBytes:Buffer.byteLength(v.html)+Buffer.byteLength(v.app)+Buffer.byteLength(v.data)};
 }
 function mutations(){const cases=[
@@ -48,7 +48,7 @@ function mutations(){const cases=[
   ['private-event',v=>v.app=v.app.replace("this.track('test_complete', { content_type: 'reflection'","this.track('test_complete', { result: this.stressLevel")],
   ['unsafe-sw',v=>v.sw=v.sw.replace("SCOPE = '/stress-check/'","SCOPE = '/'")],
   ['locale',v=>v.locales[0]=v.locales[0].replace('"resultBoundary"','"removedBoundary"')],
-  ['schema',v=>v.html=v.html.replace('"dateModified": "2026-09-03"','"dateModified": "2026-08-30"')]
+  ['schema',v=>v.html=v.html.replace('"dateModified": "2026-10-24"','"dateModified": "2026-08-30"')]
 ];for(const[name,mutate]of cases){const v=fixture();mutate(v);try{source(v)}catch(error){console.log('[PASS] '+name+': '+error.message);continue}throw Error('mutation escaped: '+name)}console.log('[PASS] mutation summary '+cases.length+'/'+cases.length+' detected')}
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.svg':'image/svg+xml'};
 function server(){return http.createServer((req,res)=>{const url=new URL(req.url,'http://x');let relative=decodeURIComponent(url.pathname).replace(/^\/stress-check\/?/,'');if(!relative||relative.endsWith('/'))relative+='index.html';let file=path.resolve(APP,relative);if(!file.startsWith(APP+path.sep)||!fs.existsSync(file)||fs.statSync(file).isDirectory())return res.writeHead(404).end();res.writeHead(200,{'content-type':mime[path.extname(file)]||'application/octet-stream','cache-control':'no-store'});fs.createReadStream(file).pipe(res)})}

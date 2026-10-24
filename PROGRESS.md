@@ -19,7 +19,7 @@ Updated: 2026-10-24 KST. Release history is in `memory/data-check-log.md`; repea
 
 - **P0 자율 개발 실수 방지 및 토큰 낭비 차단**:
   - `memory/audit-registry.json` 기반 119/119 서브모듈 Zero-Token 스킵 영구화.
-  - [docs/ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md) 7대 영역 숙지 (내부 메트릭 노출 금지, 무효트래픽 방지, 터치 44px).
+  - [docs/ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md) 8대 영역 숙지 (언어 탈락, 목적지 불일치, 텔레메트리 점수 누출 금지).
 - **P1 핵심 진입면 유기적 검색 강화 및 전환 최적화**:
   - Stress Check, HSP Test, 2048 Coach, Future Self 체류시간 및 연계 완료율 극대화.
 

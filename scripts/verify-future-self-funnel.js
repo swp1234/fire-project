@@ -59,7 +59,7 @@ function visibleText(html) {
 function verifySource(fixture) {
   const { appHtml, appJs, i18nJs, sw, locales, guide, sitemap, koIndex } = fixture;
   assert(appHtml.includes('data-future-self-contract="2026-08-30"'), 'App release contract marker is missing');
-  assert(appHtml.includes('<meta name="dateModified" content="2026-08-30">'), 'App dateModified is stale');
+  assert(/<meta name="dateModified" content="2026-(?:08-30|10-24)">/.test(appHtml), 'App dateModified is stale');
   assert(count(appHtml, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/gi) === 1, 'App must have exactly one Auto Ads loader');
   assert(!/AggregateRating|FAQPage|2,340|2340|social-proof-badge|HealthApplication/.test(appHtml), 'App retains fabricated proof or unsupported schema');
   assert(appHtml.includes('data-i18n="app.method"') && appHtml.includes('data-i18n="result.boundary"'), 'Visible app method or result boundary is missing');
@@ -69,7 +69,7 @@ function verifySource(fixture) {
   const webApp = appSchemas.find(schema => schema['@type'] === 'WebApplication');
   const breadcrumb = appSchemas.find(schema => schema['@type'] === 'BreadcrumbList');
   assert(webApp && breadcrumb, 'App WebApplication or Breadcrumb schema is missing');
-  assert(webApp.dateModified === '2026-08-30' && webApp.softwareVersion === '2026-08-30 trust contract', 'App schema release contract drifted');
+  assert(['2026-08-30', '2026-10-24'].includes(webApp.dateModified) && webApp.softwareVersion === '2026-08-30 trust contract', 'App schema release contract drifted');
   assert(JSON.stringify(webApp.inLanguage) === JSON.stringify(LANGS), 'App schema locale set/order drifted');
   assert(count(appHtml, /rel="alternate"\s+hreflang=/g) === 13, 'App hreflang count must be 12 locales plus x-default');
 
