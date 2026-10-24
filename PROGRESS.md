@@ -23,15 +23,14 @@ Updated: 2026-10-24 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 핵심 진입면 유기적 검색 강화 및 전환 최적화**:
   - Stress Check, HSP Test, 2048 Coach, Future Self 체류시간 및 연계 완료율 극대화.
 
-## Latest release: Decision Matrix & Funnel Hardening (2026-10-24)
+## Latest release: Search Visibility & Viral Exposure (2026-10-24)
 
-- 신규 인터랙티브 도구 출시:
-  - `portal/tools/decision-matrix.html`: 딜레마 가중치 의사결정 매트릭스 도우미(12개 언어 지원, 0px 오버플로, 44px 터치, Stress Check & Future Self 직행 퍼널, Auto Ads 1개).
-  - `portal/tools/index.html` & `sitemap.xml`: 도구 카탈로그 등록 및 `dateModified: 2026-10-24` 일치 동기화.
-- Core Funnels Hardened:
-  - `hsp-test`: Reset funnel 계약 복구(verify-hsp-reset-funnel 13/13 변이/브라우저 통과), 4개 연계 카드 동적 언어 보존(`?lang=`) 및 `&start=1` 직행 연결, `.back-link` 44px 터치 규격 확보.
-  - `kpop-position`: 4대 연계 카드에 `start=1` 직행 파라미터 적용 (10/10 변이 및 브라우저 검증 통과).
-  - `portal/js/cross-promo.js` & `portal/mbti`: 전역 위젯 100% 수익화 앱 교체, 16개 MBTI 허브 44px 터치 및 언어 연속성 배포.
+- 유기적 검색 노출 & 언어 불일치 해소:
+  - `stress-check`, `hsp-test`, `future-self`: 정적 HTML 제목/설명/OG 태그를 한국어 canonical 및 `lang="ko"`와 일치시켜 Googlebot의 "Crawled - currently not indexed" 원인 제거.
+  - `scripts/verify-stress-core.js` (16/16 변이/런타임), `verify-hsp-reset-funnel.js` (13/13 변이/런타임), `verify-future-self-funnel.js` 전원 PASS.
+- 바이럴 & 우연한 발견(Accidental Discovery) 강화:
+  - `decision-matrix.html`: 모바일 네이티브 공유 시트(`navigator.share`) 및 1클릭 복사 보고서 링크 탑재.
+  - `root-domain/llms.txt` & `llms-full.txt`: Decision Matrix & Emotion Regulation Planner 신규 도구 AI 검색(ChatGPT/Perplexity/Claude) 색인 등록 완료.
 - 119/119 Submodules Clean:
   - `health-guard`: 6/6 전 배터리 PASS (1,529개 전 URL 무결점), Pre-push 품질 게이트 완료.
 
