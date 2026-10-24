@@ -212,7 +212,7 @@
       "trustCompliant": true
     },
     "hsp-test": {
-      "headCommit": "159bc813e4a83f95f8ad19de7cebd6c505636c74",
+      "headCommit": "ff58c606c5d2add8ecd76d397721e0a7a209f518",
       "branch": "main",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
