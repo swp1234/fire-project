@@ -23,14 +23,14 @@ Updated: 2026-10-24 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 핵심 진입면 유기적 검색 강화 및 전환 최적화**:
   - Stress Check, HSP Test, 2048 Coach, Future Self 체류시간 및 연계 완료율 극대화.
 
-## Latest release: Funnel Multipliers & i18n Language Sync (2026-10-24)
+## Latest release: Global Funnel Hardening & MBTI Hubs (2026-10-24)
 
 - Cross-Assessment Funnel Expansion:
-  - `future-self`: 푸터 탐색 그리드를 비수익화 앱에서 핵심 4대 진입면(Stress Check, HSP, Brain Type, Attachment Style)으로 교체 및 12개 언어 파라미터 동기화.
-  - `kpop-position`: 언어 파라미터 삭제 버그 해결(영어 사용자 한글 기본 앱 이탈 방지), 로봇 색인 허용 및 루트 sitemap.xml 등록.
-  - `portal` blog & games hub: 상위 가이드 비수익화 링크 교체, 게임 허브 불일치 카드 정합성 교정 및 핵심 수익화 도구(IQ·스트레스·브레인) 배치.
-  - `attachment-style` & `iq-test` & `puzzle-2048`: 2048 Coach(체류 139초 챔피언) ↔ IQ Test 상호 순환 루프 구축 및 동적 히어로 추천 완비.
+  - `portal/js/cross-promo.js`: 전역 위젯 내 중단된 앱(routine-planner, todo-list, puzzle-2048, brick-breaker 등) 7종을 iq-test, color-blindness, animal-personality, kpop-position, pomodoro, detox, future-self 등 100% 활성 수익화 도구로 완전 교체.
+  - `portal/mbti`: 16개 성격 유형 허브에 44px 터치 규격 적용, 동적 언어 파라미터 연속성 및 `&start=1` 직행 퍼널 연결, `dateModified: 2026-10-24` 및 `sitemap.xml` 완전 동기화.
+  - `dream-fortune` & `emotional-age`: 푸터 4대 핵심 브릿지(Stress Check, HSP, Future Self, Attachment Style)에 동적 언어 파라미터 및 `&start=1` 직행 퍼널 배포, 44px 터치/0px 오버플로 검증 완료.
+  - `scripts/verify-kpop-position.js`: 최신 `dateModified` 일치 계약 갱신 (10/10 변이 및 브라우저 검증 100% 통과).
 - 119/119 Submodules Clean:
-  - `trust-audit --all`: 118개 스킵(Zero-Token), Pre-push 품질 게이트 및 IndexNow 200 전송 완료.
+  - `health-guard`: 6/6 전 배터리 PASS, Pre-push 품질 게이트 및 IndexNow 200 전송 완료.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
