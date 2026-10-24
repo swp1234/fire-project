@@ -118,6 +118,13 @@
   - **대책**: 전역 위젯의 추천 대상 목록은 반드시 현재 Auto Ads가 정상 작동하는 활성 수익화 도구(`future-self`, `stress-check`, `iq-test`, `pomodoro-timer`, `detox-timer`, `color-blindness`, `animal-personality`, `kpop-position`, `password-generator`, `unit-converter` 등)로만 구성할 것.
 - **계약 검증기(`scripts/verify-*.js`)가 바인딩된 블로그 페이지 일괄 수정 금지**:
   - `verify-en-attachment-reflection.js`, `verify-en-future-self-guide.js`, `verify-doomscrolling-bridge.js`, `verify-zh-mbti-city-path.js` 등 특정 블로그 페이지를 타깃으로 정밀 계약 및 변이 테스트(Mutation Test)를 수행하는 검증기가 존재하는 경우, 해당 페이지의 링크나 `dateModified`를 무단으로 변경하면 회귀 테스트가 깨짐.
-  - **대책**: 블로그 링크/메타 수정 전 반드시 `scripts/verify-*.js` 파일들을 검색하여 해당 페이지가 계약으로 묶여 있는지 확인하고, 수정 시 검증기 및 변이 픽스처까지 함께 계약을 갱신할 것.
+  - **대책**: 블로그 링크/메타 수정 전 반드시 `scripts/verify-*.js` 파일들을 검색하여 해당 페이지가 계약으로묶여 있는지 확인하고, 수정 시 검증기 및 변이 픽스처까지 함께 계약을 갱신할 것.
+- **HSP 진단 결과 화면 내 임의 CTA 카드 삽입 금지 (HSP Reset Funnel Contract Breach)**:
+  - `projects/hsp-test`는 결과 화면(`#screen-result`) 내에서 `#result-boundary` 바로 다음에 감각 리셋 룸(`#sensory-reset-cta` -> `/hsp-test/reset.html`)이 위치하는 엄격한 2단계 수익화 퍼널 구조를 계약 검증기(`scripts/verify-hsp-reset-funnel.js`)로 보호함.
+  - 임의로 `id="next-step-card"` 또는 `quick-actions-card`를 삽입하면 변이/계약 검증기에서 즉각 `Error: Result contains forbidden next-step card` 실패를 유발함.
+  - **대책**: HSP 테스트 결과 후속 링크는 `#sensory-reset-cta`의 리셋 룸을 1순위로 유지하고, 타 앱 연결은 하단의 `.related-grid` 카드에 동적 언어 보존(`?lang=`) 및 `&start=1` 직행 쿼리를 적용하여 유도할 것.
+- **서브모듈 메타 `dateModified` 갱신 시 검증기 assertion 동기화 누락**:
+  - `scripts/verify-kpop-position.js`, `scripts/verify-animal-personality.js` 등 단위 검증기들은 `dateModified: "YYYY-MM-DD"`를 정확히 검증함. 서브모듈의 `index.html`만 날짜를 올리고 검증기 파일의 assertion을 갱신하지 않으면 회귀 검증이 실패함. 서브모듈 메타 날짜 수정 시 검증기도 즉시 동기화할 것.
+
 
 
