@@ -5,7 +5,7 @@ Updated: 2026-10-24 KST. Release history is in `memory/data-check-log.md`; repea
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
-- **AdSense Status (2026-10-24)**: Policy violations 0 (`{}`). 오늘 **$0.01**, 어제 **$0.07**, 7일 누적 **$0.37**, 이달 누적 **$1.20**, 30일 누적 **$1.69**.
+- **AdSense Status (2026-10-24)**: Policy violations 0 (`{}`). 오늘 **$0.02**, 어제 **$0.07**, 7일 누적 **$0.37**, 이달 누적 **$1.21**, 30일 누적 **$1.70**.
 - 핵심 대책: 119개 전 서브모듈 44px 터치/0px 오버플로 영구 레지스트리 유지, [docs/ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md) 준수, AI 검색(ChatGPT/Perplexity/Bing) 및 핵심 진입면 전환 극대화.
 
 ## Current operating rules
