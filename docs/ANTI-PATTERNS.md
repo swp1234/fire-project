@@ -87,3 +87,13 @@
   - `setTimeout(..., 5000)`으로 자동 발송되는 가짜 체류 이벤트는 애드센스/GA4의 무효 트래픽(IVT) 탐지 알고리즘을 자극하므로 일체 금지.
 - **크로스 프로모션 확장자 처리 누락**:
   - `window.location.pathname` 분석 시 `.html` 확장자를 제거하지 않아 `/portal/tools/*.html` 유틸리티 도구에서 추천 위젯이 렌더링되지 않던 버그 방지 (`.replace(/\.html$/, '')` 필수 적용).
+
+---
+
+## 7. 콘텐츠 & E-E-A-T 신뢰도 누수 안티패턴
+
+- **내부 최적화 지표 텍스트 누출 (Internal Metrics Leakage)**:
+  - 블로그/포털 퀵 레일 카드에 `(63s dwell)`, `(175s dwell)`, `(178s dwell)` 등 개발/분석용 체류 시간 메트릭이 방문자 대상 텍스트로 노출되어 스팸/자동생성 사이트 인상을 주는 치명적 문제. 반드시 깨끗한 사용자 가치 설명 문구로 교체할 것.
+- **비임상 자가진단 도구에 대한 과장된 의료/진단 표현 금지**:
+  - `Clinical-grade check`, `diagnostic benchmarks` 등 임상/의료적 오해를 유발하는 표현은 구글 E-E-A-T 정책 위반(YMYL) 및 의료법적 위험을 초래하므로 "Self-reflection check", "Trait exploration" 등으로 엄격히 대체할 것.
+

@@ -77,7 +77,7 @@
       "trustCompliant": true
     },
     "portal": {
-      "headCommit": "6741f22f7845352d58eba8c32ba98e9dc424fe25",
+      "headCommit": "1e06d304bcb8497e9c41960b50ba84a8802909d8",
       "branch": "main",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
@@ -212,7 +212,7 @@
       "trustCompliant": true
     },
     "hsp-test": {
-      "headCommit": "8d2f1822c25050e009d3f1e97b08a2052212f52f",
+      "headCommit": "159bc813e4a83f95f8ad19de7cebd6c505636c74",
       "branch": "main",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
@@ -338,7 +338,7 @@
       "trustCompliant": true
     },
     "puzzle-2048": {
-      "headCommit": "04d7c67e615ffdebc2789d11f55d08fff23be201",
+      "headCommit": "b0c054523908dce6e7f2211340b02bfd648fad11",
       "branch": "master",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
@@ -410,7 +410,7 @@
       "trustCompliant": true
     },
     "stress-check": {
-      "headCommit": "5abfdadd8b9f512c5b01ffad1bfee1e3a2d882b4",
+      "headCommit": "bbade619dab04b89ccb71ecfc768dd585fd8fb3d",
       "branch": "master",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
