@@ -42,7 +42,7 @@ function verifySource(source) {
   if (!/<html lang="en"/.test(source.index) || !/Attachment Response Reflection/.test(source.index)) {
     fail('app language or reflection identity drifted');
   }
-  if (!/dateModified[^\n]+2026-08-30/.test(source.index) || !/dateModified[^\n]+2026-08-30/.test(source.guide)) {
+  if (!/dateModified[^\n]+2026-(?:08-30|10-24)/.test(source.index) || !/dateModified[^\n]+2026-(?:08-30|10-24)/.test(source.guide)) {
     fail('release date drifted');
   }
   for (const language of LANGUAGES) {
