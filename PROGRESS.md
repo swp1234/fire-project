@@ -17,21 +17,21 @@ Updated: 2026-10-24 KST. Release history is in `memory/data-check-log.md`; repea
 
 ## Active plan (2026-10-24) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 자율 개발 실수 방지 및 토큰 낭비 차단**:
-  - `memory/audit-registry.json` 기반 119/119 서브모듈 Zero-Token 스킵 영구화.
-  - [docs/ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md) 8대 영역 숙지 (언어 탈락, 목적지 불일치, 텔레메트리 점수 누출 금지).
-- **P1 핵심 진입면 유기적 검색 강화 및 전환 최적화**:
-  - Stress Check, HSP Test, 2048 Coach, Future Self 체류시간 및 연계 완료율 극대화.
+- **P0 자율 개발 실수 방지 및 토큰 낭비 차단**: `memory/audit-registry.json` 기반 119/119 서브모듈 Zero-Token 스킵 영구화.
+- **P1 다중 검색엔진 노출 및 우연한 유입(Accidental Discovery) 극대화**:
+  - Bing/Naver/DuckDuckGo IndexNow 즉시 색인 + AI 검색(Perplexity/ChatGPT) `llms.txt` 탑재.
+  - 모바일 Web Share API 및 고전환 블로그-인터랙티브 툴 브릿지 연동.
 
-## Latest release: Search Visibility & Viral Exposure (2026-10-24)
+## Latest release: Multi-Engine Search & Accidental Exposure (2026-10-24)
 
-- 유기적 검색 노출 & 언어 불일치 해소:
-  - `stress-check`, `hsp-test`, `future-self`: 정적 HTML 제목/설명/OG 태그를 한국어 canonical 및 `lang="ko"`와 일치시켜 Googlebot의 "Crawled - currently not indexed" 원인 제거.
-  - `scripts/verify-stress-core.js` (16/16 변이/런타임), `verify-hsp-reset-funnel.js` (13/13 변이/런타임), `verify-future-self-funnel.js` 전원 PASS.
-- 바이럴 & 우연한 발견(Accidental Discovery) 강화:
-  - `decision-matrix.html`: 모바일 네이티브 공유 시트(`navigator.share`) 및 1클릭 복사 보고서 링크 탑재.
-  - `root-domain/llms.txt` & `llms-full.txt`: Decision Matrix & Emotion Regulation Planner 신규 도구 AI 검색(ChatGPT/Perplexity/Claude) 색인 등록 완료.
+- 신규 인터랙티브 도구 2종 런칭 및 12개 언어 탑재:
+  - `burnout-stress-differential.html`: 2D 피로 좌표계(급성 스트레스 vs 만성 번아웃) 감별 및 전용 디컴프레션 프로토콜.
+  - `dopamine-detox-protocol.html`: 인스턴트 저가 vs 복리 도파민 마찰 비율 계산기 + 24시간 리셋 일정표 + ADHD 대체 메뉴.
+- 검색 색인 및 바이럴 공유 강화:
+  - `stress-check`, `hsp-test`, `future-self`: 정적 HTML 한국어 일치화로 GSC "Crawled - currently not indexed" 해소.
+  - Bing/Naver/DuckDuckGo IndexNow 실시간 전송 (HTTP 200 OK), `root-domain/llms.txt` AI 검색 색인 갱신.
+  - 고트래픽 번아웃/도파민 블로그 포스트 내 고대비 도구 CTA 카드 장착.
 - 119/119 Submodules Clean:
-  - `health-guard`: 6/6 전 배터리 PASS (1,529개 전 URL 무결점), Pre-push 품질 게이트 완료.
+  - `health-guard`: 6/6 전 배터리 PASS (1,531개 전 URL 0-issue), 0px 모바일 오버플로, 44px 터치 타깃 100% 준수.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
