@@ -6,6 +6,7 @@
     "skill:touch-audit": "node .agents/skills/dopabrain-touch-audit/scripts/audit-touch.js",
     "skill:submodule-ops": "node .agents/skills/dopabrain-submodule-ops/scripts/submodule-ops.js",
     "skill:health-guard": "node .agents/skills/dopabrain-health-guard/scripts/health-guard.js",
+    "skill:trust-audit": "node .agents/skills/dopabrain-trust-audit/scripts/trust-audit.js",
     "gsc:submit-sitemaps": "node --use-system-ca scripts/gsc-submit-sitemaps.js",
     "verify:gsc-submit-sitemaps": "node --use-system-ca scripts/gsc-submit-sitemaps.js --self-test && node --use-system-ca scripts/gsc-submit-sitemaps.js --dry-run",
     "indexnow:submit": "node --use-system-ca scripts/indexnow-submit.js",

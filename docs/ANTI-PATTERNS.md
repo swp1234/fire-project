@@ -72,3 +72,18 @@
   - `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}`는 사용자 직접 관리 파일이므로 자율 개발 시 절대 수정하거나 덮어쓰지 말 것.
 - **Claude / Codex 런타임 격리 준수**:
   - `%USERPROFILE%\.claude*` 및 `E:\Fire Project\.claude\` 경로는 건드리지 않음.
+
+---
+
+## 6. 구조화 데이터 & E-E-A-T 신뢰도 안티패턴
+
+- **조작된 리뷰 평점 (Fabricated `aggregateRating`)**:
+  - 검증 가능한 사용자 리뷰 시스템이 없음에도 스키마에 `ratingValue: 4.8`, `ratingCount: 1240` 등을 임의 삽입하는 행위는 구글 구조화 데이터 가이드라인 위반(스팸 조치 및 신뢰도 강등 대상)이므로 절대 금지.
+- **숨겨진 FAQ 스키마 (Hidden `FAQPage` Schema)**:
+  - 페이지 본문에 실제로 보이지 않는 FAQ를 JSON-LD 스키마로만 주입하는 행위 금지 (구글 스키마 불일치 페널티 유발).
+- **조작된 백분위/통계 (Fake Percentile & Social Proof)**:
+  - `Math.random()`이나 하드코딩된 임의 백분위수("상위 19%의 성격입니다", "현재 N명이 응시 중") 표시는 심리학적 전문성/신뢰성을 훼손하므로 금지.
+- **클라이언트 합성 타이머 (`page_engage`)**:
+  - `setTimeout(..., 5000)`으로 자동 발송되는 가짜 체류 이벤트는 애드센스/GA4의 무효 트래픽(IVT) 탐지 알고리즘을 자극하므로 일체 금지.
+- **크로스 프로모션 확장자 처리 누락**:
+  - `window.location.pathname` 분석 시 `.html` 확장자를 제거하지 않아 `/portal/tools/*.html` 유틸리티 도구에서 추천 위젯이 렌더링되지 않던 버그 방지 (`.replace(/\.html$/, '')` 필수 적용).

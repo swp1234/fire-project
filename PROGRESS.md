@@ -23,16 +23,15 @@ Updated: 2026-10-24 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 핵심 진입면 유기적 검색 강화 및 전환 최적화**:
   - Stress Check, HSP Test, 2048 Coach, Future Self 체류시간 및 연계 완료율 극대화.
 
-## Latest release: High-Traffic Viral Apps Quality & Trust Overhaul (2026-10-24)
+## Latest release: Trust & Compliance Engine with Zero-Token Auditing (2026-10-24)
 
-- Trust & SEO Compliance Overhaul:
-  - 고트래픽 바이럴 앱 5종(`dark-core`, `emotional-age`, `love-language`, `red-green-flag`, `toxic-trait`)의 과거 레거시 찌꺼기 전면 제거.
-  - 인위적 5초 타이머(`page_engage`), 조작된 리뷰 점수(`aggregateRating`), 숨김 FAQ 스키마, `Math.random()` 가짜 통계 완전 박멸.
-  - 최신 수정일(`dateModified: 2026-10-24`) 갱신 및 IndexNow 5개 URL 전원 제출 완료 (HTTP 200).
-- Core Funnel Bridge:
-  - 5개 앱의 연관 추천 그리드를 핵심 유료/고체류 도구(Stress Check, HSP Test, Future Self, Attachment Style)로 일괄 개편.
-- Verification & Invariants:
-  - 5개 서브모듈 커밋·푸시 완료(`cca79c4`, `0f88f57`, `fee834e`, `0bca6fe`, `858e357`).
-  - `health-guard` (6/6 PASS), `verify:indexing-inventory` (0 issues), `verify:docs` (PASS), 모바일 오버플로 0px & 44px 터치 100% 준수.
+- Trust, Schema & Ad Policy Eradication:
+  - 19개 서브모듈의 보상형 전면광고 잠금(`ad-lock`), 인위적 5초 타이머(`page_engage`), 허위 평점(`aggregateRating`), 숨김 FAQ 스키마 완전 제거 (`future-self`, `hsp-test`, `stress-type`, `mbti-tips`, `numerology`, `shopping-calc`, `white-noise` 등).
+  - 과거 실수 및 수익 악영향 패턴을 [docs/ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md)에 정식 문서화.
+- Agent Skill & Zero-Token Optimization:
+  - 신규 스킬 `dopabrain-trust-audit` 구축 및 `package.json` 등록 (`npm run skill:trust-audit`).
+  - `memory/audit-registry.json` 기반 완료 프로젝트 즉시 스킵(Zero-Token Waste) 체계 확립.
+- Quality Gates & Deployment:
+  - 하위 서브모듈 개별 커밋·푸시 완료, IndexNow 일괄 제출(HTTP 200), `verify:docs` 및 `health-guard` 6/6 PASS 준수.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
