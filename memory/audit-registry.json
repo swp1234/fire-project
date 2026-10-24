@@ -77,7 +77,7 @@
       "trustCompliant": true
     },
     "portal": {
-      "headCommit": "472c372914105a1d53ab259223f0de532700cdbc",
+      "headCommit": "5692383ca59e309b6387d54ebb193bd6ab6f9482",
       "branch": "main",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
@@ -1079,7 +1079,7 @@
   "future-self": "fb71d4a",
   "kpop-position": "1bc3ae7",
   "root-domain": "9ef9660",
-  "portal": "472c372",
+  "portal": "5692383",
   "puzzle-2048": "62dd209",
   "stress-check": "52177a4"
 }

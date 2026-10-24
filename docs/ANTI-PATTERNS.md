@@ -113,4 +113,11 @@
   - 사이트맵에 `<lastmod>2026-10-24</lastmod>`를 기록했으나 HTML 메타/JSON-LD가 과거 일자(`2026-08-30` 등)로 남아있을 경우 색인 인벤토리 무결성 실패 발생. 두 값은 항상 동기화되어야 함.
 - **분석 텔레메트리 내 사용자 점수/결과값 전송 금지 (`Telemetry Result Leak`)**:
   - 클릭 이벤트나 전환 이벤트에 사용자의 점수(`stress_score`, `score`), 결과 유형(`result_type`), 백분위 등을 파라미터로 포함할 경우 개인정보 보호 불변 조건(Privacy Invariant) 위반 및 회귀 검증기(`verify-*.js`) 실패 발생. 모든 분석 이벤트는 개인 점수/결과를 완전히 배제하고 오직 `target_key`, `surface` 등 기술적 탐색 속성만 전송할 것.
+- **전역 크로스 프로모션 위젯 내 중단된 앱(Suspended App) 노출 누수**:
+  - `projects/portal/js/cross-promo.js` 내 `BLOG_TOPIC_STRATEGIES`나 `EN_TOOL_BRIDGE_IDS`에 무효 트래픽으로 광고가 중단된 앱(`routine-planner`, `todo-list`, `puzzle-2048`, `brick-breaker`, `reaction-test`, `qr-generator`, `typing-speed`)이 등록되어 있을 경우, 블로그 방문자가 해당 추천을 클릭하여 광고가 없는(0 RPM) 페이지로 빠져나가는 치명적인 수익 누수 발생.
+  - **대책**: 전역 위젯의 추천 대상 목록은 반드시 현재 Auto Ads가 정상 작동하는 활성 수익화 도구(`future-self`, `stress-check`, `iq-test`, `pomodoro-timer`, `detox-timer`, `color-blindness`, `animal-personality`, `kpop-position`, `password-generator`, `unit-converter` 등)로만 구성할 것.
+- **계약 검증기(`scripts/verify-*.js`)가 바인딩된 블로그 페이지 일괄 수정 금지**:
+  - `verify-en-attachment-reflection.js`, `verify-en-future-self-guide.js`, `verify-doomscrolling-bridge.js`, `verify-zh-mbti-city-path.js` 등 특정 블로그 페이지를 타깃으로 정밀 계약 및 변이 테스트(Mutation Test)를 수행하는 검증기가 존재하는 경우, 해당 페이지의 링크나 `dateModified`를 무단으로 변경하면 회귀 테스트가 깨짐.
+  - **대책**: 블로그 링크/메타 수정 전 반드시 `scripts/verify-*.js` 파일들을 검색하여 해당 페이지가 계약으로 묶여 있는지 확인하고, 수정 시 검증기 및 변이 픽스처까지 함께 계약을 갱신할 것.
+
 
