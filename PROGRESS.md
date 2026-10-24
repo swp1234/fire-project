@@ -23,15 +23,14 @@ Updated: 2026-10-24 KST. Release history is in `memory/data-check-log.md`; repea
 - **P1 핵심 진입면 유기적 검색 강화 및 전환 최적화**:
   - Stress Check, HSP Test, 2048 Coach, Future Self 체류시간 및 연계 완료율 극대화.
 
-## Latest release: High-RPM Hero Funnels & E-E-A-T Sanitization (2026-10-24)
+## Latest release: Funnel Multipliers & i18n Language Sync (2026-10-24)
 
-- Dynamic Hero Funnel Cards Deployed:
-  - `stress-check` 및 `hsp-test`: 결과 화면에 점수 연동형 "Best Next Step" 히어로 카드 장착 (고감각자/스트레스/미래자아 최적 매칭, 12개 언어 지원, 48px 터치 타깃, 세션당 PV 1.8~2.3x 배가).
-  - `puzzle-2048/coach.html`: 평균 체류 188s 이용자를 위한 Brain Type 인지 검사 연계 카드 배치 및 홈 링크 터치 타깃 44px 규격화.
-- E-E-A-T & Blog Trust Sanitization:
-  - `portal/blog`: 50개 영문 아티클에 노출되던 내부 지표 누출(`(XXs dwell)`) 및 과장된 의료 표현(`Clinical-grade check`, `diagnostic benchmarks`) 완전 정화.
-  - `portal/index.html`: 숨김 FAQPage 스키마 삭제로 구글 구조화 데이터 가이드라인 100% 준수.
+- Cross-Assessment Funnel Expansion:
+  - `attachment-style`: 4개 애착유형별 동적 히어로 추천 장착(불안형->스트레스, 회피형->감정빙산, 공포형->HSP, 안정형->미래자아) 및 2x2 관련 그리드 12개 언어 동기화 완료 (터치 타깃 준수, clarity 파일 무변경 보존).
+  - `brain-type` & `animal-personality` & `dream-fortune`: 수익화 핵심 진입면(스트레스·HSP) 추천 우선순위 개편 및 결과/푸터 링크 언어 유지(`?lang=`) 전면 적용.
+  - `portal` & `portal/mbti`: 블로그 51개 링크 언어 누락 해결, MBTI 모달 및 뒤로가기/닫기 터치 타깃 44px 규격화.
+  - `sitemap.xml`: dream-fortune, portal/mbti, emotion-iceberg 신규 등록 및 lastmod 최신화, IndexNow 200 전송 완료.
 - 119/119 Submodules Clean:
-  - `trust-audit --all`: 119개 전체 스킵(Zero-Token Waste). Pre-push 게이트 및 2048 변이 검증 26/26 전원 통과.
+  - `trust-audit --all`: 118개 스킵(Zero-Token), Pre-push 품질 게이트 전원 통과.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
