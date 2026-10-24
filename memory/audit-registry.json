@@ -365,7 +365,7 @@
       "trustCompliant": true
     },
     "root-domain": {
-      "headCommit": "a82b8bd6a131b78b8719c8f2baae0a04944ca1cb",
+      "headCommit": "a42ffea6e3d086c9888de7b934da6a9383884fd6",
       "branch": "main",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
