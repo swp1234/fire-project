@@ -28,7 +28,7 @@ Updated: 2026-10-24 KST. Release history is in `memory/data-check-log.md`; repea
 - Cross-Assessment Funnel Expansion:
   - `future-self`: 푸터 탐색 그리드를 비수익화 앱에서 핵심 4대 진입면(Stress Check, HSP, Brain Type, Attachment Style)으로 교체 및 12개 언어 파라미터 동기화.
   - `kpop-position`: 언어 파라미터 삭제 버그 해결(영어 사용자 한글 기본 앱 이탈 방지), 로봇 색인 허용 및 루트 sitemap.xml 등록.
-  - `portal` blog: 상위 가이드(animal-personality-test-guide 등) 비수익화 링크를 스트레스 체크·애착유형으로 교체, sitemap lastmod 정합성 동기화.
+  - `portal` blog: 상위 가이드(animal-personality, zh-color, zh-mbti-city, zh-tarot) 비수익화 링크를 스트레스·16유형·해몽으로 교체, sitemap lastmod 동기화.
   - `attachment-style` & `iq-test` & `brain-type`: 결과 유형·점수별 동적 히어로 추천 장착 및 언어 동기화 완료.
 - 119/119 Submodules Clean:
   - `trust-audit --all`: 118개 스킵(Zero-Token), Pre-push 품질 게이트 및 IndexNow 200 전송 완료.
