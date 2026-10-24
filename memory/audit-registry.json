@@ -77,7 +77,7 @@
       "trustCompliant": true
     },
     "portal": {
-      "headCommit": "0e19220f30fa455e8d62327ded77c5539369bc8e",
+      "headCommit": "9f3ce385a05591e86a19e76af10b046adfc06a2e",
       "branch": "main",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
@@ -212,7 +212,7 @@
       "trustCompliant": true
     },
     "hsp-test": {
-      "headCommit": "6bc5f82e752d1a9ff8dc613ccc19398b05ab5e77",
+      "headCommit": "c90ed2b857a56c95b0741da408db1f672def6cb6",
       "branch": "main",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
@@ -365,7 +365,7 @@
       "trustCompliant": true
     },
     "root-domain": {
-      "headCommit": "c29ffb6d69bdbc6a0469ea5f166a7ddcd7fd384b",
+      "headCommit": "a82b8bd6a131b78b8719c8f2baae0a04944ca1cb",
       "branch": "main",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
@@ -644,7 +644,7 @@
       "trustCompliant": true
     },
     "brain-type": {
-      "headCommit": "5c4543a62e0897dc2efb3778f798432a901cbd4c",
+      "headCommit": "d8dfb00b38798cc63c5891891a0408d370262346",
       "branch": "main",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,
@@ -770,7 +770,7 @@
       "trustCompliant": true
     },
     "npc-test": {
-      "headCommit": "47d7e0859cb055efb6186599ecffaf3e9dccd50f",
+      "headCommit": "50e0e27f0c4fd8a3b8045f1240fcbd9ba7542ab5",
       "branch": "gh-pages",
       "auditedAt": "2026-10-24",
       "overflowPx": 0,

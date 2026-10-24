@@ -1,0 +1,45 @@
+{
+  "description": "Daily manual GSC index request priority queue (Google Search Console limit ~10-12/day)",
+  "lastDeliveredDate": "2026-10-24",
+  "dailyQuotaLimit": 10,
+  "todayCompleted": [
+    "https://dopabrain.com/stress-check/",
+    "https://dopabrain.com/hsp-test/",
+    "https://dopabrain.com/future-self/"
+  ],
+  "todayRemainingQuota": [
+    "https://dopabrain.com/portal/tools/burnout-stress-differential.html",
+    "https://dopabrain.com/portal/tools/dopamine-detox-protocol.html",
+    "https://dopabrain.com/attachment-style/",
+    "https://dopabrain.com/puzzle-2048/coach.html",
+    "https://dopabrain.com/brain-type/",
+    "https://dopabrain.com/iq-test/",
+    "https://dopabrain.com/portal/tools/decision-matrix.html"
+  ],
+  "upcomingBatches": {
+    "2026-10-25": [
+      "https://dopabrain.com/portal/tools/grounding-exercise.html",
+      "https://dopabrain.com/emotion-iceberg/",
+      "https://dopabrain.com/animal-personality/",
+      "https://dopabrain.com/dream-fortune/",
+      "https://dopabrain.com/portal/tools/emotion-regulation-planner.html",
+      "https://dopabrain.com/portal/blog/ko/overthinking-at-night-how-to-stop.html",
+      "https://dopabrain.com/portal/blog/en/overthinking-at-night-how-to-stop.html",
+      "https://dopabrain.com/portal/blog/ko/dopamine-detox-guide-reset-brain.html",
+      "https://dopabrain.com/portal/blog/en/dopamine-detox-guide-reset-brain.html",
+      "https://dopabrain.com/portal/blog/ko/burnout-symptoms-self-check.html"
+    ],
+    "2026-10-26": [
+      "https://dopabrain.com/portal/blog/en/stress-burnout-test.html",
+      "https://dopabrain.com/portal/blog/ko/dissociation-symptoms-grounding.html",
+      "https://dopabrain.com/portal/blog/en/dissociation-symptoms-grounding.html",
+      "https://dopabrain.com/hsp-test/reset.html",
+      "https://dopabrain.com/stress-check/plan.html",
+      "https://dopabrain.com/portal/blog/ko/overthinking-decision-making-guide.html",
+      "https://dopabrain.com/portal/blog/en/overthinking-decision-making-guide.html",
+      "https://dopabrain.com/kpop-position/",
+      "https://dopabrain.com/mbti-love/",
+      "https://dopabrain.com/portal/tools/"
+    ]
+  }
+}
