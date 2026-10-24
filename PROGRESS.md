@@ -26,12 +26,11 @@ Updated: 2026-10-24 KST. Release history is in `memory/data-check-log.md`; repea
 ## Latest release: Funnel Multipliers & i18n Language Sync (2026-10-24)
 
 - Cross-Assessment Funnel Expansion:
-  - `attachment-style`: 4개 애착유형별 동적 히어로 추천 장착(불안형->스트레스, 회피형->감정빙산, 공포형->HSP, 안정형->미래자아) 및 2x2 관련 그리드 12개 언어 동기화 완료 (터치 타깃 준수, clarity 파일 무변경 보존).
-  - `brain-type` & `animal-personality` & `dream-fortune`: 수익화 핵심 진입면(스트레스·HSP) 추천 우선순위 개편 및 결과/푸터 링크 언어 유지(`?lang=`) 전면 적용.
-  - `portal` & `portal/mbti`: 블로그 51개 링크 언어 누락 해결, MBTI 모달 및 뒤로가기/닫기 터치 타깃 44px 규격화.
-  - `iq-test`: 점수 연동형 히어로 추천 장착(고득점->2048 Coach, 중득점->Brain Type, 저득점->Stress Check) 및 12개 언어 번역 완비.
-  - `sitemap.xml`: dream-fortune, portal/mbti, emotion-iceberg 신규 등록 및 lastmod 최신화, IndexNow 200 전송 완료.
+  - `future-self`: 푸터 탐색 그리드를 비수익화 앱에서 핵심 4대 진입면(Stress Check, HSP, Brain Type, Attachment Style)으로 교체 및 12개 언어 파라미터 동기화.
+  - `kpop-position`: 언어 파라미터 삭제 버그 해결(영어 사용자 한글 기본 앱 이탈 방지), 로봇 색인 허용 및 루트 sitemap.xml 등록.
+  - `portal` blog: 상위 가이드(animal-personality-test-guide 등) 비수익화 링크를 스트레스 체크·애착유형으로 교체, sitemap lastmod 정합성 동기화.
+  - `attachment-style` & `iq-test` & `brain-type`: 결과 유형·점수별 동적 히어로 추천 장착 및 언어 동기화 완료.
 - 119/119 Submodules Clean:
-  - `trust-audit --all`: 118개 스킵(Zero-Token), Pre-push 품질 게이트 전원 통과.
+  - `trust-audit --all`: 118개 스킵(Zero-Token), Pre-push 품질 게이트 및 IndexNow 200 전송 완료.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
