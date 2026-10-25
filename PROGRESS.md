@@ -22,13 +22,13 @@ Updated: 2026-10-25 KST. Release history is in `memory/data-check-log.md`; repea
   - Bing/Naver/DuckDuckGo IndexNow 즉시 색인 + AI 검색(Perplexity/ChatGPT) `llms.txt` 탑재.
   - 고전환 블로그(번아웃/해리/야간과잉사고/도파민메뉴)와 신규 도구 3종 간 2단계 퍼널 가동.
 
-## Latest release: Burnout vs Depression Blogs 12-Language High-Intent Funnel (2026-10-25)
+## Latest release: Functional Freeze Signs & Recovery Blogs 12-Language Funnel (2026-10-25)
 
-- 정서적 번아웃 vs 우울 핵심 블로그 12개 전 언어(`de en es fr hi id ja ko pt ru tr zh`) 고전환 퍼널 전면 개편:
-  - 퀵레일(`indexing-quick-rail`) 4개 카드를 무관한 동물 성격/애착유형에서 만성 고갈 감별 및 인지 회복 핵심 도구인 `burnout-stress-differential.html`(스트레스 vs 번아웃 감별기), `cognitive-load-calculator.html`(인지 부하 계산기), `grounding-exercise.html`(5-4-3-2-1 감각 그라운딩), `stress-check`로 전격 교체.
-  - 12개 다국어 본문에 `burnout-stress-differential.html` 임상 지표 감별 배너 신규 탑재 및 `indexing-followup-section` 내 비관련 동물 성격/애착유형을 고수익 도구로 100% 교체.
+- 기능적 동결(Functional Freeze) 핵심 블로그 12개 전 언어(`de en es fr hi id ja ko pt ru tr zh`) 고전환 퍼널 전면 개편:
+  - 퀵레일(`indexing-quick-rail`) 4개 카드를 무관한 동물 성격/애착유형에서 동결 해제 및 신경 조절 핵심 도구인 `grounding-exercise.html`(5-4-3-2-1 감각 그라운딩), `burnout-stress-differential.html`(스트레스 vs 번아웃 감별기), `cognitive-load-calculator.html`(인지 부하 계산기), `stress-check`로 전격 교체.
+  - 12개 다국어 본문에 `grounding-exercise.html` 동결 해제 감각 앵커링 배너 신규 탑재 및 내부 체류시간 누출(`(178s)`) 완전 정제.
 - 인벤토리 무결성 및 인덱싱 완전 검증:
-  - `portal/blog/sitemap.xml` 12개 URL `<lastmod>` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
+  - `portal/sitemap.xml` 및 `portal/blog/sitemap.xml` 12개 URL `<lastmod>` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
   - 390x844 모바일 뷰포트 오버플로 0px 및 44px 터치 타깃 100% 준수 (53 visible cards, 0 issues PASS).
   - Bing/Naver/DuckDuckGo IndexNow 12개 URL 실시간 전송 대기.
 
