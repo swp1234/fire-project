@@ -145,6 +145,16 @@
   - 서치 콘솔 소유자 권한 부여 시 다운로드받은 `google[hash].html` 파일은 즉시 `projects/root-domain/`에 커밋 및 GitHub Pages로 푸시하고, 라이브 서버에서 `HTTP 200 OK`가 응답하는 것을 curl/fetch로 확인한 뒤 사용자에게 확인을 요청할 것.
 - **GA4 Search Console 보고서 라이브러리 미게시 상태 방치**:
   - GA4와 서치 콘솔 연동이 완료되어도 기본값은 미게시(보관함) 상태이므로, [보고서] ➔ [라이브러리] ➔ 'Search Console' 컬렉션의 점 3개(`⋮`)를 눌러 [게시(Publish)]를 수행해야 좌측 내비게이션 메뉴에 영구 노출됨.
+- **Windows PowerShell `node -e` 인라인 따옴표/정규식 훼손**:
+  - PowerShell에서 `node -e "..."` 실행 시 따옴표(`\"`)나 정규식 슬래시(`/`)가 셸 파서에 의해 손상되어 예기치 않은 문법 오류를 일으킴.
+  - **대책**: 복잡한 파일 검증 및 문자열 교체 작업 시 인라인 `node -e`를 지양하고, 반드시 명시적 임시 스크립트(`scripts/*.js`)를 작성해 실행한 후 즉시 삭제할 것.
+- **이중 사이트맵(`projects/portal/sitemap.xml` vs `projects/portal/blog/sitemap.xml`) 분기 누락**:
+  - `red-flag-test-guide.html`, `stress-response-guide.html`, `boundaries-setting-complete-guide.html` 등 일부 아티클은 `en`/`ko`는 루트 사이트맵에, 나머지 10개 언어는 블로그 사이트맵에 등록되어 있거나 그 반대로 분기되어 있음.
+  - **대책**: 마이그레이션 시 반드시 두 사이트맵 모두에서 해당 URL의 존재 여부를 전수 확인하고, 양쪽 모두 `<lastmod>YYYY-MM-DD</lastmod>`를 동기화하여 `sitemap_lastmod_mismatch` 방지.
+- **블로그 내부 교차 링크와 정지 앱 경로 오인 방지**:
+  - 본문 내 `href="/portal/blog/en/attachment-style-quiz-guide.html"`와 같은 링크는 정지된 앱이 아니라 색인 중인 활성 블로그 간 유효한 내부 교차 링크(Internal Link Equity)임.
+  - **대책**: 레거시 링크 감사 시 단순 slug 포함 여부(`includes('attachment-style')`)가 아닌 실제 앱 엔드포인트(`href="/attachment-style/"`, `href="/animal-personality/"`, `data-target-slug="..."`)만 정밀 타깃팅하여 내부 링크 자산을 온전히 보존할 것.
+
 
 
 
