@@ -77,7 +77,7 @@
       "trustCompliant": true
     },
     "portal": {
-      "headCommit": "f717f9046c7094e20513fca624b987998915be0b",
+      "headCommit": "e8071d28e0e81af1170c5555d48ae08bb2e4651e",
       "branch": "main",
       "auditedAt": "2026-10-25",
       "overflowPx": 0,
@@ -1080,7 +1080,7 @@
   "kpop-position": "b3bf1a4",
   "root-domain": "c29ffb6",
   "portal": {
-    "head": "f717f9046c7094e20513fca624b987998915be0b",
+    "head": "e8071d28e0e81af1170c5555d48ae08bb2e4651e",
     "lastAudit": "2026-10-25",
     "status": "clean"
   },
