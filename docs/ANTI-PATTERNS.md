@@ -125,6 +125,27 @@
   - **대책**: HSP 테스트 결과 후속 링크는 `#sensory-reset-cta`의 리셋 룸을 1순위로 유지하고, 타 앱 연결은 하단의 `.related-grid` 카드에 동적 언어 보존(`?lang=`) 및 `&start=1` 직행 쿼리를 적용하여 유도할 것.
 - **서브모듈 메타 `dateModified` 갱신 시 검증기 assertion 동기화 누락**:
   - `scripts/verify-kpop-position.js`, `scripts/verify-animal-personality.js` 등 단위 검증기들은 `dateModified: "YYYY-MM-DD"`를 정확히 검증함. 서브모듈의 `index.html`만 날짜를 올리고 검증기 파일의 assertion을 갱신하지 않으면 회귀 검증이 실패함. 서브모듈 메타 날짜 수정 시 검증기도 즉시 동기화할 것.
+- **JavaScript 동적 Canonical 변조로 인한 구글 색인 거절 (Dynamic Canonical Mutation)**:
+  - `brain-type`, `npc-test`, `portal/index.html` 등에서 `if (canonical) canonical.href = targetHref;`를 실행하여 쿼리스트링(`?lang=...`)을 표준 URL로 동적 변조하던 문제.
+  - **영향**: Googlebot이 JS 렌더링 시 서버의 정적 Canonical과 DOM Canonical 간 불일치를 감지하여 "사용자 지정 표준이 없는 중복 페이지" 또는 "크롤링됨 - 현재 색인 생성되지 않음"으로 배제함.
+  - **불변식**: `<link rel="canonical">`은 반드시 정적이고 불변이어야 하며, 클라이언트 사이드 스크립트에서 절대로 수정하지 말 것.
+- **다국어 블로그 CTA의 비수익 중단 앱(/detox-timer/) 누수 방지**:
+  - 신규 인터랙티브 수익화 도구(`burnout-stress-differential`, `dopamine-detox-protocol`, `grounding-exercise`) 출시 시, 12개 언어 블로그 가이드(예: `dopamine-type-guide`, `dopamine-detox-quiz`)가 여전히 과거의 무광고 중단 앱(`/detox-timer/`)으로 링크되어 발생하는 치명적 수익 누수.
+  - **대책**: 신규 도구 배포 즉시 관련 블로그 12개 언어의 CTA 목적지를 신규 도구 URL로 동기화할 것.
+
+---
+
+## 9. 환경, CLI 및 Google 플랫폼 연동 안티패턴
+
+- **Windows PowerShell 명령어 체이닝 (`&&` 사용 금지)**:
+  - PowerShell 환경에서 `git add . && git commit`과 같이 `&&` 구문 사용 시 파싱 에러 발생. 복합 명령 실행 시 반드시 세미콜론(`;`)을 사용하거나 Node.js 실행 스크립트로 분리할 것.
+- **Google 멀티 계정 세션 혼선 방지 (`authuser=1` 필수)**:
+  - 브라우저에 여러 구글 계정이 로그인된 환경에서 `analytics.google.com` 접근 시 기본 계정(`/u/0/`)이 열려 빈 계정(속성 없음)이 노출됨. DopaBrain 전용 계정(`/u/1/`)으로 직행할 수 있도록 URL에 `?authuser=1` 파라미터나 명시적 속성 ID(`p523606964`) 경로를 안내할 것.
+- **Google Search Console 소유권 인증 파일 신속 배포 프로토콜**:
+  - 서치 콘솔 소유자 권한 부여 시 다운로드받은 `google[hash].html` 파일은 즉시 `projects/root-domain/`에 커밋 및 GitHub Pages로 푸시하고, 라이브 서버에서 `HTTP 200 OK`가 응답하는 것을 curl/fetch로 확인한 뒤 사용자에게 확인을 요청할 것.
+- **GA4 Search Console 보고서 라이브러리 미게시 상태 방치**:
+  - GA4와 서치 콘솔 연동이 완료되어도 기본값은 미게시(보관함) 상태이므로, [보고서] ➔ [라이브러리] ➔ 'Search Console' 컬렉션의 점 3개(`⋮`)를 눌러 [게시(Publish)]를 수행해야 좌측 내비게이션 메뉴에 영구 노출됨.
+
 
 
 

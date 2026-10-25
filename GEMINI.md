@@ -15,7 +15,7 @@
   - GSC property: `https://dopabrain.com/` (`sc-domain:` 사용 금지)
 - **Git 서브모듈 경계:** `projects/*`는 독립 Git 저장소일 수 있으므로 하위 저장소를 먼저 commit/push하고 마지막에 루트를 갱신한다.
 - **감사 레지스트리 및 토큰 절약:** [memory/audit-registry.json](memory/audit-registry.json)에 기록된 HEAD 커밋과 일치하는 서브모듈은 중복 감사하지 않고 스킵한다.
-- **문서 예산:** 세션 로그/보고서를 Markdown에 누적하지 않고, 현재 상태는 [PROGRESS.md](PROGRESS.md)에 갱신한다.
+- **문서 예산 및 세션 종료 회고:** 세션 로그/보고서를 Markdown에 누적하지 않고 [PROGRESS.md](PROGRESS.md)에 갱신하며, "세션 종료" 시 발견된 시행착오와 교훈은 [docs/ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md)에 자산화하여 다음 세션의 행동 지침으로 삼는다.
 
 ## 에이전트 전용 스킬 (`.agents/skills/`)
 - `dopabrain-touch-audit`: 390x844 모바일 뷰포트 오버플로 0px 및 44px 터치 타깃 자동 검증.
