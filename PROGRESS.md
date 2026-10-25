@@ -22,12 +22,11 @@ Updated: 2026-10-25 KST. Release history is in `memory/data-check-log.md`; repea
   - Bing/Naver/DuckDuckGo IndexNow 즉시 색인 + AI 검색(Perplexity/ChatGPT) `llms.txt` 탑재.
   - 고전환 블로그(번아웃/해리/야간과잉사고/도파민메뉴)와 신규 도구 3종 간 2단계 퍼널 가동.
 
-## Latest release: Emotional Numbness Causes & Healing Blogs 12-Language Funnel Optimization (2026-10-25)
+## Latest release: Hypervigilance Trauma Signs & Coping Blogs 12-Language Funnel Optimization (2026-10-25)
 
-- 정서적 마비(Emotional Numbness) 12개 전 언어(`de en es fr hi id ja ko pt ru tr zh`) 블로그 고전환 퍼널 전면 개편:
-  - 퀵레일(`indexing-quick-rail`) 4개 카드를 무관한 동물 성격/애착유형에서 신경계 재활성화 및 탈진 감별 핵심 도구인 `burnout-stress-differential.html`(번아웃-스트레스 감별기), `grounding-exercise.html`(5-4-3-2-1 감각 그라운딩), `cognitive-load-calculator.html`(인지 부하 계산기), `stress-check`로 전격 교체.
-  - 12개 언어 하단 `indexing-followup-section` 내 동물 성격/애착유형 100% 제거하고 `grounding-exercise.html` 고전환 CTA 및 도구 직행 연동 완료.
-  - 영어 본문 내 잔존한 무효 트래픽 링크 2건을 그라운딩 및 번아웃 도구로 전격 교체 완료.
+- 과각성 트라우마(Hypervigilance) 12개 전 언어(`de en es fr hi id ja ko pt ru tr zh`) 블로그 고전환 퍼널 전면 개편:
+  - 퀵레일(`indexing-quick-rail` 및 zh `quick-rail`) 4개 카드를 무관한 동물 성격/애착유형에서 교감신경계 안정 및 감각 앵커링 도구인 `grounding-exercise.html`(5-4-3-2-1 감각 그라운딩), `burnout-stress-differential.html`(번아웃-스트레스 감별기), `cognitive-load-calculator.html`(인지 부하 계산기), `stress-check`로 전격 교체.
+  - 12개 언어 하단 `indexing-followup-section` 내 무효 트래픽 링크 완전 제거하고 `grounding-exercise.html` 감각 그라운딩 고전환 CTA 및 심리 도구 연동 완료.
 - 인벤토리 무결성 및 인덱싱 완전 검증:
   - `portal/blog/sitemap.xml` 12개 URL `<lastmod>` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
   - 390x844 모바일 뷰포트 오버플로 0px 및 44px 터치 타깃 100% 준수 (53 visible cards, 0 issues PASS).
