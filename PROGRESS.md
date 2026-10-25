@@ -22,18 +22,16 @@ Updated: 2026-10-25 KST. Release history is in `memory/data-check-log.md`; repea
   - Bing/Naver/DuckDuckGo IndexNow 즉시 색인 + AI 검색(Perplexity/ChatGPT) `llms.txt` 탑재.
   - 고전환 블로그(번아웃/해리/야간과잉사고/도파민메뉴)와 신규 도구 3종 간 2단계 퍼널 가동.
 
-## Latest release: Triple Funnel Upgrade, Dopamine Menu Alignment & IndexNow Push (2026-10-25)
+## Latest release: Cognitive Load Calculator Launch, Tool Catalog & LLMs AI Search Sync (2026-10-25)
 
-- 번아웃 및 해리 퍼널 무효 트래픽(0 RPM) 누수 원천 차단:
-  - `burnout-stress-differential.html` 브릿지 카드를 비수익 중단 앱(`burnout-test`)에서 100% 수익화된 신규 `5-4-3-2-1 grounding-exercise.html`로 교체 (12개 언어 번역 완비).
-  - 12개 언어 `dissociation-symptoms-grounding` 블로그 메인 CTA를 비관련 `animal-personality`에서 신규 `grounding-exercise.html`로 전격 교체.
-- 60개 다국어 블로그 고수익 도구 직행 퍼널 가동:
-  - 번아웃 가이드 24개 블로그 CTA/퀵레일을 2D 감별 매트릭스 및 도파민 디톡스 프로토콜로 직행 연결.
-  - 야간 과잉사고 12개 블로그 퀵레일에 5-4-3-2-1 그라운딩 도구 카드 탑재 및 내부 체류시간 누출 텍스트(`(175s)`, `(115s)`, `(178s)`) 완전 정제.
-  - 도파민 메뉴 12개 블로그 추천 카드를 일반 스트레스 체크에서 신규 `dopamine-detox-protocol.html`로 직행 연동 (12개 언어 맞춤 카피 완비).
-- 다중 검색엔진 실시간 색인 및 무결성 검증 100% PASS:
-  - 총 61개 URL(도구 1개 + 블로그 60개)의 `dateModified`와 `sitemap.xml` `<lastmod>` 완벽 동기화.
-  - Bing/Naver IndexNow 핵심 URL 실시간 전송 완료 (HTTP 200 OK).
-  - `root-domain/llms.txt` AI 검색 구조화 마크다운 정렬 및 audit-registry 최신 HEAD 커밋 동기화.
+- 신규 고단가 영미권 타깃 인터랙티브 도구 출시:
+  - `cognitive-load-calculator.html` 신규 런칭: 4대 인지 부하(열린 루프, 감각 마찰, 결정 밀도, 생체 피로) 및 실시간 메모리/하드웨어 원격 측정 대시보드 구축.
+  - 12개 언어 완전 지원(i18n), 4단계 진단 알고리즘, 3대 신경 감압 프로토콜, Web Share API 및 고수익 도구 브릿지 카드 탑재.
+- 포털 도구 카탈로그 및 사이트맵 인벤토리 완벽 연동:
+  - `projects/portal/tools/index.html` 카탈로그 카드 및 JSON-LD ItemList 21번째 엔트리 등록.
+  - `sitemap.xml` 1,533개 전체 URL 무결성 0 issue 검증 및 390x844 모바일 44px 터치/0px 오버플로 통과.
+- AI 검색엔진(ChatGPT/Perplexity/Claude) 및 IndexNow 동기화:
+  - `projects/root-domain/llms.txt` 및 `llms-full.txt`에 인지 부하 계산기 구조화 프레임워크 등록.
+  - `memory/audit-registry.json` 최신 서브모듈 HEAD 커밋 영구 동기화.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
