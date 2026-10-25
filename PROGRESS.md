@@ -22,15 +22,14 @@ Updated: 2026-10-25 KST. Release history is in `memory/data-check-log.md`; repea
   - Bing/Naver/DuckDuckGo IndexNow 즉시 색인 + AI 검색(Perplexity/ChatGPT) `llms.txt` 탑재.
   - 고전환 블로그(번아웃/해리/야간과잉사고/도파민메뉴)와 신규 도구 3종 간 2단계 퍼널 가동.
 
-## Latest release: HSP Test Core Recirculation & Tools Grid Upgrade (2026-10-25)
+## Latest release: Future Self Core Recirculation & Tools Grid Upgrade (2026-10-25)
 
-- 핵심 고단가 진입면(`hsp-test`) 결과 화면 재순환 전면 강화:
-  - `hsp-test/index.html`: 무관한 동물 성격 카드를 전격 제거하고 결과 화면 추천 그리드를 6개 카드로 확장. 신규 `grounding-exercise.html`(5-4-3-2-1 그라운딩), `cognitive-load-calculator.html`(인지 부하 계산기), `hsp-test/map.html`(감각 부하 지도) 직행 브릿지 탑재.
-  - 12개 언어 JSON 로케일 파일 전체 번역 키 동기화 완료 및 언어 쿼리 자동 보존.
-  - `puzzle-2048/coach.html` dateModified 2026-10-25 동기화.
+- 핵심 고체류(178s) 진입면(`future-self`) 결과 화면 재순환 전면 강화:
+  - `future-self/index.html`: 결과 추천 그리드를 6개 카드로 확장하여 장기 보상/미래 계획과 직결되는 `dopamine-detox-protocol.html`(도파민 리셋 프로토콜), `decision-matrix.html`(딜레마 결정 매트릭스), `cognitive-load-calculator.html`(인지 부하 계산기) 직행 브릿지 탑재.
+  - 12개 언어 JSON 로케일 파일 전체 번역 키 동기화 완료 및 44px 터치 규격 준수.
 - 인벤토리 무결성 및 인덱싱 완전 검증:
-  - `root-domain/sitemap.xml` HSP 테스트 3개 URL `lastmod` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
-  - 390x844 모바일 뷰포트 오버플로 0px 및 44px 터치 타깃 100% 준수 (5/5 PASS).
-  - Bing/Naver IndexNow HSP 핵심 URL 실시간 전송 대기.
+  - `root-domain/sitemap.xml` 미래 자아 URL `lastmod` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
+  - 390x844 모바일 뷰포트 오버플로 0px 및 44px 터치 타깃 100% 준수 (9/9 PASS).
+  - Bing/Naver IndexNow 미래 자아 핵심 URL 실시간 전송 대기.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
