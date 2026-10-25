@@ -365,7 +365,7 @@
       "trustCompliant": true
     },
     "root-domain": {
-      "headCommit": "1686a6870803ded3e3b78e071062779200409ae9",
+      "headCommit": "035b26f5ba8b972c2ac2b94806f1740f8542ec52",
       "branch": "main",
       "auditedAt": "2026-10-25",
       "overflowPx": 0,
@@ -410,9 +410,9 @@
       "trustCompliant": true
     },
     "stress-check": {
-      "headCommit": "4f694a05243efc891a0bb45f82ab817b98bc665e",
+      "headCommit": "64b445c0d30e2af5c41931b668f2614f3192f6ff",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-10-25",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
