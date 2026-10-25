@@ -22,14 +22,15 @@ Updated: 2026-10-25 KST. Release history is in `memory/data-check-log.md`; repea
   - Bing/Naver/DuckDuckGo IndexNow 즉시 색인 + AI 검색(Perplexity/ChatGPT) `llms.txt` 탑재.
   - 고전환 블로그(번아웃/해리/야간과잉사고/도파민메뉴)와 신규 도구 3종 간 2단계 퍼널 가동.
 
-## Latest release: Self-Compassion & Mental Health Guide 12-Language Funnel Optimization (2026-10-25)
+## Latest release: Red Flag Test Guide 12-Language Funnel Optimization (2026-10-25)
 
-- 자기자비 및 정신건강 가이드(Self-Compassion & Mental Health Guide) 12개 전 언어(`de en es fr hi id ja ko pt ru tr zh`) 고전환 퍼널 전면 개편:
-  - 퀵레일(`indexing-quick-rail`) 4개 카드를 `grounding-exercise.html`(5-4-3-2-1 감각 그라운딩), `trauma-response`(트라우마 반응 테스트), `burnout-stress-differential.html`(번아웃 vs 정서 탈진), `stress-check`로 전격 교체.
-  - 본문 리소스 및 하단 CTA 내 정지된 레거시 앱 링크(`animal-personality`, `attachment-style` 총 23개) 전면 제거, 감각 그라운딩 및 트라우마 반응 도구로 교체.
-  - 12개 전 언어 하단 `indexing-followup-section` 신설/개편으로 따뜻한 자기자비와 신경계 안전감 회복 실천 도구 직행 유도.
+- 레드플래그 자가진단 가이드(Red Flag Test Guide) 12개 전 언어(`de en es fr hi id ja ko pt ru tr zh`) 고전환 퍼널 전면 개편:
+  - 퀵레일(`indexing-quick-rail`) 4개 카드를 `trauma-response`(트라우마 반응 테스트), `grounding-exercise.html`(5-4-3-2-1 감각 그라운딩), `burnout-stress-differential.html`(번아웃 vs 정서 탈진), `stress-check`로 전격 교체.
+  - 본문 내 정지된 레거시 앱 링크(`animal-personality`, `attachment-style` 총 22개 링크) 전면 제거, 100% 수익화된 신경계 조절 도구 직행 체계 구축.
+  - 12개 전 언어 하단 `indexing-followup-section` 신설로 유해 패턴 극복 및 관계 안전감 회복 실천 도구 전환 유도.
 - 인벤토리 무결성 및 인덱싱 완전 검증:
-  - `portal/blog/sitemap.xml` 12개 언어 `<lastmod>` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
-  - Bing/Naver/DuckDuckGo IndexNow 12개 URL 실시간 전송 접수 (누적 623개 URL 실시간 인덱싱 완료).
+  - 이중 사이트맵(`projects/portal/sitemap.xml` en/ko, `projects/portal/blog/sitemap.xml` 10개 언어) 및 본문 `dateModified` 2026-10-25 완전 동기화.
+  - `indexing-inventory` 1,533개 URL 0 issue PASS, AdSense Auto Ads 단일 계약 100% 준수.
+  - Bing/Naver/DuckDuckGo IndexNow 12개 URL 실시간 전송 접수 (누적 635개 URL 실시간 인덱싱 완료).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
