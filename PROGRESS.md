@@ -22,13 +22,13 @@ Updated: 2026-10-25 KST. Release history is in `memory/data-check-log.md`; repea
   - Bing/Naver/DuckDuckGo IndexNow 즉시 색인 + AI 검색(Perplexity/ChatGPT) `llms.txt` 탑재.
   - 고전환 블로그(번아웃/해리/야간과잉사고/도파민메뉴)와 신규 도구 3종 간 2단계 퍼널 가동.
 
-## Latest release: Dissociation Symptoms & Grounding Blogs 12-Language Funnel Optimization (2026-10-25)
+## Latest release: Workplace Stress Relief Blogs 12-Language Funnel Optimization (2026-10-25)
 
-- 해리 및 감각 차단(Dissociation) 12개 전 언어(`de en es fr hi id ja ko pt ru tr zh`) 블로그 고전환 퍼널 전면 개편:
-  - 퀵레일(`indexing-quick-rail`) 4개 카드를 무관한 동물 성격/애착유형에서 해리 완화 및 감각 재연결 핵심 도구인 `grounding-exercise.html`(5-4-3-2-1 감각 그라운딩), `cognitive-load-calculator.html`(인지 부하 계산기), `burnout-stress-differential.html`(번아웃-스트레스 감별기), `stress-check`로 전격 교체.
-  - 12개 언어 본문 내 `resource-link` 및 하단 `indexing-followup-section` 내 무효 트래픽 링크 완전 제거하고 `grounding-exercise.html` 고전환 CTA 및 연계 도구 직행 탑재.
+- 직장 스트레스 완화(Workplace Stress) 12개 전 언어(`de en es fr hi id ja ko pt ru tr zh`) 블로그 고전환 퍼널 전면 개편:
+  - 퀵레일(`indexing-quick-rail`) 4개 카드를 무관한 동물 성격/애착유형에서 업무 과부하 및 직업적 탈진 해소 도구인 `cognitive-load-calculator.html`(인지 부하 계산기), `burnout-stress-differential.html`(번아웃-스트레스 감별기), `grounding-exercise.html`(5-4-3-2-1 감각 그라운딩), `stress-check`로 전격 교체.
+  - 내부 지표 누출(`(175s)`, `(178s)`)을 전면 정제하고, 하단 `indexing-followup-section` 내 무효 트래픽 링크를 완전 제거하여 인지 부하 계산기 직행 CTA 탑재.
 - 인벤토리 무결성 및 인덱싱 완전 검증:
-  - `portal/blog/sitemap.xml` 12개 URL `<lastmod>` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
+  - `portal/sitemap.xml` 및 `portal/blog/sitemap.xml` 12개 URL `<lastmod>` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
   - 390x844 모바일 뷰포트 오버플로 0px 및 44px 터치 타깃 100% 준수 (53 visible cards, 0 issues PASS).
   - Bing/Naver/DuckDuckGo IndexNow 12개 URL 실시간 전송 접수.
 
