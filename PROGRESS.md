@@ -22,14 +22,14 @@ Updated: 2026-10-25 KST. Release history is in `memory/data-check-log.md`; repea
   - Bing/Naver/DuckDuckGo IndexNow 즉시 색인 + AI 검색(Perplexity/ChatGPT) `llms.txt` 탑재.
   - 고전환 블로그(번아웃/해리/야간과잉사고/도파민메뉴)와 신규 도구 3종 간 2단계 퍼널 가동.
 
-## Latest release: Trauma Response Test Guide 12-Language Funnel Optimization (2026-10-25)
+## Latest release: Complex PTSD Symptoms & Recovery Guide 12-Language Funnel Optimization (2026-10-25)
 
-- 트라우마 반응 가이드(Trauma Response Test Guide) 12개 전 언어(`de en es fr hi id ja ko pt ru tr zh`) 고전환 퍼널 전면 개편:
-  - 퀵레일(`indexing-quick-rail`) 4개 카드를 투쟁·도피·동결 급성 신경계 안정화 도구인 `grounding-exercise.html`(5-4-3-2-1 감각 그라운딩), `burnout-stress-differential.html`(번아웃 vs 트라우마 탈진 감별), `cognitive-load-calculator.html`(인지 부하 계산기), `stress-check`로 전격 교체.
+- 복합 PTSD 증상 및 회복 가이드(Complex PTSD Symptoms & Recovery Guide) 12개 전 언어(`de en es fr hi id ja ko pt ru tr zh`) 고전환 퍼널 전면 개편:
+  - 퀵레일(`indexing-quick-rail`) 4개 카드를 정서 플래시백 및 과각성 안정화 핵심 도구인 `grounding-exercise.html`(5-4-3-2-1 감각 그라운딩), `burnout-stress-differential.html`(번아웃 vs 트라우마 탈진 감별), `cognitive-load-calculator.html`(인지 부하 계산기), `stress-check`로 전격 교체.
   - 본문 및 관련 링크 내 정지된 레거시 앱 링크(`attachment-style`, `animal-personality`) 전면 제거, 고체류 감각 그라운딩 및 번아웃 도구로 교체.
-  - 12개 전 언어 하단 `indexing-followup-section` 신설 및 `grounding-exercise.html` 5-4-3-2-1 감각 안정화 직행 CTA 탑재.
+  - 12개 전 언어 하단 `indexing-followup-section` 갱신 및 `grounding-exercise.html` 5-4-3-2-1 감각 안정화 직행 CTA 탑재.
 - 인벤토리 무결성 및 인덱싱 완전 검증:
   - `portal/blog/sitemap.xml` 12개 URL `<lastmod>` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
-  - Bing/Naver/DuckDuckGo IndexNow 12개 URL 실시간 전송 접수 (누적 263개 URL 실시간 인덱싱 완료).
+  - Bing/Naver/DuckDuckGo IndexNow 12개 URL 실시간 전송 접수 (누적 275개 URL 실시간 인덱싱 완료).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
