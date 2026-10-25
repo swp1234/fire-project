@@ -22,15 +22,14 @@ Updated: 2026-10-25 KST. Release history is in `memory/data-check-log.md`; repea
   - Bing/Naver/DuckDuckGo IndexNow 즉시 색인 + AI 검색(Perplexity/ChatGPT) `llms.txt` 탑재.
   - 고전환 블로그(번아웃/해리/야간과잉사고/도파민메뉴)와 신규 도구 3종 간 2단계 퍼널 가동.
 
-## Latest release: Decision Fatigue & ADHD Tabs High-RPM Funnel Upgrade (2026-10-25)
+## Latest release: Brain Battery Sensory Overload Funnel Upgrade (2026-10-25)
 
-- 고단가 키워드(결정 피로 & ADHD 100탭) 블로그 16개 URL 전면 전환 최적화:
-  - 12개 언어 `decision-fatigue-signs-solutions` 블로그: 무관한 동물 성격 CTA 및 불일치 링크를 전격 제거하고, 신규 `decision-matrix.html`(딜레마 결정 매트릭스) 및 `cognitive-load-calculator.html` 직행 연동.
-  - 내부 체류시간 누출 텍스트(`(175s)`, `(115s)`) 완전 정제 및 12개 언어 맞춤형 4대 퀵레일 카드 구축.
-  - 4개 주요 언어 `adhd-paralysis-100-tabs` 블로그: 일반 스트레스 체크에서 신규 `cognitive-load-calculator.html`(멘탈 RAM 과부하 계산기)로 인터랙션 직행 연결.
+- 감각 과부하 & 뇌 배터리 방전 블로그 12개 언어 전면 전환 최적화:
+  - 12개 언어 `brain-battery-sensory-overload-recharge-guide`: 일반 퀴즈 대신 본문에서 다룬 생리적 한숨(Physiological Sigh) 및 감각 리셋과 100% 일치하는 `grounding-exercise.html`(5-4-3-2-1 그라운딩 도구), `cognitive-load-calculator.html`(인지 부하 계산기), `dopamine-detox-protocol.html`로 직행 연동.
+  - 12개 언어 맞춤 번역 카피 및 4대 추천 도구 카드 완비.
 - 인벤토리 무결성 및 인덱싱 완전 검증:
-  - `sitemap.xml` 및 `blog/sitemap.xml` 16개 URL `lastmod` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
+  - `projects/portal/blog/sitemap.xml` 12개 URL `lastmod` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
   - 390x844 모바일 뷰포트 오버플로 0px 및 44px 터치 타깃 100% 준수.
-  - Bing/Naver IndexNow 16개 핵심 URL 실시간 전송 대기.
+  - Bing/Naver IndexNow 12개 URL 실시간 제출 대기.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
