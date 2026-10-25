@@ -20,17 +20,19 @@ Updated: 2026-10-25 KST. Release history is in `memory/data-check-log.md`; repea
 - **P0 자율 개발 실수 방지 및 토큰 낭비 차단**: `memory/audit-registry.json` 기반 119/119 서브모듈 Zero-Token 스킵 영구화.
 - **P1 다중 검색엔진 노출 및 우연한 유입(Accidental Discovery) 극대화**:
   - Bing/Naver/DuckDuckGo IndexNow 즉시 색인 + AI 검색(Perplexity/ChatGPT) `llms.txt` 탑재.
-  - 고전환 블로그(번아웃/도파민)와 신규 인터랙티브 도구(감별 매트릭스/그라운딩) 간 2단계 퍼널 가동.
+  - 고전환 블로그(번아웃/해리/야간과잉사고)와 신규 도구(감별 매트릭스/5-4-3-2-1 그라운딩) 간 2단계 퍼널 가동.
 
-## Latest release: Burnout-to-Grounding Funnel & 24 Multi-Lang Guides (2026-10-25)
+## Latest release: Dual Funnel Expansion, Grounding Bridge & IndexNow Automation (2026-10-25)
 
-- 번아웃 매트릭스 무효 트래픽(0 RPM) 누수 원천 차단:
-  - `burnout-stress-differential.html` 및 JS에서 비수익 중단 앱(`burnout-test`) 링크를 100% 수익화된 신규 `5-4-3-2-1 grounding-exercise.html`로 교체 (12개 언어 번역 완비).
-- 24개 다국어 번아웃 가이드 블로그 고수익 도구 직행 퍼널 업그레이드:
-  - 12개 언어(`en ko ja zh es de fr pt ru hi id tr`)의 `burnout-test-guide` & `burnout-recovery-guide` 내 CTA 및 퀵레일을 신규 `burnout-stress-differential.html`로 동기화.
-  - `related-links` 내 과거 비수익 타이머(`/detox-timer/`)를 신규 `dopamine-detox-protocol.html`로 전격 업그레이드.
-- 사이트맵 및 색인 인벤토리 무결성 100% PASS:
-  - 25개 URL의 HTML `dateModified`와 sitemap `<lastmod>`를 `2026-10-25`로 완벽 동기화 (`Unique URLs: 1,532`, 0 blocker, 0 issues).
-  - 일일 색인 큐(`memory/indexing-daily-queue.json`) 및 감사 레지스트리(`memory/audit-registry.json`) portal 최신 HEAD 커밋 동기화.
+- 번아웃 및 해리 퍼널 무효 트래픽(0 RPM) 누수 원천 차단:
+  - `burnout-stress-differential.html` 브릿지 카드를 비수익 중단 앱(`burnout-test`)에서 100% 수익화된 신규 `5-4-3-2-1 grounding-exercise.html`로 교체 (12개 언어 번역 완비).
+  - 12개 언어 `dissociation-symptoms-grounding` 블로그 메인 CTA를 비관련 `animal-personality`에서 신규 `grounding-exercise.html`로 전격 교체.
+- 48개 다국어 블로그(번아웃 24개 + 해리/야간과잉사고 24개) 고수익 도구 직행 퍼널 가동:
+  - 번아웃 가이드 24개 블로그 CTA/퀵레일을 2D 감별 매트릭스 및 도파민 디톡스 프로토콜로 직행 연결.
+  - 야간 과잉사고 12개 블로그 퀵레일에 5-4-3-2-1 그라운딩 도구 카드 탑재 및 내부 체류시간 누출 텍스트(`(175s)`, `(115s)`, `(178s)`) 완전 정제.
+- 다중 검색엔진 실시간 색인 및 무결성 검증 100% PASS:
+  - 총 49개 URL(도구 1개 + 블로그 48개)의 `dateModified`와 `sitemap.xml` `<lastmod>` 완벽 동기화.
+  - Bing/Naver IndexNow 49개 핵심 URL 실시간 전송 완료 (HTTP 200 OK).
+  - `root-domain/llms.txt` AI 검색 구조화 마크다운 정렬 및 audit-registry 최신 HEAD 커밋 동기화.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
