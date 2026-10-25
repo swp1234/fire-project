@@ -22,14 +22,14 @@ Updated: 2026-10-25 KST. Release history is in `memory/data-check-log.md`; repea
   - Bing/Naver/DuckDuckGo IndexNow 즉시 색인 + AI 검색(Perplexity/ChatGPT) `llms.txt` 탑재.
   - 고전환 블로그(번아웃/해리/야간과잉사고/도파민메뉴)와 신규 도구 3종 간 2단계 퍼널 가동.
 
-## Latest release: Future Self Core Recirculation & Tools Grid Upgrade (2026-10-25)
+## Latest release: Dopamine Detox Guide Blogs 12-Language High-Intent Funnel (2026-10-25)
 
-- 핵심 고체류(178s) 진입면(`future-self`) 결과 화면 재순환 전면 강화:
-  - `future-self/index.html`: 결과 추천 그리드를 6개 카드로 확장하여 장기 보상/미래 계획과 직결되는 `dopamine-detox-protocol.html`(도파민 리셋 프로토콜), `decision-matrix.html`(딜레마 결정 매트릭스), `cognitive-load-calculator.html`(인지 부하 계산기) 직행 브릿지 탑재.
-  - 12개 언어 JSON 로케일 파일 전체 번역 키 동기화 완료 및 44px 터치 규격 준수.
+- 도파민 디톡스 핵심 블로그 12개 전 언어(`de en es fr hi id ja ko pt ru tr zh`) 고전환 퍼널 전면 개편:
+  - 퀵레일(`indexing-quick-rail` & `quick-rail`) 4개 카드를 무관한 동물 성격/애착유형에서 고수익 100% 인터랙티브 도구인 `dopamine-detox-protocol.html`(도파민 리셋 프로토콜), `cognitive-load-calculator.html`(인지 부하 계산기), `stress-check`, `future-self`로 전격 교체.
+  - 10개 다국어 본문에 `dopamine-detox-protocol.html` 인터랙티브 도구 추천 배너 신규 탑재 및 내부 체류시간 누출(`(175초 체류)`) 완전 정제.
 - 인벤토리 무결성 및 인덱싱 완전 검증:
-  - `root-domain/sitemap.xml` 미래 자아 URL `lastmod` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
-  - 390x844 모바일 뷰포트 오버플로 0px 및 44px 터치 타깃 100% 준수 (9/9 PASS).
-  - Bing/Naver IndexNow 미래 자아 핵심 URL 실시간 전송 대기.
+  - `portal/blog/sitemap.xml` 12개 URL `<lastmod>` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
+  - 390x844 모바일 뷰포트 오버플로 0px 및 44px 터치 타깃 100% 준수 (53 visible cards, 0 issues PASS).
+  - Bing/Naver/DuckDuckGo IndexNow 12개 URL 실시간 전송 대기.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
