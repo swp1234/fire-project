@@ -77,7 +77,7 @@
       "trustCompliant": true
     },
     "portal": {
-      "headCommit": "d55106ce24072d58c338fbd5bbdeaecb8c5fbee8",
+      "headCommit": "3909fcae7a964de2c4c816a4e176b39797866f29",
       "branch": "main",
       "auditedAt": "2026-10-25",
       "overflowPx": 0,
