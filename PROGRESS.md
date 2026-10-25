@@ -22,16 +22,15 @@ Updated: 2026-10-25 KST. Release history is in `memory/data-check-log.md`; repea
   - Bing/Naver/DuckDuckGo IndexNow 즉시 색인 + AI 검색(Perplexity/ChatGPT) `llms.txt` 탑재.
   - 고전환 블로그(번아웃/해리/야간과잉사고/도파민메뉴)와 신규 도구 3종 간 2단계 퍼널 가동.
 
-## Latest release: Cognitive Load Calculator Launch, Tool Catalog & LLMs AI Search Sync (2026-10-25)
+## Latest release: Decision Fatigue & ADHD Tabs High-RPM Funnel Upgrade (2026-10-25)
 
-- 신규 고단가 영미권 타깃 인터랙티브 도구 출시:
-  - `cognitive-load-calculator.html` 신규 런칭: 4대 인지 부하(열린 루프, 감각 마찰, 결정 밀도, 생체 피로) 및 실시간 메모리/하드웨어 원격 측정 대시보드 구축.
-  - 12개 언어 완전 지원(i18n), 4단계 진단 알고리즘, 3대 신경 감압 프로토콜, Web Share API 및 고수익 도구 브릿지 카드 탑재.
-- 포털 도구 카탈로그 및 사이트맵 인벤토리 완벽 연동:
-  - `projects/portal/tools/index.html` 카탈로그 카드 및 JSON-LD ItemList 21번째 엔트리 등록.
-  - `sitemap.xml` 1,533개 전체 URL 무결성 0 issue 검증 및 390x844 모바일 44px 터치/0px 오버플로 통과.
-- AI 검색엔진(ChatGPT/Perplexity/Claude) 및 IndexNow 동기화:
-  - `projects/root-domain/llms.txt` 및 `llms-full.txt`에 인지 부하 계산기 구조화 프레임워크 등록.
-  - `memory/audit-registry.json` 최신 서브모듈 HEAD 커밋 영구 동기화.
+- 고단가 키워드(결정 피로 & ADHD 100탭) 블로그 16개 URL 전면 전환 최적화:
+  - 12개 언어 `decision-fatigue-signs-solutions` 블로그: 무관한 동물 성격 CTA 및 불일치 링크를 전격 제거하고, 신규 `decision-matrix.html`(딜레마 결정 매트릭스) 및 `cognitive-load-calculator.html` 직행 연동.
+  - 내부 체류시간 누출 텍스트(`(175s)`, `(115s)`) 완전 정제 및 12개 언어 맞춤형 4대 퀵레일 카드 구축.
+  - 4개 주요 언어 `adhd-paralysis-100-tabs` 블로그: 일반 스트레스 체크에서 신규 `cognitive-load-calculator.html`(멘탈 RAM 과부하 계산기)로 인터랙션 직행 연결.
+- 인벤토리 무결성 및 인덱싱 완전 검증:
+  - `sitemap.xml` 및 `blog/sitemap.xml` 16개 URL `lastmod` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
+  - 390x844 모바일 뷰포트 오버플로 0px 및 44px 터치 타깃 100% 준수.
+  - Bing/Naver IndexNow 16개 핵심 URL 실시간 전송 대기.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
