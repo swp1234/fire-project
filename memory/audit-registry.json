@@ -212,9 +212,9 @@
       "trustCompliant": true
     },
     "hsp-test": {
-      "headCommit": "c90ed2b857a56c95b0741da408db1f672def6cb6",
+      "headCommit": "abedd8ee09d33ee85a54b04a81590dd8512f3ccb",
       "branch": "main",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-10-25",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -338,9 +338,9 @@
       "trustCompliant": true
     },
     "puzzle-2048": {
-      "headCommit": "1feca1f030262dbf7c4565cca66adf8334149873",
+      "headCommit": "c22fe1d48fd80a290b40bb23d698c711a8d3390d",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-10-25",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
