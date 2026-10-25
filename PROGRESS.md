@@ -22,14 +22,14 @@ Updated: 2026-10-25 KST. Release history is in `memory/data-check-log.md`; repea
   - Bing/Naver/DuckDuckGo IndexNow 즉시 색인 + AI 검색(Perplexity/ChatGPT) `llms.txt` 탑재.
   - 고전환 블로그(번아웃/해리/야간과잉사고/도파민메뉴)와 신규 도구 3종 간 2단계 퍼널 가동.
 
-## Latest release: Attachment Style Test Quiz 12-Language Funnel Optimization (2026-10-25)
+## Latest release: Spirit Animal Personality Quiz 12-Language Funnel Optimization (2026-10-25)
 
-- 애착 유형 테스트 퀴즈(Attachment Style Test Quiz) 12개 전 언어(`de en es fr hi id ja ko pt ru tr zh`) 고전환 퍼널 전면 개편:
-  - 퀵레일(`indexing-quick-rail`) 4개 카드를 `trauma-response`(트라우마 반응 테스트), `grounding-exercise.html`(5-4-3-2-1 감각 그라운딩), `burnout-stress-differential.html`(번아웃 vs 정서 탈진), `stress-check`로 교체 (FR 버전 focused rail 2개 카드 계약 완벽 준수).
-  - 본문 Hero/Action CTA 및 인라인 링크 내 정지된 레거시 앱 링크(`attachment-style`, `animal-personality`) 전면 제거, 트라우마 반응 및 5-4-3-2-1 감각 그라운딩으로 교체.
-  - 하단 `indexing-followup-section` 신설로 감각 안정화 도구 직행 유도.
+- 수호 동물 성격 퀴즈(Spirit Animal Personality Quiz) 12개 전 언어(`de en es fr hi id ja ko pt ru tr zh`) 고전환 퍼널 전면 개편:
+  - 퀵레일(`indexing-quick-rail`) 4개 카드를 `brain-type`(두뇌 유형 테스트), `hsp-test`(고감각자 HSP 테스트), `future-self`(미래의 나 시뮬레이터), `stress-check`로 전격 교체.
+  - 본문 Hero/Bottom CTA 및 인라인 링크 내 정지된 레거시 앱 링크(`animal-personality`, `attachment-style`) 전면 제거, 두뇌 유형 및 HSP 고감각자 테스트로 교체.
+  - 12개 전 언어 하단 `indexing-followup-section` 신설로 심층 인지 기질 분석 도구 직행 유도.
 - 인벤토리 무결성 및 인덱싱 완전 검증:
   - `portal/blog/sitemap.xml` 12개 언어 `<lastmod>` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
-  - Bing/Naver/DuckDuckGo IndexNow 12개 URL 실시간 전송 접수 (누적 383개 URL 실시간 인덱싱 완료).
+  - Bing/Naver/DuckDuckGo IndexNow 12개 URL 실시간 전송 접수 (누적 395개 URL 실시간 인덱싱 완료).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
