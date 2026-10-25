@@ -1,6 +1,6 @@
 {
   "description": "Daily manual GSC index request priority queue (Google Search Console limit ~10-12/day)",
-  "lastDeliveredDate": "2026-10-24",
+  "lastDeliveredDate": "2026-10-25",
   "dailyQuotaLimit": 10,
   "todayCompleted": [
     "https://dopabrain.com/stress-check/",
@@ -9,27 +9,30 @@
   ],
   "todayRemainingQuota": [
     "https://dopabrain.com/portal/tools/burnout-stress-differential.html",
+    "https://dopabrain.com/portal/tools/grounding-exercise.html",
     "https://dopabrain.com/portal/tools/dopamine-detox-protocol.html",
+    "https://dopabrain.com/portal/blog/en/burnout-test-guide.html",
+    "https://dopabrain.com/portal/blog/ko/burnout-test-guide.html",
+    "https://dopabrain.com/portal/blog/de/burnout-test-guide.html",
+    "https://dopabrain.com/portal/blog/en/burnout-recovery-guide.html",
+    "https://dopabrain.com/portal/blog/ko/burnout-recovery-guide.html",
     "https://dopabrain.com/attachment-style/",
-    "https://dopabrain.com/puzzle-2048/coach.html",
-    "https://dopabrain.com/brain-type/",
-    "https://dopabrain.com/iq-test/",
-    "https://dopabrain.com/portal/tools/decision-matrix.html"
+    "https://dopabrain.com/puzzle-2048/coach.html"
   ],
   "upcomingBatches": {
-    "2026-10-25": [
-      "https://dopabrain.com/portal/tools/grounding-exercise.html",
+    "2026-10-26": [
+      "https://dopabrain.com/portal/blog/es/burnout-test-guide.html",
+      "https://dopabrain.com/portal/blog/fr/burnout-test-guide.html",
+      "https://dopabrain.com/brain-type/",
+      "https://dopabrain.com/iq-test/",
       "https://dopabrain.com/emotion-iceberg/",
       "https://dopabrain.com/animal-personality/",
       "https://dopabrain.com/dream-fortune/",
       "https://dopabrain.com/portal/tools/emotion-regulation-planner.html",
-      "https://dopabrain.com/portal/blog/ko/overthinking-at-night-how-to-stop.html",
       "https://dopabrain.com/portal/blog/en/overthinking-at-night-how-to-stop.html",
-      "https://dopabrain.com/portal/blog/ko/dopamine-detox-guide-reset-brain.html",
-      "https://dopabrain.com/portal/blog/en/dopamine-detox-guide-reset-brain.html",
-      "https://dopabrain.com/portal/blog/ko/burnout-symptoms-self-check.html"
+      "https://dopabrain.com/portal/blog/en/dopamine-detox-guide-reset-brain.html"
     ],
-    "2026-10-26": [
+    "2026-10-27": [
       "https://dopabrain.com/portal/blog/en/stress-burnout-test.html",
       "https://dopabrain.com/portal/blog/ko/dissociation-symptoms-grounding.html",
       "https://dopabrain.com/portal/blog/en/dissociation-symptoms-grounding.html",
