@@ -22,13 +22,13 @@ Updated: 2026-10-25 KST. Release history is in `memory/data-check-log.md`; repea
   - Bing/Naver/DuckDuckGo IndexNow 즉시 색인 + AI 검색(Perplexity/ChatGPT) `llms.txt` 탑재.
   - 고전환 블로그(번아웃/해리/야간과잉사고/도파민메뉴)와 신규 도구 3종 간 2단계 퍼널 가동.
 
-## Latest release: Cognitive Distortions Funnel Upgrade (2026-10-25)
+## Latest release: Sensory Overload & HSP Coping Funnel Upgrade (2026-10-25)
 
-- 인지 왜곡(CBT 자동적 사고) 블로그 12개 언어 전면 전환 최적화:
-  - 12개 언어 `cognitive-distortions-list`: 무관한 동물 성격 CTA 대신 인지 치료 핵심 단계(인지 재평가)와 직결되는 `emotion-regulation-planner.html`(감정 조절 플래너), `cognitive-load-calculator.html`(인지 부하 계산기), `decision-matrix.html`(결정 매트릭스)로 전격 교체.
-  - 12개 언어 맞춤 번역 카피 및 4대 인지 재평가 퀵레일 카드 구축.
+- 감각 과부하 & HSP 대처 블로그 12개 언어 전면 전환 최적화:
+  - 12개 언어 `sensory-overload-hsp-coping`: 무관한 동물 성격 CTA 대신 급성 감각 과부하를 가라앉히는 `grounding-exercise.html`(5-4-3-2-1 감각 그라운딩), `hsp-test/reset.html`(5분 감각 리셋), `cognitive-load-calculator.html`(인지 부하 계산기)로 전격 교체.
+  - 내부 체류시간 누출 텍스트(`(175s)`, `(178s)`) 완전 정제 및 12개 언어 맞춤형 4대 감각 완화 퀵레일 카드 구축.
 - 인벤토리 무결성 및 인덱싱 완전 검증:
-  - `projects/portal/blog/sitemap.xml` 12개 URL `lastmod` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
+  - `sitemap.xml` 및 `blog/sitemap.xml` 12개 URL `lastmod` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
   - 390x844 모바일 뷰포트 오버플로 0px 및 44px 터치 타깃 100% 준수.
   - Bing/Naver IndexNow 12개 URL 실시간 제출 대기.
 
