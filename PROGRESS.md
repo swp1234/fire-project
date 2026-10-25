@@ -22,14 +22,14 @@ Updated: 2026-10-25 KST. Release history is in `memory/data-check-log.md`; repea
   - Bing/Naver/DuckDuckGo IndexNow 즉시 색인 + AI 검색(Perplexity/ChatGPT) `llms.txt` 탑재.
   - 고전환 블로그(번아웃/해리/야간과잉사고/도파민메뉴)와 신규 도구 3종 간 2단계 퍼널 가동.
 
-## Latest release: Maladaptive Daydreaming Signs & Grounding 12-Language Funnel Optimization (2026-10-25)
+## Latest release: Toxic Relationship Patterns 12-Language Funnel Optimization (2026-10-25)
 
-- 부적응적 백일몽 가이드(Maladaptive Daydreaming Signs Test) 12개 전 언어(`de en es fr hi id ja ko pt ru tr zh`) 고전환 퍼널 전면 개편:
-  - 퀵레일(`indexing-quick-rail`) 4개 카드를 `grounding-exercise.html`(5-4-3-2-1 감각 그라운딩), `cognitive-load-calculator.html`(인지 부하 계산기), `brain-type`(두뇌 유형 테스트), `stress-check`로 전격 교체.
-  - 본문 리소스 및 하단 CTA 내 정지된 레거시 앱 링크(`animal-personality`, `attachment-style` 총 42개) 전면 제거, 5-4-3-2-1 감각 그라운딩 및 인지 부하 계산기로 교체.
-  - 12개 전 언어 하단 `indexing-followup-section` 신설/개편으로 몽상 트랜스 탈출 및 현실 닻 내리기 도구 직행 유도.
+- 독성 관계 패턴 가이드(Toxic Relationship Patterns Signs) 12개 전 언어(`de en es fr hi id ja ko pt ru tr zh`) 고전환 퍼널 전면 개편:
+  - 퀵레일(`indexing-quick-rail`) 4개 카드를 `trauma-response`(트라우마 반응 테스트), `grounding-exercise.html`(5-4-3-2-1 감각 그라운딩), `burnout-stress-differential.html`(번아웃 vs 정서 탈진), `stress-check`로 전격 교체.
+  - 본문 리소스 및 하단 CTA 내 정지된 레거시 앱 링크(`animal-personality`, `attachment-style` 총 35개) 전면 제거, 트라우마 반응 및 5-4-3-2-1 감각 그라운딩 도구로 교체.
+  - 12개 전 언어 하단 `indexing-followup-section` 신설/개편으로 신체적 안전감 회복 및 심리적 경계 강화 도구 직행 유도.
 - 인벤토리 무결성 및 인덱싱 완전 검증:
   - `portal/blog/sitemap.xml` 12개 언어 `<lastmod>` 2026-10-25 동기화, `indexing-inventory` 1,533개 URL 0 issue PASS.
-  - Bing/Naver/DuckDuckGo IndexNow 12개 URL 실시간 전송 접수 (누적 491개 URL 실시간 인덱싱 완료).
+  - Bing/Naver/DuckDuckGo IndexNow 12개 URL 실시간 전송 접수 (누적 503개 URL 실시간 인덱싱 완료).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
