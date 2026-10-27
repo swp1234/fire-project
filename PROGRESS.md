@@ -23,7 +23,7 @@ Updated: 2026-10-27 KST. Release history: `memory/data-check-log.md`; ops loop: 
   - 10대 전 도구 `dateModified` 및 사이트맵 `<lastmod>`를 `2026-10-27`로 정합성 동기화.
   - 블로그 전역 516개 파일 761개 정지 링크 전면 소탕 (`funnel-bridge` PASS).
   - AdSense MCP 토큰 갱신 및 계정 연동 유지 (`pub-3600813755953882` keepalive PASS).
-  - IndexNow 15개 URL 실시간 핑 전송 완료 (`HTTP 200, ok: true`).
+  - IndexNow 19개 URL 실시간 핑 전송 완료 (`HTTP 200, ok: true`).
 - **P1 자율 개발 실수 방지 및 토큰 낭비 차단**: `memory/audit-registry.json` 기반 119/119 서브모듈 Zero-Token 스킵 영구화.
 
 ## Latest release: Core Tools E-E-A-T & Blog CRO Optimization (2026-10-27)
@@ -31,12 +31,14 @@ Updated: 2026-10-27 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **핵심 진입면 E-E-A-T & Schema.org FAQPage 동기화**:
   - `stress-check af22e9c`, `hsp-test 7de836d`, `future-self be1f0b0`, `brain-type 035adcf`, `iq-test f8f3150`, `attachment-style 902e49e`, `puzzle-2048 8bd1eff` 전수 FAQPage 스키마 탑재 및 dateModified `2026-10-27` 일체화.
   - `portal dfad2cb`: 6대 도구(`decision-matrix`, `dopamine-detox`, `burnout-stress`, `cognitive-load`, `grounding-exercise`, `emotion-regulation`) FAQPage 및 학술 인용 탑재, lastmod 동기화.
-- **고트래픽 블로그 CRO 인터랙티브 위젯 탑재 (`portal 4adf50d`)**:
-  - `15-signs-highly-sensitive-person.html`: 30초 HSP 감각 체크리스트 위젯 탑재로 반송률 방어 및 `/hsp-test/` 유입 강화.
-  - `avoidant-attachment-dating-patterns.html`: 30초 회피 애착 체크리스트 탑재로 `/attachment-style/` 유입 강화.
+- **고트래픽 블로그 CRO 인터랙티브 위젯 탑재 (`portal 4adf50d, f6055a3`)**:
+  - `15-signs-highly-sensitive-person.html`: 30초 HSP 감각 체크리스트 위젯 탑재 (`/hsp-test/`).
+  - `avoidant-attachment-dating-patterns.html`: 30초 회피 애착 체크리스트 위젯 탑재 (`/attachment-style/`).
+  - `anxiety-attack-vs-panic-attack-guide.html` (en, ko): 30초 불안 vs 공황 체크리스트 위젯 (`/portal/tools/grounding-exercise.html`).
+  - `burnout-symptoms-self-check.html` (en, ko): 30초 번아웃 자가진단 위젯 및 퍼널 수정 (`/burnout-test/`, `/portal/tools/burnout-stress-differential.html`).
 - **검증 및 사이트맵 무결성**:
   - `verify:indexing-inventory`: 1,533개 전체 URL 0 issue PASS.
   - `audit:touch`: 전 도구 390x844 모바일 0px 오버플로, 터치 이슈 0개 PASS.
-  - IndexNow: 핵심 URL 15개 실시간 통지 100% 완료 (`status: 200, ok: true`).
+  - IndexNow: 핵심 URL 19개 실시간 통지 100% 완료 (`status: 200, ok: true`).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

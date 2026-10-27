@@ -1080,10 +1080,10 @@
   "kpop-position": "b3bf1a4",
   "root-domain": "c29ffb6",
   "portal": {
-    "head": "4adf50d186f2462a62235eedb08bf69244acf99c",
-    "lastAudit": "2026-10-25",
+    "head": "f6055a3014a2602e3eb3d9e52b0dd3a206dcc924",
+    "lastAudit": "2026-10-27",
     "status": "clean",
-    "headCommit": "4adf50d186f2462a62235eedb08bf69244acf99c",
+    "headCommit": "f6055a3014a2602e3eb3d9e52b0dd3a206dcc924",
     "lastAudited": "2026-10-27"
   },
   "puzzle-2048": "62dd209",
