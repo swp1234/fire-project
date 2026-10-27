@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-10-25",
+  "lastUpdated": "2026-10-27",
   "description": "Persistent audit registry recording completed mobile UX (390x844 overflow 0px & touch target >=44px) and submodule verification. Autonomous sessions must skip re-auditing submodules matching their recorded commit hash.",
   "totalSubmodules": 119,
   "submodules": {
@@ -77,9 +77,9 @@
       "trustCompliant": true
     },
     "portal": {
-      "headCommit": "24acbf5a8b56374dd0e63520cd4e4d2c29f002b6",
+      "headCommit": "ceb461cf8e5e0971f17c378d7be6ab9ab506e4cb",
       "branch": "main",
-      "auditedAt": "2026-10-25",
+      "auditedAt": "2026-10-27",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -599,9 +599,9 @@
       "trustCompliant": true
     },
     "attachment-style": {
-      "headCommit": "0c71df25c56f277e3d64f95f4df2998fcb59738f",
+      "headCommit": "aef144675de13babe7d8fd5e657e23b509a399ec",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-10-27",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
