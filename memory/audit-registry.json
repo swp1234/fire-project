@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-10-27",
+  "lastUpdated": "2026-10-27T21:03:00.000Z",
   "description": "Persistent audit registry recording completed mobile UX (390x844 overflow 0px & touch target >=44px) and submodule verification. Autonomous sessions must skip re-auditing submodules matching their recorded commit hash.",
   "totalSubmodules": 119,
   "submodules": {
@@ -77,7 +77,7 @@
       "trustCompliant": true
     },
     "portal": {
-      "headCommit": "ceb461cf8e5e0971f17c378d7be6ab9ab506e4cb",
+      "headCommit": "79458d8a1a786a3eec1097c2c9bc8d7365544242",
       "branch": "main",
       "auditedAt": "2026-10-27",
       "overflowPx": 0,
@@ -212,9 +212,9 @@
       "trustCompliant": true
     },
     "hsp-test": {
-      "headCommit": "abedd8ee09d33ee85a54b04a81590dd8512f3ccb",
+      "headCommit": "7de836d00af09af429e7cec391c5e1fe5593be55",
       "branch": "main",
-      "auditedAt": "2026-10-25",
+      "auditedAt": "2026-10-27",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -338,9 +338,9 @@
       "trustCompliant": true
     },
     "puzzle-2048": {
-      "headCommit": "c22fe1d48fd80a290b40bb23d698c711a8d3390d",
+      "headCommit": "8bd1eff3bfdaf2fd84a47d6471c470ab480f0c7b",
       "branch": "master",
-      "auditedAt": "2026-10-25",
+      "auditedAt": "2026-10-27",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -365,9 +365,9 @@
       "trustCompliant": true
     },
     "root-domain": {
-      "headCommit": "e740fd9c0f6aefcaf97875d2b0d7ce5917a2a118",
+      "headCommit": "3a61275ea079d478777e4cf6e502ae7a48ac4cb8",
       "branch": "main",
-      "auditedAt": "2026-10-25",
+      "auditedAt": "2026-10-27",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -410,9 +410,9 @@
       "trustCompliant": true
     },
     "stress-check": {
-      "headCommit": "64b445c0d30e2af5c41931b668f2614f3192f6ff",
+      "headCommit": "af22e9cb7e90d00ac9586592a76c72d68524ef5a",
       "branch": "master",
-      "auditedAt": "2026-10-25",
+      "auditedAt": "2026-10-27",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -1080,9 +1080,11 @@
   "kpop-position": "b3bf1a4",
   "root-domain": "c29ffb6",
   "portal": {
-    "head": "984244c141e6f14bf6ba1ac35083f8a06d3ec2f4",
+    "head": "79458d8a1a786a3eec1097c2c9bc8d7365544242",
     "lastAudit": "2026-10-25",
-    "status": "clean"
+    "status": "clean",
+    "headCommit": "79458d8a1a786a3eec1097c2c9bc8d7365544242",
+    "lastAudited": "2026-10-27"
   },
   "puzzle-2048": "62dd209",
   "stress-check": "52177a4"
