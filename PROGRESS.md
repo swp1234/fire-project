@@ -1,11 +1,12 @@
 # DopaBrain current status
 
-Updated: 2026-10-27 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
+Updated: 2026-10-28 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
 
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
-- **AdSense Status (2026-10-25)**: Policy violations 0 (`{}`). 오늘 **$0.02**, 어제 **$0.03**, 7일 누적 **$0.36**, 이달 누적 **$1.25**.
+- **AdSense Status (2026-10-28)**: Policy violations 0 (`{}`). 오늘 **$0.06** (진행 중), 어제(10-27) **$0.25 (일일 목표 초과 달성, +316%)**, 7일 누적 **$0.55**, 이달 누적 **$1.31**.
+- 어제 급증 원인 실측: 미국(Tier 1) 고단가 CPM 입찰 92% 집중 ($0.23, eCPM $9.20), 영문 블로그(체류 73~337s)의 In-article($0.10) 및 Vignette($0.06) 폭증.
 - 핵심 대책: 119개 전 서브모듈 44px 터치/0px 오버플로 유지, [docs/ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md) 준수, AI 검색/진입면 전환 극대화.
 
 ## Current operating rules
@@ -15,30 +16,26 @@ Updated: 2026-10-27 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - Focus organic growth on core tools (Stress Check 95~175s, Future Self 178s, HSP Test 63s, 2048 Coach 188s).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Active plan (2026-10-27) — 상세 설계: `docs/STRATEGY.md`
+## Active plan (2026-10-28) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 GSC 10대 핵심 진입면 및 보조 도구 재색인 완료**:
-  - GSC 실패 10대 핵심 도구 100% `FAQPage` 스키마 & 본문 FAQ 일치 주입 완료.
-  - 전 도구 학술 프레임워크(Pugh, Lembke, Schultz, Maslach, Bowlby, Sweller, Linehan) 완비.
-  - 10대 전 도구 `dateModified` 및 사이트맵 `<lastmod>`를 `2026-10-27`로 정합성 동기화.
-  - 블로그 전역 516개 파일 761개 정지 링크 전면 소탕 (`funnel-bridge` PASS).
-  - AdSense MCP 토큰 갱신 및 계정 연동 유지 (`pub-3600813755953882` keepalive PASS).
-  - IndexNow 19개 URL 실시간 핑 전송 완료 (`HTTP 200, ok: true`).
-- **P1 자율 개발 실수 방지 및 토큰 낭비 차단**: `memory/audit-registry.json` 기반 119/119 서브모듈 Zero-Token 스킵 영구화.
+- **P0 Tier-1 고체류 영문 블로그 CRO 위젯 & 지속 수익화 파이프라인**:
+  - 고체류(337초) 영문 아티클 3개에 30초 인터랙티브 스크리너 위젯 및 핵심 도구 퍼널 연계 완료.
+  - In-article 광고 Viewability 70%+ 보장 및 자연스러운 Vignette 광고 노출 동선 구축.
+  - `dateModified` 및 사이트맵 `<lastmod>` 2026-10-28 정합성 동기화 (1,533개 URL 0 issue PASS).
+  - IndexNow 3개 핵심 URL 실시간 핑 전송 완료 (`HTTP 200, ok: true`).
+- **P1 자율 개발 실수 방지 및 토큰 낭비 차단**: `memory/audit-registry.json` 기반 119/119 서브모듈 Zero-Token 스킵 유지.
 
-## Latest release: Core Tools E-E-A-T & Blog CRO Optimization (2026-10-27)
+## Latest release: Tier-1 High-Dwell Blog CRO Widgets & Sustained Revenue Expansion (2026-10-28)
 
-- **핵심 진입면 E-E-A-T & Schema.org FAQPage 동기화**:
-  - `stress-check af22e9c`, `hsp-test 7de836d`, `future-self be1f0b0`, `brain-type 035adcf`, `iq-test f8f3150`, `attachment-style 902e49e`, `puzzle-2048 8bd1eff` 전수 FAQPage 스키마 탑재 및 dateModified `2026-10-27` 일체화.
-  - `portal dfad2cb`: 6대 도구(`decision-matrix`, `dopamine-detox`, `burnout-stress`, `cognitive-load`, `grounding-exercise`, `emotion-regulation`) FAQPage 및 학술 인용 탑재, lastmod 동기화.
-- **고트래픽 블로그 CRO 인터랙티브 위젯 탑재 (`portal 4adf50d, f6055a3`)**:
-  - `15-signs-highly-sensitive-person.html`: 30초 HSP 감각 체크리스트 위젯 탑재 (`/hsp-test/`).
-  - `avoidant-attachment-dating-patterns.html`: 30초 회피 애착 체크리스트 위젯 탑재 (`/attachment-style/`).
-  - `anxiety-attack-vs-panic-attack-guide.html` (en, ko): 30초 불안 vs 공황 체크리스트 위젯 (`/portal/tools/grounding-exercise.html`).
-  - `burnout-symptoms-self-check.html` (en, ko): 30초 번아웃 자가진단 위젯 및 퍼널 수정 (`/burnout-test/`, `/portal/tools/burnout-stress-differential.html`).
+- **Tier-1 고체류 영문 블로그 인터랙티브 위젯 탑재 (`portal fe5c6c6`)**:
+  - `attachment-styles-4-types-explained.html`: 30초 4-Quadrant 애착 스크리너 위젯 탑재 (`/attachment-style/`).
+  - `hsp-coping-strategies-highly-sensitive.html`: 30초 실시간 감각 과부하 트리아지 위젯 탑재 (`/hsp-test/reset.html`, `/hsp-test/`).
+  - `grief-stages-healing-guide.html`: 30초 신체 그라운딩 게이지 위젯 탑재 (`/portal/tools/grounding-exercise.html`, `/stress-check/`).
+  - 전 위젯 48px 이상 터치 타깃, 모바일 390x844 가로 오버플로 0px, 실시간 점수 피드백 및 GA4 비콘 전송 탑재.
 - **검증 및 사이트맵 무결성**:
-  - `verify:indexing-inventory`: 1,533개 전체 URL 0 issue PASS.
-  - `audit:touch`: 전 도구 390x844 모바일 0px 오버플로, 터치 이슈 0개 PASS.
-  - IndexNow: 핵심 URL 19개 실시간 통지 100% 완료 (`status: 200, ok: true`).
+  - `verify:indexing-inventory`: 1,533개 전체 URL 0 issue PASS (sitemap lastmod 일치).
+  - `skill:funnel-bridge`: 3,928개 블로그 파일 정지 링크 0개, 텔레메트리 누수 0개 PASS.
+  - `content:verify`: 3개 대상 파일 0px overflow, Auto Ads 단일 로더 계약 100% 준수 PASS.
+  - IndexNow: 3개 대상 URL 실시간 통지 100% 완료 (`status: 200, ok: true`).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
