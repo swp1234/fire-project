@@ -77,7 +77,7 @@
       "trustCompliant": true
     },
     "portal": {
-      "headCommit": "30f7104b928c521af6467dd3da01186a573e20a9",
+      "headCommit": "d900d52f50c726327defe23985bdf38398795a63",
       "branch": "main",
       "auditedAt": "2026-10-29",
       "overflowPx": 0,
@@ -275,13 +275,13 @@
       "trustCompliant": true
     },
     "mbti-tips": {
-      "headCommit": "4d1d2865caff52940be2c55ed60fb067f0017868",
+      "headCommit": "620540f74d5eb9107e156d6949813b62bb54f4a2",
       "branch": "main",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-10-29",
       "overflowPx": 0,
       "touchTargetCompliant": true,
-      "trustCompliant": true,
-      "status": "VERIFIED_PASSED"
+      "status": "VERIFIED_PASSED",
+      "trustCompliant": true
     },
     "memory-card": {
       "headCommit": "6d9080632e3b4db331cf37512e1002d66d0f4100",
@@ -617,9 +617,9 @@
       "trustCompliant": true
     },
     "social-battery": {
-      "headCommit": "07b3bf32cbf965c47c62c25d7288a9d212f19737",
+      "headCommit": "9a0e1bf8af94998595381a7a0c6679562e280c5d",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-10-29",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -734,9 +734,9 @@
       "trustCompliant": true
     },
     "villain-type": {
-      "headCommit": "e1b5c181a7f72d958f0bb020bc502e8072aaaa94",
+      "headCommit": "446a3e2fca5de5c6220ec1463ccd698702865c89",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-10-29",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -806,9 +806,9 @@
       "trustCompliant": true
     },
     "pick-me": {
-      "headCommit": "c878f074fe7beaf46c6b8d80ebda493abe8b0a84",
+      "headCommit": "3bf016e135c0f8365d84e587df07d859e96526ce",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-10-29",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -817,34 +817,34 @@
     "emotional-age": {
       "headCommit": "b2dab0533e246087bfd5dfa89cff5ccf53334d93",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-10-29",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
       "trustCompliant": true
     },
     "villain-origin": {
-      "headCommit": "f67f076f3cb0afc7e758328f2d4c3343f97582a9",
+      "headCommit": "539d9bca080da36adcbaa3796d362247355c27de",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-10-29",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
       "trustCompliant": true
     },
     "ick-factor": {
-      "headCommit": "cc194db2265956b9edea63e681cf918b7260ca7e",
+      "headCommit": "9ec212530ab3bd75166aaf1b934310a77c5359d5",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-10-29",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
       "trustCompliant": true
     },
     "life-in-numbers": {
-      "headCommit": "5d06b35ea78b1ce3c50936397b84db37a4fb4b74",
+      "headCommit": "8fa999ae77c30c91dff5d44c0045e70718710175",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-10-29",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -871,7 +871,7 @@
     "mbti-city": {
       "headCommit": "00e1c34bc925e202788ae06f40bf2d9ba6b08b17",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-10-29",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -959,9 +959,9 @@
       "trustCompliant": true
     },
     "inner-child-test": {
-      "headCommit": "69c5aff3700719d1723b7530224422242c1c7430",
+      "headCommit": "f9b4e6199e6356dbcc2b03bc7f6f634e32c3fb35",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-10-29",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",

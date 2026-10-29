@@ -22,16 +22,14 @@ Updated: 2026-10-29 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P1 모바일 UX 전수 준수 & 서브모듈 무결성 (완료)**: 119개 전 서브모듈 44px 터치/0px 오버플로 0 issue PASS.
 - **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,533개 URL 정합성 0 issue 및 4개 URL 200 OK 통지.
 
-## Latest release: Multilingual High-Dwell Triage Screeners & Trust Compliance (2026-10-29)
+## Latest release: French Brain Training CRO Screener & Universal Trust Sanitization (2026-10-29)
 
-- **고체류 블로그 CRO 스크리너 배포 (`portal 30f7104`)**:
-  - `blog/de/hsp-coping-strategies-highly-sensitive.html`: 30s 감각 과부하 트리아지 (`/hsp-test/reset.html?lang=de`).
-  - `blog/zh/dopamine-detox-guide-reset-brain.html`, `pt`, `ko`: 30s 도파민 과자극 스크리너 탑재 및 비임상 용어 정제.
-  - `blog/zh/2048-strategy-guide.html`: 30s 2048 전술 스크리너 탑재 및 오표기 링크(`/puzzle-2048/coach.html?lang=zh`) 전면 정정.
-  - `blog/sitemap.xml`: lastmod 2026-10-29 동기화 및 IndexNow 실시간 전송 200 OK.
-- **신뢰성 산출물 및 모바일 UX 검증 (`soul-age 6361325`, `color-palette cb82149`)**:
-  - `soul-age`: 조작된 백분위(`Math.random()`) 및 가짜 소셜 배지 영구 제거, JSON-LD 스키마 및 ?lang= 언어 유지 보장.
-  - `color-palette`: 모달 textarea 및 기사 링크 44px+ 터치 타깃 보정, 119/119 서브모듈 0 issue PASS.
-  - `health-guard`: 6/6 전수 통과 (Auto Ads 단일 로더, 1,533 URL 인벤토리 0 issue, 12개 언어 Playwright PASS).
+- **프랑스어 고체류 두뇌 훈련 블로그 CRO 스크리너 배포 (`portal d900d52`)**:
+  - `blog/fr/jeux-entrainement-cerveau-2026.html`: 30s 인지 우선순위 스크리너 탑재 및 10개 게임 카드 맞춤 연결.
+  - `blog/sitemap.xml`: lastmod 2026-10-29 등록 및 IndexNow 실시간 통지 200 OK (색인 인벤토리 1,534개 0 issue PASS).
+- **8개 서브모듈 신뢰성/E-E-A-T 전수 정제 & 언어 파라미터 보존 (`social-battery`, `ick-factor` 등)**:
+  - 조작된 백분위(`Math.random()`), 합성 텔레메트리(`page_engage`), 허위 소셜 카운터 영구 제거 및 정직한 성찰 노트로 전환.
+  - 대상: `social-battery 9a0e1bf`, `ick-factor 9ec2125`, `villain-origin 539d9bc`, `villain-type 446a3e2`, `pick-me 3bf016e`, `inner-child-test f9b4e61`, `life-in-numbers 8fa999a`, `mbti-tips 620540f`.
+  - `trust-audit`: JS 파일 내 합성 텔레메트리 및 난수 백분위 자동 탐지 규칙 추가 및 119/119 서브모듈 0 issue 검증.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

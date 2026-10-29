@@ -71,9 +71,33 @@ function auditProject(projectName, registry, fixMode) {
   let html = fs.readFileSync(indexPath, 'utf8');
   let issues = [];
 
-  // 1. Synthetic telemetry: page_engage
+  // 1. Synthetic telemetry: page_engage (HTML and JS)
   if (/page_engage/i.test(html)) {
     issues.push('synthetic_page_engage');
+  }
+
+  // Scan JS files for synthetic telemetry and fake percentiles
+  const jsFiles = [];
+  function collectJs(d) {
+    if (!fs.existsSync(d)) return;
+    for (const f of fs.readdirSync(d)) {
+      if (f.startsWith('.') || f === 'node_modules' || f === 'tests') continue;
+      const full = path.join(d, f);
+      const st = fs.statSync(full);
+      if (st.isDirectory()) collectJs(full);
+      else if (f.endsWith('.js')) jsFiles.push(full);
+    }
+  }
+  collectJs(projDir);
+
+  for (const jsPath of jsFiles) {
+    const jsContent = fs.readFileSync(jsPath, 'utf8');
+    if (/page_engage/i.test(jsContent) && !issues.includes('synthetic_page_engage')) {
+      issues.push('synthetic_page_engage');
+    }
+    if (/Math\.random\(\)/.test(jsContent) && (/percentileStat/i.test(jsContent) || /pctVal/i.test(jsContent) || /Math\.floor\(Math\.random/i.test(jsContent) && /percentile/i.test(jsContent))) {
+      if (!issues.includes('fake_random_percentile')) issues.push('fake_random_percentile');
+    }
   }
 
   // 2. Fabricated aggregateRating
