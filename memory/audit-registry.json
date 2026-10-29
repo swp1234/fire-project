@@ -77,7 +77,7 @@
       "trustCompliant": true
     },
     "portal": {
-      "headCommit": "03d72c1f72108476e56a1f36626be2b9b609d2c9",
+      "headCommit": "c3204126e38b538a34518280bed3ed4ac9146a67",
       "branch": "main",
       "auditedAt": "2026-10-29",
       "overflowPx": 0,
@@ -1080,11 +1080,11 @@
   "kpop-position": "b3bf1a4",
   "root-domain": "411bd8b",
   "portal": {
-    "head": "f0f497cc948458074fd9036346301489d7199e3c",
-    "lastAudit": "2026-10-28",
+    "head": "c3204126e38b538a34518280bed3ed4ac9146a67",
+    "lastAudit": "2026-10-29",
     "status": "clean",
-    "headCommit": "f0f497cc948458074fd9036346301489d7199e3c",
-    "lastAudited": "2026-10-28"
+    "headCommit": "c3204126e38b538a34518280bed3ed4ac9146a67",
+    "lastAudited": "2026-10-29"
   },
   "puzzle-2048": "62dd209",
   "stress-check": "8d87028"
