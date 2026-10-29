@@ -24,10 +24,10 @@ Updated: 2026-10-29 KST. Release history: `memory/data-check-log.md`; ops loop: 
 
 ## Latest release: MBTI Couple Screener & Universal Trust Sanitization (2026-10-29)
 
-- **고체류 블로그 CRO 스크리너 배포 (`portal d6f258a`)**:
-  - `blog/en/mbti-compatibility-guide.html`: 30s 실시간 커플 케미스트리 계산 스크리너 탑재 및 `/mbti-love/?lang=en` 연계.
+- **고체류 블로그 CRO 스크리너 배포 (`portal d7870c8`)**:
+  - `blog/en/mbti-compatibility-guide.html`, `mbti-love-compatibility-guide.html`: 30s 실시간 커플 케미스트리 계산 스크리너 탑재 및 `/mbti-love/?lang=en` 연계.
   - `blog/fr/jeux-entrainement-cerveau-2026.html`: 30s 인지 우선순위 스크리너 탑재 및 10개 게임 카드 맞춤 연결.
-  - `blog/sitemap.xml`: lastmod 2026-10-29 등록 및 IndexNow 실시간 통지 200 OK (색인 인벤토리 1,534개 0 issue PASS).
+  - `sitemap.xml`, `blog/sitemap.xml`: lastmod 2026-10-29 등록 및 IndexNow 실시간 통지 200 OK (색인 인벤토리 1,534개 0 issue PASS).
 - **8개 서브모듈 신뢰성/E-E-A-T 전수 정제 & 언어 파라미터 보존 (`social-battery`, `ick-factor` 등)**:
   - 조작된 백분위(`Math.random()`), 합성 텔레메트리(`page_engage`), 허위 소셜 카운터 영구 제거 및 정직한 성찰 노트로 전환.
   - 대상: `social-battery 9a0e1bf`, `ick-factor 9ec2125`, `villain-origin 539d9bc`, `villain-type 446a3e2`, `pick-me 3bf016e`, `inner-child-test f9b4e61`, `life-in-numbers 8fa999a`, `mbti-tips 620540f`.
