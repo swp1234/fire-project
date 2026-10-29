@@ -22,9 +22,10 @@ Updated: 2026-10-29 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P1 모바일 UX 전수 준수 & 서브모듈 무결성 (완료)**: 119개 전 서브모듈 44px 터치/0px 오버플로 0 issue PASS.
 - **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,533개 URL 정합성 0 issue 및 4개 URL 200 OK 통지.
 
-## Latest release: French Brain Training CRO Screener & Universal Trust Sanitization (2026-10-29)
+## Latest release: MBTI Couple Screener & Universal Trust Sanitization (2026-10-29)
 
-- **프랑스어 고체류 두뇌 훈련 블로그 CRO 스크리너 배포 (`portal d900d52`)**:
+- **고체류 블로그 CRO 스크리너 배포 (`portal d6f258a`)**:
+  - `blog/en/mbti-compatibility-guide.html`: 30s 실시간 커플 케미스트리 계산 스크리너 탑재 및 `/mbti-love/?lang=en` 연계.
   - `blog/fr/jeux-entrainement-cerveau-2026.html`: 30s 인지 우선순위 스크리너 탑재 및 10개 게임 카드 맞춤 연결.
   - `blog/sitemap.xml`: lastmod 2026-10-29 등록 및 IndexNow 실시간 통지 200 OK (색인 인벤토리 1,534개 0 issue PASS).
 - **8개 서브모듈 신뢰성/E-E-A-T 전수 정제 & 언어 파라미터 보존 (`social-battery`, `ick-factor` 등)**:
