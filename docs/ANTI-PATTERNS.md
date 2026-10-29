@@ -159,9 +159,13 @@
   - **대책**: 모든 클라이언트 언어 감지 및 `preserveLanguageLinks()`는 반드시 `new URLSearchParams(window.location.search).get('lang')`를 최우선 순위로 둘 것.
 - **서브모듈 Pre-push 게이트 구조화 데이터 검사 누락 방지**:
   - `love-frequency`와 같이 Schema.org JSON-LD structured data가 누락된 상태로 푸시를 시도할 경우 Pre-push Quality Gate(`✗ JSON-LD structured data missing`)에서 거부됨. 커밋 전 항상 `WebApplication` 및 `BreadcrumbList` 스키마가 존재하는지 사전 점검할 것.
-- **블로그 내부 교차 링크와 정지 앱 경로 오인 방지**:
-  - 본문 내 `href="/portal/blog/en/attachment-style-quiz-guide.html"`와 같은 링크는 정지된 앱이 아니라 색인 중인 활성 블로그 간 유효한 내부 교차 링크(Internal Link Equity)임.
-  - **대책**: 레거시 링크 감사 시 단순 slug 포함 여부(`includes('attachment-style')`)가 아닌 실제 앱 엔드포인트(`href="/attachment-style/"`, `href="/animal-personality/"`, `data-target-slug="..."`)만 정밀 타깃팅하여 내부 링크 자산을 온전히 보존할 것.
+- **비영어권 아티클 내 정지 앱 교체 후 남겨진 텍스트-목적지 불일치 (Destination-Description Mismatch)**:
+  - 과거 정지 앱 교체 시 URL만 바꾸고 앵커 텍스트를 방치하여, 예컨대 `/portal/tools/dopamine-detox-protocol.html`로 가는데 독일어 앵커가 "Krafttier-Persönlichkeitstest(동물 성격 테스트)"로 남아있거나 `/hsp-test/`로 가는데 "트라우마 반응: 4F"로 표기되는 UX/신뢰도 훼손 문제.
+  - **대책**: 링크 교체 시 반드시 해당 언어에 맞는 정확한 도구명으로 앵커 텍스트를 함께 교체하고, `dopabrain-funnel-bridge`의 목적지 정합성 검사를 상시 수행할 것.
+- **인라인 액션 버튼의 44px 모바일 터치 타깃 미달**:
+  - `style="display: inline-block; padding: 0.65rem 1.25rem; font-size: 0.95rem;"`와 같이 인라인 스타일로 작성된 버튼은 실제 렌더링 높이가 38~40px에 불과해 모바일 44px 터치 규격에 미달함.
+  - **대책**: 모든 인라인 CTA 버튼에 `min-height: 44px; display: inline-flex; align-items: center; justify-content: center;`를 명시하여 모바일 터치 접근성을 보장할 것.
+
 
 
 

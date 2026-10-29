@@ -18,21 +18,22 @@ Updated: 2026-10-29 KST. Release history: `memory/data-check-log.md`; ops loop: 
 
 ## Active plan (2026-10-29) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 고체류 블로그 CRO 스크리너 배포 (완료)**: EN 혈액형 & ZH 반추 사고 가이드 30s 실시간 스크리너 배포.
-- **P1 전 서브모듈 퍼널 무결성 & E-E-A-T 전수 정제 (완료)**: 119개 서브모듈 내 정지 앱 링크 14개 전수 제거 및 언어 보존.
-- **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,534개 URL 정합성 0 issue 및 갱신 URL 200 OK 통지.
+- **P0 고체류 블로그 CRO 스크리너 배포 (완료)**: Doomscrolling, 도파민 디톡스, HSP, 번아웃 가이드에 30초 반응형 스크리너 배포.
+- **P1 전 서브모듈 퍼널 무결성 & E-E-A-T 전수 정제 (완료)**: 119개 서브모듈 정지 링크 소탕 및 12개 언어 목적지 정합성 복원.
+- **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,534개 URL 정합성 0 issue 유지 및 갱신 아티클 200 OK 제출.
 
-## Latest release: Interactive CRO Screeners & Complete Funnel Sanitization (2026-10-29)
+## Latest release: Interactive CRO Screeners & Comprehensive Funnel Sanitization (2026-10-29)
 
-- **고체류 블로그 CRO 스크리너 배포 (`portal 03d72c1`)**:
-  - `blood-type-personality-guide.html`: 30s 실시간 혈액형 케미스트리 계산기 탑재 & `brain-type` 경로 복구.
-  - `rumination-repetitive-thinking-stop.html`: 30s 반추 루프 패턴 식별 및 5-4-3-2-1 감각 착륙/스트레스 평가 연계.
-  - `blog/sitemap.xml` lastmod 2026-10-29 동기화 및 IndexNow 200 OK 제출 (색인 인벤토리 1,534개 0 issue PASS).
-- **119개 전 서브모듈 중단 링크 전수 소탕 (14개 -> 0개) & 언어 보존 강제**:
-  - 활성 앱 내 정지된 앱(`daily-tarot`, `shadow-work`, `zodiac-match`, `dark-core`, `numerology`) 링크 전수 제거.
-  - 대상: `aura-score`, `love-frequency`, `stress-type`, `name-match`, `soul-age`, `animal-personality`, `villain-origin`, `affirmation`, `fortune-cookie`, `seollal-greetings`, `valentine`.
-  - `preserveLanguageLinks()` 전면 주입하여 모든 아웃바운드 카드에서 `?lang=` 파라미터 유실 방지.
-  - `love-frequency`: 허위 `50,000+` 카운터 제거 및 결손되었던 `WebApplication` JSON-LD 복원.
-  - `audit-funnel.js`: 블로그 및 119개 서브모듈 4,021개 파일 전수 검사로 영구 자동화 (0 issues PASS).
+- **핵심 상위 가이드 인터랙티브 30초 CRO 스크리너 전면 배포 (`portal 20ee155`)**:
+  - `doom-scrolling-mental-health-effects.html`: 12개 언어 30s 스크롤 트리거 & 도파민 리셋 평가기 배포 및 22개 CTA 앵커 불일치 일괄 수정.
+  - `dopamine-detox-guide-reset-brain.html`: EN, ES, DE 30s 신경계 과부하 스크리너 탑재 및 `/hsp-test/`, `/stress-check/` 고효율 연계.
+  - `hsp-coping-strategies-highly-sensitive.html`: EN, ES, FR, KO, JA, ZH 30s 실시간 감각 과부하 트리아지 배포.
+  - `sensory-overload-hsp-coping.html`: EN, KO, ES, DE, FR, JA, ZH 7개 국어 30s 감각 과부하 스크리너 신규 배포.
+  - `burnout-recovery-guide.html`: EN, KO, ES, DE 4개 국어 30s 만성 번아웃 vs 급성 스트레스 감별 스크리너 배포.
+  - `dissociation-symptoms-grounding.html`: 10개 언어 4F 트라우마 목적지 불일치 해소 및 한국어 외래 링크(`/en/`) 정상화.
+  - Playwright 모바일 390x844 가로 오버플로 0px, 터치 타깃 $\ge 44\text{px}$, 반응형 실시간 업데이트 전수 검증 통과.
+  - 사이트맵(`portal/sitemap.xml`, `blog/sitemap.xml`) 18개 URL `lastmod: 2026-10-29` 동기화 및 IndexNow 일괄 제출 (HTTP 200 OK).
+- **시스템 건전성 & 무결성 가드 6/6 전원 통과**:
+  - `health-guard`: AdSense OAuth & 계약, 색인 인벤토리(1,534개 0 issue), 시크릿 스캔, 문서 예산, 12개 언어 Playwright ALL PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
