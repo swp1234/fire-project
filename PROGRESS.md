@@ -5,7 +5,7 @@ Updated: 2026-10-29 KST. Release history: `memory/data-check-log.md`; ops loop: 
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
-- **AdSense Status (2026-10-29)**: Policy violations 0 (`{}`). 오늘 **$0.08** (진행 중), 7일 누적 **$0.59** (US RPM **$6.32**), 이달 누적 **$1.76**.
+- **AdSense Status (2026-10-29)**: Policy violations 0 (`{}`). 오늘 **$0.09** (진행 중), 7일 누적 **$0.59** (US RPM **$6.32**), 이달 누적 **$1.76**.
 - 수익 실측: 미국(Tier 1) 고단가 eCPM 및 In-article($0.20), In-page($0.13), Anchor($0.13), Vignette($0.12) 균형 수익화.
 - 유기적 성장: `/stress-check/` 23 Organic 세션(1,107s), DE HSP 10 Organic 세션(1,042s), ZH 2048/도파민 고체류 안착.
 
@@ -18,19 +18,21 @@ Updated: 2026-10-29 KST. Release history: `memory/data-check-log.md`; ops loop: 
 
 ## Active plan (2026-10-29) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 다국어 고체류 블로그 CRO 위젯 & 퍼널 연계 (완료)**: DE HSP 및 ZH/PT/KO 도파민 가이드 30s 스크리너 배포.
-- **P1 모바일 UX 전수 준수 & 서브모듈 무결성 (완료)**: 119개 전 서브모듈 44px 터치/0px 오버플로 0 issue PASS.
-- **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,533개 URL 정합성 0 issue 및 4개 URL 200 OK 통지.
+- **P0 고체류 블로그 CRO 스크리너 배포 (완료)**: EN 혈액형 & ZH 반추 사고 가이드 30s 실시간 스크리너 배포.
+- **P1 전 서브모듈 퍼널 무결성 & E-E-A-T 전수 정제 (완료)**: 119개 서브모듈 내 정지 앱 링크 14개 전수 제거 및 언어 보존.
+- **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,534개 URL 정합성 0 issue 및 갱신 URL 200 OK 통지.
 
-## Latest release: MBTI Couple Screener & Universal Trust Sanitization (2026-10-29)
+## Latest release: Interactive CRO Screeners & Complete Funnel Sanitization (2026-10-29)
 
-- **고체류 블로그 CRO 스크리너 배포 (`portal d7870c8`)**:
-  - `blog/en/mbti-compatibility-guide.html`, `mbti-love-compatibility-guide.html`: 30s 실시간 커플 케미스트리 계산 스크리너 탑재 및 `/mbti-love/?lang=en` 연계.
-  - `blog/fr/jeux-entrainement-cerveau-2026.html`: 30s 인지 우선순위 스크리너 탑재 및 10개 게임 카드 맞춤 연결.
-  - `sitemap.xml`, `blog/sitemap.xml`: lastmod 2026-10-29 등록 및 IndexNow 실시간 통지 200 OK (색인 인벤토리 1,534개 0 issue PASS).
-- **8개 서브모듈 신뢰성/E-E-A-T 전수 정제 & 언어 파라미터 보존 (`social-battery`, `ick-factor` 등)**:
-  - 조작된 백분위(`Math.random()`), 합성 텔레메트리(`page_engage`), 허위 소셜 카운터 영구 제거 및 정직한 성찰 노트로 전환.
-  - 대상: `social-battery 9a0e1bf`, `ick-factor 9ec2125`, `villain-origin 539d9bc`, `villain-type 446a3e2`, `pick-me 3bf016e`, `inner-child-test f9b4e61`, `life-in-numbers 8fa999a`, `mbti-tips 620540f`.
-  - `trust-audit`: JS 파일 내 합성 텔레메트리 및 난수 백분위 자동 탐지 규칙 추가 및 119/119 서브모듈 0 issue 검증.
+- **고체류 블로그 CRO 스크리너 배포 (`portal 03d72c1`)**:
+  - `blood-type-personality-guide.html`: 30s 실시간 혈액형 케미스트리 계산기 탑재 & `brain-type` 경로 복구.
+  - `rumination-repetitive-thinking-stop.html`: 30s 반추 루프 패턴 식별 및 5-4-3-2-1 감각 착륙/스트레스 평가 연계.
+  - `blog/sitemap.xml` lastmod 2026-10-29 동기화 및 IndexNow 200 OK 제출 (색인 인벤토리 1,534개 0 issue PASS).
+- **119개 전 서브모듈 중단 링크 전수 소탕 (14개 -> 0개) & 언어 보존 강제**:
+  - 활성 앱 내 정지된 앱(`daily-tarot`, `shadow-work`, `zodiac-match`, `dark-core`, `numerology`) 링크 전수 제거.
+  - 대상: `aura-score`, `love-frequency`, `stress-type`, `name-match`, `soul-age`, `animal-personality`, `villain-origin`, `affirmation`, `fortune-cookie`, `seollal-greetings`, `valentine`.
+  - `preserveLanguageLinks()` 전면 주입하여 모든 아웃바운드 카드에서 `?lang=` 파라미터 유실 방지.
+  - `love-frequency`: 허위 `50,000+` 카운터 제거 및 결손되었던 `WebApplication` JSON-LD 복원.
+  - `audit-funnel.js`: 블로그 및 119개 서브모듈 4,021개 파일 전수 검사로 영구 자동화 (0 issues PASS).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

@@ -151,6 +151,14 @@
 - **이중 사이트맵(`projects/portal/sitemap.xml` vs `projects/portal/blog/sitemap.xml`) 분기 누락**:
   - `red-flag-test-guide.html`, `stress-response-guide.html`, `boundaries-setting-complete-guide.html` 등 일부 아티클은 `en`/`ko`는 루트 사이트맵에, 나머지 10개 언어는 블로그 사이트맵에 등록되어 있거나 그 반대로 분기되어 있음.
   - **대책**: 마이그레이션 시 반드시 두 사이트맵 모두에서 해당 URL의 존재 여부를 전수 확인하고, 양쪽 모두 `<lastmod>YYYY-MM-DD</lastmod>`를 동기화하여 `sitemap_lastmod_mismatch` 방지.
+- **서브모듈 인덱스 내 중단된 앱(Suspended App) 링크 누수 (Submodule Funnel Leakage)**:
+  - 과거 `audit-funnel.js`가 `projects/portal/blog/`만 감사하여, `projects/*` 서브모듈 14개소(`animal-personality`, `stress-type`, `name-match`, `soul-age`, `villain-origin`, `affirmation`, `fortune-cookie`, `seollal-greetings`, `valentine`)에 광고가 중단된 앱(`/daily-tarot/`, `/shadow-work/`, `/zodiac-match/`, `/dark-core/`, `/numerology/`) 링크가 방치되었던 문제.
+  - **대책**: `audit-funnel.js`를 블로그뿐 아니라 전체 119개 서브모듈 인덱스(4,021개 파일)까지 전수 스캔하도록 확장하고, 정지된 앱 링크는 즉시 활성 수익화 도구(`hsp-test`, `stress-check`, `future-self`, `brain-type`, `soul-age`, `mbti-love`)로 교체할 것.
+- **다국어 URL 파라미터(`?lang=`)보다 브라우저 언어를 우선 감지하는 안티패턴**:
+  - `name-match` 등 일부 서브모듈의 `i18n.js`에서 `detectLanguage()`가 URL의 `?lang=` 쿼리를 읽지 않고 `localStorage` 및 브라우저 언어(`navigator.language`)를 우선 적용하여, 해외 검색 엔진에서 `?lang=en`으로 유입된 사용자가 한국어로 강제 리디렉트되거나 아웃바운드 링크에 `?lang=ko`가 주입되던 문제.
+  - **대책**: 모든 클라이언트 언어 감지 및 `preserveLanguageLinks()`는 반드시 `new URLSearchParams(window.location.search).get('lang')`를 최우선 순위로 둘 것.
+- **서브모듈 Pre-push 게이트 구조화 데이터 검사 누락 방지**:
+  - `love-frequency`와 같이 Schema.org JSON-LD structured data가 누락된 상태로 푸시를 시도할 경우 Pre-push Quality Gate(`✗ JSON-LD structured data missing`)에서 거부됨. 커밋 전 항상 `WebApplication` 및 `BreadcrumbList` 스키마가 존재하는지 사전 점검할 것.
 - **블로그 내부 교차 링크와 정지 앱 경로 오인 방지**:
   - 본문 내 `href="/portal/blog/en/attachment-style-quiz-guide.html"`와 같은 링크는 정지된 앱이 아니라 색인 중인 활성 블로그 간 유효한 내부 교차 링크(Internal Link Equity)임.
   - **대책**: 레거시 링크 감사 시 단순 slug 포함 여부(`includes('attachment-style')`)가 아닌 실제 앱 엔드포인트(`href="/attachment-style/"`, `href="/animal-personality/"`, `data-target-slug="..."`)만 정밀 타깃팅하여 내부 링크 자산을 온전히 보존할 것.

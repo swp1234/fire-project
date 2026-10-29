@@ -33,7 +33,24 @@ function getHtmlFiles(dir) {
 }
 
 function auditFunnel(options = {}) {
-  const files = getHtmlFiles(PORTAL_BLOG);
+  const blogFiles = getHtmlFiles(PORTAL_BLOG);
+  const projectsDir = path.join(ROOT, 'projects');
+  const projectEntries = fs.existsSync(projectsDir)
+    ? fs.readdirSync(projectsDir).filter(p => {
+        try {
+          return fs.statSync(path.join(projectsDir, p)).isDirectory() && p !== 'portal';
+        } catch(e) { return false; }
+      })
+    : [];
+
+  const appFiles = [];
+  for (const p of projectEntries) {
+    if (SUSPENDED_SLUGS.includes(`/${p}/`)) continue;
+    const indexFile = path.join(projectsDir, p, 'index.html');
+    if (fs.existsSync(indexFile)) appFiles.push(indexFile);
+  }
+
+  const files = [...blogFiles, ...appFiles];
   let totalIssues = 0;
   const issuesByFile = [];
 
@@ -41,8 +58,8 @@ function auditFunnel(options = {}) {
     const relativePath = path.relative(ROOT, file);
     const content = fs.readFileSync(file, 'utf8');
 
-    // Skip noindex and redirect stubs
-    if (content.includes('noindex') || content.includes('http-equiv="refresh"')) continue;
+    // Skip noindex and redirect stubs and suspended apps
+    if (content.includes('noindex') || content.includes('http-equiv="refresh"') || content.includes('suspended-invalid-traffic')) continue;
 
     const fileIssues = [];
 
@@ -65,7 +82,7 @@ function auditFunnel(options = {}) {
   }
 
   console.log(`=== DopaBrain Funnel Audit ===`);
-  console.log(`Audited ${files.length} blog files across all locales.`);
+  console.log(`Audited ${files.length} files across blog and active submodules.`);
   if (totalIssues === 0) {
     console.log(`[PASS] Zero suspended links or telemetry leaks found. All funnels clean!`);
   } else {
