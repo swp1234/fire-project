@@ -22,15 +22,15 @@ Updated: 2026-10-29 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P1 모바일 UX 전수 준수 & 서브모듈 무결성 (완료)**: 119개 전 서브모듈 44px 터치/0px 오버플로 0 issue PASS.
 - **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,533개 URL 정합성 0 issue 및 4개 URL 200 OK 통지.
 
-## Latest release: Multilingual High-Dwell Triage Screeners & UX Compliance (2026-10-29)
+## Latest release: Multilingual High-Dwell Triage Screeners & Trust Compliance (2026-10-29)
 
-- **다국어 고체류 블로그 인터랙티브 위젯 배포 (`portal 43615f3`)**:
+- **고체류 블로그 CRO 스크리너 배포 (`portal 30f7104`)**:
   - `blog/de/hsp-coping-strategies-highly-sensitive.html`: 30s 감각 과부하 트리아지 (`/hsp-test/reset.html?lang=de`).
-  - `blog/zh/dopamine-detox-guide-reset-brain.html`: 30s 도파민 과자극 스크리너 (`/portal/tools/dopamine-detox-protocol.html?lang=zh`).
-  - `blog/pt/dopamine-detox-guide-reset-brain.html`: 30s 도파민 과자극 스크리너 (`/portal/tools/dopamine-detox-protocol.html?lang=pt`).
-  - `blog/ko/dopamine-detox-guide-reset-brain.html`: 30s 도파민 과자극 스크리너 탑재 및 비임상 용어 정제.
-  - `blog/sitemap.xml`: lastmod 2026-10-29 동기화 및 IndexNow 4개 URL 실시간 통지 200 OK.
-- **모바일 UX 및 전수 헬스 가드 통과 (`color-palette cb82149`, `root-domain`)**:
+  - `blog/zh/dopamine-detox-guide-reset-brain.html`, `pt`, `ko`: 30s 도파민 과자극 스크리너 탑재 및 비임상 용어 정제.
+  - `blog/zh/2048-strategy-guide.html`: 30s 2048 전술 스크리너 탑재 및 오표기 링크(`/puzzle-2048/coach.html?lang=zh`) 전면 정정.
+  - `blog/sitemap.xml`: lastmod 2026-10-29 동기화 및 IndexNow 실시간 전송 200 OK.
+- **신뢰성 산출물 및 모바일 UX 검증 (`soul-age 6361325`, `color-palette cb82149`)**:
+  - `soul-age`: 조작된 백분위(`Math.random()`) 및 가짜 소셜 배지 영구 제거, JSON-LD 스키마 및 ?lang= 언어 유지 보장.
   - `color-palette`: 모달 textarea 및 기사 링크 44px+ 터치 타깃 보정, 119/119 서브모듈 0 issue PASS.
   - `health-guard`: 6/6 전수 통과 (Auto Ads 단일 로더, 1,533 URL 인벤토리 0 issue, 12개 언어 Playwright PASS).
 

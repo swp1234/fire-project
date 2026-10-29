@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-10-29T09:18:38.046Z",
+  "lastUpdated": "2026-10-29",
   "description": "Persistent audit registry recording completed mobile UX (390x844 overflow 0px & touch target >=44px) and submodule verification. Autonomous sessions must skip re-auditing submodules matching their recorded commit hash.",
   "totalSubmodules": 119,
   "submodules": {
@@ -77,7 +77,7 @@
       "trustCompliant": true
     },
     "portal": {
-      "headCommit": "43615f367b0549cbb9f1428dcdf3658337c2d241",
+      "headCommit": "30f7104b928c521af6467dd3da01186a573e20a9",
       "branch": "main",
       "auditedAt": "2026-10-29",
       "overflowPx": 0,
@@ -502,7 +502,7 @@
     "love-language": {
       "headCommit": "fee834edf1c8b8e54a271da48340ad51585f2eff",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-10-29",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -797,9 +797,9 @@
       "trustCompliant": true
     },
     "soul-age": {
-      "headCommit": "ecd8191730f20990816e9eec8751f4ff42428fe9",
+      "headCommit": "6361325edaf7b48d61d498ec4a6502972c8ba136",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-10-29",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
