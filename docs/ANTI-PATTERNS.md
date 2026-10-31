@@ -162,9 +162,12 @@
 - **비영어권 아티클 내 정지 앱 교체 후 남겨진 텍스트-목적지 불일치 (Destination-Description Mismatch)**:
   - 과거 정지 앱 교체 시 URL만 바꾸고 앵커 텍스트를 방치하여, 예컨대 `/portal/tools/dopamine-detox-protocol.html`로 가는데 독일어 앵커가 "Krafttier-Persönlichkeitstest(동물 성격 테스트)"로 남아있거나 `/hsp-test/`로 가는데 "트라우마 반응: 4F"로 표기되는 UX/신뢰도 훼손 문제.
   - **대책**: 링크 교체 시 반드시 해당 언어에 맞는 정확한 도구명으로 앵커 텍스트를 함께 교체하고, `dopabrain-funnel-bridge`의 목적지 정합성 검사를 상시 수행할 것.
-- **인라인 액션 버튼의 44px 모바일 터치 타깃 미달**:
-  - `style="display: inline-block; padding: 0.65rem 1.25rem; font-size: 0.95rem;"`와 같이 인라인 스타일로 작성된 버튼은 실제 렌더링 높이가 38~40px에 불과해 모바일 44px 터치 규격에 미달함.
-  - **대책**: 모든 인라인 CTA 버튼에 `min-height: 44px; display: inline-flex; align-items: center; justify-content: center;`를 명시하여 모바일 터치 접근성을 보장할 것.
+- **사이트맵 추가 시 HTML 내 JSON-LD `dateModified` 동기화 필수 (`sitemap_lastmod_mismatch`)**:
+  - `sitemap.xml`에 새로운 페이지를 등재하거나 `<lastmod>`를 갱신할 때, 해당 HTML 파일의 `<meta name="dateModified">` 및 Schema.org JSON-LD 내 `"dateModified"` 값이 불일치하면 `scripts/indexing-inventory.js --strict`에서 실패함. 사이트맵 수정 시 반드시 대상 HTML 파일들의 메타/스키마 날짜를 동일 날짜(YYYY-MM-DD)로 함께 일치시킬 것.
+- **수동 더미 광고 래퍼(`<div class="ad-wrap">`) 방치 안티패턴**:
+  - 과거 템플릿에 남아있던 `<div class="ad-wrap"><span data-i18n="ad">Advertisement</span></div>`와 같은 빈 수동 광고 컨테이너는 Auto Ads 단일 로더 정책(`ca-pub-3600813755953882`)에 위배되며 사용자에게 빈 광고 박스를 노출해 정책 리스크를 유발함. Auto Ads 환경에서는 모든 수동 ad-wrap 마크업을 완전히 제거할 것.
+- **Select 및 Checkbox 요소의 모바일 터치 타깃 축소 방지**:
+  - 브라우저 `<select>`나 `<input type="checkbox">` 요소는 모바일에서 높이나 너비가 24~35px로 축소되기 쉬움. CSS에서 `min-height: 44px; min-width: 44px;`를 명시하거나 44px 이상의 라벨 래퍼로 감싸 터치 타깃 규격을 보장할 것.
 
 
 
