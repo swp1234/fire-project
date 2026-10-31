@@ -64,7 +64,19 @@ const TEST_TARGETS = [
   { path: '/portal/blog/en/emotional-burnout-vs-depression.html', id: 'burnoutVsDepressionScreener', countId: 'burnoutVsDepressionScreenerCount', chk: '.bvsd-screener-chk', lang: 'en' },
   { path: '/portal/blog/de/emotional-burnout-vs-depression.html', id: 'burnoutVsDepressionScreener', countId: 'burnoutVsDepressionScreenerCount', chk: '.bvsd-screener-chk', lang: 'de' },
   { path: '/portal/blog/en/somatic-anxiety-body-symptoms.html', id: 'somaticAnxietyScreener', countId: 'somaticAnxietyScreenerCount', chk: '.somat-screener-chk', lang: 'en' },
-  { path: '/portal/blog/ko/somatic-anxiety-body-symptoms.html', id: 'somaticAnxietyScreener', countId: 'somaticAnxietyScreenerCount', chk: '.somat-screener-chk', lang: 'ko' }
+  { path: '/portal/blog/ko/somatic-anxiety-body-symptoms.html', id: 'somaticAnxietyScreener', countId: 'somaticAnxietyScreenerCount', chk: '.somat-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/emotional-flashbacks-cptsd.html', id: 'emotionalFlashbackScreener', countId: 'emotionalFlashbackScreenerCount', chk: '.eflash-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/emotional-flashbacks-cptsd.html', id: 'emotionalFlashbackScreener', countId: 'emotionalFlashbackScreenerCount', chk: '.eflash-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/emotional-numbness-causes-healing.html', id: 'emotionalNumbnessScreener', countId: 'emotionalNumbnessScreenerCount', chk: '.enumb-screener-chk', lang: 'en' },
+  { path: '/portal/blog/de/emotional-numbness-causes-healing.html', id: 'emotionalNumbnessScreener', countId: 'emotionalNumbnessScreenerCount', chk: '.enumb-screener-chk', lang: 'de' },
+  { path: '/portal/blog/en/people-pleasing-signs-fawn-response.html', id: 'peoplePleasingSignsScreener', countId: 'peoplePleasingSignsScreenerCount', chk: '.ppsigns-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ja/people-pleasing-signs-fawn-response.html', id: 'peoplePleasingSignsScreener', countId: 'peoplePleasingSignsScreenerCount', chk: '.ppsigns-screener-chk', lang: 'ja' },
+  { path: '/portal/blog/en/overthinking-at-night-how-to-stop.html', id: 'nighttimeOverthinkingScreener', countId: 'nighttimeOverthinkingScreenerCount', chk: '.nightot-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/overthinking-at-night-how-to-stop.html', id: 'nighttimeOverthinkingScreener', countId: 'nighttimeOverthinkingScreenerCount', chk: '.nightot-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/rumination-repetitive-thinking-stop.html', id: 'ruminationLoopScreener', countId: 'ruminationLoopScreenerCount', chk: '.rumloop-screener-chk', lang: 'en' },
+  { path: '/portal/blog/es/rumination-repetitive-thinking-stop.html', id: 'ruminationLoopScreener', countId: 'ruminationLoopScreenerCount', chk: '.rumloop-screener-chk', lang: 'es' },
+  { path: '/portal/blog/en/perfectionism-anxiety-quiz.html', id: 'perfectionismAnxietyScreener', countId: 'perfectionismAnxietyScreenerCount', chk: '.perfanx-screener-chk', lang: 'en' },
+  { path: '/portal/blog/fr/perfectionism-anxiety-quiz.html', id: 'perfectionismAnxietyScreener', countId: 'perfectionismAnxietyScreenerCount', chk: '.perfanx-screener-chk', lang: 'fr' }
 ];
 
 async function runTest() {

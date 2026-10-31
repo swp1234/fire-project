@@ -74,6 +74,8 @@ SOUNDSCAPE_*.txt
 !scripts/deploy-regulation-attachment-screeners.js
 !scripts/deploy-attachment-codependency-boundaries-screeners.js
 !scripts/deploy-freeze-burnout-somatic-screeners.js
+!scripts/deploy-flashbacks-numbness-fawn-screeners.js
+!scripts/deploy-overthinking-rumination-perfectionism-screeners.js
 !scripts/verify-screener-live.js
 !scripts/verify-portal-tools.js
 !scripts/verify-high-dwell-surfaces.js

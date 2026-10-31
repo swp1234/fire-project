@@ -18,23 +18,23 @@ Updated: 2026-10-31 KST. Release history: `memory/data-check-log.md`; ops loop: 
 
 ## Active plan (2026-10-31) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 고체류 블로그 CRO 스크리너 확장 배포 (완료)**: 누적 223개 가이드(HSP·소진·스트레스·신경계·감정조절·애착유형·혼란애착·공의존·경계설정·영합Fawn·유기상처·4F트라우마·기능적동결·번아웃vs우울·신체화불안·감정트리거·결정피로 12개어 클러스터)에 30초 반응형 스크리너 탑재.
-- **P1 전 서브모듈 퍼널 무결성 & 포털 도구 12개어 Hreflang 최적화 (완료)**: 4,021개 파일 정지 링크 0건, 포털 도구 12개어 hreflang·robots·`?lang=` 완전 보존.
-- **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,534개 URL 정합성 0 issue 유지 및 갱신 URL IndexNow 200 OK 제출.
+- **P0 영혼동물·색상심리 가이드 퍼널 정합화 & 모바일 터치 최적화 (완료)**: 12개어 24개 가이드 CTA/관련링크 목적지 불일치 해소(`/animal-personality/`, `/brain-type/`, `/attachment-style/` 직결), 터치 타깃 $\ge 44\text{px}$, 0px 오버플로.
+- **P1 30초 반응형 CRO 스크리너 전방위 검증 (완료)**: 72개 가이드(플래시백·무감각·영합·야간과잉사고·반추·완벽주의 12개어) Playwright 69개 라우트 E2E ALL PASS.
+- **P2 색인 인벤토리 & IndexNow 실시간 전송 (완료)**: 1,555개 URL 무결점(0 issue), 24개 갱신 URL IndexNow 200 OK 제출.
 
-## Latest release: 15 Portal Tools & 17 MBTI Type Hub Matrix (`portal ff01e8d`, `root-domain 654844e`, `puzzle-2048 3875d37`)
+## Latest release: Funnel Bridge & 30s CRO Screeners (`portal ac6044a`, `root-domain 654844e`, `puzzle-2048 3875d37`)
 
-- **포털 15대 인터랙티브 도구 모바일 UX & 사이트맵 완결 (`portal ff01e8d`)**:
-  - 팔월드 5대 도구(`breeding-notebook`, `server-settings`, `field-guide`, `base-planner`, `server-troubleshooter`): 네비/푸터/필터 26~42px &rarr; 44px 준수, 수동 ad-wrap 제거, 사이트맵 등재 및 IndexNow 200 OK.
-  - 상위 10대 심리/생산성 도구(`brain-game-workout`, `past-life-studio`, `kpop-role-roster` 등): 모바일 0px 오버플로 및 $\ge 44\text{px}$ ALL PASS.
-- **MBTI 16개 유형별 상세 페이지 & 허브 모바일 UX 최적화 (`portal ff01e8d`, `root-domain 654844e`)**:
-  - `type-page-enhancer.css`: 16개 유형 페이지 skip-link, breadcrumb, footer 터치 타깃 15~21px &rarr; 44px 준수.
-  - 사이트맵 동기화 및 IndexNow 17개 URL(허브 + 16개 유형) 200 OK 제출, `dateModified: 2026-10-31` 전수 일치.
-  - 영구 회귀 테스트 `scripts/verify-mbti-hub.js` (`npm run verify:mbti`) 신설 및 17개 전 라우트 ALL PASS.
-- **고체류 코치 도구 무결성 강화 (`puzzle-2048 3875d37`)**:
-  - `coach.html`: 오픈소스 참조 링크 38px &rarr; 44px 터치 규격 최적화, 수동 ad-wrap 컨테이너 제거, IndexNow 200 OK.
-- **Playwright 모바일 E2E & 건전성 가드 전원 통과**:
-  - `verify:high-dwell`, `verify:mbti`, `verify-portal-tools`: 전원 0px 오버플로 & $\ge 44\text{px}$ ALL PASS.
-  - `audit-registry.json`: `portal ff01e8d`, `root-domain 654844e`, `puzzle-2048 3875d37` 동기화.
+- **영혼동물 & 색상심리 가이드 퍼널 복원 (12개 언어, `portal ac6044a`)**:
+  - `spirit-animal-personality-quiz.html`: 두뇌유형으로 오연결되던 CTA/인라인/관련링크를 공식 활성 동물 테스트(`/animal-personality/?lang=*`)로 정상화, 진실된 라벨(`무료 수호 동물 테스트 시작하기 →` 등) 통일.
+  - `what-your-favorite-color-says-about-you.html`: CTA 박스를 두뇌 인지유형 진단으로 정합화, 정지된 mbti-love 제거 후 `/attachment-style/` 및 `/animal-personality/`로 연결.
+  - 상단 breadcrumb, header-nav, footer 링크 터치 규격 $\ge 44\text{px}$ 준수, 390x844 뷰포트 오버플로 0px 달성.
+  - `blog/sitemap.xml` 2026-10-31 동기화 및 IndexNow 24개 URL 200 OK 제출.
+- **30초 인터랙티브 CRO 스크리너 6개 신규 주제 12개어 배포 (`portal ac6044a`)**:
+  - 플래시백(CPTSD), 감정무감각, 영합(Fawn), 야간과잉사고, 반추, 완벽주의 가이드 72편에 반응형 체크리스트 탑재.
+  - `verify-screener-live.js`: Playwright 69개 검증 라우트 전원 PASS (0px 오버플로, $\ge 44\text{px}$ 터치, 0->1->4 상태 전환, `?lang=` 보존).
+- **엄격 건강 상태 점검 (Health Guard Battery)**:
+  - `indexing-inventory.js --strict`: 1,555개 URL 0 issues, sitemap_lastmod_mismatch 0건.
+  - `audit-funnel.js`: 4,021개 파일 정지 링크 및 원격 측정 누출 0건.
+  - `audit-registry.json`: `projects/portal` HEAD `ac6044a` 정합.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
