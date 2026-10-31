@@ -14,6 +14,7 @@ const TOOLS = [
   '/portal/tools/decision-matrix.html',
   '/portal/tools/dopamine-detox-protocol.html',
   '/portal/tools/emotion-regulation-planner.html',
+  '/portal/tools/kpop-role-roster.html',
   '/portal/tools/index.html'
 ];
 

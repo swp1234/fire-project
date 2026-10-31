@@ -52,7 +52,19 @@ const TEST_TARGETS = [
   { path: '/portal/blog/en/decision-fatigue-signs-solutions.html', id: 'decisionFatigueScreener', countId: 'decisionFatigueScreenerCount', chk: '.decfat-screener-chk', lang: 'en' },
   { path: '/portal/blog/ko/decision-fatigue-signs-solutions.html', id: 'decisionFatigueScreener', countId: 'decisionFatigueScreenerCount', chk: '.decfat-screener-chk', lang: 'ko' },
   { path: '/portal/blog/en/trauma-response-4f-fight-flight-freeze-fawn.html', id: 'trauma4fScreener', countId: 'trauma4fScreenerCount', chk: '.tr4f-screener-chk', lang: 'en' },
-  { path: '/portal/blog/ko/trauma-response-4f-fight-flight-freeze-fawn.html', id: 'trauma4fScreener', countId: 'trauma4fScreenerCount', chk: '.tr4f-screener-chk', lang: 'ko' }
+  { path: '/portal/blog/ko/trauma-response-4f-fight-flight-freeze-fawn.html', id: 'trauma4fScreener', countId: 'trauma4fScreenerCount', chk: '.tr4f-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/disorganized-attachment-style.html', id: 'disorganizedAttachScreener', countId: 'disorganizedAttachScreenerCount', chk: '.disatt-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/disorganized-attachment-style.html', id: 'disorganizedAttachScreener', countId: 'disorganizedAttachScreenerCount', chk: '.disatt-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/codependency-signs-relationship.html', id: 'codependencyScreener', countId: 'codependencyScreenerCount', chk: '.codep-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/codependency-signs-relationship.html', id: 'codependencyScreener', countId: 'codependencyScreenerCount', chk: '.codep-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/boundaries-setting-complete-guide.html', id: 'boundaryLeakScreener', countId: 'boundaryLeakScreenerCount', chk: '.bound-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/boundaries-setting-complete-guide.html', id: 'boundaryLeakScreener', countId: 'boundaryLeakScreenerCount', chk: '.bound-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/functional-freeze-signs-recovery.html', id: 'functionalFreezeScreener', countId: 'functionalFreezeScreenerCount', chk: '.ffreeze-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/functional-freeze-signs-recovery.html', id: 'functionalFreezeScreener', countId: 'functionalFreezeScreenerCount', chk: '.ffreeze-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/emotional-burnout-vs-depression.html', id: 'burnoutVsDepressionScreener', countId: 'burnoutVsDepressionScreenerCount', chk: '.bvsd-screener-chk', lang: 'en' },
+  { path: '/portal/blog/de/emotional-burnout-vs-depression.html', id: 'burnoutVsDepressionScreener', countId: 'burnoutVsDepressionScreenerCount', chk: '.bvsd-screener-chk', lang: 'de' },
+  { path: '/portal/blog/en/somatic-anxiety-body-symptoms.html', id: 'somaticAnxietyScreener', countId: 'somaticAnxietyScreenerCount', chk: '.somat-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/somatic-anxiety-body-symptoms.html', id: 'somaticAnxietyScreener', countId: 'somaticAnxietyScreenerCount', chk: '.somat-screener-chk', lang: 'ko' }
 ];
 
 async function runTest() {

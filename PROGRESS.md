@@ -18,19 +18,21 @@ Updated: 2026-10-31 KST. Release history: `memory/data-check-log.md`; ops loop: 
 
 ## Active plan (2026-10-31) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 고체류 블로그 CRO 스크리너 확장 배포 (완료)**: 누적 151개 가이드(HSP·소진·스트레스·신경계·감정조절·불안애착·회피애착·애착진단·영합Fawn·유기상처·4F트라우마·감정트리거·결정피로 12개어 클러스터)에 30초 반응형 스크리너 탑재.
-- **P1 전 서브모듈 퍼널 무결성 & 포털 도구 12개어 Hreflang 최적화 (완료)**: 4,021개 파일 정지 링크 0건, 포털 도구 4종 12개어 hreflang·robots·`?lang=` 완전 보존.
+- **P0 고체류 블로그 CRO 스크리너 확장 배포 (완료)**: 누적 223개 가이드(HSP·소진·스트레스·신경계·감정조절·애착유형·혼란애착·공의존·경계설정·영합Fawn·유기상처·4F트라우마·기능적동결·번아웃vs우울·신체화불안·감정트리거·결정피로 12개어 클러스터)에 30초 반응형 스크리너 탑재.
+- **P1 전 서브모듈 퍼널 무결성 & 포털 도구 12개어 Hreflang 최적화 (완료)**: 4,021개 파일 정지 링크 0건, 포털 도구 12개어 hreflang·robots·`?lang=` 완전 보존.
 - **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,534개 URL 정합성 0 issue 유지 및 갱신 URL IndexNow 200 OK 제출.
 
-## Latest release: 151-Guide 30s Interactive CRO Screener Matrix & Portal Tools Hreflang (2026-10-31)
+## Latest release: 223-Guide 30s CRO Screener Matrix & 8 Portal Tools UX (`portal c78c9d5`)
 
-- **애착·Fawn·4F 트라우마·감정 트리거·결정 피로 75개 가이드 30초 CRO 스크리너 추가 배포 (`portal bcbcbc3`)**:
-  - **Session 1 (37개 가이드)**: `attachment-style-quiz-guide`(12개어 `#attachmentDimensionScreener`), `people-pleasing-fawn-response-guide`(12개어 `#fawnResponseScreener`), `abandonment-issues-attachment-healing`(12개어 `#abandonmentWoundScreener`), `en/avoidant-attachment-dating-patterns`(`#avoidantPatternScreener`).
-  - **Session 2 (38개 가이드)**: `fight-flight-freeze-fawn-test`(12개어 `#stress4fScreener`), `emotional-triggers-understanding`(12개어 `#emotionalTriggerScreener`, 오연결 `/hsp-test/` CTA를 감정조절 플래너·스트레스 체크로 교정), `decision-fatigue-signs-solutions`(12개어 `#decisionFatigueScreener`), `en/ko trauma-response-4f-fight-flight-freeze-fawn`(`#trauma4fScreener`).
-- **포털 인터랙티브 도구 12개어 Hreflang & 사이트맵 정합성 (`portal 069880e`, `puzzle-2048 2441d05`, `root-domain 7f47dbe`)**:
-  - `grounding-exercise`, `burnout-stress-differential`, `cognitive-load-calculator`, `dopamine-detox-protocol` 12개 국어 `hreflang` 및 `?lang=` 브리지 보존.
-- **Playwright 모바일 E2E 45개 라우트 & 시스템 건전성 가드 전원 통과**:
-  - `npm run verify:screener`: 45개 대표 다국어 라우트 390x844 오버플로 0px, 터치 타깃 $\ge 44\text{px}$, `0->1->4` 반응형 카운터, `?lang=` 보존 ALL PASS.
-  - `health-guard` & `funnel-bridge`: 4,021개 파일 정지 링크 0건, 1,534개 색인 URL 0 issue, IndexNow 75개 URL HTTP 200 OK, `audit-registry.json` (`portal bcbcbc3`) 동기화.
+- **블로그 72개 가이드 30초 반응형 CRO 스크리너 신규 배포 (`portal c78c9d5`)**:
+  - `boundaries-setting`, `codependency-signs`, `disorganized-attachment`, `functional-freeze`, `emotional-burnout-vs-depression`, `somatic-anxiety` 12개어 전수 배포.
+  - 누적 223개 가이드에 반응형 스크리너 탑재 및 `/stress-check/`, `/portal/tools/` 직결.
+- **포털 도구 모바일 UX & 12개어 정합성 완결**:
+  - `kpop-role-roster.html`: 네비/푸터 터치 타깃 25px &rarr; 44px 준수, `/kpop-position/?lang=` 다국어 유지.
+  - `scripts/verify-portal-tools.js`: 상위 8대 포털 도구 390x844 모바일 0px 오버플로 및 $\ge 44\text{px}$ 타깃 ALL PASS.
+  - `portal/sitemap.xml`: `kpop-role-roster.html` `lastmod: 2026-10-31` 갱신 및 IndexNow 200 OK 제출.
+- **Playwright 모바일 E2E 57개 라우트 & 건전성 가드 전원 통과**:
+  - `npm run verify:screener`: 57개 라우트 390x844 오버플로 0px, $\ge 44\text{px}$ 타깃, `0->1->4` 반응, `?lang=` 보존 ALL PASS.
+  - `health-guard` & `funnel-bridge`: 4,021개 파일 정지 링크 0건, 1,534개 색인 0 issue, IndexNow 60개 URL 200 OK, `audit-registry.json` (`portal c78c9d5`) 동기화.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

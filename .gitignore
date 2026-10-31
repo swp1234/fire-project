@@ -72,6 +72,8 @@ SOUNDSCAPE_*.txt
 !scripts/deploy-exhaustion-stress-screeners.js
 !scripts/deploy-hsp-coping-screeners.js
 !scripts/deploy-regulation-attachment-screeners.js
+!scripts/deploy-attachment-codependency-boundaries-screeners.js
+!scripts/deploy-freeze-burnout-somatic-screeners.js
 !scripts/verify-screener-live.js
 !scripts/verify-portal-tools.js
 !scripts/verify-high-dwell-surfaces.js
@@ -128,6 +130,8 @@ SOUNDSCAPE_*.txt
 !scripts/upgrade-revenue-content-batch.js
 !scripts/deploy-attachment-fawn-screeners.js
 !scripts/deploy-trauma-triggers-screeners.js
+!scripts/deploy-attachment-codependency-boundaries-screeners.js
+!scripts/deploy-freeze-burnout-somatic-screeners.js
 !_common/**/*.js
 nul
 
