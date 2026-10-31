@@ -1,13 +1,13 @@
 # DopaBrain current status
 
-Updated: 2026-10-29 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
+Updated: 2026-10-31 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
 
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
-- **AdSense Status (2026-10-29)**: Policy violations 0 (`{}`). 오늘 **$0.09** (진행 중), 7일 누적 **$0.59** (US RPM **$6.32**), 이달 누적 **$1.76**.
-- 수익 실측: 미국(Tier 1) 고단가 eCPM 및 In-article($0.20), In-page($0.13), Anchor($0.13), Vignette($0.12) 균형 수익화.
-- 유기적 성장: `/stress-check/` 23 Organic 세션(1,107s), DE HSP 10 Organic 세션(1,042s), ZH 2048/도파민 고체류 안착.
+- **AdSense Status (2026-10-31)**: Policy violations 0 (`{}`). 오늘 **$0.04** (진행 중), 어제 **$0.06**, 7일 누적 **$0.64** (일평균 $0.091, 성장세 지속), 이달 누적 **$1.87**.
+- GA4 실측 (최근 7일): Organic Search 67 세션 중 54 Engaged (참여율 **80.6%**, 총 참여시간 **5,189s**, 세션당 평균 **96s**).
+- 고체류 핵심 진입면: Future Self 676s, 2048 Coach 498s, HSP Workplace Guide 485s, HSP Test 371s, Stress Check 327s.
 
 ## Current operating rules
 
@@ -16,24 +16,22 @@ Updated: 2026-10-29 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - Focus organic growth on core tools (Stress Check 95~175s, Future Self 178s, HSP Test 63s, 2048 Coach 188s).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Active plan (2026-10-29) — 상세 설계: `docs/STRATEGY.md`
+## Active plan (2026-10-31) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 고체류 블로그 CRO 스크리너 배포 (완료)**: Doomscrolling, 도파민 디톡스, HSP, 번아웃 가이드에 30초 반응형 스크리너 배포.
-- **P1 전 서브모듈 퍼널 무결성 & E-E-A-T 전수 정제 (완료)**: 119개 서브모듈 정지 링크 소탕 및 12개 언어 목적지 정합성 복원.
-- **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,534개 URL 정합성 0 issue 유지 및 갱신 아티클 200 OK 제출.
+- **P0 고체류 블로그 CRO 스크리너 배포 (완료)**: Doomscrolling, 도파민 디톡스, HSP, 번아웃 가이드 및 12개 언어 HSP 자가진단 스크리너 배포.
+- **P1 전 서브모듈 퍼널 무결성 & E-E-A-T 전수 정제 (완료)**: 119개 서브모듈 정지 링크 0건 및 12개 언어 목적지 정합성 유지.
+- **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,534개 URL 정합성 0 issue 복원 및 갱신 13개 URL IndexNow 200 OK 제출.
 
-## Latest release: Interactive CRO Screeners & Comprehensive Funnel Sanitization (2026-10-29)
+## Latest release: 12-Locale Interactive HSP Screener & Indexing Inventory Alignment (2026-10-31)
 
-- **핵심 상위 가이드 인터랙티브 30초 CRO 스크리너 전면 배포 (`portal 20ee155`)**:
-  - `doom-scrolling-mental-health-effects.html`: 12개 언어 30s 스크롤 트리거 & 도파민 리셋 평가기 배포 및 22개 CTA 앵커 불일치 일괄 수정.
-  - `dopamine-detox-guide-reset-brain.html`: EN, ES, DE 30s 신경계 과부하 스크리너 탑재 및 `/hsp-test/`, `/stress-check/` 고효율 연계.
-  - `hsp-coping-strategies-highly-sensitive.html`: EN, ES, FR, KO, JA, ZH 30s 실시간 감각 과부하 트리아지 배포.
-  - `sensory-overload-hsp-coping.html`: EN, KO, ES, DE, FR, JA, ZH 7개 국어 30s 감각 과부하 스크리너 신규 배포.
-  - `burnout-recovery-guide.html`: EN, KO, ES, DE 4개 국어 30s 만성 번아웃 vs 급성 스트레스 감별 스크리너 배포.
-  - `dissociation-symptoms-grounding.html`: 10개 언어 4F 트라우마 목적지 불일치 해소 및 한국어 외래 링크(`/en/`) 정상화.
-  - Playwright 모바일 390x844 가로 오버플로 0px, 터치 타깃 $\ge 44\text{px}$, 반응형 실시간 업데이트 전수 검증 통과.
-  - 사이트맵(`portal/sitemap.xml`, `blog/sitemap.xml`) 18개 URL `lastmod: 2026-10-29` 동기화 및 IndexNow 일괄 제출 (HTTP 200 OK).
+- **`am-i-highly-sensitive-person-signs.html` 12개 국어 인터랙티브 30초 HSP 진단 스크리너 배포 (`portal c229117`)**:
+  - Dr. Elaine Aron의 D.O.E.S. 4대 핵심 차원(Depth of processing, Overstimulation, Emotional empathy, Sensing subtleties) 기반 반응형 체크리스트 구현.
+  - 0~4개 상태별 동적 진단 피드백 및 고의도 퍼널 연계 (`/hsp-test/?lang=...`, `/hsp-test/reset.html?lang=...`).
+  - Playwright 390x844 모바일 뷰포트 0px 오버플로 및 $\ge 44\text{px}$ 터치 타깃 12개 국어 전수 검증 통과 (`scripts/verify-screener-live.js`).
+  - `projects/portal/tools/brain-game-workout.html` 90일 `dateModified` 초과 이슈(old_date_modified_90d) 해소 및 사이트맵 동기화.
+  - 사이트맵(`portal/sitemap.xml`, `blog/sitemap.xml`) 13개 URL `lastmod: 2026-10-31` 갱신 및 IndexNow 일괄 제출 (HTTP 200 OK).
 - **시스템 건전성 & 무결성 가드 6/6 전원 통과**:
   - `health-guard`: AdSense OAuth & 계약, 색인 인벤토리(1,534개 0 issue), 시크릿 스캔, 문서 예산, 12개 언어 Playwright ALL PASS.
+  - `audit-registry.json`: portal HEAD 커밋(`c229117`) 동기화 및 119개 서브모듈 무결성 검증 완료.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
