@@ -126,6 +126,8 @@ SOUNDSCAPE_*.txt
 !scripts/repair-indexing-pages.js
 !scripts/upgrade-blog-indexing-batch.js
 !scripts/upgrade-revenue-content-batch.js
+!scripts/deploy-attachment-fawn-screeners.js
+!scripts/deploy-trauma-triggers-screeners.js
 !_common/**/*.js
 nul
 

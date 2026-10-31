@@ -36,7 +36,23 @@ const TEST_TARGETS = [
   { path: '/portal/blog/en/anxious-attachment-style-relationships.html', id: 'anxiousAttachScreener', countId: 'anxiousAttachScreenerCount', chk: '.anxatt-screener-chk', lang: 'en' },
   { path: '/portal/blog/ko/anxious-attachment-style-relationships.html', id: 'anxiousAttachScreener', countId: 'anxiousAttachScreenerCount', chk: '.anxatt-screener-chk', lang: 'ko' },
   { path: '/portal/blog/id/anxious-attachment-style-relationships.html', id: 'anxiousAttachScreener', countId: 'anxiousAttachScreenerCount', chk: '.anxatt-screener-chk', lang: 'id' },
-  { path: '/portal/blog/en/kpop-positions-explained-guide.html', id: 'kpopRoleScreener', countId: 'kpopRoleScreenerCount', chk: '.kpop-screener-chk', lang: 'en' }
+  { path: '/portal/blog/en/kpop-positions-explained-guide.html', id: 'kpopRoleScreener', countId: 'kpopRoleScreenerCount', chk: '.kpop-screener-chk', lang: 'en' },
+  { path: '/portal/blog/en/attachment-style-quiz-guide.html', id: 'attachmentDimensionScreener', countId: 'attachmentDimensionScreenerCount', chk: '.attdim-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/attachment-style-quiz-guide.html', id: 'attachmentDimensionScreener', countId: 'attachmentDimensionScreenerCount', chk: '.attdim-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/people-pleasing-fawn-response-guide.html', id: 'fawnResponseScreener', countId: 'fawnResponseScreenerCount', chk: '.fawn-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/people-pleasing-fawn-response-guide.html', id: 'fawnResponseScreener', countId: 'fawnResponseScreenerCount', chk: '.fawn-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/fr/people-pleasing-fawn-response-guide.html', id: 'fawnResponseScreener', countId: 'fawnResponseScreenerCount', chk: '.fawn-screener-chk', lang: 'fr' },
+  { path: '/portal/blog/en/abandonment-issues-attachment-healing.html', id: 'abandonmentWoundScreener', countId: 'abandonmentWoundScreenerCount', chk: '.aband-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/abandonment-issues-attachment-healing.html', id: 'abandonmentWoundScreener', countId: 'abandonmentWoundScreenerCount', chk: '.aband-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/avoidant-attachment-dating-patterns.html', id: 'avoidantPatternScreener', countId: 'avoidantPatternScreenerCount', chk: '.avpat-screener-chk', lang: 'en' },
+  { path: '/portal/blog/en/fight-flight-freeze-fawn-test.html', id: 'stress4fScreener', countId: 'stress4fScreenerCount', chk: '.s4f-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/fight-flight-freeze-fawn-test.html', id: 'stress4fScreener', countId: 'stress4fScreenerCount', chk: '.s4f-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/emotional-triggers-understanding.html', id: 'emotionalTriggerScreener', countId: 'emotionalTriggerScreenerCount', chk: '.emotrig-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/emotional-triggers-understanding.html', id: 'emotionalTriggerScreener', countId: 'emotionalTriggerScreenerCount', chk: '.emotrig-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/decision-fatigue-signs-solutions.html', id: 'decisionFatigueScreener', countId: 'decisionFatigueScreenerCount', chk: '.decfat-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/decision-fatigue-signs-solutions.html', id: 'decisionFatigueScreener', countId: 'decisionFatigueScreenerCount', chk: '.decfat-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/trauma-response-4f-fight-flight-freeze-fawn.html', id: 'trauma4fScreener', countId: 'trauma4fScreenerCount', chk: '.tr4f-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/trauma-response-4f-fight-flight-freeze-fawn.html', id: 'trauma4fScreener', countId: 'trauma4fScreenerCount', chk: '.tr4f-screener-chk', lang: 'ko' }
 ];
 
 async function runTest() {
