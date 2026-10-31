@@ -22,18 +22,17 @@ Updated: 2026-10-31 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P1 전 서브모듈 퍼널 무결성 & 포털 도구 12개어 Hreflang 최적화 (완료)**: 4,021개 파일 정지 링크 0건, 포털 도구 12개어 hreflang·robots·`?lang=` 완전 보존.
 - **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,534개 URL 정합성 0 issue 유지 및 갱신 URL IndexNow 200 OK 제출.
 
-## Latest release: 10 Portal Interactive Tools UX & 223-Guide CRO Screener Matrix (`portal 35dee8e`)
+## Latest release: 15 Portal Tools & 17 MBTI Type Hub Matrix (`portal 32992e0`, `root-domain 654844e`)
 
-- **포털 10대 인터랙티브 도구 모바일 UX & 사이트맵 완결 (`portal 35dee8e`)**:
-  - `brain-game-workout.html`: 네비게이션, 푸터, 언어 select 터치 규격 25~35px &rarr; 44px 준수.
-  - `past-life-story-studio.html`: 네비게이션, 푸터 및 5개 시나리오 선택 드롭다운 25~41px &rarr; 44px 준수, 메타 및 JSON-LD `dateModified: 2026-10-31` 동기화.
-  - `kpop-role-roster.html`: 네비/푸터 터치 타깃 44px 준수, `/kpop-position/?lang=` 12개어 보존.
-  - `scripts/verify-portal-tools.js`: 10대 포털 도구 390x844 모바일 0px 오버플로 및 $\ge 44\text{px}$ 타깃 전수 ALL PASS.
-  - `portal/sitemap.xml`: `past-life-story-studio.html` 신규 색인 등재 및 `brain-game-workout.html` `lastmod: 2026-10-31` 동기화. IndexNow 200 OK 제출.
-- **블로그 72개 가이드 30초 반응형 CRO 스크리너 신규 배포**:
-  - `boundaries-setting`, `codependency-signs`, `disorganized-attachment`, `functional-freeze`, `emotional-burnout-vs-depression`, `somatic-anxiety` 12개어 전수 배포. 누적 223개 가이드 탑재.
-- **Playwright 모바일 E2E 57개 라우트 & 건전성 가드 전원 통과**:
-  - `npm run verify:screener`: 57개 대표 라우트 390x844 오버플로 0px, $\ge 44\text{px}$ 타깃, `0->1->4` 반응 ALL PASS.
-  - `health-guard` & `funnel-bridge`: 4,021개 파일 정지 링크 0건, 1,535개 색인 0 issue, `audit-registry.json` (`portal 35dee8e`) 동기화.
+- **포털 15대 인터랙티브 도구 모바일 UX & 사이트맵 완결 (`portal 32992e0`)**:
+  - 팔월드 5대 도구(`breeding-notebook`, `server-settings`, `field-guide`, `base-planner`, `server-troubleshooter`): 네비/푸터/필터 26~42px &rarr; 44px 준수, 수동 ad-wrap 제거, 사이트맵 등재 및 IndexNow 200 OK.
+  - 상위 10대 심리/생산성 도구(`brain-game-workout`, `past-life-studio`, `kpop-role-roster` 등): 모바일 0px 오버플로 및 $\ge 44\text{px}$ ALL PASS.
+- **MBTI 16개 유형별 상세 페이지 & 허브 모바일 UX 최적화 (`portal 32992e0`, `root-domain 654844e`)**:
+  - `type-page-enhancer.css`: 16개 유형 페이지 skip-link, breadcrumb, footer 터치 타깃 15~21px &rarr; 44px 준수.
+  - 사이트맵 동기화 및 IndexNow 17개 URL(허브 + 16개 유형) 200 OK 제출.
+  - 영구 회귀 테스트 `scripts/verify-mbti-hub.js` (`npm run verify:mbti`) 신설 및 17개 전 라우트 ALL PASS.
+- **Playwright 모바일 E2E & 건전성 가드 전원 통과**:
+  - `verify:high-dwell`, `verify:mbti`, `verify-portal-tools`: 전원 0px 오버플로 & $\ge 44\text{px}$ ALL PASS.
+  - `audit-registry.json`: `portal 32992e0`, `root-domain 654844e` 동기화.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

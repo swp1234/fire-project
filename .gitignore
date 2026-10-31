@@ -77,6 +77,7 @@ SOUNDSCAPE_*.txt
 !scripts/verify-screener-live.js
 !scripts/verify-portal-tools.js
 !scripts/verify-high-dwell-surfaces.js
+!scripts/verify-mbti-hub.js
 !scripts/verify-blog-generator-interaction.js
 !scripts/verify-2048-ad-policy.js
 !scripts/verify-sky-runner-suspension.js

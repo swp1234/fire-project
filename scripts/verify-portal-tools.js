@@ -17,6 +17,11 @@ const TOOLS = [
   '/portal/tools/kpop-role-roster.html',
   '/portal/tools/brain-game-workout.html',
   '/portal/tools/past-life-story-studio.html',
+  '/portal/tools/palworld-breeding-notebook.html',
+  '/portal/tools/palworld-server-settings.html',
+  '/portal/tools/palworld-field-guide.html',
+  '/portal/tools/palworld-base-planner.html',
+  '/portal/tools/palworld-server-troubleshooter.html',
   '/portal/tools/index.html'
 ];
 
