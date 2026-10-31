@@ -168,6 +168,12 @@
   - 과거 템플릿에 남아있던 `<div class="ad-wrap"><span data-i18n="ad">Advertisement</span></div>`와 같은 빈 수동 광고 컨테이너는 Auto Ads 단일 로더 정책(`ca-pub-3600813755953882`)에 위배되며 사용자에게 빈 광고 박스를 노출해 정책 리스크를 유발함. Auto Ads 환경에서는 모든 수동 ad-wrap 마크업을 완전히 제거할 것.
 - **Select 및 Checkbox 요소의 모바일 터치 타깃 축소 방지**:
   - 브라우저 `<select>`나 `<input type="checkbox">` 요소는 모바일에서 높이나 너비가 24~35px로 축소되기 쉬움. CSS에서 `min-height: 44px; min-width: 44px;`를 명시하거나 44px 이상의 라벨 래퍼로 감싸 터치 타깃 규격을 보장할 것.
+- **포털 도구(`projects/portal/tools/`) 내 정지 앱 링크 및 누락된 전환 추적 (Portal Tools Funnel & CTA Attribution Gap)**:
+  - 과거 `audit-funnel.js`가 블로그와 서브모듈만 검사하여 `past-life-story-studio.html`에 무효 트래픽 정지 앱(`/past-life/`) 링크가 방치되었고, `cognitive-load-calculator`, `grounding-exercise`, `burnout-stress-differential`, `dopamine-detox-protocol`, `emotion-regulation-planner`, `brain-game-workout`, `decision-matrix` 등 주요 도구에서 브릿지 카드 클릭 시 GA4 전환 이벤트(`content_cta_click`)가 누락되어 도구간 상호 전환 기여도를 측정하지 못했던 문제.
+  - **대책**: `audit-funnel.js`의 감사 대상에 `projects/portal/tools/`를 포함하고 `/past-life/`를 `SUSPENDED_SLUGS`에 추가. 모든 인터랙티브 도구는 언어 변경 시 브릿지 링크의 `?lang=` 및 `&source=*` 파라미터를 동적으로 보존하고, `.bridge-card`/`.related a` 클릭 시 `content_cta_click` 이벤트를 필수로 발행할 것.
+- **블로그 교차 프로모션 위젯(`cross-promo.js`) 내 정지 앱 브릿지 방치 안티패턴**:
+  - `cross-promo.js` 내 과거삶 아티클 인젝션 브릿지가 정지된 `/past-life/`로 향하여 트래픽이 무수익 페이지로 유실되던 문제.
+  - **대책**: 위젯 링크를 고체류 핵심 진입면인 `/future-self/?lang=*&start=1`로 직결하고 12개 언어 맞춤 문구 제공 및 `content_cta_click`을 병행 발행하여 트래픽 전환율 극대화.
 
 
 
