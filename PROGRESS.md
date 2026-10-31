@@ -5,7 +5,7 @@ Updated: 2026-10-31 KST. Release history: `memory/data-check-log.md`; ops loop: 
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
-- **AdSense Status (2026-10-31)**: Policy violations 0 (`{}`). 오늘 **$0.04** (진행 중), 어제 **$0.06**, 7일 누적 **$0.64** (일평균 $0.091, 성장세 지속), 이달 누적 **$1.87**.
+- **AdSense Status (2026-10-31)**: Policy violations 0 (`{}`). 오늘 **$0.06** (진행 중, 어제 실적 조기 달성), 어제 **$0.06**, 7일 누적 **$0.64** (일평균 $0.091, 지속 상승), 이달 누적 **$1.89**.
 - GA4 실측 (최근 7일 / 28일): Organic Search 67 세션 중 54 Engaged (참여율 **80.6%**, 총 참여시간 **5,189s**, 세션당 평균 **96s**).
 - 고체류 핵심 진입면: 2048 Coach 8,362s(28d), Future Self 1,686s, Stress Check 1,479s, HSP Test 1,115s, HSP Workplace Guide 758s.
 
