@@ -69,6 +69,7 @@ SOUNDSCAPE_*.txt
 !scripts/gsc-submit-sitemaps.js
 !scripts/indexnow-submit.js
 !scripts/deploy-hsp-screener.js
+!scripts/deploy-exhaustion-stress-screeners.js
 !scripts/verify-screener-live.js
 !scripts/verify-blog-generator-interaction.js
 !scripts/verify-2048-ad-policy.js

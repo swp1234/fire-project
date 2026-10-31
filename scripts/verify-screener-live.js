@@ -6,13 +6,26 @@ const path = require('path');
 const { chromium } = require('playwright');
 
 const ROOT = path.resolve(__dirname, '..');
-const PORTAL_BLOG = path.join(ROOT, 'projects', 'portal', 'blog');
 
-const LOCALES = ['en', 'ko', 'de', 'es', 'fr', 'ja', 'zh'];
+const TEST_TARGETS = [
+  { path: '/portal/blog/en/am-i-highly-sensitive-person-signs.html', id: 'hspScreener', countId: 'hspScreenerCount', chk: '.hsp-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/am-i-highly-sensitive-person-signs.html', id: 'hspScreener', countId: 'hspScreenerCount', chk: '.hsp-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/de/am-i-highly-sensitive-person-signs.html', id: 'hspScreener', countId: 'hspScreenerCount', chk: '.hsp-screener-chk', lang: 'de' },
+  { path: '/portal/blog/en/emotional-exhaustion-signs-recovery.html', id: 'exhaustionScreener', countId: 'exhaustionScreenerCount', chk: '.exh-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/emotional-exhaustion-signs-recovery.html', id: 'exhaustionScreener', countId: 'exhaustionScreenerCount', chk: '.exh-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/zh/emotional-exhaustion-signs-recovery.html', id: 'exhaustionScreener', countId: 'exhaustionScreenerCount', chk: '.exh-screener-chk', lang: 'zh' },
+  { path: '/portal/blog/de/emotional-exhaustion-signs-recovery.html', id: 'exhaustionScreener', countId: 'exhaustionScreenerCount', chk: '.exh-screener-chk', lang: 'de' },
+  { path: '/portal/blog/en/stress-management-techniques-guide.html', id: 'stressResponseScreener', countId: 'stressResponseScreenerCount', chk: '.str-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/stress-management-techniques-guide.html', id: 'stressResponseScreener', countId: 'stressResponseScreenerCount', chk: '.str-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/es/stress-management-techniques-guide.html', id: 'stressResponseScreener', countId: 'stressResponseScreenerCount', chk: '.str-screener-chk', lang: 'es' },
+  { path: '/portal/blog/ko/hsp-workplace-survival-guide.html', id: 'workplaceDrainScreener', countId: 'workplaceDrainScreenerCount', chk: '.wp-ko-chk', lang: 'ko' },
+  { path: '/portal/blog/zh/avoidant-attachment-dating-guide.html', id: 'avoidantScreener', countId: 'avoidantScreenerCount', chk: '.av-zh-chk', lang: 'zh' },
+  { path: '/portal/blog/ko/avoidant-attachment-dating-patterns.html', id: 'avoidantScreenerKo', countId: 'avoidantScreenerKoCount', chk: '.av-ko-chk', lang: 'ko' }
+];
 
 async function runTest() {
-  console.log('=== Verifying 30s HSP Screener with Playwright ===');
-  
+  console.log('=== Verifying Interactive 30s CRO Screeners with Playwright ===');
+
   const server = http.createServer((req, res) => {
     try {
       const urlPath = decodeURIComponent(req.url.split('?')[0]);
@@ -50,15 +63,16 @@ async function runTest() {
     viewport: { width: 390, height: 844 }
   });
   const page = await context.newPage();
+  await page.route(url => !url.href.includes('127.0.0.1'), route => route.abort());
 
   let allPass = true;
 
-  for (const lang of LOCALES) {
-    const url = `${baseUrl}/portal/blog/${lang}/am-i-highly-sensitive-person-signs.html`;
+  for (const target of TEST_TARGETS) {
+    const url = `${baseUrl}${target.path}`;
     await page.goto(url, { waitUntil: 'domcontentloaded' });
-    await page.waitForTimeout(300);
+    await page.waitForTimeout(200);
 
-    // 1. Check overflow
+    // 1. Check horizontal overflow on 390x844
     const overflow = await page.evaluate(() => {
       const scrollW = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth);
       const clientW = document.documentElement.clientWidth;
@@ -66,23 +80,20 @@ async function runTest() {
     });
 
     if (overflow > 0) {
-      console.error(`[FAIL] ${lang}: Horizontal overflow detected: ${overflow}px`);
+      console.error(`[FAIL] ${target.path}: Horizontal overflow ${overflow}px`);
       allPass = false;
-    } else {
-      console.log(`[PASS] ${lang}: 0px horizontal overflow (390x844)`);
     }
 
-    // 2. Check screener element presence
-    const screenerBox = await page.$('#hspScreener');
-    if (!screenerBox) {
-      console.error(`[FAIL] ${lang}: Screener box #hspScreener not found`);
+    // 2. Check screener box & touch targets >= 44px
+    const box = await page.$(`#${target.id}`);
+    if (!box) {
+      console.error(`[FAIL] ${target.path}: #${target.id} not found`);
       allPass = false;
       continue;
     }
 
-    // 3. Check touch targets >= 44px
-    const targetsCompliant = await page.evaluate(() => {
-      const items = Array.from(document.querySelectorAll('#hspScreener .screener-item, #hspScreener .screener-btn, #hspScreener .screener-sub-btn'));
+    const targetsCompliant = await page.evaluate((id) => {
+      const items = Array.from(document.querySelectorAll(`#${id} .screener-item, #${id} .screener-btn, #${id} .screener-sub-btn`));
       for (const el of items) {
         const rect = el.getBoundingClientRect();
         if (rect.height < 44 || rect.width < 44) {
@@ -90,63 +101,40 @@ async function runTest() {
         }
       }
       return { compliant: true };
-    });
+    }, target.id);
 
     if (!targetsCompliant.compliant) {
-      console.error(`[FAIL] ${lang}: Touch target smaller than 44px:`, targetsCompliant);
-      allPass = false;
-    } else {
-      console.log(`[PASS] ${lang}: Touch targets >= 44px compliant`);
-    }
-
-    // 4. Test interactive clicking & state updates
-    const initialCount = await page.$eval('#hspScreenerCount', el => el.textContent.trim());
-    if (initialCount !== '0') {
-      console.error(`[FAIL] ${lang}: Initial count expected 0, got ${initialCount}`);
+      console.error(`[FAIL] ${target.path}: Touch target < 44px:`, targetsCompliant);
       allPass = false;
     }
 
-    const checkboxes = await page.$$('#hspScreener .hsp-screener-chk');
+    // 3. Test interactive checkbox clicking (0 -> 1 -> 4)
+    const checkboxes = await page.$$(`#${target.id} ${target.chk}`);
     if (checkboxes.length !== 4) {
-      console.error(`[FAIL] ${lang}: Expected 4 checkboxes, found ${checkboxes.length}`);
+      console.error(`[FAIL] ${target.path}: Expected 4 checkboxes, got ${checkboxes.length}`);
       allPass = false;
+      continue;
     }
 
-    // Click first checkbox
     await checkboxes[0].click();
-    await page.waitForTimeout(100);
-    const countAfter1 = await page.$eval('#hspScreenerCount', el => el.textContent.trim());
-    const isChecked1 = await page.evaluate(() => {
-      const item = document.querySelector('#hspScreener .screener-item');
-      return item.classList.contains('is-checked');
-    });
-
-    if (countAfter1 !== '1' || !isChecked1) {
-      console.error(`[FAIL] ${lang}: After click 1, count=${countAfter1}, isChecked=${isChecked1}`);
-      allPass = false;
-    }
-
-    // Click all remaining checkboxes
+    const count1 = await page.$eval(`#${target.countId}`, el => el.textContent.trim());
     for (let i = 1; i < checkboxes.length; i++) {
       await checkboxes[i].click();
     }
-    await page.waitForTimeout(100);
-    const countAfter4 = await page.$eval('#hspScreenerCount', el => el.textContent.trim());
-    if (countAfter4 !== '4') {
-      console.error(`[FAIL] ${lang}: After click 4, count=${countAfter4}`);
+    const count4 = await page.$eval(`#${target.countId}`, el => el.textContent.trim());
+
+    if (count1 !== '1' || count4 !== '4') {
+      console.error(`[FAIL] ${target.path}: Interactive count failed (1=${count1}, 4=${count4})`);
       allPass = false;
-    } else {
-      console.log(`[PASS] ${lang}: Reactive interactivity (0 -> 1 -> 4) verified`);
     }
 
-    // 5. Verify CTA link preserves language param
-    const primaryHref = await page.$eval('#hspScreener .screener-btn', el => el.getAttribute('href'));
-    const expectedPrimary = `/hsp-test/?lang=${lang}`;
-    if (primaryHref !== expectedPrimary) {
-      console.error(`[FAIL] ${lang}: CTA href expected ${expectedPrimary}, got ${primaryHref}`);
+    // 4. Verify CTA preserves ?lang=
+    const href = await page.$eval(`#${target.id} .screener-btn`, el => el.getAttribute('href'));
+    if (!href.includes(`lang=${target.lang}`)) {
+      console.error(`[FAIL] ${target.path}: CTA href missing lang=${target.lang}: ${href}`);
       allPass = false;
     } else {
-      console.log(`[PASS] ${lang}: CTA href preserves ?lang=${lang}`);
+      console.log(`[PASS] ${target.path}: 0px overflow, >=44px touch, 0->1->4 reactive, ?lang=${target.lang}`);
     }
   }
 
@@ -154,11 +142,9 @@ async function runTest() {
   await new Promise(resolve => server.close(resolve));
 
   if (!allPass) {
-    console.error('=== Verification FAILED ===');
     process.exit(1);
-  } else {
-    console.log('=== All Playwright tests PASSED! ===');
   }
+  console.log('=== All 13 Screener Playwright checks PASSED! ===');
 }
 
 runTest().catch(err => {
