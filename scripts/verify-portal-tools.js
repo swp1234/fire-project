@@ -15,6 +15,8 @@ const TOOLS = [
   '/portal/tools/dopamine-detox-protocol.html',
   '/portal/tools/emotion-regulation-planner.html',
   '/portal/tools/kpop-role-roster.html',
+  '/portal/tools/brain-game-workout.html',
+  '/portal/tools/past-life-story-studio.html',
   '/portal/tools/index.html'
 ];
 
