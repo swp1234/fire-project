@@ -71,6 +71,7 @@ SOUNDSCAPE_*.txt
 !scripts/deploy-hsp-screener.js
 !scripts/deploy-exhaustion-stress-screeners.js
 !scripts/deploy-hsp-coping-screeners.js
+!scripts/deploy-regulation-attachment-screeners.js
 !scripts/verify-screener-live.js
 !scripts/verify-portal-tools.js
 !scripts/verify-blog-generator-interaction.js

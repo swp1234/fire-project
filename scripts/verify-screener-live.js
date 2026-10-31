@@ -25,7 +25,18 @@ const TEST_TARGETS = [
   { path: '/portal/blog/ru/hsp-coping-strategies-highly-sensitive.html', id: 'sensory-triage', countId: 'triageCount', chk: '.triage-chk', lang: 'ru' },
   { path: '/portal/blog/id/hsp-coping-strategies-highly-sensitive.html', id: 'sensory-triage', countId: 'triageCount', chk: '.triage-chk', lang: 'id' },
   { path: '/portal/blog/tr/hsp-coping-strategies-highly-sensitive.html', id: 'sensory-triage', countId: 'triageCount', chk: '.triage-chk', lang: 'tr' },
-  { path: '/portal/blog/hi/hsp-coping-strategies-highly-sensitive.html', id: 'sensory-triage', countId: 'triageCount', chk: '.triage-chk', lang: 'hi' }
+  { path: '/portal/blog/hi/hsp-coping-strategies-highly-sensitive.html', id: 'sensory-triage', countId: 'triageCount', chk: '.triage-chk', lang: 'hi' },
+  { path: '/portal/blog/en/nervous-system-regulation-techniques.html', id: 'nervousScreener', countId: 'nervousScreenerCount', chk: '.nerv-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/nervous-system-regulation-techniques.html', id: 'nervousScreener', countId: 'nervousScreenerCount', chk: '.nerv-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/ja/nervous-system-regulation-techniques.html', id: 'nervousScreener', countId: 'nervousScreenerCount', chk: '.nerv-screener-chk', lang: 'ja' },
+  { path: '/portal/blog/en/emotional-regulation-techniques.html', id: 'emotionRegScreener', countId: 'emotionRegScreenerCount', chk: '.emoreg-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/emotional-regulation-techniques.html', id: 'emotionRegScreener', countId: 'emotionRegScreenerCount', chk: '.emoreg-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/de/emotional-regulation-techniques.html', id: 'emotionRegScreener', countId: 'emotionRegScreenerCount', chk: '.emoreg-screener-chk', lang: 'de' },
+  { path: '/portal/blog/id/emotional-regulation-techniques.html', id: 'emotionRegScreener', countId: 'emotionRegScreenerCount', chk: '.emoreg-screener-chk', lang: 'id' },
+  { path: '/portal/blog/en/anxious-attachment-style-relationships.html', id: 'anxiousAttachScreener', countId: 'anxiousAttachScreenerCount', chk: '.anxatt-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/anxious-attachment-style-relationships.html', id: 'anxiousAttachScreener', countId: 'anxiousAttachScreenerCount', chk: '.anxatt-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/id/anxious-attachment-style-relationships.html', id: 'anxiousAttachScreener', countId: 'anxiousAttachScreenerCount', chk: '.anxatt-screener-chk', lang: 'id' },
+  { path: '/portal/blog/en/kpop-positions-explained-guide.html', id: 'kpopRoleScreener', countId: 'kpopRoleScreenerCount', chk: '.kpop-screener-chk', lang: 'en' }
 ];
 
 async function runTest() {

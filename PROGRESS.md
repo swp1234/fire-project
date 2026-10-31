@@ -22,16 +22,18 @@ Updated: 2026-10-31 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P1 전 서브모듈 퍼널 무결성 & E-E-A-T 전수 정제 (완료)**: 119개 서브모듈 정지 링크 0건 및 12개 언어 목적지(`?lang=`) 정합성 복원.
 - **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,534개 URL 정합성 0 issue 유지 및 갱신 40개 URL IndexNow 200 OK 제출.
 
-## Latest release: 6 High-Dwell Tools 12-Locale Hreflang & Mobile UX Optimization (2026-10-31)
+## Latest release: 2048 Coach & 37 CRO Screeners & Root Sync (2026-10-31)
 
-- **GA4 고체류 상위 6대 포털 인터랙티브 도구 12개 언어 정합성 및 모바일 UX 전면 최적화 (`portal 471288b`)**:
-  - `burnout-stress-differential.html`, `cognitive-load-calculator.html`, `grounding-exercise.html`, `dopamine-detox-protocol.html`, `decision-matrix.html`, `emotion-regulation-planner.html`: 12개 국어 alternate hreflang 및 `dateModified: 2026-10-31` 전수 탑재.
-  - 브릿지 퍼널 정제: `/stress-check/?lang=` 다국어 파라미터 완전 보존 복원.
-  - `portal/tools/index.html`: 카테고리 필터 버튼 터치 타깃 35px &rarr; 44px 준수 및 `dateModified` 동기화.
-  - Playwright 390x844 모바일 E2E 전수 검증 통과 (`scripts/verify-portal-tools.js`): 7개 전 도구 0px 오버플로 및 전체 인터랙티브 요소 $\ge 44\text{px}$ ALL PASS.
-  - `portal/sitemap.xml` 7개 URL `lastmod: 2026-10-31` 갱신 및 IndexNow 일괄 제출 (HTTP 200 OK).
-- **시스템 건전성 & 무결성 가드 6/6 전원 통과**:
-  - `health-guard`: AdSense OAuth($0.64 7일/정책 0건), 계약(Auto Ads 단일/0 manual), 색인(1,534개 0 issue), 시크릿 스캔, 문서 예산, 12개 언어 Playwright ALL PASS.
-  - `audit-registry.json`: portal HEAD(`471288b`) 동기화 및 119개 서브모듈 무결성 유지.
+- **2048 Coach 모바일 터치 타깃 및 사이트맵 최적화 (`puzzle-2048 2441d05`, `root-domain 7f47dbe`)**:
+  - `projects/puzzle-2048/css/coach.css`: 푸터 복귀/가이드 터치 타깃 44px 이상 준수 (`min-height: 44px; inline-flex`).
+  - `projects/puzzle-2048/coach.html`: 메타 및 JSON-LD `dateModified: 2026-10-31` 갱신.
+  - `projects/root-domain/sitemap.xml`: `coach.html` `lastmod: 2026-10-31` 동기화.
+- **37개 신경계 조절·애착·K-pop 가이드 30초 반응형 CRO 스크리너 배포 (`portal 069880e`)**:
+  - `nervous-system-regulation-techniques`, `emotional-regulation-techniques`, `anxious-attachment-style-relationships` 12개 언어 전수 + `kpop-positions-explained-guide`(EN) 배포.
+  - Playwright 390x844 모바일 E2E 전수 검증 통과: 29개 전 스크리너 0px 오버플로 및 $\ge 44\text{px}$ 인터랙티브 타깃 ALL PASS.
+  - IndexNow: 38개 canonical URL 일괄 제출 (HTTP 200 OK).
+- **시스템 건전성 & 무결성 가드 전원 통과**:
+  - `health-guard`: AdSense OAuth($0.64 7일/정책 0건), 계약(Auto Ads 단일/0 manual), 색인(1,534개 0 issue), 시크릿 스캔, 문서 예산 통과.
+  - `audit-registry.json`: portal(`069880e`), puzzle-2048(`2441d05`), root-domain(`7f47dbe`) 전수 동기화.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
