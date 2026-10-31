@@ -338,7 +338,7 @@
       "trustCompliant": true
     },
     "puzzle-2048": {
-      "headCommit": "2441d051afd1e3d8119aec443c45821a850e019d",
+      "headCommit": "3875d3768cdd46777e33c26f43a1859417e6eaa4",
       "branch": "master",
       "auditedAt": "2026-10-31",
       "overflowPx": 0,
@@ -1086,6 +1086,6 @@
     "headCommit": "ff01e8da1d46277ab0e293933aa116e6f10e6633",
     "lastAudited": "2026-10-31"
   },
-  "puzzle-2048": "2441d05",
+  "puzzle-2048": "3875d37",
   "stress-check": "8d87028"
 }

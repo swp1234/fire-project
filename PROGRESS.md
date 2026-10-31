@@ -22,17 +22,19 @@ Updated: 2026-10-31 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P1 전 서브모듈 퍼널 무결성 & 포털 도구 12개어 Hreflang 최적화 (완료)**: 4,021개 파일 정지 링크 0건, 포털 도구 12개어 hreflang·robots·`?lang=` 완전 보존.
 - **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,534개 URL 정합성 0 issue 유지 및 갱신 URL IndexNow 200 OK 제출.
 
-## Latest release: 15 Portal Tools & 17 MBTI Type Hub Matrix (`portal 32992e0`, `root-domain 654844e`)
+## Latest release: 15 Portal Tools & 17 MBTI Type Hub Matrix (`portal ff01e8d`, `root-domain 654844e`, `puzzle-2048 3875d37`)
 
-- **포털 15대 인터랙티브 도구 모바일 UX & 사이트맵 완결 (`portal 32992e0`)**:
+- **포털 15대 인터랙티브 도구 모바일 UX & 사이트맵 완결 (`portal ff01e8d`)**:
   - 팔월드 5대 도구(`breeding-notebook`, `server-settings`, `field-guide`, `base-planner`, `server-troubleshooter`): 네비/푸터/필터 26~42px &rarr; 44px 준수, 수동 ad-wrap 제거, 사이트맵 등재 및 IndexNow 200 OK.
   - 상위 10대 심리/생산성 도구(`brain-game-workout`, `past-life-studio`, `kpop-role-roster` 등): 모바일 0px 오버플로 및 $\ge 44\text{px}$ ALL PASS.
-- **MBTI 16개 유형별 상세 페이지 & 허브 모바일 UX 최적화 (`portal 32992e0`, `root-domain 654844e`)**:
+- **MBTI 16개 유형별 상세 페이지 & 허브 모바일 UX 최적화 (`portal ff01e8d`, `root-domain 654844e`)**:
   - `type-page-enhancer.css`: 16개 유형 페이지 skip-link, breadcrumb, footer 터치 타깃 15~21px &rarr; 44px 준수.
-  - 사이트맵 동기화 및 IndexNow 17개 URL(허브 + 16개 유형) 200 OK 제출.
+  - 사이트맵 동기화 및 IndexNow 17개 URL(허브 + 16개 유형) 200 OK 제출, `dateModified: 2026-10-31` 전수 일치.
   - 영구 회귀 테스트 `scripts/verify-mbti-hub.js` (`npm run verify:mbti`) 신설 및 17개 전 라우트 ALL PASS.
+- **고체류 코치 도구 무결성 강화 (`puzzle-2048 3875d37`)**:
+  - `coach.html`: 오픈소스 참조 링크 38px &rarr; 44px 터치 규격 최적화, 수동 ad-wrap 컨테이너 제거, IndexNow 200 OK.
 - **Playwright 모바일 E2E & 건전성 가드 전원 통과**:
   - `verify:high-dwell`, `verify:mbti`, `verify-portal-tools`: 전원 0px 오버플로 & $\ge 44\text{px}$ ALL PASS.
-  - `audit-registry.json`: `portal 32992e0`, `root-domain 654844e` 동기화.
+  - `audit-registry.json`: `portal ff01e8d`, `root-domain 654844e`, `puzzle-2048 3875d37` 동기화.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
