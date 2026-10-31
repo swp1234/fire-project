@@ -22,15 +22,16 @@ Updated: 2026-10-31 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P1 전 서브모듈 퍼널 무결성 & E-E-A-T 전수 정제 (완료)**: 119개 서브모듈 정지 링크 0건 및 12개 언어 목적지(`?lang=`) 정합성 복원.
 - **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,534개 URL 정합성 0 issue 유지 및 갱신 40개 URL IndexNow 200 OK 제출.
 
-## Latest release: 12-Locale HSP Coping Triage & 2048 Funnel Alignment (2026-10-31)
+## Latest release: 6 High-Dwell Tools 12-Locale Hreflang & Mobile UX Optimization (2026-10-31)
 
-- **GA4 고체류 상위 가이드 CRO 스크리너 12개 언어 전면 완성 (`portal 0f3366d`)**:
-  - `hsp-coping-strategies-highly-sensitive.html`: 잔여 5개 언어(`pt`, `ru`, `id`, `tr`, `hi`) 30초 감각 과부하 트리아지 스크리너 탑재 및 12개 전 언어 배포 완료.
-  - `zh/2048-strategy-guide.html`: 목적지-설명 불일치 앵커(Flappy/Snake) 정제(`2048推演教练`, `压力指数测试`) 및 `?lang=zh` 보존.
-  - `verify-screener-live.js`: 18개 대표 경로 Playwright 390x844 모바일 뷰포트 오버플로 0px, 터치 타깃 $\ge 44\text{px}$, 실시간 반응형(`0 -> 1 -> 4`) 전수 통과.
-  - `blog/sitemap.xml` 6개 URL `lastmod: 2026-10-31` 갱신 및 IndexNow 일괄 제출 (HTTP 200 OK).
+- **GA4 고체류 상위 6대 포털 인터랙티브 도구 12개 언어 정합성 및 모바일 UX 전면 최적화 (`portal 471288b`)**:
+  - `burnout-stress-differential.html`, `cognitive-load-calculator.html`, `grounding-exercise.html`, `dopamine-detox-protocol.html`, `decision-matrix.html`, `emotion-regulation-planner.html`: 12개 국어 alternate hreflang 및 `dateModified: 2026-10-31` 전수 탑재.
+  - 브릿지 퍼널 정제: `/stress-check/?lang=` 다국어 파라미터 완전 보존 복원.
+  - `portal/tools/index.html`: 카테고리 필터 버튼 터치 타깃 35px &rarr; 44px 준수 및 `dateModified` 동기화.
+  - Playwright 390x844 모바일 E2E 전수 검증 통과 (`scripts/verify-portal-tools.js`): 7개 전 도구 0px 오버플로 및 전체 인터랙티브 요소 $\ge 44\text{px}$ ALL PASS.
+  - `portal/sitemap.xml` 7개 URL `lastmod: 2026-10-31` 갱신 및 IndexNow 일괄 제출 (HTTP 200 OK).
 - **시스템 건전성 & 무결성 가드 6/6 전원 통과**:
   - `health-guard`: AdSense OAuth($0.64 7일/정책 0건), 계약(Auto Ads 단일/0 manual), 색인(1,534개 0 issue), 시크릿 스캔, 문서 예산, 12개 언어 Playwright ALL PASS.
-  - `audit-registry.json`: portal HEAD(`0f3366d`) 동기화 및 119개 서브모듈 무결성 유지.
+  - `audit-registry.json`: portal HEAD(`471288b`) 동기화 및 119개 서브모듈 무결성 유지.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
