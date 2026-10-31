@@ -22,18 +22,19 @@ Updated: 2026-10-31 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P1 전 서브모듈 퍼널 무결성 & E-E-A-T 전수 정제 (완료)**: 119개 서브모듈 정지 링크 0건 및 12개 언어 목적지(`?lang=`) 정합성 복원.
 - **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,534개 URL 정합성 0 issue 유지 및 갱신 40개 URL IndexNow 200 OK 제출.
 
-## Latest release: 2048 Coach & 37 CRO Screeners & Root Sync (2026-10-31)
+## Latest release: Future Self & Stress Check Mobile UX & High-Dwell Harness (2026-10-31)
 
-- **2048 Coach 모바일 터치 타깃 및 사이트맵 최적화 (`puzzle-2048 2441d05`, `root-domain 7f47dbe`)**:
-  - `projects/puzzle-2048/css/coach.css`: 푸터 복귀/가이드 터치 타깃 44px 이상 준수 (`min-height: 44px; inline-flex`).
-  - `projects/puzzle-2048/coach.html`: 메타 및 JSON-LD `dateModified: 2026-10-31` 갱신.
-  - `projects/root-domain/sitemap.xml`: `coach.html` `lastmod: 2026-10-31` 동기화.
-- **37개 신경계 조절·애착·K-pop 가이드 30초 반응형 CRO 스크리너 배포 (`portal 069880e`)**:
-  - `nervous-system-regulation-techniques`, `emotional-regulation-techniques`, `anxious-attachment-style-relationships` 12개 언어 전수 + `kpop-positions-explained-guide`(EN) 배포.
-  - Playwright 390x844 모바일 E2E 전수 검증 통과: 29개 전 스크리너 0px 오버플로 및 $\ge 44\text{px}$ 인터랙티브 타깃 ALL PASS.
-  - IndexNow: 38개 canonical URL 일괄 제출 (HTTP 200 OK).
+- **Future Self E2E 사용자 여정 모바일 UX 최적화 (`future-self 93eeeeb`)**:
+  - `css/style.css`: 결과 화면 `.back-link` 터치 타깃 18px &rarr; 44px 준수 (`min-height: 44px; inline-flex`).
+  - `index.html`: 메타 및 JSON-LD `dateModified: 2026-10-31` 갱신. 12개 국어 동적 전환 및 크로스 프로모션 파라미터(`?lang=`) 완전 보존 확인.
+- **Stress Check Plan 터치 타깃 및 사이트맵 최적화 (`stress-check 4db8190`, `root-domain 3973998`)**:
+  - `css/plan.css`: evidence 및 footer 외부/내부 링크 터치 타깃 $\ge 44\text{px}$ 준수.
+  - `plan.html` 및 `root-domain/sitemap.xml`: `dateModified: 2026-10-31`, `lastmod: 2026-10-31` 동기화.
+- **영구 고체류 모바일 검증 하네스 신설 (`npm run verify:high-dwell`)**:
+  - Playwright 390x844 모바일 E2E: Future Self 전체 여정(인식 &rarr; 8장면 선택 &rarr; 결과 화면 &rarr; 추천 링크) 및 Stress Check 4개 페이지(메인/플랜/스크립트/라이브러리) 0px 오버플로 및 $\ge 44\text{px}$ 타깃 ALL PASS.
+  - IndexNow: 2개 canonical URL 즉시 전송 (HTTP 200 OK).
 - **시스템 건전성 & 무결성 가드 전원 통과**:
   - `health-guard`: AdSense OAuth($0.64 7일/정책 0건), 계약(Auto Ads 단일/0 manual), 색인(1,534개 0 issue), 시크릿 스캔, 문서 예산 통과.
-  - `audit-registry.json`: portal(`069880e`), puzzle-2048(`2441d05`), root-domain(`7f47dbe`) 전수 동기화.
+  - `audit-registry.json`: future-self(`93eeeeb`), stress-check(`4db8190`), root-domain(`3973998`) 전수 동기화.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
