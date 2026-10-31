@@ -94,7 +94,25 @@ const TEST_TARGETS = [
   { path: '/portal/blog/en/toxic-relationship-patterns-signs.html', id: 'toxicRelationshipScreener', countId: 'toxicRelationshipScreenerCount', chk: '.toxrel-screener-chk', lang: 'en' },
   { path: '/portal/blog/pt/toxic-relationship-patterns-signs.html', id: 'toxicRelationshipScreener', countId: 'toxicRelationshipScreenerCount', chk: '.toxrel-screener-chk', lang: 'pt' },
   { path: '/portal/blog/en/self-compassion-mental-health-guide.html', id: 'innerCriticCompassionScreener', countId: 'innerCriticCompassionScreenerCount', chk: '.scomp-screener-chk', lang: 'en' },
-  { path: '/portal/blog/ru/self-compassion-mental-health-guide.html', id: 'innerCriticCompassionScreener', countId: 'innerCriticCompassionScreenerCount', chk: '.scomp-screener-chk', lang: 'ru' }
+  { path: '/portal/blog/ru/self-compassion-mental-health-guide.html', id: 'innerCriticCompassionScreener', countId: 'innerCriticCompassionScreenerCount', chk: '.scomp-screener-chk', lang: 'ru' },
+  { path: '/portal/blog/en/gaslighting-signs-relationship.html', id: 'gaslightingRelationshipScreener', countId: 'gaslightingRelationshipScreenerCount', chk: '.gasrel-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/gaslighting-signs-relationship.html', id: 'gaslightingRelationshipScreener', countId: 'gaslightingRelationshipScreenerCount', chk: '.gasrel-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/relationship-red-flags-quiz.html', id: 'relationshipRedFlagsScreener', countId: 'relationshipRedFlagsScreenerCount', chk: '.relrf-screener-chk', lang: 'en' },
+  { path: '/portal/blog/es/relationship-red-flags-quiz.html', id: 'relationshipRedFlagsScreener', countId: 'relationshipRedFlagsScreenerCount', chk: '.relrf-screener-chk', lang: 'es' },
+  { path: '/portal/blog/en/red-flag-test-relationship-warning-signs.html', id: 'warningSignsRedFlagScreener', countId: 'warningSignsRedFlagScreenerCount', chk: '.warnrf-screener-chk', lang: 'en' },
+  { path: '/portal/blog/de/red-flag-test-relationship-warning-signs.html', id: 'warningSignsRedFlagScreener', countId: 'warningSignsRedFlagScreenerCount', chk: '.warnrf-screener-chk', lang: 'de' },
+  { path: '/portal/blog/en/emotional-intelligence-relationships.html', id: 'eqRelationshipsScreener', countId: 'eqRelationshipsScreenerCount', chk: '.eqrel-screener-chk', lang: 'en' },
+  { path: '/portal/blog/fr/emotional-intelligence-relationships.html', id: 'eqRelationshipsScreener', countId: 'eqRelationshipsScreenerCount', chk: '.eqrel-screener-chk', lang: 'fr' },
+  { path: '/portal/blog/en/eq-test-emotional-intelligence-quiz.html', id: 'eqDimensionScreener', countId: 'eqDimensionScreenerCount', chk: '.eqdim-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ja/eq-test-emotional-intelligence-quiz.html', id: 'eqDimensionScreener', countId: 'eqDimensionScreenerCount', chk: '.eqdim-screener-chk', lang: 'ja' },
+  { path: '/portal/blog/en/eq-vs-iq-which-matters-more.html', id: 'eqVsIqBalanceScreener', countId: 'eqVsIqBalanceScreenerCount', chk: '.eqvsiq-screener-chk', lang: 'en' },
+  { path: '/portal/blog/zh/eq-vs-iq-which-matters-more.html', id: 'eqVsIqBalanceScreener', countId: 'eqVsIqBalanceScreenerCount', chk: '.eqvsiq-screener-chk', lang: 'zh' },
+  { path: '/portal/blog/en/shadow-work-journal-prompts.html', id: 'shadowJournalScreener', countId: 'shadowJournalScreenerCount', chk: '.shadjrn-screener-chk', lang: 'en' },
+  { path: '/portal/blog/pt/shadow-work-journal-prompts.html', id: 'shadowJournalScreener', countId: 'shadowJournalScreenerCount', chk: '.shadjrn-screener-chk', lang: 'pt' },
+  { path: '/portal/blog/en/trauma-response-test-guide.html', id: 'traumaResponseGuideScreener', countId: 'traumaResponseGuideScreenerCount', chk: '.trguide-screener-chk', lang: 'en' },
+  { path: '/portal/blog/id/trauma-response-test-guide.html', id: 'traumaResponseGuideScreener', countId: 'traumaResponseGuideScreenerCount', chk: '.trguide-screener-chk', lang: 'id' },
+  { path: '/portal/blog/en/anxiety-types-explained.html', id: 'anxietyTypesScreener', countId: 'anxietyTypesScreenerCount', chk: '.anxtype-screener-chk', lang: 'en' },
+  { path: '/portal/blog/tr/anxiety-types-explained.html', id: 'anxietyTypesScreener', countId: 'anxietyTypesScreenerCount', chk: '.anxtype-screener-chk', lang: 'tr' }
 ];
 
 async function runTest() {

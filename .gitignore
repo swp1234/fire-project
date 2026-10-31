@@ -79,6 +79,9 @@ SOUNDSCAPE_*.txt
 !scripts/deploy-social-stress-hsp-screeners.js
 !scripts/deploy-sabotage-innerchild-shadow-screeners.js
 !scripts/deploy-gaslighting-toxic-compassion-screeners.js
+!scripts/deploy-gaslighting-redflags-screeners.js
+!scripts/deploy-eq-relationships-iq-screeners.js
+!scripts/deploy-shadowprompts-trauma-anxietytypes-screeners.js
 !scripts/verify-screener-live.js
 !scripts/verify-portal-tools.js
 !scripts/verify-high-dwell-surfaces.js
