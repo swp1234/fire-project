@@ -22,14 +22,14 @@ Updated: 2026-10-31 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P1 30초 반응형 CRO 스크리너 전방위 확장 & 검증 (완료)**: 403개 가이드(108개 신규) 탑재 및 Playwright E2E ALL PASS.
 - **P2 색인 인벤토리 & IndexNow 실시간 전송 (완료)**: 1,555개 URL 무결점(0 issue), 갱신 URL IndexNow 200 OK 제출.
 
-## Latest release: Tool Funnel Bridge & CTA Tracking (`portal fdf19d0`, `root-domain 654844e`)
+## Latest release: Tool Funnel Bridge & CTA Tracking (`portal 6f03884`, `root-domain 654844e`)
 
-- **포털 도구 퍼널 누수 차단 및 다국어 직결 (`portal fdf19d0`)**:
+- **포털 도구 퍼널 누수 차단 및 다국어 직결 (`portal 6f03884`)**:
   - `past-life-story-studio.html` & `js`: 비활성 앱(`/past-life/`) 링크를 핵심 수익화 진입면인 `/future-self/?lang=*&start=1`로 전면 교체. 12개 국어(`ja, es, pt, id, tr, de, fr, ru, hi, ko, zh, en`) 맞춤 문구 제공 및 `content_cta_click` 전환 어트리뷰션 탑재.
   - `past-life-calculator-birthday.html`: 정지 앱 링크를 `past-life-story-studio` 및 `future-self`로 교체, `blog/sitemap.xml` 2026-10-31 동기화.
   - `cross-promo.js`: 블로그 전방위 과거삶 브릿지를 `/future-self/` 10년 시뮬레이터로 직결 및 CTA 전환 추적 추가.
-- **멘탈 웰니스 도구 파라미터 보존 및 전환 추적 표준화**:
-  - `grounding-exercise.js`, `burnout-stress-differential.js`, `decision-matrix.js`: 브릿지 카드 언어 파라미터(`?lang=*&source=*`) 보존 보장 및 `.bridge-card` 클릭 시 GA4 `content_cta_click` 전송.
+- **인터랙티브 도구 7종 파라미터 보존 및 전환 추적 표준화**:
+  - `cognitive-load-calculator`, `dopamine-detox-protocol`, `emotion-regulation-planner`, `brain-game-workout`, `grounding-exercise`, `burnout-stress-differential`, `decision-matrix`: 브릿지 카드 언어 파라미터(`?lang=*&source=*`) 보존 보장 및 `.bridge-card`/`.related a` 클릭 시 GA4 `content_cta_click` 전송.
 - **도구 전수 검증 및 품질 게이트 통과**:
   - `verify-portal-tools.js`: 15개 포털 도구 모바일 390x844 뷰포트 오버플로 0px, $\ge 44\text{px}$ 터치 타깃 전원 PASS.
   - `audit-funnel.js`: 4,034개 파일(블로그/앱/도구 전수) 정지 링크 및 텔레메트리 누출 0건(PASS).
