@@ -76,7 +76,25 @@ const TEST_TARGETS = [
   { path: '/portal/blog/en/rumination-repetitive-thinking-stop.html', id: 'ruminationLoopScreener', countId: 'ruminationLoopScreenerCount', chk: '.rumloop-screener-chk', lang: 'en' },
   { path: '/portal/blog/es/rumination-repetitive-thinking-stop.html', id: 'ruminationLoopScreener', countId: 'ruminationLoopScreenerCount', chk: '.rumloop-screener-chk', lang: 'es' },
   { path: '/portal/blog/en/perfectionism-anxiety-quiz.html', id: 'perfectionismAnxietyScreener', countId: 'perfectionismAnxietyScreenerCount', chk: '.perfanx-screener-chk', lang: 'en' },
-  { path: '/portal/blog/fr/perfectionism-anxiety-quiz.html', id: 'perfectionismAnxietyScreener', countId: 'perfectionismAnxietyScreenerCount', chk: '.perfanx-screener-chk', lang: 'fr' }
+  { path: '/portal/blog/fr/perfectionism-anxiety-quiz.html', id: 'perfectionismAnxietyScreener', countId: 'perfectionismAnxietyScreenerCount', chk: '.perfanx-screener-chk', lang: 'fr' },
+  { path: '/portal/blog/en/social-anxiety-signs-test.html', id: 'socialAnxietyScreener', countId: 'socialAnxietyScreenerCount', chk: '.socanx-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/social-anxiety-signs-test.html', id: 'socialAnxietyScreener', countId: 'socialAnxietyScreenerCount', chk: '.socanx-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/stress-vs-anxiety-difference-test.html', id: 'stressVsAnxietyScreener', countId: 'stressVsAnxietyScreenerCount', chk: '.svsa-screener-chk', lang: 'en' },
+  { path: '/portal/blog/de/stress-vs-anxiety-difference-test.html', id: 'stressVsAnxietyScreener', countId: 'stressVsAnxietyScreenerCount', chk: '.svsa-screener-chk', lang: 'de' },
+  { path: '/portal/blog/en/hsp-empath-difference-test.html', id: 'hspVsEmpathScreener', countId: 'hspVsEmpathScreenerCount', chk: '.hspemp-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ja/hsp-empath-difference-test.html', id: 'hspVsEmpathScreener', countId: 'hspVsEmpathScreenerCount', chk: '.hspemp-screener-chk', lang: 'ja' },
+  { path: '/portal/blog/en/self-sabotage-patterns.html', id: 'selfSabotageScreener', countId: 'selfSabotageScreenerCount', chk: '.sabot-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/self-sabotage-patterns.html', id: 'selfSabotageScreener', countId: 'selfSabotageScreenerCount', chk: '.sabot-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/inner-child-test-quiz-guide.html', id: 'innerChildWoundScreener', countId: 'innerChildWoundScreenerCount', chk: '.inchild-screener-chk', lang: 'en' },
+  { path: '/portal/blog/es/inner-child-test-quiz-guide.html', id: 'innerChildWoundScreener', countId: 'innerChildWoundScreenerCount', chk: '.inchild-screener-chk', lang: 'es' },
+  { path: '/portal/blog/en/shadow-work-quiz-guide.html', id: 'shadowProjectionScreener', countId: 'shadowProjectionScreenerCount', chk: '.shadow-screener-chk', lang: 'en' },
+  { path: '/portal/blog/zh/shadow-work-quiz-guide.html', id: 'shadowProjectionScreener', countId: 'shadowProjectionScreenerCount', chk: '.shadow-screener-chk', lang: 'zh' },
+  { path: '/portal/blog/en/gaslighting-signs-recovery-guide.html', id: 'gaslightingRealityScreener', countId: 'gaslightingRealityScreenerCount', chk: '.gaslight-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ko/gaslighting-signs-recovery-guide.html', id: 'gaslightingRealityScreener', countId: 'gaslightingRealityScreenerCount', chk: '.gaslight-screener-chk', lang: 'ko' },
+  { path: '/portal/blog/en/toxic-relationship-patterns-signs.html', id: 'toxicRelationshipScreener', countId: 'toxicRelationshipScreenerCount', chk: '.toxrel-screener-chk', lang: 'en' },
+  { path: '/portal/blog/pt/toxic-relationship-patterns-signs.html', id: 'toxicRelationshipScreener', countId: 'toxicRelationshipScreenerCount', chk: '.toxrel-screener-chk', lang: 'pt' },
+  { path: '/portal/blog/en/self-compassion-mental-health-guide.html', id: 'innerCriticCompassionScreener', countId: 'innerCriticCompassionScreenerCount', chk: '.scomp-screener-chk', lang: 'en' },
+  { path: '/portal/blog/ru/self-compassion-mental-health-guide.html', id: 'innerCriticCompassionScreener', countId: 'innerCriticCompassionScreenerCount', chk: '.scomp-screener-chk', lang: 'ru' }
 ];
 
 async function runTest() {
