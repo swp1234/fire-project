@@ -18,22 +18,22 @@ Updated: 2026-10-31 KST. Release history: `memory/data-check-log.md`; ops loop: 
 
 ## Active plan (2026-10-31) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 영혼동물·색상심리 가이드 퍼널 정합화 & 모바일 터치 최적화 (완료)**: 12개어 24개 가이드 CTA/관련링크 목적지 불일치 해소(`/animal-personality/`, `/brain-type/`, `/attachment-style/` 직결), 터치 타깃 $\ge 44\text{px}$, 0px 오버플로.
-- **P1 30초 반응형 CRO 스크리너 전방위 확장 & 검증 (완료)**: 누적 403개 가이드(신규 108개: 사회불안·스트레스vs불안·HSPvs엠파스·자기방해·내면아이·그림자·가스라이팅·독성관계·자기자비 12개어) 탑재 및 Playwright 87개 라우트 E2E ALL PASS.
-- **P2 색인 인벤토리 & IndexNow 실시간 전송 (완료)**: 1,555개 URL 무결점(0 issue), 108개 갱신 URL IndexNow 200 OK 제출.
+- **P0 도구 퍼널 누수 차단 & 언어/CTA 전환 추적 표준화 (완료)**: `past-life-story-studio` 및 블로그의 정지 앱 누수 제거(`/future-self/` 직결), 12개어 다국어 로케일 보존 및 GA4 `content_cta_click` 이벤트 전면 탑재.
+- **P1 30초 반응형 CRO 스크리너 전방위 확장 & 검증 (완료)**: 403개 가이드(108개 신규) 탑재 및 Playwright E2E ALL PASS.
+- **P2 색인 인벤토리 & IndexNow 실시간 전송 (완료)**: 1,555개 URL 무결점(0 issue), 갱신 URL IndexNow 200 OK 제출.
 
-## Latest release: Funnel Bridge & 30s CRO Screeners (`portal 1a61f25`, `root-domain 654844e`, `puzzle-2048 3875d37`)
+## Latest release: Tool Funnel Bridge & CTA Tracking (`portal fdf19d0`, `root-domain 654844e`)
 
-- **영혼동물 & 색상심리 가이드 퍼널 복원 (12개 언어, `portal ac6044a`)**:
-  - `spirit-animal-personality-quiz.html`: 두뇌유형으로 오연결되던 CTA/인라인/관련링크를 공식 활성 동물 테스트(`/animal-personality/?lang=*`)로 정상화, 진실된 라벨(`무료 수호 동물 테스트 시작하기 →` 등) 통일.
-  - `what-your-favorite-color-says-about-you.html`: CTA 박스를 두뇌 인지유형 진단으로 정합화, 정지된 mbti-love 제거 후 `/attachment-style/` 및 `/animal-personality/`로 연결.
-  - 상단 breadcrumb, header-nav, footer 링크 터치 규격 $\ge 44\text{px}$ 준수, 390x844 뷰포트 오버플로 0px 달성.
-- **30초 인터랙티브 CRO 스크리너 9개 신규 주제 12개어 배포 (`portal 1a61f25`)**:
-  - 사회불안, 스트레스vs불안, HSPvs엠파스, 자기방해, 내면아이, 그림자투사, 가스라이팅, 독성관계, 자기자비 가이드 108편에 반응형 체크리스트 탑재 및 목적지 불일치 CTA 해소.
-  - `verify-screener-live.js`: Playwright 87개 검증 라우트 전원 PASS (0px 오버플로, $\ge 44\text{px}$ 터치, 0->1->4 상태 전환, `?lang=` 보존).
-- **엄격 건강 상태 점검 (Health Guard Battery)**:
-  - `indexing-inventory.js --strict`: 1,555개 URL 0 issues, sitemap_lastmod_mismatch 0건.
-  - `audit-funnel.js`: 4,021개 파일 정지 링크 및 원격 측정 누출 0건.
-  - `audit-registry.json`: `projects/portal` HEAD `1a61f25` 정합.
+- **포털 도구 퍼널 누수 차단 및 다국어 직결 (`portal fdf19d0`)**:
+  - `past-life-story-studio.html` & `js`: 비활성 앱(`/past-life/`) 링크를 핵심 수익화 진입면인 `/future-self/?lang=*&start=1`로 전면 교체. 12개 국어(`ja, es, pt, id, tr, de, fr, ru, hi, ko, zh, en`) 맞춤 문구 제공 및 `content_cta_click` 전환 어트리뷰션 탑재.
+  - `past-life-calculator-birthday.html`: 정지 앱 링크를 `past-life-story-studio` 및 `future-self`로 교체, `blog/sitemap.xml` 2026-10-31 동기화.
+  - `cross-promo.js`: 블로그 전방위 과거삶 브릿지를 `/future-self/` 10년 시뮬레이터로 직결 및 CTA 전환 추적 추가.
+- **멘탈 웰니스 도구 파라미터 보존 및 전환 추적 표준화**:
+  - `grounding-exercise.js`, `burnout-stress-differential.js`, `decision-matrix.js`: 브릿지 카드 언어 파라미터(`?lang=*&source=*`) 보존 보장 및 `.bridge-card` 클릭 시 GA4 `content_cta_click` 전송.
+- **도구 전수 검증 및 품질 게이트 통과**:
+  - `verify-portal-tools.js`: 15개 포털 도구 모바일 390x844 뷰포트 오버플로 0px, $\ge 44\text{px}$ 터치 타깃 전원 PASS.
+  - `audit-funnel.js`: 4,034개 파일(블로그/앱/도구 전수) 정지 링크 및 텔레메트리 누출 0건(PASS).
+  - `indexing-inventory.js --strict`: 1,555개 URL 0 issues, IndexNow 200 OK.
+  - Health Guard: Auto Ads 계약, OAuth 토큰, 비밀값, 문서 예산, 루트 테스트 ALL PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

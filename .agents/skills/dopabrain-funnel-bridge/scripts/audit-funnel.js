@@ -6,6 +6,7 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..', '..', '..', '..');
 const PORTAL_BLOG = path.join(ROOT, 'projects', 'portal', 'blog');
+const PORTAL_TOOLS = path.join(ROOT, 'projects', 'portal', 'tools');
 
 const SUSPENDED_SLUGS = [
   '/dark-core/', '/daily-tarot/', '/numerology/', '/flappy-bird/',
@@ -14,7 +15,8 @@ const SUSPENDED_SLUGS = [
   '/sky-runner/', '/pong-game/', '/idle-clicker/', '/color-memory/',
   '/road-shooter/', '/zodiac-match/', '/mbti-coffee/', '/mbti-career/',
   '/word-scramble/', '/red-flag/', '/luck-meter/', '/sleep-animal/',
-  '/rizz-score/', '/delulu-test/', '/brainrot-quiz/', '/shadow-work/'
+  '/rizz-score/', '/delulu-test/', '/brainrot-quiz/', '/shadow-work/',
+  '/past-life/'
 ];
 
 function getHtmlFiles(dir) {
@@ -34,6 +36,7 @@ function getHtmlFiles(dir) {
 
 function auditFunnel(options = {}) {
   const blogFiles = getHtmlFiles(PORTAL_BLOG);
+  const toolFiles = getHtmlFiles(PORTAL_TOOLS).filter(f => !f.endsWith('index.html'));
   const projectsDir = path.join(ROOT, 'projects');
   const projectEntries = fs.existsSync(projectsDir)
     ? fs.readdirSync(projectsDir).filter(p => {
@@ -50,7 +53,7 @@ function auditFunnel(options = {}) {
     if (fs.existsSync(indexFile)) appFiles.push(indexFile);
   }
 
-  const files = [...blogFiles, ...appFiles];
+  const files = [...blogFiles, ...appFiles, ...toolFiles];
   let totalIssues = 0;
   const issuesByFile = [];
 
@@ -82,7 +85,7 @@ function auditFunnel(options = {}) {
   }
 
   console.log(`=== DopaBrain Funnel Audit ===`);
-  console.log(`Audited ${files.length} files across blog and active submodules.`);
+  console.log(`Audited ${files.length} files across blog, tools, and active submodules.`);
   if (totalIssues === 0) {
     console.log(`[PASS] Zero suspended links or telemetry leaks found. All funnels clean!`);
   } else {
