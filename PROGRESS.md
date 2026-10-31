@@ -22,17 +22,15 @@ Updated: 2026-10-31 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P1 전 서브모듈 퍼널 무결성 & E-E-A-T 전수 정제 (완료)**: 119개 서브모듈 정지 링크 0건 및 12개 언어 목적지(`?lang=`) 정합성 복원.
 - **P2 색인 인벤토리 및 IndexNow 실시간 전송 (완료)**: 1,534개 URL 정합성 0 issue 유지 및 갱신 40개 URL IndexNow 200 OK 제출.
 
-## Latest release: 39-Guide Interactive CRO Screeners & Funnel Alignment (2026-10-31)
+## Latest release: 12-Locale HSP Coping Triage & 2048 Funnel Alignment (2026-10-31)
 
-- **GA4 실측 상위 트래픽 39개 가이드 30초 반응형 CRO 스크리너 전면 배포 (`portal 0ce72ea`)**:
-  - `am-i-highly-sensitive-person-signs.html` (12개 국어): 아론 박사 DOES 4대 차원 체크리스트 및 `/hsp-test/`, `/hsp-test/reset.html` 연계.
-  - `emotional-exhaustion-signs-recovery.html` (12개 국어): 인지 안개·정서 무감각·비회복 수면·사회적 회피 4대 소진 트리아지 및 `/stress-check/`, `/portal/tools/burnout-stress-differential.html` 연계.
-  - `stress-management-techniques-guide.html` (12개 국어): 자율신경 반응(투쟁-도피·얼어붙기·코르티솔 수면·인내심 포화) 스크리너 및 `/stress-check/`, `/portal/tools/grounding-exercise.html` 연계.
-  - `ko/hsp-workplace-survival-guide.html`, `zh/avoidant-attachment-dating-guide.html`, `ko/avoidant-attachment-dating-patterns.html`: 직장 감각 소진 및 회피형 비활성화 방어기제 30초 스크리너 배포.
-  - `tools/brain-game-workout.html`: 90일 `dateModified` 초과 이슈 해소 및 사이트맵 동기화.
-  - Playwright 390x844 모바일 뷰포트 오버플로 0px, 터치 타깃 $\ge 44\text{px}$, 반응형 실시간 상태 변화(`0 -> 1 -> 4`) 13개 대표 경로 전수 검증 통과 (`npm run verify:screener`).
-  - 사이트맵(`portal/sitemap.xml`, `blog/sitemap.xml`) 40개 URL `lastmod: 2026-10-31` 갱신 및 IndexNow 일괄 제출 (HTTP 200 OK).
+- **GA4 고체류 상위 가이드 CRO 스크리너 12개 언어 전면 완성 (`portal 0f3366d`)**:
+  - `hsp-coping-strategies-highly-sensitive.html`: 잔여 5개 언어(`pt`, `ru`, `id`, `tr`, `hi`) 30초 감각 과부하 트리아지 스크리너 탑재 및 12개 전 언어 배포 완료.
+  - `zh/2048-strategy-guide.html`: 목적지-설명 불일치 앵커(Flappy/Snake) 정제(`2048推演教练`, `压力指数测试`) 및 `?lang=zh` 보존.
+  - `verify-screener-live.js`: 18개 대표 경로 Playwright 390x844 모바일 뷰포트 오버플로 0px, 터치 타깃 $\ge 44\text{px}$, 실시간 반응형(`0 -> 1 -> 4`) 전수 통과.
+  - `blog/sitemap.xml` 6개 URL `lastmod: 2026-10-31` 갱신 및 IndexNow 일괄 제출 (HTTP 200 OK).
 - **시스템 건전성 & 무결성 가드 6/6 전원 통과**:
-  - `health-guard`: AdSense OAuth & 계약, 색인 인벤토리(1,534개 0 issue), 시크릿 스캔, 문서 예산, 12개 언어 Playwright ALL PASS.
+  - `health-guard`: AdSense OAuth($0.64 7일/정책 0건), 계약(Auto Ads 단일/0 manual), 색인(1,534개 0 issue), 시크릿 스캔, 문서 예산, 12개 언어 Playwright ALL PASS.
+  - `audit-registry.json`: portal HEAD(`0f3366d`) 동기화 및 119개 서브모듈 무결성 유지.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

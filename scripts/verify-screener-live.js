@@ -20,7 +20,12 @@ const TEST_TARGETS = [
   { path: '/portal/blog/es/stress-management-techniques-guide.html', id: 'stressResponseScreener', countId: 'stressResponseScreenerCount', chk: '.str-screener-chk', lang: 'es' },
   { path: '/portal/blog/ko/hsp-workplace-survival-guide.html', id: 'workplaceDrainScreener', countId: 'workplaceDrainScreenerCount', chk: '.wp-ko-chk', lang: 'ko' },
   { path: '/portal/blog/zh/avoidant-attachment-dating-guide.html', id: 'avoidantScreener', countId: 'avoidantScreenerCount', chk: '.av-zh-chk', lang: 'zh' },
-  { path: '/portal/blog/ko/avoidant-attachment-dating-patterns.html', id: 'avoidantScreenerKo', countId: 'avoidantScreenerKoCount', chk: '.av-ko-chk', lang: 'ko' }
+  { path: '/portal/blog/ko/avoidant-attachment-dating-patterns.html', id: 'avoidantScreenerKo', countId: 'avoidantScreenerKoCount', chk: '.av-ko-chk', lang: 'ko' },
+  { path: '/portal/blog/pt/hsp-coping-strategies-highly-sensitive.html', id: 'sensory-triage', countId: 'triageCount', chk: '.triage-chk', lang: 'pt' },
+  { path: '/portal/blog/ru/hsp-coping-strategies-highly-sensitive.html', id: 'sensory-triage', countId: 'triageCount', chk: '.triage-chk', lang: 'ru' },
+  { path: '/portal/blog/id/hsp-coping-strategies-highly-sensitive.html', id: 'sensory-triage', countId: 'triageCount', chk: '.triage-chk', lang: 'id' },
+  { path: '/portal/blog/tr/hsp-coping-strategies-highly-sensitive.html', id: 'sensory-triage', countId: 'triageCount', chk: '.triage-chk', lang: 'tr' },
+  { path: '/portal/blog/hi/hsp-coping-strategies-highly-sensitive.html', id: 'sensory-triage', countId: 'triageCount', chk: '.triage-chk', lang: 'hi' }
 ];
 
 async function runTest() {
@@ -93,7 +98,7 @@ async function runTest() {
     }
 
     const targetsCompliant = await page.evaluate((id) => {
-      const items = Array.from(document.querySelectorAll(`#${id} .screener-item, #${id} .screener-btn, #${id} .screener-sub-btn`));
+      const items = Array.from(document.querySelectorAll(`#${id} .screener-item, #${id} .screener-btn, #${id} .screener-sub-btn, #${id} .hsp-triage-item, #${id} .triage-btn, #${id} .triage-sub-btn`));
       for (const el of items) {
         const rect = el.getBoundingClientRect();
         if (rect.height < 44 || rect.width < 44) {
@@ -129,7 +134,7 @@ async function runTest() {
     }
 
     // 4. Verify CTA preserves ?lang=
-    const href = await page.$eval(`#${target.id} .screener-btn`, el => el.getAttribute('href'));
+    const href = await page.$eval(`#${target.id} .screener-btn, #${target.id} .triage-btn`, el => el.getAttribute('href'));
     if (!href.includes(`lang=${target.lang}`)) {
       console.error(`[FAIL] ${target.path}: CTA href missing lang=${target.lang}: ${href}`);
       allPass = false;
@@ -144,7 +149,7 @@ async function runTest() {
   if (!allPass) {
     process.exit(1);
   }
-  console.log('=== All 13 Screener Playwright checks PASSED! ===');
+  console.log(`=== All ${TEST_TARGETS.length} Screener Playwright checks PASSED! ===`);
 }
 
 runTest().catch(err => {
