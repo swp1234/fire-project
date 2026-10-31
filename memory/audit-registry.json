@@ -410,7 +410,7 @@
       "trustCompliant": true
     },
     "stress-check": {
-      "headCommit": "4db81904bc36e4c54f196515410e21be469386c2",
+      "headCommit": "732eb63d3aa928c863c2ec80504acec1c3821b41",
       "branch": "master",
       "auditedAt": "2026-10-31",
       "overflowPx": 0,
