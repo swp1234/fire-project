@@ -171,9 +171,13 @@
 - **포털 도구(`projects/portal/tools/`) 내 정지 앱 링크 및 누락된 전환 추적 (Portal Tools Funnel & CTA Attribution Gap)**:
   - 과거 `audit-funnel.js`가 블로그와 서브모듈만 검사하여 `past-life-story-studio.html`에 무효 트래픽 정지 앱(`/past-life/`) 링크가 방치되었고, `cognitive-load-calculator`, `grounding-exercise`, `burnout-stress-differential`, `dopamine-detox-protocol`, `emotion-regulation-planner`, `brain-game-workout`, `decision-matrix` 등 주요 도구에서 브릿지 카드 클릭 시 GA4 전환 이벤트(`content_cta_click`)가 누락되어 도구간 상호 전환 기여도를 측정하지 못했던 문제.
   - **대책**: `audit-funnel.js`의 감사 대상에 `projects/portal/tools/`를 포함하고 `/past-life/`를 `SUSPENDED_SLUGS`에 추가. 모든 인터랙티브 도구는 언어 변경 시 브릿지 링크의 `?lang=` 및 `&source=*` 파라미터를 동적으로 보존하고, `.bridge-card`/`.related a` 클릭 시 `content_cta_click` 이벤트를 필수로 발행할 것.
-- **블로그 교차 프로모션 위젯(`cross-promo.js`) 내 정지 앱 브릿지 방치 안티패턴**:
-  - `cross-promo.js` 내 과거삶 아티클 인젝션 브릿지가 정지된 `/past-life/`로 향하여 트래픽이 무수익 페이지로 유실되던 문제.
-  - **대책**: 위젯 링크를 고체류 핵심 진입면인 `/future-self/?lang=*&start=1`로 직결하고 12개 언어 맞춤 문구 제공 및 `content_cta_click`을 병행 발행하여 트래픽 전환율 극대화.
+- **클라이언트 JS 식별자 중복 선언으로 인한 런타임 구문 에러 방지 (`SyntaxError: Identifier has already been declared`)**:
+  - `projects/stress-check/js/plan.js`에서 `translateStatic()`과 `bindEvents()` 내에 동일한 식별자(`const groundingLink`)가 중복 선언되어 브라우저 파싱이 즉시 중단되고 7일 스트레스 플랜 UI 인터랙션이 마비되었던 문제.
+  - **대책**: JS 파일 수정 시 반드시 `node -c <file.js>`로 구문 유효성을 즉시 검증하고, 이벤트 리스너와 DOM 엘리먼트 참조는 하나의 스코프 또는 모듈 라이프사이클에 일원화할 것.
+- **고체류 유틸리티 및 평가 진입면 아웃바운드 링크의 어트리뷰션 누락 방지 (Funnel Attribution Gap)**:
+  - `puzzle-2048` Coach(체류 912s, 70s/view), `future-self`, `hsp-test` 등 체류 시간이 가장 높은 진입면에서 사용자가 다음 평가 도구(`/brain-type/`, `/iq-test/`, `/attachment-style/`, `/stress-check/`)로 이동할 때 `source` 파라미터가 유실되거나 GA4 `content_cta_click` 이벤트가 발행되지 않아 사용자 전환 기여도가 어트리뷰션되지 못했던 문제.
+  - **대책**: 모든 고체류 진입면의 아웃바운드 링크는 대상 URL에 `source=<source_app>` 파라미터 및 `?lang=`을 보존하고, 클릭 시 GA4 `content_cta_click` 이벤트를 표준화하여 전송할 것.
+
 
 
 
