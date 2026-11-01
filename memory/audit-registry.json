@@ -32,9 +32,9 @@
       "trustCompliant": true
     },
     "mental-age": {
-      "headCommit": "20b55867dd4edce8bbab2c3570f01f792ab60331",
+      "headCommit": "bd4da5ab417c05c8314bd6f5f347684481d9ee3d",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -95,9 +95,9 @@
       "trustCompliant": true
     },
     "animal-personality": {
-      "headCommit": "b55cc7179957d5b76312aba1c0fe00d6d02bbdb4",
+      "headCommit": "445c6e1212ba562247b6f2c14a24c214247a9444",
       "branch": "master",
-      "auditedAt": "2026-10-29",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -509,9 +509,9 @@
       "trustCompliant": true
     },
     "eq-test": {
-      "headCommit": "478190f9ba00c0d1a736e539d0ba7de0faf1a7f8",
+      "headCommit": "5b9c24ed0ce9c22811b8ec2dacd0848f772286aa",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -905,9 +905,9 @@
       "trustCompliant": true
     },
     "dopamine-type": {
-      "headCommit": "000476e23b2f86888f3ff90785ab1fed4fc6c4ea",
+      "headCommit": "7b3129a60882c11e6131e2ce303672772ae13d74",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",

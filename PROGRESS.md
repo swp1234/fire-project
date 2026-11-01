@@ -23,12 +23,12 @@ Updated: 2026-11-01 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P2 포털 도구 및 K-pop 생태계 전환 추적 표준화 (완료)**: `portal` dopamine-detox, kpop-role-roster, brain-game-workout, emotion-regulation-planner 및 `kpop-position` companion card i18n/추적 표준화.
 - **P3 무결점 컴플라이언스 & 헬스 가드 통과 (완료)**: AdSense Auto Ads 계약, OAuth keepalive, 터치 타깃 0 이슈, 105개 스크리너 라이브 테스트 및 Health Guard ALL PASS.
 
-## Latest release: Core Assessment Funnels & Touch Compliance (`mbti-love b6c7dcb`, `love-language 3c1bf24`, `social-battery 6fb6484`, `inner-child 8f4e6ee`)
+## Latest release: Core Assessment Funnels & Touch Compliance (`mbti-love b6c7dcb`, `love-language 3c1bf24`, `dopamine-type 7b3129a`, `inner-child 8f4e6ee`)
 
 - **MBTI Couple Deck & Relationship Flow (`mbti-love b6c7dcb`)**: `deck.css` 모바일 브랜드 버튼 44px 터치 규격 확보, `deck.js` & `app.js` GA4 `content_cta_click` 이벤트 및 `?lang=`/`source` 보존.
 - **Love Language & Emotional Age (`love-language 3c1bf24`, `emotional-age 54941ef`)**: 추천 테스트 카드 동적 언어 파라미터 보존 및 `content_cta_click` 어트리뷰션 탑재.
-- **Social Battery & Trauma Response (`social-battery 6fb6484`, `trauma-response 4504046`, `toxic-trait cb38af9`)**: 언어 전환 시 URL 동기화, `source` 파라미터 및 `content_cta_click` 추적 통일.
-- **Inner Child & Shadow Work (`inner-child-test 8f4e6ee`, `shadow-work d6c9378`)**: 공유/추천 버튼 44px 터치 규격 수정 (14개 이슈 전멸), 언어 보존 및 `content_cta_click` 전환 탑재.
-- **품질 게이트 및 E2E 통과**: `audit-touch.js` 0px/0이슈, `audit-funnel.js`(4,034파일) PASS, `indexing-inventory.js --strict`(1,555URL) PASS, IndexNow 9개 URL 제출 (HTTP 202), `audit-registry.json` 동기화 완료.
+- **Dopamine Type & EQ Test (`dopamine-type 7b3129a`, `eq-test 5b9c24e`, `animal 445c6e1`)**: 15px 모바일 오버플로 수정 (0px 완결), `source` 파라미터 보존 및 `content_cta_click` 탑재.
+- **Inner Child & Mental Age (`inner-child-test 8f4e6ee`, `mental-age bd4da5a`, `shadow-work d6c9378`)**: 공유/추천 버튼 44px 터치 규격 수정 (14개 이슈 전멸), 가이드 링크 및 추천 카드 `content_cta_click` 전환 탑재.
+- **품질 게이트 및 E2E 통과**: `audit-touch.js` 0px/0이슈, `audit-funnel.js`(4,034파일) PASS, `indexing-inventory.js --strict`(1,555URL) PASS, IndexNow 13개 URL 제출 (HTTP 202), `audit-registry.json` 동기화 완료.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
