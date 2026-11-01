@@ -23,13 +23,13 @@ Updated: 2026-11-01 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P2 블로그 고체류 triage-sub-btn 전환 추적 보강 (완료)**: HSP 가이드(en, de), 2048 전략(zh) 보조 CTA에 `content_cta_click` 탑재.
 - **P3 무결점 컴플라이언스 & 헬스 가드 통과 (완료)**: AdSense Auto Ads 계약, OAuth keepalive, 터치 타깃 0 이슈, 105개 스크리너 라이브 테스트 및 Health Guard ALL PASS.
 
-## Latest release: Relationship & Emotion Assessment Attribution (`attachment-style b28272d`, `emotion-iceberg 8563df3`, `portal 56ca770`)
+## Latest release: Relationship & Emotion Assessment Attribution (`attachment-style b28272d`, `emotion-iceberg 8563df3`, `portal e8b2384`)
 
 - **Attachment Style & Emotion Iceberg 상호 연계 (`attachment-style b28272d`, `emotion-iceberg 8563df3`)**:
   - `attachment-style/js/app.js`: primary CTA/관련 카드 `content_cta_click` 탑재, `source=attachment_style` 파라미터 보존. (사용자 소유 `clarity.*` 불변 유지)
   - `emotion-iceberg/js/app.js`: 4개 다음 단계 카드 `source=emotion_iceberg` 파라미터 보존 및 `content_cta_click` 탑재.
-- **고체류 블로그 전환 추적 및 도구 i18n 보존 (`portal 56ca770`)**:
-  - `en/hsp-coping-strategies` & `zh/2048-strategy-guide`: `.triage-btn`, `.triage-sub-btn`에 `data-content-surface="cta"` 연결.
+- **고체류 블로그 전환 추적 및 도구 i18n 보존 (`portal e8b2384`)**:
+  - `en/kpop-positions-explained` & `zh/avoidant-attachment`: screener sub-CTA에 `data-content-surface="cta"` 및 추적 연결.
   - `brain-game-workout.js` & `emotion-regulation-planner.js`: 영문 접속 시 `?lang=` 제거 방지, 12개 언어 전체 엄격 보존.
   - `zh, ja, hi/what-your-favorite-color-says-about-you`: 누락된 빈 `<h3>` 제목 복구 및 `data-target-slug="brain-type"` 정합성 수정.
 - **품질 게이트 및 E2E 전원 통과**:
