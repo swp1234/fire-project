@@ -23,12 +23,12 @@ Updated: 2026-11-01 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P2 포털 도구 및 K-pop 생태계 전환 추적 표준화 (완료)**: `portal` dopamine-detox, kpop-role-roster, brain-game-workout, emotion-regulation-planner 및 `kpop-position` companion card i18n/추적 표준화.
 - **P3 무결점 컴플라이언스 & 헬스 가드 통과 (완료)**: AdSense Auto Ads 계약, OAuth keepalive, 터치 타깃 0 이슈, 105개 스크리너 라이브 테스트 및 Health Guard ALL PASS.
 
-## Latest release: Tools Catalog & Hub Funnel Continuity (`portal 7662bfc`, `hsp-test 005da45`, `dream-fortune 0737c4e`)
+## Latest release: Core Assessment Funnels & Touch Compliance (`mbti-love b6c7dcb`, `love-language 3c1bf24`, `social-battery 6fb6484`, `inner-child 8f4e6ee`)
 
-- **Tools Catalog & Cognitive Load (`portal 7662bfc`)**: `tools/index.html` 전체 카드/CTA에 `content_cta_click` 및 `source=portal_tools` 탑재, `.cta-chip`/footer/skip-link/hero-back 44px 터치 규격 달성, `cognitive-load-calculator.css` `.skip` 44px 보장.
-- **MBTI Hub & Type Pages (`portal 16314c0`)**: `mbti/index.html` starter card, surface CTA, next tests pill `content_cta_click` 및 `?source=portal_mbti` 보존, 44px 터치 규격, `type-page-enhancer.js` hero/rail/bottom CTA `content_cta_click` 통일.
-- **HSP Reset Card & Map (`hsp-test 005da45`)**: `reset.js` & `map.js` 아웃바운드 링크에 `content_cta_click` 탑재, 390x844 오버플로 0px 검증.
-- **Dream Fortune Assessment Bridge (`dream-fortune 0737c4e`)**: `js/app.js` 4개 추천 평가 카드(#related-grid a) 클릭 시 `content_cta_click` 탑재, 12개 언어 파라미터 동적 보존.
-- **품질 게이트 및 E2E 전원 통과**: `audit-touch.js`(portal 53, hsp-test 5, dream-fortune 19) 0px/0이슈, `audit-funnel.js`(4,034파일) PASS, `indexing-inventory.js --strict`(1,555URL) PASS, `health-guard.js`(6개 전체) ALL PASS, IndexNow 즉각 갱신(HTTP 202) 및 `audit-registry.json` HEAD 동기화 완료.
+- **MBTI Couple Deck & Relationship Flow (`mbti-love b6c7dcb`)**: `deck.css` 모바일 브랜드 버튼 44px 터치 규격 확보, `deck.js` & `app.js` GA4 `content_cta_click` 이벤트 및 `?lang=`/`source` 보존.
+- **Love Language & Emotional Age (`love-language 3c1bf24`, `emotional-age 54941ef`)**: 추천 테스트 카드 동적 언어 파라미터 보존 및 `content_cta_click` 어트리뷰션 탑재.
+- **Social Battery & Trauma Response (`social-battery 6fb6484`, `trauma-response 4504046`, `toxic-trait cb38af9`)**: 언어 전환 시 URL 동기화, `source` 파라미터 및 `content_cta_click` 추적 통일.
+- **Inner Child & Shadow Work (`inner-child-test 8f4e6ee`, `shadow-work d6c9378`)**: 공유/추천 버튼 44px 터치 규격 수정 (14개 이슈 전멸), 언어 보존 및 `content_cta_click` 전환 탑재.
+- **품질 게이트 및 E2E 통과**: `audit-touch.js` 0px/0이슈, `audit-funnel.js`(4,034파일) PASS, `indexing-inventory.js --strict`(1,555URL) PASS, IndexNow 9개 URL 제출 (HTTP 202), `audit-registry.json` 동기화 완료.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
