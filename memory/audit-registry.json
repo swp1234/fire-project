@@ -239,9 +239,9 @@
       "trustCompliant": true
     },
     "kpop-position": {
-      "headCommit": "b3bf1a4e6b4a8d08ce9b48a24a0c4ab3cb8fc308",
+      "headCommit": "bc2887b6891a89daea01c7d12e363d00bcc345dd",
       "branch": "main",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -1077,22 +1077,22 @@
     }
   },
   "future-self": "fb71d4a",
-  "kpop-position": "b3bf1a4",
+  "kpop-position": "bc2887b",
   "root-domain": "654844e",
   "portal": {
-    "head": "6f03884cb3cdb41127add6b62b3f5137819700ce",
-    "lastAudit": "2026-10-31",
+    "head": "3317b69b0d698f6b24d73bbc8b77a0ed09f5caa5",
+    "lastAudit": "2026-11-01",
     "status": "clean",
-    "headCommit": "6f03884cb3cdb41127add6b62b3f5137819700ce",
-    "lastAudited": "2026-10-31"
+    "headCommit": "3317b69b0d698f6b24d73bbc8b77a0ed09f5caa5",
+    "lastAudited": "2026-11-01"
   },
   "puzzle-2048": "3875d37",
   "stress-check": "8d87028",
   "projects/portal": {
-    "head": "6f03884cb3cdb41127add6b62b3f5137819700ce",
-    "lastAudit": "2026-10-31",
+    "head": "3317b69b0d698f6b24d73bbc8b77a0ed09f5caa5",
+    "lastAudit": "2026-11-01",
     "status": "clean",
-    "headCommit": "6f03884cb3cdb41127add6b62b3f5137819700ce",
-    "lastAudited": "2026-10-31"
+    "headCommit": "3317b69b0d698f6b24d73bbc8b77a0ed09f5caa5",
+    "lastAudited": "2026-11-01"
   }
 }
