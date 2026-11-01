@@ -77,7 +77,7 @@
       "trustCompliant": true
     },
     "portal": {
-      "headCommit": "5525f987970399d3138c16a52c84965ffb4c2047",
+      "headCommit": "16314c0b139df3836a3fcf2411dd05e2ecc066e5",
       "branch": "main",
       "auditedAt": "2026-11-01",
       "overflowPx": 0,
@@ -167,9 +167,9 @@
       "trustCompliant": true
     },
     "dream-fortune": {
-      "headCommit": "8e797cfab03b9e034b23498840df50f9a5fdd761",
+      "headCommit": "0737c4eecd6181ecff2dffe6a73ccfd42493b22a",
       "branch": "main",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -212,9 +212,9 @@
       "trustCompliant": true
     },
     "hsp-test": {
-      "headCommit": "f0362bdf55d640a6095ae4a0b9bd124bcf56bc3b",
+      "headCommit": "005da45acd41f5ec79ed3a043ca623965cc0b2ff",
       "branch": "main",
-      "auditedAt": "2026-10-31",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
