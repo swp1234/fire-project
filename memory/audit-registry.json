@@ -14,9 +14,9 @@
       "trustCompliant": true
     },
     "biorhythm": {
-      "headCommit": "520d4fbef8b54ac37d7b3e39c7ec90a82ab4ea16",
+      "headCommit": "b43e715442001c17a648a47956c5bc2188c5c422",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -95,7 +95,7 @@
       "trustCompliant": true
     },
     "animal-personality": {
-      "headCommit": "445c6e1212ba562247b6f2c14a24c214247a9444",
+      "headCommit": "095e3e6359fd9844d5606f12b5ec726e1da18958",
       "branch": "master",
       "auditedAt": "2026-11-01",
       "overflowPx": 0,
@@ -131,18 +131,18 @@
       "trustCompliant": true
     },
     "color-personality": {
-      "headCommit": "2e81ee695692e062ba09c82153415102c8d64ad6",
+      "headCommit": "4f91a9f64da7284444af8bcb096b53f7f5682c29",
       "branch": "color-personality-containment",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
       "trustCompliant": true
     },
     "dday-counter": {
-      "headCommit": "c7b3854bc05d86e25412b2cd28e7dade9f551146",
+      "headCommit": "20e2f395b92a9816c275a84413a3b4ee2d2075e5",
       "branch": "main",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -185,9 +185,9 @@
       "trustCompliant": true
     },
     "emotion-temp": {
-      "headCommit": "8b7af6b9fdbabbbb518481e59959a2df0d4be1e0",
+      "headCommit": "97f53f47b5880f524e99c9c70cd8d9a2d480ccd2",
       "branch": "main",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -239,7 +239,7 @@
       "trustCompliant": true
     },
     "kpop-position": {
-      "headCommit": "bc2887b6891a89daea01c7d12e363d00bcc345dd",
+      "headCommit": "c7734a793be6ce73a892a2c59cd2ae5de69d2851",
       "branch": "main",
       "auditedAt": "2026-11-01",
       "overflowPx": 0,
@@ -437,9 +437,9 @@
       "trustCompliant": true
     },
     "unit-converter": {
-      "headCommit": "a1a371cfe747df5686799953303f1f7efca582e9",
+      "headCommit": "80c7eb78705d05d77a406cd4ec37a77988a2499c",
       "branch": "main",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -518,18 +518,18 @@
       "trustCompliant": true
     },
     "stress-type": {
-      "headCommit": "3c55a3bff0731a4a75406b1139a15a9c46de1867",
+      "headCommit": "270cd106372010fcf2bc0eb8004991d1088b0ea0",
       "branch": "master",
-      "auditedAt": "2026-10-29",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
       "trustCompliant": true
     },
     "work-style": {
-      "headCommit": "a05429afc6eeba7e563478d866ba171c53647ee7",
+      "headCommit": "7df6fe61b898fbf053b0b8f7d747fd927e9f1975",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -545,9 +545,9 @@
       "trustCompliant": true
     },
     "fortune-cookie": {
-      "headCommit": "9f0aac473c3d123c03e880aa6d88b70429254637",
+      "headCommit": "5aed91bb98f6a5da2e2b792c56d02d8f62f007e0",
       "branch": "master",
-      "auditedAt": "2026-10-29",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -590,9 +590,9 @@
       "trustCompliant": true
     },
     "toxic-trait": {
-      "headCommit": "858e3570bed450895e670af1c6a868ccff9eb836",
+      "headCommit": "517789ec68abf5d8f2db7a28e584ab15142941e8",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -635,9 +635,9 @@
       "trustCompliant": true
     },
     "bmi-calculator": {
-      "headCommit": "2001a97910952821bc8da35ebbea9a7951e4e578",
+      "headCommit": "44d8e568724279c8e0669dbc42fe744315cd0981",
       "branch": "main",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -653,9 +653,9 @@
       "trustCompliant": true
     },
     "color-palette": {
-      "headCommit": "cb821499be3cf875a35f78b4d0a0ecfd7a1e8160",
+      "headCommit": "e0a31a1ac087a9c43605d3d17ff0411ef7df6ffb",
       "branch": "master",
-      "auditedAt": "2026-10-29",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -698,18 +698,18 @@
       "trustCompliant": true
     },
     "pomodoro-timer": {
-      "headCommit": "6efdf4f289976eb9ec4ec7481b19551c8c9745b3",
+      "headCommit": "943a1008ad1ee1fcea31f2ac9c34feaeac3c0100",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
       "trustCompliant": true
     },
     "reaction-test": {
-      "headCommit": "6cd4bd6de0a75f7fafc4e4f8f82fe7d076e5764c",
+      "headCommit": "f48dbbf9703011f157f7294979c843c28ba99d1d",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -761,9 +761,9 @@
       "trustCompliant": true
     },
     "aura-score": {
-      "headCommit": "967ab8dd34d77da6ace49f91c2e3e6790500447c",
+      "headCommit": "2b94679b9979c42139a045473d221cc4e499a625",
       "branch": "master",
-      "auditedAt": "2026-10-29",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -797,9 +797,9 @@
       "trustCompliant": true
     },
     "soul-age": {
-      "headCommit": "3041ef061dee0b48552aac1006c7956941b3ddae",
+      "headCommit": "65285ef25d17f65e6f0b2789062f056034669b19",
       "branch": "master",
-      "auditedAt": "2026-10-29",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -842,9 +842,9 @@
       "trustCompliant": true
     },
     "life-in-numbers": {
-      "headCommit": "8fa999ae77c30c91dff5d44c0045e70718710175",
+      "headCommit": "5ba34a69b86165141959b07a0212489418aa6813",
       "branch": "master",
-      "auditedAt": "2026-10-29",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -887,9 +887,9 @@
       "trustCompliant": true
     },
     "overthinker-test": {
-      "headCommit": "56a58387105ddc4bf608d39e09ca1abe5bf7ae5f",
+      "headCommit": "2fa77d893c4c0feefc84a242d44fe52578b5c156",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -914,7 +914,7 @@
       "trustCompliant": true
     },
     "burnout-test": {
-      "headCommit": "5a3af05397fa67695da07f2bd6d23c0f933981c8",
+      "headCommit": "8bf75bca2efe17be723a0b7df7eb344366ea13db",
       "branch": "master",
       "auditedAt": "2026-11-01",
       "overflowPx": 0,
@@ -923,9 +923,9 @@
       "trustCompliant": true
     },
     "stress-response": {
-      "headCommit": "44dca300a515c7bc086745bac6d9f67044b26674",
+      "headCommit": "fc158cbe5fb1d222b371cb05c452532160092bcd",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -1077,7 +1077,7 @@
     }
   },
   "future-self": "fb71d4a",
-  "kpop-position": "bc2887b",
+  "kpop-position": "c7734a7",
   "root-domain": "654844e",
   "portal": {
     "head": "e8b23849508c505be4cbcbfb205318aa258c0291",
