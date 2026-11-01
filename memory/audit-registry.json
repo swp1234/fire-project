@@ -1080,19 +1080,19 @@
   "kpop-position": "bc2887b",
   "root-domain": "654844e",
   "portal": {
-    "head": "3317b69b0d698f6b24d73bbc8b77a0ed09f5caa5",
+    "head": "34ab5cc724af77b5f20afc354045663fa62c9f7f",
     "lastAudit": "2026-11-01",
     "status": "clean",
-    "headCommit": "3317b69b0d698f6b24d73bbc8b77a0ed09f5caa5",
+    "headCommit": "34ab5cc724af77b5f20afc354045663fa62c9f7f",
     "lastAudited": "2026-11-01"
   },
   "puzzle-2048": "3875d37",
   "stress-check": "8d87028",
   "projects/portal": {
-    "head": "3317b69b0d698f6b24d73bbc8b77a0ed09f5caa5",
+    "head": "34ab5cc724af77b5f20afc354045663fa62c9f7f",
     "lastAudit": "2026-11-01",
     "status": "clean",
-    "headCommit": "3317b69b0d698f6b24d73bbc8b77a0ed09f5caa5",
+    "headCommit": "34ab5cc724af77b5f20afc354045663fa62c9f7f",
     "lastAudited": "2026-11-01"
   }
 }
