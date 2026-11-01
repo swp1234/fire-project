@@ -563,9 +563,9 @@
       "trustCompliant": true
     },
     "color-blindness": {
-      "headCommit": "e06dce3ed869c05c57fe73cbbf97c2b3fbf75d12",
+      "headCommit": "af8f39ee02994e8620bc3859769d9ff335320399",
       "branch": "main",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
