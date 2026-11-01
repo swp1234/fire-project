@@ -177,6 +177,16 @@
 - **고체류 유틸리티 및 평가 진입면 아웃바운드 링크의 어트리뷰션 누락 방지 (Funnel Attribution Gap)**:
   - `puzzle-2048` Coach(체류 912s, 70s/view), `future-self`, `hsp-test` 등 체류 시간이 가장 높은 진입면에서 사용자가 다음 평가 도구(`/brain-type/`, `/iq-test/`, `/attachment-style/`, `/stress-check/`)로 이동할 때 `source` 파라미터가 유실되거나 GA4 `content_cta_click` 이벤트가 발행되지 않아 사용자 전환 기여도가 어트리뷰션되지 못했던 문제.
   - **대책**: 모든 고체류 진입면의 아웃바운드 링크는 대상 URL에 `source=<source_app>` 파라미터 및 `?lang=`을 보존하고, 클릭 시 GA4 `content_cta_click` 이벤트를 표준화하여 전송할 것.
+- **카드 진입 애니메이션의 `transform: scale()`로 인한 터치 타깃 축소 오탐 (Scale Animation Touch Shrinkage)**:
+  - `.result-card`에 `@keyframes resultFadeIn { from { transform: scale(0.95); } }` 등이 적용되어 있을 때, 기본 `min-height: 44px`로 설정된 버튼이 애니메이션 초기 프레임에서 `44 * 0.95 = 41.8px`로 계산되어 모바일 터치 타깃 자동 검사(Playwright)에서 실패하는 문제.
+  - **대책**: 진입 애니메이션이 적용되는 카드의 버튼이나 공유 요소는 `min-height: 48px; padding: 12px 20px;`로 여유 공간을 두어(`48 * 0.95 = 45.6px >= 44px`) 애니메이션 재생 중에도 항상 44px 이상을 유지할 것.
+- **2열 그리드 레이아웃의 모바일 가로 오버플로 방지 (`grid-template-columns: repeat(2, minmax(0, 1fr))` 필수)**:
+  - `.related-grid`나 추천 카드 영역에 `grid-template-columns: 1fr 1fr;`를 사용할 경우 컬럼의 기본 최소폭(`min-width: auto`)으로 인해 긴 다국어 텍스트나 여백으로 10~15px 가로 스크롤 오버플로가 발생함.
+  - **대책**: 반드시 `grid-template-columns: repeat(2, minmax(0, 1fr));`를 사용하고, 하위 `.related-card`에는 `min-width: 0; min-height: 44px; box-sizing: border-box; word-break: break-word;`를 적용할 것.
+- **합성 타이머 텔레메트리(`timer_engagement` via `setTimeout`) 영구 제거**:
+  - `setTimeout(..., 5000)`으로 `timer_engagement`를 인위적으로 발행하는 코드는 GA4의 자동 체류시간 측정과 중복될 뿐 아니라, 구글 AdSense 무효 트래픽(IVT) 방어 엔진에서 `page_engage`와 유사한 합성 봇 신호로 의심받을 위험이 있음.
+  - **대책**: 인위적인 타이머 이벤트 발행 코드는 전면 제거하고, 실제 사용자의 상호작용(스크롤, 클릭, 계산 완료) 기반 이벤트만 유지할 것.
+
 
 
 
