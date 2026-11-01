@@ -19,17 +19,18 @@ Updated: 2026-11-01 KST. Release history: `memory/data-check-log.md`; ops loop: 
 ## Active plan (2026-11-01) — 상세 설계: `docs/STRATEGY.md`
 
 - **P0 6대 핵심 진입면 전환 어트리뷰션 전면 완성 (완료)**: `stress-check`, `puzzle-2048`, `future-self`, `hsp-test`, `brain-type`, `iq-test` 전원 언어 및 `source` 보존, GA4 `content_cta_click` 표준화.
-- **P1 검색 색인 및 IndexNow 신호 즉각 갱신 (완료)**: `brain-type`, `iq-test` 최신 갱신분 IndexNow 200 OK 제출 및 `audit-registry.json` 동기화.
+- **P1 포털 도구 카탈로그 전환 추적 표준화 (완료)**: `portal` dopamine-detox 브릿지 카드 및 kpop-role-roster 관련 링크 `content_cta_click` 전면 탑재.
 - **P2 무결점 컴플라이언스 & 헬스 가드 통과 (완료)**: AdSense 단일 Auto Ads 계약, OAuth keepalive(UTF-8 보정), 터치 타깃 0 이슈, Health Guard ALL PASS.
 
-## Latest release: Complete 6-Core Assessment Funnel Attribution (`brain-type 5f45a1e`, `iq-test 00a58e9`)
+## Latest release: Complete Assessment & Portal Tools Funnel Attribution (`portal 5525f98`, `brain-type 5f45a1e`, `iq-test 00a58e9`)
 
+- **Portal 유틸리티 도구 표준 전환 추적 (`portal 5525f98`)**:
+  - `dopamine-detox-protocol.js`: 브릿지 카드 3종(Stress Check, Future Self, Burnout Differential) 클릭 시 `content_cta_click` 탑재.
+  - `kpop-role-roster.js`: 관련 링크 2종(포지션 테스트, 가이드) 클릭 시 `content_cta_click` 탑재.
 - **Brain Type & IQ Test 표준 전환 추적 (`brain-type 5f45a1e`, `iq-test 00a58e9`)**:
   - `brain-type/js/app.js`: intro growth 카드, 관련 검사 그리드, primary CTA, 푸터 링크 전원에 `content_cta_click` 탑재 및 `source=brain_type_result` 보존.
   - `iq-test/js/app.js`: hero next-step CTA 및 관련 라우트 링크에 `content_cta_click` 탑재, `source=iq_test` 파라미터 자동 보존.
   - IndexNow 즉각 갱신(HTTP 200) 및 `memory/audit-registry.json` HEAD 동기화 완료.
-- **AdSense Keepalive 스크립트 윈도우 UTF-8 인코딩 보정**:
-  - `scripts/adsense-mcp-keepalive.ps1`: 한국어 경로 깨짐 방지 인코딩 지시자 추가 및 UTF-8 로그 기록 보장.
 - **품질 게이트 및 E2E 통과**:
   - `audit-touch.js`: `brain-type`, `iq-test`, `portal` 390x844 모바일 뷰포트 오버플로 0px, 터치 이슈 0건(PASS).
   - `audit-funnel.js`: 4,034개 파일 정지 링크 및 텔레메트리 누출 0건(PASS).
