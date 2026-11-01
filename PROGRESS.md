@@ -1,41 +1,38 @@
 # DopaBrain current status
 
-Updated: 2026-10-31 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
+Updated: 2026-11-01 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
 
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
-- **AdSense Status (2026-10-31)**: Policy violations 0 (`{}`). 오늘 **$0.06** (진행 중, 어제 실적 조기 달성), 어제 **$0.06**, 7일 누적 **$0.64** (일평균 $0.091, 지속 상승), 이달 누적 **$1.89**.
-- GA4 실측 (최근 7일 / 28일): Organic Search 67 세션 중 54 Engaged (참여율 **80.6%**, 총 참여시간 **5,189s**, 세션당 평균 **96s**).
-- 고체류 핵심 진입면: 2048 Coach 8,362s(28d), Future Self 1,686s, Stress Check 1,479s, HSP Test 1,115s, HSP Workplace Guide 758s.
+- **AdSense Status (2026-11-01)**: Policy violations 0 (`{}`). 어제 확정 **$0.07**, 7일 누적 **$0.67** (일평균 $0.096, 지속 상승), 30일 누적 **$1.81**. 오늘 **$0.01** 진행 중.
+- GA4 실측 (최근 7일): Organic Search 84 세션(프랑스, 미국, 중국, 독일, 한국 등), 핵심 고체류 진입면 체류 지속 (2048 Coach 414s, Future Self 203s, Brain Type 243s, HSP Guide 650s).
+- 고체류 핵심 진입면: 2048 Coach, Future Self, Stress Check, HSP Test, Brain Type, IQ Test.
 
 ## Current operating rules
 
 - 포트폴리오 비중: 신규 인터랙티브 40% : 핵심 진입면 강화 35% : SEO/인프라 25%.
 - Keep 36 legacy apps in invalid-traffic suspension contract.
-- Focus organic growth on core tools (Stress Check 95~175s, Future Self 178s, HSP Test 63s, 2048 Coach 188s).
+- Focus organic growth on core tools (Stress Check, Future Self, HSP Test, 2048 Coach, Brain Type, IQ Test).
 - Preserve user-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` untouched.
 
-## Active plan (2026-10-31) — 상세 설계: `docs/STRATEGY.md`
+## Active plan (2026-11-01) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 도구 퍼널 누수 차단 & 언어/CTA 전환 추적 표준화 (완료)**: `past-life-story-studio` 및 블로그의 정지 앱 누수 제거(`/future-self/` 직결), 12개어 다국어 로케일 보존 및 GA4 `content_cta_click` 이벤트 전면 탑재.
-- **P1 핵심 진입면 전환 어트리뷰션 전면 연결 (완료)**: `stress-check`, `puzzle-2048` Coach, `future-self`, `hsp-test`의 언어/소스 보존 및 `content_cta_click` 탑재.
-- **P2 색인 인벤토리 & 검증 하네스 무결점 통과 (완료)**: 1,555개 URL 무결점(0 issue), 105개 스크리너 E2E 및 Health Guard ALL PASS.
+- **P0 6대 핵심 진입면 전환 어트리뷰션 전면 완성 (완료)**: `stress-check`, `puzzle-2048`, `future-self`, `hsp-test`, `brain-type`, `iq-test` 전원 언어 및 `source` 보존, GA4 `content_cta_click` 표준화.
+- **P1 검색 색인 및 IndexNow 신호 즉각 갱신 (완료)**: `brain-type`, `iq-test` 최신 갱신분 IndexNow 200 OK 제출 및 `audit-registry.json` 동기화.
+- **P2 무결점 컴플라이언스 & 헬스 가드 통과 (완료)**: AdSense 단일 Auto Ads 계약, OAuth keepalive(UTF-8 보정), 터치 타깃 0 이슈, Health Guard ALL PASS.
 
-## Latest release: Core Assessment Funnel Attribution (`stress-check 732eb63`, `puzzle-2048 331d5f2`, `future-self 935f472`, `hsp-test f0362bd`)
+## Latest release: Complete 6-Core Assessment Funnel Attribution (`brain-type 5f45a1e`, `iq-test 00a58e9`)
 
-- **2048 Coach & 고체류 진입면 어트리뷰션 (`puzzle-2048 331d5f2`)**:
-  - `projects/puzzle-2048/js/coach.js`: 외부 평가 도구(`/brain-type/`, `/iq-test/`) 및 전략 가이드 연결 시 `source=coach_2048` 파라미터 보존. `data-destination` 및 게임 이동 시 GA4 `content_cta_click` 어트리뷰션 전면 연결.
-  - 2048 ad-policy baseline & 26개 mutation 테스트 100% 통과(25 mutants 차단).
-- **Future Self & HSP Test 전환 추적 (`future-self 935f472`, `hsp-test f0362bd`)**:
-  - `future-self/js/app.js`: 결과 화면 애착유형 진입 및 푸터 추천 도구 6종에 `content_cta_click` 탑재.
-  - `hsp-test/js/app.js`: 결과 화면 추천 카드 그리드 6종에 `content_cta_click` 이벤트 탑재.
-- **스트레스 체크 리셋 플랜 구문 오류 해소 (`stress-check 732eb63`)**:
-  - `plan.js` 중복 식별자 선언 결함 제거, `script.js` 및 `library.js`에 전환 어트리뷰션 전면 연결.
+- **Brain Type & IQ Test 표준 전환 추적 (`brain-type 5f45a1e`, `iq-test 00a58e9`)**:
+  - `brain-type/js/app.js`: intro growth 카드, 관련 검사 그리드, primary CTA, 푸터 링크 전원에 `content_cta_click` 탑재 및 `source=brain_type_result` 보존.
+  - `iq-test/js/app.js`: hero next-step CTA 및 관련 라우트 링크에 `content_cta_click` 탑재, `source=iq_test` 파라미터 자동 보존.
+  - IndexNow 즉각 갱신(HTTP 200) 및 `memory/audit-registry.json` HEAD 동기화 완료.
+- **AdSense Keepalive 스크립트 윈도우 UTF-8 인코딩 보정**:
+  - `scripts/adsense-mcp-keepalive.ps1`: 한국어 경로 깨짐 방지 인코딩 지시자 추가 및 UTF-8 로그 기록 보장.
 - **품질 게이트 및 E2E 통과**:
-  - `verify-screener-live.js`: 105개 인터랙티브 스크리너 모바일 터치 및 반응형 상태 전원 PASS.
-  - `indexing-inventory.js --strict`: 1,555개 URL 0 issues, IndexNow 200 OK.
+  - `audit-touch.js`: `brain-type`, `iq-test`, `portal` 390x844 모바일 뷰포트 오버플로 0px, 터치 이슈 0건(PASS).
   - `audit-funnel.js`: 4,034개 파일 정지 링크 및 텔레메트리 누출 0건(PASS).
-  - Health Guard Suite: Auto Ads 계약, OAuth 토큰, 비밀값, 문서 예산, 루트 테스트 ALL PASS.
+  - `health-guard.js`: AdSense 계약, OAuth 토큰, 비밀값, 문서 예산, 루트 테스트 ALL PASS.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

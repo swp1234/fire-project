@@ -5,6 +5,8 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding = [System.Text.Encoding]::UTF8
 
 if (-not $WorkspacePath) {
     $WorkspacePath = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
@@ -27,7 +29,7 @@ if ($logDir) {
 function Write-KeepAliveLog {
     param([hashtable]$Entry)
     $Entry.ts = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
-    Add-Content -LiteralPath $LogPath -Value ($Entry | ConvertTo-Json -Compress -Depth 8)
+    Add-Content -LiteralPath $LogPath -Value ($Entry | ConvertTo-Json -Compress -Depth 8) -Encoding utf8
 }
 
 $doctorOutput = & node $mcpEntry doctor 2>&1
