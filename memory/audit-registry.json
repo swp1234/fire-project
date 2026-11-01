@@ -599,9 +599,9 @@
       "trustCompliant": true
     },
     "attachment-style": {
-      "headCommit": "902e49e40c22a8d0098a70afa94f6e4f8b128cf8",
+      "headCommit": "b28272d56103791a144a2c7c84d12886e0a42a51",
       "branch": "master",
-      "auditedAt": "2026-10-27",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -851,9 +851,9 @@
       "trustCompliant": true
     },
     "emotion-iceberg": {
-      "headCommit": "cc91f11f0dc3f08fd17f93f92b509ede1c790d7c",
+      "headCommit": "8563df3e52230a1ee0469dd3ad7d515f145bb4eb",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-01",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
