@@ -311,13 +311,16 @@
       "status": "VERIFIED_PASSED"
     },
     "password-generator": {
-      "headCommit": "10f6b3f786a4db3a0d48cef32352f8c795cbd86b",
+      "headCommit": "4bb00d8cf2808af5e4809b3463e30a47c1ca6468",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-03",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "last_audit_commit": "4bb00d8cf2808af5e4809b3463e30a47c1ca6468",
+      "last_audit_time": "2026-11-03T13:59:15.616Z",
+      "trust_issues": 0
     },
     "past-life": {
       "headCommit": "af490857c33ee98081e3f1dc2df374380e4d94ce",
@@ -491,13 +494,16 @@
       "trustCompliant": true
     },
     "zodiac-match": {
-      "headCommit": "f4f5e26256f7119cf623af3e3b4d766d8719cd7d",
+      "headCommit": "712b0de4072fb0ec787cc3c507ad5320a34a595c",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-03",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "last_audit_commit": "712b0de4072fb0ec787cc3c507ad5320a34a595c",
+      "last_audit_time": "2026-11-03T13:59:15.616Z",
+      "trust_issues": 0
     },
     "love-language": {
       "headCommit": "3c1bf247a805fb71dcc4790418a534df0a067b8b",
@@ -581,13 +587,16 @@
       "trustCompliant": true
     },
     "red-green-flag": {
-      "headCommit": "0bca6fe1a196c374da84ed89723fca502548a6ed",
+      "headCommit": "f9ac46a0f3976f0ca41ffd0bf63ee9ec5d8d0141",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-03",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "last_audit_commit": "f9ac46a0f3976f0ca41ffd0bf63ee9ec5d8d0141",
+      "last_audit_time": "2026-11-03T13:59:15.616Z",
+      "trust_issues": 0
     },
     "toxic-trait": {
       "headCommit": "517789ec68abf5d8f2db7a28e584ab15142941e8",
@@ -635,13 +644,15 @@
       "trustCompliant": true
     },
     "bmi-calculator": {
-      "headCommit": "44d8e568724279c8e0669dbc42fe744315cd0981",
+      "headCommit": "a6ccc712b7f18ec3eac09e867518f02c3d345626",
       "branch": "main",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-03",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "last_audit_commit": "a6ccc712b7f18ec3eac09e867518f02c3d345626",
+      "last_audit_time": "2026-11-03T14:03:46.048Z"
     },
     "brain-type": {
       "headCommit": "5f45a1ea7d4ecc6618ed9acca0a9283917c66f75",
@@ -824,22 +835,28 @@
       "trustCompliant": true
     },
     "villain-origin": {
-      "headCommit": "084fb52c30d5eee90a422acfe4f0aaa90fd4d94c",
+      "headCommit": "ec18cf325d2b2327ca48d0028647742a315c55d6",
       "branch": "master",
-      "auditedAt": "2026-10-29",
+      "auditedAt": "2026-11-03",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "last_audit_commit": "ec18cf325d2b2327ca48d0028647742a315c55d6",
+      "last_audit_time": "2026-11-03T13:59:15.616Z",
+      "trust_issues": 0
     },
     "ick-factor": {
-      "headCommit": "9ec212530ab3bd75166aaf1b934310a77c5359d5",
+      "headCommit": "46bda9d91841d3f0d610ff104dcc46a0c857e6c0",
       "branch": "master",
-      "auditedAt": "2026-10-29",
+      "auditedAt": "2026-11-03",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "last_audit_commit": "46bda9d91841d3f0d610ff104dcc46a0c857e6c0",
+      "last_audit_time": "2026-11-03T14:01:37.699Z",
+      "trust_issues": 0
     },
     "life-in-numbers": {
       "headCommit": "5ba34a69b86165141959b07a0212489418aa6813",
