@@ -1,12 +1,12 @@
 # DopaBrain current status
 
-Updated: 2026-11-01 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
+Updated: 2026-11-03 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
 
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
-- **AdSense Status (2026-11-01)**: Policy violations 0 (`{}`). 어제 확정 **$0.07**, 7일 누적 **$0.67** (일평균 $0.096, 지속 상승), 30일 누적 **$1.81**. 오늘 **$0.01** 진행 중.
-- GA4 실측: Organic Search 84 세션/7d, 핵심 고체류 진입면 (2048 Coach 414s, Future Self 203s, Brain Type 243s, HSP Guide 650s).
+- **AdSense Status (2026-11-03)**: Policy violations 0 (`{}`). 어제 확정 **$0.03**, 7일 누적 **$0.61** (일평균 $0.087), 30일 누적 **$1.79**. 오늘 **$0.04** 진행 중. 10-27 피크 **$0.25** (일 목표 달성 사례 보유).
+- GA4 실측: Organic Search ~84 세션/7d, 핵심 고체류 진입면 (2048 Coach 414s, Future Self 203s, Brain Type 243s, HSP Guide 650s).
 - 고체류 핵심 진입면: 2048 Coach, Future Self, Stress Check, HSP Test, Brain Type, IQ Test.
 
 ## Current operating rules
