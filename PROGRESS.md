@@ -23,11 +23,12 @@ Updated: 2026-11-03 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P2 포털 도구 및 K-pop 생태계 전환 추적 표준화 (완료)**: `portal` dopamine-detox, kpop-role-roster, brain-game-workout, emotion-regulation-planner 및 `kpop-position` companion card i18n/추적 표준화.
 - **P3 무결점 컴플라이언스 & 헬스 가드 통과 (완료)**: AdSense Auto Ads 계약, OAuth keepalive, 터치 타깃 0 이슈, 105개 스크리너 라이브 테스트 및 Health Guard ALL PASS.
 
-## Latest release: Universal Funnel Bridge & Mobile Touch Standard (`color-blindness af8f39e`, `biorhythm b43e715`, `fortune-cookie 5aed91b`, `pomodoro 943a100`, `dday 20e2f39`)
+## Latest release: Interstitial Lock Sanitization & Secondary Funnel Bridge (`affirmation bd5a269`, `valentine aed406a`, `love-frequency 2427f9f`, `dday 110e99e`, `unit-converter f19efa9`, `shadow-work a90b610`, `dream-fortune d24c5cb`)
 
-- **22개 전방위 서브모듈 전환 퍼널 및 터치 최적화**: `reaction-test`, `color-personality`, `overthinker-test`, `stress-type`, `stress-response`, `burnout-test`, `work-style`, `animal-personality`, `soul-age`, `kpop-position`, `aura-score`, `toxic-trait`, `biorhythm`, `life-in-numbers`, `bmi-calculator`, `fortune-cookie`, `emotion-temp`, `color-palette`, `unit-converter`, `dday-counter`, `pomodoro-timer`, `color-blindness`.
-- **모바일 0px 오버플로 및 44px 터치 규격 완결**: `repeat(2, minmax(0, 1fr))` 그리드 적용으로 가로 오버플로 0px 달성, 버튼 및 공유 링크 44px 이상 확보.
+- **가짜 전면 광고 카운트다운 게이트 영구 제거**: `affirmation`, `valentine`, `love-frequency`, `dday-counter`, `unit-converter`에서 5초 카운트다운 오버레이 및 수동 배너 플레이스홀더를 완전 제거하고 즉시 콘텐츠를 표시하도록 수정하여 Google Auto Ads 비보상형 정책 100% 준수.
+- **서브모듈 퍼널 브릿지 및 목적지 정합성 완결**: `shadow-work`의 중단 앱(`/emotion-iceberg/`) 링크를 `/future-self/`로 전면 교체(12개 언어 정합), `affirmation`, `valentine`, `love-frequency`, `dream-fortune`에 `repeat(2, minmax(0, 1fr))` 44px 모바일 터치 규격 탐색 그리드 탑재.
 - **동적 다국어(`?lang=`) 및 전환 어트리뷰션(`content_cta_click`)**: 인바운드 언어 파라미터 완전 보존, `source={submodule}_result` 태깅, GA4 표준 `content_cta_click` 이벤트 탑재.
-- **품질 게이트 및 헬스 가드 통과**: `audit-touch.js` 0px/0이슈, `audit-funnel.js`(4,034파일) PASS, `indexing-inventory.js --strict`(1,555URL) PASS, `health-guard.js` ALL PASS, `audit-registry.json` 22개 서브모듈 동기화 완료.
+- **핵심 5대 고체류 도구 IndexNow 즉시 재제출**: P1 학술 프레임워크/FAQ 보강 이후 Google 재크롤링 유도를 위해 5개 도구(`stress-check`, `hsp-test`, `brain-type`, `future-self`, `iq-test`) IndexNow HTTP 200 제출 완료.
+- **품질 게이트 및 헬스 가드 통과**: 7개 서브모듈 Pre-push Quality Gate 통과 및 원격 푸시, `audit-touch.js` 0px/0이슈, `audit-funnel.js`(4,034파일) PASS, `trust-audit.js --all`(119개) PASS, `health-guard.js` ALL PASS, `audit-registry.json` 동기화 완료.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
