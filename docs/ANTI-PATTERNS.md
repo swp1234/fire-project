@@ -194,6 +194,12 @@
 - **체크박스/입력 폼 자체의 터치 규격 미달 (`<input>` Touch Target Deficiency)**:
   - `<label>` 요소가 카드 전체를 감싸 클릭이 가능하더라도, 브라우저 접근성 트리 및 모바일 자동 검사 하네스는 `<input type="checkbox">` 자체의 경계 사각형(`getBoundingClientRect()`)을 직접 측정함. `width: 24px; height: 24px` 설정 시 44px 미달로 판정됨.
   - **대책**: 인터랙티브 체크박스 및 라디오 요소에는 `width: 44px; height: 44px; min-width: 44px; min-height: 44px; cursor: pointer;`를 명시하여 접근성과 자동화 테스트를 모두 완벽히 충족할 것.
+- **포털 도구 봇 스캔 가드 지연 방어 누락 (Portal Tools Bot Dilution)**:
+  - GA4 실측 분석 결과 싱가포르 데스크톱 다이렉트 봇 트래픽이 블로그뿐 아니라 유틸리티 도구(`/portal/tools/*.html`)로 유입되어 0초 체류로 이탈하며 수백 회의 즉각적인 애드센스 요청을 발생시켜 전체 도메인 eCPM과 스마트 프라이싱을 희석시키던 현상 확인.
+  - **대책**: `projects/portal/js/ad-loader.js`의 `isScanRisk` 대상을 `/portal/blog/`에 한정하지 않고 `/portal/tools/`까지 확장하여 다이렉트 데스크톱 봇 트래픽에는 8초 지연 또는 실제 사용자 입력(클릭, 터치, 키) 시에만 광고를 로드하도록 방어할 것.
+- **스키마 `dateModified`와 사이트맵 `<lastmod>` 불일치 (Schema Date-Sitemap Drift)**:
+  - JSON-LD의 `SoftwareApplication` `dateModified`와 `sitemap.xml`의 `<lastmod>` 날짜가 불일치할 경우 색인 인벤토리(`indexing-inventory --strict`)에서 중간 위험 경고가 발생하고 검색엔진 크롤링 신선도 신호가 왜곡됨.
+  - **대책**: JSON-LD 구조화 데이터와 HTML `<meta name="dateModified">`, 사이트맵 `<lastmod>` 날짜는 단일 기준일(예: `2026-10-27`)로 엄격히 일치시킬 것.
 
 
 
