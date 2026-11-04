@@ -188,6 +188,13 @@
 - **합성 타이머 텔레메트리(`timer_engagement` via `setTimeout`) 영구 제거**:
   - `setTimeout(..., 5000)`으로 `timer_engagement`를 인위적으로 발행하는 코드는 GA4의 자동 체류시간 측정과 중복될 뿐 아니라, 구글 AdSense 무효 트래픽(IVT) 방어 엔진에서 `page_engage`와 유사한 합성 봇 신호로 의심받을 위험이 있음.
   - **대책**: 인위적인 타이머 이벤트 발행 코드는 전면 제거하고, 실제 사용자의 상호작용(스크롤, 클릭, 계산 완료) 기반 이벤트만 유지할 것.
+- **카테고리 허브 언어 파라미터 유실로 인한 해외 사용자 바운스 (Category Hub Language Drop)**:
+  - `/portal/tests/` 및 `/portal/games/`에서 해외 사용자가 영문/스페인어/일본어로 탐색하다가 카드를 클릭할 때 `?lang=`이 누락되어 기본 언어가 한국어(`html lang="ko"`)인 핵심 서브모듈(`stress-check`, `future-self`, `animal-personality` 등)로 진입하면서 1~2초 내에 즉시 이탈(Bounce)하고 일일 수익이 급락하는 원인 발견.
+  - **대책**: 카테고리 허브 페이지(`tests/index.html`, `games/index.html`, `tools/index.html`, `mbti/index.html`)는 `i18n` 로드 시 모든 카드 링크의 URL에 `?lang={currentLang}&source=portal_{hub}`를 동적으로 동기화하여 해외 사용자의 언어 세션을 100% 보존할 것.
+- **체크박스/입력 폼 자체의 터치 규격 미달 (`<input>` Touch Target Deficiency)**:
+  - `<label>` 요소가 카드 전체를 감싸 클릭이 가능하더라도, 브라우저 접근성 트리 및 모바일 자동 검사 하네스는 `<input type="checkbox">` 자체의 경계 사각형(`getBoundingClientRect()`)을 직접 측정함. `width: 24px; height: 24px` 설정 시 44px 미달로 판정됨.
+  - **대책**: 인터랙티브 체크박스 및 라디오 요소에는 `width: 44px; height: 44px; min-width: 44px; min-height: 44px; cursor: pointer;`를 명시하여 접근성과 자동화 테스트를 모두 완벽히 충족할 것.
+
 
 
 
