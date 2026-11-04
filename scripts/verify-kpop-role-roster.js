@@ -9,7 +9,7 @@ const { chromium } = require('playwright');
 const ROOT = path.resolve(__dirname, '..');
 const PORTAL = path.join(ROOT, 'projects', 'portal');
 const CLIENT = 'ca-pub-3600813755953882';
-const LASTMOD = '2026-08-29';
+const LASTMOD = '2026-10-31';
 const ARTICLE_ROUTE = '/portal/blog/en/kpop-positions-explained-guide.html';
 const ARTICLE_CANONICAL = `https://dopabrain.com${ARTICLE_ROUTE}`;
 const ARTICLE_TITLE = 'K-Pop Positions Explained - All Roles & What They Mean';
@@ -36,7 +36,7 @@ const OFFICIAL_PROFILE_SOURCES = Object.freeze([
   'https://twice.jype.com/Mobile/Profile',
   'https://straykids.jype.com/profile',
 ]);
-const CATALOG_COUNT = 43;
+const CATALOG_COUNT = 48;
 const ROSTER_EVENT_KEYS = Object.freeze({
   kpop_roster_view: ['event_category', 'surface_name', 'content_locale', 'revenue_goal', 'source', 'has_saved_roster'],
   kpop_roster_preset: ['event_category', 'surface_name', 'content_locale', 'revenue_goal', 'preset_id', 'member_count'],
@@ -445,7 +445,7 @@ function verifyPositionTarget(bundle) {
   for (const [name, source] of Object.entries(positionSources)) {
     verifyForbiddenAdCode(source, `K-pop position test ${name}`);
   }
-  assert(meta(bundle.positionHtml, 'dateModified') === '2026-10-04' || meta(bundle.positionHtml, 'dateModified') === LASTMOD, 'K-pop position dateModified meta must be valid');
+  assert(['2026-10-04', '2026-10-24', LASTMOD].includes(meta(bundle.positionHtml, 'dateModified')), 'K-pop position dateModified meta must be valid');
   const viewport = meta(bundle.positionHtml, 'viewport');
   assert(/(?:^|,)\s*width\s*=\s*device-width(?:\s*,|$)/i.test(viewport) && /(?:^|,)\s*initial-scale\s*=\s*1(?:\.0)?(?:\s*,|$)/i.test(viewport), 'K-pop position viewport must declare device width and initial scale');
   assert(!/user-scalable\s*=\s*no/i.test(viewport) && !/maximum-scale\s*=\s*1(?:\.0)?(?:\s*,|$)/i.test(viewport), 'K-pop position viewport must preserve user zoom');
@@ -475,7 +475,7 @@ function verifyPositionTarget(bundle) {
   assert(appNodes.length === 1, `K-pop position application schema count mismatch: ${appNodes.length}`);
   assert(appNodes[0].url === POSITION_CANONICAL, `K-pop position default schema URL mismatch: ${appNodes[0].url}`);
   assert(Array.isArray(appNodes[0].inLanguage) || appNodes[0].inLanguage === 'en', `K-pop position default schema language must be valid: ${appNodes[0].inLanguage}`);
-  assert(appNodes[0].dateModified === '2026-10-04' || appNodes[0].dateModified === LASTMOD, `K-pop position schema dateModified must be valid`);
+  assert(['2026-10-04', '2026-10-24', LASTMOD].includes(appNodes[0].dateModified), `K-pop position schema dateModified must be valid`);
   assert(!appNodes[0].aggregateRating, 'K-pop position fabricated rating is forbidden');
 
   const languageButtons = tags(bundle.positionHtml, 'button').filter((tag) => classHas(tag, 'lang-option'));
@@ -567,7 +567,11 @@ function normalizeCatalogUrl(value, kind, index) {
   assert(!url.hash, `Catalog ${kind} ${index + 1} URL must not contain a fragment`);
   if (kind === 'DOM') {
     const params = Array.from(url.searchParams.entries());
-    const validTracking = params.length === 0 || (params.length === 1 && params[0][0] === 'source' && params[0][1] === 'portal_tools_catalog');
+    const source = url.searchParams.get('source');
+    const validSource = !source || source === 'portal_tools_catalog' || source === 'portal_tools';
+    const lang = url.searchParams.get('lang');
+    const validLang = !lang || LOCALES.includes(lang);
+    const validTracking = validSource && validLang && params.every(([k]) => ['source', 'lang'].includes(k));
     assert(validTracking, `Catalog DOM ${index + 1} query contract mismatch: ${url.search}`);
   } else {
     assert(/^https:\/\/dopabrain\.com\//.test(raw), `Catalog schema ${index + 1} URL must be absolute`);
@@ -906,7 +910,7 @@ async function verifyLocales(browser, origin, locales = LOCALES) {
       assert(JSON.stringify([...report.hreflangs].sort()) === JSON.stringify([...HREFLANGS].sort()), `${locale} runtime hreflang mismatch`);
       assert(report.ads === 0, `${locale} runtime contains a fake manual ad`);
       const related = new URL(report.related, 'https://dopabrain.com');
-      const expectedQuizLocale = locale === 'ko' ? 'ko' : 'en';
+      const expectedQuizLocale = LOCALES.includes(locale) ? locale : 'en';
       assert(related.pathname === POSITION_ROUTE, `${locale} roster related position-test pathname mismatch`);
       assert(related.searchParams.get('lang') === expectedQuizLocale && related.searchParams.get('start') === '1' && related.searchParams.get('surface') === 'kpop_roster_related', `${locale} roster related position-test locale normalization mismatch`);
       assert([...related.searchParams.keys()].length === 3, `${locale} roster related position-test query contains unexpected parameters`);
@@ -1024,7 +1028,7 @@ async function verifyToolJourney(browser, origin, viewport) {
     assert(translated.canonical === `${TOOL_CANONICAL}?lang=zh`, `${viewport.name} translated canonical mismatch`);
     const relatedUrl = new URL(translated.related, 'https://dopabrain.com');
     assert(relatedUrl.pathname === POSITION_ROUTE, `${viewport.name} related test pathname mismatch`);
-    assert(relatedUrl.searchParams.get('lang') === 'en' && relatedUrl.searchParams.get('start') === '1' && relatedUrl.searchParams.get('surface') === 'kpop_roster_related', `${viewport.name} related test query mismatch`);
+    assert(relatedUrl.searchParams.get('lang') === 'zh' && relatedUrl.searchParams.get('start') === '1' && relatedUrl.searchParams.get('surface') === 'kpop_roster_related', `${viewport.name} related test query mismatch`);
     assert([...relatedUrl.searchParams.keys()].length === 3, `${viewport.name} related test query contains unexpected parameters`);
     await page.evaluate(() => document.addEventListener('click', (event) => {
       if (event.target.closest('#related-position-test')) event.preventDefault();
@@ -1531,9 +1535,9 @@ function buildMutations(baseline) {
     mutate('unsafe-absolute-claim', 'Unsafe K-pop claim detected', 'articleHtml', (html) => replaceRequired(html, /<\/article>/i, '<p>The main vocalist is the absolute best singer in the group.</p></article>', 'unsafe-absolute-claim')),
     mutate('quick-route-drift', 'Quick card 1 href mismatch', 'articleHtml', (html) => replaceRequired(html, /\/portal\/tools\/kpop-role-roster\.html\?lang=en(?:&|&amp;)source=blog_kpop_positions_quick_rail/, '/portal/tools/kpop-role-roster.html?lang=en&amp;source=wrong', 'quick-route-drift')),
     mutate('quick-telemetry-param-removed', 'Quick card 1 target slug mismatch', 'articleHtml', (html) => replaceRequired(html, /data-target-slug=["']kpop-role-roster["']/i, '', 'quick-telemetry-param-removed')),
-    mutate('article-date-stale', 'Article dateModified meta', 'articleHtml', (html) => replaceRequired(html, /(<meta\b[^>]*name=["']dateModified["'][^>]*content=["'])2026-08-29/i, '$12026-08-28', 'article-date-stale')),
+    mutate('article-date-stale', 'Article dateModified meta', 'articleHtml', (html) => replaceRequired(html, /(<meta\b[^>]*name=["']dateModified["'][^>]*content=["'])2026-10-31/i, '$12026-10-30', 'article-date-stale')),
     mutate('article-official-source-removed', 'Official profile source href/order mismatch', 'articleHtml', (html) => replaceRequired(html, new RegExp(`href=["']${escapeRegex(OFFICIAL_PROFILE_SOURCES[0])}["']`), 'href="https://example.invalid/removed-source"', 'article-official-source-removed')),
-    mutate('blog-sitemap-date-stale', 'Blog sitemap lastmod', 'blogMap', (xml) => replaceRequired(xml, new RegExp(`(<loc>${escapeRegex(ARTICLE_CANONICAL)}</loc>[\\s\\S]*?<lastmod>)${LASTMOD}`), '$12026-08-28', 'blog-sitemap-date-stale')),
+    mutate('blog-sitemap-date-stale', 'Blog sitemap lastmod', 'blogMap', (xml) => replaceRequired(xml, new RegExp(`(<loc>${escapeRegex(ARTICLE_CANONICAL)}</loc>[\\s\\S]*?<lastmod>)${LASTMOD}`), '$12026-10-30', 'blog-sitemap-date-stale')),
     mutate('bridge-test-route-drift', 'K-pop dynamic bridge contract missing', 'crossPromoJs', (source) => replaceRequired(source, /start=1&surface=blog_kpop_position_bridge/, 'source=blog_kpop_position_bridge', 'bridge-test-route-drift')),
     mutate('bridge-click-event-removed', 'K-pop dynamic bridge event missing', 'crossPromoJs', (source) => replaceRequired(source, /kpop_roster_bridge_click/g, 'kpop_roster_bridge_click_removed', 'bridge-click-event-removed')),
     mutate('related-click-event-removed', 'related position-test click event', 'toolJs', (source) => replaceRequired(source, /kpop_roster_related_click/g, 'kpop_roster_related_click_removed', 'related-click-event-removed')),
@@ -1573,7 +1577,7 @@ function buildMutations(baseline) {
     mutate('position-sw-cross-origin-guard-removed', 'must bypass cross-origin requests', 'positionSw', (source) => replaceRequired(source, /^.*\.origin\s*!==\s*self\.location\.origin.*\r?\n/m, '', 'position-sw-cross-origin-guard-removed')),
     mutate('position-sw-success-guard-removed', 'must cache only successful responses', 'positionSw', (source) => replaceRequired(source, /^\s*if\s*\(!response\.ok\)\s*return\s*;\r?\n/m, '', 'position-sw-success-guard-removed')),
     mutate('position-sw-registration-scope-escape', 'registration URL must remain relative', 'positionJs', (source) => replaceRequired(source, /serviceWorker\.register\(\s*(['"])(?:\.\/)?sw\.js\1/, "serviceWorker.register('/sw.js'", 'position-sw-registration-scope-escape')),
-    mutate('roster-unsupported-quiz-locale', 'locale normalization mismatch', 'toolJs', (source) => replaceRequired(source, /var quizLang = lang === ['"]ko['"] \? ['"]ko['"] : ['"]en['"];/, 'var quizLang = lang;', 'roster-unsupported-quiz-locale'), 'roster-zh'),
+    mutate('roster-unsupported-quiz-locale', 'locale normalization mismatch', 'toolJs', (source) => replaceRequired(source, /var quizLang = \[.*?\]\.indexOf\(lang\) !== -1 \? lang : ['"]en['"];/, 'var quizLang = "unsupported";', 'roster-unsupported-quiz-locale'), 'roster-zh'),
     mutate('bridge-unsupported-quiz-locale', 'test bridge route mismatch', 'crossPromoJs', (source) => replaceRequired(source, /var quizLocale = supportedLocale === ['"]ko['"] \? ['"]ko['"] : ['"]en['"];/, 'var quizLocale = supportedLocale;', 'bridge-unsupported-quiz-locale'), 'bridge-zh'),
   ];
 }
