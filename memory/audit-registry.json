@@ -77,7 +77,7 @@
       "trustCompliant": true
     },
     "portal": {
-      "headCommit": "eeec00c7d23c03d28cb764f1af24d46866f5c7b1",
+      "headCommit": "f8dce614a938c35272a088360f64c6778438127d",
       "branch": "main",
       "auditedAt": "2026-11-04",
       "overflowPx": 0,
@@ -655,9 +655,9 @@
       "last_audit_time": "2026-11-03T14:03:46.048Z"
     },
     "brain-type": {
-      "headCommit": "d0fb4a8b3b9b5ecf84429d5b0951c8f4db657f92",
+      "headCommit": "7ade9f16d006198f6d89551c6e1ca8b86861fcb2",
       "branch": "main",
-      "auditedAt": "2026-11-03",
+      "auditedAt": "2026-11-04",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
