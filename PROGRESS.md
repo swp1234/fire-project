@@ -24,10 +24,11 @@ Updated: 2026-11-04 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P3 877개 포털 에디토리얼 글 FAQPage 구조화 데이터 전면 적용 (완료)**: 사이트맵 내 877개 가시적 FAQ 글에 JSON-LD `FAQPage` 스키마 주입 완료 (`portal b6463a3`).
 - **P4 카테고리 허브 다국어 보존 및 고체류 터치 최적화 (완료)**: `portal/games` & `portal/tests` 다국어 파라미터(`?lang=`) 전면 보존, 빈 광고 슬롯 제거, `stress-check/plan.html` 44px 터치 규격 충족 (`dbc7532`, `eeec00c`).
 
-## Latest release: Hub Multilingual Retention, High-Dwell Touch Fixes & Editorial FAQ Rich Snippets (`portal eeec00c`, `stress-check dbc7532`)
+## Latest release: SG Bot Scan Guard, GSC Sitemap Sync, High-Dwell Touch & Multilingual Retention (`portal 56f00a6`, `brain-type ae04ef5`, `stress-check dbc7532`)
 
-- **허브 언어 파라미터 보존 및 바운스 차단**: `/portal/tests/` 및 `/portal/games/`에서 해외 사용자가 카드 클릭 시 한국어 기본값으로 튕기던 문제 해결. 모든 카드에 `?lang=` 및 `source=portal_tests/games` 자동 동기화.
-- **877개 에디토리얼 FAQPage 스키마 탑재 & IndexNow 즉시 브로드캐스트**: 가시적 Q&A가 존재하는 877개 글에 `FAQPage` 스키마 주입 완료 및 주요 URL IndexNow HTTP 200 전송.
-- **터치 규격 및 광고 컨테이너 정리**: `stress-check/plan.html` 체크박스 44px 터치 규격 준수 (`verify:high-dwell` ALL PASS), `portal/tests/` 빈 광고 박스 및 중복 데일리 타로 카드 제거.
+- **포털 도구 봇 스캔 가드 지연 방어**: GA4 실측에서 확인된 싱가포르 데스크톱 다이렉트 봇 트래픽(0s 이탈)의 광고 요청을 지연·차단하여 eCPM 희석 방어 (`portal 56f00a6`).
+- **GSC 전체 사이트맵 및 IndexNow 즉각 동기화**: 3개 사이트맵(1,561개 URL) Google Search Console API 직접 제출 및 IndexNow 갱신 전송 완료.
+- **허브 언어 파라미터 보존 및 고체류 터치 규격 완결**: `/portal/tests/`, `/portal/games/` 다국어(`?lang=`) 동기화로 해외 바운스 차단, `stress-check/plan.html` 44px 터치 충족.
+- **스키마 신뢰 정합성**: `brain-type` JSON-LD를 사이트맵 `2026-10-27`과 일치시키고 `health-guard` 전 항목 ALL PASS 검증 완료.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

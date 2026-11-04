@@ -2,9 +2,11 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
 const { createSign, generateKeyPairSync } = require('crypto');
 const { spawnSync } = require('child_process');
 
+const ROOT = path.resolve(__dirname, '..');
 const SITE_URL = 'https://dopabrain.com/';
 const SITEMAPS = [
   'https://dopabrain.com/sitemap.xml',
@@ -51,6 +53,8 @@ function validateSitemap(text, contentType, feed) {
 
 function credentialsPath() {
   if (process.env.GOOGLE_APPLICATION_CREDENTIALS) return process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  const localDefault = path.join(ROOT, 'shining-grid-486809-t4-577326e1e6a8.json');
+  if (fs.existsSync(localDefault)) return localDefault;
   const windows = process.platform === 'win32';
   const command = windows ? 'cmd.exe' : 'codex';
   const args = windows ? ['/d', '/s', '/c', 'codex mcp get gsc --json'] : ['mcp', 'get', 'gsc', '--json'];
