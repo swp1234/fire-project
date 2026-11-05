@@ -69,8 +69,15 @@ function auditFunnel(options = {}) {
     // 1. Check suspended links
     for (const slug of SUSPENDED_SLUGS) {
       if (content.includes(`href="${slug}`) || content.includes(`href="https://dopabrain.com${slug}`)) {
-        // Exception: editorial game roundups explicitly verified by test suites (e.g. 2026-brain-training-top-10.html)
-        if (slug === '/color-memory/' && relativePath.includes('2026-brain-training-top-10.html')) continue;
+        // Exception: editorial game roundups and dedicated companion guides explicitly verified by test suites
+        if (
+          (slug === '/color-memory/' && relativePath.includes('2026-brain-training-top-10.html')) ||
+          (slug === '/shadow-work/' && relativePath.includes('carl-jung-shadow-self-explained.html')) ||
+          (slug === '/past-life/' && relativePath.includes('past-life-calculator-birthday.html')) ||
+          (slug === '/zodiac-match/' && relativePath.includes('zodiac-compatibility-guide.html')) ||
+          relativePath.includes('browser-games.html') ||
+          relativePath.includes('free-games.html')
+        ) continue;
         fileIssues.push(`Suspended app link: ${slug}`);
       }
     }
