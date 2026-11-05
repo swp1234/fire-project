@@ -133,7 +133,8 @@ async function verifyRuntime(baseUrl) {
       for (const name of EVENTS) assert(stages.filter(event => event.name === name).length === 1, `${test.width}px ${name} must fire exactly once`);
       assert(stages.every(event => Object.keys(event.params).every(key => key === 'event_category')), `${test.width}px private data entered telemetry`);
       assert(report.overflow <= 0 && [...report.targets,...report.related].every(target => target.width >= 44 && target.height >= 44), `${test.width}px layout or touch target regressed: ${JSON.stringify(report)}`);
-      assert(JSON.stringify(report.related.map(item => item.href)) === JSON.stringify(RELATED), `${test.width}px related routes drifted`);
+      assert(JSON.stringify(report.related.map(item => new URL(item.href, 'http://localhost').pathname)) === JSON.stringify(RELATED), `${test.width}px related routes drifted`);
+      assert(report.related.every(item => item.href.includes('lang=' + test.lang) && item.href.includes('source=stress_response_related')), `${test.width}px related attribution query drifted`);
       assert(report.adSurface === 0 && report.resultTitle && report.boundary && errors.length === 0, `${test.width}px runtime error or empty result: ${errors.join(' | ')}`);
       await context.close();
     }
