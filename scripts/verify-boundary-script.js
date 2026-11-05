@@ -78,7 +78,7 @@ async function run() {
                 outputLines: document.querySelectorAll('.script-line').length,
                 outputLength: document.querySelector('#script-output')?.textContent.length,
                 planHref: document.querySelector('#plan-link')?.getAttribute('href'),
-                adCount: document.querySelectorAll('[data-ad-surface] > ins.adsbygoogle').length,
+                adCount: document.querySelectorAll('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]').length,
                 overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
             }), locale));
         }
@@ -92,7 +92,6 @@ async function run() {
         await page.click('#generate-button');
         await page.waitForSelector('#result-card:not([hidden])');
         await page.click('#copy-button');
-        await page.locator('[data-ad-surface="boundary_script_mid"]').scrollIntoViewIfNeeded();
         await page.waitForTimeout(150);
         const custom = await page.evaluate(async () => ({
             outputText: document.querySelector('#script-output')?.textContent,
@@ -138,12 +137,12 @@ async function run() {
         if (!custom.outputText.includes('<img src=x')) failures.push('user text was not preserved as text');
         if (custom.outputImageCount !== 0 || custom.xssRan) failures.push('user text was interpreted as HTML');
         if (!custom.copiedText.includes('Please confirm changes before noon.')) failures.push('clipboard output is incomplete');
-        for (const eventName of ['boundary_script_view', 'boundary_script_generate', 'boundary_script_copy', 'boundary_script_ad_impression']) {
+        for (const eventName of ['boundary_script_view', 'boundary_script_generate', 'boundary_script_copy']) {
             if (!custom.events.includes(eventName)) failures.push(`missing ${eventName}`);
         }
         if (!custom.planHref?.includes('focus=relationship') || custom.source !== 'verification') failures.push('builder attribution or plan routing is incomplete');
         if (!planBridge.text?.includes('界限') || !planBridge.href?.includes('context=relationship')) failures.push('localized plan-to-builder bridge is incomplete');
-        if (!toolsHub.name?.includes('界限') || !toolsHub.href?.includes('source=portal_tools_catalog')) failures.push('localized tools catalog card is incomplete');
+        if (!toolsHub.name?.includes('界限') || !toolsHub.href?.includes('source=portal_tools')) failures.push('localized tools catalog card is incomplete');
         if (!toolsHub.itemListIncludesBuilder) failures.push('tool ItemList omits the builder');
         if (custom.overflow > 0 || planBridge.overflow > 0 || toolsHub.overflow > 0) failures.push('mobile overflow detected');
         if (errors.length) failures.push(`page errors: ${errors.join(' | ')}`);

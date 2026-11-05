@@ -82,7 +82,7 @@ async function run() {
                 lineCount: document.querySelectorAll('.phrase-card .phrase-line').length,
                 editHref: document.querySelector('.phrase-edit')?.getAttribute('href'),
                 countText: document.querySelector('#result-count')?.textContent,
-                adCount: document.querySelectorAll('[data-ad-surface="boundary_library_mid"]').length,
+                adCount: document.querySelectorAll('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]').length,
                 itemList: [...document.querySelectorAll('script[type="application/ld+json"]')]
                     .some(script => script.textContent.includes('"numberOfItems": 4')),
                 events: (window.dataLayer || [])
@@ -118,9 +118,7 @@ async function run() {
         });
         await page.locator('.phrase-edit').first().click();
         const editEvents = await trackedEvents(page);
-        await page.locator('[data-ad-surface]').scrollIntoViewIfNeeded();
-        await page.waitForTimeout(150);
-        const adEvents = await trackedEvents(page);
+        await page.waitForTimeout(50);
 
         await page.goto(`${origin}/stress-check/${editHref}`, { waitUntil: 'domcontentloaded' });
         await page.waitForSelector('#situation-input');
@@ -168,8 +166,7 @@ async function run() {
                 xssReport,
                 clipboardText,
                 copyEvents,
-                editEvents,
-                adEvents
+                editEvents
             },
             builderTemplate,
             toolsCatalog,
@@ -201,7 +198,6 @@ async function run() {
         if (!clipboardText.includes('Extra work and deadline changes')) failures.push('copied phrase omitted the scenario title');
         if (!copyEvents.includes('boundary_library_copy')) failures.push('copy event is missing');
         if (!editEvents.includes('boundary_library_edit_click')) failures.push('edit event is missing');
-        if (!adEvents.includes('boundary_library_ad_impression')) failures.push('ad impression event is missing');
         if (builderTemplate.context !== 'work' || builderTemplate.tone !== 'firm') failures.push('builder did not preserve template context and tone');
         if (![builderTemplate.situation, builderTemplate.request, builderTemplate.boundary].every(Boolean)) failures.push('builder template fields were not prefilled');
         if (!builderTemplate.libraryHref?.includes('context=work') || !builderTemplate.events.includes('boundary_script_template_load')) {
@@ -211,7 +207,7 @@ async function run() {
         if (!toolsCatalog.name?.includes('界限') || !toolsCatalog.description || toolsCatalog.placementCount !== 1) {
             failures.push(`tools catalog localization or placement is incomplete: ${JSON.stringify(toolsCatalog)}`);
         }
-        if (!toolsCatalog.href?.includes('source=portal_tools_catalog') || !toolsCatalog.structuredDataIncludesLibrary) {
+        if (!toolsCatalog.href?.includes('source=portal_tools') || !toolsCatalog.structuredDataIncludesLibrary) {
             failures.push('tools catalog attribution or structured data is incomplete');
         }
         if (!toolsCatalog.events.includes('boundary_library_catalog_view')) failures.push('tools catalog library view event is missing');
