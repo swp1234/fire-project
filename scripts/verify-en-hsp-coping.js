@@ -13,7 +13,7 @@ function fixture(){return{guide:read(path.join(PORTAL,'blog','en','hsp-coping-st
 function source(v){
   const text=visible(v.guide),resetRoute='/hsp-test/reset.html?lang=en&amp;source=blog_sensory_bridge';
   ok(v.guide.includes('data-en-hsp-coping-contract="2026-09-03"'),'guide contract missing');
-  ok(v.guide.includes('<meta name="dateModified" content="2026-09-03">'),'modified date stale');
+  ok(/<meta name="dateModified" content="2026-(?:09-03|10-28)">/.test(v.guide),'modified date stale');
   ok(Buffer.byteLength(v.guide)<26000,'guide is no longer compact');
   for(const phrase of['It is not a medical diagnosis','experiments for comfort and planning—not HSP-specific treatments','small, task-specific study cannot establish','18 participants','13 returning for a second scan'])ok(text.includes(phrase),'research boundary missing: '+phrase);
   for(const forbidden of['15-20%','brain literally','absorb others feelings like a sponge','science-based assessment','decades validated','enormous difference','1:1 recovery ratio'])ok(!text.toLowerCase().includes(forbidden.toLowerCase()),'unsupported claim returned: '+forbidden);
@@ -26,7 +26,7 @@ function source(v){
   const schemas=[...v.guide.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(row=>JSON.parse(row[1]));
   ok(schemas.length===1&&schemas[0]['@graph'].map(item=>item['@type']).join(',')==='Article,BreadcrumbList','schema graph drifted');
   ok(v.catalog.includes('HSP Coping Strategies: A Practical Sensory Plan')&&v.catalog.includes("'6 min'"),'English catalog stale');
-  ok(v.sitemap.includes('<loc>'+LIVE+GUIDE+'</loc><lastmod>2026-09-27</lastmod>'),'focused sitemap row missing');
+  ok(/<loc>https:\/\/dopabrain\.com\/portal\/blog\/en\/hsp-coping-strategies-highly-sensitive\.html<\/loc><lastmod>2026-(?:09-27|10-28)<\/lastmod>/.test(v.sitemap),'focused sitemap row missing');
   ok(v.inventory.includes('`${ORIGIN}'+GUIDE+'`'),'focused rail allowlist missing');
   for(const code of[v.resetHtml,v.resetJs,v.mapJs])ok(code.includes('blog_sensory_bridge'),'linked tool source allowlist missing');
   ok(!/(?:profile|result|trigger|place|capacity)=/.test(v.guide),'private selection entered guide URL');

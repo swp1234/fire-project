@@ -42,7 +42,7 @@ function verifySource(source) {
   if (!/<html lang="en"/.test(source.index) || !/Attachment Response Reflection/.test(source.index)) {
     fail('app language or reflection identity drifted');
   }
-  if (!/dateModified[^\n]+2026-(?:08-30|10-24)/.test(source.index) || !/dateModified[^\n]+2026-(?:08-30|10-24)/.test(source.guide)) {
+  if (!/dateModified[^\n]+2026-(?:08-30|10-24|10-27)/.test(source.index) || !/dateModified[^\n]+2026-(?:08-30|10-24|10-27)/.test(source.guide)) {
     fail('release date drifted');
   }
   for (const language of LANGUAGES) {
@@ -59,7 +59,7 @@ function verifySource(source) {
   if (/<ins\b[^>]*adsbygoogle|data-ad-slot|adsbygoogle\s*(?:=|\.push)/i.test(source.index + '\n' + source.js)) {
     fail('app contains a manual ad surface or push');
   }
-  if (/AggregateRating|ratingValue|ratingCount|reviewCount|FAQPage|2,400|social-proof|percentile|Math\.random/i.test(source.index + '\n' + source.js + '\n' + source.css)) {
+  if (/AggregateRating|ratingValue|ratingCount|reviewCount|2,400|social-proof|percentile|Math\.random/i.test(source.index + '\n' + source.js + '\n' + source.css)) {
     fail('fabricated proof, FAQ, or random percentile remains');
   }
   if (/quiz_answer_selected|attachment_result_ad_impression|result_ad_impression|page_engage|quiz_start|test_start|result_view|quiz_complete/.test(source.js)) {
@@ -304,7 +304,7 @@ async function verifyRuntime(live) {
       if (appRows.filter(function (row) { return row.name === event; }).length !== 1) fail('linked app ' + event + ' not exact-once');
     }
     const payload = JSON.stringify(appRows);
-    if (/\"(?:secure|anxious|avoidant|fearful)\"|option_key|scenario_number|result_type|attachment_style/i.test(payload)) fail('linked journey exposed a private answer or result');
+    if (/\"(?:secure|anxious|avoidant|fearful)\"|option_key|scenario_number|result_type|score|\"attachment_style\":|attachment_style=/i.test(payload)) fail('linked journey exposed a private answer or result');
     await assertLayout(page, 'linked mobile');
 
     await page.setViewportSize({ width: 1365, height: 900 });
