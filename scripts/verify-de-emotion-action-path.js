@@ -23,7 +23,7 @@ function load(){return{guide:read(GUIDE_FILE),tool:read(TOOL_FILE),js:read(JS_FI
 
 function verifySource(bundle){
   if(!/<html lang="de">/.test(bundle.guide)||!/<h1>Techniken zur Emotionsregulation: Jetzt–Danach–Später<\/h1>/.test(bundle.guide))fail('German language or action-led H1 drifted');
-  if(!/dateModified[^\n]+2026-09-01/.test(bundle.guide)||!/dateModified[^\n]+2026-09-01/.test(bundle.tool))fail('release date drifted');
+  if(!/dateModified[^\n]+2026-(?:09-01|10-31)/.test(bundle.guide)||!/dateModified[^\n]+2026-(?:09-01|10-31)/.test(bundle.tool))fail('release date drifted');
   if(!/keine Diagnose, Therapie oder Krisenhilfe/.test(bundle.guide)||!/Allgemeine Hinweise belegen nicht/.test(bundle.guide))fail('medical or evidence boundary is missing');
   if(/(?:25-30%|bis zu 40%|4-7-8|Neuroplastizität|graue Substanz|Amygdala.{0,20}(?:reduziert|verringert)|Medikamenten vergleichbar|4-8 Wochen|FAQPage|EQ-Test|content_ad_impression|cross-promo|link_url)/i.test(bundle.guide))fail('unsupported efficacy, mechanism, test, FAQ, ad, promotion, or raw telemetry remains');
   for(const source of ['9789240003927','gesund.bund.de/entspannungsmethoden','anlaufstellen-bei-psychischen-krisen'])if(!bundle.guide.includes(source))fail(`guide source missing: ${source}`);
@@ -49,7 +49,7 @@ function verifySource(bundle){
   if(/track\([^\n]+\b(?:emotion|intensity|context|goal|time)\s*:/.test(bundle.js))fail('tool analytics expose a private selection');
   for(const event of TOOL_EVENTS)if(!bundle.js.includes(`'${event}'`))fail(`tool event missing: ${event}`);
   if(!/Emotionsregulation: Jetzt–Danach–Später/.test(bundle.catalog)||!/2026-09/.test(bundle.catalog))fail('German catalog card drifted');
-  if(count(bundle.sitemap,/https:\/\/dopabrain\.com\/portal\/blog\/de\/emotional-regulation-techniques\.html/g)!==1||!/de\/emotional-regulation-techniques\.html<\/loc><lastmod>2026-09-01/.test(bundle.sitemap))fail('focused sitemap entry missing or duplicated');
+  if(count(bundle.sitemap,/https:\/\/dopabrain\.com\/portal\/blog\/de\/emotional-regulation-techniques\.html/g)!==1||!/de\/emotional-regulation-techniques\.html<\/loc><lastmod>2026-(?:09-01|10-31)/.test(bundle.sitemap))fail('focused sitemap entry missing or duplicated');
   return{guideBytes:Buffer.byteLength(bundle.guide),toolBytes:Buffer.byteLength(bundle.tool),locale:'de',events:GUIDE_EVENTS.length+TOOL_EVENTS.length};
 }
 
