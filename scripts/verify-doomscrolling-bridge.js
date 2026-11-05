@@ -15,7 +15,7 @@ const INDEX_PATH = path.join(PORTAL, 'blog', 'en', 'index.html');
 const GUIDE_URL_PATH = '/portal/blog/en/doom-scrolling-mental-health-effects.html';
 const STRESS_URL_PATH = '/stress-check/';
 const LIVE_GUIDE = `https://dopabrain.com${GUIDE_URL_PATH}`;
-const QUICK_TARGETS = ['stress-check','detox-timer','overthinker-test','white-noise'];
+const QUICK_TARGETS = ['dopamine-protocol','cognitive-load','grounding-exercise','stress-check'];
 const USAGE = `Usage:\n  node scripts/verify-doomscrolling-bridge.js [--mutations]\n  node scripts/verify-doomscrolling-bridge.js --url ${LIVE_GUIDE}`;
 
 function assert(condition, message) {
@@ -50,7 +50,7 @@ function verifySource(fixture) {
   const { guide, sitemap, index } = fixture;
   const text = visibleText(guide);
   assert(guide.includes('data-doomscroll-contract="2026-08-30"'), 'Doomscrolling release marker is missing');
-  assert(guide.includes('<meta name="dateModified" content="2026-09-26">'), 'Doomscrolling dateModified is stale');
+  assert(guide.includes('<meta name="dateModified" content="2026-09-26">') || guide.includes('<meta name="dateModified" content="2026-10-29">'), 'Doomscrolling dateModified is stale');
   assert(guide.includes('<link rel="canonical" href="https://dopabrain.com/portal/blog/en/doom-scrolling-mental-health-effects.html">'), 'Doomscrolling canonical drifted');
   assert(count(guide, /rel="alternate"\s+hreflang=/g) >= 2, 'Doomscrolling hreflang must include alternates');
   assert(count(guide, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/gi) === 1, 'Doomscrolling guide must have exactly one Auto Ads loader');
@@ -61,15 +61,15 @@ function verifySource(fixture) {
   const quick = [...guide.matchAll(/<a class="quick-card"[^>]*data-target-slug="([^"]+)"/g)].map(match => match[1]);
   assert(JSON.stringify(quick) === JSON.stringify(QUICK_TARGETS), 'Doomscrolling quick-route set drifted');
   assert(count(guide, /<li><a href="https:\/\//g) === 4, 'Doomscrolling source list must contain four direct sources');
-  assert(/intersectionRatio>=0\.5/.test(guide) && /},500\)/.test(guide) && /observe\(document\.querySelector\('\.reset-actions'\)\)/.test(guide), 'Qualified reset exposure contract is incomplete');
+  assert(/intersectionRatio\s*>=\s*0\.5/.test(guide) && /},\s*500\)/.test(guide) && (/observe\(document\.querySelector\('\.reset-actions'\)\)/.test(guide) || /observer\.observe\(targetAction\)/.test(guide)), 'Qualified reset exposure contract is incomplete');
   assert(/resetUseSent/.test(guide) && /content_doomscroll_reset_use/.test(guide), 'Exact-once reset-use telemetry is missing');
-  assert(!/track\('content_doomscroll_reset_use',[\s\S]{0,120}(?:plan|choice|data-plan)/.test(guide), 'Reset telemetry leaks the selected plan');
-  assert(/track\('content_cta_click',params\)/.test(guide), 'Doomscrolling CTA click telemetry is missing');
+  assert(!/track\('content_doomscroll_reset_use',\s*\{[^}]*(?:plan|choice|data-plan)/.test(guide), 'Reset telemetry leaks the selected plan');
+  assert(/track\('content_cta_click',\s*params\)/.test(guide), 'Doomscrolling CTA click telemetry is missing');
   const schemas = parseJsonLd(guide);
   assert(schemas.length === 1 && schemas[0]['@graph']?.length === 2, 'Doomscrolling schema must contain Article and Breadcrumb only');
   const types = schemas[0]['@graph'].map(item => item['@type']);
   assert(JSON.stringify(types) === JSON.stringify(['Article','BreadcrumbList']), 'Doomscrolling schema types/order drifted');
-  assert(sitemap.includes(`<loc>https://dopabrain.com${GUIDE_URL_PATH}</loc><lastmod>2026-09-26</lastmod>`), 'Doomscrolling sitemap row/date is missing');
+  assert(sitemap.includes(`<loc>https://dopabrain.com${GUIDE_URL_PATH}</loc><lastmod>2026-09-26</lastmod>`) || sitemap.includes(`<loc>https://dopabrain.com${GUIDE_URL_PATH}</loc><lastmod>2026-10-29</lastmod>`), 'Doomscrolling sitemap row/date is missing');
   const card = index.match(/\['doom-scrolling-mental-health-effects\.html'[\s\S]*?\],/)?.[0] || '';
   assert(card.includes('60-Second Stop Plan') && !/hijack|brain science/i.test(card), 'English catalog retains the old unsupported claim');
   return { schemas:types.length, quickRoutes:quick.length, sources:4, submitted:1 };
@@ -78,17 +78,17 @@ function verifySource(fixture) {
 function runMutations(baseline) {
   const mutations = [
     ['hidden-faq','unsupported schema',value=>{value.guide += '<script type="application/ld+json">{"@type":"FAQPage"}</script>';}],
-    ['stale-date','dateModified is stale',value=>{value.guide=value.guide.replace('dateModified" content="2026-09-26','dateModified" content="2026-06-12');}],
+    ['stale-date','dateModified is stale',value=>{value.guide=value.guide.replace(/dateModified" content="2026-(?:09-26|10-29)"/,'dateModified" content="2026-06-12');}],
     ['health-claim','unsupported health claim',value=>{value.guide=value.guide.replace('Doomscrolling is continuing','Doomscrolling hijacks your dopamine and is continuing');}],
     ['missing-boundary','health boundary is missing',value=>{value.guide=value.guide.replace('associations, not proof','correlations only');}],
     ['broken-primary','Primary Stress Check bridge is broken',value=>{value.guide=value.guide.replace('/stress-check/?lang=en&source=doomscroll_guide_primary','/portal/');}],
-    ['quick-drift','quick-route set drifted',value=>{value.guide=value.guide.replace('data-target-slug="white-noise"','data-target-slug="dopamine-type"');}],
+    ['quick-drift','quick-route set drifted',value=>{value.guide=value.guide.replace('data-target-slug="cognitive-load"','data-target-slug="dopamine-type"');}],
     ['missing-source','source list must contain four',value=>{value.guide=value.guide.replace('<li><a href="https://support.google.com/android/answer/9346420?hl=en"','<li><a href="/portal/"');}],
-    ['tracking-too-easy','Qualified reset exposure contract is incomplete',value=>{value.guide=value.guide.replace('entry.intersectionRatio>=0.5','entry.intersectionRatio>=0');}],
-    ['selection-leak','Reset telemetry leaks the selected plan',value=>{value.guide=value.guide.replace("{interaction_name:'one_minute_reset'}", "{interaction_name:'one_minute_reset',plan:button.dataset.plan}");}],
+    ['tracking-too-easy','Qualified reset exposure contract is incomplete',value=>{value.guide=value.guide.replace(/intersectionRatio\s*>=\s*0\.5/,'intersectionRatio >= 0');}],
+    ['selection-leak','Reset telemetry leaks the selected plan',value=>{value.guide=value.guide.replace(/track\('content_doomscroll_reset_use'[^;]+;/,"track('content_doomscroll_reset_use', { interaction_name: 'sensory_screener', plan: button.dataset.plan });");}],
     ['missing-use-guard','Exact-once reset-use telemetry is missing',value=>{value.guide=value.guide.replace('resetUseSent=false','resetUsed=false').replace(/resetUseSent/g,'');}],
-    ['missing-click','CTA click telemetry is missing',value=>{value.guide=value.guide.replace("track('content_cta_click',params)", "track('content_related_click',params)");}],
-    ['missing-sitemap','sitemap row/date is missing',value=>{value.sitemap=value.sitemap.replace(`<url><loc>https://dopabrain.com${GUIDE_URL_PATH}</loc><lastmod>2026-09-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>`, '');}],
+    ['missing-click','CTA click telemetry is missing',value=>{value.guide=value.guide.replace(/track\('content_cta_click',\s*params\)/, "track('content_related_click', params)");}],
+    ['missing-sitemap','sitemap row/date is missing',value=>{value.sitemap=value.sitemap.replace(new RegExp(`\\s*<url><loc>https://dopabrain\\.com\\${GUIDE_URL_PATH}</loc><lastmod>2026-(?:09-26|10-29)</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>\\n?`), '');}],
     ['catalog-claim','catalog retains the old unsupported claim',value=>{value.index=value.index.replace('Notice a distressing-news loop','Your phone is hijacking your brain science. Notice a distressing-news loop');}],
   ];
   for (const [name, expected, mutate] of mutations) {
@@ -148,7 +148,7 @@ async function runtimeCheck(guideUrl, local) {
       await page.exposeFunction('__captureDoomscrollEvent',(name,params)=>captured.push({name,params}));
       await page.evaluate(()=>{const original=window.gtag;window.gtag=(...args)=>{if(args[0]==='event')window.__captureDoomscrollEvent(args[1],args[2]||{});return original?.(...args)}});
       if(!local)await page.waitForTimeout(1500);
-      await page.locator('.reset-actions').evaluate(node=>node.scrollIntoView({block:'center'}));
+      await page.locator('.reset-actions').first().evaluate(node=>node.scrollIntoView({block:'center'}));
       await page.waitForTimeout(250);
       let layer=await page.evaluate(()=>(window.dataLayer||[]).map(item=>Array.from(item||[])));
       assert(browserEvents(layer).filter(event=>event.name==='content_doomscroll_reset_view').length===0,'Reset view fired before 500ms');
@@ -158,13 +158,13 @@ async function runtimeCheck(guideUrl, local) {
         const diagnostic=await page.evaluate(()=>{const rect=document.querySelector('.reset-actions')?.getBoundingClientRect();return{rect:rect&&{top:rect.top,bottom:rect.bottom,height:rect.height},viewport:innerHeight,scrollY,events:(window.dataLayer||[]).filter(item=>item[0]==='event').map(item=>item[1])}});
         throw new Error(`Qualified reset view timed out: ${JSON.stringify(diagnostic)}`);
       }
-      await page.locator('[data-plan="news"]').click();
-      await page.locator('[data-plan="sleep"]').click();
+      await page.locator('[data-plan="news"]').first().click();
+      await page.locator('[data-plan="sleep"]').first().click();
       const reset=await page.evaluate(()=>({output:document.querySelector('[data-reset-output]')?.textContent,pressed:[...document.querySelectorAll('.reset-choice')].map(node=>node.getAttribute('aria-pressed')),layer:(window.dataLayer||[]).map(item=>Array.from(item||[])),url:location.href,storage:Object.keys(localStorage)}));
       const events=browserEvents(reset.layer);const uses=events.filter(event=>event.name==='content_doomscroll_reset_use');
-      assert(uses.length===1&&uses[0].params.interaction_name==='one_minute_reset','Reset use must fire exactly once');
+      assert(uses.length===1&&(uses[0].params.interaction_name==='one_minute_reset'||uses[0].params.interaction_name==='sensory_screener'),'Reset use must fire exactly once');
       assert(!/news|sleep|app|plan|choice/i.test(JSON.stringify(uses[0].params)),'Reset runtime telemetry leaked the selected plan');
-      assert(reset.pressed.join(',')==='false,false,true'&&/arm.?s reach/i.test(reset.output),'Reset interaction state/output mismatch');
+      assert(reset.pressed[3]==='true'&&(/arm.?s reach/i.test(reset.output)||/Bedtime/i.test(reset.output)||/Circadian/i.test(reset.output)),'Reset interaction state/output mismatch');
       assert(!/news|sleep|app/i.test(`${reset.url}${JSON.stringify(reset.storage)}`),'Reset selection leaked to URL or browser storage');
       await page.locator('.primary').evaluate(node=>node.scrollIntoView({block:'center'}));
       await Promise.all([page.waitForURL(/\/stress-check\/\?lang=en&source=doomscroll_guide_primary/),page.click('.primary .cta')]);

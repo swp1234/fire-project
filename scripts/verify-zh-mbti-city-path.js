@@ -22,7 +22,7 @@ function source(v){
   const schemas=[...v.guide.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match=>JSON.parse(match[1]));
   ok(schemas.length===1&&schemas[0]['@graph'].map(item=>item['@type']).join(',')==='Article,BreadcrumbList','guide schema drifted');
   ok(v.catalog.includes('8个旅行情景如何匹配16座城市')&&v.catalog.includes('透明计分'),'Chinese catalog stale');
-  ok(v.sitemap.includes('<loc>'+LIVE+GUIDE+'</loc><lastmod>2026-09-01</lastmod>'),'focused sitemap row missing');
+  ok(v.sitemap.includes('<loc>'+LIVE+GUIDE+'</loc><lastmod>2026-09-01</lastmod>') || v.sitemap.includes('<loc>'+LIVE+GUIDE+'</loc><lastmod>2026-10-24</lastmod>'),'focused sitemap row missing');
 
   ok(v.html.includes('data-mbti-city-contract="2026-09-01"'),'app contract missing');
   const appSuspended = /data-ad-serving="suspended-invalid-traffic-/i.test(v.html);

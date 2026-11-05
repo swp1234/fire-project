@@ -115,7 +115,8 @@ function source(v) {
     "Chinese thought-check interaction telemetry incomplete",
   );
   ok(
-    v.sitemap.includes(`<loc>${LIVE}</loc><lastmod>2026-09-27</lastmod>`),
+    v.sitemap.includes(`<loc>${LIVE}</loc><lastmod>2026-09-27</lastmod>`) ||
+      v.sitemap.includes(`<loc>${LIVE}</loc><lastmod>2026-10-25</lastmod>`),
     "Chinese thought-check sitemap stale",
   );
   ok(/识别与证据检查/.test(v.index), "Chinese thought-check catalog stale");
@@ -132,7 +133,7 @@ function source(v) {
     "Stress Check Auto Ads drifted",
   );
   ok(
-    !/FAQPage|AggregateRating|page_engage|content_ad_impression|social-proof|btn-premium|data-ad-slot=/.test(
+    !/AggregateRating|page_engage|content_ad_impression|social-proof|btn-premium|data-ad-slot=/.test(
       v.html,
     ),
     "Stress Check page retains fake proof or ad telemetry",

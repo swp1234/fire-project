@@ -197,9 +197,15 @@
 - **포털 도구 봇 스캔 가드 지연 방어 누락 (Portal Tools Bot Dilution)**:
   - GA4 실측 분석 결과 싱가포르 데스크톱 다이렉트 봇 트래픽이 블로그뿐 아니라 유틸리티 도구(`/portal/tools/*.html`)로 유입되어 0초 체류로 이탈하며 수백 회의 즉각적인 애드센스 요청을 발생시켜 전체 도메인 eCPM과 스마트 프라이싱을 희석시키던 현상 확인.
   - **대책**: `projects/portal/js/ad-loader.js`의 `isScanRisk` 대상을 `/portal/blog/`에 한정하지 않고 `/portal/tools/`까지 확장하여 다이렉트 데스크톱 봇 트래픽에는 8초 지연 또는 실제 사용자 입력(클릭, 터치, 키) 시에만 광고를 로드하도록 방어할 것.
-- **스키마 `dateModified`와 사이트맵 `<lastmod>` 불일치 (Schema Date-Sitemap Drift)**:
-  - JSON-LD의 `SoftwareApplication` `dateModified`와 `sitemap.xml`의 `<lastmod>` 날짜가 불일치할 경우 색인 인벤토리(`indexing-inventory --strict`)에서 중간 위험 경고가 발생하고 검색엔진 크롤링 신선도 신호가 왜곡됨.
-  - **대책**: JSON-LD 구조화 데이터와 HTML `<meta name="dateModified">`, 사이트맵 `<lastmod>` 날짜는 단일 기준일(예: `2026-10-27`)로 엄격히 일치시킬 것.
+- **정지 앱 일괄 교체 시 활성 앱 오분류 및 이중 앰퍼샌드 오염 (Botched Batch Link Replacement & Ampersand Corruption)**:
+  - 과거 일괄 정규식 치환 스크립트가 활성 수익화 앱(`shadow-work`, `zodiac-match`, `past-life`)까지 정지 앱으로 오분류해 강제 교체하고, `&start=1` 파라미터가 `&amp%3Bstart=1`로 이중 인코딩되어 해외 유입 트래픽의 목적지 도달이 차단되고 수익이 급락했던 문제.
+  - **대책**: 정지 앱 치환 시 정밀한 화이트리스트/블랙리스트를 적용하고, `&amp;` 엔티티가 이중 인코딩되지 않도록 검증기를 통해 URL 형태를 전수 검증할 것.
+- **DOM에 없는 비가시적 `FAQPage` 구조화 데이터 주입 금지 (Invisible FAQPage Schema Penalty)**:
+  - 실제 가시적 FAQ 아코디언이 DOM에 존재하지 않는 페이지(`future-self/index.html` 등)에 임의로 `FAQPage` JSON-LD를 삽입하면 Google 구조화 데이터 가이드라인 위반으로 신뢰도 패널티를 받음.
+  - **대책**: 반드시 실제 DOM에 질의응답이 명시적으로 노출되어 있는 페이지(예: `stress-check`의 아코디언)에만 `FAQPage` 스키마를 적용하고, 비가시적 페이지에서는 즉시 제거할 것.
+- **가이드 CTA 라벨과 링크 목적지 불일치 방지 (CTA Label-Destination Consistency)**:
+  - CTA 버튼 텍스트가 "用中文开始15题压力自查" 또는 "Faire le Stress Check en français"와 같이 명확한 도구명을 안내하고 있음에도 링크를 다른 도구로 변경하고 중복 속성을 주입할 경우 사용자 신뢰도와 전환율이 급락함.
+  - **대책**: CTA 라벨과 목적지 링크의 일치성을 항상 유지하고 검증기를 통해 양방향 검증을 통과시킬 것.
 
 
 
