@@ -203,9 +203,9 @@
       "trustCompliant": true
     },
     "future-self": {
-      "headCommit": "935f472ad4f61931cf76b63bb38c824c03a50047",
+      "headCommit": "862fb702a7471080a2bb79783f23b6e73d5d5f6c",
       "branch": "master",
-      "auditedAt": "2026-10-31",
+      "auditedAt": "2026-11-05",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
