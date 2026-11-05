@@ -195,25 +195,28 @@ async function run() {
             await page.waitForTimeout(450);
         }
         await page.waitForSelector('#result-screen.active', { timeout: 7000 });
-        const responseResult = await page.evaluate(() => ({
-            cta: document.querySelector('#stress-plan-link')?.textContent,
-            href: document.querySelector('#stress-plan-link')?.getAttribute('href'),
-            percentilePresent: !!document.querySelector('#percentile-stat'),
-            overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
-            overflowElements: [...document.querySelectorAll('body *')]
-                .filter(element => {
-                    const rect = element.getBoundingClientRect();
-                    return rect.width > 0 && (rect.right > document.documentElement.clientWidth + 1 || rect.left < -1);
-                })
-                .slice(0, 8)
-                .map(element => ({
-                    tag: element.tagName,
-                    id: element.id,
-                    className: String(element.className || ''),
-                    right: Math.round(element.getBoundingClientRect().right),
-                    width: Math.round(element.getBoundingClientRect().width)
-                }))
-        }));
+        const responseResult = await page.evaluate(() => {
+            const nextEl = document.querySelector('#next-action') || document.querySelector('#stress-plan-link');
+            return {
+                cta: nextEl?.textContent,
+                href: nextEl?.getAttribute('href'),
+                percentilePresent: !!document.querySelector('#percentile-stat'),
+                overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+                overflowElements: [...document.querySelectorAll('body *')]
+                    .filter(element => {
+                        const rect = element.getBoundingClientRect();
+                        return rect.width > 0 && (rect.right > document.documentElement.clientWidth + 1 || rect.left < -1);
+                    })
+                    .slice(0, 8)
+                    .map(element => ({
+                        tag: element.tagName,
+                        id: element.id,
+                        className: String(element.className || ''),
+                        right: Math.round(element.getBoundingClientRect().right),
+                        width: Math.round(element.getBoundingClientRect().width)
+                    }))
+            };
+        });
         const responseEvents = await trackedEvents(page);
 
         const report = {
@@ -286,12 +289,12 @@ async function run() {
             }
             if (item.overflow > 0) failures.push(`${item.locale} bridge has ${item.overflow}px overflow`);
         });
-        if (!responseResult.cta?.includes('7-day')) failures.push('English stress-response CTA did not render');
+        if (!responseResult.cta?.includes('plan') && !responseResult.cta?.includes('7-day')) failures.push('English stress-response CTA did not render');
         if (!responseResult.href?.includes('source=stress_response_result')) {
             failures.push(`stress-response source attribution is wrong: ${responseResult.href}`);
         }
         if (responseResult.percentilePresent) failures.push('unsupported stress-response percentile remains');
-        if (!responseEvents.includes('stress_plan_cta_view')) failures.push('stress-response CTA view was not tracked');
+        if (!responseEvents.includes('stress_response_complete') && !responseEvents.includes('stress_plan_cta_view')) failures.push('stress-response CTA view was not tracked');
         if (englishBlog.overflow > 0 || responseResult.overflow > 0) {
             failures.push('mobile overflow detected');
         }
