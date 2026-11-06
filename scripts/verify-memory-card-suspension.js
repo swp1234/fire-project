@@ -98,8 +98,9 @@ async function verifyRuntime(baseUrl) {
       await page.addInitScript(() => Object.defineProperty(navigator, 'share', { configurable:true, value:async () => true }));
       await page.goto(`${baseUrl}/memory-card/?lang=en`, { waitUntil:'domcontentloaded', timeout:20000 });
       await page.waitForFunction(() => document.getElementById('app-loader')?.classList.contains('hidden'), null, { timeout:15000 });
+      await page.waitForSelector('#start-btn', { state:'visible', timeout:15000 });
       const startTarget = await page.locator('#start-btn').boundingBox();
-      assert(startTarget && startTarget.width >= 44 && startTarget.height >= 44, `${viewport.width}px start action below 44px`);
+      assert(startTarget && startTarget.width >= 44 && startTarget.height >= 44, `${viewport.width}px start action below 44px: ${JSON.stringify(startTarget)}`);
       await page.click('#start-btn');
       await page.waitForSelector('#game-screen.active .memory-card');
       await page.evaluate(() => {

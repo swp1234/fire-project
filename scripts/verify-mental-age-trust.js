@@ -227,7 +227,7 @@ async function runBrowser(locales, portalLocales) {
       const expected = {
         title: `${locale.app.title} | DopaBrain`, meta: locale.meta.description, ogTitle: locale.meta.og_title,
         intro: locale.intro.title, preview: locale.intro.resultPreview, privacy: locale.intro.privacyNote,
-        start: locale.button.start, guide: `/portal/blog/${LOCALIZED_GUIDES.has(lang) ? lang : 'en'}/mental-age-test-brain-quiz-guide.html?surface=mental_age_result_guide`, overflow: 0,
+        start: locale.button.start, guide: `/portal/blog/${LOCALIZED_GUIDES.has(lang) ? lang : 'en'}/mental-age-test-brain-quiz-guide.html?surface=mental_age_result_guide&source=mental_age_result`, overflow: 0,
       };
       assert(JSON.stringify(actual) === JSON.stringify(expected), `${lang} locale runtime mismatch: ${JSON.stringify({ actual, expected })}`);
 

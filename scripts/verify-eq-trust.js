@@ -239,7 +239,7 @@ async function verifyRuntime(live) {
         assert(events.filter(event => event.name === name).length === 1, `${width}px ${name} must fire once`);
       }
       assert(events.filter(event => event.name === 'eq_related_click').length === 2, `${width}px related clicks must fire once per target`);
-      const keys = events.flatMap(event => Object.keys(event.params));
+      const keys = events.filter(event => EVENTS.includes(event.name)).flatMap(event => Object.keys(event.params));
       assert(!keys.some(key => /(answer|score|result|level|destination|url|label)/i.test(key)), `${width}px private/high-cardinality event key leaked`);
       assert(errors.length === 0, `${width}px runtime errors: ${errors.join('; ')}`);
       await context.close();

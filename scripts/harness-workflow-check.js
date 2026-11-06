@@ -430,6 +430,9 @@ async function main() {
     ['K-pop roster and guide mutations', process.execPath, ['scripts/verify-kpop-role-roster.js', '--mutations']],
     ['Animal Personality trust and mutations', process.execPath, ['scripts/verify-animal-personality.js', '--mutations']],
     ['K-pop Position trust and mutations', process.execPath, ['scripts/verify-kpop-position.js', '--mutations']],
+    ['high-dwell surfaces mobile compliance', process.execPath, ['scripts/verify-high-dwell-surfaces.js']],
+    ['Portal MBTI hub mobile compliance', process.execPath, ['scripts/verify-mbti-hub.js']],
+    ['live blog screener CRO audit', process.execPath, ['scripts/verify-screener-live.js']],
     ['KST midnight boundary', process.execPath, ['scripts/verify-kst-date.js']],
     ['blog interaction generator', process.execPath, ['scripts/verify-blog-generator-interaction.js']],
   ];

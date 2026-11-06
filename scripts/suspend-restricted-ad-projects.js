@@ -73,11 +73,16 @@ function cleanHtml(source) {
   }
   next = next.replace(/<ins\b(?=[^>]*\bclass\s*=\s*["'][^"']*\badsbygoogle\b)[^>]*>[\s\S]*?<\/ins>\s*/gi, '');
   next = removeManualPushes(next);
-  return addMarker(next).replace(/[ \t]+(?=\r?$)/gm, '');
+  next = addMarker(next);
+  if (next !== source) {
+    next = next.replace(/[ \t]+(?=\r?$)/gm, '');
+  }
+  return next;
 }
 
 function cleanScript(source) {
-  return removeManualPushes(removeLoaders(source)).replace(/[ \t]+(?=\r?$)/gm, '');
+  const next = removeManualPushes(removeLoaders(source));
+  return next !== source ? next.replace(/[ \t]+(?=\r?$)/gm, '') : next;
 }
 
 function selfTest() {

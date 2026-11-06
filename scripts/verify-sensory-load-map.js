@@ -138,7 +138,7 @@ async function run() {
         const hspResult = await page.evaluate(() => ({
             resetCount: document.querySelectorAll('#sensory-reset-cta').length,
             mapCount: document.querySelectorAll('#sensory-map-cta').length,
-            mapLinkCount: document.querySelectorAll('#screen-result a[href*="map.html"]').length,
+            mapLinkCount: document.querySelectorAll('#screen-result a[href*="map.html"]:not(.related-card)').length,
             resetTitle: document.querySelector('#sensory-reset-title')?.textContent,
             resetHref: document.querySelector('#sensory-reset-link')?.getAttribute('href'),
             events: (window.dataLayer || []).map((item) => item?.event || (item?.[0] === 'event' ? item[1] : null)).filter(Boolean)

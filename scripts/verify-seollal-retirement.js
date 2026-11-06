@@ -42,7 +42,7 @@ function verifySource(overrides = {}) {
   assert(/client\.navigate\(TARGET\)/.test(worker) && /registration\.unregister\(\)/.test(worker), 'Retirement worker does not move clients and unregister');
   assert(!/respondWith|caches\.open|cache\.put|cache\.add/i.test(worker), 'Retirement worker can still serve or create cache content');
   assert(!greetings.includes(OLD_ROUTE), 'Seollal Greetings still promotes the retired route');
-  assert((greetings.match(/href="\/zodiac-match\/"/g) || []).length === 1, 'Seollal Greetings replacement route drifted');
+  assert((greetings.match(/\shref="\/soul-age\/"/g) || []).length === 1, 'Seollal Greetings replacement route drifted');
   assert(!portalSitemap.includes(OLD_ROUTE) && !blogSitemap.includes(OLD_ROUTE), 'Retired route entered a submitted sitemap');
   return { bytes: Buffer.byteLength(retired), target: TARGET_ROUTE };
 }
@@ -65,8 +65,8 @@ function verifyMutations() {
     ['fetch-handler-returned', { worker: baseline.worker + '\nself.addEventListener("fetch", event => event.respondWith(fetch(event.request)));' }],
     ['unregister-removed', { worker: baseline.worker.replace('await self.registration.unregister();', '') }],
     ['large-content-returned', { retired: baseline.retired + 'x'.repeat(1000) }],
-    ['related-link-returned', { greetings: baseline.greetings.replace('/zodiac-match/', OLD_ROUTE) }],
-    ['replacement-duplicated', { greetings: baseline.greetings + '\n<a href="/zodiac-match/">duplicate</a>' }],
+    ['related-link-returned', { greetings: baseline.greetings.replace('/soul-age/', OLD_ROUTE) }],
+    ['replacement-duplicated', { greetings: baseline.greetings + '\n<a href="/soul-age/">duplicate</a>' }],
     ['sitemap-returned', { portalSitemap: baseline.portalSitemap + '\n' + OLD_ROUTE }],
   ];
   for (const [name, mutation] of cases) {

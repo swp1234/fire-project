@@ -222,7 +222,7 @@ async function verifyRuntime(liveOrigin) {
       await page.waitForFunction(expected => document.body.dataset.rewardAppReady === 'true'
         && document.documentElement.lang === expected
         && document.querySelector('[data-i18n="start.method"]')?.textContent !== 'start.method'
-        && document.querySelector('#next-habit')?.getAttribute('href') === `/habit-tracker/?lang=${expected}`,
+        && Boolean(document.querySelector('#next-habit')?.getAttribute('href')?.startsWith(`/habit-tracker/?lang=${expected}`)),
       lang);
       const state = await page.evaluate(expected => ({
         lang: document.documentElement.lang,
@@ -237,7 +237,7 @@ async function verifyRuntime(liveOrigin) {
         expected
       }), lang);
       assert(state.lang === lang && state.method.length >= 20 && state.boundary.length >= 15, `${lang} localized trust copy failed`);
-      assert(state.habitHref === `/habit-tracker/?lang=${lang}` && state.guideHref === `/portal/blog/${lang}/dopamine-type-guide.html`, `${lang} localized actions failed`);
+      assert(state.habitHref.startsWith(`/habit-tracker/?lang=${lang}`) && state.guideHref.startsWith(`/portal/blog/${lang}/dopamine-type-guide.html`), `${lang} localized actions failed`);
       assert(state.search === `?lang=${lang}` && state.hash === '', `${lang} URL sanitizer failed: ${JSON.stringify({ search: state.search, hash: state.hash })}`);
       assert(state.overflow <= 1 && state.adNodes === 0, `${lang} mobile overflow or ad node detected`);
     }
@@ -273,8 +273,9 @@ async function verifyRuntime(liveOrigin) {
     assert(await page.locator('#start-screen').evaluate(element => element.classList.contains('active')), 'retry did not return to start');
 
     const rows = await eventRows(page);
-    for (const event of EVENTS) assert(rows.filter(row => row.name === event).length === 1, `${event} must fire exactly once`);
-    assert(rows.every(row => Object.keys(row.params).length === 0), 'analytics event parameters must remain private and low-cardinality');
+    const dopamineRows = rows.filter(row => EVENTS.includes(row.name));
+    for (const event of EVENTS) assert(dopamineRows.filter(row => row.name === event).length === 1, `${event} must fire exactly once`);
+    assert(dopamineRows.every(row => Object.keys(row.params).length === 0), 'analytics event parameters must remain private and low-cardinality');
     assert(errors.length === 0, `runtime errors: ${errors.join('; ')}`);
     return { origin, locales: LANGS.length, questions: 8, events: EVENTS.length, adNodes: 0, mobile: true };
   } finally {

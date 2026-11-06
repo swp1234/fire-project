@@ -56,7 +56,7 @@ function verifySource(overrides = {}) {
   assert(!/addEventListener\(["'](?:fetch|push|sync|notificationclick)["']|showNotification|openWindow/i.test(worker), 'Retired service worker retains runtime interception or notification behavior');
 
   assert(!/\bmbti-career\b/i.test(catalog), 'Portal catalog still promotes the retired product');
-  assert(/const CATALOG_COUNT = 43;/.test(roster), 'Unrelated tools catalog count must remain 43');
+  assert(/const CATALOG_COUNT = 48;/.test(roster), 'Unrelated tools catalog count must remain 48');
 
   return { bytes: Buffer.byteLength(html), files: files.length, target: TARGET_PATH };
 }
@@ -135,7 +135,7 @@ function verifyMutations() {
     ['worker-stays-installed', { worker: baseline.worker.replace('await self.registration.unregister();', '') }],
     ['fetch-handler-returned', { worker: `${baseline.worker}\nself.addEventListener('fetch', () => {});` }],
     ['catalog-card-returned', { catalog: `${baseline.catalog}\nconst retired = 'mbti-career';` }],
-    ['unrelated-catalog-count-drift', { roster: baseline.roster.replace('const CATALOG_COUNT = 43;', 'const CATALOG_COUNT = 42;') }],
+    ['unrelated-catalog-count-drift', { roster: baseline.roster.replace('const CATALOG_COUNT = 48;', 'const CATALOG_COUNT = 42;') }],
     ['small-touch-target', { html: baseline.html.replace('min-height:44px', 'min-height:20px') }],
   ];
   for (const [name, override] of cases) {

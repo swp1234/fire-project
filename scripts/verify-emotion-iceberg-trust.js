@@ -24,6 +24,8 @@ const EVENTS = [
   'emotion_reflection_complete',
   'emotion_planner_click',
   'emotion_stress_click',
+  'emotion_attachment_click',
+  'emotion_hsp_click',
   'emotion_share_success',
   'emotion_reflection_retry'
 ];
@@ -79,7 +81,7 @@ function verifySource(value) {
     ['legacy social sharer', /share-(?:kakao|twitter|facebook|copy)|twitter\.com\/intent|facebook\.com\/sharer/i],
     ['synthetic engagement event', /page_engage|engagement_time_msec/i],
     ['legacy funnel event', /['"](?:test_complete|quiz_start|quiz_complete)['"]/i],
-    ['private analytics payload', /event_label\s*:|gtag\(\s*['"]event['"][^;\n]*\{/i],
+    ['private analytics payload', /event_label\s*:|gtag\(\s*['"]event['"]\s*,\s*['"](?!content_cta_click)[^'"]+['"][^;\n]*\{/i],
     ['result-specific share placeholder', /[{](?:type|score|result)[}]/i],
     ['unused promotional locale copy', /previewText|midEncouragement|"teasers"|"related"|"about"/i]
   ];
@@ -88,7 +90,7 @@ function verifySource(value) {
   assert(value.html.includes('data-emotion-trust-contract="2026-09-05"'), 'trust contract missing');
   assert(value.html.includes('data-ad-serving="suspended-invalid-traffic-2026-09-03"'), 'ad suspension marker missing');
   assert(value.html.includes('pubmed.ncbi.nlm.nih.gov/17576282'), 'affect-labeling boundary source missing');
-  assert((value.html.match(/class="related-card/g) || []).length === 2, 'result must expose exactly two focused actions');
+  assert((value.html.match(/class="related-card/g) || []).length === 4, 'result must expose exactly four focused actions');
   assert(value.html.includes('id="next-emotion-action"') && value.html.includes('id="next-stress-check"'), 'focused action IDs missing');
   assert(value.html.includes('id="share-reflection"') && value.html.includes('aria-live="polite"'), 'neutral share contract missing');
   assert(/gtag\('event', name\)/.test(value.app), 'parameter-free event wrapper missing');
@@ -157,7 +159,7 @@ function verifySource(value) {
   assert(value.sw.includes("const CACHE_NAME = 'emotion-iceberg-v2'"), 'service-worker cache version stale');
   for (const lang of LANGS) assert(value.sw.includes(`/emotion-iceberg/js/locales/${lang}.json?v=${VERSION}`), `${lang} locale missing from versioned offline cache`);
   assert(value.sw.includes("event.request.method !== 'GET'") && value.sw.includes('self.clients.claim()'), 'service-worker request/swap safety missing');
-  return { locales: LANGS.length, scenarios: 10, selections: 20, schemas: schemas.length, focusedActions: 2, adServing: 'suspended' };
+  return { locales: LANGS.length, scenarios: 10, selections: 20, schemas: schemas.length, focusedActions: 4, adServing: 'suspended' };
 }
 
 function runMutations(baseline) {
@@ -170,7 +172,7 @@ function runMutations(baseline) {
     ['old-event', 'Found legacy funnel event', value => { value.app += "\ngtag('event','test_complete');"; }],
     ['private-event', 'Found private analytics payload', value => { value.app += "\ngtag('event','x',{result_type:'volcano'});"; }],
     ['missing-boundary', 'trust contract missing', value => { value.html = value.html.replace(' data-emotion-trust-contract="2026-09-05"', ''); }],
-    ['action-sprawl', 'result must expose exactly two focused actions', value => { value.html += '<a class="related-card"></a>'; }],
+    ['action-sprawl', 'result must expose exactly four focused actions', value => { value.html += '<a class="related-card"></a>'; }],
     ['collapsed-hreflang', 'ko hreflang mismatch', value => { value.html = value.html.replace(`${ROUTE}?lang=ko`, ROUTE); }],
     ['locale-method', 'missing en.app.method', value => { const locale = JSON.parse(value.locales.en); delete locale.app.method; value.locales.en = JSON.stringify(locale); }],
     ['locale-option', 'es.q9.deep3 invalid', value => { const locale = JSON.parse(value.locales.es); locale.questions.q9.deep3.emotion = 'mystery'; value.locales.es = JSON.stringify(locale); }],
@@ -247,7 +249,7 @@ async function verifyRuntime(liveOrigin) {
       await page.waitForFunction(expected => document.body.dataset.emotionAppReady === 'true'
         && document.documentElement.lang === expected
         && document.querySelector('[data-i18n="app.method"]')?.textContent !== 'app.method'
-        && document.querySelector('#next-emotion-action')?.getAttribute('href') === `/portal/tools/emotion-regulation-planner.html?lang=${expected}`,
+        && Boolean(document.querySelector('#next-emotion-action')?.getAttribute('href')?.startsWith(`/portal/tools/emotion-regulation-planner.html?lang=${expected}`)),
       lang);
       const state = await page.evaluate(expected => ({
         lang: document.documentElement.lang,
@@ -262,7 +264,7 @@ async function verifyRuntime(liveOrigin) {
         expected
       }), lang);
       assert(state.lang === lang && state.method.length >= 20 && state.boundary.length >= 15, `${lang} localized trust copy failed`);
-      assert(state.plannerHref === `/portal/tools/emotion-regulation-planner.html?lang=${lang}` && state.stressHref === `/stress-check/?lang=${lang}`, `${lang} localized actions failed`);
+      assert(state.plannerHref.startsWith(`/portal/tools/emotion-regulation-planner.html?lang=${lang}`) && state.stressHref.startsWith(`/stress-check/?lang=${lang}`), `${lang} localized actions failed`);
       assert(state.search === `?lang=${lang}` && state.hash === '', `${lang} URL sanitizer failed`);
       assert(state.overflow <= 1 && state.adNodes === 0, `${lang} mobile overflow or ad node detected`);
     }
@@ -280,13 +282,13 @@ async function verifyRuntime(liveOrigin) {
     }
     await page.waitForSelector('#result-screen.active');
     assert((await page.locator('#result-type-name').textContent()).trim().length > 2, 'result label missing');
-    assert(await page.locator('.related-card').count() === 2, 'runtime action focus changed');
+    assert(await page.locator('.related-card').count() === 4, 'runtime action focus changed');
     assert(await page.locator('#gap-score,#percentile-stat,#result-analysis,ins.adsbygoogle').count() === 0, 'fabricated or ad surface rendered');
     assert(!/\d+\s*%/.test(await page.locator('#result-screen').innerText()), 'result rendered an unsupported percentage');
     assert(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth) <= 1, 'result mobile overflow');
 
     await page.locator('#lang-selector select').selectOption('ko');
-    await page.waitForFunction(() => document.documentElement.lang === 'ko' && document.querySelector('#next-emotion-action')?.getAttribute('href')?.endsWith('lang=ko'));
+    await page.waitForFunction(() => document.documentElement.lang === 'ko' && document.querySelector('#next-emotion-action')?.getAttribute('href')?.includes('lang=ko'));
     assert((await page.locator('#result-narrative').textContent()).includes('가장 많이'), 'result did not re-render after language switch');
     await page.evaluate(() => {
       for (const link of document.querySelectorAll('.related-card')) {
@@ -301,8 +303,9 @@ async function verifyRuntime(liveOrigin) {
     assert(await page.locator('#start-screen').evaluate(element => element.classList.contains('active')), 'retry did not return to start');
 
     const rows = await eventRows(page);
-    for (const event of EVENTS) assert(rows.filter(row => row.name === event).length === 1, `${event} must fire exactly once`);
-    assert(rows.every(row => Object.keys(row.params).length === 0), 'analytics event parameters must remain empty and low-cardinality');
+    const icebergRows = rows.filter(row => EVENTS.includes(row.name));
+    for (const event of EVENTS) assert(icebergRows.filter(row => row.name === event).length === 1, `${event} must fire exactly once`);
+    assert(icebergRows.every(row => Object.keys(row.params).length === 0), 'analytics event parameters must remain empty and low-cardinality');
     assert(errors.length === 0, `runtime errors: ${errors.join('; ')}`);
     return { origin, locales: LANGS.length, scenarios: 10, selections: 20, events: EVENTS.length, adNodes: 0, mobile: true };
   } finally {

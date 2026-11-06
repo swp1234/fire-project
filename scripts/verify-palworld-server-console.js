@@ -36,7 +36,7 @@ function clone(value) {
 
 function verifySource({ html, js, css, sitemap }) {
   assert(/data-palworld-contract="2026-08-30"/.test(html), 'Release contract marker is missing');
-  assert(/<meta name="dateModified" content="2026-08-30">/.test(html), 'dateModified metadata is stale');
+  assert(/<meta name="dateModified" content="2026-10-31">/.test(html), 'dateModified metadata is stale');
   assert(/Palworld server docs 1\.0\.3/.test(html), 'Visible metadata does not name official docs 1.0.3');
   assert(/softwareVersion":"1\.0\.3 docs contract"/.test(html), 'WebApplication schema version is stale');
   assert(!/FAQPage/.test(html), 'Unsupported hidden FAQ schema is present');
@@ -44,7 +44,7 @@ function verifySource({ html, js, css, sitemap }) {
   const schemas = [...html.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi)]
     .map(match => JSON.parse(match[1]));
   assert(schemas.length === 1 && schemas[0]['@type'] === 'WebApplication', 'Expected one WebApplication JSON-LD block');
-  assert(schemas[0].dateModified === '2026-08-30', 'WebApplication schema date is stale');
+  assert(schemas[0].dateModified === '2026-10-31', 'WebApplication schema date is stale');
 
   const generatorIndex = html.indexOf('id="generator"');
   const outputIndex = html.indexOf('class="output-head"');
@@ -66,7 +66,7 @@ function verifySource({ html, js, css, sitemap }) {
   assert(/Math\.min\(definition\[6\], Math\.max\(definition\[5\], numeric\)\)/.test(js), 'Numeric settings are not clamped to official UI bounds');
   assert(/palworld-server-settings\.css\?v=20260830a/.test(html) && /palworld-server-settings\.js\?v=20260830a/.test(html), 'Release assets are not cache-busted together');
   assert(/#iniOutput\{max-height:230px\}/.test(css), 'Generated block is not height-bounded');
-  assert(/<loc>https:\/\/dopabrain\.com\/portal\/tools\/palworld-server-settings\.html<\/loc><lastmod>2026-08-30<\/lastmod>/.test(sitemap), 'Palworld sitemap lastmod is stale');
+  assert(/<loc>https:\/\/dopabrain\.com\/portal\/tools\/palworld-server-settings\.html<\/loc><lastmod>2026-10-31<\/lastmod>/.test(sitemap), 'Palworld sitemap lastmod is stale');
 
   return { schemas: schemas.length, flags: PVP_FLAGS.length, languages: LANGS.length };
 }
@@ -81,7 +81,7 @@ function runMutations(baseline) {
     ['dirty-canonical', 'Canonical URL is not rebuilt from the clean path', fixture => { fixture.js = fixture.js.replace('new URL(location.pathname, location.origin)', 'new URL(location.href)'); }],
     ['hidden-faq', 'Unsupported hidden FAQ schema is present', fixture => { fixture.html += '<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage"}</script>'; }],
     ['unbounded-number', 'Numeric settings are not clamped to official UI bounds', fixture => { fixture.js = fixture.js.replace('Math.min(definition[6], Math.max(definition[5], numeric))', 'numeric'); }],
-    ['stale-sitemap', 'Palworld sitemap lastmod is stale', fixture => { fixture.sitemap = fixture.sitemap.replace('<lastmod>2026-08-30</lastmod>', '<lastmod>2026-07-27</lastmod>'); }]
+    ['stale-sitemap', 'Palworld sitemap lastmod is stale', fixture => { fixture.sitemap = fixture.sitemap.replace('<loc>https://dopabrain.com/portal/tools/palworld-server-settings.html</loc><lastmod>2026-10-31</lastmod>', '<loc>https://dopabrain.com/portal/tools/palworld-server-settings.html</loc><lastmod>2026-07-27</lastmod>'); }]
   ];
   for (const [name, expected, mutate] of mutations) {
     const fixture = clone(baseline);

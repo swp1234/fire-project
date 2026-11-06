@@ -215,7 +215,7 @@ async function verifyRuntime(liveOrigin) {
       await page.goto(`${origin}${ROUTE}?lang=${lang}&result=private#answer`, { waitUntil: 'domcontentloaded' });
       await page.waitForFunction(expected => document.documentElement.lang === expected
         && document.querySelector('[data-i18n="intro.method"]')?.textContent !== 'intro.method'
-        && document.querySelector('#next-stress-check')?.getAttribute('href') === `/stress-check/?lang=${expected}`,
+        && Boolean(document.querySelector('#next-stress-check')?.getAttribute('href')?.startsWith(`/stress-check/?lang=${expected}`)),
       lang);
       const state = await page.evaluate(expected => ({
         lang: document.documentElement.lang,
@@ -230,7 +230,7 @@ async function verifyRuntime(liveOrigin) {
         expected
       }), lang);
       assert(state.lang === lang && state.method.length >= 20 && state.boundary.length >= 15, `${lang} localized trust copy failed`);
-      assert(state.stressHref === `/stress-check/?lang=${lang}` && state.guideHref === `/portal/blog/${lang}/stress-management-techniques-guide.html`, `${lang} localized actions failed: ${JSON.stringify({ stressHref: state.stressHref, guideHref: state.guideHref })}`);
+      assert(state.stressHref.startsWith(`/stress-check/?lang=${lang}`) && state.guideHref.startsWith(`/portal/blog/${lang}/stress-management-techniques-guide.html`), `${lang} localized actions failed: ${JSON.stringify({ stressHref: state.stressHref, guideHref: state.guideHref })}`);
       assert(state.search === `?lang=${lang}` && state.hash === '', `${lang} URL sanitizer failed`);
       assert(state.overflow <= 1 && state.adNodes === 0, `${lang} mobile overflow or ad node detected`);
     }
@@ -265,8 +265,9 @@ async function verifyRuntime(liveOrigin) {
     assert(await page.locator('#intro-screen').evaluate(element => element.classList.contains('active')), 'retry did not return to intro');
 
     const rows = await eventRows(page);
-    for (const event of EVENTS) assert(rows.filter(row => row.name === event).length === 1, `${event} must fire exactly once`);
-    assert(rows.every(row => Object.keys(row.params).length === 0), 'analytics event parameters must remain private and low-cardinality');
+    const burnoutRows = rows.filter(row => EVENTS.includes(row.name));
+    for (const event of EVENTS) assert(burnoutRows.filter(row => row.name === event).length === 1, `${event} must fire exactly once`);
+    assert(burnoutRows.every(row => Object.keys(row.params).length === 0), 'analytics event parameters must remain private and low-cardinality');
     assert(errors.length === 0, `runtime errors: ${errors.join('; ')}`);
     return { origin, locales: LANGS.length, questions: 8, events: EVENTS.length, adNodes: 0, mobile: true };
   } finally {

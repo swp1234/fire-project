@@ -239,7 +239,9 @@ function cleanHtml(html, label) {
   next = removeManualPushCalls(next);
   next = dedupeAutoAdsLoaders(next);
   next = next.replace(/\s+data-ad-surface\s*=\s*("[^"]*"|'[^']*')/gi, '');
-  next = next.replace(/[ \t]+(?=\r?$)/gm, '');
+  if (next !== String(html)) {
+    next = next.replace(/[ \t]+(?=\r?$)/gm, '');
+  }
   return next;
 }
 

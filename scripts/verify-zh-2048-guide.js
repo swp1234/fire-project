@@ -20,9 +20,9 @@ const APP_DATA_FILE = path.join(PORTAL, 'js', 'app-data.js');
 const ROUTE = '/portal/blog/zh/2048-strategy-guide.html';
 const CANONICAL = 'https://dopabrain.com' + ROUTE;
 const TITLE = '2048游戏攻略：高分技巧与策略完全指南 | DopaBrain';
-const LASTMOD = '2026-08-29';
+const LASTMOD = '2026-10-29';
 const CONTENT_ID = '2048-strategy-guide.html';
-const ARTICLE_TEXT_SHA256 = '948184931f08501934f0f4611e581dec8a383261798cb320bf78c72b712cf097';
+const ARTICLE_TEXT_SHA256 = '9b36e3e2d68c85ef53a049653670b6f6b89f72d3dfbfa1fa6dc1f8ac5c6c76b1';
 
 const STICKY = {
   href: '/puzzle-2048/?lang=zh&surface=zh_2048_strategy_sticky',
@@ -34,11 +34,11 @@ const QUICK = [
   { href: '/puzzle-2048/?lang=zh&surface=zh_2048_strategy_quick', surface: 'quick_rail', slug: 'puzzle-2048' },
   { href: '/reaction-test/?lang=zh', surface: 'quick_rail', slug: 'reaction-test' },
   { href: '/minesweeper/?lang=zh', surface: 'quick_rail', slug: 'minesweeper' },
-  { href: '/brick-breaker/?lang=zh', surface: 'quick_rail', slug: 'brick-breaker' },
+  { href: '/puzzle-2048/coach.html?lang=zh', surface: 'quick_rail', slug: 'coach' },
 ];
 
 const ARTICLE_CTAS = [
-  'https://dopabrain.com/puzzle-2048/?lang=zh&surface=zh_2048_strategy_cta1',
+  '/puzzle-2048/coach.html?lang=zh&source=blog_zh_2048_triage',
   'https://dopabrain.com/puzzle-2048/?lang=zh&surface=zh_2048_strategy_cta2',
 ];
 
@@ -496,7 +496,7 @@ async function browserCheck(browser, baseUrl, viewport) {
       target_slug: STICKY.slug,
     }), 'content_cta_click/sticky');
 
-    const articleCta = await clickAndRead(page, '.cta-btn', 'content_cta_click');
+    const articleCta = await clickAndRead(page, '.cta-box .cta-btn', 'content_cta_click');
     exactParams(articleCta.event.params, Object.assign(commonContentParams(), {
       link_url: articleCta.href,
       cta_surface: 'article_cta',
@@ -549,7 +549,7 @@ function sourceMutations(baseline) {
   return [
     ['changed-title', 'Title must remain unchanged', { article: replaceRequired(baseline.article, TITLE, '2048错误标题 | DopaBrain', 'changed-title') }],
     ['changed-canonical', 'Canonical must remain unchanged', { article: replaceRequired(baseline.article, '<link rel="canonical" href="' + CANONICAL + '">', '<link rel="canonical" href="https://dopabrain.com/wrong">', 'changed-canonical') }],
-    ['stale-schema-date', 'Article schema dateModified', { article: replaceRequired(baseline.article, '"dateModified":"' + LASTMOD + '"', '"dateModified":"2026-08-28"', 'stale-schema-date') }],
+    ['stale-schema-date', 'Article schema dateModified', { article: replaceRequired(baseline.article, '"dateModified": "' + LASTMOD + '"', '"dateModified": "2026-08-28"', 'stale-schema-date') }],
     ['faq-schema-drift', 'FAQ schema-visible parity', { article: replaceRequired(baseline.article, '"name":"Q1. 2048游戏的基本规则是什么？"', '"name":"Q1. 错误问题？"', 'faq-schema-drift') }],
     ['manual-auto-slot', 'Manual data-ad-slot', { article: replaceRequired(baseline.article, '<footer>', '<ins data-ad-slot="auto"></ins>\n<footer>', 'manual-auto-slot') }],
     ['manual-ins', 'Manual adsbygoogle element', { article: replaceRequired(baseline.article, '<footer>', '<ins class="adsbygoogle"></ins>\n<footer>', 'manual-ins') }],
@@ -559,7 +559,7 @@ function sourceMutations(baseline) {
     ['duplicate-loader', 'Auto Ads loader count', { article: replaceRequired(baseline.article, '    <script src="/portal/js/ad-loader.js"></script>', '    <script src="/portal/js/ad-loader.js"></script>\n    <script src="/portal/js/ad-loader.js"></script>', 'duplicate-loader') }],
     ['quick-route-drift', 'Quick rail 1 href mismatch', { article: replaceRequired(baseline.article, '/puzzle-2048/?lang=zh&amp;surface=zh_2048_strategy_quick', '/puzzle-2048/?lang=zh&amp;surface=wrong', 'quick-route-drift') }],
     ['sticky-surface-drift', 'Sticky CTA surface mismatch', { article: replaceRequired(baseline.article, 'data-content-surface="sticky_revenue_cta"', 'data-content-surface="wrong"', 'sticky-surface-drift') }],
-    ['cta-route-drift', 'Article CTA 1 href mismatch', { article: replaceRequired(baseline.article, 'https://dopabrain.com/puzzle-2048/?lang=zh&amp;surface=zh_2048_strategy_cta1', 'https://dopabrain.com/puzzle-2048/?lang=zh&amp;surface=wrong', 'cta-route-drift') }],
+    ['cta-route-drift', 'Article CTA 1 href mismatch', { article: replaceRequired(baseline.article, '/puzzle-2048/coach.html?lang=zh&amp;source=blog_zh_2048_triage', '/puzzle-2048/coach.html?lang=zh&amp;source=wrong', 'cta-route-drift') }],
     ['search-body-drift', 'Search-body hash mismatch', { article: replaceRequired(baseline.article, '方向锁定是角落固定法的延伸。', '方向锁定正文被意外修改。', 'search-body-drift') }],
     ['missing-cross-promo', 'Cross-promo loader count', { article: replaceRequired(baseline.article, '<script src="/portal/js/cross-promo.js" defer></script>', '', 'missing-cross-promo') }],
     ['missing-event', 'Missing content event', { article: replaceRequired(baseline.article, "track('content_toc_click'", "track('content_toc_missing'", 'missing-event') }],
