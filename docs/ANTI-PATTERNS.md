@@ -209,9 +209,14 @@
 - **포털 도구 카탈로그 동적 언어 전환 시 어트리뷰션 쿼리 유실 (Portal Tools Dynamic Catalog Attribution Drop)**:
   - `projects/portal/tools/index.html`에서 다국어 언어 전환 시 `data-plan-surface` 외의 속성(`data-sensory-reset-surface`, `data-sensory-map-surface`, `data-library-surface` 등)을 고려하지 않고 일반 `source=portal_tools`로 일괄 덮어써서 `verify-sensory-reset` 및 `verify-sensory-load-map`의 `source=portal_tools_catalog` 계약이 깨지던 문제.
   - **대책**: `.tool-card`는 카탈로그 표면(`portal_tools_catalog`), `.featured-card`는 피처드 표면(`portal_tools_featured`)을 기본 상속하도록 설계하여 모든 카드에서 일관된 어트리뷰션을 보장할 것.
-- **도구 추천 스크리너 내 CTA 클래스 누락으로 인한 전환 이벤트 측정 누락 (Screener Recommendation Telemetry Gap)**:
-  - 블로그 내 인터랙티브 스크리너(예: `jeux-entrainement-cerveau-2026.html`)의 결과 추천 링크(`#screener-action`)에 `.cta-btn` 클래스가 누락되어, 실제 사용자가 추천 도구(Coach 2048, Brain Type 등)를 클릭하여 진입하더라도 GA4 `content_cta_click` 이벤트가 발행되지 않고 전환 기여도가 유실되던 문제.
-  - **대책**: 스크리너 동적 추천 링크에는 반드시 `.cta-btn` 클래스와 고유 어트리뷰션(`source=blog_{locale}_{topic}`)을 포함할 것.
+- **모바일 터치 감사 스크립트의 단일 HTML 파일 경로 파싱 및 `<label for>` 폼 컨트롤 타깃 인식 (`audit-touch.js` Single File & Control Target Gap)**:
+  - `audit-touch.js`에 개별 HTML 파일 경로(예: `portal/tools/emotion-regulation-planner.html`)를 인자로 전달할 때 무조건 후행 슬래시(`/`)를 붙이면 브라우저가 상대 경로 CSS(`../css/...`)를 404로 로드하지 못해 폰트/버튼 스타일이 깨지고 터치 타깃이 축소 오탐되던 문제.
+  - 또한 `<label for="...">`가 `<select>`나 `<textarea>`를 가리킬 때, 실제 상호작용 대상은 폼 컨트롤임에도 텍스트 라벨 자체의 작은 높이(21px)로 인해 WCAG 2.5.8 타깃 결함으로 잘못 분류되던 문제.
+  - **대책**: `.html` 파일 경로는 후행 슬래시 없이 서빙하고, `<label for>`의 타깃이 `input`, `select`, `textarea`인 경우 컨트롤 자체의 규격만 측정하도록 스크립트 로직을 고도화할 것.
+- **포털 유틸리티 도구 내 인라인 학술 출처 및 네비게이션 링크 터치 규격 완비 (Utility Tools Touch Target Compliance)**:
+  - `emotion-regulation-planner.css` 등에서 `nav a`, `footer a`, `select#language`, 그리고 `.sources a`(WHO, NHS 레퍼런스 링크)에 `min-height: 44px; display: inline-flex; align-items: center;`가 누락되어 모바일 화면에서 17~35px로 렌더링되던 문제.
+  - **대책**: 모든 유틸리티 도구는 `button, select`에 `min-height: 44px;`를 기본 상속하고, 앵커 링크에는 `display: inline-flex; align-items: center; min-height: 44px;`를 적용하여 390x844 뷰포트에서 0px 오버플로와 44px 터치 타깃을 상시 유지할 것.
+
 
 
 
