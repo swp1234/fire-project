@@ -203,9 +203,16 @@
 - **DOM에 없는 비가시적 `FAQPage` 구조화 데이터 주입 금지 (Invisible FAQPage Schema Penalty)**:
   - 실제 가시적 FAQ 아코디언이 DOM에 존재하지 않는 페이지(`future-self/index.html` 등)에 임의로 `FAQPage` JSON-LD를 삽입하면 Google 구조화 데이터 가이드라인 위반으로 신뢰도 패널티를 받음.
   - **대책**: 반드시 실제 DOM에 질의응답이 명시적으로 노출되어 있는 페이지(예: `stress-check`의 아코디언)에만 `FAQPage` 스키마를 적용하고, 비가시적 페이지에서는 즉시 제거할 것.
-- **가이드 CTA 라벨과 링크 목적지 불일치 방지 (CTA Label-Destination Consistency)**:
-  - CTA 버튼 텍스트가 "用中文开始15题压力自查" 또는 "Faire le Stress Check en français"와 같이 명확한 도구명을 안내하고 있음에도 링크를 다른 도구로 변경하고 중복 속성을 주입할 경우 사용자 신뢰도와 전환율이 급락함.
-  - **대책**: CTA 라벨과 목적지 링크의 일치성을 항상 유지하고 검증기를 통해 양방향 검증을 통과시킬 것.
+- **일괄 배치 스크립트의 무조건적인 후행 공백 제거로 인한 거짓 diff 방지 (Batch Tool Trailing Whitespace Idempotency Gap)**:
+  - `clean-indexable-blog-ads.js`나 `suspend-restricted-ad-projects.js` 등 배치 클린 도구에서 `next.replace(/[ \t]+(?=\r?$)/gm, '')`를 내용 변경 여부와 상관없이 무조건 적용할 경우, CSS 주석이나 텍스트 내부의 무해한 공백만으로도 수백 개 파일이 "dirty"로 판정되어 `verify-restricted-ad-projects` 등 멱등성 검증이 실패하는 문제.
+  - **대책**: 후행 공백 정리는 실제 본문 변경(`next !== source`)이 발생한 경우에만 조건부로 실행하여 변경되지 않은 파일의 무의미한 diff 오염을 원천 차단할 것.
+- **포털 도구 카탈로그 동적 언어 전환 시 어트리뷰션 쿼리 유실 (Portal Tools Dynamic Catalog Attribution Drop)**:
+  - `projects/portal/tools/index.html`에서 다국어 언어 전환 시 `data-plan-surface` 외의 속성(`data-sensory-reset-surface`, `data-sensory-map-surface`, `data-library-surface` 등)을 고려하지 않고 일반 `source=portal_tools`로 일괄 덮어써서 `verify-sensory-reset` 및 `verify-sensory-load-map`의 `source=portal_tools_catalog` 계약이 깨지던 문제.
+  - **대책**: `.tool-card`는 카탈로그 표면(`portal_tools_catalog`), `.featured-card`는 피처드 표면(`portal_tools_featured`)을 기본 상속하도록 설계하여 모든 카드에서 일관된 어트리뷰션을 보장할 것.
+- **도구 추천 스크리너 내 CTA 클래스 누락으로 인한 전환 이벤트 측정 누락 (Screener Recommendation Telemetry Gap)**:
+  - 블로그 내 인터랙티브 스크리너(예: `jeux-entrainement-cerveau-2026.html`)의 결과 추천 링크(`#screener-action`)에 `.cta-btn` 클래스가 누락되어, 실제 사용자가 추천 도구(Coach 2048, Brain Type 등)를 클릭하여 진입하더라도 GA4 `content_cta_click` 이벤트가 발행되지 않고 전환 기여도가 유실되던 문제.
+  - **대책**: 스크리너 동적 추천 링크에는 반드시 `.cta-btn` 클래스와 고유 어트리뷰션(`source=blog_{locale}_{topic}`)을 포함할 것.
+
 
 
 
