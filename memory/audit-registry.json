@@ -77,7 +77,7 @@
       "trustCompliant": true
     },
     "portal": {
-      "headCommit": "74f4bde437787e34289aa976190885beed0403f8",
+      "headCommit": "fc622db54896561760feae30cfd044ae97bb968d",
       "branch": "main",
       "auditedAt": "2026-11-06",
       "overflowPx": 0,
@@ -913,9 +913,9 @@
       "trustCompliant": true
     },
     "red-flag-test": {
-      "headCommit": "0579fa8539dbea24d7b69debc463447850270c08",
+      "headCommit": "70101a84b908552e4ab029edf08d45263af5e388",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-06",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -985,9 +985,9 @@
       "trustCompliant": true
     },
     "trauma-response": {
-      "headCommit": "450404617a2cf9c4d026912eba945684831e1de4",
+      "headCommit": "01ce054ccd409859a103158cffa7270ed397686a",
       "branch": "master",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-06",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
