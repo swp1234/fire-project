@@ -95,6 +95,7 @@ async function verifyRuntime(baseUrl) {
       await page.route('**/*', (route) => new URL(route.request().url()).origin === new URL(baseUrl).origin ? route.continue() : route.abort());
       await page.addInitScript(() => {
         Object.defineProperty(navigator, 'share', { configurable:true, value:async () => true });
+        try { localStorage.setItem('tutorialComplete', 'true'); } catch {}
       });
       await page.goto(`${baseUrl}/idle-clicker/?lang=en`, { waitUntil:'domcontentloaded', timeout:20000 });
       await page.waitForSelector('#app-loader', { state:'detached', timeout:15000 });
