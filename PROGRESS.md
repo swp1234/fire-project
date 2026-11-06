@@ -24,14 +24,15 @@ Updated: 2026-11-06 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P3 E-E-A-T 신뢰도 누수 정화 (완료)**: 64개 블로그 파일 전반의 134개 내부 체류 지표 텍스트 누출(`(175s Verweildauer)`, `(175s permanência)` 등) 일체 제거.
 - **P4 헬스 가드 & 퍼널 브릿지 전체 ALL PASS (완료)**: AdSense OAuth Keepalive, Auto Ads 단일 로더, 사이트맵/색인 인벤토리, 비밀값 0건, 문서 예산, 4,034개 파일 퍼널 감사 통과.
 
-## Latest release: Global Funnel CRO & E-E-A-T Metric Sanitization (`portal` @ `80c2830`)
+## Latest release: Mobile Touch Target WCAG Compliance & Interactive Tools Optimization (`portal` @ `ca5447b`)
 
-- **E-E-A-T 신뢰도 지표 정화 (134건 전수 제거)**:
-  - 64개 블로그 파일(EN, DE, ES, FR, PT)의 퀵 레일 카드 설명에 잔존하던 내부 체류 지표 괄호 문구(`(175s Verweildauer)`, `(175s permanência)`, `(175s)` 등)를 전수 제거하여 브랜드 신뢰도 및 E-E-A-T 회복.
-- **글로벌 고체류 6개 언어권 CRO 및 어트리뷰션 정렬**:
-  - 일본어/영어 뇌 훈련 가이드: 뇌타입 테스트 왜곡 목적지(`/future-self/` -> `/brain-type/`) 교정 및 7개 앱카드 `.cta-btn` 연결.
-  - 스페인어/포르투갈어/중국어 고체류 글: 소매틱 불안, 감정 조절, 부적응적 백일몽 가이드에 `&source=` 파라미터 및 44px 터치 규격 완비.
-  - IndexNow 5개 주요 정규 URL 즉시 색인 제출 완료 (HTTP 200).
-- **하네스 전 단계 134/134 PASS**: `scripts/harness-workflow-check.js` 134단계 전수 무결점 통과.
+- **모바일 390x844 WCAG 2.5.8 터치 타깃 및 오버플로 0px 전수 달성**:
+  - `projects/portal/tools/emotion-regulation-planner.html` 및 CSS: 네비게이션/푸터 링크, 언어 선택기, 학술 레퍼런스 링크의 최소 높이를 44px 및 `inline-flex`로 보정하여 모바일 탭 영역 완비 (Visible: 18, Overflow: 0px, Issues: 0).
+  - `.agents/skills/dopabrain-touch-audit/scripts/audit-touch.js`: 단일 HTML 파일 대상 감사 경로 파싱 지원 및 `<label for>` 타깃의 `select`/`textarea` 정상 인식 처리.
+  - 전 서브모듈(80개 이상) 및 인터랙티브 도구 100% 터치 감사 ALL PASS 달성.
+- **포털 인터랙티브 도구 CRO 및 텔레메트리 연결**:
+  - `emotion-regulation-planner.html`: 감각 리셋 및 스트레스 플랜 추천 링크에 `id="relSensoryReset" data-related="hsp_reset"`, `id="relStressPlan" data-related="stress_plan"` 명시적 GA4 어트리뷰션 연결.
+- **하네스 전 단계 134/134 PASS & Health Guard ALL PASS**:
+  - `scripts/harness-workflow-check.js` 134단계 100% 녹색 완결. AdSense Keepalive (`ok: true`, 0 policy issues).
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

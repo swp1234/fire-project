@@ -70,7 +70,7 @@ async function audit(submodules = []) {
   const auditResults = {};
 
   for (const sub of submodules) {
-    const url = `${origin}/${sub}/`;
+    const url = sub.endsWith('.html') ? `${origin}/${sub}` : `${origin}/${sub}/`;
     try {
       await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 15000 });
       await page.waitForTimeout(800);
@@ -92,10 +92,10 @@ async function audit(submodules = []) {
           if (rect.width === 0 || rect.height === 0) continue;
           if (rect.bottom < 0 || rect.top > 5000) continue;
 
-          // If label for text/number/date input, input itself is target
+          // If label for text/number/date input, select, or textarea, the control itself is target
           if (el.tagName.toLowerCase() === 'label' && el.getAttribute('for')) {
             const target = document.getElementById(el.getAttribute('for'));
-            if (target && target.tagName.toLowerCase() === 'input' && target.type !== 'checkbox' && target.type !== 'radio') {
+            if (target && ['input', 'select', 'textarea'].includes(target.tagName.toLowerCase()) && target.type !== 'checkbox' && target.type !== 'radio') {
               continue;
             }
           }
