@@ -544,13 +544,16 @@
       "lastAudited": "2026-11-07T10:48:00.000Z"
     },
     "work-style": {
-      "headCommit": "7df6fe61b898fbf053b0b8f7d747fd927e9f1975",
+      "headCommit": "427c02fbe508553ddaf737d1f8a493e88b6c7b47",
       "branch": "master",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "last_audit_commit": "427c02fbe508553ddaf737d1f8a493e88b6c7b47",
+      "last_audit_time": "2026-11-07T20:37:00.000Z",
+      "trust_issues": 0
     },
     "name-match": {
       "headCommit": "7650e30dfc36a5240aa2c4e0d8ff12f1434d5baf",

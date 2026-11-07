@@ -24,12 +24,12 @@ Updated: 2026-11-07 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P3 뇌 유형(Brain Type) 인지 프레임워크 & FAQPage 스키마 탑재 (완료)**: `brain-type` 카너먼 시스템 1 인지 차원 해설, 10개 언어 FAQ 번역, profile-stat 정제.
 - **P4 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense OAuth Keepalive, Auto Ads 단일 로더, 비밀값 0건, 4,034개 파일 퍼널 감사 통과.
 
-## Latest release: Unit Converter Computational Metrology Guide & FAQPage (`unit-converter` @ `efaed0f`)
+## Latest release: Work Style Belbin Team Roles Guide & FAQPage (`work-style` @ `427c02f`)
 
-- **Unit Converter E-E-A-T 계산 계량학 표준 & FAQPage 스키마 탑재**:
-  - `projects/unit-converter/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (BIPM/NIST 국제단위계 SI 표준, 척관법/야드파운드법 정확한 환산 상수, 평수 400/121㎡ 수학 공식, 열역학 아핀 변환, 로컬 프라이버시 원칙).
-  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 계량학 가이드 및 FAQ 100% 현지화 완결.
+- **Work Style E-E-A-T 벨빈 팀 역할 이론 & FAQPage 스키마 탑재**:
+  - `projects/work-style/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (벨빈 팀 역할 이론, 민츠버그 관리자 모델, 5대 업무 스타일 Leader/Executor/Creative/Analyst/Connector, 성찰 경계, 로컬 연산 프라이버시).
+  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 조직 심리학 가이드 및 FAQ 100% 현지화, 허위 소셜 프루프 문구 완전 퇴출.
   - 가시적 FAQ 아코디언(`<section class="about-section ...">`) 및 48px 터치 타깃 완비로 트러스트 & 터치 감사 통과.
-- **IndexNow 즉각 제출 완료 (`https://dopabrain.com/unit-converter/`, status 200)**.
+- **IndexNow 즉각 제출 완료 (`https://dopabrain.com/work-style/`, status 200)**.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
