@@ -369,13 +369,14 @@
       "trustCompliant": true
     },
     "root-domain": {
-      "headCommit": "654844ed03425446f6741a0566e7e464913f7497",
+      "headCommit": "d5cd55bb63d03c4323712578c03065ddae794b2d",
       "branch": "main",
       "auditedAt": "2026-10-31",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "lastAudited": "2026-11-07T09:59:02.131Z"
     },
     "routine-planner": {
       "headCommit": "9e8ebf0936beea97cdd3e48371983154e0455911",
