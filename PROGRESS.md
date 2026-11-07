@@ -24,13 +24,12 @@ Updated: 2026-11-07 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P3 뇌 유형(Brain Type) 인지 프레임워크 & FAQPage 스키마 탑재 (완료)**: `brain-type` 카너먼 시스템 1 인지 차원 해설, 10개 언어 FAQ 번역, profile-stat 정제.
 - **P4 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense OAuth Keepalive, Auto Ads 단일 로더, 비밀값 0건, 4,034개 파일 퍼널 감사 통과.
 
-## Latest release: Numerology Pythagorean Arithmology Guide & FAQPage (`numerology` @ `b23ce51`)
+## Latest release: Pick Me Social Psychology Impression Management Guide & FAQPage (`pick-me` @ `6dcd84b`)
 
-- **Numerology 피타고라스 수론 가이드 & 소셜 프루프 완전 정제 & FAQPage 스키마 탑재**:
-  - `projects/numerology/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (피타고라스 수론 digital root 환원, 마스터 넘버 11/22/33, 칼 융 심리적 질서 원형, 로컬 프라이버시).
-  - 잔존 가짜 소셜 프루프("오늘 2,847명이 계산...") 12개 언어 전면 퇴출 및 객관적 리플렉션 뱃지로 정제.
-  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 수비학 가이드 및 FAQ 100% 현지화 완결.
-  - 신규 가시적 FAQ 아코디언(`<section class="about-section ...">`) 및 48px 터치 타깃 완비로 트러스트 & 터치 감사 통과.
-- **IndexNow 즉각 제출 완료 (`https://dopabrain.com/numerology/`, status 200)**.
+- **Pick Me 사회심리학 인상 관리 이론 & FAQPage 스키마 탑재**:
+  - `projects/pick-me/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (어빙 고프먼 인상 관리 연극학 이론, 레온 페스팅거 사회비교 이론, 비임상 자기성찰 경계, 로컬 프라이버시).
+  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 사회심리학 가이드 및 FAQ 100% 현지화 완결.
+  - 가시적 FAQ 아코디언(`<section class="about-section ...">`) 및 48px 터치 타깃 완비로 트러스트 & 터치 감사 통과.
+- **IndexNow 즉각 제출 완료 (`https://dopabrain.com/pick-me/`, status 200)**.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
