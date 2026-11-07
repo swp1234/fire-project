@@ -592,16 +592,14 @@
       "trustCompliant": true
     },
     "red-green-flag": {
-      "headCommit": "f9ac46a0f3976f0ca41ffd0bf63ee9ec5d8d0141",
+      "headCommit": "bf9234a59188bf73aa3c7c3ac3e66999c4577286",
       "branch": "master",
-      "auditedAt": "2026-11-03",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
       "trustCompliant": true,
-      "last_audit_commit": "f9ac46a0f3976f0ca41ffd0bf63ee9ec5d8d0141",
-      "last_audit_time": "2026-11-03T13:59:15.616Z",
-      "trust_issues": 0
+      "lastAudited": "2026-11-07T11:15:00.000Z"
     },
     "toxic-trait": {
       "headCommit": "6441fc6c19916b8bc8e0f86774aea106fe8ebe9c",
