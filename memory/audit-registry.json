@@ -936,13 +936,14 @@
       "trustCompliant": true
     },
     "burnout-test": {
-      "headCommit": "8bf75bca2efe17be723a0b7df7eb344366ea13db",
+      "headCommit": "450f7c5098e766bf3d70c18d9ed7f7ccec5a6c49",
       "branch": "master",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "lastAudited": "2026-11-07T11:00:00.000Z"
     },
     "stress-response": {
       "headCommit": "fc158cbe5fb1d222b371cb05c452532160092bcd",

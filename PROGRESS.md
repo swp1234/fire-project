@@ -24,11 +24,11 @@ Updated: 2026-11-07 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P3 뇌 유형(Brain Type) 인지 프레임워크 & FAQPage 스키마 탑재 (완료)**: `brain-type` 카너먼 시스템 1 인지 차원 해설, 10개 언어 FAQ 번역, profile-stat 정제.
 - **P4 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense OAuth Keepalive, Auto Ads 단일 로더, 비밀값 0건, 4,034개 파일 퍼널 감사 통과.
 
-## Latest release: Dark Core D-Factor Psychological Guide & FAQPage (`dark-core` @ `5f3f2aa`)
+## Latest release: Burnout Test Maslach Framework Guide & FAQPage (`burnout-test` @ `450f7c5`)
 
-- **Dark Core E-E-A-T 성격 심리학 프레임워크 & FAQPage 스키마 탑재**:
-  - `projects/dark-core/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (모스하겐·힐빅 D-요인 모델, 다크 테트라드 4대 차원 Narcissism/Machiavellianism/Psychopathy/Sadism, 비임상 자기성찰 경계, 브라우저 로컬 연산 프라이버시).
-  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 심리학 프레임워크 가이드 및 FAQ 100% 현지화 완결.
+- **Burnout Test E-E-A-T 직무 소진 심리학 & FAQPage 스키마 탑재**:
+  - `projects/burnout-test/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (WHO ICD-11 QD85 직무 증후군 정의, 마슬락 3대 차원 정서적 소진/탈인격화/효능감 저하, 6대 번아웃 표현형 Overachiever/Empath/Boreout/Invisible/Creative/Digital).
+  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 직무 웰빙 가이드 및 FAQ 100% 현지화 완결.
   - 가시적 FAQ 아코디언(`<details class="about-test faq-accordion" open>`) 및 44px 터치 타깃 완비로 트러스트 & 터치 감사 통과.
 - **전 단계 134/134 PASS, Health Guard ALL PASS, IndexNow 즉각 제출 완료**.
 
