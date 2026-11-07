@@ -62,7 +62,7 @@
     "seollal-greetings": {
       "headCommit": "70ff7798970219454d40707b39066ca6ae4f7b05",
       "branch": "master",
-      "auditedAt": "2026-11-03",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -1160,5 +1160,6 @@
   "projects/zodiac-match": "d8e123ce228c867bcc55ade10dca325ef3252ee7",
   "projects/lottery": "5f16cca213b6a39a2129f41a6dd9f004ec38417d",
   "projects/fortune-cookie": "b1a831f3cd09f76893c6f94885bce6e4d8cdb1b6",
-  "projects/would-you-rather": "ed5a55629a6e22991e61c436fb0d0f27498c8dfc"
+  "projects/would-you-rather": "ed5a55629a6e22991e61c436fb0d0f27498c8dfc",
+  "projects/seollal-greetings": "24cea3a193554ebc7c8ce3f4d8f05adcf7bf7205"
 }
