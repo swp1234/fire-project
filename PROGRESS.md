@@ -24,12 +24,13 @@ Updated: 2026-11-07 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P3 뇌 유형(Brain Type) 인지 프레임워크 & FAQPage 스키마 탑재 (완료)**: `brain-type` 카너먼 시스템 1 인지 차원 해설, 10개 언어 FAQ 번역, profile-stat 정제.
 - **P4 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense OAuth Keepalive, Auto Ads 단일 로더, 비밀값 0건, 4,034개 파일 퍼널 감사 통과.
 
-## Latest release: Soul Age 5-Archetype Transpersonal Guide & 12-Lang FAQPage (`soul-age` @ `4b61bcb`)
+## Latest release: Pomodoro Ultradian Pacing Guide & Fake Ad Removal (`pomodoro-timer` @ `1338dd6`)
 
-- **Soul Age(영혼 나이 테스트) E-E-A-T 신뢰도 & 구조화 데이터 전면 강화**:
-  - `projects/soul-age/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (초개인 심리학 5대 원형, 12개 실존적 문항 산출 원리, 실제 나이/IQ와의 독립성, 로컬 프라이버시).
-  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 심리원형 가이드 및 FAQ 100% 현지화 완결.
-  - 가시적 FAQ 아코디언(`<div class="faq-section">` / `<h2 class="faq-heading">`) 및 48px 터치 타깃 완비로 트러스트 & 터치 감사 통과.
+- **Pomodoro Timer E-E-A-T 인지과학 가이드 & 규정 준수 전면 강화**:
+  - `projects/pomodoro-timer/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (치릴로 25/5 주기, 클라이트만 울트라디안 BRAC 리듬, 전두엽 인지 피로 완화, 로컬 프라이버시).
+  - 모의 광고 알림(`alert('광고 재생 중입니다...')`) 및 가짜 시청 버튼 완전 제거, 생산성 인사이트 투명 공개.
+  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 인지과학 가이드 및 FAQ 100% 현지화 완결.
+  - 가시적 FAQ 아코디언(`<details class="about-test faq-accordion" open>`) 및 48px 터치 타깃 완비로 트러스트 & 터치 감사 통과.
 - **전 단계 134/134 PASS, Health Guard ALL PASS, IndexNow 즉각 제출 완료**.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
