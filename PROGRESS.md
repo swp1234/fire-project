@@ -19,18 +19,17 @@ Updated: 2026-11-07 KST. Release history: `memory/data-check-log.md`; ops loop: 
 ## Active plan (2026-11-07) — 상세 설계: `docs/STRATEGY.md`
 
 - **P0 전체 134단계 Harness Workflow 100% 녹색 완결 (완료)**: `npm run harness` 134단계 모든 검증기 무결점 통과.
-- **P1 스트레스 유형 가짜 소셜 프루프 완전 퇴출 (완료)**: `stress-type` 내 잔존 32,000+ 문구 제거, 12개 언어 정식 교육용 디스클레이머로 전면 교체.
-- **P2 백색소음 플레이어 E-E-A-T 과학 가이드 & 다국어 정렬 (완료)**: `white-noise` 음향 물리학($1/f^\alpha$), FAQPage 스키마, 12개 언어 실시간 전문가 팁, 터치 44px 및 퍼널 브릿지 완비.
-- **P3 미래 자아(Future Self) FAQPage 스키마 & 글로벌 현지화 (완료)**: `future-self` 10개 언어 과학적 프레임워크 및 FAQ 번역 동기화, 정식 FAQPage 스키마 탑재.
+- **P1 스트레스 유형 가짜 소셜 프루프 완전 퇴출 (완료)**: `stress-type` 잔존 32,000+ 제거, 12개 언어 교육용 디스클레이머 전면 교체.
+- **P2 백색소음 플레이어 E-E-A-T 과학 가이드 & 다국어 정렬 (완료)**: `white-noise` 음향 물리학($1/f^\alpha$), FAQPage 스키마, 12개 언어 실시간 팁, 터치 44px 완비.
+- **P3 뇌 유형(Brain Type) 인지 프레임워크 & FAQPage 스키마 탑재 (완료)**: `brain-type` 카너먼 시스템 1 인지 차원 해설, 10개 언어 FAQ 번역, profile-stat 정제.
 - **P4 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense OAuth Keepalive, Auto Ads 단일 로더, 비밀값 0건, 4,034개 파일 퍼널 감사 통과.
 
-## Latest release: Future Self Global Rich Snippet & Trust Hardening (`future-self` @ `5d51c18`)
+## Latest release: Brain Type Cognitive Framework & FAQPage Rich Snippet (`brain-type` @ `89fd34f`)
 
-- **핵심 유기 진입면 Future Self(미래 자아) 검색 노출력 및 E-E-A-T 극대화**:
-  - `projects/future-self/index.html`: 정식 `FAQPage` JSON-LD 구조화 데이터 탑재 (인생 경로 변화 가능성, 미래 자아 연결법, 프라이버시 보호).
-  - 10개 주요 글로벌 언어(`ja zh es de fr pt id tr ru hi`) 행동과학 프레임워크 및 FAQ 100% 현지화 완결.
-- **코드베이스 무결성 검증 완결**:
-  - `stress-type`, `white-noise`, `future-self` 서브모듈 커밋/푸시 및 루트 포인터 정렬 완료.
-  - 390x844 모바일 터치 타깃 0px 오버플로, 트러스트 감사 ALL CLEAN, IndexNow 200 OK.
+- **핵심 유기 진입면 Brain Type(뇌 유형 테스트) E-E-A-T 신뢰도 강화**:
+  - `projects/brain-type/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (스타일 변화 가능성, 3초 시스템 1 어림법, 인지 프로필 다양성, 프라이버시).
+  - 10개 주요 글로벌 언어(`ja zh es de fr pt id tr ru hi`) 인지심리학 프레임워크 및 FAQ 100% 현지화 완결.
+  - 레거시 선택자 `percentile-stat`을 시맨틱 `profile-stat`으로 정제하여 트러스트 감사 무결점 통과.
+- **전 단계 134/134 PASS, Health Guard ALL PASS, 390x844 터치 타깃 0px 오버플로 완결**.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

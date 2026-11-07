@@ -658,13 +658,14 @@
       "last_audit_time": "2026-11-03T14:03:46.048Z"
     },
     "brain-type": {
-      "headCommit": "ae04ef556cafca6e8ed6be458be8d6e2d8c16c9b",
+      "headCommit": "89fd34f32ea71f8dc7c7d2f04cce68a5f5bee141",
       "branch": "main",
-      "auditedAt": "2026-11-04",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "lastAudited": "2026-11-07T09:55:51.177Z"
     },
     "color-palette": {
       "headCommit": "05a3c490651bcff30ca6bbe038f2a13a8957dcd7",
