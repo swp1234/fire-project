@@ -629,7 +629,7 @@
     "attachment-style": {
       "headCommit": "b28272d56103791a144a2c7c84d12886e0a42a51",
       "branch": "master",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -694,7 +694,7 @@
     "daily-tarot": {
       "headCommit": "713ab62a0284b9cea1f5308c6f4868b3d7403359",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -1169,5 +1169,10 @@
   "projects/dday-counter": "3edda154a9b0a0a97a9fa07296b5d7549da85085",
   "projects/shopping-calc": "fe6865014c1b0b9eb5c6a501b43509491244ee31",
   "projects/password-generator": "d03d44ea324059dd9085c8a6d8d59f4571343c56",
-  "projects/tax-refund-preview": "ae11b0b60056d4e71f4684e1b039a315866f80a5"
+  "projects/tax-refund-preview": "ae11b0b60056d4e71f4684e1b039a315866f80a5",
+  "projects/iq-test": "882984e768d973ec4c8d9ec960e879a21f45a7e3",
+  "projects/daily-tarot": "2998fa6bd3ac01d72b5de5210191f70b19c9d466",
+  "projects/hsp-test": "79125923a64a8e8d92fbe6f053f67c96ab595ed9",
+  "projects/stress-check": "039e99620890dcae0d7c79a1dfb05a04d7d2a5fb",
+  "projects/attachment-style": "222a0e4e98ce1ee6dc88edb461f0725ef06db265"
 }

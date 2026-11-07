@@ -24,12 +24,13 @@ Updated: 2026-11-07 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P3 뇌 유형(Brain Type) 인지 프레임워크 & FAQPage 스키마 탑재 (완료)**: `brain-type` 카너먼 시스템 1 인지 차원 해설, 10개 언어 FAQ 번역, profile-stat 정제.
 - **P4 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense OAuth Keepalive, Auto Ads 단일 로더, 비밀값 0건, 4,034개 파일 퍼널 감사 통과.
 
-## Latest release: Multi-Project E-E-A-T & Touch Targets Alignment (`7 Projects Batch` @ `2026-11-07`)
+## Latest release: Core High-Traffic Surfaces Date & E-E-A-T Sync (`Core Surfaces Batch` @ `2026-11-07`)
 
-- **주요 수익화 도구 7개 프로젝트 구조화 데이터 및 E-E-A-T 메타 일괄 고도화**:
-  - `animal-personality` (@ `d0194c5`), `kpop-position` (@ `e84e29d`), `biorhythm` (@ `f35ef4c`), `dday-counter` (@ `3edda15`), `shopping-calc` (@ `fe68650`), `password-generator` (@ `d03d44e`), `tax-refund-preview` (@ `ae11b0b`).
-  - `dateModified="2026-11-07"` 갱신 및 FAQ 요약부 48px 이상 터치 타깃 완비.
-  - 트러스트 감사 (`trust-audit`) & 모바일 터치 감사 (`audit-touch`, 390x844 0px 오버플로) 100% 무결점 통과.
-- **IndexNow 즉각 제출 완료 (7개 도구 전수 status 200)**.
+- **DopaBrain 핵심 고트래픽 진입면 5종 구조화 데이터 & E-E-A-T 메타 동기화**:
+  - `iq-test` (@ `882984e`), `daily-tarot` (@ `2998fa6`), `hsp-test` (@ `7912592`), `stress-check` (@ `039e996`), `attachment-style` (@ `222a0e4`).
+  - `dateModified="2026-11-07"` 전면 동기화 및 E-E-A-T 학술/심리학적 참고문헌 & FAQ 구조화 데이터 정렬.
+  - 사용자 자산 `attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 완전 보존 원칙 100% 준수.
+  - 트러스트 감사 (`trust-audit`) & 모바일 터치 감사 (`audit-touch`, 390x844 0px 오버플로) 전수 녹색 통과.
+- **IndexNow 즉각 제출 완료 (핵심 진입면 5종 전수 status 200)**.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
