@@ -446,13 +446,16 @@
       "trustCompliant": true
     },
     "unit-converter": {
-      "headCommit": "f19efa99696618c5e3769517f107081e1cb1fb25",
+      "headCommit": "efaed0feeb5c43156c99120df4b3d249c1e8d079",
       "branch": "main",
-      "auditedAt": "2026-11-03",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "last_audit_commit": "efaed0feeb5c43156c99120df4b3d249c1e8d079",
+      "last_audit_time": "2026-11-07T20:32:00.000Z",
+      "trust_issues": 0
     },
     "valentine": {
       "headCommit": "aed406a219052a9a1dd792123468f4ab79e89e41",
