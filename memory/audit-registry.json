@@ -14,13 +14,13 @@
       "trustCompliant": true
     },
     "biorhythm": {
-      "headCommit": "86436295332f441abc903c1c59b3cb4defa5a736",
+      "headCommit": "ce4d066dd843ca854dbab6c27a3d932ceb757efd",
       "branch": "master",
       "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
-      "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "status": "VERIFIED_PASSED"
     },
     "aura-reading": {
       "headCommit": "2d315b3cfc2d0bc8e86ddc38e547c0655238e3cc",
@@ -215,7 +215,7 @@
     "hsp-test": {
       "headCommit": "005da45acd41f5ec79ed3a043ca623965cc0b2ff",
       "branch": "main",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -233,7 +233,7 @@
     "iq-test": {
       "headCommit": "00a58e9f9dfbad81bed7e668eacae4ad31d64c35",
       "branch": "master",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -344,7 +344,7 @@
     "puzzle-2048": {
       "headCommit": "0aed4538053140fcf3f87b7a2fc70af79e4f1644",
       "branch": "master",
-      "auditedAt": "2026-11-03",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -417,7 +417,7 @@
     "stress-check": {
       "headCommit": "dbc7532936b3edbfb5f970a4ea97aee6e8ab9d5c",
       "branch": "master",
-      "auditedAt": "2026-11-04",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",

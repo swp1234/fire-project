@@ -24,12 +24,12 @@ Updated: 2026-11-07 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P3 뇌 유형(Brain Type) 인지 프레임워크 & FAQPage 스키마 탑재 (완료)**: `brain-type` 카너먼 시스템 1 인지 차원 해설, 10개 언어 FAQ 번역, profile-stat 정제.
 - **P4 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense OAuth Keepalive, Auto Ads 단일 로더, 비밀값 0건, 4,034개 파일 퍼널 감사 통과.
 
-## Latest release: Brain Type Cognitive Framework & FAQPage Rich Snippet (`brain-type` @ `89fd34f`)
+## Latest release: Biorhythm Chronobiology E-E-A-T Guide & 12-Lang FAQPage (`biorhythm` @ `ce4d066`)
 
-- **핵심 유기 진입면 Brain Type(뇌 유형 테스트) E-E-A-T 신뢰도 강화**:
-  - `projects/brain-type/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (스타일 변화 가능성, 3초 시스템 1 어림법, 인지 프로필 다양성, 프라이버시).
-  - 10개 주요 글로벌 언어(`ja zh es de fr pt id tr ru hi`) 인지심리학 프레임워크 및 FAQ 100% 현지화 완결.
-  - 레거시 선택자 `percentile-stat`을 시맨틱 `profile-stat`으로 정제하여 트러스트 감사 무결점 통과.
-- **전 단계 134/134 PASS, Health Guard ALL PASS, 390x844 터치 타깃 0px 오버플로 완결**.
+- **Biorhythm 계산기 E-E-A-T 신뢰도 & 구조화 데이터 전면 강화**:
+  - `projects/biorhythm/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (정현파 파동 $R(t) = \sin(2\pi t / T)$, 의학/임상적 한계 명시, 위험일/전환기 해석, 로컬 프라이버시).
+  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 크로노바이올로지 가이드 및 FAQ 100% 현지화 완결.
+  - 가시적 FAQ 아코디언(`<details class="about-test faq-accordion" open>`) 배치로 트러스트 감사 및 터치 감사(0px 오버플로) 완전 통과.
+- **전 단계 134/134 PASS, Health Guard ALL PASS, IndexNow 즉각 제출 완료**.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
