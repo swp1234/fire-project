@@ -604,13 +604,14 @@
       "trust_issues": 0
     },
     "toxic-trait": {
-      "headCommit": "517789ec68abf5d8f2db7a28e584ab15142941e8",
+      "headCommit": "6441fc6c19916b8bc8e0f86774aea106fe8ebe9c",
       "branch": "master",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "lastAudited": "2026-11-07T11:10:00.000Z"
     },
     "attachment-style": {
       "headCommit": "b28272d56103791a144a2c7c84d12886e0a42a51",
