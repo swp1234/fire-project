@@ -24,13 +24,12 @@ Updated: 2026-11-07 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P3 뇌 유형(Brain Type) 인지 프레임워크 & FAQPage 스키마 탑재 (완료)**: `brain-type` 카너먼 시스템 1 인지 차원 해설, 10개 언어 FAQ 번역, profile-stat 정제.
 - **P4 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense OAuth Keepalive, Auto Ads 단일 로더, 비밀값 0건, 4,034개 파일 퍼널 감사 통과.
 
-## Latest release: Love Frequency Psychoacoustics Guide & FAQPage (`love-frequency` @ `3c7c915`)
+## Latest release: MBTI Tips Cognitive Functions Guide & FAQPage (`mbti-tips` @ `658c4df`)
 
-- **Love Frequency 심리음향학 & 가짜 소셜 프루프 완전 정제 & FAQPage 스키마 탑재**:
-  - `projects/love-frequency/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (솔페지오 7개 주파수 음향물리학, 528Hz 부교감 신경 활성화/코르티솔 감소, 비임상 자기성찰 경계, Web Audio API 로컬 프라이버시).
-  - 잔존 가짜 소셜 프루프("72,000+ hearts...") 12개 언어 전면 퇴출 및 객관적 리플렉션 뱃지로 정제.
-  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 심리음향학 가이드 및 FAQ 100% 현지화 완결.
-  - 가시적 FAQ 아코디언(`<section id="about-love-frequency" ...>`) 및 48px 터치 타깃 완비로 트러스트 & 터치 감사 통과.
-- **IndexNow 즉각 제출 완료 (`https://dopabrain.com/love-frequency/`, status 200)**.
+- **MBTI Tips 칼 융 인지기능 이론 & FAQPage 스키마 탑재**:
+  - `projects/mbti-tips/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (칼 융 4대 인지 이분법 E/I, S/N, T/F, J/P, 상호보완적 궁합 시너지, 비결정론적 관계 마인드풀니스, 로컬 프라이버시).
+  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 성격심리학 가이드 및 FAQ 100% 현지화 완결.
+  - 가시적 FAQ 아코디언(`<section class="about-section ...">`) 및 48px 터치 타깃 완비로 트러스트 & 터치 감사 통과.
+- **IndexNow 즉각 제출 완료 (`https://dopabrain.com/mbti-tips/`, status 200)**.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

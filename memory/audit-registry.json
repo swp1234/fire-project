@@ -286,9 +286,9 @@
       "trustCompliant": true
     },
     "mbti-tips": {
-      "headCommit": "620540f74d5eb9107e156d6949813b62bb54f4a2",
+      "headCommit": "658c4df56cb551c7b4bf63b38175dfbe4eafc685",
       "branch": "main",
-      "auditedAt": "2026-10-29",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
