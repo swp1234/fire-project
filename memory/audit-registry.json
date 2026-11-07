@@ -803,13 +803,14 @@
       "trustCompliant": true
     },
     "dark-core": {
-      "headCommit": "a52d4aed56dadeea7a3c62f7303ac8b83e5fab0b",
+      "headCommit": "5f3f2aa5a96ea850924510249eae3649855453d3",
       "branch": "master",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "lastAudited": "2026-11-07T10:56:00.000Z"
     },
     "soul-age": {
       "headCommit": "4b61bcb23dffa32fe9702bb5c06846e8421bd2d7",
