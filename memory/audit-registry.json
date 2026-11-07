@@ -811,13 +811,13 @@
       "trustCompliant": true
     },
     "soul-age": {
-      "headCommit": "65285ef25d17f65e6f0b2789062f056034669b19",
+      "headCommit": "4b61bcb23dffa32fe9702bb5c06846e8421bd2d7",
       "branch": "master",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
-      "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "status": "VERIFIED_PASSED"
     },
     "pick-me": {
       "headCommit": "3bf016e135c0f8365d84e587df07d859e96526ce",
