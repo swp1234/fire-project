@@ -667,13 +667,14 @@
       "lastAudited": "2026-11-07T09:55:51.177Z"
     },
     "color-palette": {
-      "headCommit": "05a3c490651bcff30ca6bbe038f2a13a8957dcd7",
+      "headCommit": "49cea62a7ffe8568cc6d32c3a2d82e7a2101fa67",
       "branch": "master",
-      "auditedAt": "2026-11-03",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "lastAudited": "2026-11-07T10:52:00.000Z"
     },
     "daily-tarot": {
       "headCommit": "713ab62a0284b9cea1f5308c6f4868b3d7403359",
