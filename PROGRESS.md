@@ -24,12 +24,12 @@ Updated: 2026-11-07 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P3 뇌 유형(Brain Type) 인지 프레임워크 & FAQPage 스키마 탑재 (완료)**: `brain-type` 카너먼 시스템 1 인지 차원 해설, 10개 언어 FAQ 번역, profile-stat 정제.
 - **P4 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense OAuth Keepalive, Auto Ads 단일 로더, 비밀값 0건, 4,034개 파일 퍼널 감사 통과.
 
-## Latest release: Fortune Cookie History & Psychological Priming FAQPage (`fortune-cookie` @ `b1a831f`)
+## Latest release: Would You Rather Decision Psychology FAQPage (`would-you-rather` @ `ed5a556`)
 
-- **Fortune Cookie 문화사 및 심리적 점화 효과 FAQPage 스키마 탑재**:
-  - `projects/fortune-cookie/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (19세기 쓰지우라 센베 전통 유래, 심리적 점화 및 바넘-포러 효과, 긍정적 마음챙김 도구 활용, 완전한 로컬 클라이언트 프라이버시).
-  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 문화심리학 가이드 및 FAQ 100% 현지화 완결.
+- **Would You Rather 의사결정 이중과정 이론 & FAQPage 스키마 탑재**:
+  - `projects/would-you-rather/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (대니얼 카너먼 시스템 1/2 인지 갈등, 허위 합의 효과 극복, 안전한 대화 촉진 및 아이스브레이킹, 로컬 프라이버시).
+  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 의사결정 심리학 가이드 및 FAQ 100% 현지화 완결.
   - 신규 가시적 FAQ 아코디언(`<section class="faq-section ...">`) 및 48px 터치 타깃 완비로 트러스트 감사 `hidden_faq_schema` 완벽 해소 (0px 오버플로).
-- **IndexNow 즉각 제출 완료 (`https://dopabrain.com/fortune-cookie/`, status 200)**.
+- **IndexNow 즉각 제출 완료 (`https://dopabrain.com/would-you-rather/`, status 200)**.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
