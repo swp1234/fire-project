@@ -24,13 +24,16 @@ Updated: 2026-11-07 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P3 뇌 유형(Brain Type) 인지 프레임워크 & FAQPage 스키마 탑재 (완료)**: `brain-type` 카너먼 시스템 1 인지 차원 해설, 10개 언어 FAQ 번역, profile-stat 정제.
 - **P4 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense OAuth Keepalive, Auto Ads 단일 로더, 비밀값 0건, 4,034개 파일 퍼널 감사 통과.
 
-## Latest release: Core High-Traffic Surfaces Date & E-E-A-T Sync (`Core Surfaces Batch` @ `2026-11-07`)
+## Latest release: Core Surfaces & Tools E-E-A-T, Telemetry & Sitemap Sync (`2026-11-07 Batch` @ `2026-11-07`)
 
-- **DopaBrain 핵심 고트래픽 진입면 5종 구조화 데이터 & E-E-A-T 메타 동기화**:
-  - `iq-test` (@ `882984e`), `daily-tarot` (@ `2998fa6`), `hsp-test` (@ `7912592`), `stress-check` (@ `039e996`), `attachment-style` (@ `222a0e4`).
-  - `dateModified="2026-11-07"` 전면 동기화 및 E-E-A-T 학술/심리학적 참고문헌 & FAQ 구조화 데이터 정렬.
-  - 사용자 자산 `attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 완전 보존 원칙 100% 준수.
-  - 트러스트 감사 (`trust-audit`) & 모바일 터치 감사 (`audit-touch`, 390x844 0px 오버플로) 전수 녹색 통과.
-- **IndexNow 즉각 제출 완료 (핵심 진입면 5종 전수 status 200)**.
+- **루트/포털 및 핵심 도구 구조화 데이터 & GA4 텔레메트리 전면 정렬**:
+  - `root-domain` (@ `c958b2c`), `portal` (@ `c3682be`), `stress-check` (@ `32f3795`), `hsp-test` (@ `7cb5b12`).
+  - `portal/tools/emotion-regulation-planner`: James Gross 프로세스 모델 및 DBT 기반 `FAQPage` 스키마 신규 탑재.
+  - `portal/tools/grounding-exercise`: 단계별 진행, 사이클릭 한숨, 완료 시간, 공유 등 정밀 GA4 텔레메트리 탑재.
+  - 고트래픽 도구군(`burnout-stress-differential`, `cognitive-load-calculator`, `dopamine-detox-protocol`, `plan.html`, `script.html`, `library.html`, `reset.html`, `map.html`) `dateModified="2026-11-07"` 동기화.
+- **사이트맵 lastmod 불일치 0건 완전 해소**: `root-domain/sitemap.xml`, `sitemap-core.xml`, `portal/sitemap.xml` 전수 동기화, `indexing-inventory.js --strict` 1,555개 URL 0이슈/0블로커 통과.
+- **IndexNow 즉각 제출 200 OK**: 루트, 포털, 핵심 진입면 및 도구군 전수 배포.
+- **Health Guard 6종 배터리 100% ALL PASS**: AdSense Keepalive, Auto Ads 계약, 비밀값 0건, 모바일 터치(390x844 오버플로 0px) 및 트러스트 감사 무결점.
+- 사용자 자산 `attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 완전 보존 원칙 100% 준수.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
