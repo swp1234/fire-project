@@ -512,7 +512,7 @@
     "zodiac-match": {
       "headCommit": "712b0de4072fb0ec787cc3c507ad5320a34a595c",
       "branch": "master",
-      "auditedAt": "2026-11-03",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -1156,5 +1156,6 @@
     "status": "clean",
     "headCommit": "e8b23849508c505be4cbcbfb205318aa258c0291",
     "lastAudited": "2026-11-01"
-  }
+  },
+  "projects/zodiac-match": "d8e123ce228c867bcc55ade10dca325ef3252ee7"
 }
