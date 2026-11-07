@@ -24,12 +24,12 @@ Updated: 2026-11-07 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P3 뇌 유형(Brain Type) 인지 프레임워크 & FAQPage 스키마 탑재 (완료)**: `brain-type` 카너먼 시스템 1 인지 차원 해설, 10개 언어 FAQ 번역, profile-stat 정제.
 - **P4 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense OAuth Keepalive, Auto Ads 단일 로더, 비밀값 0건, 4,034개 파일 퍼널 감사 통과.
 
-## Latest release: Valentine Couple Psychology & FAQPage (`valentine` @ `466f484`)
+## Latest release: Multi-Project E-E-A-T & Touch Targets Alignment (`7 Projects Batch` @ `2026-11-07`)
 
-- **Valentine 커플 관계심리학 & 스턴버그 사랑삼각형 FAQPage 스키마 탑재**:
-  - `projects/valentine/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (가트맨 연구소 실증 관계 소통 기준, 스턴버그 사랑의 삼각형 & 5가지 사랑의 언어, 상시 에버그린 배지 전환, 완전한 로컬 클라이언트 프라이버시).
-  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 관계심리학 가이드 및 FAQ 100% 현지화 완결.
-  - 신규 가시적 FAQ 아코디언(`<section class="faq-section ...">`) 및 48px 터치 타깃 완비로 트러스트 감사 `hidden_faq_schema` 완벽 해소 (0px 오버플로).
-- **IndexNow 즉각 제출 완료 (`https://dopabrain.com/valentine/`, status 200)**.
+- **주요 수익화 도구 7개 프로젝트 구조화 데이터 및 E-E-A-T 메타 일괄 고도화**:
+  - `animal-personality` (@ `d0194c5`), `kpop-position` (@ `e84e29d`), `biorhythm` (@ `f35ef4c`), `dday-counter` (@ `3edda15`), `shopping-calc` (@ `fe68650`), `password-generator` (@ `d03d44e`), `tax-refund-preview` (@ `ae11b0b`).
+  - `dateModified="2026-11-07"` 갱신 및 FAQ 요약부 48px 이상 터치 타깃 완비.
+  - 트러스트 감사 (`trust-audit`) & 모바일 터치 감사 (`audit-touch`, 390x844 0px 오버플로) 100% 무결점 통과.
+- **IndexNow 즉각 제출 완료 (7개 도구 전수 status 200)**.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

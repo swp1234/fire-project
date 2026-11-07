@@ -101,7 +101,7 @@
     "animal-personality": {
       "headCommit": "095e3e6359fd9844d5606f12b5ec726e1da18958",
       "branch": "master",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -146,7 +146,7 @@
     "dday-counter": {
       "headCommit": "110e99ebfa185d4c051d14f5caceb8b7850c532d",
       "branch": "main",
-      "auditedAt": "2026-11-03",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -252,7 +252,7 @@
     "kpop-position": {
       "headCommit": "c7734a793be6ce73a892a2c59cd2ae5de69d2851",
       "branch": "main",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -324,7 +324,7 @@
     "password-generator": {
       "headCommit": "4bb00d8cf2808af5e4809b3463e30a47c1ca6468",
       "branch": "master",
-      "auditedAt": "2026-11-03",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -400,7 +400,7 @@
     "shopping-calc": {
       "headCommit": "368cce244ec353d834214d4dd832f4b51d60c8bd",
       "branch": "main",
-      "auditedAt": "2026-11-03",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "trustCompliant": true,
@@ -436,7 +436,7 @@
     "tax-refund-preview": {
       "headCommit": "749629d454c41a97011d7e939890e643656d5a20",
       "branch": "main",
-      "auditedAt": "2026-11-03",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -1162,5 +1162,12 @@
   "projects/fortune-cookie": "b1a831f3cd09f76893c6f94885bce6e4d8cdb1b6",
   "projects/would-you-rather": "ed5a55629a6e22991e61c436fb0d0f27498c8dfc",
   "projects/seollal-greetings": "24cea3a193554ebc7c8ce3f4d8f05adcf7bf7205",
-  "projects/valentine": "466f48449491969df22d18e6fdf00549499d450e"
+  "projects/valentine": "466f48449491969df22d18e6fdf00549499d450e",
+  "projects/animal-personality": "d0194c589bcb82f11a80877eaa42f2f7f5c91152",
+  "projects/kpop-position": "e84e29d8cb7bc9b8dd34c33b18a559a76bd2463b",
+  "projects/biorhythm": "f35ef4c31c63cbb70f3f5d9f60cc202904a0d4a7",
+  "projects/dday-counter": "3edda154a9b0a0a97a9fa07296b5d7549da85085",
+  "projects/shopping-calc": "fe6865014c1b0b9eb5c6a501b43509491244ee31",
+  "projects/password-generator": "d03d44ea324059dd9085c8a6d8d59f4571343c56",
+  "projects/tax-refund-preview": "ae11b0b60056d4e71f4684e1b039a315866f80a5"
 }
