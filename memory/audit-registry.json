@@ -788,13 +788,16 @@
       "trustCompliant": true
     },
     "aura-score": {
-      "headCommit": "2b94679b9979c42139a045473d221cc4e499a625",
+      "headCommit": "a70d70b2aff4c046a6c118b3f2fcc6e0ef805752",
       "branch": "master",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "last_audit_commit": "a70d70b2aff4c046a6c118b3f2fcc6e0ef805752",
+      "last_audit_time": "2026-11-07T20:45:00.000Z",
+      "trust_issues": 0
     },
     "npc-test": {
       "headCommit": "50e0e27f0c4fd8a3b8045f1240fcbd9ba7542ab5",
