@@ -831,13 +831,13 @@
       "trustCompliant": true
     },
     "emotional-age": {
-      "headCommit": "54941ef1c424d8aa9c910692ed05a289576a21e6",
+      "headCommit": "2801b5ec0545b1d1235ecda80a785e84a4aaf632",
       "branch": "master",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
-      "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "status": "VERIFIED_PASSED"
     },
     "villain-origin": {
       "headCommit": "ec18cf325d2b2327ca48d0028647742a315c55d6",
