@@ -78,7 +78,7 @@
       "trustCompliant": true
     },
     "portal": {
-      "headCommit": "78c5569fe96953748a83380b8c2e8e4f22c640d8",
+      "headCommit": "3b1a343c3a8d6e67d1f68ac2afacf39203c5aef3",
       "branch": "main",
       "auditedAt": "2026-11-07",
       "overflowPx": 0,
@@ -379,9 +379,9 @@
       "trustCompliant": true
     },
     "root-domain": {
-      "headCommit": "d5cd55bb63d03c4323712578c03065ddae794b2d",
+      "headCommit": "103cf2f2de6901d1d23227f9437420943a5fcd83",
       "branch": "main",
-      "auditedAt": "2026-10-31",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
