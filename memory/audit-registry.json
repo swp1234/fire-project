@@ -32,13 +32,14 @@
       "trustCompliant": true
     },
     "mental-age": {
-      "headCommit": "bd4da5ab417c05c8314bd6f5f347684481d9ee3d",
-      "branch": "master",
-      "auditedAt": "2026-11-01",
+      "headCommit": "9bee3bd2706d2efa56dc2fa02f98eef4a1d99172",
+      "branch": "main",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "lastAudited": "2026-11-07T11:05:00.000Z"
     },
     "seollal-fortune": {
       "headCommit": "fa08267dbeace47277031f8a6255608fa8cf0360",

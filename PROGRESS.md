@@ -24,12 +24,12 @@ Updated: 2026-11-07 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P3 뇌 유형(Brain Type) 인지 프레임워크 & FAQPage 스키마 탑재 (완료)**: `brain-type` 카너먼 시스템 1 인지 차원 해설, 10개 언어 FAQ 번역, profile-stat 정제.
 - **P4 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense OAuth Keepalive, Auto Ads 단일 로더, 비밀값 0건, 4,034개 파일 퍼널 감사 통과.
 
-## Latest release: Burnout Test Maslach Framework Guide & FAQPage (`burnout-test` @ `450f7c5`)
+## Latest release: Mental Age 7 Cognitive Domains Guide & FAQPage (`mental-age` @ `9bee3bd`)
 
-- **Burnout Test E-E-A-T 직무 소진 심리학 & FAQPage 스키마 탑재**:
-  - `projects/burnout-test/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (WHO ICD-11 QD85 직무 증후군 정의, 마슬락 3대 차원 정서적 소진/탈인격화/효능감 저하, 6대 번아웃 표현형 Overachiever/Empath/Boreout/Invisible/Creative/Digital).
-  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 직무 웰빙 가이드 및 FAQ 100% 현지화 완결.
-  - 가시적 FAQ 아코디언(`<details class="about-test faq-accordion" open>`) 및 44px 터치 타깃 완비로 트러스트 & 터치 감사 통과.
+- **Mental Age E-E-A-T 7대 인지 영역 가이드 & FAQPage 스키마 탑재**:
+  - `projects/mental-age/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (레크리에이션 지표 경계, 스트룹 인지간섭 억제·작업기억·정신운동 반응속도 등 7대 인지 처리 영역, 주간 변동 요인, 로컬 연산 프라이버시).
+  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 인지과학 가이드 및 FAQ 100% 현지화 완결.
+  - 가시적 FAQ 아코디언(`<details class="about-test faq-accordion" open>`) 및 48px 터치 타깃 완비로 트러스트 & 터치 감사 통과.
 - **전 단계 134/134 PASS, Health Guard ALL PASS, IndexNow 즉각 제출 완료**.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
