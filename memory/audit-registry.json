@@ -223,7 +223,7 @@
       "lastAudited": "2026-11-07T09:49:28.491Z"
     },
     "hsp-test": {
-      "headCommit": "005da45acd41f5ec79ed3a043ca623965cc0b2ff",
+      "headCommit": "7cb5b12771798c3f9bb76af5ba80e5e72518d922",
       "branch": "main",
       "auditedAt": "2026-11-07",
       "overflowPx": 0,
@@ -379,7 +379,7 @@
       "trustCompliant": true
     },
     "root-domain": {
-      "headCommit": "103cf2f2de6901d1d23227f9437420943a5fcd83",
+      "headCommit": "ffd4b94c90e891dbea6005e32636e392a03ff828",
       "branch": "main",
       "auditedAt": "2026-11-07",
       "overflowPx": 0,
@@ -425,7 +425,7 @@
       "trustCompliant": true
     },
     "stress-check": {
-      "headCommit": "dbc7532936b3edbfb5f970a4ea97aee6e8ab9d5c",
+      "headCommit": "32f3795a6edf6fe44a0f3f3d495bc6c4b88b8e62",
       "branch": "master",
       "auditedAt": "2026-11-07",
       "overflowPx": 0,
