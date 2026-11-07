@@ -203,13 +203,14 @@
       "trustCompliant": true
     },
     "future-self": {
-      "headCommit": "862fb702a7471080a2bb79783f23b6e73d5d5f6c",
+      "headCommit": "5d51c185194c4188e650d2f6516a5e67bc223b34",
       "branch": "master",
-      "auditedAt": "2026-11-05",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "lastAudited": "2026-11-07T09:49:28.491Z"
     },
     "hsp-test": {
       "headCommit": "005da45acd41f5ec79ed3a043ca623965cc0b2ff",
