@@ -509,13 +509,13 @@
       "trust_issues": 0
     },
     "love-language": {
-      "headCommit": "3c1bf247a805fb71dcc4790418a534df0a067b8b",
+      "headCommit": "f7dd82194c4ff5041c2937b27dc94a9ffb98cb44",
       "branch": "master",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
-      "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "status": "VERIFIED_PASSED"
     },
     "eq-test": {
       "headCommit": "5b9c24ed0ce9c22811b8ec2dacd0848f772286aa",
