@@ -24,12 +24,12 @@ Updated: 2026-11-07 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P3 뇌 유형(Brain Type) 인지 프레임워크 & FAQPage 스키마 탑재 (완료)**: `brain-type` 카너먼 시스템 1 인지 차원 해설, 10개 언어 FAQ 번역, profile-stat 정제.
 - **P4 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense OAuth Keepalive, Auto Ads 단일 로더, 비밀값 0건, 4,034개 파일 퍼널 감사 통과.
 
-## Latest release: Zodiac Pair Relationship Science & FAQPage (`zodiac-match` @ `d8e123c`)
+## Latest release: Lottery Number Picker Probability & FAQPage (`lottery` @ `5f16cca`)
 
-- **Zodiac Match 실증 관계과학 & 대화 촉진 가이드 FAQPage 스키마 탑재**:
-  - `projects/zodiac-match/index.html`: `BreadcrumbList` 및 `FAQPage` JSON-LD 구조화 데이터 탑재 (스웨덴 66,063쌍 인구 레지스터 연구 실증 경계, 바넘-포러 효과 극복, 대화 촉진 도구 활용, 완전한 로컬 클라이언트 프라이버시).
-  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 관계과학 가이드 및 FAQ 100% 현지화 완결.
+- **Lottery 6/45 암호학적 난수 생성 및 확률론 FAQPage 스키마 탑재**:
+  - `projects/lottery/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (Web Crypto API & 거절 샘플링 모듈로 편향 배제, 8,145,060 조합 동등 확률, 도박사의 오류 반박, 로컬 브라우저 완결 프라이버시).
+  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 확률 수학 가이드 및 FAQ 100% 현지화 완결.
   - 신규 가시적 FAQ 아코디언(`<section class="about-section ...">`) 및 48px 터치 타깃 완비로 트러스트 & 터치 감사 통과 (0px 오버플로).
-- **IndexNow 즉각 제출 완료 (`https://dopabrain.com/zodiac-match/`, status 200)**.
+- **IndexNow 즉각 제출 완료 (`https://dopabrain.com/lottery/`, status 200)**.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

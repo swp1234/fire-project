@@ -261,7 +261,7 @@
     "lottery": {
       "headCommit": "21bbe416f3360f770108439800b50af8e3d19517",
       "branch": "main",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -1157,5 +1157,6 @@
     "headCommit": "e8b23849508c505be4cbcbfb205318aa258c0291",
     "lastAudited": "2026-11-01"
   },
-  "projects/zodiac-match": "d8e123ce228c867bcc55ade10dca325ef3252ee7"
+  "projects/zodiac-match": "d8e123ce228c867bcc55ade10dca325ef3252ee7",
+  "projects/lottery": "5f16cca213b6a39a2129f41a6dd9f004ec38417d"
 }
