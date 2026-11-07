@@ -973,13 +973,14 @@
       "trustCompliant": true
     },
     "shadow-work": {
-      "headCommit": "a90b610762fd10e9e09ef99a5871d6a5d0becbe7",
+      "headCommit": "246d458e23f43a1b92ae07fc8d79869057f4a506",
       "branch": "master",
-      "auditedAt": "2026-11-03",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "lastAudited": "2026-11-07T11:19:00.000Z"
     },
     "inner-child-test": {
       "headCommit": "0b2df1a4cb76b9d9366c459e09124333ed92dd24",
