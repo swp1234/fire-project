@@ -562,9 +562,9 @@
       "trust_issues": 0
     },
     "name-match": {
-      "headCommit": "7650e30dfc36a5240aa2c4e0d8ff12f1434d5baf",
-      "branch": "master",
-      "auditedAt": "2026-10-29",
+      "headCommit": "2be18da127e82fdf62329b3db42b4263c9566fd0",
+      "branch": "main",
+      "auditedAt": "2026-11-07",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
