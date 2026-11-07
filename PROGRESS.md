@@ -24,12 +24,12 @@ Updated: 2026-11-07 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P3 뇌 유형(Brain Type) 인지 프레임워크 & FAQPage 스키마 탑재 (완료)**: `brain-type` 카너먼 시스템 1 인지 차원 해설, 10개 언어 FAQ 번역, profile-stat 정제.
 - **P4 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense OAuth Keepalive, Auto Ads 단일 로더, 비밀값 0건, 4,034개 파일 퍼널 감사 통과.
 
-## Latest release: Affirmation Self-Affirmation Theory Guide & FAQPage (`affirmation` @ `6c20214`)
+## Latest release: Ick Factor Evolutionary Disgust Guide & FAQPage (`ick-factor` @ `ee63d86`)
 
-- **Affirmation E-E-A-T 자기 확언 이론 & FAQPage 스키마 탑재**:
-  - `projects/affirmation/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (클로드 스틸 자기 확언 이론, 신경가소성 보상 회로, 6대 성장 영역 자존감/동기부여/감사/관계/성장/명언, 마음챙김 경계, 로컬 프라이버시).
-  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 긍정 심리학 가이드 및 FAQ 100% 현지화 완결.
+- **Ick Factor 진화심리학 혐오 반응 & FAQPage 스키마 탑재**:
+  - `projects/ick-factor/index.html`: `FAQPage` JSON-LD 구조화 데이터 탑재 (진화심리학 행동 면역계 폴 로진, 4대 미세 경계 위생/예절/존중/소통, 레드 플래그 구분, 관계 회복력, 로컬 프라이버시).
+  - 12개 언어(`ko en ja zh es de fr pt id tr ru hi`) 관계 심리학 가이드 및 FAQ 100% 현지화 완결.
   - 가시적 FAQ 아코디언(`<section class="about-section ...">`) 및 48px 터치 타깃 완비로 트러스트 & 터치 감사 통과.
-- **IndexNow 즉각 제출 완료 (`https://dopabrain.com/affirmation/`, status 200)**.
+- **IndexNow 즉각 제출 완료 (`https://dopabrain.com/ick-factor/`, status 200)**.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
