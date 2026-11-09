@@ -445,7 +445,7 @@ function verifyPositionTarget(bundle) {
   for (const [name, source] of Object.entries(positionSources)) {
     verifyForbiddenAdCode(source, `K-pop position test ${name}`);
   }
-  assert(['2026-10-04', '2026-10-24', LASTMOD].includes(meta(bundle.positionHtml, 'dateModified')), 'K-pop position dateModified meta must be valid');
+  assert(['2026-10-04', '2026-10-24', '2026-11-07', LASTMOD].includes(meta(bundle.positionHtml, 'dateModified')), 'K-pop position dateModified meta must be valid');
   const viewport = meta(bundle.positionHtml, 'viewport');
   assert(/(?:^|,)\s*width\s*=\s*device-width(?:\s*,|$)/i.test(viewport) && /(?:^|,)\s*initial-scale\s*=\s*1(?:\.0)?(?:\s*,|$)/i.test(viewport), 'K-pop position viewport must declare device width and initial scale');
   assert(!/user-scalable\s*=\s*no/i.test(viewport) && !/maximum-scale\s*=\s*1(?:\.0)?(?:\s*,|$)/i.test(viewport), 'K-pop position viewport must preserve user zoom');
@@ -475,7 +475,7 @@ function verifyPositionTarget(bundle) {
   assert(appNodes.length === 1, `K-pop position application schema count mismatch: ${appNodes.length}`);
   assert(appNodes[0].url === POSITION_CANONICAL, `K-pop position default schema URL mismatch: ${appNodes[0].url}`);
   assert(Array.isArray(appNodes[0].inLanguage) || appNodes[0].inLanguage === 'en', `K-pop position default schema language must be valid: ${appNodes[0].inLanguage}`);
-  assert(['2026-10-04', '2026-10-24', LASTMOD].includes(appNodes[0].dateModified), `K-pop position schema dateModified must be valid`);
+  assert(['2026-10-04', '2026-10-24', '2026-11-07', LASTMOD].includes(appNodes[0].dateModified), `K-pop position schema dateModified must be valid`);
   assert(!appNodes[0].aggregateRating, 'K-pop position fabricated rating is forbidden');
 
   const languageButtons = tags(bundle.positionHtml, 'button').filter((tag) => classHas(tag, 'lang-option'));

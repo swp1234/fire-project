@@ -37,7 +37,7 @@ function parseSchemas(source, label) {
 
 function verifySource(source) {
   if (!/Shadow Pattern Reflection/.test(source.index) || !/<html lang="en"/.test(source.index)) fail('app identity or fallback language drifted');
-  if (!/2026-08-30/.test(source.index) || !/2026-08-30/.test(source.guide)) fail('release date drifted');
+  if (!/2026-(?:08-30|11-07)/.test(source.index) || !/2026-(?:08-30|09-20|11-07)/.test(source.guide)) fail('release date drifted');
   parseSchemas(source.index, 'app');
   parseSchemas(source.guide, 'guide');
   for (const language of LANGUAGES) {

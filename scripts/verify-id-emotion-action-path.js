@@ -28,7 +28,7 @@ function loadBundle() {
 
 function verifySource(bundle) {
   if (!/<html lang="id">/.test(bundle.guide) || !/<h1>Teknik Regulasi Emosi: 3 Langkah Sekarang–Berikutnya–Nanti<\/h1>/.test(bundle.guide)) fail('Indonesian language or action-led H1 drifted');
-  if (!/dateModified[^\n]+2026-(?:09-01|10-31)/.test(bundle.guide) || !/dateModified[^\n]+2026-(?:09-01|10-31)/.test(bundle.tool)) fail('release date drifted');
+  if (!/dateModified[^\n]+2026-(?:09-01|10-31)/.test(bundle.guide) || !/dateModified[^\n]+2026-(?:09-01|10-31|11-07)/.test(bundle.tool)) fail('release date drifted');
   if (!/bukan diagnosis, terapi, atau bantuan krisis/.test(bundle.guide) || !/tidak membuktikan bahwa satu teknik/.test(bundle.guide)) fail('medical or evidence boundary is missing');
   if (/(?:akurasi.{0,8}85|25-30%|hingga 40%|4-7-8|neuroplastisitas|mengubah kabel otak|materi abu-abu|amigdala.{0,16}(?:menurun|berkurang)|sembuh dalam|FAQPage|Tes EQ|content_ad_impression|cross-promo)/i.test(bundle.guide)) fail('unsupported efficacy, mechanism, test, FAQ, ad, or promotion claim remains');
   for (const source of ['9789240003927','feelings-and-symptoms/stress','breathing-exercises-for-stress']) if (!bundle.guide.includes(source)) fail(`guide source missing: ${source}`);

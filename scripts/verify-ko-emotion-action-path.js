@@ -24,7 +24,7 @@ function loadBundle() { return { guide:read(GUIDE_FILE), tool:read(TOOL_FILE), j
 
 function verifySource(bundle) {
   if (!/<html lang="ko">/.test(bundle.guide) || !/<h1>감정 조절 방법: 지금–다음–나중 3단계<\/h1>/.test(bundle.guide)) fail('Korean language or action-led H1 drifted');
-  if (!/dateModified[^\n]+2026-(?:09-01|10-31)/.test(bundle.guide) || !/dateModified[^\n]+2026-(?:09-01|10-31)/.test(bundle.tool)) fail('release date drifted');
+  if (!/dateModified[^\n]+2026-(?:09-01|10-31)/.test(bundle.guide) || !/dateModified[^\n]+2026-(?:09-01|10-31|11-07)/.test(bundle.tool)) fail('release date drifted');
   if (!/일반적인 자기성찰 자료이며 진단·치료·위기 대응이 아닙니다/.test(bundle.guide) || !/제한된 실험 과제의 신경 반응/.test(bundle.guide)) fail('medical or research boundary is missing');
   if (/(?:과학이 증명|뇌가 재배선|편도체.{0,12}(?:축소|줄어)|효과.{0,8}(?:%|퍼센트)|불안.{0,8}58|우울.{0,8}40|파괴적.{0,8}70|4-7-8|FAQPage|EQ.{0,8}(?:측정|점수)|content_ad_impression|cross-promo)/i.test(bundle.guide)) fail('unsupported efficacy, mechanism, test, FAQ, ad, or promotion claim remains');
   for (const source of ['9789240003927','tackling-your-worries','17576282']) if (!bundle.guide.includes(source)) fail(`guide source missing: ${source}`);

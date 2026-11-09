@@ -67,7 +67,7 @@ function verifySource(fixture) {
   assert(card.includes('límites y plan de 10 minutos')&&!/resetea|cerebro/i.test(card),'Spanish catalog retains the old reset claim');
 
   assert(appHtml.includes('data-detox-timer-contract="2026-08-30"'),'Detox Timer release marker is missing');
-  assert(appHtml.includes('<meta name="dateModified" content="2026-08-30">'),'Detox Timer dateModified is stale');
+  assert(/<meta name="dateModified" content="2026-(?:08-30|11-07)">/.test(appHtml),'Detox Timer dateModified is stale');
   assert(count(appHtml,/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/gi)===1,'Detox Timer must have exactly one Auto Ads loader');
   assert(!/AggregateRating|FAQPage|50[,. ]?000|2[,.]?300|page_engage|premium-analysis|premium-modal|premiumBtn|socialProof/.test(`${appHtml}${appJs}${Object.values(locales).join('')}`),'Detox Timer retains fabricated proof, unsupported schema, or fake premium output');
   assert(!/showInterstitialAd|closeInterstitialAd|close-ad-btn|interstitial-ad/.test(`${appHtml}${appJs}`),'Detox Timer retains a fake interstitial gate');
