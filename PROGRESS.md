@@ -26,7 +26,8 @@ Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: 
 ## Latest release: High-RPM Tier-1 Organic Funnel Optimization (`2026-11-12 Batch` @ `2026-11-12`)
 
 - **고RPM 오가닉 유입면 전환 퍼널 & 수익화 직결 전면 강화**:
-  - `portal` (@ `818970f`):
+  - `portal` (@ `8aeb498`):
+    - `blood-type-personality-guide.html`: 무수익 정지앱(`reaction-test`, `brain-type`) 링크 및 스크리너 CTA 전면 퇴출, 실시간 Auto Ads 앱(`iq-test`, `future-self`) 직결 및 사이트맵 동기화.
     - `mbti-compatibility-guide.html`(542s 체류): 무광고 정지앱(`/mbti-love/`)으로의 전환 누수 차단, 16개 Auto Ads 정식 심화 유형 분석(`/portal/mbti/${type}.html?partner=...`) 및 애착 유형 진단(`/attachment-style/`)으로 직결.
     - 프랑스 1위 `jeux-entrainement-cerveau-2026.html`, 영어 1위 `future-self-test-guide.html`(876s) & `hsp-workplace-survival-guide.html`(687s) 무수익 정지앱 링크 퇴출 및 Auto Ads 직결.
     - 일본 1위 `2048-puzzle-strategy-guide.html`(416s) 30초 전술 CRO 스크리너 탑재 및 2048 코치 직결.
