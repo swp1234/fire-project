@@ -223,9 +223,9 @@
       "lastAudited": "2026-11-07T09:49:28.491Z"
     },
     "hsp-test": {
-      "headCommit": "7cb5b12771798c3f9bb76af5ba80e5e72518d922",
+      "headCommit": "c59c3795a4694c7c4b57d248206272dc1de5eeab",
       "branch": "main",
-      "auditedAt": "2026-11-07",
+      "auditedAt": "2026-11-11",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -425,9 +425,9 @@
       "trustCompliant": true
     },
     "stress-check": {
-      "headCommit": "32f3795a6edf6fe44a0f3f3d495bc6c4b88b8e62",
+      "headCommit": "e150ef080f213c18d5a50d69c64cceb291cf0840",
       "branch": "master",
-      "auditedAt": "2026-11-07",
+      "auditedAt": "2026-11-11",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
