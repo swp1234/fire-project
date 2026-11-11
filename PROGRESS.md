@@ -26,7 +26,10 @@ Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: 
 ## Latest release: High-RPM Tier-1 Organic Funnel Optimization (`2026-11-12 Batch` @ `2026-11-12`)
 
 - **고RPM 오가닉 유입면 전환 퍼널 & 수익화 직결 전면 강화**:
-  - `portal` (@ `db1d452`): 프랑스 1위 오가닉 페이지 `jeux-entrainement-cerveau-2026.html` 무광고 정지앱 링크 전면 퇴출 및 고RPM 실시간 Auto Ads 앱 44px+ CTA 연계. 글로벌 1위 고체류 `future-self-test-guide.html`(876s) 및 `hsp-workplace-survival-guide.html`(687s) 내 무광고 정지앱(`reaction-test`) 제거 및 수익화 앱 직결. 일본 1위 고체류 `2048-puzzle-strategy-guide.html`(416s) 30초 전술 CRO 스크리너 탑재 및 실시간 2048 코치·IQ 진단 직결.
+  - `portal` (@ `818970f`):
+    - `mbti-compatibility-guide.html`(542s 체류): 무광고 정지앱(`/mbti-love/`)으로의 전환 누수 차단, 16개 Auto Ads 정식 심화 유형 분석(`/portal/mbti/${type}.html?partner=...`) 및 애착 유형 진단(`/attachment-style/`)으로 직결.
+    - 프랑스 1위 `jeux-entrainement-cerveau-2026.html`, 영어 1위 `future-self-test-guide.html`(876s) & `hsp-workplace-survival-guide.html`(687s) 무수익 정지앱 링크 퇴출 및 Auto Ads 직결.
+    - 일본 1위 `2048-puzzle-strategy-guide.html`(416s) 30초 전술 CRO 스크리너 탑재 및 2048 코치 직결.
   - 사이트맵(`blog/sitemap.xml`, `sitemap.xml`) lastmod 2026-11-12 동기화 및 IndexNow 200 OK 즉시 전송 완료.
 - **Harness 134단계 ALL PASS**: Health Guard, Funnel Bridge(4,034 파일), Touch Audit(0px overflow), Trust Audit 무결점 통과.
 - 사용자 자산 `attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 완전 보존 원칙 100% 준수.
