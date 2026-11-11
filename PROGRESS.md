@@ -26,7 +26,7 @@ Updated: 2026-11-11 KST. Release history: `memory/data-check-log.md`; ops loop: 
 ## Latest release: High-Dwell Core Surface Monetization & Funnel Bridge (`2026-11-10 Batch` @ `2026-11-10`)
 
 - **고체류 진입면 전환 퍼널 & E-E-A-T & 텔레메트리 전면 강화**:
-  - `color-blindness` (@ `01f5c0a`): 결과 화면에 12개 언어 맞춤형 `next-step-card` 신규 탑재 (60점 이상 HSP 감각 테스트, 60점 미만 IQ 퍼즐 연계), 개인정보 보호 GA4 기술 메타데이터 정제, 관련 추천 허브 `/hsp-test/` 갱신.
+  - `color-blindness` (@ `2d0529d`): 결과 화면 12개 언어 맞춤형 `next-step-card` 탑재 및 Web Share API·바이럴 챌린지 공유 연계, 엄격한 언어 보존(`?lang=`), 개인정보 보호 GA4 기술 메타데이터 정제, 관련 추천 허브 `/hsp-test/` 갱신.
   - `white-noise` (@ `e71e1ee`): 감각 과부하 완화 연계로 `hsp-test`를 관련 추천 그리드 및 12개 언어 번역에 정식 편입.
   - `root-domain` (@ `4cc0c88`): 고체류 핵심 진입면인 `color-blindness`, `white-noise`를 `sitemap.xml`에 등록, 색인 인벤토리 무결점 통과.
 - **IndexNow 즉각 제출 200 OK**: `color-blindness`, `white-noise` 신규 제출 완료.
