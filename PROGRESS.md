@@ -23,13 +23,13 @@ Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P2 AdSense OAuth Keepalive 갱신 완료 (완료)**: OAuth 토큰 갱신 및 `accountsLoaded`, `policyIssuesLoaded (0건)` 정상화.
 - **P3 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense Keepalive 정상, 4,034개 파일 퍼널 감사 무결점, 1,557개 URL 인덱싱 감사 무결점, 119개 프로젝트 트러스트 ALL CLEAN.
 
-## Latest release: HSP Sensory Overload Triage & European CRO Alignment (`2026-11-12 Batch 7` @ `863106a`)
+## Latest release: Stress Response Guide Triage & CRO Alignment (`2026-11-12 Batch 8` @ `45b3856`)
 
-- **고RPM Tier-1 HSP 가이드 인터랙티브 스크리너 및 정식 Auto Ads 직결**:
-  - `portal` (@ `863106a`):
-    - DE/FR 고체류 HSP 대처 전략 가이드(`hsp-coping-strategies-highly-sensitive.html`): 하단 왜곡 퀵레일 및 임의 surface 태그 전면 개편, 최상단 정식 4카드 퀵레일(`/hsp-test/`, `/hsp-test/reset.html`, `/stress-check/`, `/portal/tools/grounding-exercise.html`) 배치.
-    - 30초 인터랙티브 감각 과부하 트리아지(`#deHspScreener`, `#frHspScreener`) 탑재, 60s 센서리 리셋 룸 및 20문항 HSP 진단 즉시 분기.
-    - dateModified/lastmod 2026-11-12 갱신, 사이트맵(`blog/sitemap.xml`) 갱신 및 IndexNow 200 OK 전송 완료.
+- **고RPM Tier-1 스트레스 반응 가이드 인터랙티브 스크리너 및 정식 Auto Ads 직결**:
+  - `portal` (@ `45b3856`):
+    - EN/DE/FR 스트레스 반응 가이드(`stress-response-guide.html`): 오라우팅된 `/stress-check/`를 8문항 스트레스 유형 진단(`/stress-type/`)으로 정합화, 상단 퀵레일 4카드(`/stress-type/`, `/stress-check/`, `/portal/tools/grounding-exercise.html`, `/burnout-test/`) 동기화.
+    - 30초 Fight/Flight/Freeze/Fawn 트리아지 스크리너(`#enStressRespScreener`, `#deStressRespScreener`, `#frStressRespScreener`) 탑재 및 다이나믹 피드백 분기.
+    - dateModified/lastmod 2026-11-12 갱신, 사이트맵 2종 갱신 및 IndexNow 200 OK 전송 완료.
 - **Harness & Health Battery ALL PASS**: Health Guard 6개 전 게이트 통과, Funnel Bridge(4,034 파일) 0건, Touch Audit(0px overflow), Trust Audit ALL CLEAN.
 - 사용자 자산 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 100% 불변 보존.
 
