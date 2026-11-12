@@ -18,21 +18,21 @@ Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: 
 
 ## Active plan (2026-11-12) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 고RPM Tier-1 오가닉 퍼널 누수 차단 및 전환 최적화 (완료)**: 프랑스(#1 유입), 영어 고체류(Future Self 876s, HSP Workplace 687s), 일본 고체류(2048 Guide 416s) 가이드 내 무수익 정지앱 링크 퇴출 및 인터랙티브 30s 스크리너 탑재, 실시간 Auto Ads 앱(IQ, Stress, Future Self, Color Blindness, HSP) 직결, IndexNow 200 OK 제출 완료.
-- **P1 GSC 미색인 진단 & IndexNow 7대 핵심면 브로드캐스트 (완료)**: 11/7 GSC 유효성 검사 미색인 원인 규명 및 7대 핵심 진입면 IndexNow 200 OK 재전송 완료.
+- **P0 고RPM Tier-1 오가닉 퍼널 누수 차단 및 전환 최적화 (완료)**: 프랑스/독일/미국 고체류 가이드 내 무수익 정지앱 링크 퇴출 및 인터랙티브 30s 스크리너 탑재, 실시간 Auto Ads 앱(IQ, Stress, Future Self, Burnout, HSP) 직결, IndexNow 200 OK 제출 완료.
+- **P1 GSC 미색인 진단 & IndexNow 브로드캐스트 (완료)**: 7대 핵심 진입면 및 신규 최적화 12개 가이드 IndexNow 200 OK 전송 완료.
 - **P2 AdSense OAuth Keepalive 갱신 완료 (완료)**: OAuth 토큰 갱신 및 `accountsLoaded`, `policyIssuesLoaded (0건)` 정상화.
-- **P3 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense Keepalive 정상, 4,034개 파일 퍼널 감사 무결점, 119개 프로젝트 트러스트 ALL CLEAN, 134단계 Harness ALL PASS.
+- **P3 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense Keepalive 정상, 4,034개 파일 퍼널 감사 무결점, 1,557개 URL 인덱싱 감사 무결점, 119개 프로젝트 트러스트 ALL CLEAN.
 
-## Latest release: High-RPM Tier-1 Multilingual CRO & Auto Ads Alignment (`2026-11-12 Batch 2` @ `2026-11-12`)
+## Latest release: Tier-1 German & English High-RPM CRO & Sitemap Alignment (`2026-11-12 Batch 3` @ `6c7a6c2`)
 
 - **고RPM Tier-1 오가닉 가이드 인터랙티브 스크리너 및 정식 Auto Ads 직결**:
-  - `portal` (@ `0ed2139`):
-    - EN/ZH 2048 가이드: 30s 전술 CRO 스크리너 탑재, 정지/무수익앱(`reaction-test`, `minesweeper`) 링크 퇴출, `puzzle-2048/coach.html`, `iq-test`, `stress-check` 직결.
-    - EN/KO 애착 & 미래 가이드(`avoidant-attachment`, `attachment-styles-4-types`, `future-self-quiz`, `past-life`): 30s 스크리너, 정지앱(`/past-life/`) 퇴출, 실시간 Auto Ads 앱(`past-life-story-studio`, `future-self`, `stress-check`, `hsp-test`, `attachment-style`) 직결.
-    - DE/FR/ES/PT HSP 가이드(`am-i-highly-sensitive-person-signs.html`): 중복·허위 링크 전면 교체, 7개 정식 Auto Ads 앱(`hsp-test`, `reset`, `stress-check`, `attachment-style`, `future-self`, `iq-test`, `color-blindness`) 정밀 매핑.
-    - US 고의도 `vulnerability-courage-connection-guide.html`: 30s Emotional Armor 스크리너 탑재, 정식 Auto Ads 앱 연결.
-    - 사이트맵(`sitemap.xml`, `blog/sitemap.xml`) lastmod 2026-11-12 갱신 및 IndexNow 200 OK 즉시 전송.
-- **Harness & Health Battery ALL PASS**: Health Guard, Funnel Bridge(4,034 파일), Touch Audit(0px overflow), Trust Audit ALL CLEAN.
+  - `portal` (@ `6c7a6c2`):
+    - DE/EN RSD 가이드: 30s RSD Triage 스크리너 탑재, 독일어 빈 관련 리소스 보강, 무수익 링크 퇴출, `/stress-check/`, `/portal/tools/grounding-exercise.html` 직결.
+    - EN/DE 소셜 불안 가이드: 3중 중복 링크 퇴출, 정식 Auto Ads 앱(`/attachment-style/`, `/portal/tools/grounding-exercise.html`, `/future-self/`) 직결.
+    - EN 코르티솔 & 만성 스트레스 가이드: 30s 스크리너 탑재, 3중 중복 링크 교체, 정식 `/burnout-test/`, `/stress-type/`, `/portal/tools/grounding-exercise.html` 직결.
+    - EN 회피 애착 & HSP 대처 가이드: focused quick rail 계약(정확히 2개 카드) 엄격 정렬.
+    - 사이트맵 `lastmod` 2026-11-12 갱신 및 IndexNow 200 OK 즉시 전송.
+- **Harness & Health Battery ALL PASS**: Health Guard 6개 전 게이트 통과, Funnel Bridge(4,034 파일) 0건, Touch Audit(0px overflow), Trust Audit ALL CLEAN.
 - 사용자 자산 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 100% 불변 보존.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
