@@ -427,7 +427,7 @@
       "trustCompliant": true
     },
     "stress-check": {
-      "headCommit": "ee327b71ae7a2a12261991077a763099b380f1e1",
+      "headCommit": "23bc4b3b508490bcc293eb0e25e32a2cd8215532",
       "branch": "master",
       "auditedAt": "2026-11-12",
       "overflowPx": 0,
@@ -1148,7 +1148,7 @@
     "status": "VERIFIED_PASSED",
     "trustCompliant": true
   },
-  "stress-check": "8d87028",
+  "stress-check": "23bc4b3",
   "projects/portal": {
     "head": "e8b23849508c505be4cbcbfb205318aa258c0291",
     "lastAudit": "2026-11-01",
@@ -1172,7 +1172,7 @@
   "projects/iq-test": "ecec9eb919b1eb40d26bd436ef421e850efbf1eb",
   "projects/daily-tarot": "2998fa6bd3ac01d72b5de5210191f70b19c9d466",
   "projects/hsp-test": "79125923a64a8e8d92fbe6f053f67c96ab595ed9",
-  "projects/stress-check": "039e99620890dcae0d7c79a1dfb05a04d7d2a5fb",
+  "projects/stress-check": "23bc4b3b508490bcc293eb0e25e32a2cd8215532",
   "projects/attachment-style": "222a0e4e98ce1ee6dc88edb461f0725ef06db265",
   "mental-age": {
     "head": "1f01a154a6495bbb6c61a0e337ec67300dc88f90",
