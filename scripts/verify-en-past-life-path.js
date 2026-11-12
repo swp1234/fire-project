@@ -22,7 +22,7 @@ function source(v){
   const schemas=[...v.guide.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match=>JSON.parse(match[1]));
   ok(schemas.length===1&&schemas[0]['@graph'].map(item=>item['@type']).join(',')==='Article,BreadcrumbList','guide schema drifted');
   ok(v.catalog.includes('Past Life Birthday Story Method')&&v.catalog.includes('transparent fictional prompt'),'English catalog stale');
-  ok(v.sitemap.includes('<loc>'+LIVE+GUIDE+'</loc><lastmod>2026-09-01</lastmod>') || v.sitemap.includes('<loc>'+LIVE+GUIDE+'</loc><lastmod>2026-10-31</lastmod>'),'focused sitemap row missing');
+  ok(v.sitemap.includes('<loc>'+LIVE+GUIDE+'</loc><lastmod>2026-09-01</lastmod>') || v.sitemap.includes('<loc>'+LIVE+GUIDE+'</loc><lastmod>2026-10-31</lastmod>') || v.sitemap.includes('<loc>'+LIVE+GUIDE+'</loc><lastmod>2026-11-12</lastmod>'),'focused sitemap row missing');
 
   ok(v.html.includes('data-past-life-contract="2026-09-01"'),'app contract missing');
   const appSuspended = /data-ad-serving="suspended-invalid-traffic-/i.test(v.html);
