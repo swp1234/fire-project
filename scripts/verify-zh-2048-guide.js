@@ -20,9 +20,9 @@ const APP_DATA_FILE = path.join(PORTAL, 'js', 'app-data.js');
 const ROUTE = '/portal/blog/zh/2048-strategy-guide.html';
 const CANONICAL = 'https://dopabrain.com' + ROUTE;
 const TITLE = '2048游戏攻略：高分技巧与策略完全指南 | DopaBrain';
-const LASTMOD = '2026-10-29';
+const LASTMOD = '2026-11-12';
 const CONTENT_ID = '2048-strategy-guide.html';
-const ARTICLE_TEXT_SHA256 = '9b36e3e2d68c85ef53a049653670b6f6b89f72d3dfbfa1fa6dc1f8ac5c6c76b1';
+const ARTICLE_TEXT_SHA256 = 'c98c5c708a3a87377122a8960ec2094cbb2b5f222419951cc5e43a6f3916d8ad';
 
 const STICKY = {
   href: '/puzzle-2048/?lang=zh&surface=zh_2048_strategy_sticky',
@@ -32,8 +32,8 @@ const STICKY = {
 
 const QUICK = [
   { href: '/puzzle-2048/?lang=zh&surface=zh_2048_strategy_quick', surface: 'quick_rail', slug: 'puzzle-2048' },
-  { href: '/reaction-test/?lang=zh', surface: 'quick_rail', slug: 'reaction-test' },
-  { href: '/minesweeper/?lang=zh', surface: 'quick_rail', slug: 'minesweeper' },
+  { href: '/iq-test/?lang=zh', surface: 'quick_rail', slug: 'iq-test' },
+  { href: '/stress-check/?lang=zh', surface: 'quick_rail', slug: 'stress-check' },
   { href: '/puzzle-2048/coach.html?lang=zh', surface: 'quick_rail', slug: 'coach' },
 ];
 
@@ -82,6 +82,8 @@ const DESTINATIONS = {
   '/reaction-test/': path.join(ROOT, 'projects', 'reaction-test', 'index.html'),
   '/minesweeper/': path.join(ROOT, 'projects', 'minesweeper', 'index.html'),
   '/brick-breaker/': path.join(ROOT, 'projects', 'brick-breaker', 'index.html'),
+  '/iq-test/': path.join(ROOT, 'projects', 'iq-test', 'index.html'),
+  '/stress-check/': path.join(ROOT, 'projects', 'stress-check', 'index.html'),
 };
 
 function assert(condition, message) {

@@ -29,6 +29,7 @@ Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: 
   - `cognitive-load-calculator`: GA4 54세션 상위 진입면 브릿지 2번을 `/hsp-test/`로 교체, 12개 언어 다국어화 (`7522e7a`).
   - `burnout-stress-differential`: GA4 75세션 상위 진입면 브릿지 3번을 `/future-self/`로 교체, 12개 언어 다국어화 (`c7c7ffa`).
   - `past-life-calculator-birthday`: exact journey route 계약 복원 (`69c7660`), `verify-en-past-life-path` 18/18 돌연변이 통과.
+  - `zh-2048-strategy-guide`: Tier-1 고RPM 가이드 IQ/Stress Auto Ads 직결 계약 정렬 완료, `verify-zh-2048-guide` 20/20 돌연변이 통과.
   - `animal-personality` & `white-noise`: 정지앱 퇴출 -> `stress-type`, `future-self` 직결 완료 (`12ed4cd`, `95e18e9`).
   - `root-domain`: Root Focus 계약 불변성 보존 및 sitemap `lastmod` 2026-11-12 동기화 (`a59f796`).
   - IndexNow 200 OK 브로드캐스트 및 GSC 3대 사이트맵(1,564 URLs) 동기화 완료.
