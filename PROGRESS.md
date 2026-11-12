@@ -18,22 +18,19 @@ Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: 
 
 ## Active plan (2026-11-12) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 오가닉 바이럴 카드 & 고수익 파트너십 확장 (완료)**: `future-self`(`dcfab78`), `stress-check`(`23bc4b3`), `hsp-test`(`36ef100`) 3대 킬러앱 1080x1920 인스타 스토리 카드 캔버스 엔진 및 근거 기반 도서 큐레이션 슬롯 구축 완료.
-- **P1 글로벌 소셜 런칭 카피 & 배포 템플릿 자산화 (완료)**: Reddit/Threads/X 맞춤형 바이럴 훅 및 가이드라인 구축 (`docs/MARKETING-VIRAL-HOOKS.md`).
-- **P2 AdSense OAuth Keepalive 갱신 완료 (완료)**: OAuth 토큰 갱신 및 `accountsLoaded`, `policyIssuesLoaded (0건)` 정상화.
-- **P3 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: 4,034개 파일 퍼널 감사 무결점, 119개 프로젝트 트러스트 ALL CLEAN.
+- **P0 자율 AI 검색(GEO) 배포 & IndexNow 즉각 송출 (완료)**: IndexNow API(Bing/ChatGPT Search) 즉시 색인 송출 200 OK, `llms.txt`/`llms-full.txt` AI 전용 표준 최적화 (`658524e`), 3대 킬러앱 공개 깃허브 학술 쇼케이스 리드미 완비.
+- **P1 오가닉 바이럴 카드 & 고수익 파트너십 확장 (완료)**: `future-self`, `stress-check`, `hsp-test` 3대 킬러앱 1080x1920 인스타 스토리 카드 캔버스 엔진 및 도서 큐레이션 슬롯 구축.
+- **P2 글로벌 소셜 런칭 카피 & 배포 템플릿 자산화 (완료)**: Reddit/Threads/X 맞춤형 바이럴 훅 및 가이드라인 구축 (`docs/MARKETING-VIRAL-HOOKS.md`).
+- **P3 헬스 가드 & 퍼널 브릿지 ALL PASS (완료)**: 4,034개 파일 퍼널 무결점, 119개 프로젝트 감사 레지스트리 동기화.
 
-## Latest release: Complete Viral Growth & Monetization Engine (`2026-11-12 Batch 22` @ `36ef100`)
+## Latest release: Autonomous GEO & Open-Source Distribution (`2026-11-12 Batch 23` @ `c1cc310`)
 
-- **감각 프로필 바이럴 공유 카드 & 제휴 큐레이션 슬롯 (`hsp-test` @ `36ef100`)**:
-  - `hsp-test`에 1080x1920 딥 바이올렛 흑요석 스타일 감각 프로필 카드 캔버스 렌더러 구축 (5대 감각 축 차트, 규제 인사이트, 워터마크).
-  - Web Share API 네이티브 공유 및 PNG 다운로드, 12개 언어 다국어화 완료.
-  - 근거 기반 도서 큐레이션 파트너 슬롯 탑재 (Elaine Aron, Jenn Granneman), nofollow/noopener 준수.
-  - `verify-hsp-reset-funnel` 13/13 돌연변이 및 런타임 레이아웃(390px 오버플로 0px) ALL PASS.
-- **3대 킬러앱 바이럴 캔버스 엔진 & 파트너십 구축 완료 (`future-self`, `stress-check`, `hsp-test`)**:
-  - 방문자의 자발적 SNS 공유 유도(인스타 스토리/스레드) 루프 및 $0.02 단가 탈피용 도서 제휴 링크 완비.
-- **글로벌 커뮤니티 배포 템플릿 자산화 (`docs/MARKETING-VIRAL-HOOKS.md`)**:
-  - Reddit (`r/selfimprovement`, `r/mbti`, `r/hsp`), Threads, X 타겟별 비침습적 가치 중심 런칭 카피 완비.
+- **IndexNow API 즉각 색인 송출 (Bing & ChatGPT Search 네트워크 200 OK)**:
+  - `stress-check/`, `hsp-test/`, `future-self/` 정규 URL 즉시 색인 네트워크 API 송출 완료.
+- **AI 검색 최적화(GEO) 엔진 구축 (`projects/root-domain` @ `658524e`)**:
+  - `llms.txt` 및 `llms-full.txt`에 1080x1920 스토리 카드, 학술 프레임워크(PSS-10, DOES), 로컬 프라이버시 스펙 명시.
+- **공개 GitHub 오픈소스 쇼케이스 리드미 완비 (AI 학습/인용 소스 확보)**:
+  - `future-self`(`f552260`), `stress-check`(`d3f1f1c`), `hsp-test`(`c1cc310`)에 라이브 링크, 학술 인용(APA), 배지 탑재.
 - 사용자 자산 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 100% 불변 보존.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
