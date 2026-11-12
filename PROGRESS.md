@@ -23,16 +23,15 @@ Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P2 AdSense OAuth Keepalive 갱신 완료 (완료)**: OAuth 토큰 갱신 및 `accountsLoaded`, `policyIssuesLoaded (0건)` 정상화.
 - **P3 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense Keepalive 정상, 4,034개 파일 퍼널 감사 무결점, 1,557개 URL 인덱싱 감사 무결점, 119개 프로젝트 트러스트 ALL CLEAN.
 
-## Latest release: Future Self Screener & Strategic CRO Expansion (`2026-11-12 Batch 12` @ `b0a1fce`)
+## Latest release: Future Self & HSP Test 2-Step Auto Ads Bridges (`2026-11-12 Batch 13` @ `395d7c2`)
 
-- **Future Self 초고체류 가이드(876s) 30초 인터랙티브 스크리너 탑재**:
-  - `future-self-test-guide.html`: 4대 궤적 동인(비전/창의/자율/지혜) 진단 위젯 장착, Auto Ads 수익 진단(`/future-self/`, `/brain-type/`) 직결, 0px 오버플로 및 48px 터치 타깃 완비.
-- **Dual-Sitemap 동기화 & 블로그 카탈로그 갱신 및 IndexNow 200 OK 완료**:
-  - 사이트맵 3종 `<lastmod>` 100% 무결점 동기화, `blog-catalog-data.js` 재구축, Bing/Naver/Yandex 실시간 전송 완료.
-- **고체류 2048/Stress Funnel Monetization 완비**:
-  - JA 2048(416s) & EN 가이드 CTA를 Auto Ads 활성 진단(`/iq-test/`)으로 전환, Stress Check 결과 5번 카드를 `/stress-type/`으로 직결.
+- **Future Self & HSP Test 결과면 2-Step Auto Ads 수익화 브릿지 완비**:
+  - `future-self/index.html`: 저체류 정지 도구 3종을 고RPM Auto Ads 진단(`/stress-type/`, `/iq-test/`, `/attachment-style/`)으로 전면 교체. 12개 언어 locale JSON(`stressType`, `iqTest`) 탑재, `dateModified` 2026-11-12 갱신.
+  - `hsp-test/index.html`: 결과 카드 2번을 `/stress-type/`으로 직결, 12개 언어 다국어화 완료.
+- **Dual-Sitemap 동기화 & IndexNow 실시간 전송 (HTTP 200 OK)**:
+  - `scripts/sync-sitemaps.js` 자동 감지로 `projects/root-domain/sitemap.xml` `<lastmod>` 갱신 및 IndexNow 200 OK 즉시 전송.
 - **안전/컴플라이언스 전체 PASS**:
-  - Health Guard 6개 게이트 통과, Funnel Bridge 4,034개 파일 무결점, 69개 정지앱 무광고 링펜스 완비.
+  - Health Guard 6개 게이트 통과, Funnel Bridge 4,034개 파일 무결점, 119개 프로젝트 감사 레지스트리 동기화.
 - 사용자 자산 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 100% 불변 보존.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
