@@ -23,14 +23,14 @@ Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P2 AdSense OAuth Keepalive 갱신 완료 (완료)**: OAuth 토큰 갱신 및 `accountsLoaded`, `policyIssuesLoaded (0건)` 정상화.
 - **P3 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense Keepalive 정상, 4,034개 파일 퍼널 감사 무결점, 1,557개 URL 인덱싱 감사 무결점, 119개 프로젝트 트러스트 ALL CLEAN.
 
-## Latest release: IQ Test & Stress Type 2-Step Auto Ads Bridges (`2026-11-12 Batch 14` @ `ecec9eb`)
+## Latest release: Organic Traffic Guides & Monetization Funnel Bridge (`2026-11-12 Batch 15` @ `7980880`)
 
-- **IQ Test & Stress Type 결과면 무수익 정지앱 링크 완전 퇴출 및 2-Step 수익화 완비**:
-  - `iq-test`: 무수익 정지앱(`/puzzle-2048/coach.html`, `/brain-type/`)을 고RPM Auto Ads 진단(`/stress-type/`, `/future-self/`)으로 전면 교체. 12개 언어 locale JSON(`stressType`, `nextStep`) 완비, `dateModified` 2026-11-12 갱신.
-  - `stress-type`: 정지앱 `/burnout-test/` 링크를 `/iq-test/`로 교체, 12개 언어 locale JSON(`iqTest`) 탑재, `dateModified` 2026-11-12 갱신.
-  - `root-domain`: 바이럴 트렌드 리포트 링크를 방문자 언어별 가이드(`/portal/blog/${lang}/...`)로 동적 연결. 사이트맵 내 정지앱 `/stress-response/`를 활성 `/stress-type/`으로 교체.
-- **Dual-Sitemap 동기화 & IndexNow 실시간 전송 (HTTP 200 OK)**:
-  - `https://dopabrain.com/`, `https://dopabrain.com/iq-test/`, `https://dopabrain.com/stress-type/` IndexNow 200 OK 즉시 전송 완료.
+- **고트래픽 오가닉 가이드 내 무수익 정지 링크 제거 및 Auto Ads 직결**:
+  - `portal/blog/en/hsp-workplace-survival-guide.html`: 관련 테스트 내 비수익 코치 링크를 실시간 Auto Ads `/stress-type/`으로 교체.
+  - `portal/blog/zh/avoidant-attachment-dating-guide.html`: 추천 링크를 `/stress-type/`으로 전환, `dateModified` 2026-11-12 갱신.
+  - `blog-catalog-data.js` 재구축(705.5 KB) 및 `blog/sitemap.xml` `<lastmod>` 동기화, IndexNow 200 OK 제출 완료.
+- **IQ Test & Stress Type & Root Domain 수익화 완비**:
+  - `iq-test`, `stress-type`, `root-domain` 상호 간 2-Step Auto Ads 브릿지 구축 및 12개 언어 다국어화 완료.
 - **안전/컴플라이언스 전체 PASS**:
   - Health Guard 6개 게이트 통과, Funnel Bridge 4,034개 파일 무결점, 119개 프로젝트 감사 레지스트리 동기화.
 - 사용자 자산 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 100% 불변 보존.
