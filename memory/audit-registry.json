@@ -241,13 +241,14 @@
       "trustCompliant": true
     },
     "iq-test": {
-      "headCommit": "882984e768d973ec4c8d9ec960e879a21f45a7e3",
+      "headCommit": "ecec9eb919b1eb40d26bd436ef421e850efbf1eb",
       "branch": "master",
-      "auditedAt": "2026-11-09",
+      "auditedAt": "2026-11-12",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
-      "trustCompliant": true
+      "trustCompliant": true,
+      "lastAudited": "2026-11-12T10:37:04.089Z"
     },
     "kpop-position": {
       "headCommit": "e84e29d8cb7bc9b8dd34c33b18a559a76bd2463b",
@@ -540,14 +541,14 @@
       "trustCompliant": true
     },
     "stress-type": {
-      "headCommit": "fd5b8a9af0e055169448a3573f3d7531237ed082",
+      "headCommit": "ba989efd6a5e7bb4538660eea333c5e68be2f3aa",
       "branch": "master",
-      "auditedAt": "2026-11-07",
+      "auditedAt": "2026-11-12",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
       "trustCompliant": true,
-      "lastAudited": "2026-11-07T10:48:00.000Z"
+      "lastAudited": "2026-11-12T10:41:47.172Z"
     },
     "work-style": {
       "headCommit": "427c02fbe508553ddaf737d1f8a493e88b6c7b47",
@@ -1124,7 +1125,7 @@
     "status": "CLEAN"
   },
   "kpop-position": "c7734a7",
-  "root-domain": "8b0c3c97303e6f22de7edd842eba7b0de25495f7",
+  "root-domain": "58140e6ffafc5fe2e5b96c7718c22f9cf24b4b9d",
   "portal": {
     "head": "b0a1fce1e5b9aa5b8423530f54eac54e78c5ec53",
     "date": "2026-11-12",
@@ -1167,7 +1168,7 @@
   "projects/shopping-calc": "fe6865014c1b0b9eb5c6a501b43509491244ee31",
   "projects/password-generator": "d03d44ea324059dd9085c8a6d8d59f4571343c56",
   "projects/tax-refund-preview": "ae11b0b60056d4e71f4684e1b039a315866f80a5",
-  "projects/iq-test": "882984e768d973ec4c8d9ec960e879a21f45a7e3",
+  "projects/iq-test": "ecec9eb919b1eb40d26bd436ef421e850efbf1eb",
   "projects/daily-tarot": "2998fa6bd3ac01d72b5de5210191f70b19c9d466",
   "projects/hsp-test": "79125923a64a8e8d92fbe6f053f67c96ab595ed9",
   "projects/stress-check": "039e99620890dcae0d7c79a1dfb05a04d7d2a5fb",
