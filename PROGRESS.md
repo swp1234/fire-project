@@ -23,13 +23,14 @@ Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P2 AdSense OAuth Keepalive 갱신 완료 (완료)**: OAuth 토큰 갱신 및 `accountsLoaded`, `policyIssuesLoaded (0건)` 정상화.
 - **P3 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense Keepalive 정상, 4,034개 파일 퍼널 감사 무결점, 1,557개 URL 인덱싱 감사 무결점, 119개 프로젝트 트러스트 ALL CLEAN.
 
-## Latest release: Portal Tools & Assessment Bridges (`2026-11-12 Batch 17` @ `c7c7ffa`)
+## Latest release: Portal Tools & Assessment Bridges (`2026-11-12 Batch 18` @ `7522e7a`)
 
 - **포털 고트래픽 툴 및 평가앱 간 2-Step Auto Ads 브릿지 직결**:
-  - `portal/tools/burnout-stress-differential`: GA4 75세션 상위 진입면의 브릿지 3번을 비수익 정적 툴에서 실시간 Auto Ads `/future-self/`로 교체, 12개 언어 다국어화 완료 (`c7c7ffa`).
+  - `cognitive-load-calculator`: GA4 54세션 상위 진입면의 브릿지 2번을 비수익 정적 툴에서 실시간 Auto Ads `/hsp-test/`로 교체, 12개 언어 다국어화 완료 (`7522e7a`).
+  - `burnout-stress-differential`: GA4 75세션 상위 진입면의 브릿지 3번을 실시간 Auto Ads `/future-self/`로 교체, 12개 언어 다국어화 완료 (`c7c7ffa`).
   - `animal-personality` & `white-noise`: 정지앱 `brain-type`, `pomodoro-timer` 퇴출 -> `stress-type`, `future-self` 직결 완료 (`12ed4cd`, `95e18e9`).
   - `root-domain`: Root Focus 계약 불변성 보존 및 sitemap `lastmod` 2026-11-12 동기화 (`a59f796`).
-  - IndexNow 200 OK 즉시 브로드캐스트 (`burnout-stress-differential`, `animal-personality`, `white-noise`) 및 GSC 3대 사이트맵(1,564 URLs) 재제출 완료.
+  - IndexNow 200 OK 즉시 브로드캐스트 (`cognitive-load-calculator`, `burnout-stress-differential`, `animal-personality`, `white-noise`) 및 GSC 3대 사이트맵(1,564 URLs) 재제출 완료.
 - **안전/컴플라이언스 전체 PASS**:
   - Health Guard 6개 게이트 통과, Funnel Bridge 4,034개 파일 무결점, 119개 프로젝트 감사 레지스트리 동기화, Portal 15개 툴 모바일 뷰포트(0px 오버플로, 44px 터치타깃) 검증 완료.
 - 사용자 자산 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 100% 불변 보존.
