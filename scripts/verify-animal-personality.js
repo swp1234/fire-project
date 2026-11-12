@@ -49,7 +49,7 @@ function source(o = {}) {
   ok(v.html.includes('data-i18n="guide.faqTitle"'), 'Visible FAQ section heading missing');
   ok(count(v.html, /class="about-faq-item"/g) >= 5, 'Fewer than 5 visible FAQ items');
   ok(v.html.includes('"@type": "FAQPage"'), 'FAQPage schema missing');
-  ok(/dateModified": "2026-(?:10-24|11-07)"/.test(v.html), 'dateModified drifted');
+  ok(/dateModified": "2026-(?:10-24|11-07|11-12)"/.test(v.html), 'dateModified drifted');
 
   // 12 truthful locales without encoding corruption
   ok(Object.keys(v.locales).length === 12, 'Locale count drifted');

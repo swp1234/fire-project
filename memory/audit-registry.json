@@ -78,7 +78,7 @@
       "trustCompliant": true
     },
     "portal": {
-      "headCommit": "79808807d9bbcb051f49673845b40cfeb9e51139",
+      "headCommit": "798088056ed029c3276de16cd3f0bbc2b32df1a6",
       "branch": "main",
       "auditedAt": "2026-11-12",
       "overflowPx": 0,
@@ -100,9 +100,9 @@
       "trust_issues": 0
     },
     "animal-personality": {
-      "headCommit": "d0194c589bcb82f11a80877eaa42f2f7f5c91152",
+      "headCommit": "12ed4cdad4b1aa5734da01af6a149c47f722fea8",
       "branch": "master",
-      "auditedAt": "2026-11-09",
+      "auditedAt": "2026-11-12",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -381,9 +381,9 @@
       "trustCompliant": true
     },
     "root-domain": {
-      "headCommit": "4cc0c882b575c0f29996df2c9a349767a309cce2",
+      "headCommit": "a59f7969f5524c71078c6c3e93a9e87c95eb7eab",
       "branch": "main",
-      "auditedAt": "2026-11-11",
+      "auditedAt": "2026-11-12",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -475,9 +475,9 @@
       "trustCompliant": true
     },
     "white-noise": {
-      "headCommit": "e71e1eef11695b1a575393fb7fe7a8d07ab721b0",
+      "headCommit": "95e18e9a9f7a60a8018b7dbeec9bb108bf689925",
       "branch": "main",
-      "auditedAt": "2026-11-11",
+      "auditedAt": "2026-11-12",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "trustCompliant": true,

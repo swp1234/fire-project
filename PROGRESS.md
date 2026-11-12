@@ -23,14 +23,13 @@ Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P2 AdSense OAuth Keepalive 갱신 완료 (완료)**: OAuth 토큰 갱신 및 `accountsLoaded`, `policyIssuesLoaded (0건)` 정상화.
 - **P3 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense Keepalive 정상, 4,034개 파일 퍼널 감사 무결점, 1,557개 URL 인덱싱 감사 무결점, 119개 프로젝트 트러스트 ALL CLEAN.
 
-## Latest release: Organic Traffic Guides & Monetization Funnel Bridge (`2026-11-12 Batch 15` @ `7980880`)
+## Latest release: Assessment Funnel Bridges & Sitemaps Sync (`2026-11-12 Batch 16` @ `a59f796`)
 
-- **고트래픽 오가닉 가이드 내 무수익 정지 링크 제거 및 Auto Ads 직결**:
-  - `portal/blog/en/hsp-workplace-survival-guide.html`: 관련 테스트 내 비수익 코치 링크를 실시간 Auto Ads `/stress-type/`으로 교체.
-  - `portal/blog/zh/avoidant-attachment-dating-guide.html`: 추천 링크를 `/stress-type/`으로 전환, `dateModified` 2026-11-12 갱신.
-  - `blog-catalog-data.js` 재구축(705.5 KB) 및 `blog/sitemap.xml` `<lastmod>` 동기화, IndexNow 200 OK 제출 완료.
-- **IQ Test & Stress Type & Root Domain 수익화 완비**:
-  - `iq-test`, `stress-type`, `root-domain` 상호 간 2-Step Auto Ads 브릿지 구축 및 12개 언어 다국어화 완료.
+- **수익화 평가앱 간 무수익/정지 링크 완전 퇴출 및 12개 언어 직결**:
+  - `animal-personality`: 정지앱 `brain-type` 퇴출 -> 실시간 Auto Ads `stress-type` 교체, 12개 언어 다국어 및 우선순위 알고리즘 동기화 (`12ed4cd`).
+  - `white-noise`: 비수익 `pomodoro-timer` -> 고수익 2-Step `future-self` 교체, 12개 언어 번역 추가 (`95e18e9`).
+  - `root-domain`: Root Focus 계약 불변성 보존 및 sitemap `lastmod` 2026-11-12 동기화 (`a59f796`).
+  - IndexNow 200 OK 즉시 제출 (`/animal-personality/`, `/white-noise/`) 및 GSC 3대 사이트맵(1,564 URLs) 재제출 완료.
 - **안전/컴플라이언스 전체 PASS**:
   - Health Guard 6개 게이트 통과, Funnel Bridge 4,034개 파일 무결점, 119개 프로젝트 감사 레지스트리 동기화.
 - 사용자 자산 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 100% 불변 보존.
