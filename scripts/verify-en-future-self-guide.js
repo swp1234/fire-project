@@ -22,13 +22,13 @@ function load(){return{guide:read(GUIDE_FILE),app:read(APP_JS_FILE),i18n:read(I1
 
 function verifySource(bundle){
   if(!/<html lang="en">/.test(bundle.guide)||!/<h1>What Will You Be Like in 10 Years\?<\/h1>/.test(bundle.guide))fail('English language or search-intent H1 drifted');
-  if(!/dateModified[^\n]+2026-09-01/.test(bundle.guide)||!/data-en-future-self-guide="2026-09-01"/.test(bundle.guide))fail('release date or guide contract drifted');
+  if(!/dateModified[^\n]+2026-(?:09-01|11-12)/.test(bundle.guide)||!/data-en-future-self-guide="2026-09-01"/.test(bundle.guide))fail('release date or guide contract drifted');
   for(const phrase of ['does not predict your job','not an AI forecast','8 choices × 2 theme points','different mood or context','do not validate DopaBrain'])if(!bundle.guide.includes(phrase))fail(`boundary or method missing: ${phrase}`);
   if(/(?:AI-powered|accurate results|predict future outcomes|personality traits predict|core personality traits are remarkably stable|strongly correlate with life outcomes|FAQPage|AggregateRating|content_ad_impression|cross-promo|link_url)/i.test(bundle.guide))fail('unsupported prediction, proof, schema, telemetry, or promotion remains');
   for(const source of ['PMC3949005','10.1016/S0065-2601(06)38002-1'])if(!bundle.guide.includes(source))fail(`source missing: ${source}`);
   if(count(bundle.guide,new RegExp(CTA.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'))!==2)fail('two identical direct-start CTAs required');
   if(count(bundle.guide,/data-related=/g)!==7)fail('four quick cards and three footer routes required');
-  for(const route of ['/habit-tracker/?lang=en','/todo-list/?lang=en','/pomodoro-timer/?lang=en','/life-in-numbers/?lang=en'])if(!bundle.guide.includes(route))fail(`related route missing: ${route}`);
+  for(const route of ['/attachment-style/?lang=en','/stress-check/?lang=en','/hsp-test/?lang=en','/pomodoro-timer/?lang=en'])if(!bundle.guide.includes(route))fail(`related route missing: ${route}`);
   for(const event of GUIDE_EVENTS)if(!bundle.guide.includes(`'${event}'`))fail(`guide event missing: ${event}`);
   if(!/intersectionRatio>=\.5/.test(bundle.guide)||!/setTimeout\(\(\)=>\{[\s\S]{0,250}\},500\)/.test(bundle.guide))fail('qualified 50%/500ms method exposure missing');
   if(count(bundle.guide,/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/g)!==1||/<ins[^>]+adsbygoogle|adsbygoogle\s*\.\s*push/.test(bundle.guide))fail('guide is not Auto Ads loader-only');
@@ -36,7 +36,7 @@ function verifySource(bundle){
   if(!/\^\[a-z0-9_-\]\{1,48\}\$/.test(bundle.app)||!/source_surface: ENTRY_SOURCE/.test(bundle.app))fail('app source normalization or attribution drifted');
   if(!/ENTRY_QUERY\.get\('start'\) === '1'/.test(bundle.app)||!/const queryLang = new URLSearchParams\(window\.location\.search\)\.get\('lang'\)/.test(bundle.i18n))fail('linked start or query language drifted');
   if(!/What Will You Be Like in 10 Years\?/.test(bundle.catalog)||!/transparent fixed rule/.test(bundle.catalog))fail('English catalog card drifted');
-  if(count(bundle.sitemap,/https:\/\/dopabrain\.com\/portal\/blog\/en\/future-self-prediction-quiz\.html/g)!==1||!/en\/future-self-prediction-quiz\.html<\/loc><lastmod>2026-09-01/.test(bundle.sitemap))fail('focused sitemap entry missing or duplicated');
+  if(count(bundle.sitemap,/https:\/\/dopabrain\.com\/portal\/blog\/en\/future-self-prediction-quiz\.html/g)!==1||!/en\/future-self-prediction-quiz\.html<\/loc><lastmod>2026-(?:09-01|11-12)/.test(bundle.sitemap))fail('focused sitemap entry missing or duplicated');
   return{guideBytes:Buffer.byteLength(bundle.guide),sources:2,related:7,events:GUIDE_EVENTS.length};
 }
 
@@ -52,7 +52,7 @@ function runMutations(){
     ['method-loss',b=>{b.guide=b.guide.replace('8 choices × 2 theme points','hidden model score')}],
     ['source-loss',b=>{b.guide=b.guide.replace('PMC3949005','removed')}],
     ['cta-drift',b=>{b.guide=b.guide.replace('source=en_future_self_guide','source=unknown')}],
-    ['related-loss',b=>{b.guide=b.guide.replace(' data-related="habit_tracker"','')}],
+    ['related-loss',b=>{b.guide=b.guide.replace(' data-related="attachment_style"','')}],
     ['early-view',b=>{b.guide=b.guide.replace('},500)','},0)')}],
     ['manual-ad',b=>{b.guide+='<ins class="adsbygoogle" data-ad-slot="1"></ins>'}],
     ['hidden-faq',b=>{b.guide+='<script type="application/ld+json">{"@type":"FAQPage"}</script>'}],
