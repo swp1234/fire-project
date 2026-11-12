@@ -26,9 +26,10 @@ Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: 
 ## Latest release: High-RPM Tier-1 Multilingual CRO & Auto Ads Alignment (`2026-11-12 Batch 2` @ `2026-11-12`)
 
 - **고RPM Tier-1 오가닉 가이드 인터랙티브 스크리너 및 정식 Auto Ads 직결**:
-  - `portal` (@ `53c9659`):
-    - EN/ZH 2048 가이드(`number-puzzle-2048-tips.html`, `2048-strategy-guide.html`): 30s 전술 CRO 스크리너 탑재, 정지/무수익앱(`reaction-test`, `minesweeper`) 링크 퇴출, `puzzle-2048/coach.html`, `iq-test`, `stress-check` 직결.
-    - DE/FR/ES/PT HSP 가이드(`am-i-highly-sensitive-person-signs.html`): 중복·허위 링크 전면 교체, 7개 정식 Auto Ads 앱(`hsp-test`, `reset`, `stress-check`, `attachment-style`, `future-self`, `iq-test`, `color-blindness`) 정밀 언어 파라미터(`?lang=`) 매핑.
+  - `portal` (@ `c861222`):
+    - EN/ZH 2048 가이드: 30s 전술 CRO 스크리너 탑재, 정지/무수익앱(`reaction-test`, `minesweeper`) 링크 퇴출, `puzzle-2048/coach.html`, `iq-test`, `stress-check` 직결.
+    - EN/KO 애착 가이드(`avoidant-attachment-healing-guide.html`, `attachment-styles-4-types-explained.html`): 30s 거리두기 스크리너 탑재, 무수익 링크 퇴출 및 정식 Auto Ads 앱(`attachment-style`, `stress-check`, `hsp-test`, `future-self`, `red-green-flag`, `toxic-trait`, `iq-test`) 정밀 직결.
+    - DE/FR/ES/PT HSP 가이드(`am-i-highly-sensitive-person-signs.html`): 중복·허위 링크 전면 교체, 7개 정식 Auto Ads 앱(`hsp-test`, `reset`, `stress-check`, `attachment-style`, `future-self`, `iq-test`, `color-blindness`) 정밀 매핑.
     - US 고의도 `vulnerability-courage-connection-guide.html`: 30s Emotional Armor 스크리너 탑재, 정식 Auto Ads 앱 연결.
     - 사이트맵(`sitemap.xml`, `blog/sitemap.xml`) lastmod 2026-11-12 갱신 및 IndexNow 200 OK 즉시 전송.
 - **Harness & Health Battery ALL PASS**: Health Guard, Funnel Bridge(4,034 파일), Touch Audit(0px overflow), Trust Audit ALL CLEAN.
