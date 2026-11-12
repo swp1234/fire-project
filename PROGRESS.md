@@ -19,19 +19,17 @@ Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: 
 ## Active plan (2026-11-12) — 상세 설계: `docs/STRATEGY.md`
 
 - **P0 고RPM Tier-1 오가닉 퍼널 누수 차단 및 전환 최적화 (완료)**: 프랑스/독일/미국 고체류 가이드 내 무수익 정지앱 링크 퇴출 및 인터랙티브 30s 스크리너 탑재, 실시간 Auto Ads 앱(IQ, Stress, Future Self, Burnout, HSP) 직결, IndexNow 200 OK 제출 완료.
-- **P1 GSC 미색인 진단 & IndexNow 브로드캐스트 (완료)**: 7대 핵심 진입면 및 신규 최적화 12개 가이드 IndexNow 200 OK 전송 완료.
+- **P1 GSC 미색인 진단 & IndexNow 브로드캐스트 (완료)**: 7대 핵심 진입면 및 신규 최적화 16개 가이드 IndexNow 200 OK 전송 완료.
 - **P2 AdSense OAuth Keepalive 갱신 완료 (완료)**: OAuth 토큰 갱신 및 `accountsLoaded`, `policyIssuesLoaded (0건)` 정상화.
 - **P3 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense Keepalive 정상, 4,034개 파일 퍼널 감사 무결점, 1,557개 URL 인덱싱 감사 무결점, 119개 프로젝트 트러스트 ALL CLEAN.
 
-## Latest release: Tier-1 German & English High-RPM CRO & Sitemap Alignment (`2026-11-12 Batch 3` @ `6c7a6c2`)
+## Latest release: Somatic & Functional Freeze Truth & Yield Alignment (`2026-11-12 Batch 4` @ `489ed24`)
 
 - **고RPM Tier-1 오가닉 가이드 인터랙티브 스크리너 및 정식 Auto Ads 직결**:
-  - `portal` (@ `6c7a6c2`):
-    - DE/EN RSD 가이드: 30s RSD Triage 스크리너 탑재, 독일어 빈 관련 리소스 보강, 무수익 링크 퇴출, `/stress-check/`, `/portal/tools/grounding-exercise.html` 직결.
-    - EN/DE 소셜 불안 가이드: 3중 중복 링크 퇴출, 정식 Auto Ads 앱(`/attachment-style/`, `/portal/tools/grounding-exercise.html`, `/future-self/`) 직결.
-    - EN 코르티솔 & 만성 스트레스 가이드: 30s 스크리너 탑재, 3중 중복 링크 교체, 정식 `/burnout-test/`, `/stress-type/`, `/portal/tools/grounding-exercise.html` 직결.
-    - EN 회피 애착 & HSP 대처 가이드: focused quick rail 계약(정확히 2개 카드) 엄격 정렬.
-    - 사이트맵 `lastmod` 2026-11-12 갱신 및 IndexNow 200 OK 즉시 전송.
+  - `portal` (@ `489ed24`):
+    - EN/DE 소체적 불안 가이드(`somatic-anxiety-body-symptoms.html`): 3중 중복 링크 퇴출, 정식 Auto Ads 앱(`/burnout-test/`, `/stress-type/`, `/portal/tools/grounding-exercise.html`) 직결, dateModified/lastmod 2026-11-12 갱신.
+    - EN/DE 기능적 동결 가이드(`functional-freeze-signs-recovery.html`): 허위 라벨("Krafttier", "Bindungstyp") 박멸, 3중 중복 링크 교체, 정식 K-PTBS 및 Grounding 앱 직결.
+    - 사이트맵(`sitemap.xml`, `blog/sitemap.xml`) 갱신 및 IndexNow 200 OK 즉시 전송.
 - **Harness & Health Battery ALL PASS**: Health Guard 6개 전 게이트 통과, Funnel Bridge(4,034 파일) 0건, Touch Audit(0px overflow), Trust Audit ALL CLEAN.
 - 사용자 자산 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 100% 불변 보존.
 
