@@ -23,13 +23,12 @@ Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P2 AdSense OAuth Keepalive 갱신 완료 (완료)**: OAuth 토큰 갱신 및 `accountsLoaded`, `policyIssuesLoaded (0건)` 정상화.
 - **P3 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense Keepalive 정상, 4,034개 파일 퍼널 감사 무결점, 1,557개 URL 인덱싱 감사 무결점, 119개 프로젝트 트러스트 ALL CLEAN.
 
-## Latest release: Burnout Recovery CRO Screener & European Auto Ads Bridge (`2026-11-12 Batch 9` @ `7984d04`)
+## Latest release: Workplace Stress & Burnout Alignment (`2026-11-12 Batch 10` @ `2088a2d`)
 
-- **고RPM Tier-1 번아웃 가이드 인터랙티브 스크리너 및 정식 Auto Ads 직결**:
-  - `portal` (@ `7984d04`):
-    - FR 번아웃 회복 가이드(`fr/burnout-recovery-guide.html`): 누락되었던 30초 인터랙티브 번아웃 트리아지 스크리너(`#burnoutScreener`) 및 somatics 피드백 로직 전면 탑재.
-    - EN/DE/FR 공통: 왜곡/중복 링크(QE테스트, 3개 중복 스트레스링크 등) 퇴출하고 정식 6대 Auto Ads 수익화 도구(`/burnout-test/`, `/portal/tools/burnout-stress-differential.html`, `/stress-check/`, `/stress-type/`, `/portal/tools/grounding-exercise.html`, `/portal/tools/dopamine-detox-protocol.html`) 동기화.
-    - EN/DE/FR 상단 4카드 퀵레일 정합화, dateModified/lastmod 2026-11-12 갱신, 사이트맵 2종 갱신 및 IndexNow 200 OK 전송 완료.
+- **고RPM Tier-1 직장 스트레스 가이드 진단 링크 정합화 및 Auto Ads 직결**:
+  - `portal` (@ `2088a2d`):
+    - EN/DE/FR 직장 스트레스 가이드(`workplace-stress-relief-guide.html`): 오라우팅된 링크("Burnout Test" -> `/stress-type/`)를 정식 2분 번아웃 진단(`/burnout-test/`), 8문항 스트레스 반응 유형 진단(`/stress-type/`), 임상 스트레스 진단(`/stress-check/`)으로 정합화.
+    - dateModified/lastmod 2026-11-12 갱신, 사이트맵 2종 갱신 및 IndexNow 200 OK 전송 완료.
 - **Harness & Health Battery ALL PASS**: Health Guard 6개 전 게이트 통과, Funnel Bridge(4,034 파일) 0건, Touch Audit(0px overflow), Trust Audit ALL CLEAN.
 - 사용자 자산 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 100% 불변 보존.
 
