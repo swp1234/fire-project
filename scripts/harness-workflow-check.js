@@ -401,6 +401,7 @@ async function main() {
     ['culture review mutations', process.execPath, ['scripts/culture-signal-review.js', '--mutations']],
     ['GSC sitemap submit safety', process.execPath, ['scripts/gsc-submit-sitemaps.js', '--self-test']],
     ['IndexNow submit safety', process.execPath, ['scripts/indexnow-submit.js', '--self-test']],
+    ['Sitemap sync safety', process.execPath, ['scripts/sync-sitemaps.js', '--self-test']],
     ['indexing inventory self-test', process.execPath, ['scripts/indexing-inventory.js', '--self-test']],
     ['submitted indexing inventory strict', process.execPath, ['scripts/indexing-inventory.js', '--strict']],
     ['safe local browser ports', process.execPath, ['scripts/verify-safe-local-port.js']],
