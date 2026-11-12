@@ -23,11 +23,12 @@ Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P2 AdSense OAuth Keepalive 갱신 완료 (완료)**: OAuth 토큰 갱신 및 `accountsLoaded`, `policyIssuesLoaded (0건)` 정상화.
 - **P3 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: AdSense Keepalive 정상, 4,034개 파일 퍼널 감사 무결점, 1,557개 URL 인덱싱 감사 무결점, 119개 프로젝트 트러스트 ALL CLEAN.
 
-## Latest release: Trauma Bonding 30s Triage & High-Yield Routing (`2026-11-12 Batch 6` @ `62a87b5`)
+## Latest release: HSP Sensory Overload Triage & European CRO Alignment (`2026-11-12 Batch 7` @ `863106a`)
 
-- **고RPM Tier-1 트라우마 본딩 가이드 인터랙티브 스크리너 및 정식 Auto Ads 직결**:
-  - `portal` (@ `62a87b5`):
-    - EN/DE/FR 트라우마 본딩 가이드(`trauma-bonding-signs-breaking-free.html`): 미수익/비색인 링크(`/red-green-flag/`, `/toxic-trait/`) 퇴출, 30초 인터랙티브 스크리너(`#enTbScreener`, `#deTbScreener`, `#frTbScreener`) 탑재, 정식 Auto Ads(`/attachment-style/`, `/stress-check/`, `/portal/tools/grounding-exercise.html`, `/portal/tools/dopamine-detox-protocol.html`) 직결.
+- **고RPM Tier-1 HSP 가이드 인터랙티브 스크리너 및 정식 Auto Ads 직결**:
+  - `portal` (@ `863106a`):
+    - DE/FR 고체류 HSP 대처 전략 가이드(`hsp-coping-strategies-highly-sensitive.html`): 하단 왜곡 퀵레일 및 임의 surface 태그 전면 개편, 최상단 정식 4카드 퀵레일(`/hsp-test/`, `/hsp-test/reset.html`, `/stress-check/`, `/portal/tools/grounding-exercise.html`) 배치.
+    - 30초 인터랙티브 감각 과부하 트리아지(`#deHspScreener`, `#frHspScreener`) 탑재, 60s 센서리 리셋 룸 및 20문항 HSP 진단 즉시 분기.
     - dateModified/lastmod 2026-11-12 갱신, 사이트맵(`blog/sitemap.xml`) 갱신 및 IndexNow 200 OK 전송 완료.
 - **Harness & Health Battery ALL PASS**: Health Guard 6개 전 게이트 통과, Funnel Bridge(4,034 파일) 0건, Touch Audit(0px overflow), Trust Audit ALL CLEAN.
 - 사용자 자산 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 100% 불변 보존.
