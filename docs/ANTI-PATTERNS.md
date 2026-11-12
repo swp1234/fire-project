@@ -218,9 +218,12 @@
   - **대책**: 모든 유틸리티 도구는 `button, select`에 `min-height: 44px;`를 기본 상속하고, 앵커 링크에는 `display: inline-flex; align-items: center; min-height: 44px;`를 적용하여 390x844 뷰포트에서 0px 오버플로와 44px 터치 타깃을 상시 유지할 것.
 - **은퇴/noindex 처리된 레거시 블로그 사이트맵 재등재 금지 (Retired noindex Blog Marker)**:
   - 과거 아키텍처 정리에서 `<meta name="robots" content="noindex,follow" data-indexing-focus="2026-08-29">`로 의도적 noindex 처리된 페이지(예: `fr/test-niveau-stress.html` 등)를 사이트맵에 재등재할 경우 `scripts/indexing-inventory.js --strict`에서 `robots_noindex` 블로커 이슈가 발생함. 은퇴 처리된 URL은 사이트맵에 절대 등록하지 말 것.
-- **진단 가이드 내 라우팅 불일치 및 왜곡 라벨링 (Routing Mismatch on Diagnostic Guides)**:
-  - 스트레스 반응 가이드(`stress-response-guide.html`)나 직장 스트레스 가이드(`workplace-stress-relief-guide.html`)에서 8문항 스트레스 반응 유형 진단(`/stress-type/`) 또는 2분 번아웃 진단(`/burnout-test/`)을 원하는 사용자에게 임상 스트레스 진단(`/stress-check/`)을 일괄 링크하거나, 반대로 `/stress-type/`을 "Burnout Test"로 왜곡 라벨링하여 사용자 혼란과 체류 이탈을 유발하던 문제.
-  - **대책**: 블로그 본문, 퀵레일, 관련 링크는 항상 사용자 기대치와 정확히 일치하는 정식 도구(`/stress-type/`, `/burnout-test/`, `/stress-check/`)로 목적지와 라벨을 1:1 정합화할 것.
+- **단일 광고 수입 의존성 및 바이럴 탑오브퍼널(Top-of-Funnel) 결핍 안티패턴 (Monetization Monoculture & Zero-Sharing Funnel)**:
+  - 수백 개의 단위 테스트와 방어적 엔지니어링에만 매몰되어, 일일 방문자 10명 미만(주간 72세션) 상태에서 애드센스 클릭당 $0.02 단가에만 의존하던 구조적 한계.
+  - **대책**:
+    1. **고해상도 1080x1920 캔버스 기반 인스타그램/SNS 스토리 카드 엔진**: 모바일 Web Share API를 연동하여 사용자가 진단 결과를 인스타그램 스토리/스레드/사진첩에 원클릭으로 공유할 수 있는 바이럴 루프를 핵심 킬러앱(`future-self`, `stress-check`, `hsp-test`)에 기본 탑재할 것.
+    2. **근거 기반 도서 큐레이션 파트너십(Amazon Associates 등)**: 단순 디스플레이 광고 외에 공신력 있는 임상/심리학 도서 큐레이션 링크(`rel="noopener noreferrer nofollow"`)를 결과 화면에 배치하여 고수익 제휴 파트너십을 다각화할 것.
+    3. **프라이버시 불변성 엄수**: 바이럴 카드 렌더링 및 공유 시에도 사용자의 개별 응답, 점수, 선택 항목은 GA4 파라미터나 외부 서버로 일절 전송하지 않고 브라우저 로컬 캔버스에서만 처리할 것.
 
 
 
