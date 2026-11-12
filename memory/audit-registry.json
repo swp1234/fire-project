@@ -214,7 +214,7 @@
       "trustCompliant": true
     },
     "future-self": {
-      "headCommit": "395d7c2235243f29ca2570e6124f65550d6914a5",
+      "headCommit": "dcfab78d1d43889959df93e82198ba9429fd79e9",
       "branch": "master",
       "auditedAt": "2026-11-12",
       "overflowPx": 0,
@@ -1121,7 +1121,7 @@
     }
   },
   "future-self": {
-    "head": "395d7c2235243f29ca2570e6124f65550d6914a5",
+    "head": "dcfab78d1d43889959df93e82198ba9429fd79e9",
     "date": "2026-11-12",
     "status": "CLEAN"
   },
