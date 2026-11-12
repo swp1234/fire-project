@@ -68,6 +68,7 @@ SOUNDSCAPE_*.txt
 !scripts/culture-signal-review.js
 !scripts/gsc-submit-sitemaps.js
 !scripts/indexnow-submit.js
+!scripts/sync-sitemaps.js
 !scripts/deploy-hsp-screener.js
 !scripts/deploy-exhaustion-stress-screeners.js
 !scripts/deploy-hsp-coping-screeners.js
