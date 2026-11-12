@@ -216,6 +216,12 @@
 - **포털 유틸리티 도구 내 인라인 학술 출처 및 네비게이션 링크 터치 규격 완비 (Utility Tools Touch Target Compliance)**:
   - `emotion-regulation-planner.css` 등에서 `nav a`, `footer a`, `select#language`, 그리고 `.sources a`(WHO, NHS 레퍼런스 링크)에 `min-height: 44px; display: inline-flex; align-items: center;`가 누락되어 모바일 화면에서 17~35px로 렌더링되던 문제.
   - **대책**: 모든 유틸리티 도구는 `button, select`에 `min-height: 44px;`를 기본 상속하고, 앵커 링크에는 `display: inline-flex; align-items: center; min-height: 44px;`를 적용하여 390x844 뷰포트에서 0px 오버플로와 44px 터치 타깃을 상시 유지할 것.
+- **은퇴/noindex 처리된 레거시 블로그 사이트맵 재등재 금지 (Retired noindex Blog Marker)**:
+  - 과거 아키텍처 정리에서 `<meta name="robots" content="noindex,follow" data-indexing-focus="2026-08-29">`로 의도적 noindex 처리된 페이지(예: `fr/test-niveau-stress.html` 등)를 사이트맵에 재등재할 경우 `scripts/indexing-inventory.js --strict`에서 `robots_noindex` 블로커 이슈가 발생함. 은퇴 처리된 URL은 사이트맵에 절대 등록하지 말 것.
+- **진단 가이드 내 라우팅 불일치 및 왜곡 라벨링 (Routing Mismatch on Diagnostic Guides)**:
+  - 스트레스 반응 가이드(`stress-response-guide.html`)나 직장 스트레스 가이드(`workplace-stress-relief-guide.html`)에서 8문항 스트레스 반응 유형 진단(`/stress-type/`) 또는 2분 번아웃 진단(`/burnout-test/`)을 원하는 사용자에게 임상 스트레스 진단(`/stress-check/`)을 일괄 링크하거나, 반대로 `/stress-type/`을 "Burnout Test"로 왜곡 라벨링하여 사용자 혼란과 체류 이탈을 유발하던 문제.
+  - **대책**: 블로그 본문, 퀵레일, 관련 링크는 항상 사용자 기대치와 정확히 일치하는 정식 도구(`/stress-type/`, `/burnout-test/`, `/stress-check/`)로 목적지와 라벨을 1:1 정합화할 것.
+
 
 
 
