@@ -42,7 +42,7 @@ function verifySource(source) {
   if (!/<html lang="en"/.test(source.index) || !/Attachment Response Reflection/.test(source.index)) {
     fail('app language or reflection identity drifted');
   }
-  if (!/dateModified[^\n]+2026-(?:08-30|10-24|10-27|11-07)/.test(source.index) || !/dateModified[^\n]+2026-(?:08-30|10-24|10-27|11-07)/.test(source.guide)) {
+  if (!/dateModified[^\n]+2026-(?:08-30|10-24|10-27|11-07|11-12)/.test(source.index) || !/dateModified[^\n]+2026-(?:08-30|10-24|10-27|11-07|11-12)/.test(source.guide)) {
     fail('release date drifted');
   }
   for (const language of LANGUAGES) {
@@ -139,7 +139,7 @@ function verifyMutations() {
     ['cta-drift', function (source) { source.guide = source.guide.replace('surface=en_avoidant_guide_primary', 'surface=unknown'); }],
     ['missing-study', function (source) { source.guide = source.guide.replace('PMC8470855', 'removed-study'); }],
     ['catalog-drift', function (source) { source.catalog = source.catalog.replace('Avoidant Attachment: Meaning, Limits, and One Practice', 'Old attachment article'); }],
-    ['focused-rail-drift', function (source) { source.guide = source.guide.replace('data-target-slug="emotion_iceberg"', 'data-removed-slug="emotion_iceberg"'); }],
+    ['focused-rail-drift', function (source) { source.guide = source.guide.replace('data-content-surface="quick_rail" data-target-slug="stress-check"', 'data-content-surface="quick_rail" data-removed-slug="stress-check"'); }],
   ];
   for (const mutation of mutations) expectMutation(mutation[0], mutation[1]);
   console.log('[PASS] mutation summary ' + mutations.length + '/' + mutations.length + ' detected');
