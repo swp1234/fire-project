@@ -18,21 +18,22 @@ Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: 
 
 ## Active plan (2026-11-12) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 오가닉 바이럴 카드 & 고수익 파트너십 확장 (진행중)**: `future-self`(`dcfab78`), `stress-check`(`23bc4b3`) 1080x1920 인스타 스토리 카드 캔버스 엔진 및 근거 기반 도서 큐레이션 슬롯 구축, `hsp-test` 확대 진행.
-- **P1 고RPM Tier-1 오가닉 퍼널 전환 최적화 (완료)**: 영/프/독/일/중 고체류 가이드 내 30s 스크리너 탑재 및 핵심 Auto Ads 앱 직결.
+- **P0 오가닉 바이럴 카드 & 고수익 파트너십 확장 (완료)**: `future-self`(`dcfab78`), `stress-check`(`23bc4b3`), `hsp-test`(`36ef100`) 3대 킬러앱 1080x1920 인스타 스토리 카드 캔버스 엔진 및 근거 기반 도서 큐레이션 슬롯 구축 완료.
+- **P1 글로벌 소셜 런칭 카피 & 배포 템플릿 자산화 (완료)**: Reddit/Threads/X 맞춤형 바이럴 훅 및 가이드라인 구축 (`docs/MARKETING-VIRAL-HOOKS.md`).
 - **P2 AdSense OAuth Keepalive 갱신 완료 (완료)**: OAuth 토큰 갱신 및 `accountsLoaded`, `policyIssuesLoaded (0건)` 정상화.
 - **P3 헬스 가드 & 퍼널 브릿지 & 트러스트 감사 ALL PASS (완료)**: 4,034개 파일 퍼널 감사 무결점, 119개 프로젝트 트러스트 ALL CLEAN.
 
-## Latest release: Viral Story Card & Curated Monetization (`2026-11-12 Batch 21` @ `23bc4b3`)
+## Latest release: Complete Viral Growth & Monetization Engine (`2026-11-12 Batch 22` @ `36ef100`)
 
-- **스트레스 진단 바이럴 공유 카드 & 제휴 큐레이션 슬롯 (`stress-check` @ `23bc4b3`)**:
-  - `stress-check`에 1080x1920 흑요석/글로우 스타일 진단 카드 캔버스 렌더러 구축 (5개 스트레스 축 차트, 안정화 가이드, 워터마크).
+- **감각 프로필 바이럴 공유 카드 & 제휴 큐레이션 슬롯 (`hsp-test` @ `36ef100`)**:
+  - `hsp-test`에 1080x1920 딥 바이올렛 흑요석 스타일 감각 프로필 카드 캔버스 렌더러 구축 (5대 감각 축 차트, 규제 인사이트, 워터마크).
   - Web Share API 네이티브 공유 및 PNG 다운로드, 12개 언어 다국어화 완료.
-  - 광고 의존 탈피용 근거 기반 도서 큐레이션 파트너 슬롯 탑재 (Burnout, The Highly Sensitive Person), nofollow/noopener 준수.
-- **오가닉 바이럴 공유 카드 엔진 도입 (`future-self` @ `dcfab78`)**:
-  - 체류 876초 1위 진입면 `future-self` 1080x1920 인스타/SNS 스토리 카드 엔진 및 12개 언어 지원.
-- **포털 도구 고수익 평가앱 직결 정렬 (Batch 19-20 연계)**:
-  - `cognitive-load-calculator` → `/hsp-test/`, `burnout-stress-differential` → `/future-self/`, `zh-2048-guide` 20/20 통과.
+  - 근거 기반 도서 큐레이션 파트너 슬롯 탑재 (Elaine Aron, Jenn Granneman), nofollow/noopener 준수.
+  - `verify-hsp-reset-funnel` 13/13 돌연변이 및 런타임 레이아웃(390px 오버플로 0px) ALL PASS.
+- **3대 킬러앱 바이럴 캔버스 엔진 & 파트너십 구축 완료 (`future-self`, `stress-check`, `hsp-test`)**:
+  - 방문자의 자발적 SNS 공유 유도(인스타 스토리/스레드) 루프 및 $0.02 단가 탈피용 도서 제휴 링크 완비.
+- **글로벌 커뮤니티 배포 템플릿 자산화 (`docs/MARKETING-VIRAL-HOOKS.md`)**:
+  - Reddit (`r/selfimprovement`, `r/mbti`, `r/hsp`), Threads, X 타겟별 비침습적 가치 중심 런칭 카피 완비.
 - 사용자 자산 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 100% 불변 보존.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

@@ -224,9 +224,9 @@
       "lastAudited": "2026-11-12T10:21:17.460Z"
     },
     "hsp-test": {
-      "headCommit": "58cbd9159929ba8b1a77d2438eeac1195068668f",
+      "headCommit": "36ef10074fac8608c7a63d9aa2629a26993d27ed",
       "branch": "main",
-      "auditedAt": "2026-11-11",
+      "auditedAt": "2026-11-12",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
