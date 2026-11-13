@@ -2,6 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
+const { blockExternalAds } = require('./lib/block-external-ads');
 
 const workspace = path.resolve(__dirname, '..');
 const routeRoots = [
@@ -54,6 +55,7 @@ async function run() {
     const origin = production ? 'https://dopabrain.com' : `http://127.0.0.1:${server.address().port}`;
     const browser = await chromium.launch({ headless: true });
     const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
+    await blockExternalAds(context);
     await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin });
     const page = await context.newPage();
     const errors = [];

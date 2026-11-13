@@ -2,6 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
+const { blockExternalAds } = require('./lib/block-external-ads');
 
 const workspace = path.resolve(__dirname, '..');
 const routeRoots = [
@@ -57,6 +58,7 @@ async function run() {
         viewport: { width: 390, height: 844 },
         permissions: ['clipboard-read', 'clipboard-write']
     });
+    await blockExternalAds(context);
     const page = await context.newPage();
     const errors = [];
     page.on('pageerror', error => {

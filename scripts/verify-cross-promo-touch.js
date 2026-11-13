@@ -4,6 +4,7 @@ const http = require('http');
 const path = require('path');
 const { chromium } = require('playwright');
 const { listenOnSafePort } = require('./lib/safe-local-port');
+const { blockExternalAds } = require('./lib/block-external-ads');
 
 const WORKSPACE = path.resolve(__dirname, '..');
 const CROSS_PROMO_PATH = path.join(WORKSPACE, 'projects', 'portal', 'js', 'cross-promo.js');
@@ -83,6 +84,7 @@ async function verifySource(browser, name, crossPromoSource, appDataSource) {
   const server = createServer(crossPromoSource, appDataSource);
   const port = await listen(server);
   const context = await browser.newContext({ viewport: VIEWPORT });
+  await blockExternalAds(context);
   const page = await context.newPage();
   const runtimeErrors = [];
   page.on('pageerror', (error) => runtimeErrors.push(error.message || String(error)));

@@ -5,6 +5,7 @@ const http = require('http');
 const path = require('path');
 const { chromium } = require('playwright');
 const { listenOnSafePort } = require('./lib/safe-local-port');
+const { blockExternalAds } = require('./lib/block-external-ads');
 
 const ROOT = path.resolve(__dirname, '..');
 const APP = path.join(ROOT, 'projects', 'animal-personality');
@@ -137,6 +138,7 @@ async function runtime(base) {
   try {
     for (const t of [{ width: 390, height: 844, lang: 'ko' }, { width: 1440, height: 900, lang: 'en' }]) {
       const ctx = await browser.newContext({ viewport: { width: t.width, height: t.height } });
+      await blockExternalAds(ctx);
       const page = await ctx.newPage();
       const errors = [];
       page.on('pageerror', (e) => errors.push(e.message));

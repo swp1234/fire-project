@@ -2,6 +2,7 @@ const http=require('http');
 const fs=require('fs');
 const path=require('path');
 const {chromium}=require('playwright');
+const {blockExternalAds}=require('./lib/block-external-ads');
 
 const workspace=path.resolve(__dirname,'..');
 const appIds=['color-memory','memory-card','minesweeper','puzzle-2048','number-puzzle','reaction-test','typing-speed','word-scramble','block-puzzle'];
@@ -14,7 +15,7 @@ function events(page){return page.evaluate(()=>(window.dataLayer||[]).map(item=>
 
 async function run(){
   const production=process.argv.includes('--production');const local=production?null:server();if(local)await new Promise(ok=>local.listen(0,'127.0.0.1',ok));
-  const origin=production?'https://dopabrain.com':`http://127.0.0.1:${local.address().port}`;const browser=await chromium.launch({headless:true});const context=await browser.newContext({viewport:{width:390,height:844}});const page=await context.newPage();const errors=[];
+  const origin=production?'https://dopabrain.com':`http://127.0.0.1:${local.address().port}`;const browser=await chromium.launch({headless:true});const context=await browser.newContext({viewport:{width:390,height:844}});await blockExternalAds(context);const page=await context.newPage();const errors=[];
   page.on('pageerror',error=>{if(!/adsbygoogle|TagError/i.test(String(error)))errors.push(String(error))});
   try{
     const localeReports=[];

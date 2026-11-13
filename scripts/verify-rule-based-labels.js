@@ -3,6 +3,7 @@ const fs = require('fs');
 const http = require('http');
 const path = require('path');
 const { chromium } = require('playwright');
+const { blockExternalAds } = require('./lib/block-external-ads');
 
 const ROOT = path.resolve(__dirname, '..');
 const PROJECTS = path.join(ROOT, 'projects');
@@ -163,6 +164,7 @@ async function runBrowser() {
   const zodiacLocales = Object.fromEntries(localeFiles('zodiac-match').map(({ file, json }) => [file.replace('.json', ''), json]));
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  await blockExternalAds(context);
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', error => errors.push(String(error)));

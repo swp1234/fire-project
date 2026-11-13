@@ -5,6 +5,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
+const { blockExternalAds } = require('./lib/block-external-ads');
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -38,6 +39,7 @@ async function runAudit() {
   // 1. Future Self Full User Journey
   {
     const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    await blockExternalAds(page);
     await page.goto(`http://127.0.0.1:${port}/future-self/?lang=en`);
     await page.waitForTimeout(500);
 
@@ -105,6 +107,7 @@ async function runAudit() {
 
   for (const pagePath of stressPages) {
     const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    await blockExternalAds(page);
     await page.goto(`http://127.0.0.1:${port}${pagePath}`);
     await page.waitForTimeout(500);
 

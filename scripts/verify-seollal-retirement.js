@@ -5,6 +5,7 @@ const http = require('http');
 const path = require('path');
 const { chromium } = require('playwright');
 const { listenOnSafePort } = require('./lib/safe-local-port');
+const { blockExternalAds } = require('./lib/block-external-ads');
 
 const ROOT = path.resolve(__dirname, '..');
 const RETIRED = path.join(ROOT, 'projects', 'seollal-fortune');
@@ -125,6 +126,7 @@ async function verifyRedirect(origin) {
   try {
     for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) {
       const page = await browser.newPage({ viewport });
+      await blockExternalAds(page);
       const errors = [];
       page.on('pageerror', (error) => errors.push(error.message));
       await page.goto(origin + OLD_ROUTE, { waitUntil: 'domcontentloaded', timeout: 20000 });

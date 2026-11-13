@@ -5,6 +5,7 @@ const http = require('http');
 const path = require('path');
 const { chromium } = require('playwright');
 const { listenOnSafePort } = require('./lib/safe-local-port');
+const { blockExternalAds } = require('./lib/block-external-ads');
 
 const ROOT = path.resolve(__dirname, '..');
 const APP = path.join(ROOT, 'projects', 'word-scramble');
@@ -111,6 +112,7 @@ async function verifyRedirect(baseUrl) {
   try {
     for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) {
       const page = await browser.newPage({ viewport });
+      await blockExternalAds(page);
       await page.goto(`${baseUrl}${OLD_PATH}`, { waitUntil: 'domcontentloaded', timeout: 15000 });
       await page.waitForURL((url) => url.pathname === TARGET_PATH, { timeout: 10000 });
       assert((await page.locator('button, a').count()) > 0, `${viewport.width}px Word Guess has no action`);

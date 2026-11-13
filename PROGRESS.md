@@ -1,13 +1,14 @@
 # DopaBrain current status
 
-Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
+Updated: 2026-11-13 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
 
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
-- **AdSense Status (2026-11-12)**: Policy violations 0 (`{}`). 어제 확정 **$0.06** (3배 성장), 7일 **$0.30**, 30일 **$1.64**, 이번달 MTD **$0.47**, Active View Viewability **60.66%**. Tier 1 실측 RPM (CA $6.77, DE $3.84, BE $2.97, US $2.34, FR $2.19).
-- GA4 실측: Organic Search **72 세션/7d** (참여 48세션, 총 체류 3,038s), 고체류 진입면 (Future Self Guide 876s, HSP Workplace 687s, JA 2048 Guide 416s, Color Blindness 332s, K-pop Roster 307s, Somatic Anxiety 225s, HSP Guide 196s, Stress Check 166s).
-- 고체류 핵심 진입면: Stress Check, HSP Test, Future Self, 2048 Coach, Brain Type, IQ Test, Color Blindness, White Noise.
+- **AdSense Status (2026-11-13)**: Policy violations 0 (`{}`), active PIN/address hold (`SEVERE`: `pin-deadline-approaching`, user-owned). 7d **$0.28**, 30d **$1.62**, MTD **$0.49**.
+  - 30d breakdown surfaced `127.0.0.1` (`4,187` / `11,091` = 37.8% PV, `$0.00`), mixed `<html lang="ko">` vs English/hreflang conflict keeping `/stress-check/`, `/hsp-test/`, `/future-self/`, `/iq-test/` `"Crawled - currently not indexed"`, and `/stress-check/` + `/future-self/` funnel leaks into suspended `/brain-type/`.
+- GA4 (28d): Direct `6,888` (SG desktop `5,142`), Organic Search `268` (`1.57` PV/session; `google / organic` 3 sessions).
+- 고체류 핵심 진입면: Stress Check, HSP Test, Future Self, 2048 Coach, IQ Test, Color Blindness, White Noise.
 
 ## Current operating rules
 
@@ -23,14 +24,11 @@ Updated: 2026-11-12 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P2 글로벌 소셜 런칭 카피 & 배포 템플릿 자산화 (완료)**: Reddit/Threads/X 맞춤형 바이럴 훅 및 가이드라인 구축 (`docs/MARKETING-VIRAL-HOOKS.md`).
 - **P3 헬스 가드 & 퍼널 브릿지 ALL PASS (완료)**: 4,034개 파일 퍼널 무결점, 119개 프로젝트 감사 레지스트리 동기화.
 
-## Latest release: Autonomous GEO & Open-Source Distribution (`2026-11-12 Batch 23` @ `c1cc310`)
+## Latest release: Local Ad Pollution Guard, EN SEO Normalization & Funnel Plugs (`2026-11-13`)
 
-- **IndexNow API 즉각 색인 송출 (Bing & ChatGPT Search 네트워크 200 OK)**:
-  - `stress-check/`, `hsp-test/`, `future-self/` 정규 URL 즉시 색인 네트워크 API 송출 완료.
-- **AI 검색 최적화(GEO) 엔진 구축 (`projects/root-domain` @ `658524e`)**:
-  - `llms.txt` 및 `llms-full.txt`에 1080x1920 스토리 카드, 학술 프레임워크(PSS-10, DOES), 로컬 프라이버시 스펙 명시.
-- **공개 GitHub 오픈소스 쇼케이스 리드미 완비 (AI 학습/인용 소스 확보)**:
-  - `future-self`(`f552260`), `stress-check`(`d3f1f1c`), `hsp-test`(`c1cc310`)에 라이브 링크, 학술 인용(APA), 배지 탑재.
-- 사용자 자산 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 100% 불변 보존.
+- **Local AdSense Pollution Guard (`#2`)**: `portal/js/ad-loader.js` now skips `adsbygoogle.js` on `localhost`/`127.0.0.1`/`file:` preview hosts; `scripts/lib/block-external-ads.js` wired into 16 local Playwright scripts.
+- **Google Indexing Normalization (`#3`)**: Aligned `/stress-check/`, `/hsp-test/`, `/future-self/`, `/iq-test/` to pure `<html lang="en">` static HTML matching `en.json`, `hreflang="en"`/`x-default` on base URL + `ko` on `?lang=ko`, dynamic `canonical`/`og:url` sync, and `root-domain/sitemap.xml` `lastmod=2026-11-13`.
+- **Funnel Revenue Leak Fix (`#4`)**: Replaced suspended `/brain-type/` links in `stress-check/js/app.js` (`/iq-test/`) and `future-self/index.html` (`/portal/tools/decision-matrix.html`), moved `.next-journey-section` above details in `future-self/index.html`.
+- 사용자 자산 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 100% 불변 보존; PIN 인증(`#1`)은 사용자 콘솔 작업으로 제외.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

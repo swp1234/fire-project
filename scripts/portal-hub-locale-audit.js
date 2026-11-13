@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const http = require('http');
 const { chromium } = require('playwright');
+const { blockExternalAds } = require('./lib/block-external-ads');
 
 const ROOT = path.resolve(__dirname, '..');
 const PROJECTS_ROOT = path.join(ROOT, 'projects');
@@ -256,6 +257,7 @@ async function run() {
     serverHandle = await startStaticServer(PROJECTS_ROOT);
     browser = await chromium.launch({ headless: true });
     const page = await browser.newPage();
+    await blockExternalAds(page);
     await page.addInitScript(() => {
       localStorage.setItem('app_language', 'ko');
     });

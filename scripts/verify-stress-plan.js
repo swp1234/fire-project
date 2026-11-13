@@ -2,6 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
+const { blockExternalAds } = require('./lib/block-external-ads');
 const { ADSENSE_CLIENT, inspectHtml } = require('./clean-indexable-blog-ads');
 
 const projectRoot = path.resolve(__dirname, '..', 'projects', 'stress-check');
@@ -72,6 +73,7 @@ async function run() {
     const origin = productionBase || `http://127.0.0.1:${server.address().port}`;
     const browser = await chromium.launch({ headless: true });
     const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    await blockExternalAds(page);
     const errors = [];
     let resultContext;
     page.on('pageerror', error => errors.push(String(error)));
@@ -112,6 +114,7 @@ async function run() {
         const persisted = await page.isChecked('.day-card input[data-day="0"]');
 
         resultContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
+        await blockExternalAds(resultContext);
         const resultPage = await resultContext.newPage();
         resultPage.on('pageerror', error => errors.push(String(error)));
         await resultPage.goto(`${origin}/?lang=en&verify_cache=${Date.now()}`, { waitUntil: 'domcontentloaded' });
