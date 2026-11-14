@@ -163,3 +163,6 @@ logs/touch-audit-*.json
 
 # 백업 (기기별 로컬 전용)
 fire-project-backup-*/
+
+# Chrome Web Store passive income suite (independent workspace directory)
+chrome-extensions/
