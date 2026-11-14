@@ -24,11 +24,12 @@ Updated: 2026-11-14 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P2 글로벌 소셜 런칭 카피 & 배포 템플릿 자산화 (완료)**: Reddit/Threads/X 맞춤형 바이럴 훅 및 가이드라인 구축 (`docs/MARKETING-VIRAL-HOOKS.md`).
 - **P3 헬스 가드 & 퍼널 브릿지 ALL PASS (완료)**: 4,034개 파일 퍼널 무결점, 119개 프로젝트 감사 레지스트리 동기화.
 
-## Latest release: Overflow Ad-Block Guard, Soul Age / Portal EN SEO, Top Blog UX & Harness Green (`2026-11-14`)
+## Latest release: Core App i18n/SEO, Blog/Hub UX & Live Sync (`2026-11-14`)
 
-- **Local Ad Pollution Guard (`test-batch64..71`)**: Wired `blockExternalAds(page)` into `scripts/test-batch64-overflow.js`~`test-batch71-overflow.js`; updated `verify-sensory-reset.js` (`local_preview_host`) and `verify-zh-cognitive-distortions.js` (`\bAI\b`) so full `npm run harness` passes cleanly.
-- **Soul Age & Portal EN SEO + Quiz Overflow (`soul-age`, `portal`, `root-domain`)**: Aligned static `<html lang="en">` / EN JSON-LD / `hreflang` swap & synchronous `?lang=` sync; fixed 18px mobile quiz overflow (`soul-age/css/style.css`); updated `llms.txt`/`llms-full.txt`.
-- **High-Dwell Blog Touch/CTA Cleanup (`portal/blog/*`)**: Fixed >=44px touch targets, deduplicated `.related-links`, corrected ES anchor text, synced `sitemap.xml` & `blog/sitemap.xml`, IndexNow `200` on 8 URLs.
-- User assets (`attachment-style/{clarity.html,css/clarity.css,js/clarity.js}`), suspended apps, and user-only actions (AdSense PIN, GSC UI, SNS posts) untouched.
+- **Wave 1-2 (`soul-age`, `color-blindness`, `white-noise`, `portal`, `root-domain`)**: Aligned EN SEO (`<html lang="en">`, `en_US`, `hreflang` swap, `?lang=` head sync), fixed `soul-age` quiz & 8 top blog touch/overflow issues, added `blockExternalAds(page)` to `test-batch64..71`, and updated `llms*.txt`.
+- **Wave 3-4 Global `i18n`, UX & Metadata Alignment**: Exposed `window.i18n = i18n` across `stress-check`, `stress-type`, `white-noise`, `puzzle-2048`, `kpop-position`, and `future-self`; fixed `stress-type` `#upper-back-btn`/Chest SVG hitbox overlap & EN metadata; localized `dream-fortune` fallback/zodiac labels & `#main-content`; aligned `<html lang="en">` / `og:locale="en_US"` / `hreflang` across `puzzle-2048`, `emotion-iceberg`, `burnout-test`, and `brain-type`.
+- **Portal Blog Hubs & Guides (`portal`)**: Fixed `>=44px` touch targets (`<input>`/nav/filter/breadcrumb/TOC) across `portal/blog/`, `en/`, `zh/`, `ko/` hubs and top guides (`0px` overflow, `0` issues).
+- **Live Verification & Indexing**: Full `npm run harness` + `audit-funnel` + `indexing-inventory` (`0` issues) + `adsense-contract` PASS; 12+4 submodules pushed, 20 URLs IndexNow `200`, 3 GSC sitemaps (`0` errors).
+- Protected assets (`attachment-style/{clarity.html,css/clarity.css,js/clarity.js}`), 36 suspended apps, and user-only actions (AdSense PIN, GSC UI, SNS posts) untouched.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.

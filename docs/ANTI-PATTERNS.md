@@ -227,6 +227,10 @@
 - **Playwright 배치 스크립트 광고 미차단, 가로 슬라이드 애니메이션 오버플로 및 검증기 경계 조건 오탐 (`2026-11-14`)**:
   - `scripts/test-batch64-overflow.js`~`71` 등 신규 Playwright 검증 스크립트가 `blockExternalAds(page)` 없이 실행되면 `127.0.0.1`에서 외부 애드센스 트래픽 오염을 유발할 수 있으며, 반대로 `verify-sensory-reset.js`가 `127.0.0.1`에서 `ad-loader.js`의 `local_preview_host` 가드를 고려하지 않아 실패함. 또한 `verify-zh-cognitive-distortions.js`의 비경계 정규식 `/AI/`가 `'DOPABRAIN'` 브랜드 문자열과 충돌하고, `soul-age`의 퀴즈 카드 `translateX(30px)` 애니메이션이 `html { overflow-x: hidden; }` 없이 18px 모바일 오버플로를 유발함.
   - **대책**: 모든 Chromium Playwright 스크립트에 `blockExternalAds(page)`를 기본 적용하고, 로컬 AdSense 검증기는 `--production`이 아닐 때 `window.__dopabrainAdsenseLoadState?.delayReason === 'local_preview_host'`를 정상 가드로 허용하며, 퀴즈 카드 전환을 포함한 모든 루트 페이지 CSS에 `html { overflow-x: hidden; max-width: 100%; }`를 기본 선언하고 키워드 차단은 `\bAI\b`처럼 단어 경계를 명시할 것.
+- **전역 `window.i18n` 할당 누락, `<input>` 터치 높이 미달 및 SVG 히트박스 가림 안티패턴 (`2026-11-14`)**:
+  - 최상위 스크립트에서 `const i18n = new I18n();`만 선언하고 `window.i18n = i18n;`을 할당하지 않으면(`stress-check`, `stress-type`, `white-noise`, `puzzle-2048`, `kpop-position`, `future-self`), `app.js`/`error-handler.js`에서 `window.i18n` 참조 시 `undefined`가 되어 관련 콘텐츠 번역 및 언어 감지가 `'ko'`로 폴백됨.
+  - `.search-box` 래퍼에만 `min-height: 44px`를 두고 내부 `<input>`에 높이를 지정하지 않으면 `audit-touch.js`에서 input 자체가 `<44px`로 실패하며, SVG 신체 부위 선택 UI 위에 절대/음수 마진 버튼(`#upper-back-btn`)이 겹치면 중앙 `<rect data-zone="chest">` 터치 클릭이 가로막힘.
+  - **대책**: 모든 `js/i18n.js` 끝에서 `window.i18n = i18n;`을 명시적으로 노출하고, 검색 `<input>`과 필터/네비 버튼에 직접 `min-height: 44px`를 부여하며, SVG 인터랙티브 존 주변 버튼은 SVG 컨테이너 밖에 분리 배치하고 비활성 오버레이에는 `pointer-events: none`을 적용할 것. 또한 영문 기본 정적 HTML 앱은 `<html lang="en">`, `og:locale="en_US"`, `hreflang="en"` 루트 일치를 기본 유지할 것.
 
 
 
