@@ -5,8 +5,8 @@ Updated: 2026-11-14 KST. Release history: `memory/data-check-log.md`; ops loop: 
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
-- **AdSense Status (2026-11-13)**: Policy violations 0 (`{}`), active PIN/address hold (`SEVERE`: `pin-deadline-approaching`, user-owned). 7d **$0.28**, 30d **$1.62**, MTD **$0.49**.
-  - 30d breakdown surfaced `127.0.0.1` (`4,187` / `11,091` = 37.8% PV, `$0.00`), mixed `<html lang="ko">` vs English/hreflang conflict keeping `/stress-check/`, `/hsp-test/`, `/future-self/`, `/iq-test/` `"Crawled - currently not indexed"`, and `/stress-check/` + `/future-self/` funnel leaks into suspended `/brain-type/`.
+- **AdSense Status (2026-11-14)**: Policy violations 0 (`{}`), user-owned PIN hold already acknowledged/in progress (do NOT re-warn or ask again). 7d **$0.22**, 30d **$1.62**, MTD **$0.53**.
+  - 30d breakdown surfaced SG Direct bots (`4,053` / `6,980` PV, `$0.00`) inflating apparent PV and diluting overall RPM (`$0.23`); Tier-1/KR human RPM is `$1.59~$3.96`.
 - GA4 (28d): Direct `6,888` (SG desktop `5,142`), Organic Search `268` (`1.57` PV/session; `google / organic` 3 sessions).
 - 고체류 핵심 진입면: Stress Check, HSP Test, Future Self, 2048 Coach, IQ Test, Color Blindness, White Noise.
 

@@ -231,6 +231,9 @@
   - 최상위 스크립트에서 `const i18n = new I18n();`만 선언하고 `window.i18n = i18n;`을 할당하지 않으면(`stress-check`, `stress-type`, `white-noise`, `puzzle-2048`, `kpop-position`, `future-self`), `app.js`/`error-handler.js`에서 `window.i18n` 참조 시 `undefined`가 되어 관련 콘텐츠 번역 및 언어 감지가 `'ko'`로 폴백됨.
   - `.search-box` 래퍼에만 `min-height: 44px`를 두고 내부 `<input>`에 높이를 지정하지 않으면 `audit-touch.js`에서 input 자체가 `<44px`로 실패하며, SVG 신체 부위 선택 UI 위에 절대/음수 마진 버튼(`#upper-back-btn`)이 겹치면 중앙 `<rect data-zone="chest">` 터치 클릭이 가로막힘.
   - **대책**: 모든 `js/i18n.js` 끝에서 `window.i18n = i18n;`을 명시적으로 노출하고, 검색 `<input>`과 필터/네비 버튼에 직접 `min-height: 44px`를 부여하며, SVG 인터랙티브 존 주변 버튼은 SVG 컨테이너 밖에 분리 배치하고 비활성 오버레이에는 `pointer-events: none`을 적용할 것. 또한 영문 기본 정적 HTML 앱은 `<html lang="en">`, `og:locale="en_US"`, `hreflang="en"` 루트 일치를 기본 유지할 것.
+- **이미 사용자가 인지·처리 중인 계정/운영 사항 반복 경고 금지 (`2026-11-14`)**:
+  - `PROGRESS.md`나 `adsense_list_alerts` 조회 결과에 AdSense PIN/주소 인증 경고가 계속 남아 있다는 이유로, 사용자가 이미 인지하고 처리 중("곧 해결될 것")이라고 답한 사안을 매 세션마다 다시 경고하거나 같은 질문을 반복하는 안티패턴.
+  - **대책**: 사용자가 처리 중이거나 보류로 확인한 계정 제약(예: AdSense PIN 인증)은 `PROGRESS.md`에 "사용자 확인 완료 / 재안내 불필요"로 명시하고, 이후 세션에서는 해당 경고가 실제 상태 변화를 일으키거나 사용자가 직접 묻기 전까지 반복 언급·질문하지 말 것.
 
 
 
