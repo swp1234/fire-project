@@ -154,7 +154,7 @@ function source(v) {
     "Stress Check retired result action returned",
   );
   ok(
-    !/AI|인공지능|人工智能|unlockPremium|socialProof|percentileStat|aiAnalysis|watchVideo/.test(
+    !/\bAI\b|인공지능|人工智能|unlockPremium|socialProof|percentileStat|aiAnalysis|watchVideo/.test(
       all,
     ),
     "Stress Check dormant fake promise remains",

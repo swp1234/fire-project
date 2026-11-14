@@ -224,6 +224,9 @@
     1. **고해상도 1080x1920 캔버스 기반 인스타그램/SNS 스토리 카드 엔진**: 모바일 Web Share API를 연동하여 사용자가 진단 결과를 인스타그램 스토리/스레드/사진첩에 원클릭으로 공유할 수 있는 바이럴 루프를 핵심 킬러앱(`future-self`, `stress-check`, `hsp-test`)에 기본 탑재할 것.
     2. **근거 기반 도서 큐레이션 파트너십(Amazon Associates 등)**: 단순 디스플레이 광고 외에 공신력 있는 임상/심리학 도서 큐레이션 링크(`rel="noopener noreferrer nofollow"`)를 결과 화면에 배치하여 고수익 제휴 파트너십을 다각화할 것.
     3. **프라이버시 불변성 엄수**: 바이럴 카드 렌더링 및 공유 시에도 사용자의 개별 응답, 점수, 선택 항목은 GA4 파라미터나 외부 서버로 일절 전송하지 않고 브라우저 로컬 캔버스에서만 처리할 것.
+- **Playwright 배치 스크립트 광고 미차단, 가로 슬라이드 애니메이션 오버플로 및 검증기 경계 조건 오탐 (`2026-11-14`)**:
+  - `scripts/test-batch64-overflow.js`~`71` 등 신규 Playwright 검증 스크립트가 `blockExternalAds(page)` 없이 실행되면 `127.0.0.1`에서 외부 애드센스 트래픽 오염을 유발할 수 있으며, 반대로 `verify-sensory-reset.js`가 `127.0.0.1`에서 `ad-loader.js`의 `local_preview_host` 가드를 고려하지 않아 실패함. 또한 `verify-zh-cognitive-distortions.js`의 비경계 정규식 `/AI/`가 `'DOPABRAIN'` 브랜드 문자열과 충돌하고, `soul-age`의 퀴즈 카드 `translateX(30px)` 애니메이션이 `html { overflow-x: hidden; }` 없이 18px 모바일 오버플로를 유발함.
+  - **대책**: 모든 Chromium Playwright 스크립트에 `blockExternalAds(page)`를 기본 적용하고, 로컬 AdSense 검증기는 `--production`이 아닐 때 `window.__dopabrainAdsenseLoadState?.delayReason === 'local_preview_host'`를 정상 가드로 허용하며, 퀴즈 카드 전환을 포함한 모든 루트 페이지 CSS에 `html { overflow-x: hidden; max-width: 100%; }`를 기본 선언하고 키워드 차단은 `\bAI\b`처럼 단어 경계를 명시할 것.
 
 
 

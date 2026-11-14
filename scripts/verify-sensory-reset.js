@@ -204,6 +204,7 @@ async function run() {
                 sprintCount: document.querySelectorAll('.cp-mobile-sprint').length,
                 directLoaderCount: document.querySelectorAll('script[src*="pagead/js/adsbygoogle.js"]').length,
                 managedLoaderCount: document.querySelectorAll('script[src="/portal/js/ad-loader.js"]').length,
+                adDelayReason: window.__dopabrainAdsenseLoadState?.delayReason || '',
                 manualAdCount: document.querySelectorAll('ins.adsbygoogle,[data-ad-surface],[data-ad-slot]').length,
                 manualAdPush: [...document.querySelectorAll('script:not([src])')]
                     .some(script => /adsbygoogle[\s\S]*\.push\s*\(/.test(script.textContent)),
@@ -307,7 +308,8 @@ async function run() {
                 failures.push(`${item.locale} sensory bridge localization or attribution is incomplete`);
             }
             if (item.resetCount !== 1 || item.sprintCount !== 0) failures.push(`${item.locale} sensory bridge competed with a generic sprint`);
-            if (item.directLoaderCount !== 1 || item.managedLoaderCount !== 1 || item.manualAdCount !== 0 || item.manualAdPush) failures.push(`${item.locale} sensory bridge violates the Auto Ads contract`);
+            const loaderValid = production ? item.directLoaderCount === 1 : (item.directLoaderCount === 1 || item.adDelayReason === 'local_preview_host');
+            if (!loaderValid || item.managedLoaderCount !== 1 || item.manualAdCount !== 0 || item.manualAdPush) failures.push(`${item.locale} sensory bridge violates the Auto Ads contract`);
             if (item.events.some(name => /_ad_impression$/.test(name))) failures.push(`${item.locale} sensory bridge emitted a synthetic ad-impression event`);
             if (!item.events.includes('sensory_reset_bridge_view')) failures.push(`${item.locale} sensory bridge view event is missing`);
             if (item.overflow > 0) failures.push(`${item.locale} sensory bridge has ${item.overflow}px overflow`);

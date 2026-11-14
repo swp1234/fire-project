@@ -1,6 +1,6 @@
 # DopaBrain current status
 
-Updated: 2026-11-13 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
+Updated: 2026-11-14 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
 
 ## Target and status
 
@@ -24,11 +24,11 @@ Updated: 2026-11-13 KST. Release history: `memory/data-check-log.md`; ops loop: 
 - **P2 글로벌 소셜 런칭 카피 & 배포 템플릿 자산화 (완료)**: Reddit/Threads/X 맞춤형 바이럴 훅 및 가이드라인 구축 (`docs/MARKETING-VIRAL-HOOKS.md`).
 - **P3 헬스 가드 & 퍼널 브릿지 ALL PASS (완료)**: 4,034개 파일 퍼널 무결점, 119개 프로젝트 감사 레지스트리 동기화.
 
-## Latest release: Local Ad Pollution Guard, EN SEO Normalization & Funnel Plugs (`2026-11-13`)
+## Latest release: Overflow Ad-Block Guard, Soul Age / Portal EN SEO, Top Blog UX & Harness Green (`2026-11-14`)
 
-- **Local AdSense Pollution Guard (`#2`)**: `portal/js/ad-loader.js` now skips `adsbygoogle.js` on `localhost`/`127.0.0.1`/`file:` preview hosts; `scripts/lib/block-external-ads.js` wired into 16 local Playwright scripts.
-- **Google Indexing Normalization (`#3`)**: Aligned `/stress-check/`, `/hsp-test/`, `/future-self/`, `/iq-test/` to pure `<html lang="en">` static HTML matching `en.json`, `hreflang="en"`/`x-default` on base URL + `ko` on `?lang=ko`, dynamic `canonical`/`og:url` sync, and `root-domain/sitemap.xml` `lastmod=2026-11-13`.
-- **Funnel Revenue Leak Fix (`#4`)**: Replaced suspended `/brain-type/` links in `stress-check/js/app.js` (`/iq-test/`) and `future-self/index.html` (`/portal/tools/decision-matrix.html`), moved `.next-journey-section` above details in `future-self/index.html`.
-- 사용자 자산 `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` 100% 불변 보존; PIN 인증(`#1`)은 사용자 콘솔 작업으로 제외.
+- **Local Ad Pollution Guard (`test-batch64..71`)**: Wired `blockExternalAds(page)` into `scripts/test-batch64-overflow.js`~`test-batch71-overflow.js`; updated `verify-sensory-reset.js` (`local_preview_host`) and `verify-zh-cognitive-distortions.js` (`\bAI\b`) so full `npm run harness` passes cleanly.
+- **Soul Age & Portal EN SEO + Quiz Overflow (`soul-age`, `portal`, `root-domain`)**: Aligned static `<html lang="en">` / EN JSON-LD / `hreflang` swap & synchronous `?lang=` sync; fixed 18px mobile quiz overflow (`soul-age/css/style.css`); updated `llms.txt`/`llms-full.txt`.
+- **High-Dwell Blog Touch/CTA Cleanup (`portal/blog/*`)**: Fixed >=44px touch targets, deduplicated `.related-links`, corrected ES anchor text, synced `sitemap.xml` & `blog/sitemap.xml`, IndexNow `200` on 8 URLs.
+- User assets (`attachment-style/{clarity.html,css/clarity.css,js/clarity.js}`), suspended apps, and user-only actions (AdSense PIN, GSC UI, SNS posts) untouched.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
