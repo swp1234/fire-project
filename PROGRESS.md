@@ -19,17 +19,13 @@ Updated: 2026-11-14 KST. Release history: `memory/data-check-log.md`; ops loop: 
 
 ## Active plan (2026-11-12) — 상세 설계: `docs/STRATEGY.md`
 
-- **P0 자율 AI 검색(GEO) 배포 & IndexNow 즉각 송출 (완료)**: IndexNow API(Bing/ChatGPT Search) 즉시 색인 송출 200 OK, `llms.txt`/`llms-full.txt` AI 전용 표준 최적화 (`658524e`), 3대 킬러앱 공개 깃허브 학술 쇼케이스 리드미 완비.
-- **P1 오가닉 바이럴 카드 & 고수익 파트너십 확장 (완료)**: `future-self`, `stress-check`, `hsp-test` 3대 킬러앱 1080x1920 인스타 스토리 카드 캔버스 엔진 및 도서 큐레이션 슬롯 구축.
-- **P2 글로벌 소셜 런칭 카피 & 배포 템플릿 자산화 (완료)**: Reddit/Threads/X 맞춤형 바이럴 훅 및 가이드라인 구축 (`docs/MARKETING-VIRAL-HOOKS.md`).
-- **P3 헬스 가드 & 퍼널 브릿지 ALL PASS (완료)**: 4,034개 파일 퍼널 무결점, 119개 프로젝트 감사 레지스트리 동기화.
+- **P0-P3 SEO/GEO & Funnel Foundation (완료)**: IndexNow 송출 (`200 OK`), `llms*.txt` (`658524e`), 3대 킬러앱(Stress Check/HSP/Future Self) 1080x1920 스토리 카드·도서 큐레이션, 소셜 훅(`docs/MARKETING-VIRAL-HOOKS.md`), 4,034파일 퍼널 무결점 & 119개 레지스트리 동기화.
 
-## Latest release: Core App i18n/SEO, Blog/Hub UX & Live Sync (`2026-11-14`)
+## Latest release: Hub Indexing, Sticky CTAs & App Monetization (`2026-11-14`)
 
-- **Wave 1-2 (`soul-age`, `color-blindness`, `white-noise`, `portal`, `root-domain`)**: Aligned EN SEO (`<html lang="en">`, `en_US`, `hreflang` swap, `?lang=` head sync), fixed `soul-age` quiz & 8 top blog touch/overflow issues, added `blockExternalAds(page)` to `test-batch64..71`, and updated `llms*.txt`.
-- **Wave 3-4 Global `i18n`, UX & Metadata Alignment**: Exposed `window.i18n = i18n` across `stress-check`, `stress-type`, `white-noise`, `puzzle-2048`, `kpop-position`, and `future-self`; fixed `stress-type` `#upper-back-btn`/Chest SVG hitbox overlap & EN metadata; localized `dream-fortune` fallback/zodiac labels & `#main-content`; aligned `<html lang="en">` / `og:locale="en_US"` / `hreflang` across `puzzle-2048`, `emotion-iceberg`, `burnout-test`, and `brain-type`.
-- **Portal Blog Hubs & Guides (`portal`)**: Fixed `>=44px` touch targets (`<input>`/nav/filter/breadcrumb/TOC) across `portal/blog/`, `en/`, `zh/`, `ko/` hubs and top guides (`0px` overflow, `0` issues).
-- **Live SEO/LCP/Edge Pass (`2026-11-14`)**: Fixed `root-domain` `hreflang`, deduped 5 sitemap URLs, unblocked `#app-loader`, clamped `stress-check` `overflow-x: clip`, stripped `country-content` `utm_source`, and enabled Cloudflare proxy + SG bot WAF + TLS `1.2`. Core/inventory/adsense/doc PASS.
+- **Wave 1-4 Core App i18n/SEO & UX**: EN SEO(`en_US`, `hreflang`, `?lang=` sync), `window.i18n` 노출, `stress-type` hitbox, `soul-age`/`dream-fortune` UX, `root-domain` sitemap dedupe, `#app-loader` LCP & Cloudflare proxy/WAF/TLS `1.2` 정렬.
+- **Blog Hub Orphan Closure & `og:locale` (`portal`)**: `/portal/` 중복 `og:locale` 수정(`ko_KR` + `en_US`), 12개 언어 허브 정적 링크 419개(`>=44px`) 보강으로 indexable 고아 0 달성(`TRUE_INDEXABLE_ORPHAN=0`), `portal/blog/sitemap.xml` 동기화.
+- **Organic Winners & App Monetization (`portal`, `white-noise`, `stress-type`)**: 7개 상위 유입 가이드에 `.revenue-sticky-cta`(`content_sticky_cta_view`), FR 4문항 `FAQPage`, Palworld `#sizing-matrix` 추가; `white-noise`/`stress-type` 12언어 도서 큐레이션(`Kyobo`/Amazon `dopabrain-20`, `curated_resource_click`) 및 SW `v2` 반영. Health-guard·105 screener·`verify:docs`·`390x844` Playwright PASS.
 - Protected assets (`attachment-style/{clarity.html,css/clarity.css,js/clarity.js}`), 36 suspended apps, and user-only actions (AdSense PIN, GSC UI, SNS posts) untouched.
 
 User-owned `projects/attachment-style/{clarity.html,css/clarity.css,js/clarity.js}` remains untouched.
