@@ -43,3 +43,9 @@ GA4는 트래픽 총량 보고서가 아니라 어떤 진입면을 유지·교�
 - 다음 재검토 시점.
 
 세션마다 동일 표를 추가하지 않는다. 현재 baseline이 바뀌면 기존 항목을 갱신한다.
+
+## Post-release tracking rule
+
+- 수익성·SEO 변경 배포 직후(수시간~48시간 이내)에는 절대 효과 유무를 판정하지 않는다.
+- 배포 시 [memory/data-check-log.md](../memory/data-check-log.md)의 `Active monetization tracking & maturation gates` 테이블에 **배포일, 비교 기준선, 관측 이벤트/지표, 최소 검증 가능일(`Earliest review`)**을 등록한다.
+- 퍼널/클릭/큐레이션 변경은 **최소 만 7일(+ 유효 노출 20건 이상)** 경과 후, 검색 색인/내부링크/`hreflang`/RPM 변화는 **최소 14~28일** 경과 후에 추적 비교하고 결과를 해당 행에 누적 판정(유지·확장·조정)한다.

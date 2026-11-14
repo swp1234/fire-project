@@ -2,21 +2,30 @@
 
 This file keeps only evidence that still changes a product, traffic, or release decision. Full release narratives remain in Git history and child repositories; raw responses and console output belong in ignored reports.
 
-## Current account state — 2026-09-05 KST
+## Current account state — 2026-11-14 KST
 
-- Goal: `$0.20/day`, evaluated as at least `$1.40` across seven complete days.
-- Latest complete seven-day AdSense window, 2026-08-29 through 2026-09-04: `$0.63`, 2,115 pageviews, 644 impressions, 14 clicks; `$0.090/day` and about `$0.30` Page RPM.
-- Ad serving has been restricted for invalid-traffic concerns since 2026-09-03. During the restriction, do not publish new discovery URLs, promote traffic, submit IndexNow/GSC, restore suspended loaders, or add manual units.
-- The address/PIN payment hold and unpaid balance are account constraints, not page-performance signals.
+- Goal: `$1.40` / 7 complete days (`$0.20/day`) interim, scaling toward `$1.00/day`.
+- Observed baseline (`dopabrain.com` only, 2026-10-15 ~ 2026-11-13): **$1.62 / 30d**, `6,980 PV`, `1,913 impressions`, `26 clicks`; recent 7d (`11/07~11/13`) **$0.22** (`~$0.031/day`).
+- Country RPM signal (`dopabrain.com` 30d): DE `$3.96`, FR `$2.41`, US `$2.05`, KR `$1.59`, CN `$0.16`, SG `$0.00` (`4,053 PV` Direct bot scan).
+- GA4 Organic Search (28d): `279` sessions, `430 PV` across `142` landing pages (~10 sessions/day; last 7d `67` vs prev 7d `77`).
+- Account constraints: AdSense PIN hold is user-acknowledged/in-progress — do **not** re-warn or ask; focus only on human traffic quality and conversion telemetry.
 
 ## Measurement rules
 
 - Exclude deployment day and incomplete KST days from comparisons.
-- Exclude Singapore desktop Direct scan-like traffic and the 2026-08-06 spike from demand, engagement, and monetization decisions.
+- **No premature ROI/effect checks**: NEVER evaluate or declare success/failure of monetization, CRO, or SEO edits within hours or `<7` complete KST days after deployment. Wait at least **7 full KST days (`+ >=20` qualified views)** for CTA/telemetry/affiliate changes, and **14–28 full days** for indexing, hub linking, `hreflang`, and AdSense RPM trends before drawing conclusions.
+- Exclude `127.0.0.1` test traffic, Singapore desktop Direct scan traffic, and the 2026-08-06 spike from demand, engagement, and monetization decisions.
 - Ignore synthetic `page_engage`, client-authored ad-impression events, hidden-surface views, fabricated proof, and action events whose current source cannot emit them.
-- Treat AdSense earnings as an account proxy unless a valid URL-level report supports page attribution.
-- Keep a route when it has credible Organic acquisition or a real qualified action. Retire only when a working action event remains at zero and acquisition has no credible signal.
-- Wait for 20 qualified-view users before judging a new conversion surface. A 24-hour trend spike is research input, not a release gate.
+- Keep a route when it has credible Organic acquisition or a real qualified action. Retire only when a working action event remains at zero and acquisition has no credible signal after full maturation.
+
+## Active monetization tracking & maturation gates
+
+| Deployed | Workstream & scope | Pre-change baseline | Primary tracking metrics | Earliest review |
+|---|---|---|---|---|
+| 2026-11-12 | Story cards + book curation (`stress-check`, `hsp-test`, `future-self`), `llms*.txt` | `7d $0.28`, 0 curated clicks | `curated_resource_click`, `share` / card downloads, referral/AI sessions | `2026-11-21` (+14d: `11-26`) |
+| 2026-11-13 | `127.0.0.1` AdSense block (`92ac7ff`), `/brain-type/` leak fix, EN SEO/hreflang | `127.0.0.1` `4,191 PV/30d`, EN `ko` conflict | Zero `127.0.0.1` AdSense PV after deploy date; US/EN organic impressions | `2026-11-21` (+28d: `12-11`) |
+| 2026-11-14 | Core wave 1-4 + Cloudflare proxy/SG WAF (`1a9b433`, `6190733`) | SG `4,053 PV` (`$0.00`), `#app-loader` LCP | SG Direct PV drop, human `Page RPM`, LCP/Core Web Vitals | `2026-11-22` (+28d: `12-12`) |
+| 2026-11-14 | 419 blog hub links, `/portal/` `og:locale`, 7 organic sticky CTAs, `white-noise`/`stress-type` curation (`e96b663`) | 28d Org `279` sess (`1.54 PV/sess`), 142 pages | `content_sticky_cta_view`, `curated_resource_click`, `PV/session`, GSC indexed count & organic clicks | `2026-11-22` (funnel) / `2026-12-12` (SEO) |
 
 ## Portfolio decisions still in force
 
