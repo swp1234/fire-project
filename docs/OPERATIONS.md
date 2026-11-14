@@ -25,13 +25,11 @@ GitHub Pages 저장소는 작업 브랜치와 배포 브랜치가 다를 수 있
 
 ## Change loop
 
-1. 현재 파일과 dirty state를 확인한다.
-2. 사용자 행동이나 운영 결과로 표현되는 완료 조건을 정한다.
-3. 구현한다.
-4. 정상 경로 검증과 해당 검증기의 실패 민감도를 확인한다.
-5. 로컬 결과가 통과하면 하위 저장소부터 배포한다.
-6. production URL에서 다시 검증한다.
-7. `PROGRESS.md`는 현재 상태만 갱신한다.
+1. 시작 보정: `memory/retrospectives.jsonl` 최근 3줄과 `memory/data-check-log.md` 추적 큐를 읽는다(미도래 실험 조기 판정 및 사용자 합의 제약 재경고 금지).
+2. 현재 파일과 dirty state, 완료 기준(유입·색인·전환 등 실제 병목 기준)을 확인한다.
+3. 구현 후 정상 경로 + 실패 민감도 검증을 수행한다.
+4. 로컬 통과 시 하위 저장소부터 commit/push하고, production URL과 성숙일 등록을 완료한다.
+5. **세션 종료 자체 피드백**: `PROGRESS.md` 현재 상태 갱신 후, `memory/retrospectives.jsonl`에 이번 세션의 실제 병목 적중 여부·불필요한 반복 작업·개선 규칙 1줄을 추가한다.
 
 ## Release gates
 

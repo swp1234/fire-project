@@ -30,21 +30,17 @@
 
 ## Data discipline
 
-- 분석 작업 시작 전 `npm run adsense:keepalive`를 실행한다.
-- `invalid_grant`이면 `npm run adsense:auth-url`로 복구한다.
-- Direct 급증은 국가·기기 조합을 확인하기 전 성장으로 판정하지 않는다.
-- 세션 수보다 Organic 참여, 유효 CTA, 국가별 RPM, 색인 상태를 함께 본다.
-- 데이터 조회는 작업 재개나 명시적 요청 때 수행하고 단순 종료 기록을 위해 반복하지 않는다.
-- 수익·SEO 작업 직후(수시간~2일 내) 효과 조기 판정을 금지하고, `memory/data-check-log.md`의 성숙 기간(퍼널 >=7일, SEO >=14~28일) 이후 추적한다.
+- 분석 전 `npm run adsense:keepalive` 실행(`invalid_grant` 시 `adsense:auth-url` 복구).
+- Direct 급증은 국가·기기로 봇 여부를 먼저 걸러내고, 세션 수보다 Organic 참여·CTA·RPM·색인을 본다.
+- 데이터 조회는 작업 재개·요청 시에만 실행하고, 배포 직후 효과 조기 판정 금지(`memory/data-check-log.md` 성숙일 >=7일/28일 이후 추적).
 
-## Failure records
+## Failure & feedback records
 
-- 재발 가능성이 있는 도구·배포·검증 실패만 `memory/failures.jsonl`에 한 줄로 남긴다.
-- 해결된 일회성 출력이나 전체 콘솔 로그는 문서에 복사하지 않는다.
+- 재발 실패는 `memory/failures.jsonl`, 세션 종료 자기 피드백은 `memory/retrospectives.jsonl`에 1줄 기록.
+- 시작 시 `retrospectives.jsonl` 최근 3줄을 읽어 합의 제약(PIN 등)·미도래 실험·중복 작업을 반복하지 않는다.
 
 ## Multi-Agent Architecture
 
-- 지식 단일 출처(SSOT): 모든 AI 도구는 `CLAUDE.md`와 `docs/`의 규칙을 공유한다.
-- 도구별 진입 어댑터: Antigravity/Gemini(`GEMINI.md`), Codex(`AGENTS.md`), Cursor(`.cursorrules`), Copilot(`.github/`), Windsurf(`.windsurfrules`).
+- SSOT: 모든 도구가 `CLAUDE.md`·`docs/` 공유(`GEMINI.md`, `AGENTS.md`, `.cursorrules`, `.github/`, `.windsurfrules`).
 
 세부 운영은 [docs/OPERATIONS.md](docs/OPERATIONS.md), 검증은 [docs/VALIDATION.md](docs/VALIDATION.md), 전략은 [docs/STRATEGY.md](docs/STRATEGY.md)를 따른다.
