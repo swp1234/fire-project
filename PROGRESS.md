@@ -2,10 +2,10 @@
 
 Updated: 2026-11-15 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
 
-## Latest release: 2026-11-15 Trust-Audit 119/119, Harness & Live Signal Review
-- **Trust Audit & Submodules (`119/119 clean`)**: Resolved final 5 findings across `color-memory`, `flappy-bird`, `maze-runner`, `sky-runner` (visible 5-item FAQ), `inner-child-test`; refined `trust-audit.js` + updated `audit-registry.json` (`114 skipped, 5 clean, 0 issues`); fixed `quality-gate.sh` MSYS Python JSON check via `node`.
-- **Harness & Analytics (`10/10 PASS`)**: Added `future-self-monetization-funnel` (`test_start`, `test_complete`, `curated_resource_click`, `content_cta_click`, `{ force: true }`) to `analytics-event-check.js`; verified 4 legacy `VERIFY_EXEMPTIONS`. Earlier today: `146`-step harness (`7/7` self-test), `14`-doc `verify-doc-budget.js`, `session:brief`, repo cleanup (`bc9ca9e`).
-- **Live GSC/GA4/AdSense & Prior Wave (`cce1392`)**: AdSense keepalive OK (`policyIssues: 0`), GSC 0 quick wins (`28d`/`90d` sparse), GA4 Organic Search shows `animal-personality` multi-locale cluster (`EN/ES/PT` + app `12` sess) untouched outside `[WAIT]` (`stress-check`, `hsp-test`, `future-self`, `portal`, `kpop-position`, `color-blindness`, `iq-test`; earliest review `2026-11-22`).
+## Latest release: 2026-11-15 Portfolio Wave 1-5L Profitability, Funnel & Bugfix Sweep
+- **34 Submodules Pushed & Audited (`119/119 clean`, `0` funnel issues, `34/34` touch `0px`)**: Added `1080x1920` story cards, `?tag=dopabrain-20` curated books, `?lang=` `hreflang`/link preservation, open SSR FAQ `<details open>`, toasted validation, and sanitized GA4 funnels (`test_start`, `test_complete`, `save_image`, `share`, `curated_resource_click`) across active tests/tools (`animal-personality`..`valentine`, plus funnel cleanup on `soul-age`, `villain-origin`) while keeping `[WAIT]` & 36 suspended legacy apps untouched.
+- **Live Bugs & Contract Fixes**: Fixed missing modals (`dday-counter`, `shopping-calc`), missing `window.i18n` (`unit-converter`, `tax-refund-preview`, `sebatdon-calc`, `valentine`), blanked EN buttons/`#premiumAd` crash (`tax-refund-preview`), pre-existing `e.currentTarget` async null bug (`valentine`), `.generate-btn` `44px` height (`color-palette`), raw telemetry leaks (`sebatdon-calc`, `valentine`), `detox-timer` share contract, and `dream-fortune` sitemap `dateModified`.
+- **Verification & Live Signals**: `health-guard` (`6/6`), `analytics-event-check` (`10/10`), `indexing-inventory --strict` (`0` issues across `1,557` URLs), `verify:animal-personality`, `verify:es-dopamine-break`, `harness:release` (`portal`), and Playwright `390x844` checks pass; earliest maturation review `2026-11-21` / `2026-11-22`.
 
 ## Target and status
 

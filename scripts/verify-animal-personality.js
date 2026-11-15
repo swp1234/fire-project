@@ -61,6 +61,7 @@ function source(o = {}) {
     ok(loc.home?.quickStrip && !loc.home?.socialStats && !loc.home?.proofText, `${lang} retain retired proof copy`);
     ok(loc.result?.nextStepLabel && loc.result?.nextStepCta && !loc.result?.percentileStat, `${lang} retain percentileStat`);
     ok(loc.related?.dopamineType, `${lang} missing dopamineType`);
+    ok(loc.curated?.badge && loc.curated?.title && loc.curated?.book1Title && loc.curated?.book2Title, `${lang} curated reading missing`);
   }
 
   // Mobile overflow & touch target styles
@@ -209,6 +210,15 @@ async function runtime(base) {
 
       const ctaBox = await page.locator('#primary-related-cta').boundingBox();
       ok(ctaBox && ctaBox.width >= 44 && ctaBox.height >= 44, `${t.width}px primary-related-cta below 44px`);
+
+      const curatedCount = await page.locator('#curated-resources-card .curated-item').count();
+      ok(curatedCount === 2, `${t.width}px expected 2 curated items, got ${curatedCount}`);
+      for (let idx = 0; idx < curatedCount; idx++) {
+        const curItem = page.locator('#curated-resources-card .curated-item').nth(idx);
+        await curItem.scrollIntoViewIfNeeded();
+        const curBox = await curItem.boundingBox();
+        ok(curBox && curBox.height >= 44, `${t.width}px curated item ${idx} height below 44px`);
+      }
 
       // Check no page errors occurred
       ok(!errors.length, `${t.width}px runtime errors: ${errors.join(', ')}`);
