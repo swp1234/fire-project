@@ -149,7 +149,8 @@
     "verify:sensory-load-map": "node scripts/verify-sensory-load-map.js",
     "verify:couple-deck": "node scripts/verify-couple-deck.js",
     "verify:emotion-regulation-planner": "node scripts/verify-emotion-regulation-planner.js",
-    "verify:past-life-story-studio": "node scripts/verify-past-life-story-studio.js"
+    "verify:past-life-story-studio": "node scripts/verify-past-life-story-studio.js",
+    "verify:i18n-contracts": "node scripts/verify-i18n-runtime-contracts.js --mutations"
   },
   "devDependencies": {
     "playwright": "^1.60.0"

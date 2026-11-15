@@ -1,11 +1,10 @@
 # DopaBrain current status
 
-Updated: 2026-11-15 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
+Updated: 2026-11-16 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
 
-## Latest release: 2026-11-15 Portfolio Wave 1-5L Profitability, Funnel & Bugfix Sweep
-- **34 Submodules Pushed & Audited (`119/119 clean`, `0` funnel issues, `34/34` touch `0px`)**: Added `1080x1920` story cards, `?tag=dopabrain-20` curated books, `?lang=` `hreflang`/link preservation, open SSR FAQ `<details open>`, toasted validation, and sanitized GA4 funnels (`test_start`, `test_complete`, `save_image`, `share`, `curated_resource_click`) across active tests/tools (`animal-personality`..`valentine`, plus funnel cleanup on `soul-age`, `villain-origin`) while keeping `[WAIT]` & 36 suspended legacy apps untouched.
-- **Live Bugs & Contract Fixes**: Fixed missing modals (`dday-counter`, `shopping-calc`), missing `window.i18n` (`unit-converter`, `tax-refund-preview`, `sebatdon-calc`, `valentine`), blanked EN buttons/`#premiumAd` crash (`tax-refund-preview`), pre-existing `e.currentTarget` async null bug (`valentine`), `.generate-btn` `44px` height (`color-palette`), raw telemetry leaks (`sebatdon-calc`, `valentine`), `detox-timer` share contract, and `dream-fortune` sitemap `dateModified`.
-- **Verification & Live Signals**: `health-guard` (`6/6`), `analytics-event-check` (`10/10`), `indexing-inventory --strict` (`0` issues across `1,557` URLs), `verify:animal-personality`, `verify:es-dopamine-break`, `harness:release` (`portal`), and Playwright `390x844` checks pass; earliest maturation review `2026-11-21` / `2026-11-22`.
+## Latest release: 2026-11-16 Portfolio QA, Game/PWA Contract & Touch Sweep
+- **41 Active Submodules Synced & Pushed**: Completed Batch 4 (`ai-personality`, `anxiety-type`, `dday-counter`, `dopamine-type`, `trauma-response`, `biorhythm`), Batch 5 (13 active games: `data-i18n` SVG wrapper/guard, 12-locale missing keys, `window.i18n`, inline toast/two-tap confirmations replacing `alert`/`confirm`, `>=44px` `.skip-link`/tutorial/toggle targets), 6 PWA fixes (`manifest.json` + links in 5 apps, `icon-192/512.svg` in `love-language`), `password-generator` restricted-WebView clipboard fallback (`16/16` tools E2E), plus `44px` target fixes in `love-language` & `work-style` while leaving `[WAIT]` & 36 suspended legacy apps untouched.
+- **Systemic Contract Promotion**: Added `scripts/verify-i18n-runtime-contracts.js` (`8/8` mutations across `117` sub-apps / `65` active locale pairs), registered `verify:i18n-contracts` in `package.json` & `scripts/harness-workflow-check.js`, and re-verified `health-guard`, `verify:docs`, `audit-funnel`, `trust-audit --all`, `harness:analytics`, and `harness:release` (`portal`).
 
 ## Target and status
 
