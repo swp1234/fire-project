@@ -59,7 +59,7 @@ function visibleText(html) {
 function verifySource(fixture) {
   const { appHtml, appJs, i18nJs, sw, locales, guide, sitemap, koIndex } = fixture;
   assert(appHtml.includes('data-future-self-contract="2026-08-30"'), 'App release contract marker is missing');
-  assert(/<meta name="dateModified" content="2026-(?:08-30|10-24|10-31|11-07|11-12|11-13)">/.test(appHtml), 'App dateModified is stale');
+  assert(/<meta name="dateModified" content="2026-(?:08-30|10-24|10-31|11-07|11-12|11-13|11-15)">/.test(appHtml), 'App dateModified is stale');
   assert(count(appHtml, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/gi) === 1, 'App must have exactly one Auto Ads loader');
   assert(!/AggregateRating|FAQPage|2,340|2340|social-proof-badge|HealthApplication/.test(appHtml), 'App retains fabricated proof or unsupported schema');
   assert(appHtml.includes('data-i18n="app.method"') && appHtml.includes('data-i18n="result.boundary"'), 'Visible app method or result boundary is missing');
@@ -69,7 +69,7 @@ function verifySource(fixture) {
   const webApp = appSchemas.find(schema => schema['@type'] === 'WebApplication');
   const breadcrumb = appSchemas.find(schema => schema['@type'] === 'BreadcrumbList');
   assert(webApp && breadcrumb, 'App WebApplication or Breadcrumb schema is missing');
-  assert(['2026-08-30', '2026-10-24', '2026-10-31', '2026-11-07', '2026-11-12', '2026-11-13'].includes(webApp.dateModified) && webApp.softwareVersion === '2026-08-30 trust contract', 'App schema release contract drifted');
+  assert(['2026-08-30', '2026-10-24', '2026-10-31', '2026-11-07', '2026-11-12', '2026-11-13', '2026-11-15'].includes(webApp.dateModified) && webApp.softwareVersion === '2026-08-30 trust contract', 'App schema release contract drifted');
   assert(JSON.stringify(webApp.inLanguage) === JSON.stringify(LANGS), 'App schema locale set/order drifted');
   assert(count(appHtml, /rel="alternate"\s+hreflang=/g) === 13, 'App hreflang count must be 12 locales plus x-default');
 
@@ -94,7 +94,7 @@ function verifySource(fixture) {
   assert(writeIndex >= 0 && successIndex > writeIndex && shareIndex > successIndex, 'Clipboard share is recorded before success');
 
   const cached = [...sw.matchAll(/'\/future-self\/([^']+)'/g)].map(match => match[1]);
-  assert(sw.includes("const CACHE_NAME = 'future-self-v3'"), 'Future Self service-worker cache version is stale');
+  assert(sw.includes("const CACHE_NAME = 'future-self-v4'"), 'Future Self service-worker cache version is stale');
   assert(!cached.includes('js/quiz-data.js'), 'Service worker caches a nonexistent quiz-data file');
   for (const lang of LANGS) assert(cached.includes(`js/locales/${lang}.json`), `Service worker omits ${lang} locale`);
   for (const relative of cached) assert(fs.existsSync(path.join(APP, ...relative.split('/'))), `Service worker asset is missing: ${relative}`);
@@ -129,7 +129,7 @@ function runMutations(baseline) {
     ['auto-start-removed', 'Linked auto-start contract is missing', value => { value.appJs=value.appJs.replace("if (ENTRY_QUERY.get('start') === '1') startJourney('linked');", ''); }],
     ['result-privacy-leak', 'Result type or score leaks', value => { value.appJs=value.appJs.replace("question_count: MOMENTS.length,", "result_type: winner,\n            question_count: MOMENTS.length,"); }],
     ['premature-share', 'Clipboard share is recorded before success', value => { value.appJs=value.appJs.replace("navigator.clipboard.writeText('https://dopabrain.com/future-self/').then(() => {", "if (typeof gtag === 'function') gtag('event', 'share', { method: 'clipboard', app_name: 'future-self' });\n    navigator.clipboard.writeText('https://dopabrain.com/future-self/').then(() => {"); }],
-    ['stale-service-worker', 'Future Self service-worker cache version is stale', value => { value.sw=value.sw.replace('future-self-v3','future-self-v2'); }],
+    ['stale-service-worker', 'Future Self service-worker cache version is stale', value => { value.sw=value.sw.replace('future-self-v4','future-self-v3'); }],
     ['missing-locale-cache', 'Service worker omits fr locale', value => { value.sw=value.sw.replace("    '/future-self/js/locales/fr.json',\n", ''); }],
     ['broken-primary-cta', 'Primary guide CTA does not auto-start', value => { value.guide=value.guide.replace('/future-self/?lang=ko&start=1&source=future_self_guide_primary','/portal/'); }],
     ['tracking-too-easy', 'Qualified CTA exposure contract is incomplete', value => { value.guide=value.guide.replace('entry.intersectionRatio>=0.5','entry.intersectionRatio>=0'); }],

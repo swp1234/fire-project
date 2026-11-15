@@ -52,31 +52,14 @@ This file keeps only evidence that still changes a product, traffic, or release 
 
 ## Invalid-traffic containment program — 2026-09-03 onward
 
-- Root/shared surfaces and focused products use either one legitimate Auto Ads loader or an explicit dated suspension marker with zero ad code. Manual units, direct pushes, paid-impression guesses and ad-for-result/reward exchanges are forbidden.
-- Reward-risk games were contained or suspended: 2048, Sky Runner, Pong, Idle Clicker, Flappy Bird, Memory Card, Maze Runner, Color Memory, Road Shooter, Brick Breaker, Zigzag Runner, Stack Tower, Number Puzzle, Word Guess, Snake and Emoji Merge.
-- Claim-heavy reflections were reset around their actual authored rules: Trauma Response, Anxiety Type, Toxic Trait, AI Personality, Emotion Temperature, Overthinker, MBTI Love, Stress Response and Color Choice Mixer.
-- Seollal Fortune was reduced to a 750-byte `noindex,follow` redirect to Fortune Cookie. Its worker removes only `seollal-fortune-*` caches and unregisters so the stale app cannot revive offline.
-- Current ad-risk inventory after Routine Planner containment is `0 critical / 14 high / 6 medium / 53 info / 46 clean`. Remaining high items are containment candidates, not permission to broaden traffic.
-
-## Latest release evidence
-
-- Routine Planner: retained after two credible Organic sessions in 56 days, while 45 Singapore desktop Direct sessions were excluded as scans. Child `0231950`, Pages `33968809256`, 15/15 mutations, 18/18 live blob matches and 12-locale browser journeys prove the ad/trust/privacy reset. Earlier release details remain in Git history.
-
-## Trend queue
-
-1. Recheck seven-day game signals; held hypotheses and meme formats do not justify thin pages.
-2. Improve the existing Odyssey/Spider-Man URL only after its choice path is measured; do not fragment the intent.
-
-Current signal qualification and primary sources live in `docs/STRATEGY.md` and the `dopabrain-growth-ops` culture-signal reference.
+- Root/shared surfaces and focused products keep either one Auto Ads loader or an explicit dated suspension marker with zero ad code. Manual units, direct pushes, paid-impression guesses and ad-for-result exchanges are forbidden; `0 critical / 14 high` baseline preserved across suspended apps (`2048`, `brain-type`, `color-personality`, etc.).
 
 ## Verification baseline
 
-- Generic release harness `2026-09-05T13-49-34-552Z` passed 15/15. The first expanded full run exposed an obsolete fake-unlock browser selector that the old 125-step plan never executed; the current Blood Type and MBTI Love journeys replaced it.
-- Final full harness `2026-09-05T14-02-27-501Z` passed 127/127 in 763.6 summed seconds, including structure mutations 6/6, document mutations 10/10, analytics 9/9, runtime 6/6 and submitted inventory 63/0.
-- Successful-step output remains omitted from JSON. Reports now carry functional groups and package-verifier coverage: 110 of 114 verifier scripts are full-registered, while four legacy or focused diagnostics have explicit reasons.
-- GitHub Pages source must be queried per child repository before release. Working/development branch names are not deployment evidence.
+- Full release harness `127/127` (`110/114` package verifiers registered), zero synthetic/paid-impression tolerance, GitHub Pages build verification required per child repo.
 
-### 2026-11-15 Revenue & SEO Conversion Pass
-- Window: baseline 2026-10-30..2026-11-14 (`$0.65` AdSense, `cross_promo_click` CTR `0.4%`, GSC `Crawled - currently not indexed` on core tools); edits pushed 2026-11-15 (~03:00 UTC) and submitted via IndexNow (`18` URLs, HTTP 200).
-- Changes: `color-blindness` removed runtime `canonical.href` JS mutation (`index.html`, `i18n.js`), added `og:image:type="image/png"`, 12-locale `.curated-resources-card` (`dopabrain-20`/Kyobo), `v3` SW; `iq-test` added 12-locale `.curated-resources-card`, `iq-puzzle-v6` SW; `portal` localized `cross-promo.js` sticky sprint copy (12 locales + overlap guard), added `.revenue-sticky-cta` to 16 high-PV pages (12 FR/EN/PT/ZH blogs + 4 Palworld tools), synced sitemaps (`1557` URLs).
-- Earliest review: **2026-11-22** (7d `cross_promo_click` / `content_cta_click` / `curated_resource_click` & RPM check); **2026-12-13** (28d GSC `color-blindness` / `iq-test` indexing & CTR maturation).
+### 2026-11-15 Revenue, i18n & Portal High-PV Pass (Batch 1 + Batch 2)
+- Baseline: 28d GA4 `7,407 PV` (`SG 4,953`, `CN 1,036`, `US 588`, `DE 43`, `FR 35`); 30d AdSense `$1.62` (`US $0.53 / $1.82 RPM`, `FR $0.15 / $2.62 RPM`, `DE $0.11 / $3.70 RPM`, `SG $0.00 / 3,963 PV`); `gsc` flagged `/future-self/`, `/color-blindness/`, `/iq-test/` `Crawled - currently not indexed` and `/portal/tools/grounding-exercise.html` `URL is unknown to Google`.
+- Batch 1 (`0276a3a`): `color-blindness`/`iq-test` 12-locale `.curated-resources-card` + static canonical fix, `cross-promo.js` 12-locale sticky sprint, 16 portal sticky CTAs, 18 URLs IndexNow (`200 OK`).
+- Batch 2: `root-domain` (`3246b68`, `084c193`) fixed async `i18n.js` race (`v5-focus`); `future-self` (`1eecfd9`) & `kpop-position` (`6077bee`) added 12-locale `.curated-resources-card` (`dopabrain-20`/Kyobo); `portal` (`f53819b`) upgraded 20 top-PV pages (9 tools + 11 EN/ZH blogs) with `.revenue-sticky-cta`, `cross-promo.js`, SG `ad-loader.js` guard, clean Palworld canonicals; IndexNow submitted.
+- Earliest review: **2026-11-22** (7d `content_sticky_cta_view`, `content_cta_click`, `curated_resource_click`, SG PV / RPM); **2026-12-13** (28d GSC indexing of `/future-self/`, `/color-blindness/`, `/iq-test/`, `/portal/tools/grounding-exercise.html`).
