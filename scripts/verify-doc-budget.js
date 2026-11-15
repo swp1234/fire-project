@@ -2,14 +2,19 @@
 
 const fs = require('fs');
 const path = require('path');
+const { parseRetrospectives } = require('./session-brief');
 
 const ROOT = path.resolve(__dirname, '..');
 const CONTRACT = {
   'AGENTS.md': { bytes: 1800, lines: 45 },
   'CLAUDE.md': { bytes: 3000, lines: 60 },
+  'GEMINI.md': { bytes: 2500, lines: 35 },
   'README.md': { bytes: 1500, lines: 45 },
   'PROGRESS.md': { bytes: 4000, lines: 45 },
   'memory/data-check-log.md': { bytes: 10000, lines: 120 },
+  'docs/ANTI-PATTERNS.md': { bytes: 6500, lines: 70 },
+  'docs/COMPLETED-AUDITS.md': { bytes: 3200, lines: 60 },
+  'docs/I18N.md': { bytes: 7500, lines: 170 },
   'docs/STRATEGY.md': { bytes: 4000, lines: 80 },
   'docs/MARKETING.md': { bytes: 1500, lines: 35 },
   'docs/HARNESS-WORKFLOW.md': { bytes: 2500, lines: 60 },
@@ -31,6 +36,7 @@ function load(overrides = {}) {
 function verifyLocalLinks(file, text) {
   for (const match of text.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) {
     const rawTarget = match[1].trim().replace(/^<|>$/g, '');
+    ok(!/^file:/i.test(rawTarget), `${file}: hardcoded local file URI ${rawTarget}`);
     if (/^(?:https?:|mailto:|#)/i.test(rawTarget)) continue;
     const target = rawTarget.replace(/#.*$/, '').replace(/:\d+$/, '');
     if (!target) continue;
@@ -57,11 +63,14 @@ function verify(docs = load()) {
   const memory = docs['memory/data-check-log.md'];
   const operations = docs['docs/OPERATIONS.md'];
   const harness = docs['docs/HARNESS-WORKFLOW.md'];
+  const anti = docs['docs/ANTI-PATTERNS.md'];
   ok((progress.match(/^## Latest release:/gm) || []).length === 1, 'PROGRESS.md: exactly one latest release required');
   ok(/Current account state/.test(memory) && /Measurement rules/.test(memory) && /Verification baseline/.test(memory), 'memory/data-check-log.md: current decision sections missing');
   ok(/Git history/.test(memory) && /raw responses/i.test(memory), 'memory/data-check-log.md: archival boundary missing');
   ok(/Documentation budget/.test(operations) && /Git (?:history|이력)/.test(operations), 'docs/OPERATIONS.md: documentation lifecycle missing');
   ok(/harness:release/.test(harness) && /--plan/.test(harness) && /diagnostic/i.test(harness), 'docs/HARNESS-WORKFLOW.md: harness modes missing');
+  ok(/session:brief/i.test(anti), 'docs/ANTI-PATTERNS.md: session-brief guard missing');
+  parseRetrospectives(fs.readFileSync(path.join(ROOT, 'memory', 'retrospectives.jsonl'), 'utf8'));
 
   return Object.entries(CONTRACT).map(([file, budget]) => ({
     file,
@@ -82,6 +91,8 @@ function mutations() {
     ['lifecycle-removed', { 'docs/OPERATIONS.md': baseline['docs/OPERATIONS.md'].replace('Documentation budget', 'Notes') }],
     ['invalid-utf8-marker', { 'README.md': `${baseline['README.md']}\uFFFD` }],
     ['broken-local-link', { 'README.md': `${baseline['README.md']}\n[missing](docs/not-real.md)\n` }],
+    ['hardcoded-file-uri', { 'README.md': `${baseline['README.md']}\n[local](file:///e:/Fire%20Project/CLAUDE.md)\n` }],
+    ['anti-patterns-bloat', { 'docs/ANTI-PATTERNS.md': baseline['docs/ANTI-PATTERNS.md'] + 'x'.repeat(6500) }],
     ['harness-modes-removed', { 'docs/HARNESS-WORKFLOW.md': baseline['docs/HARNESS-WORKFLOW.md'].replace('harness:release', 'release-check') }],
   ];
 

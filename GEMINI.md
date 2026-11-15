@@ -1,37 +1,21 @@
-# DopaBrain Antigravity (Gemini) Project Rules
+# DopaBrain Antigravity Rules
 
-> **Primary Source of Truth:** [CLAUDE.md](CLAUDE.md)
-> DopaBrain 프로젝트의 제품 공통 불변 규칙, 아키텍처 경계, 검증 절차는 [CLAUDE.md](CLAUDE.md)를 따른다.
+> **SSOT:** 모든 공통 규칙·제품 목록·측정 ID·검증·운영 원칙의 단일 정본은 [CLAUDE.md](CLAUDE.md)다. 이 파일은 매 턴 자동 주입되므로 중복 요약 없이 Antigravity 전용 실행 루프와 포인터만 유지한다.
 
-## 핵심 규칙 요약 (CLAUDE.md 기반)
+## Session 루프
 
-- **운영 URL:** `https://dopabrain.com/`
-- **핵심 진입면:** Stress Check, HSP Test, 2048 Coach (보조: Brain Type, IQ Test, Future Self, K-pop Role Roster).
-- **12개 지원 언어:** `ko en zh hi ru ja es pt id tr de fr` (문구는 locale JSON 및 `data-i18n` 필수).
-- **모바일/UX 불변 조건:** 터치 타깃 최소 44px, 모바일 가로 오버플로 0px 유지.
-- **측정/광고 식별자:**
-  - GA4 ID: `G-J8GSWM40TV`
-  - AdSense publisher: `ca-pub-3600813755953882` (Auto Ads 로더 1개 원칙, 수동 광고 슬롯/보상형 교환 금지)
-  - GSC property: `https://dopabrain.com/` (`sc-domain:` 사용 금지)
-- **Git 서브모듈 경계:** `projects/*`는 독립 Git 저장소일 수 있으므로 하위 저장소를 먼저 commit/push하고 마지막에 루트를 갱신한다.
-- **감사 레지스트리 및 토큰 절약:** [memory/audit-registry.json](memory/audit-registry.json)에 기록된 HEAD 커밋과 일치하는 서브모듈은 중복 감사하지 않고 스킵한다.
-- **문서 예산 및 일일 자체 피드백 루프:** 세션 전문을 Markdown에 누적하지 않고 [PROGRESS.md](PROGRESS.md)만 갱신한다. 매 세션 **시작 시** [memory/retrospectives.jsonl](memory/retrospectives.jsonl) 최근 3줄과 [memory/data-check-log.md](memory/data-check-log.md) 성숙일을 확인하며, **종료 시** 자체 피드백 1줄을 `memory/retrospectives.jsonl`에, 신규 운영 교훈을 [docs/ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md)에 기록한다.
+1. **시작:** `npm run session:brief` 실행 → [memory/retrospectives.jsonl](memory/retrospectives.jsonl) 최근 3줄·미승격 교훈(`promoted: false`)·[memory/data-check-log.md](memory/data-check-log.md) 성숙일 확인.
+2. **작업 전 확인:** [docs/ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md) 금지 목록과 수정 대상 `scripts/verify-*.js` 계약을 `Select-String`으로 먼저 조회. [memory/audit-registry.json](memory/audit-registry.json) HEAD 일치 서브모듈은 재감사 스킵.
+3. **릴리스 순서:** `projects/*` 하위 저장소 선 검증·commit·push → Pages run 성공 확인 → 루트 포인터 및 문서 갱신(`verify:docs` 통과).
+4. **종료:** [PROGRESS.md](PROGRESS.md) 현재 상태 1문단 갱신 + `memory/retrospectives.jsonl`에 1줄 추가(반복 실수는 [docs/ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md) 대신 `scripts/verify-*.js` 코드로 승격).
 
 ## 에이전트 전용 스킬 (`.agents/skills/`)
-- `dopabrain-touch-audit`: 390x844 모바일 뷰포트 오버플로 0px 및 44px 터치 타깃 자동 검증.
-- `dopabrain-submodule-ops`: 브랜치 정렬, 커밋 메시지 버퍼, child push 및 root 포인터 자동 동기화.
-- `dopabrain-health-guard`: AdSense 인증, Auto Ads 계약, 색인 인벤토리, 비밀값, 문서 예산 통합 점검.
 
-## 상세 가이드 링크
-- **운영 교훈 & 안티패턴:** [docs/ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md)
-- **완료된 감사 내역:** [docs/COMPLETED-AUDITS.md](docs/COMPLETED-AUDITS.md)
-- **공통 규칙:** [CLAUDE.md](CLAUDE.md)
-- **진행 상황 & Blocker:** [PROGRESS.md](PROGRESS.md)
-- **에이전트 격리 규칙:** [AGENTS.md](AGENTS.md)
-- **운영 및 배포 절차:** [docs/OPERATIONS.md](docs/OPERATIONS.md)
-- **검증 기준:** [docs/VALIDATION.md](docs/VALIDATION.md)
-- **성장 전략:** [docs/STRATEGY.md](docs/STRATEGY.md)
-- **UI/UX 디자인:** [docs/UX-DESIGN.md](docs/UX-DESIGN.md)
-- **다국어 i18n:** [docs/I18N.md](docs/I18N.md)
-- **분석 지침:** [docs/GA4-INSIGHTS.md](docs/GA4-INSIGHTS.md)
-- **테스트 하네스:** [docs/HARNESS-WORKFLOW.md](docs/HARNESS-WORKFLOW.md)
+- `dopabrain-touch-audit`: 390x844 오버플로 0px 및 44px 터치 타깃 검증.
+- `dopabrain-submodule-ops`: detached HEAD 방지 및 child push → root 포인터 동기화.
+- `dopabrain-health-guard`: AdSense keepalive, Auto Ads, 색인 인벤토리, 비밀값, 문서 예산 통합 점검.
+- `dopabrain-funnel-bridge` / `dopabrain-trust-audit`: 중단 앱 링크·어트리뷰션·신뢰도 스키마 자동 검사.
+
+## 상세 가이드 (`docs/`)
+
+- [ANTI-PATTERNS.md](docs/ANTI-PATTERNS.md) · [OPERATIONS.md](docs/OPERATIONS.md) · [VALIDATION.md](docs/VALIDATION.md) · [HARNESS-WORKFLOW.md](docs/HARNESS-WORKFLOW.md) · [STRATEGY.md](docs/STRATEGY.md) · [I18N.md](docs/I18N.md) · [GA4-INSIGHTS.md](docs/GA4-INSIGHTS.md) · [COMPLETED-AUDITS.md](docs/COMPLETED-AUDITS.md) · [AGENTS.md](AGENTS.md)

@@ -58,6 +58,7 @@ SOUNDSCAPE_*.txt
 !scripts/analytics-event-check.js
 !scripts/create-blog-article.js
 !scripts/harness-workflow-check.js
+!scripts/session-brief.js
 !scripts/indexing-inventory.js
 !scripts/verify-root-focus-mutations.js
 !scripts/verify-brain-type-trust.js

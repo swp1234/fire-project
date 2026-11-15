@@ -1,7 +1,7 @@
 # DopaBrain Completed Audits & Verification Registry
 
-> **Purpose**: Record completed autonomous verifications to eliminate duplicate work and prevent token waste across sessions.  
-> **Source of Truth**: [memory/audit-registry.json](file:///e:/Fire%20Project/memory/audit-registry.json)  
+> **Purpose**: Record completed autonomous verifications to eliminate duplicate work and prevent token waste across sessions.
+> **Source of Truth**: [memory/audit-registry.json](../memory/audit-registry.json)
 > **Rule**: When beginning an autonomous session, an agent MUST NOT re-audit any submodule whose `git rev-parse HEAD` matches the recorded `headCommit` in `memory/audit-registry.json`.
 
 ---
@@ -44,13 +44,5 @@ flowchart TD
 
 ---
 
-## 3. High-Priority Entry Points (Core Funnels)
-These 6 core tools have priority indexing and traffic focus:
-1. `projects/stress-check`
-2. `projects/hsp-test`
-3. `projects/puzzle-2048` (`coach.html`)
-4. `projects/brain-type`
-5. `projects/iq-test`
-6. `projects/portal/tools/kpop-role-roster.html`
-
-All 6 pass 0px overflow and 44px touch target standards.
+## 3. High-Priority Entry Points (SSOT)
+현재 집중 진입면 및 집중 런타임 목록의 단일 정본은 [CLAUDE.md](../CLAUDE.md)와 [scripts/runtime-check.js](../scripts/runtime-check.js)(`FOCUSED_DIRS`)를 따른다(이 문서에 중복 목록을 복제하지 않는다).

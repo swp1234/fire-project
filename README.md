@@ -19,6 +19,7 @@
 ## Main checks
 
 ```powershell
+npm run session:brief
 npm run harness
 npm run harness:release -- --target projects/<app> --release-verifier scripts/verify-<app>.js
 node scripts/harness-workflow-check.js --plan

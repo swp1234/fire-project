@@ -16,6 +16,7 @@ const BROWSER_VERIFIERS = [
   'scripts/verify-cross-promo-touch.js',
   'scripts/verify-blog-generator-interaction.js',
   'scripts/verify-brain-training-bridge.js',
+  'scripts/analytics-event-check.js',
 ];
 
 function close(server) {

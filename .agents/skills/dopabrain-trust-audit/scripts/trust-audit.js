@@ -19,6 +19,7 @@ const REGISTRY_PATH = path.join(WORKSPACE, 'memory', 'audit-registry.json');
 
 const args = process.argv.slice(2);
 const isFix = args.includes('--fix');
+const isCheck = args.includes('--check') && !isFix;
 const isAll = args.includes('--all');
 const forceCheck = args.includes('--force');
 const targetProjects = args.filter(a => !a.startsWith('--'));
@@ -120,7 +121,7 @@ function auditProject(projectName, registry, fixMode) {
   }
 
   if (issues.length === 0) {
-    if (currentHead) {
+    if (!isCheck && currentHead) {
       if (!registry.submodules) registry.submodules = {};
       const existing = registry.submodules[projectName] || {};
       registry.submodules[projectName] = {
@@ -299,6 +300,7 @@ function main() {
 
   console.log('\n==========================================');
   console.log(`Summary: ${skippedCount} skipped (zero-token), ${cleanCount} clean, ${fixedCount} auto-fixed, ${issuesCount} issues remaining`);
+  if (issuesCount > 0) process.exitCode = 1;
 }
 
 main();

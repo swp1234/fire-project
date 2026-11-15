@@ -13,7 +13,7 @@ const GAME_DIRS = [
 ];
 
 const FOCUSED_DIRS = [
-  'stress-check', 'hsp-test', 'puzzle-2048', 'brain-type', 'iq-test', 'portal'
+  'stress-check', 'hsp-test', 'future-self', 'color-blindness', 'iq-test', 'kpop-position', 'portal', 'puzzle-2048', 'brain-type'
 ];
 
 const PROJECT_ROOT = path.resolve(__dirname, '..');

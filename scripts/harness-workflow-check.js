@@ -12,9 +12,14 @@ const REPORT_KEEP = Number.parseInt(process.env.HARNESS_WORKFLOW_REPORT_KEEP || 
 const BASH = process.env.GIT_BASH || (process.platform === 'win32' ? 'C:/Program Files/Git/bin/bash.exe' : 'bash');
 const VERIFY_EXEMPTIONS = {
   'scripts/clean-focused-auto-ads.js': 'legacy migration diagnostic; the active restriction contract is owned by verify-adsense-contract',
-  'scripts/verify-stress-plan.js': 'focused product diagnostic outside the current six-route portfolio smoke',
-  'scripts/verify-stress-plan-distribution.js': 'focused product distribution diagnostic outside the current six-route portfolio smoke',
+  'scripts/verify-stress-plan.js': 'focused product diagnostic outside the current portfolio smoke',
+  'scripts/verify-stress-plan-distribution.js': 'focused product distribution diagnostic outside the current portfolio smoke',
   'scripts/verify-rule-based-labels.js': 'legacy umbrella diagnostic superseded by product-specific trust verifiers',
+  'scripts/verify-tier59-cards.js': 'historical batch-59 portal card rollout diagnostic',
+  'scripts/verify-tier60-cards.js': 'historical batch-60 portal card rollout diagnostic',
+  'scripts/verify-tier60-hreflang.js': 'historical batch-60 hreflang rollout diagnostic',
+  'scripts/verify-tier62-cards.js': 'historical batch-62 portal card rollout diagnostic',
+  'scripts/verify-tier68-cards.js': 'historical batch-68 portal card rollout diagnostic',
 };
 
 function takeValue(argv, index, flag) {
@@ -131,7 +136,18 @@ function validateOptions(options) {
   options.target = target;
 }
 
-function verifierCoverage(steps, packageScripts = require(path.join(ROOT, 'package.json')).scripts, exemptions = VERIFY_EXEMPTIONS) {
+function listDiskVerifiers() {
+  return fs.readdirSync(path.join(ROOT, 'scripts'))
+    .filter((file) => /^verify-.*\.js$/i.test(file))
+    .map((file) => normalizeScript(`scripts/${file}`));
+}
+
+function verifierCoverage(
+  steps,
+  packageScripts = require(path.join(ROOT, 'package.json')).scripts,
+  exemptions = VERIFY_EXEMPTIONS,
+  diskVerifiers = listDiskVerifiers(),
+) {
   const registered = new Set(steps.flatMap(([, , args]) => args.filter((arg) => typeof arg === 'string' && /^scripts\/[a-z0-9._-]+\.js$/i.test(normalizeScript(arg))).map(normalizeScript)));
   const aliases = [];
   for (const [alias, command] of Object.entries(packageScripts)) {
@@ -140,11 +156,15 @@ function verifierCoverage(steps, packageScripts = require(path.join(ROOT, 'packa
   }
   const unclassified = aliases.filter(({ script }) => !registered.has(script) && !exemptions[script]);
   if (unclassified.length) throw new Error(`Unclassified package verifier(s): ${unclassified.map((item) => `${item.alias} -> ${item.script}`).join(', ')}`);
-  const staleExemptions = Object.keys(exemptions).filter((script) => !aliases.some((item) => item.script === script));
+  const known = new Set([...aliases.map((item) => item.script), ...diskVerifiers]);
+  const unregisteredDisk = diskVerifiers.filter((script) => !registered.has(script) && !exemptions[script]);
+  if (unregisteredDisk.length) throw new Error(`Unregistered disk verifier(s): ${unregisteredDisk.join(', ')}`);
+  const staleExemptions = Object.keys(exemptions).filter((script) => !known.has(script));
   if (staleExemptions.length) throw new Error(`Stale verifier exemption(s): ${staleExemptions.join(', ')}`);
   return {
+    diskVerifiers: diskVerifiers.length,
     packageScripts: new Set(aliases.map((item) => item.script)).size,
-    registered: new Set(aliases.filter((item) => registered.has(item.script)).map((item) => item.script)).size,
+    registered: new Set([...registered].filter((script) => known.has(script))).size,
     diagnosticOnly: Object.entries(exemptions).map(([script, reason]) => ({ script, reason })),
   };
 }
@@ -152,10 +172,11 @@ function verifierCoverage(steps, packageScripts = require(path.join(ROOT, 'packa
 function stepGroup([name, , args]) {
   const value = `${name} ${args.join(' ')}`.toLowerCase();
   if (/analytics event|runtime smoke/.test(value)) return 'telemetry-runtime';
+  if (/quality gate/.test(value)) return 'foundation';
   if (/retirement|suspension/.test(value)) return 'containment';
   if (/index|secret|adsense|ad-risk|auto ads|local browser port/.test(value)) return 'release-safety';
   if (/chinese|french|spanish|korean|japanese|indonesian|german|english|culture|blog|content audit|bridge|funnel|path/.test(value)) return 'acquisition';
-  if (/git diff|playwright|documentation|harness structure|locale audit|quality gate/.test(value)) return 'foundation';
+  if (/git diff|playwright|documentation|harness structure|locale audit/.test(value)) return 'foundation';
   return 'product-contract';
 }
 
@@ -181,6 +202,7 @@ function validatePlan(steps) {
       if (!fs.existsSync(scriptPath)) throw new Error(`Missing harness script: ${args[0]}`);
     }
     if (command === BASH) {
+      if (BASH.includes('/') && !fs.existsSync(BASH)) throw new Error(`Missing harness bash binary: ${BASH}`);
       const scriptPath = path.resolve(ROOT, args[0]);
       if (!fs.existsSync(scriptPath)) throw new Error(`Missing harness shell script: ${args[0]}`);
     }
@@ -206,10 +228,11 @@ function runSelfTests() {
     'verify:docs': 'node scripts/verify-doc-budget.js',
     'verify:unclassified': 'node scripts/verify-safe-local-port.js',
   };
-  expectFailure('unclassified-package-verifier', () => verifierCoverage(good, packageScripts, {}), 'Unclassified package verifier');
-  const coverage = verifierCoverage(good, { 'verify:docs': packageScripts['verify:docs'] }, {});
+  expectFailure('unclassified-package-verifier', () => verifierCoverage(good, packageScripts, {}, []), 'Unclassified package verifier');
+  expectFailure('unregistered-disk-verifier', () => verifierCoverage(good, { 'verify:docs': packageScripts['verify:docs'] }, {}, ['scripts/verify-doc-budget.js', 'scripts/verify-unregistered-disk.js']), 'Unregistered disk verifier');
+  const coverage = verifierCoverage(good, { 'verify:docs': packageScripts['verify:docs'] }, {}, ['scripts/verify-doc-budget.js']);
   if (coverage.registered !== 1) throw new Error('coverage baseline failed');
-  console.log('[PASS] harness structure mutation summary 6/6 detected');
+  console.log('[PASS] harness structure mutation summary 7/7 detected');
 }
 
 function writeReport(run) {
@@ -436,6 +459,17 @@ async function main() {
     ['live blog screener CRO audit', process.execPath, ['scripts/verify-screener-live.js']],
     ['KST midnight boundary', process.execPath, ['scripts/verify-kst-date.js']],
     ['blog interaction generator', process.execPath, ['scripts/verify-blog-generator-interaction.js']],
+    ['portal tools catalog', process.execPath, ['scripts/verify-portal-tools.js']],
+    ['brain game workout', process.execPath, ['scripts/verify-brain-game-workout.js']],
+    ['boundary phrase library', process.execPath, ['scripts/verify-boundary-library.js']],
+    ['boundary conversation script', process.execPath, ['scripts/verify-boundary-script.js']],
+    ['sensory load map', process.execPath, ['scripts/verify-sensory-load-map.js']],
+    ['couple conversation deck bridge', process.execPath, ['scripts/verify-couple-deck.js']],
+    ['emotion regulation planner bridge', process.execPath, ['scripts/verify-emotion-regulation-planner.js']],
+    ['past life story studio bridge', process.execPath, ['scripts/verify-past-life-story-studio.js']],
+    ['funnel bridge audit', process.execPath, ['.agents/skills/dopabrain-funnel-bridge/scripts/audit-funnel.js']],
+    ['focused portfolio trust audit', process.execPath, ['.agents/skills/dopabrain-trust-audit/scripts/trust-audit.js', '--check', '--force', 'stress-check', 'hsp-test', 'future-self', 'color-blindness', 'iq-test', 'kpop-position', 'portal', 'puzzle-2048', 'brain-type']],
+    ['session brief self-test', process.execPath, ['scripts/session-brief.js', '--self-test']],
   ];
 
   if (!options.skipAnalytics) {
@@ -470,6 +504,7 @@ async function main() {
       'playwright version floor',
       'harness structure mutations',
       'documentation budget and mutations',
+      'session brief self-test',
       'quality gate',
       'GSC sitemap submit safety',
       'IndexNow submit safety',
@@ -480,8 +515,14 @@ async function main() {
       'tracked secret scan',
       'AdSense contract mutations',
       'ad-risk inventory self-test',
+      'funnel bridge audit',
+      'focused portfolio trust audit',
     ]);
     if (options.target.replace(/\\/g, '/').replace(/\/$/, '') === 'projects/portal') releaseCore.add('portal locale audit');
+    const plannedNames = new Set(plannedSteps.map(([name]) => name));
+    for (const coreName of releaseCore) {
+      if (!plannedNames.has(coreName)) throw new Error(`Missing releaseCore step in harness plan: ${coreName}`);
+    }
     plannedSteps.splice(0, plannedSteps.length, ...plannedSteps.filter((step) => releaseCore.has(step[0]) || step === selected));
   }
 

@@ -2,12 +2,12 @@
 
 This file keeps only evidence that still changes a product, traffic, or release decision. Full release narratives remain in Git history and child repositories; raw responses and console output belong in ignored reports.
 
-## Current account state — 2026-11-14 KST
+## Current account state — 2026-11-15 KST
 
 - Goal: `$1.40` / 7 complete days (`$0.20/day`) interim, scaling toward `$1.00/day`.
-- Observed baseline (`dopabrain.com` only, 2026-10-15 ~ 2026-11-13): **$1.62 / 30d**, `6,980 PV`, `1,913 impressions`, `26 clicks`; recent 7d (`11/07~11/13`) **$0.22** (`~$0.031/day`).
-- Country RPM signal (`dopabrain.com` 30d): DE `$3.96`, FR `$2.41`, US `$2.05`, KR `$1.59`, CN `$0.16`, SG `$0.00` (`4,053 PV` Direct bot scan).
-- GA4 Organic Search (28d): `279` sessions, `430 PV` across `142` landing pages (~10 sessions/day; last 7d `67` vs prev 7d `77`).
+- Observed baseline (`dopabrain.com`, 30d AdSense): **$1.62 / 30d** (`11,418` PV MTD **$0.53**), recent 7d **$0.22** (`~$0.031/day`).
+- Country RPM signal: DE `$3.70`, BE `$2.82`, FR `$2.62`, US `$1.82`, SG `$0.00` (`3,963 PV` Direct bot scan).
+- GA4 (28d): `7,407` page_view (`1,151` ad_impression, `115` content_sticky_cta_view, `89` content_cta_click), Organic Search `268` (`1.57` PV/session).
 - Account constraints: AdSense PIN hold is user-acknowledged/in-progress — do **not** re-warn or ask; focus only on human traffic quality and conversion telemetry.
 
 ## Measurement rules
@@ -26,6 +26,7 @@ This file keeps only evidence that still changes a product, traffic, or release 
 | 2026-11-13 | `127.0.0.1` AdSense block (`92ac7ff`), `/brain-type/` leak fix, EN SEO/hreflang | `127.0.0.1` `4,191 PV/30d`, EN `ko` conflict | Zero `127.0.0.1` AdSense PV after deploy date; US/EN organic impressions | `2026-11-21` (+28d: `12-11`) |
 | 2026-11-14 | Core wave 1-4 + Cloudflare proxy/SG WAF (`1a9b433`, `6190733`) | SG `4,053 PV` (`$0.00`), `#app-loader` LCP | SG Direct PV drop, human `Page RPM`, LCP/Core Web Vitals | `2026-11-22` (+28d: `12-12`) |
 | 2026-11-14 | 419 blog hub links, `/portal/` `og:locale`, 7 organic sticky CTAs, `white-noise`/`stress-type` curation (`e96b663`) | 28d Org `279` sess (`1.54 PV/sess`), 142 pages | `content_sticky_cta_view`, `curated_resource_click`, `PV/session`, GSC indexed count & organic clicks | `2026-11-22` (funnel) / `2026-12-12` (SEO) |
+| 2026-11-15 | Batch 1+2 (`0276a3a`, `cce1392`): `root-domain` i18n, 4 core app curation, 20 portal sticky CTAs + SG WAF | 7d `$0.22`, 28d Org `268`, `/future-self/` etc. unindexed | `content_sticky_cta_view`, `curated_resource_click`, SG PV/RPM, GSC indexation | `2026-11-22` (funnel) / `2026-12-13` (SEO) |
 
 ## Portfolio decisions still in force
 
@@ -56,10 +57,5 @@ This file keeps only evidence that still changes a product, traffic, or release 
 
 ## Verification baseline
 
-- Full release harness `127/127` (`110/114` package verifiers registered), zero synthetic/paid-impression tolerance, GitHub Pages build verification required per child repo.
-
-### 2026-11-15 Revenue, i18n & Portal High-PV Pass (Batch 1 + Batch 2)
-- Baseline: 28d GA4 `7,407 PV` (`SG 4,953`, `CN 1,036`, `US 588`, `DE 43`, `FR 35`); 30d AdSense `$1.62` (`US $0.53 / $1.82 RPM`, `FR $0.15 / $2.62 RPM`, `DE $0.11 / $3.70 RPM`, `SG $0.00 / 3,963 PV`); `gsc` flagged `/future-self/`, `/color-blindness/`, `/iq-test/` `Crawled - currently not indexed` and `/portal/tools/grounding-exercise.html` `URL is unknown to Google`.
-- Batch 1 (`0276a3a`): `color-blindness`/`iq-test` 12-locale `.curated-resources-card` + static canonical fix, `cross-promo.js` 12-locale sticky sprint, 16 portal sticky CTAs, 18 URLs IndexNow (`200 OK`).
-- Batch 2: `root-domain` (`3246b68`, `084c193`) fixed async `i18n.js` race (`v5-focus`); `future-self` (`1eecfd9`) & `kpop-position` (`6077bee`) added 12-locale `.curated-resources-card` (`dopabrain-20`/Kyobo); `portal` (`f53819b`) upgraded 20 top-PV pages (9 tools + 11 EN/ZH blogs) with `.revenue-sticky-cta`, `cross-promo.js`, SG `ad-loader.js` guard, clean Palworld canonicals; IndexNow submitted.
-- Earliest review: **2026-11-22** (7d `content_sticky_cta_view`, `content_cta_click`, `curated_resource_click`, SG PV / RPM); **2026-12-13** (28d GSC indexing of `/future-self/`, `/color-blindness/`, `/iq-test/`, `/portal/tools/grounding-exercise.html`).
+- Full release harness `146` steps (`131` package `verify:*` / `session:*`, `126` disk `verify-*.js`), zero synthetic/paid-impression tolerance, GitHub Pages build verification required per child repo.
+- **2026-11-15 Batch 1+2 (`0276a3a`, `cce1392`)**: `root-domain` (`v5-focus` async `i18n` fix), `color-blindness`/`iq-test`/`future-self`/`kpop-position` 12-locale `.curated-resources-card` + static canonicals, `portal` (`f53819b`) 20 top-PV sticky CTAs + SG `ad-loader.js` guard + Palworld canonicals, IndexNow (`200 OK`). Earliest review: **2026-11-22** (7d funnel CTA/affiliate clicks, SG PV) / **2026-12-13** (28d GSC indexing for `/future-self/`, `/color-blindness/`, `/iq-test/`, `/portal/tools/grounding-exercise.html`).

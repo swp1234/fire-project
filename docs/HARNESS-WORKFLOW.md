@@ -28,9 +28,9 @@ node scripts/harness-workflow-check.js --self-test
 - 중복 step과 누락된 Node/Bash 파일.
 - 안전한 product/runtime 경로.
 - foundation, product-contract, acquisition, containment, release-safety, telemetry-runtime 그룹별 수.
-- `package.json`의 `verify:*`가 full 등록 또는 사유가 있는 diagnostic-only인지 여부.
+- `package.json`의 `verify:*` 및 `scripts/verify-*.js`가 full 등록 또는 사유가 있는 diagnostic-only인지 여부.
 
-새 제품 검증기는 full 목록에 등록한다. 일회성 migration이나 현재 portfolio 밖 직접 진단만 코드에 사유를 적어 제외하며, 분류되지 않은 검증기는 계획 단계에서 실패한다. `--self-test`는 이 구조 결함 여섯 종류가 실제로 탐지되는지 확인한다.
+새 제품 검증기는 `package.json` `verify:*`와 full 목록에 등록한다. 일회성 이력·portfolio 밖 직접 진단만 사유를 적어 제외하며, 미분류·미등록 검증기는 `--plan`에서 실패한다. `--self-test`는 구조 결함 7종 탐지를 확인한다.
 
 ## 직접 진단
 

@@ -7,7 +7,7 @@
 - 운영 URL: `https://dopabrain.com/`
 - 현재 전략: 소수의 검증된 진입면에 검색·홈·측정을 집중한다.
 - 핵심 경로: Stress Check, HSP Test, 2048 Coach.
-- 보조 경로: Brain Type, IQ Test, K-pop Role Roster.
+- 보조 경로: Brain Type, IQ Test, Future Self, Color Blindness, White Noise, K-pop Role Roster.
 - 저성과 페이지는 근거 없이 삭제하지 않되 홈과 사이트맵에서 제외한다.
 
 ## Required invariants
@@ -36,8 +36,8 @@
 
 ## Failure & feedback records
 
-- 재발 실패는 `memory/failures.jsonl`, 세션 종료 자기 피드백은 `memory/retrospectives.jsonl`에 1줄 기록.
-- 시작 시 `retrospectives.jsonl` 최근 3줄을 읽어 합의 제약(PIN 등)·미도래 실험·중복 작업을 반복하지 않는다.
+- 세션 시작: `npm run session:brief`로 [memory/retrospectives.jsonl](memory/retrospectives.jsonl) 최근 3줄·미승격 교훈(`promoted: false`)·[memory/data-check-log.md](memory/data-check-log.md) 성숙일을 확인한다(합의 제약 재경고·조기 판정 금지).
+- 세션 종료: `retrospectives.jsonl`에 1줄(`date, task, friction, rule_target, promoted, lesson`)을 추가하고, 반복 실수는 `verify-*.js` 코드로 승격한다(`failures.jsonl`은 2026-08 동결).
 
 ## Multi-Agent Architecture
 

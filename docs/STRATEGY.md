@@ -5,9 +5,8 @@ Updated: 2026-10-04 KST. 모델 무관 단일 실행 설계안. 진행 상태는
 ## Goal and constraint
 
 - 목표: 7일 합계 ≥ `$1.40` (`$0.20/day`).
-- 현재: 7일 `$0.55` (`$0.079/day`). Tier 1 RPM: US `$4.25`, DE `$5.87`, CA `$7.38`.
-- 병목: Google 노출 3회/3개월. Stress Check·HSP Test가 `Crawled - currently not indexed`.
-- 원인:
+- 작성 시점(2026-10-04) 기준선: 7일 `$0.55` (`$0.079/day`), Google 노출 3회/3개월, Stress Check·HSP Test `Crawled - currently not indexed`. **최신 수치는 항상 [PROGRESS.md](../PROGRESS.md)와 [memory/data-check-log.md](../memory/data-check-log.md)를 참조한다.**
+- 근본 원인:
   1. **주제이탈 블로그(~1,900 URL)**: Roblox/게임 등 대량 생성물이 사이트 신뢰도 및 크롤 잠식.
   2. **핵심 도구 얇음**: 설명/방법론/FAQ/참고문헌 부족으로 저품질 판정.
   3. **Above-the-fold 광고 과밀**: AdSense Auto Ads 관련 검색(Ad Intent)이 버튼과 H1 가림.

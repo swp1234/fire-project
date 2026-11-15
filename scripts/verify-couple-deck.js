@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
 const { blockExternalAds } = require('./lib/block-external-ads');
+const { listenOnSafePort } = require('./lib/safe-local-port');
 
 const workspace = path.resolve(__dirname, '..');
 const routeRoots = [
@@ -51,8 +52,8 @@ function eventNames(page) {
 async function run() {
     const production = process.argv.includes('--production');
     const server = production ? null : createServer();
-    if (server) await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
-    const origin = production ? 'https://dopabrain.com' : `http://127.0.0.1:${server.address().port}`;
+    const address = server ? await listenOnSafePort(server, '127.0.0.1') : null;
+    const origin = production ? 'https://dopabrain.com' : `http://127.0.0.1:${address.port}`;
     const browser = await chromium.launch({ headless: true });
     const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
     await blockExternalAds(context);
@@ -79,7 +80,8 @@ async function run() {
                 note: document.querySelector('#card-note')?.textContent,
                 typeChip: document.querySelector('#type-chip')?.textContent,
                 testHref: document.querySelector('#test-link-bottom')?.getAttribute('href'),
-                oneAd: document.querySelectorAll('[data-ad-surface="couple_deck_inline"]').length,
+                adServing: document.body?.dataset?.adServing || '',
+                ads: document.querySelectorAll('script[src*="pagead2"],ins.adsbygoogle,[data-ad-slot],[data-ad-surface]').length,
                 structuredData: [...document.querySelectorAll('script[type="application/ld+json"]')]
                     .some(script => script.textContent.includes('MBTI Couple Conversation Deck')),
                 events: (window.dataLayer || [])
@@ -111,37 +113,34 @@ async function run() {
             };
         });
         await page.click('#print-btn');
-        await page.locator('#deck-ad').scrollIntoViewIfNeeded();
         await page.waitForTimeout(120);
         const interactionEvents = await eventNames(page);
 
         await page.goto(`${origin}/mbti-love/?lang=de&source=verify`, { waitUntil: 'domcontentloaded' });
-        await page.waitForFunction(() => !document.getElementById('app-loader') || document.getElementById('app-loader').classList.contains('hidden'));
-        const introCta = await page.evaluate(() => ({
-            text: document.querySelector('#conversation-deck-intro-text')?.textContent,
-            href: document.querySelector('#conversation-deck-intro')?.getAttribute('href')
-        }));
+        await page.waitForSelector('#btn-start');
         await page.click('#btn-start');
-        const questionCount = await page.evaluate(() => QUESTIONS.length);
-        for (let index = 0; index < questionCount; index += 1) {
-            const option = page.locator('.option-btn:not([disabled])').first();
+        for (let index = 0; index < 12; index += 1) {
+            const option = page.locator('.option').first();
             await option.waitFor({ state: 'visible' });
             await option.click();
-            if (index < questionCount - 1) await page.waitForTimeout(460);
+            if (index < 11) {
+                await page.waitForFunction(n => document.getElementById('progress-text')?.textContent?.startsWith(String(n)), index + 2);
+            }
         }
         await page.waitForSelector('#result-screen.active');
         const resultCta = await page.evaluate(() => ({
-            title: document.querySelector('#conversation-deck-result-title')?.textContent,
-            description: document.querySelector('#conversation-deck-result-desc')?.textContent,
-            href: document.querySelector('#conversation-deck-result')?.getAttribute('href'),
+            title: document.querySelector('#next-action')?.textContent,
+            href: document.querySelector('#next-action')?.getAttribute('href'),
+            adServing: document.body?.dataset?.adServing || '',
+            ads: document.querySelectorAll('script[src*="pagead2"],ins.adsbygoogle,[data-ad-slot],[data-ad-surface]').length,
             events: (window.dataLayer || [])
                 .map(item => item?.event || (item?.[0] === 'event' ? item[1] : null))
                 .filter(Boolean),
             overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
         }));
-        await page.evaluate(() => document.querySelector('#conversation-deck-result')
+        await page.evaluate(() => document.querySelector('#next-action')
             ?.addEventListener('click', event => event.preventDefault(), { capture: true }));
-        await page.click('#conversation-deck-result');
+        await page.click('#next-action');
         const resultClickEvents = await eventNames(page);
 
         const bridgeRoutes = {
@@ -150,7 +149,6 @@ async function run() {
             zh: 'zh/mbti-compatibility.html',
             hi: 'hi/love-compatibility.html',
             ru: 'ru/love-compatibility.html',
-            ja: 'ja/mbti-love.html',
             es: 'es/love-compatibility.html'
         };
         const bridgeReports = [];
@@ -201,7 +199,6 @@ async function run() {
         const report = {
             localeReports,
             interaction: { cardIds, saved, clipboard, events: interactionEvents },
-            introCta,
             resultCta,
             resultClickEvents,
             bridgeReports,
@@ -218,21 +215,27 @@ async function run() {
             if (!item.title || !item.question || !item.note) failures.push(`${item.expectedLocale} localized card copy is empty`);
             if (!item.typeChip?.includes('ENFP')) failures.push(`${item.expectedLocale} MBTI context is missing`);
             if (!item.testHref?.includes(`lang=${item.expectedLocale}`)) failures.push(`${item.expectedLocale} test link lost locale`);
-            if (item.oneAd !== 1 || !item.structuredData) failures.push(`${item.expectedLocale} ad or structured data is incomplete`);
-            if (!item.events.includes('couple_deck_view') || !item.events.includes('couple_deck_card_view')) failures.push(`${item.expectedLocale} view/card telemetry is incomplete`);
+            if (item.adServing !== 'suspended-invalid-traffic-2026-09-03' || item.ads !== 0 || !item.structuredData) {
+                failures.push(`${item.expectedLocale} suspension state or structured data is incomplete`);
+            }
+            if (!item.events.includes('couple_deck_view') || !item.events.includes('couple_deck_start') || item.events.includes('couple_deck_ad_impression')) {
+                failures.push(`${item.expectedLocale} deck telemetry contract invalid`);
+            }
             if (item.overflow > 0) failures.push(`${item.expectedLocale} has ${item.overflow}px overflow`);
         });
         if (new Set(cardIds).size !== 4 || !saved.restartVisible) failures.push(`repair deck did not draw four unique cards: ${cardIds.join(',')}`);
         if (saved.listCount !== 1 || saved.favoritePressed !== 'true') failures.push(`favorite persistence failed: ${JSON.stringify(saved)}`);
         if (!clipboard.includes('MBTI Couple Conversation Deck')) failures.push('clipboard output is incomplete');
-        ['couple_deck_mode_select', 'couple_deck_session_complete', 'couple_deck_favorite', 'couple_deck_copy', 'couple_deck_print', 'couple_deck_ad_impression']
+        ['couple_deck_view', 'couple_deck_start', 'couple_deck_progress', 'couple_deck_complete', 'couple_deck_save', 'print_stub_called']
             .forEach(name => { if (!interactionEvents.includes(name)) failures.push(`${name} event is missing`); });
-        if (!introCta.text?.includes('Gesprächskarten') || !introCta.href?.includes('lang=de')) failures.push(`German intro CTA is incomplete: ${JSON.stringify(introCta)}`);
-        if (!resultCta.title?.includes('Gespräch') || !resultCta.href?.includes('lang=de') || !/[?&]mbti=[A-Z]{4}/.test(resultCta.href)) {
+        if (interactionEvents.includes('couple_deck_ad_impression')) failures.push('legacy couple_deck_ad_impression event leaked');
+        if (!resultCta.title?.includes('Gespräch') || !resultCta.href?.includes('lang=de') || !resultCta.href?.includes('source=mbti_love_result')) {
             failures.push(`German result CTA is incomplete: ${JSON.stringify(resultCta)}`);
         }
-        if (!resultCta.events.includes('couple_deck_cta_view')) failures.push('result CTA view event is missing');
-        if (!resultClickEvents.includes('couple_deck_cta_click')) failures.push('result CTA click event is missing');
+        if (resultCta.adServing !== 'suspended-invalid-traffic-2026-09-03' || resultCta.ads !== 0) {
+            failures.push(`MBTI result suspension contract drifted: ${JSON.stringify(resultCta)}`);
+        }
+        if (!resultClickEvents.includes('mbti_love_next_click')) failures.push('result next action click event is missing');
         if (resultCta.overflow > 0) failures.push(`MBTI result has ${resultCta.overflow}px overflow`);
         bridgeReports.forEach(item => {
             if (!item.title || !item.href?.includes(`lang=${item.locale}`) || !item.href.includes('source=blog_mbti_love_bridge')) {

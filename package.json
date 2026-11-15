@@ -21,6 +21,7 @@
     "harness:release": "node scripts/harness-workflow-check.js --release",
     "harness:analytics": "node scripts/analytics-event-check.js",
     "harness:runtime": "node scripts/runtime-check.js focused",
+    "session:brief": "node scripts/session-brief.js",
     "verify:root": "node scripts/verify-root-focus.js",
     "verify:root:mutations": "node scripts/verify-root-focus-mutations.js",
     "verify:brain-trust": "node scripts/verify-brain-type-trust.js --mutations",
@@ -140,7 +141,15 @@
     "verify:fr-attachment-reflection": "node scripts/verify-fr-attachment-reflection.js --mutations",
     "verify:en-shadow-reflection": "node scripts/verify-en-shadow-reflection.js --mutations",
     "verify:en-hsp-coping": "node scripts/verify-en-hsp-coping.js --mutations",
-    "verify:blog-generator-interaction": "node scripts/verify-blog-generator-interaction.js"
+    "verify:blog-generator-interaction": "node scripts/verify-blog-generator-interaction.js",
+    "verify:portal-tools": "node scripts/verify-portal-tools.js",
+    "verify:brain-game-workout": "node scripts/verify-brain-game-workout.js",
+    "verify:boundary-library": "node scripts/verify-boundary-library.js",
+    "verify:boundary-script": "node scripts/verify-boundary-script.js",
+    "verify:sensory-load-map": "node scripts/verify-sensory-load-map.js",
+    "verify:couple-deck": "node scripts/verify-couple-deck.js",
+    "verify:emotion-regulation-planner": "node scripts/verify-emotion-regulation-planner.js",
+    "verify:past-life-story-studio": "node scripts/verify-past-life-story-studio.js"
   },
   "devDependencies": {
     "playwright": "^1.60.0"

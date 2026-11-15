@@ -2,11 +2,10 @@
 
 Updated: 2026-11-15 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
 
-## Latest release: 2026-11-15 Autonomous Profitability & Funnel Pass
-- `root-domain` (`3246b68`, `084c193`): Fixed async `i18n.js` race setting `html[lang]` before locale load (24/24 live `verify-root-focus.js` checks PASS), bumped `sw.js` (`v5-focus`), synced `sitemap.xml`.
-- `future-self` (`1eecfd9`) & `kpop-position` (`6077bee`): Added 12-locale `.curated-resources-card` (Kyobo/Amazon dynamic `dopabrain-20`, `curated_resource_click` + `content_cta_click`), bumped `sw.js` (`future-self-v4`, `kpop-position-v7`), updated verifiers.
-- `portal` (`f53819b`): Upgraded 20 top-PV pages (9 tools incl. `grounding-exercise.html` + 11 uncovered EN/ZH blogs) with `.revenue-sticky-cta`, `cross-promo.js`, SG `/portal/js/ad-loader.js` guard, and clean query-free Palworld canonicals (`palworld-base-planner`, `palworld-field-guide`, `palworld-server-troubleshooter`).
-- Session 1 (`0276a3a`): Fixed `color-blindness` canonical + curated reading (`v3`), `iq-test` curated reading (`v6`), 12-locale `cross-promo.js` sticky sprint + 16 portal sticky CTAs, sitemaps (`1557` URLs), IndexNow (`200 OK`).
+## Latest release: 2026-11-15 Harness Coverage, .md Budgets & Session Brief Hardening
+- **Harness (`harness-workflow-check.js`)**: Expanded to 146 steps (`130` package `verify:*`, all `126` disk `verify-*.js` covered or explicitly `VERIFY_EXEMPTIONS`-classified, `7/7` self-tests). Repaired `verify-emotion-regulation-planner.js`, `verify-past-life-story-studio.js`, `verify-couple-deck.js`; moved `analytics-event-check.js` to `listenOnSafePort`; aligned `runtime-check.js` `FOCUSED_DIRS` (`9` active core apps); wired `audit-funnel.js` & `trust-audit.js --check`.
+- **`.md` & Session Loop**: Added `npm run session:brief` (`scripts/session-brief.js`, schema validation + KST maturation gates `[WAIT]`/`[READY]`), compressed `docs/ANTI-PATTERNS.md` (`39.7KB` → `4.7KB`) and `GEMINI.md` (`2.99KB` → `2.08KB`), unified core-route SSOT (`CLAUDE.md`) and `retrospectives.jsonl` schema, expanded `verify-doc-budget.js` (`14` docs, `file://` URI ban, `12/12` mutations).
+- **Previous monetization wave (`cce1392`, `0276a3a`)**: Deployed `root-domain` (`v5-focus`), `future-self` (`1eecfd9`), `kpop-position` (`6077bee`), `color-blindness`, `iq-test`, `portal` (`f53819b`, 20 top-PV pages + SG WAF), IndexNow (`200 OK`); earliest review `2026-11-22` / `2026-12-13` (see `memory/data-check-log.md`).
 
 ## Target and status
 
@@ -26,7 +25,4 @@ Updated: 2026-11-15 KST. Release history: `memory/data-check-log.md`; ops loop: 
 
 - **P0-P3 SEO/GEO & Funnel Foundation (완료)**: IndexNow 송출 (`200 OK`), `llms*.txt` (`658524e`), 3대 킬러앱(Stress Check/HSP/Future Self) 1080x1920 스토리 카드·도서 큐레이션, 소셜 훅(`docs/MARKETING-VIRAL-HOOKS.md`), 4,034파일 퍼널 무결점 & 119개 레지스트리 동기화.
 
-## Previous release: Hub Indexing, Sticky CTAs & App Monetization (`2026-11-14`)
-
-- **Wave 1-4 Core App & Portal Hubs**: EN SEO, `window.i18n`, `stress-type`/`soul-age`/`dream-fortune` UX, Cloudflare WAF/TLS `1.2`, `/portal/` 419개 허브 링크(`TRUE_INDEXABLE_ORPHAN=0`), 7개 오가닉 가이드 `.revenue-sticky-cta`, `white-noise`/`stress-type` 도서 큐레이션.
-- Protected assets (`attachment-style/{clarity.html,css/clarity.css,js/clarity.js}`), 36 suspended apps, and user-only actions (AdSense PIN, GSC UI, SNS posts) untouched.
+- **Hub Indexing & Monetization (`2026-11-14`)**: EN SEO, `window.i18n`, `stress-type`/`soul-age`/`dream-fortune` UX, Cloudflare WAF/TLS `1.2`, `/portal/` 419개 허브 링크(`TRUE_INDEXABLE_ORPHAN=0`), 7개 오가닉 `.revenue-sticky-cta`, protected `attachment-style/clarity.*` & 36 suspended apps untouched.

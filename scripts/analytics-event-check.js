@@ -2,9 +2,9 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
+const { listenOnSafePort } = require('./lib/safe-local-port');
 
 const HOST = '127.0.0.1';
-const PORT = 8766;
 const PROJECTS_ROOT = path.resolve(__dirname, '..', 'projects');
 const CRASH_PATTERNS = [
   'Uncaught',
@@ -392,7 +392,7 @@ const scenarios = [
     name: 'portal-retention-personalization',
     path: '/detox-timer/',
     expected: ['cross_promo_click', 'hub_personalized_click'],
-    async run(page) {
+    async run(page, baseOrigin) {
       await page.waitForSelector('.cp-card');
       await page.waitForFunction(() => {
         const raw = localStorage.getItem('dopabrain_personalize');
@@ -413,7 +413,7 @@ const scenarios = [
           data.clicks && data.clicks[id] >= 1;
       }, destinationId);
 
-      await page.goto(`http://${HOST}:${PORT}/portal/`, {
+      await page.goto(`${baseOrigin}/portal/`, {
         waitUntil: 'domcontentloaded',
         timeout: 30000,
       });
@@ -431,7 +431,7 @@ const scenarios = [
   },
 ];
 
-async function runScenario(browser, scenario) {
+async function runScenario(browser, baseOrigin, scenario) {
   const page = await browser.newPage({ viewport: { width: 1440, height: 960 } });
   await blockExternalRequests(page);
   await instrumentAnalytics(page);
@@ -443,13 +443,13 @@ async function runScenario(browser, scenario) {
   });
 
   try {
-    await page.goto(`http://${HOST}:${PORT}${scenario.path}`, {
+    await page.goto(`${baseOrigin}${scenario.path}`, {
       waitUntil: 'domcontentloaded',
       timeout: 30000,
     });
     await page.waitForTimeout(800);
     await assertAriaHealth(page, scenario.name);
-    await scenario.run(page);
+    await scenario.run(page, baseOrigin);
     await page.waitForTimeout(250);
     await assertEvents(page, scenario.expected);
 
@@ -480,12 +480,13 @@ async function runScenario(browser, scenario) {
 
 async function main() {
   const server = createStaticServer();
-  await new Promise((resolve) => server.listen(PORT, HOST, resolve));
+  const address = await listenOnSafePort(server, HOST);
+  const baseOrigin = `http://${HOST}:${address.port}`;
 
   const browser = await chromium.launch({ headless: true });
 
   try {
-    const results = await mapWithConcurrency(scenarios, analyticsConcurrency(), (scenario) => runScenario(browser, scenario));
+    const results = await mapWithConcurrency(scenarios, analyticsConcurrency(), (scenario) => runScenario(browser, baseOrigin, scenario));
 
     let failed = 0;
     console.log('\nAnalytics Event Smoke Check\n');
