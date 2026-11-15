@@ -96,7 +96,9 @@ function auditProject(projectName, registry, fixMode) {
     if (/page_engage/i.test(jsContent) && !issues.includes('synthetic_page_engage')) {
       issues.push('synthetic_page_engage');
     }
-    if (/Math\.random\(\)/.test(jsContent) && (/percentileStat/i.test(jsContent) || /pctVal/i.test(jsContent) || /Math\.floor\(Math\.random/i.test(jsContent) && /percentile/i.test(jsContent))) {
+    if (
+      /percentileStat\s*=[^\n]*Math\.random|pctVal\s*=[^\n]*Math\.random|Math\.floor\(\s*Math\.random[^\n]*\)[^\n]*percentile|const\s+PERCENTILES\s*=\s*\{/i.test(jsContent)
+    ) {
       if (!issues.includes('fake_random_percentile')) issues.push('fake_random_percentile');
     }
   }
@@ -106,8 +108,9 @@ function auditProject(projectName, registry, fixMode) {
     issues.push('fake_aggregate_rating');
   }
 
-  // 3. Hidden FAQPage schema
-  if (/FAQPage/i.test(html)) {
+  // 3. Hidden FAQPage schema (ignore HTML comments)
+  const uncommentedHtml = html.replace(/<!--[\s\S]*?-->/g, '');
+  if (/FAQPage/i.test(uncommentedHtml)) {
     const hasVisibleFaq = /class=["'][^"']*(?:faq|about-faq|accordion)[^"']*["']/i.test(html) ||
       /<(?:details|h[2-4])[^>]*>.*?(?:faq|frequently asked)/i.test(html);
     if (!hasVisibleFaq) {

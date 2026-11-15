@@ -2,10 +2,10 @@
 
 Updated: 2026-11-15 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
 
-## Latest release: 2026-11-15 Harness Coverage, .md Budgets & Session Brief Hardening
-- **Harness (`harness-workflow-check.js`)**: Expanded to 146 steps (`130` package `verify:*`, all `121` disk `verify-*.js` covered or explicitly `VERIFY_EXEMPTIONS`-classified, `7/7` self-tests). Repaired `verify-emotion-regulation-planner.js`, `verify-past-life-story-studio.js`, `verify-couple-deck.js`; moved `analytics-event-check.js` to `listenOnSafePort`; aligned `runtime-check.js` `FOCUSED_DIRS` (`9` active core apps); wired `audit-funnel.js` & `trust-audit.js --check`.
-- **`.md` & Session Loop**: Added `npm run session:brief` (`scripts/session-brief.js`, schema validation + KST maturation gates `[WAIT]`/`[READY]`), compressed `docs/ANTI-PATTERNS.md` (`39.7KB` → `4.7KB`) and `GEMINI.md` (`2.99KB` → `2.08KB`), unified core-route SSOT (`CLAUDE.md`) and `retrospectives.jsonl` schema, expanded `verify-doc-budget.js` (`14` docs, `file://` URI ban, `12/12` mutations).
-- **Previous monetization wave (`cce1392`, `0276a3a`)**: Deployed `root-domain` (`v5-focus`), `future-self` (`1eecfd9`), `kpop-position` (`6077bee`), `color-blindness`, `iq-test`, `portal` (`f53819b`, 20 top-PV pages + SG WAF), IndexNow (`200 OK`); earliest review `2026-11-22` / `2026-12-13` (see `memory/data-check-log.md`).
+## Latest release: 2026-11-15 Trust-Audit 119/119, Harness & Live Signal Review
+- **Trust Audit & Submodules (`119/119 clean`)**: Resolved final 5 findings across `color-memory`, `flappy-bird`, `maze-runner`, `sky-runner` (visible 5-item FAQ), `inner-child-test`; refined `trust-audit.js` + updated `audit-registry.json` (`114 skipped, 5 clean, 0 issues`); fixed `quality-gate.sh` MSYS Python JSON check via `node`.
+- **Harness & Analytics (`10/10 PASS`)**: Added `future-self-monetization-funnel` (`test_start`, `test_complete`, `curated_resource_click`, `content_cta_click`, `{ force: true }`) to `analytics-event-check.js`; verified 4 legacy `VERIFY_EXEMPTIONS`. Earlier today: `146`-step harness (`7/7` self-test), `14`-doc `verify-doc-budget.js`, `session:brief`, repo cleanup (`bc9ca9e`).
+- **Live GSC/GA4/AdSense & Prior Wave (`cce1392`)**: AdSense keepalive OK (`policyIssues: 0`), GSC 0 quick wins (`28d`/`90d` sparse), GA4 Organic Search shows `animal-personality` multi-locale cluster (`EN/ES/PT` + app `12` sess) untouched outside `[WAIT]` (`stress-check`, `hsp-test`, `future-self`, `portal`, `kpop-position`, `color-blindness`, `iq-test`; earliest review `2026-11-22`).
 
 ## Target and status
 

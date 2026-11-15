@@ -224,7 +224,7 @@ JSON_ERRORS=""
 if [ -d "$LOCALE_DIR" ]; then
   for f in "$LOCALE_DIR"/*.json; do
     if [ -f "$f" ]; then
-      if ! python -c "import json; json.load(open(r'$f', encoding='utf-8'))" 2>/dev/null; then
+      if ! node -e "JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8'))" "$f" 2>/dev/null; then
         JSON_ERRORS="$JSON_ERRORS $(basename "$f")"
       fi
     fi

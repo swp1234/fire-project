@@ -429,6 +429,35 @@ const scenarios = [
       await clickAndWait(page, '#personalized-section .p-card');
     },
   },
+  {
+    name: 'future-self-monetization-funnel',
+    path: '/future-self/?lang=en',
+    expected: ['test_start', 'test_complete', 'curated_resource_click', 'content_cta_click'],
+    async run(page) {
+      await page.waitForSelector('#btn-start');
+      await page.locator('#btn-start').click({ force: true });
+      await page.waitForSelector('#screen-story.active');
+
+      for (let round = 0; round < 8; round += 1) {
+        await page.waitForSelector('#screen-story.active #choices .choice-btn');
+        await page.locator('#choices .choice-btn').first().click({ force: true });
+        if (round < 7) {
+          await page.waitForFunction(
+            (expected) => document.querySelector('#moment-counter')?.textContent.trim() === `${expected} / 8`,
+            round + 2,
+          );
+          await page.waitForTimeout(380);
+        }
+      }
+
+      await page.waitForSelector('#screen-result.active');
+      await page.waitForSelector('.curated-resource-item');
+      await preventNavigation(page, '.curated-resource-item');
+      await page.locator('.curated-resource-item').first().click({ force: true });
+      await preventNavigation(page, '.next-app-link');
+      await page.locator('.next-app-link').first().click({ force: true });
+    },
+  },
 ];
 
 async function runScenario(browser, baseOrigin, scenario) {
