@@ -57,5 +57,5 @@ This file keeps only evidence that still changes a product, traffic, or release 
 
 ## Verification baseline
 
-- Full release harness `146` steps (`131` package `verify:*` / `session:*`, `126` disk `verify-*.js`), zero synthetic/paid-impression tolerance, GitHub Pages build verification required per child repo.
+- Full release harness `146` steps (`131` package `verify:*` / `session:*`, `121` disk `verify-*.js`), zero synthetic/paid-impression tolerance, GitHub Pages build verification required per child repo.
 - **2026-11-15 Batch 1+2 (`0276a3a`, `cce1392`)**: `root-domain` (`v5-focus` async `i18n` fix), `color-blindness`/`iq-test`/`future-self`/`kpop-position` 12-locale `.curated-resources-card` + static canonicals, `portal` (`f53819b`) 20 top-PV sticky CTAs + SG `ad-loader.js` guard + Palworld canonicals, IndexNow (`200 OK`). Earliest review: **2026-11-22** (7d funnel CTA/affiliate clicks, SG PV) / **2026-12-13** (28d GSC indexing for `/future-self/`, `/color-blindness/`, `/iq-test/`, `/portal/tools/grounding-exercise.html`).

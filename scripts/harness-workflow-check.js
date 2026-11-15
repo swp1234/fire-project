@@ -15,11 +15,6 @@ const VERIFY_EXEMPTIONS = {
   'scripts/verify-stress-plan.js': 'focused product diagnostic outside the current portfolio smoke',
   'scripts/verify-stress-plan-distribution.js': 'focused product distribution diagnostic outside the current portfolio smoke',
   'scripts/verify-rule-based-labels.js': 'legacy umbrella diagnostic superseded by product-specific trust verifiers',
-  'scripts/verify-tier59-cards.js': 'historical batch-59 portal card rollout diagnostic',
-  'scripts/verify-tier60-cards.js': 'historical batch-60 portal card rollout diagnostic',
-  'scripts/verify-tier60-hreflang.js': 'historical batch-60 hreflang rollout diagnostic',
-  'scripts/verify-tier62-cards.js': 'historical batch-62 portal card rollout diagnostic',
-  'scripts/verify-tier68-cards.js': 'historical batch-68 portal card rollout diagnostic',
 };
 
 function takeValue(argv, index, flag) {

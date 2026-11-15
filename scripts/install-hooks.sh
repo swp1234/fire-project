@@ -2,7 +2,8 @@
 # Install shared git hooks across all project submodules
 # Usage: bash scripts/install-hooks.sh
 
-ROOT_DIR="E:/Fire Project"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd -P)"
 HOOKS_DIR="$ROOT_DIR/.githooks"
 COUNT=0
 SKIP=0

@@ -3,12 +3,14 @@
 # Installed via: git config core.hooksPath /path/to/.githooks
 # Or: bash scripts/install-hooks.sh
 
-# Find the root project directory (where quality-gate.sh lives)
-ROOT_DIR="E:/Fire Project"
+# Resolve the root project directory dynamically (works across machines/paths)
+HOOK_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+ROOT_DIR="$(cd "$HOOK_DIR/.." && pwd -P)"
 SCRIPT="$ROOT_DIR/scripts/quality-gate.sh"
 
 # Determine which app this submodule is
-REPO_DIR="$(git rev-parse --show-toplevel 2>/dev/null)"
+RAW_TOPLEVEL="$(git rev-parse --show-toplevel 2>/dev/null || true)"
+REPO_DIR="${RAW_TOPLEVEL:+$(cd "$RAW_TOPLEVEL" && pwd -P)}"
 APP_NAME="$(basename "$REPO_DIR")"
 
 # Skip if not a projects/ submodule (e.g., portal, or root repo)
