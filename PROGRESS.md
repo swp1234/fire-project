@@ -2,6 +2,11 @@
 
 Updated: 2026-11-14 KST. Release history: `memory/data-check-log.md`; ops loop: `dopabrain-growth-ops`.
 
+## Latest release: 2026-11-15 Revenue & SEO Conversion Pass
+- `color-blindness`: Removed runtime `canonical.href` JS mutation in `index.html` & `i18n.js`, set `og:image:type="image/png"`, `dateModified: 2026-11-15`, added 12-locale `.curated-resources-card` (`dopabrain-20` / Kyobo), bumped `sw.js` to `v3`.
+- `iq-test`: Added 12-locale `.curated-resources-card` (dynamic `dopabrain-20` / Kyobo), updated `dateModified: 2026-11-15`, bumped `sw.js` to `iq-puzzle-v6`.
+- `portal` & `root-domain`: Localized `cross-promo.js` sticky sprint copy across 12 locales with overlap guard, added localized `.revenue-sticky-cta` to 16 high-PV pages (12 FR/EN/PT/ZH blogs + 4 Palworld tools), synced sitemaps (`1557` URLs).
+
 ## Target and status
 
 - Target: `$1.40` / 7 completed days (`$0.20/day`).
@@ -21,7 +26,7 @@ Updated: 2026-11-14 KST. Release history: `memory/data-check-log.md`; ops loop: 
 
 - **P0-P3 SEO/GEO & Funnel Foundation (완료)**: IndexNow 송출 (`200 OK`), `llms*.txt` (`658524e`), 3대 킬러앱(Stress Check/HSP/Future Self) 1080x1920 스토리 카드·도서 큐레이션, 소셜 훅(`docs/MARKETING-VIRAL-HOOKS.md`), 4,034파일 퍼널 무결점 & 119개 레지스트리 동기화.
 
-## Latest release: Hub Indexing, Sticky CTAs & App Monetization (`2026-11-14`)
+## Previous release: Hub Indexing, Sticky CTAs & App Monetization (`2026-11-14`)
 
 - **Wave 1-4 Core App i18n/SEO & UX**: EN SEO(`en_US`, `hreflang`, `?lang=` sync), `window.i18n` 노출, `stress-type` hitbox, `soul-age`/`dream-fortune` UX, `root-domain` sitemap dedupe, `#app-loader` LCP & Cloudflare proxy/WAF/TLS `1.2` 정렬.
 - **Blog Hub Orphan Closure & `og:locale` (`portal`)**: `/portal/` 중복 `og:locale` 수정(`ko_KR` + `en_US`), 12개 언어 허브 정적 링크 419개(`>=44px`) 보강으로 indexable 고아 0 달성(`TRUE_INDEXABLE_ORPHAN=0`), `portal/blog/sitemap.xml` 동기화.

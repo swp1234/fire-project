@@ -75,3 +75,8 @@ Current signal qualification and primary sources live in `docs/STRATEGY.md` and 
 - Final full harness `2026-09-05T14-02-27-501Z` passed 127/127 in 763.6 summed seconds, including structure mutations 6/6, document mutations 10/10, analytics 9/9, runtime 6/6 and submitted inventory 63/0.
 - Successful-step output remains omitted from JSON. Reports now carry functional groups and package-verifier coverage: 110 of 114 verifier scripts are full-registered, while four legacy or focused diagnostics have explicit reasons.
 - GitHub Pages source must be queried per child repository before release. Working/development branch names are not deployment evidence.
+
+### 2026-11-15 Revenue & SEO Conversion Pass
+- Window: baseline 2026-10-30..2026-11-14 (`$0.65` AdSense, `cross_promo_click` CTR `0.4%`, GSC `Crawled - currently not indexed` on core tools); edits pushed 2026-11-15 (~03:00 UTC) and submitted via IndexNow (`18` URLs, HTTP 200).
+- Changes: `color-blindness` removed runtime `canonical.href` JS mutation (`index.html`, `i18n.js`), added `og:image:type="image/png"`, 12-locale `.curated-resources-card` (`dopabrain-20`/Kyobo), `v3` SW; `iq-test` added 12-locale `.curated-resources-card`, `iq-puzzle-v6` SW; `portal` localized `cross-promo.js` sticky sprint copy (12 locales + overlap guard), added `.revenue-sticky-cta` to 16 high-PV pages (12 FR/EN/PT/ZH blogs + 4 Palworld tools), synced sitemaps (`1557` URLs).
+- Earliest review: **2026-11-22** (7d `cross_promo_click` / `content_cta_click` / `curated_resource_click` & RPM check); **2026-12-13** (28d GSC `color-blindness` / `iq-test` indexing & CTR maturation).
