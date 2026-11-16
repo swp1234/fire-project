@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-11-15",
+  "lastUpdated": "2026-11-16",
   "description": "Persistent audit registry recording completed mobile UX (390x844 overflow 0px & touch target >=44px) and submodule verification. Autonomous sessions must skip re-auditing submodules matching their recorded commit hash.",
   "totalSubmodules": 119,
   "submodules": {
@@ -60,9 +60,9 @@
       "trustCompliant": true
     },
     "seollal-greetings": {
-      "headCommit": "e8ce6121da2ae1f84b8e31a2e2350575ea23c06f",
+      "headCommit": "bd8a1cb7ff23419dec25729acf0a21b28204ed7c",
       "branch": "master",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -88,9 +88,9 @@
       "lastAudited": "2026-11-12T10:47:48.464Z"
     },
     "affirmation": {
-      "headCommit": "54bb4976d56be3d3a8d4cc974fce2db34cfc1acb",
+      "headCommit": "54c39c95e791ffc61d977417f8a789633d7c17ac",
       "branch": "main",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -118,9 +118,9 @@
       "trustCompliant": true
     },
     "brick-breaker": {
-      "headCommit": "201c5705fb95f92511ac7a9a6cde50e195e0c4b5",
+      "headCommit": "d43506c7b4f2c6b89b2ceda5525a0cc282b5e2eb",
       "branch": "master",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -145,9 +145,9 @@
       "trustCompliant": true
     },
     "dday-counter": {
-      "headCommit": "f4d72cb8ae52eed38086e5db2770c25341a6d5b4",
+      "headCommit": "21b932a5dcecd35dbd56a96457ab45546f4b3467",
       "branch": "main",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -175,9 +175,9 @@
       "trustCompliant": true
     },
     "dream-fortune": {
-      "headCommit": "18666642e7439eb7fc760d950713f3d693fa5c15",
+      "headCommit": "bd21e2fa6b0da530a94a008f8a6a610aec5c63cc",
       "branch": "main",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -196,9 +196,9 @@
       "trustCompliant": true
     },
     "emotion-temp": {
-      "headCommit": "97f53f47b5880f524e99c9c70cd8d9a2d480ccd2",
+      "headCommit": "d1c094594f56d0da894c45531ead6c9bb35ee233",
       "branch": "main",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -261,27 +261,27 @@
       "trustCompliant": true
     },
     "lottery": {
-      "headCommit": "5807bcd4601544044e6e1728429080e654a0f3a6",
+      "headCommit": "256422643073213bcf61295871893609f0751558",
       "branch": "main",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
       "trustCompliant": true
     },
     "love-frequency": {
-      "headCommit": "f66afe3e834110c4d1242749ca2b62aa4839457b",
+      "headCommit": "8b55fca9b74fb1ac493e8800dcdb108e94cddc0b",
       "branch": "master",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
       "trustCompliant": true
     },
     "mbti-love": {
-      "headCommit": "b6c7dcb7fbfa428477f3112c2d0907d9bbb7cd2c",
+      "headCommit": "0ce70c982c1a93e4fc456082f7afcbebfd5781f1",
       "branch": "main",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -297,18 +297,18 @@
       "trustCompliant": true
     },
     "memory-card": {
-      "headCommit": "1fda163238ecbdba81be524d4f0355dfb244c18a",
+      "headCommit": "9bc0bee425dbbdfb975e8c0d3d59a9fd813341c1",
       "branch": "master",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
       "trustCompliant": true
     },
     "minesweeper": {
-      "headCommit": "b758c5bedceab5b432fc93bac37adf5177eb9447",
+      "headCommit": "685dd59ef65b447e903729ab6ae1ed5d9c86b912",
       "branch": "master",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -400,18 +400,18 @@
       "trustCompliant": true
     },
     "shopping-calc": {
-      "headCommit": "55dc77a5e77ffc654e6e7bd50485fccc86292fd4",
+      "headCommit": "106b50906608adffc3d2ba893f59ce2f5f2184cc",
       "branch": "main",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "trustCompliant": true,
       "status": "VERIFIED_PASSED"
     },
     "sky-runner": {
-      "headCommit": "447ba7abbc439c8f145c987fa2b4eccec9b8b05c",
+      "headCommit": "9757fac9c583f43fdee2b2f75f01e8673fdba07a",
       "branch": "main",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "trustCompliant": true,
@@ -436,9 +436,9 @@
       "trustCompliant": true
     },
     "tax-refund-preview": {
-      "headCommit": "ea549428eaf7114883b4a8a36909153ffac920ae",
+      "headCommit": "7f82e20f4074b98b665b554c81490f9ba32ea526",
       "branch": "main",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -454,9 +454,9 @@
       "trustCompliant": true
     },
     "unit-converter": {
-      "headCommit": "37f1559c05c432f3e972f3ad6db0d6d50ea04eb9",
+      "headCommit": "0c36f2d1f11fcb4997c7104901c9ef863c0cb3cd",
       "branch": "main",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -503,9 +503,9 @@
       "trustCompliant": true
     },
     "zigzag-runner": {
-      "headCommit": "dbd66a69ca87288c8097f0762eae205f706e51ed",
+      "headCommit": "d4bb2c18506683b777d0e73b9225b92a4fbe65ca",
       "branch": "main",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -524,9 +524,9 @@
       "trust_issues": 0
     },
     "love-language": {
-      "headCommit": "d32e81f1be0af85b5929abaeefa7111cc90cc9fb",
+      "headCommit": "4e48caa81913c95b969ff48eb073df0cac4adacc",
       "branch": "master",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "trustCompliant": true,
@@ -564,9 +564,9 @@
       "trust_issues": 0
     },
     "name-match": {
-      "headCommit": "29cd7de4b3328bccda4833e4485a131cd92114ae",
+      "headCommit": "e3c08486c1079f5dafade09fea67303a73c90ee1",
       "branch": "main",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -609,9 +609,9 @@
       "trustCompliant": true
     },
     "red-green-flag": {
-      "headCommit": "5c36a060b3199b35efa86152b8b39ebecc21328e",
+      "headCommit": "0c3b14807a9c4a10b236557ff6941d19b1457f63",
       "branch": "master",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -629,9 +629,9 @@
       "lastAudited": "2026-11-07T11:10:00.000Z"
     },
     "attachment-style": {
-      "headCommit": "222a0e4e98ce1ee6dc88edb461f0725ef06db265",
+      "headCommit": "d0260d2ac87230427fe07034002ca22f2ff508ff",
       "branch": "master",
-      "auditedAt": "2026-11-09",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -665,9 +665,9 @@
       "trustCompliant": true
     },
     "bmi-calculator": {
-      "headCommit": "bd4919b1532dbe3f3e6626fd32669cc892a8e4cc",
+      "headCommit": "425d4c53f43b109c71102a79ce4d22eaa4368436",
       "branch": "main",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "trustCompliant": true,
@@ -694,9 +694,9 @@
       "lastAudited": "2026-11-07T10:52:00.000Z"
     },
     "daily-tarot": {
-      "headCommit": "77c0c01b9a021b9b3770538da8c31d17c78a75d8",
+      "headCommit": "34397f1a9dff58da6a173bd564dbc086ec14eb09",
       "branch": "master",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -805,9 +805,9 @@
       "trust_issues": 0
     },
     "npc-test": {
-      "headCommit": "50e0e27f0c4fd8a3b8045f1240fcbd9ba7542ab5",
+      "headCommit": "3ee8d78388787eca3bcd034a72d5a5d54ae3b28e",
       "branch": "gh-pages",
-      "auditedAt": "2026-10-24",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -833,36 +833,36 @@
       "lastAudited": "2026-11-07T10:56:00.000Z"
     },
     "soul-age": {
-      "headCommit": "de2511c3b68dae247bf8e1dfeb05cb858b00933a",
+      "headCommit": "67cae89b40e7146248f09b77e3b6f646a29d0b5c",
       "branch": "master",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "trustCompliant": true,
       "status": "VERIFIED_PASSED"
     },
     "pick-me": {
-      "headCommit": "a895de93c1092c02f1bf1b3c7a61855660ce406c",
+      "headCommit": "a64cb469b45d5b530a0267bc7b39d08f714945cd",
       "branch": "master",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
       "trustCompliant": true
     },
     "emotional-age": {
-      "headCommit": "c2c4ff6267994b9ae7cbab8fda2cefbae410f020",
+      "headCommit": "7d17b3b3d8e38bee86d55ae316637bc35c1e8c89",
       "branch": "master",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "trustCompliant": true,
       "status": "VERIFIED_PASSED"
     },
     "villain-origin": {
-      "headCommit": "78bfabd0225b1869a9214ecec231d7b1b7420697",
+      "headCommit": "110feb0fe3c423bd5387f59f35318b89bbc98e8b",
       "branch": "master",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -872,9 +872,9 @@
       "trust_issues": 0
     },
     "ick-factor": {
-      "headCommit": "74f6e45875061e7e91063cf3bdbd0b4cd2ec37cb",
+      "headCommit": "a9281318c134003bd1dea05a309f77f30f91d20d",
       "branch": "master",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -884,9 +884,9 @@
       "trust_issues": 0
     },
     "life-in-numbers": {
-      "headCommit": "ec7414c8e2990018c6f8d657d70457be2327f716",
+      "headCommit": "5e687c4b1f809611939d400d5f7f885d99532443",
       "branch": "master",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -929,9 +929,9 @@
       "trustCompliant": true
     },
     "overthinker-test": {
-      "headCommit": "2fa77d893c4c0feefc84a242d44fe52578b5c156",
+      "headCommit": "b54f5b76137d3de260f71a01965ebc7f3329100d",
       "branch": "master",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -984,9 +984,9 @@
       "trustCompliant": true
     },
     "toxic-trait-test": {
-      "headCommit": "cb38af95a6c5e8d343f6ca5490ac6f51b9552840",
+      "headCommit": "0ec948fab481738ee114ce1bfa8d71a015bd0658",
       "branch": "master",
-      "auditedAt": "2026-11-01",
+      "auditedAt": "2026-11-16",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -1157,23 +1157,23 @@
     "lastAudited": "2026-11-01"
   },
   "projects/zodiac-match": "d8e123ce228c867bcc55ade10dca325ef3252ee7",
-  "projects/lottery": "5f16cca213b6a39a2129f41a6dd9f004ec38417d",
+  "projects/lottery": "256422643073213bcf61295871893609f0751558",
   "projects/fortune-cookie": "b1a831f3cd09f76893c6f94885bce6e4d8cdb1b6",
   "projects/would-you-rather": "ed5a55629a6e22991e61c436fb0d0f27498c8dfc",
-  "projects/seollal-greetings": "24cea3a193554ebc7c8ce3f4d8f05adcf7bf7205",
+  "projects/seollal-greetings": "bd8a1cb7ff23419dec25729acf0a21b28204ed7c",
   "projects/valentine": "466f48449491969df22d18e6fdf00549499d450e",
   "projects/animal-personality": "d0194c589bcb82f11a80877eaa42f2f7f5c91152",
   "projects/kpop-position": "e84e29d8cb7bc9b8dd34c33b18a559a76bd2463b",
   "projects/biorhythm": "f35ef4c31c63cbb70f3f5d9f60cc202904a0d4a7",
-  "projects/dday-counter": "3edda154a9b0a0a97a9fa07296b5d7549da85085",
-  "projects/shopping-calc": "fe6865014c1b0b9eb5c6a501b43509491244ee31",
+  "projects/dday-counter": "21b932a5dcecd35dbd56a96457ab45546f4b3467",
+  "projects/shopping-calc": "106b50906608adffc3d2ba893f59ce2f5f2184cc",
   "projects/password-generator": "d03d44ea324059dd9085c8a6d8d59f4571343c56",
-  "projects/tax-refund-preview": "ae11b0b60056d4e71f4684e1b039a315866f80a5",
+  "projects/tax-refund-preview": "7f82e20f4074b98b665b554c81490f9ba32ea526",
   "projects/iq-test": "ecec9eb919b1eb40d26bd436ef421e850efbf1eb",
-  "projects/daily-tarot": "2998fa6bd3ac01d72b5de5210191f70b19c9d466",
+  "projects/daily-tarot": "34397f1a9dff58da6a173bd564dbc086ec14eb09",
   "projects/hsp-test": "79125923a64a8e8d92fbe6f053f67c96ab595ed9",
   "projects/stress-check": "23bc4b3b508490bcc293eb0e25e32a2cd8215532",
-  "projects/attachment-style": "222a0e4e98ce1ee6dc88edb461f0725ef06db265",
+  "projects/attachment-style": "d0260d2ac87230427fe07034002ca22f2ff508ff",
   "mental-age": {
     "head": "1f01a154a6495bbb6c61a0e337ec67300dc88f90",
     "date": "2026-11-07",
@@ -1185,8 +1185,8 @@
     "status": "CLEAN"
   },
   "lottery": {
-    "head": "60a9ef082fb4f67bb89de5a8f6f6cdc0a2071ca8",
-    "date": "2026-11-07",
+    "head": "256422643073213bcf61295871893609f0751558",
+    "date": "2026-11-16",
     "status": "CLEAN"
   },
   "zodiac-match": {
