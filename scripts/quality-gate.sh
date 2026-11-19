@@ -148,15 +148,17 @@ fi
 
 # 6. AdSense active or explicit incident suspension contract
 if [ -f "$APP_DIR/index.html" ]; then
-  if grep -q "ca-pub-3600813755953882" "$APP_DIR/index.html" 2>/dev/null; then
-    green "AdSense tag present"
-  elif grep -Eq 'data-ad-serving="suspended-invalid-traffic-[0-9]{4}-[0-9]{2}-[0-9]{2}"' "$APP_DIR/index.html" 2>/dev/null; then
-    if grep -Eqi 'pagead2\.googlesyndication\.com|<ins[^>]+adsbygoogle|adsbygoogle[^[:space:]]*\.push|data-ad-slot=' "$APP_DIR/index.html" 2>/dev/null; then
+  if grep -Eq 'data-ad-serving="suspended-invalid-traffic-[0-9]{4}-[0-9]{2}-[0-9]{2}"' "$APP_DIR/index.html" 2>/dev/null; then
+    if grep -Eqi 'pagead2\.googlesyndication\.com|/portal/js/ad-loader\.js|<ins[^>]+adsbygoogle|adsbygoogle[^[:space:]]*\.push|data-ad-slot=' "$APP_DIR/index.html" 2>/dev/null; then
       red "AdSense suspension marker conflicts with active ad code"
       FAIL=$((FAIL+1))
     else
       green "AdSense intentionally suspended for invalid-traffic containment"
     fi
+  elif grep -q "ca-pub-3600813755953882" "$APP_DIR/index.html" 2>/dev/null; then
+    green "AdSense tag present"
+  elif grep -Eq 'src="/portal/js/ad-loader\.js"' "$APP_DIR/index.html" 2>/dev/null; then
+    green "AdSense managed ad-loader present"
   else
     red "AdSense tag or incident suspension marker missing"
     FAIL=$((FAIL+1))

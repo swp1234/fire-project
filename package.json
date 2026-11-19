@@ -150,7 +150,8 @@
     "verify:couple-deck": "node scripts/verify-couple-deck.js",
     "verify:emotion-regulation-planner": "node scripts/verify-emotion-regulation-planner.js",
     "verify:past-life-story-studio": "node scripts/verify-past-life-story-studio.js",
-    "verify:i18n-contracts": "node scripts/verify-i18n-runtime-contracts.js --mutations"
+    "verify:i18n-contracts": "node scripts/verify-i18n-runtime-contracts.js --mutations",
+    "verify:blog-monetization": "node scripts/verify-blog-monetization.js --mutations"
   },
   "devDependencies": {
     "playwright": "^1.60.0"
