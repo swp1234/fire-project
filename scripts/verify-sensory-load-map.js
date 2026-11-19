@@ -2,6 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
+const { listenOnSafePort } = require('./lib/safe-local-port');
 
 const root = path.resolve(__dirname, '..');
 const routes = [
@@ -40,7 +41,7 @@ async function eventNames(page) {
 async function run() {
     const production = process.argv.includes('--production');
     const server = production ? null : serve();
-    if (server) await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+    if (server) await listenOnSafePort(server);
     const origin = production ? 'https://dopabrain.com' : `http://127.0.0.1:${server.address().port}`;
     const browser = await chromium.launch({ headless: true });
     const context = await browser.newContext({ viewport: { width: 390, height: 844 } });

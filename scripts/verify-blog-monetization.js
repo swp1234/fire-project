@@ -76,10 +76,14 @@ function verifySource(fx) {
   let curatedCount = 0;
   let stickyCount = 0;
   let quickCheckCount = 0;
+  let preconnectCount = 0;
   let missingBlogGtag = [];
   for (const [rel, html] of Object.entries(fx.blogs)) {
     if (!/function\s+gtag\s*\(/i.test(html) || !/G-J8GSWM40TV/.test(html)) {
       missingBlogGtag.push(rel);
+    }
+    if (/rel="preconnect"[^>]*googlesyndication/i.test(html)) {
+      preconnectCount++;
     }
     if (html.includes('data-bm-curated="1"')) {
       curatedCount++;
@@ -103,7 +107,8 @@ function verifySource(fx) {
   assert(missingBlogGtag.length === 0, `Sitemap blog pages missing gtag() init: ${missingBlogGtag.slice(0, 5).join(', ')}`);
   assert(curatedCount >= 1000, `Expected >=1000 curated blog pages, got ${curatedCount}`);
   assert(stickyCount >= 1000, `Expected >=1000 managed sticky CTA blog pages, got ${stickyCount}`);
-  assert(quickCheckCount >= 400, `Expected >=400 interactive quick-check blog pages, got ${quickCheckCount}`);
+  assert(quickCheckCount >= 600, `Expected >=600 interactive quick-check blog pages across 12 locales, got ${quickCheckCount}`);
+  assert(preconnectCount >= 1000, `Expected >=1000 AdSense preconnect blog pages, got ${preconnectCount}`);
 
   // 4. Zero GA4 blackouts across active monetized sub-apps
   const missingAppGtag = [];
@@ -126,6 +131,7 @@ function verifySource(fx) {
     curatedCount,
     stickyCount,
     quickCheckCount,
+    preconnectCount,
     activeAppsChecked: Object.keys(fx.activeApps).length,
   };
 }
@@ -134,12 +140,16 @@ function runMutations(base) {
   const firstCuratedKey = Object.keys(base.blogs).find((k) => base.blogs[k].includes('data-bm-curated="1"'));
   const firstQuickKey = Object.keys(base.blogs).find((k) => base.blogs[k].includes('data-bm-check="1"'));
   const firstAppKey = Object.keys(base.activeApps)[0];
+  const noPreconnectBlogs = Object.fromEntries(
+    Object.entries(base.blogs).map(([k, v]) => [k, v.replace(/<link[^>]*rel="preconnect"[^>]*googlesyndication[^>]*>/gi, '')])
+  );
   const cases = [
     ['synthetic-page-engage', { ...base, bmJs: `${base.bmJs}\nsendEvent('page_engage');` }],
     ['spam-guard-removed', { ...base, adLoader: base.adLoader.replace('function isSpamReferrer', 'function disabledGuard') }],
     ['missing-sponsored-rel', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: base.blogs[firstCuratedKey].replace(/\bsponsored\b/gi, '') } }],
     ['suspended-sticky-target', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: base.blogs[firstCuratedKey].replace(/<a class="revenue-sticky-cta" href="\/[a-z0-9-]+\//i, '<a class="revenue-sticky-cta" href="/past-life/') } }],
     ['suspended-quickcheck-target', { ...base, blogs: { ...base.blogs, [firstQuickKey]: base.blogs[firstQuickKey].replace(/<a class="bm-qc-cta" href="\/[a-z0-9-]+\//i, '<a class="bm-qc-cta" href="/past-life/') } }],
+    ['preconnect-stripped', { ...base, blogs: noPreconnectBlogs }],
     ['blog-gtag-blackout', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: base.blogs[firstCuratedKey].replace(/function\s+gtag\s*\(/gi, 'function broken(') } }],
     ['app-gtag-blackout', { ...base, activeApps: { ...base.activeApps, [firstAppKey]: base.activeApps[firstAppKey].replace(/function\s+gtag\s*\(/gi, 'function broken(') } }],
     ['404-head-guard-removed', { ...base, page404: base.page404.replace("method: 'HEAD'", "method: 'GET'") }],
@@ -163,7 +173,7 @@ function main() {
   const base = loadFixture();
   const res = verifySource(base);
   if (process.argv.includes('--mutations')) runMutations(base);
-  console.log(`[PASS] Blog monetization & telemetry contracts verified (${res.blogsChecked} sitemap blogs, ${res.curatedCount} curated, ${res.stickyCount} sticky CTAs, ${res.quickCheckCount} quick-checks, ${res.activeAppsChecked} active apps, 404 recovery)`);
+  console.log(`[PASS] Blog monetization & telemetry contracts verified (${res.blogsChecked} sitemap blogs, ${res.curatedCount} curated, ${res.stickyCount} sticky CTAs, ${res.quickCheckCount} quick-checks, ${res.preconnectCount} preconnect, ${res.activeAppsChecked} active apps, 404 recovery)`);
 }
 
 main();
