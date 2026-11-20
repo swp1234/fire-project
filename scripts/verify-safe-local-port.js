@@ -17,6 +17,7 @@ const BROWSER_VERIFIERS = [
   'scripts/verify-blog-generator-interaction.js',
   'scripts/verify-brain-training-bridge.js',
   'scripts/verify-sensory-load-map.js',
+  'scripts/verify-wellness-tools-suite.js',
   'scripts/analytics-event-check.js',
 ];
 

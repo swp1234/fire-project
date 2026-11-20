@@ -466,6 +466,7 @@ async function main() {
     ['focused portfolio trust audit', process.execPath, ['.agents/skills/dopabrain-trust-audit/scripts/trust-audit.js', '--check', '--force', 'stress-check', 'hsp-test', 'future-self', 'color-blindness', 'iq-test', 'kpop-position', 'portal', 'puzzle-2048', 'brain-type']],
     ['i18n runtime contracts and mutations', process.execPath, ['scripts/verify-i18n-runtime-contracts.js', '--mutations']],
     ['blog monetization, GA4 init, spam ad guard, and 404 recovery contracts', process.execPath, ['scripts/verify-blog-monetization.js', '--mutations']],
+    ['wellness tools suite, 1080x1920 story cards, and blog bridges', process.execPath, ['scripts/verify-wellness-tools-suite.js', '--mutations']],
     ['session brief self-test', process.execPath, ['scripts/session-brief.js', '--self-test']],
   ];
 

@@ -258,6 +258,10 @@ async function run() {
     browser = await chromium.launch({ headless: true });
     const page = await browser.newPage();
     await blockExternalAds(page);
+    await page.route('**/*', (route) => {
+      const u = route.request().url();
+      return u.startsWith(`http://127.0.0.1:${serverHandle.port}/`) ? route.continue() : route.abort();
+    });
     await page.addInitScript(() => {
       localStorage.setItem('app_language', 'ko');
     });

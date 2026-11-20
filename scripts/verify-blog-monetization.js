@@ -53,16 +53,39 @@ function loadFixture() {
     bmJs: fs.readFileSync(path.join(PORTAL_DIR, 'js', 'blog-monetization.js'), 'utf8'),
     adLoader: fs.readFileSync(path.join(PORTAL_DIR, 'js', 'ad-loader.js'), 'utf8'),
     page404: fs.readFileSync(path.join(PROJECTS_DIR, 'root-domain', '404.html'), 'utf8'),
+    llmsTxt: fs.readFileSync(path.join(PROJECTS_DIR, 'root-domain', 'llms.txt'), 'utf8'),
+    llmsFullTxt: fs.readFileSync(path.join(PROJECTS_DIR, 'root-domain', 'llms-full.txt'), 'utf8'),
     blogs,
     activeApps,
   };
+}
+
+function checkLlmsUrls(text, label) {
+  const urls = [...new Set([...String(text || '').matchAll(/https:\/\/dopabrain\.com(\/[^\s\)\],"'`]*)/g)].map((m) => m[1]))];
+  const broken = [];
+  for (const u of urls) {
+    const clean = u.split('?')[0].split('#')[0];
+    const parts = clean.replace(/^\//, '').split('/').filter(Boolean);
+    let fp = null;
+    if (clean === '/' || clean === '/llms.txt' || clean === '/llms-full.txt') {
+      fp = path.join(PROJECTS_DIR, 'root-domain', clean === '/' ? 'index.html' : parts[0]);
+    } else if (parts[0] === 'portal') {
+      const p1 = path.join(PORTAL_DIR, ...parts.slice(1));
+      fp = fs.existsSync(p1) && fs.statSync(p1).isFile() ? p1 : path.join(p1, 'index.html');
+    } else {
+      const p1 = path.join(PROJECTS_DIR, ...parts);
+      fp = fs.existsSync(p1) && fs.statSync(p1).isFile() ? p1 : path.join(p1, 'index.html');
+    }
+    if (!fs.existsSync(fp)) broken.push(u);
+  }
+  assert(broken.length === 0, `${label} contains broken 404 link(s): ${broken.join(', ')}`);
 }
 
 function verifySource(fx) {
   // 1. Shared CSS & JS contracts
   assert(/\.curated-resources-card\b/.test(fx.bmCss) && /\.revenue-sticky-cta-wrap\b/.test(fx.bmCss), 'blog-monetization.css missing core selectors');
   assert(/min-height:\s*44px/.test(fx.bmCss) && /min-width:\s*44px/.test(fx.bmCss), 'blog-monetization.css missing 44px touch target floor');
-  assert(/content_sticky_cta_view/.test(fx.bmJs) && /curated_resource_click/.test(fx.bmJs), 'blog-monetization.js missing required telemetry events');
+  assert(/content_sticky_cta_view/.test(fx.bmJs) && /curated_resource_click/.test(fx.bmJs) && /blog_tool_bridge_click/.test(fx.bmJs), 'blog-monetization.js missing required telemetry events');
   assert(/IntersectionObserver/.test(fx.bmJs) && /threshold:\s*0\.5/.test(fx.bmJs), 'blog-monetization.js missing 50%-visibility observer');
   assert(!/page_engage|ad_impression/i.test(fx.bmJs), 'blog-monetization.js contains forbidden synthetic telemetry');
 
@@ -126,6 +149,10 @@ function verifySource(fx) {
   assert(/URLSearchParams/.test(fx.page404), '404.html missing ?lang= query priority');
   assert(/\.chip\s*\{[^}]*min-height:\s*44px/i.test(fx.page404), '404.html .chip missing 44px touch target');
 
+  // 6. Zero broken 404 URLs in AI discovery manifests (llms.txt / llms-full.txt)
+  checkLlmsUrls(fx.llmsTxt, 'llms.txt');
+  checkLlmsUrls(fx.llmsFullTxt, 'llms-full.txt');
+
   return {
     blogsChecked: Object.keys(fx.blogs).length,
     curatedCount,
@@ -154,6 +181,7 @@ function runMutations(base) {
     ['app-gtag-blackout', { ...base, activeApps: { ...base.activeApps, [firstAppKey]: base.activeApps[firstAppKey].replace(/function\s+gtag\s*\(/gi, 'function broken(') } }],
     ['404-head-guard-removed', { ...base, page404: base.page404.replace("method: 'HEAD'", "method: 'GET'") }],
     ['404-small-chip-target', { ...base, page404: base.page404.replace(/min-height:\s*44px;/g, 'min-height: 24px;') }],
+    ['llms-broken-404-link', { ...base, llmsTxt: `${base.llmsTxt}\n- [Broken](https://dopabrain.com/nonexistent-test-404/)` }],
   ];
 
   for (const [name, mutated] of cases) {
