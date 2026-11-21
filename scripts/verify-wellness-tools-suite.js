@@ -59,6 +59,10 @@ const NEW_TOOLS = [
   'self-worth-evidence-builder',
   'sensory-overload-calm-kit',
   'avoidant-attachment-thaw-lab',
+  'anger-cooldown-deescalator',
+  'guilt-vs-responsibility-filter',
+  'loneliness-micro-connection-plan',
+  'sunday-scaries-week-reset',
 ];
 const EXISTING_FLAGSHIPS = [
   'burnout-stress-differential',
@@ -101,6 +105,7 @@ function loadFixture() {
     tools,
     existing,
     storyJs: fs.readFileSync(path.join(PORTAL, 'js', 'tool-story-card.js'), 'utf8'),
+    calmPacerJs: fs.readFileSync(path.join(PORTAL, 'js', 'tool-calm-pacer.js'), 'utf8'),
     sharedCss: fs.readFileSync(path.join(PORTAL, 'css', 'wellness-lab-tool.css'), 'utf8'),
     portalIndex: fs.readFileSync(path.join(PORTAL, 'index.html'), 'utf8'),
     portalToolsIndex: fs.readFileSync(path.join(PORTAL, 'tools', 'index.html'), 'utf8'),
@@ -117,7 +122,10 @@ function verifySource(fx) {
   // 1. Shared Story Card engine
   assert(/width\s*=\s*1080/.test(fx.storyJs) && /height\s*=\s*1920/.test(fx.storyJs), 'tool-story-card.js must render 1080x1920 canvas');
   assert(/tool_story_card_download/.test(fx.storyJs), 'tool-story-card.js missing safe download event');
+  assert(/FOOTER_TAGLINES/.test(fx.storyJs) && /TAKEAWAY_LABELS/.test(fx.storyJs), 'tool-story-card.js missing 12-locale viral footer taglines / takeaway labels');
   assert(!/page_engage|ad_impression/i.test(fx.storyJs), 'tool-story-card.js contains forbidden synthetic telemetry');
+  assert(/wellness_pacer_start/.test(fx.calmPacerJs) && /wellness_pacer_complete/.test(fx.calmPacerJs) && /min-height:44px/.test(fx.calmPacerJs), 'tool-calm-pacer.js missing pacer telemetry or 44px button contract');
+  assert(!/page_engage|ad_impression|Math\.random/i.test(fx.calmPacerJs), 'tool-calm-pacer.js contains forbidden synthetic or random pattern');
 
   // 2. Shared CSS
   assert(/overflow-x:\s*hidden/.test(fx.sharedCss) && /min-height:\s*44px/.test(fx.sharedCss), 'wellness-lab-tool.css missing mobile safety rules');
@@ -161,17 +169,18 @@ function verifySource(fx) {
   }
 
   // 5. MBTI curated affiliate & tool bridge enhancement
-  assert(fx.mbtiEnhancer.includes('tag=dopabrain-20') && /\bsponsored\b/i.test(fx.mbtiEnhancer) && /curated_resource_click/.test(fx.mbtiEnhancer), 'MBTI enhancer missing curated affiliate contract');
+  assert(fx.mbtiEnhancer.includes('tag=dopabrain-20') && /\bsponsored\b/i.test(fx.mbtiEnhancer) && /curated_resource_click/.test(fx.mbtiEnhancer) && fx.mbtiEnhancer.includes('All 50 Mental Wellness Labs'), 'MBTI enhancer missing curated affiliate or 50-Lab bridge contract');
 
   // 6. Contextual blog tool bridges
   assert(fx.bridgeCount >= 1190, `Expected >=1190 contextual blog tool bridges, got ${fx.bridgeCount}`);
 
-  // 7. Interactive Mental Wellness Lab Pillar Hub (46 tools + 12-locale lead pack)
+  // 7. Interactive Mental Wellness Lab Pillar Hub (50 tools + instant local search + 12-locale lead pack)
   const labCanon = 'https://dopabrain.com/portal/tools/wellness-lab.html';
   assert(fx.wellnessLabHtml.includes(`<link rel="canonical" href="${labCanon}">`), 'wellness-lab: canonical missing');
-  assert(fx.wellnessLabHtml.includes('CollectionPage') && fx.wellnessLabHtml.includes('"numberOfItems": 46'), 'wellness-lab: CollectionPage/ItemList(46) schema missing');
+  assert(fx.wellnessLabHtml.includes('CollectionPage') && fx.wellnessLabHtml.includes('"numberOfItems": 50'), 'wellness-lab: CollectionPage/ItemList(50) schema missing');
+  assert(fx.wellnessLabHtml.includes('id="labSearch"'), 'wellness-lab: instant local #labSearch input missing');
   const leadsObj = JSON.parse(fx.wellnessLabLeads);
-  assert(Object.keys(leadsObj).length === 46, `wellness-lab-leads.json must cover 46 tools, got ${Object.keys(leadsObj).length}`);
+  assert(Object.keys(leadsObj).length === 50, `wellness-lab-leads.json must cover 50 tools, got ${Object.keys(leadsObj).length}`);
   for (const slug of NEW_TOOLS) {
     assert(leadsObj[slug] && leadsObj[slug].de && leadsObj[slug].fr && leadsObj[slug].ja && leadsObj[slug].es, `wellness-lab-leads.json missing Tier-1 locales for ${slug}`);
   }
@@ -235,6 +244,12 @@ function runMutations(base) {
     ['selfworth-missing-canonical', () => { const m = clone(); m.tools['self-worth-evidence-builder'].html = m.tools['self-worth-evidence-builder'].html.replace('rel="canonical"', 'rel="alt"'); return m; }],
     ['sensory-hidden-faq', () => { const m = clone(); m.tools['sensory-overload-calm-kit'].html = m.tools['sensory-overload-calm-kit'].html.replace('class="faq-grid"', 'class="hidden-box"'); return m; }],
     ['avoidant-missing-curated', () => { const m = clone(); m.tools['avoidant-attachment-thaw-lab'].html = m.tools['avoidant-attachment-thaw-lab'].html.replaceAll('tag=dopabrain-20', 'tag=none'); return m; }],
+    ['anger-missing-canonical', () => { const m = clone(); m.tools['anger-cooldown-deescalator'].html = m.tools['anger-cooldown-deescalator'].html.replace('rel="canonical"', 'rel="alt"'); return m; }],
+    ['guilt-hidden-faq', () => { const m = clone(); m.tools['guilt-vs-responsibility-filter'].html = m.tools['guilt-vs-responsibility-filter'].html.replace('class="faq-grid"', 'class="hidden-box"'); return m; }],
+    ['loneliness-missing-curated', () => { const m = clone(); m.tools['loneliness-micro-connection-plan'].html = m.tools['loneliness-micro-connection-plan'].html.replaceAll('tag=dopabrain-20', 'tag=none'); return m; }],
+    ['sunday-missing-canonical', () => { const m = clone(); m.tools['sunday-scaries-week-reset'].html = m.tools['sunday-scaries-week-reset'].html.replace('rel="canonical"', 'rel="alt"'); return m; }],
+    ['wellness-lab-missing-search', () => { const m = clone(); m.wellnessLabHtml = m.wellnessLabHtml.replace('id="labSearch"', 'id="removedSearch"'); return m; }],
+    ['calm-pacer-synthetic-leak', () => { const m = clone(); m.calmPacerJs += '\n// page_engage'; return m; }],
   ];
   for (const [name, build] of cases) {
     let caught = false;
@@ -538,13 +553,14 @@ async function runRuntime() {
       }));
       assert(engCheck.lang === vp.lang && !engCheck.xss && engCheck.stopText === xssPayload && engCheck.overflow <= 0 && engCheck.completeEvents === 1, `Energy audit failed: ${JSON.stringify(engCheck)}`);
 
-      // 16. Interactive Mental Wellness Lab Pillar Hub (24 tools + filter + ?lang= preservation)
+      // 16. Interactive Mental Wellness Lab Pillar Hub (50 tools + filter + instant #labSearch + ?lang= preservation)
       await page.goto(`${srv.origin}/portal/tools/wellness-lab.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
       await page.waitForSelector('#labGrid .lab-card');
       const labBefore = await page.evaluate(() => ({
         lang: document.documentElement.lang,
         count: document.querySelectorAll('#labGrid .lab-card').length,
         firstHref: document.querySelector('#labGrid .lab-card')?.getAttribute('href') || '',
+        searchHeight: Math.round(document.getElementById('labSearch')?.getBoundingClientRect().height || 0),
         overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
       }));
       await page.click('.filter-pill[data-cat="anxiety"]');
@@ -552,9 +568,27 @@ async function runRuntime() {
         count: document.querySelectorAll('#labGrid .lab-card').length,
         filterEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'wellness_lab_filter').length,
       }));
+      await page.click('.filter-pill[data-cat="all"]');
+      const searchNeedle = vp.lang === 'ko' ? '공황' : 'panic';
+      await page.fill('#labSearch', searchNeedle);
+      const labSearch = await page.evaluate((needle) => ({
+        count: document.querySelectorAll('#labGrid .lab-card').length,
+        leakedQuery: JSON.stringify(window.dataLayer || []).includes(needle),
+      }), searchNeedle);
+      await page.fill('#labSearch', '');
+      const labClearedCount = await page.evaluate(() => document.querySelectorAll('#labGrid .lab-card').length);
+      await page.click('.mood-chip[data-mood="panic"]');
+      const labMood = await page.evaluate(() => ({
+        count: document.querySelectorAll('#labGrid .lab-card').length,
+        moodEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'wellness_lab_mood_chip').length,
+      }));
+      await page.click('.mood-chip[data-mood="panic"]');
+      const labMoodCleared = await page.evaluate(() => document.querySelectorAll('#labGrid .lab-card').length);
       const expectLangQuery = vp.lang === 'en' ? !labBefore.firstHref.includes('?lang=') : labBefore.firstHref.includes(`?lang=${vp.lang}`);
-      assert(labBefore.lang === vp.lang && labBefore.count === 46 && expectLangQuery && labBefore.overflow <= 0, `Wellness Lab initial check failed: ${JSON.stringify(labBefore)}`);
-      assert(labAfter.count === 13 && labAfter.filterEvents === 1, `Wellness Lab filter check failed: ${JSON.stringify(labAfter)}`);
+      assert(labBefore.lang === vp.lang && labBefore.count === 50 && labBefore.searchHeight >= 44 && expectLangQuery && labBefore.overflow <= 0, `Wellness Lab initial check failed: ${JSON.stringify(labBefore)}`);
+      assert(labAfter.count === 14 && labAfter.filterEvents === 1, `Wellness Lab filter check failed: ${JSON.stringify(labAfter)}`);
+      assert(labSearch.count >= 1 && labSearch.count < 10 && !labSearch.leakedQuery && labClearedCount === 50, `Wellness Lab search check failed: ${JSON.stringify({ labSearch, labClearedCount })}`);
+      assert(labMood.count === 7 && labMood.moodEvents === 1 && labMoodCleared === 50, `Wellness Lab mood chip check failed: ${JSON.stringify({ labMood, labMoodCleared })}`);
 
       // 17. Gaslighting & Manipulation Reality-Check Log + XSS Escaping
       await page.goto(`${srv.origin}/portal/tools/gaslighting-reality-check.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
@@ -736,6 +770,10 @@ async function runRuntime() {
         ['self-worth-evidence-builder', 'self_worth_complete'],
         ['sensory-overload-calm-kit', 'sensory_calm_complete'],
         ['avoidant-attachment-thaw-lab', 'avoidant_thaw_complete'],
+        ['anger-cooldown-deescalator', 'anger_cooldown_complete'],
+        ['guilt-vs-responsibility-filter', 'guilt_filter_complete'],
+        ['loneliness-micro-connection-plan', 'micro_connection_complete'],
+        ['sunday-scaries-week-reset', 'sunday_reset_complete'],
       ];
       for (const [slug, evName] of wave31Checks) {
         await page.goto(`${srv.origin}/portal/tools/${slug}.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
@@ -753,6 +791,18 @@ async function runRuntime() {
           leakedPayload: JSON.stringify(window.dataLayer || []).includes('onerror'),
         }), evName);
         assert(wCheck.lang === vp.lang && !wCheck.xss && wCheck.noteText === xssPayload && /%$/.test(wCheck.pct) && wCheck.overflow <= 0 && wCheck.completeEvents === 1 && !wCheck.leakedPayload, `${slug} failed: ${JSON.stringify(wCheck)}`);
+        if (slug === 'anger-cooldown-deescalator') {
+          await page.waitForSelector('#calmPacerStartBtn');
+          await page.click('#calmPacerStartBtn');
+          await page.waitForTimeout(1150);
+          const pCheck = await page.evaluate(() => ({
+            clock: document.getElementById('calmPacerClock')?.textContent || '',
+            btnH: Math.round(document.getElementById('calmPacerStartBtn')?.getBoundingClientRect().height || 0),
+            overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+            startEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'wellness_pacer_start').length,
+          }));
+          assert(pCheck.clock !== '00:60' && pCheck.btnH >= 44 && pCheck.overflow <= 0 && pCheck.startEvents === 1, `Shared 60s Calm Pacer failed: ${JSON.stringify(pCheck)}`);
+        }
       }
 
       assert(errors.length === 0, `${vp.width}px runtime errors: ${errors.join(' | ')}`);

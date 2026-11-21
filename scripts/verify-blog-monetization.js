@@ -88,6 +88,7 @@ function verifySource(fx) {
   assert(/content_sticky_cta_view/.test(fx.bmJs) && /curated_resource_click/.test(fx.bmJs) && /blog_tool_bridge_click/.test(fx.bmJs), 'blog-monetization.js missing required telemetry events');
   assert(/IntersectionObserver/.test(fx.bmJs) && /threshold:\s*0\.5/.test(fx.bmJs), 'blog-monetization.js missing 50%-visibility observer');
   assert(/CURATED_I18N/.test(fx.bmJs) && /localizeCuratedCard/.test(fx.bmJs), 'blog-monetization.js missing 12-locale curated affiliate localizer');
+  assert(/NEXT_CHAIN_I18N/.test(fx.bmJs) && /wellness_tool_chain_click/.test(fx.bmJs), 'blog-monetization.js missing 12-locale next-lab discovery chain');
   assert(/TOOL_CHROME_I18N/.test(fx.bmJs) && /wellness-lab-leads\.json/.test(fx.bmJs), 'blog-monetization.js missing 12-locale tool chrome & lazy heroLead localizer');
   assert(/data-tool-slug/.test(fx.bmJs), 'blog-monetization.js missing exact per-tool bridge slug attribution');
   assert(!/page_engage|ad_impression/i.test(fx.bmJs), 'blog-monetization.js contains forbidden synthetic telemetry');
@@ -222,6 +223,7 @@ function runMutations(base) {
     ['bm-tool-chrome-i18n-removed', { ...base, bmJs: base.bmJs.replace(/TOOL_CHROME_I18N/g, 'REMOVED_CHROME') }],
     ['bm-bridge-slug-attr-removed', { ...base, bmJs: base.bmJs.replace(/data-tool-slug/g, 'data-removed') }],
     ['app-missing-sponsored-rel', { ...base, activeApps: { ...base.activeApps, [firstAppKey]: `${base.activeApps[firstAppKey]}\n<a href="https://www.amazon.com/dp/0000000000?tag=dopabrain-20" rel="noopener nofollow">Book</a>` } }],
+    ['bm-next-chain-removed', { ...base, bmJs: base.bmJs.replace(/NEXT_CHAIN_I18N/g, 'REMOVED_CHAIN') }],
   ];
 
   for (const [name, mutated] of cases) {

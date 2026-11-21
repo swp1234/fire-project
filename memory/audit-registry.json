@@ -78,7 +78,7 @@
       "trustCompliant": true
     },
     "portal": {
-      "headCommit": "dbaa2e0c6ca45f043554c14a1d3f1e05e8c73156",
+      "headCommit": "36933d6041ec0e993f86c1153508e29f1a39662d",
       "branch": "main",
       "auditedAt": "2026-11-21",
       "overflowPx": 0,
@@ -154,9 +154,9 @@
       "trustCompliant": true
     },
     "detox-timer": {
-      "headCommit": "86c937e7963c9a225d038dc3c612ae39e788c542",
+      "headCommit": "cdfc2b754a3668b8ced4c365ff25fb30eef6698d",
       "branch": "main",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-21",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -261,9 +261,9 @@
       "trustCompliant": true
     },
     "lottery": {
-      "headCommit": "256422643073213bcf61295871893609f0751558",
+      "headCommit": "b15293ef2c780e6898848ba5dcedd9583c83f667",
       "branch": "main",
-      "auditedAt": "2026-11-16",
+      "auditedAt": "2026-11-21",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -381,7 +381,7 @@
       "trustCompliant": true
     },
     "root-domain": {
-      "headCommit": "c8bb045ffdbfad6ef4ca8665f9948eb13cc05544",
+      "headCommit": "031fb6bca71744208e14f0c0ba19eb7ec5695708",
       "branch": "main",
       "auditedAt": "2026-11-21",
       "overflowPx": 0,
@@ -512,9 +512,9 @@
       "trustCompliant": true
     },
     "zodiac-match": {
-      "headCommit": "596138b4219cee457cc9d3525f812260859041a9",
+      "headCommit": "cf6a8b2f3bcdd7d0f2200c2c8e45fb406f7a43b5",
       "branch": "master",
-      "auditedAt": "2026-11-09",
+      "auditedAt": "2026-11-21",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -619,9 +619,9 @@
       "lastAudited": "2026-11-07T11:15:00.000Z"
     },
     "toxic-trait": {
-      "headCommit": "dd623eaaa548824111c5fdd51fa06c5dbd9ca3b8",
+      "headCommit": "3957ca1440cf0810bdf09362bb44d831acae4a32",
       "branch": "master",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-21",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
@@ -993,9 +993,9 @@
       "trustCompliant": true
     },
     "shadow-work": {
-      "headCommit": "6f2ddd6cc91a04c77a4b90146eec1fcaa26f189d",
+      "headCommit": "13ed028b10375377f0579ad13de790fdb958c9b7",
       "branch": "master",
-      "auditedAt": "2026-11-15",
+      "auditedAt": "2026-11-21",
       "overflowPx": 0,
       "touchTargetCompliant": true,
       "status": "VERIFIED_PASSED",
