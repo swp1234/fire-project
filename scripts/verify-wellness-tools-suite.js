@@ -30,6 +30,19 @@ const NEW_TOOLS = [
   'window-of-tolerance-check',
   'adhd-focus-friction-audit',
   'inner-critic-compassion-lab',
+  'overthinking-rumination-breaker',
+  'social-battery-recharge-planner',
+  'somatic-tension-body-map',
+  'emotional-energy-audit',
+  'gaslighting-reality-check',
+  'codependency-reset-audit',
+  'perfectionism-loop-decoder',
+  'social-anxiety-exposure-ladder',
+  'vagal-nervous-system-reset',
+  'doomscrolling-circuit-breaker',
+  'inner-child-need-decoder',
+  'decision-fatigue-declutter',
+  'emotional-flashback-grounding',
 ];
 const EXISTING_FLAGSHIPS = [
   'burnout-stress-differential',
@@ -74,8 +87,11 @@ function loadFixture() {
     storyJs: fs.readFileSync(path.join(PORTAL, 'js', 'tool-story-card.js'), 'utf8'),
     sharedCss: fs.readFileSync(path.join(PORTAL, 'css', 'wellness-lab-tool.css'), 'utf8'),
     portalIndex: fs.readFileSync(path.join(PORTAL, 'index.html'), 'utf8'),
+    portalToolsIndex: fs.readFileSync(path.join(PORTAL, 'tools', 'index.html'), 'utf8'),
     portalSitemap: fs.readFileSync(path.join(PORTAL, 'sitemap.xml'), 'utf8'),
     mbtiEnhancer: fs.readFileSync(path.join(PORTAL, 'mbti', 'type-page-enhancer.js'), 'utf8'),
+    wellnessLabHtml: fs.readFileSync(path.join(PORTAL, 'tools', 'wellness-lab.html'), 'utf8'),
+    wellnessLabJs: fs.readFileSync(path.join(PORTAL, 'js', 'wellness-lab.js'), 'utf8'),
     bridgeCount,
   };
 }
@@ -115,6 +131,7 @@ function verifySource(fx) {
     assert(!/thought:|note:|answers:|score:|verdict:/i.test((js.match(/function sendSafeEvent[\s\S]*?\n  \}/) || [''])[0]), `${slug}: private data entered telemetry`);
     assert(fx.portalIndex.includes(`/portal/tools/${slug}.html`), `/portal/index.html missing hub link to ${slug}`);
     assert(fx.portalSitemap.includes(`<loc>${canonical}</loc>`), `/portal/sitemap.xml missing ${slug}`);
+    assert(html.includes('/portal/tools/wellness-lab.html'), `${slug}: missing bidirectional link to /portal/tools/wellness-lab.html`);
   }
 
   // 4. Existing 5 flagship tools upgraded with Story Card + Preconnect + Hub link
@@ -130,7 +147,18 @@ function verifySource(fx) {
   assert(fx.mbtiEnhancer.includes('tag=dopabrain-20') && /\bsponsored\b/i.test(fx.mbtiEnhancer) && /curated_resource_click/.test(fx.mbtiEnhancer), 'MBTI enhancer missing curated affiliate contract');
 
   // 6. Contextual blog tool bridges
-  assert(fx.bridgeCount >= 1000, `Expected >=1000 contextual blog tool bridges, got ${fx.bridgeCount}`);
+  assert(fx.bridgeCount >= 1190, `Expected >=1190 contextual blog tool bridges, got ${fx.bridgeCount}`);
+
+  // 7. Interactive Mental Wellness Lab Pillar Hub (30 tools)
+  const labCanon = 'https://dopabrain.com/portal/tools/wellness-lab.html';
+  assert(fx.wellnessLabHtml.includes(`<link rel="canonical" href="${labCanon}">`), 'wellness-lab: canonical missing');
+  assert(fx.wellnessLabHtml.includes('CollectionPage') && fx.wellnessLabHtml.includes('"numberOfItems": 30'), 'wellness-lab: CollectionPage/ItemList(30) schema missing');
+  assert(fx.wellnessLabHtml.includes('FAQPage') && /class=["'][^"']*faq-grid[^"']*["']/.test(fx.wellnessLabHtml), 'wellness-lab: visible FAQ contract missing');
+  assert(fx.wellnessLabHtml.includes('/portal/js/ad-loader.js') && fx.wellnessLabHtml.includes('tag=dopabrain-20') && /\bsponsored\b/i.test(fx.wellnessLabHtml), 'wellness-lab: monetization contract missing');
+  assert(!/page_engage|ad_impression|AggregateRating|Math\.random/i.test(fx.wellnessLabHtml + '\n' + fx.wellnessLabJs), 'wellness-lab: forbidden pattern detected');
+  assert(fx.portalIndex.includes('/portal/tools/wellness-lab.html'), 'portal/index.html missing wellness-lab link');
+  assert(fx.portalToolsIndex.includes('/portal/tools/wellness-lab.html'), 'portal/tools/index.html missing wellness-lab link');
+  assert(fx.portalSitemap.includes(`<loc>${labCanon}</loc>`), 'portal/sitemap.xml missing wellness-lab');
 
   return { newTools: NEW_TOOLS.length, existingUpgraded: EXISTING_FLAGSHIPS.length, bridgeCount: fx.bridgeCount };
 }
@@ -155,6 +183,20 @@ function runMutations(base) {
     ['adhd-missing-curated', () => { const m = clone(); m.tools['adhd-focus-friction-audit'].html = m.tools['adhd-focus-friction-audit'].html.replaceAll('tag=dopabrain-20', 'tag=none'); return m; }],
     ['brain-workout-missing-story', () => { const m = clone(); m.existing['brain-game-workout'] = m.existing['brain-game-workout'].replace('id="storyCardBtn"', 'id="gone"'); return m; }],
     ['inner-critic-hidden-faq', () => { const m = clone(); m.tools['inner-critic-compassion-lab'].html = m.tools['inner-critic-compassion-lab'].html.replace('class="faq-grid"', 'class="hidden-box"'); return m; }],
+    ['overthinking-missing-canonical', () => { const m = clone(); m.tools['overthinking-rumination-breaker'].html = m.tools['overthinking-rumination-breaker'].html.replace('rel="canonical"', 'rel="alt"'); return m; }],
+    ['social-battery-missing-i18n', () => { const m = clone(); m.tools['social-battery-recharge-planner'].js = m.tools['social-battery-recharge-planner'].js.replace('window.i18n =', 'window.removed ='); return m; }],
+    ['somatic-map-hidden-faq', () => { const m = clone(); m.tools['somatic-tension-body-map'].html = m.tools['somatic-tension-body-map'].html.replace('class="faq-grid"', 'class="hidden-box"'); return m; }],
+    ['energy-audit-missing-curated', () => { const m = clone(); m.tools['emotional-energy-audit'].html = m.tools['emotional-energy-audit'].html.replaceAll('tag=dopabrain-20', 'tag=none'); return m; }],
+    ['wellness-lab-missing-sitemap', () => { const m = clone(); m.portalSitemap = m.portalSitemap.replace('wellness-lab.html', 'removed.html'); return m; }],
+    ['gaslighting-missing-canonical', () => { const m = clone(); m.tools['gaslighting-reality-check'].html = m.tools['gaslighting-reality-check'].html.replace('rel="canonical"', 'rel="alt"'); return m; }],
+    ['codependency-hidden-faq', () => { const m = clone(); m.tools['codependency-reset-audit'].html = m.tools['codependency-reset-audit'].html.replace('class="faq-grid"', 'class="hidden-box"'); return m; }],
+    ['perfectionism-missing-curated', () => { const m = clone(); m.tools['perfectionism-loop-decoder'].html = m.tools['perfectionism-loop-decoder'].html.replaceAll('tag=dopabrain-20', 'tag=none'); return m; }],
+    ['social-ladder-missing-canonical', () => { const m = clone(); m.tools['social-anxiety-exposure-ladder'].html = m.tools['social-anxiety-exposure-ladder'].html.replace('rel="canonical"', 'rel="alt"'); return m; }],
+    ['vagal-reset-hidden-faq', () => { const m = clone(); m.tools['vagal-nervous-system-reset'].html = m.tools['vagal-nervous-system-reset'].html.replace('class="faq-grid"', 'class="hidden-box"'); return m; }],
+    ['doomscroll-missing-curated', () => { const m = clone(); m.tools['doomscrolling-circuit-breaker'].html = m.tools['doomscrolling-circuit-breaker'].html.replaceAll('tag=dopabrain-20', 'tag=none'); return m; }],
+    ['inner-child-missing-canonical', () => { const m = clone(); m.tools['inner-child-need-decoder'].html = m.tools['inner-child-need-decoder'].html.replace('rel="canonical"', 'rel="alt"'); return m; }],
+    ['decision-fatigue-hidden-faq', () => { const m = clone(); m.tools['decision-fatigue-declutter'].html = m.tools['decision-fatigue-declutter'].html.replace('class="faq-grid"', 'class="hidden-box"'); return m; }],
+    ['flashback-missing-curated', () => { const m = clone(); m.tools['emotional-flashback-grounding'].html = m.tools['emotional-flashback-grounding'].html.replaceAll('tag=dopabrain-20', 'tag=none'); return m; }],
   ];
   for (const [name, build] of cases) {
     let caught = false;
@@ -304,7 +346,7 @@ async function runRuntime() {
         overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
         completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'daily_checkin_complete').length,
       }));
-      assert(checkinCheck.lang === vp.lang && checkinCheck.rxCards === 3 && checkinCheck.bars >= 1 && checkinCheck.overflow <= 0 && checkinCheck.completeEvents === 1, `Daily check-in failed: ${JSON.stringify(checkinCheck)}`);
+      assert(checkinCheck.lang === vp.lang && checkinCheck.rxCards === 4 && checkinCheck.bars >= 1 && checkinCheck.overflow <= 0 && checkinCheck.completeEvents === 1, `Daily check-in failed: ${JSON.stringify(checkinCheck)}`);
 
       // 7. Imposter Syndrome Audit + Proof Vault XSS Escaping
       await page.goto(`${srv.origin}/portal/tools/imposter-syndrome-audit.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
@@ -392,6 +434,236 @@ async function runRuntime() {
         completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'inner_critic_reframe_complete').length,
       }));
       assert(criticCheck.lang === vp.lang && !criticCheck.xss && criticCheck.captured === xssPayload && criticCheck.pillars === 3 && criticCheck.overflow <= 0 && criticCheck.completeEvents === 1, `Inner Critic lab failed: ${JSON.stringify(criticCheck)}`);
+
+      // 12. Overthinking & Rumination Circuit Breaker + XSS + 90s Cognitive Shuffle
+      await page.goto(`${srv.origin}/portal/tools/overthinking-rumination-breaker.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForSelector('#breakBtn');
+      await page.fill('#loopInput', xssPayload);
+      await page.click('#breakBtn');
+      await page.waitForFunction(() => !document.getElementById('resultCard').hidden);
+      await page.click('#startShuffleBtn');
+      await page.waitForTimeout(1150);
+      const overCheck = await page.evaluate(() => ({
+        lang: document.documentElement.lang,
+        xss: Boolean(window.__xss),
+        parked: document.getElementById('parkedThoughtOut')?.textContent || '',
+        clock: document.getElementById('shuffleClock')?.textContent || '',
+        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+        completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'overthinking_breaker_complete').length,
+      }));
+      assert(overCheck.lang === vp.lang && !overCheck.xss && overCheck.parked === xssPayload && overCheck.clock !== '01:30' && overCheck.overflow <= 0 && overCheck.completeEvents === 1, `Overthinking breaker failed: ${JSON.stringify(overCheck)}`);
+
+      // 13. Social Battery & HSP Recharge Calculator
+      await page.goto(`${srv.origin}/portal/tools/social-battery-recharge-planner.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForSelector('#calcBtn');
+      await page.click('button[data-drainer="crowds"]');
+      await page.click('#calcBtn');
+      await page.waitForFunction(() => !document.getElementById('resultCard').hidden);
+      const batCheck = await page.evaluate(() => ({
+        lang: document.documentElement.lang,
+        bigNum: document.getElementById('batteryBigNum')?.textContent || '',
+        exitText: document.getElementById('exitScriptOut')?.textContent || '',
+        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+        completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'social_battery_complete').length,
+      }));
+      assert(batCheck.lang === vp.lang && /%$/.test(batCheck.bigNum) && batCheck.exitText.length > 20 && batCheck.overflow <= 0 && batCheck.completeEvents === 1, `Social battery calc failed: ${JSON.stringify(batCheck)}`);
+
+      // 14. Somatic Stress & Body Tension Map + 60s PMR Pacer
+      await page.goto(`${srv.origin}/portal/tools/somatic-tension-body-map.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForSelector('#decodeBtn');
+      await page.click('button[data-zone="chest"]');
+      await page.click('#decodeBtn');
+      await page.waitForFunction(() => !document.getElementById('resultCard').hidden);
+      await page.click('#startPmrBtn');
+      await page.waitForTimeout(1150);
+      const somCheck = await page.evaluate(() => ({
+        lang: document.documentElement.lang,
+        clock: document.getElementById('pmrClock')?.textContent || '',
+        zones: document.getElementById('zoneCountOut')?.textContent || '',
+        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+        completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'somatic_map_complete').length,
+      }));
+      assert(somCheck.lang === vp.lang && somCheck.zones === '3 / 6' && somCheck.clock !== '01:00' && somCheck.overflow <= 0 && somCheck.completeEvents === 1, `Somatic map failed: ${JSON.stringify(somCheck)}`);
+
+      // 15. Emotional Energy Leak Audit + Stop-Doing XSS Escaping
+      await page.goto(`${srv.origin}/portal/tools/emotional-energy-audit.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForSelector('#auditBtn');
+      await page.fill('#stopDoingInput', xssPayload);
+      await page.click('#auditBtn');
+      await page.waitForFunction(() => !document.getElementById('resultCard').hidden);
+      const engCheck = await page.evaluate(() => ({
+        lang: document.documentElement.lang,
+        xss: Boolean(window.__xss),
+        stopText: document.getElementById('stopDoingOut')?.textContent || '',
+        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+        completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'energy_audit_complete').length,
+      }));
+      assert(engCheck.lang === vp.lang && !engCheck.xss && engCheck.stopText === xssPayload && engCheck.overflow <= 0 && engCheck.completeEvents === 1, `Energy audit failed: ${JSON.stringify(engCheck)}`);
+
+      // 16. Interactive Mental Wellness Lab Pillar Hub (24 tools + filter + ?lang= preservation)
+      await page.goto(`${srv.origin}/portal/tools/wellness-lab.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForSelector('#labGrid .lab-card');
+      const labBefore = await page.evaluate(() => ({
+        lang: document.documentElement.lang,
+        count: document.querySelectorAll('#labGrid .lab-card').length,
+        firstHref: document.querySelector('#labGrid .lab-card')?.getAttribute('href') || '',
+        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+      }));
+      await page.click('.filter-pill[data-cat="anxiety"]');
+      const labAfter = await page.evaluate(() => ({
+        count: document.querySelectorAll('#labGrid .lab-card').length,
+        filterEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'wellness_lab_filter').length,
+      }));
+      const expectLangQuery = vp.lang === 'en' ? !labBefore.firstHref.includes('?lang=') : labBefore.firstHref.includes(`?lang=${vp.lang}`);
+      assert(labBefore.lang === vp.lang && labBefore.count === 30 && expectLangQuery && labBefore.overflow <= 0, `Wellness Lab initial check failed: ${JSON.stringify(labBefore)}`);
+      assert(labAfter.count === 9 && labAfter.filterEvents === 1, `Wellness Lab filter check failed: ${JSON.stringify(labAfter)}`);
+
+      // 17. Gaslighting & Manipulation Reality-Check Log + XSS Escaping
+      await page.goto(`${srv.origin}/portal/tools/gaslighting-reality-check.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForSelector('#analyzeBtn');
+      await page.fill('#factInput', xssPayload);
+      await page.click('#analyzeBtn');
+      await page.waitForFunction(() => !document.getElementById('resultCard').hidden);
+      const gasCheck = await page.evaluate(() => ({
+        lang: document.documentElement.lang,
+        xss: Boolean(window.__xss),
+        factText: document.getElementById('factAnchorOut')?.textContent || '',
+        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+        completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'gaslighting_check_complete').length,
+      }));
+      assert(gasCheck.lang === vp.lang && !gasCheck.xss && gasCheck.factText === xssPayload && gasCheck.overflow <= 0 && gasCheck.completeEvents === 1, `Gaslighting check failed: ${JSON.stringify(gasCheck)}`);
+
+      // 18. Codependency & Interdependence Reset Audit + XSS Escaping
+      await page.goto(`${srv.origin}/portal/tools/codependency-reset-audit.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForSelector('#calcBtn');
+      await page.fill('#needInput', xssPayload);
+      await page.click('#calcBtn');
+      await page.waitForFunction(() => !document.getElementById('resultCard').hidden);
+      const codCheck = await page.evaluate(() => ({
+        lang: document.documentElement.lang,
+        xss: Boolean(window.__xss),
+        needText: document.getElementById('needOut')?.textContent || '',
+        bal: document.getElementById('balanceOut')?.textContent || '',
+        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+        completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'codependency_audit_complete').length,
+      }));
+      assert(codCheck.lang === vp.lang && !codCheck.xss && codCheck.needText === xssPayload && /%$/.test(codCheck.bal) && codCheck.overflow <= 0 && codCheck.completeEvents === 1, `Codependency audit failed: ${JSON.stringify(codCheck)}`);
+
+      // 19. Perfectionism & Self-Sabotage Loop Decoder + XSS + 5-Min Sprint Timer
+      await page.goto(`${srv.origin}/portal/tools/perfectionism-loop-decoder.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForSelector('#decodeBtn');
+      await page.fill('#shipInput', xssPayload);
+      await page.click('#decodeBtn');
+      await page.waitForFunction(() => !document.getElementById('resultCard').hidden);
+      await page.click('#sprintStartBtn');
+      await page.waitForTimeout(1150);
+      const perfCheck = await page.evaluate(() => ({
+        lang: document.documentElement.lang,
+        xss: Boolean(window.__xss),
+        shipText: document.getElementById('shipOut')?.textContent || '',
+        clock: document.getElementById('sprintClock')?.textContent || '',
+        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+        completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'perfectionism_decoder_complete').length,
+      }));
+      assert(perfCheck.lang === vp.lang && !perfCheck.xss && perfCheck.shipText === xssPayload && perfCheck.clock !== '05:00' && perfCheck.overflow <= 0 && perfCheck.completeEvents === 1, `Perfectionism decoder failed: ${JSON.stringify(perfCheck)}`);
+
+      // 20. Social Anxiety Exposure Ladder + XSS Escaping + Auto-Sort
+      await page.goto(`${srv.origin}/portal/tools/social-anxiety-exposure-ladder.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForSelector('#buildBtn');
+      await page.fill('#repInput', xssPayload);
+      await page.click('#buildBtn');
+      await page.waitForFunction(() => !document.getElementById('resultCard').hidden);
+      const ladCheck = await page.evaluate(() => ({
+        lang: document.documentElement.lang,
+        xss: Boolean(window.__xss),
+        repText: document.getElementById('repOut')?.textContent || '',
+        rungs: document.querySelectorAll('#ladderList .ladder-rung').length,
+        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+        completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'social_ladder_complete').length,
+      }));
+      assert(ladCheck.lang === vp.lang && !ladCheck.xss && ladCheck.repText === xssPayload && ladCheck.rungs === 6 && ladCheck.overflow <= 0 && ladCheck.completeEvents === 1, `Social ladder failed: ${JSON.stringify(ladCheck)}`);
+
+      // 21. Vagal Tone & Nervous System Reset + 60s Sigh Pacer Tick
+      await page.goto(`${srv.origin}/portal/tools/vagal-nervous-system-reset.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForSelector('#buildBtn');
+      await page.click('button[data-state="shutdown"]');
+      await page.click('#buildBtn');
+      await page.waitForFunction(() => !document.getElementById('resultCard').hidden);
+      await page.click('#sighStartBtn');
+      await page.waitForTimeout(1150);
+      const vagCheck = await page.evaluate(() => ({
+        lang: document.documentElement.lang,
+        clock: document.getElementById('sighClock')?.textContent || '',
+        steps: document.querySelectorAll('#menuList li').length,
+        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+        completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'vagal_reset_complete').length,
+      }));
+      assert(vagCheck.lang === vp.lang && vagCheck.steps === 3 && vagCheck.clock !== '01:00' && vagCheck.overflow <= 0 && vagCheck.completeEvents === 1, `Vagal reset failed: ${JSON.stringify(vagCheck)}`);
+
+      // 22. Doomscrolling Circuit Breaker + XSS Escaping + Annual Calculation
+      await page.goto(`${srv.origin}/portal/tools/doomscrolling-circuit-breaker.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForSelector('#buildBtn');
+      await page.fill('#swapInput', xssPayload);
+      await page.click('#buildBtn');
+      await page.waitForFunction(() => !document.getElementById('resultCard').hidden);
+      const doomCheck = await page.evaluate(() => ({
+        lang: document.documentElement.lang,
+        xss: Boolean(window.__xss),
+        swapText: document.getElementById('swapOut')?.textContent || '',
+        hrs: document.getElementById('hoursYearOut')?.textContent || '',
+        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+        completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'doomscroll_breaker_complete').length,
+      }));
+      assert(doomCheck.lang === vp.lang && !doomCheck.xss && doomCheck.swapText === xssPayload && /548/.test(doomCheck.hrs) && doomCheck.overflow <= 0 && doomCheck.completeEvents === 1, `Doomscroll breaker failed: ${JSON.stringify(doomCheck)}`);
+
+      // 23. Inner Child & Core Emotional Need Decoder + XSS Escaping
+      await page.goto(`${srv.origin}/portal/tools/inner-child-need-decoder.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForSelector('#decodeBtn');
+      await page.fill('#letterInput', xssPayload);
+      await page.click('#decodeBtn');
+      await page.waitForFunction(() => !document.getElementById('resultCard').hidden);
+      const icCheck = await page.evaluate(() => ({
+        lang: document.documentElement.lang,
+        xss: Boolean(window.__xss),
+        letterText: document.getElementById('letterOut')?.textContent || '',
+        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+        completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'inner_child_decoder_complete').length,
+      }));
+      assert(icCheck.lang === vp.lang && !icCheck.xss && icCheck.letterText === xssPayload && icCheck.overflow <= 0 && icCheck.completeEvents === 1, `Inner child decoder failed: ${JSON.stringify(icCheck)}`);
+
+      // 24. Decision Fatigue & Mental Declutter Filter + XSS Escaping
+      await page.goto(`${srv.origin}/portal/tools/decision-fatigue-declutter.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForSelector('#buildBtn');
+      await page.fill('#ruleInput', xssPayload);
+      await page.click('#buildBtn');
+      await page.waitForFunction(() => !document.getElementById('resultCard').hidden);
+      const dfCheck = await page.evaluate(() => ({
+        lang: document.documentElement.lang,
+        xss: Boolean(window.__xss),
+        ruleText: document.getElementById('ruleOut')?.textContent || '',
+        rules: document.querySelectorAll('#ruleList li').length,
+        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+        completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'decision_fatigue_complete').length,
+      }));
+      assert(dfCheck.lang === vp.lang && !dfCheck.xss && dfCheck.ruleText === xssPayload && dfCheck.rules === 3 && dfCheck.overflow <= 0 && dfCheck.completeEvents === 1, `Decision fatigue filter failed: ${JSON.stringify(dfCheck)}`);
+
+      // 25. Emotional Flashback Grounding Companion + XSS + 60s Timer Tick
+      await page.goto(`${srv.origin}/portal/tools/emotional-flashback-grounding.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForSelector('#completeBtn');
+      await page.fill('#anchorInput', xssPayload);
+      await page.click('#completeBtn');
+      await page.waitForFunction(() => !document.getElementById('resultCard').hidden);
+      await page.click('#timerBtn');
+      await page.waitForTimeout(1150);
+      const fbCheck = await page.evaluate(() => ({
+        lang: document.documentElement.lang,
+        xss: Boolean(window.__xss),
+        anchorText: document.getElementById('anchorOut')?.textContent || '',
+        clock: document.getElementById('groundClock')?.textContent || '',
+        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+        completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'flashback_grounding_complete').length,
+      }));
+      assert(fbCheck.lang === vp.lang && !fbCheck.xss && fbCheck.anchorText === xssPayload && fbCheck.clock !== '01:00' && fbCheck.overflow <= 0 && fbCheck.completeEvents === 1, `Flashback grounding failed: ${JSON.stringify(fbCheck)}`);
 
       assert(errors.length === 0, `${vp.width}px runtime errors: ${errors.join(' | ')}`);
       await ctx.close();

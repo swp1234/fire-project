@@ -102,7 +102,7 @@ async function verifyRuntime(live=false) {
   try {
     for (const lang of LANGUAGES) {
       const page=await browser.newPage({viewport:{width:390,height:844}});
-      await page.route("**/googletagmanager.com/**",r=>r.abort()); await page.route("**/googlesyndication.com/**",r=>r.abort());
+      await page.route("**/*googletagmanager.com/**",r=>r.abort()); await page.route("**/*googlesyndication.com/**",r=>r.abort());
       await page.goto(`${origin}/zodiac-match/?lang=${lang}`,{waitUntil:"domcontentloaded"}); await page.waitForFunction(()=>window.zodiacPairCards);
       const locale=JSON.parse(read(path.join(APP_ROOT,"js","locales",`${lang}.json`)));
       if(await page.getAttribute("html","lang")!==lang) fail(`${lang}: document language mismatch`);
@@ -112,11 +112,11 @@ async function verifyRuntime(live=false) {
       if((await page.locator("#pair-title").textContent()).trim()!==locale.result.pair_title.replace("{first}",locale.zodiac.aries).replace("{second}",locale.zodiac.pisces)) fail(`${lang}: result not localized`);
       await page.close();
     }
-    const desktop=await browser.newPage({viewport:{width:1440,height:900}}); await desktop.route("**/googletagmanager.com/**",r=>r.abort()); await desktop.route("**/googlesyndication.com/**",r=>r.abort()); await desktop.goto(`${origin}/zodiac-match/?lang=zh`,{waitUntil:"domcontentloaded"}); await desktop.waitForFunction(()=>window.zodiacPairCards); if(await desktop.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth)>1) fail("desktop overflow"); await desktop.close();
+    const desktop=await browser.newPage({viewport:{width:1440,height:900}}); await desktop.route("**/*googletagmanager.com/**",r=>r.abort()); await desktop.route("**/*googlesyndication.com/**",r=>r.abort()); await desktop.goto(`${origin}/zodiac-match/?lang=zh`,{waitUntil:"domcontentloaded"}); await desktop.waitForFunction(()=>window.zodiacPairCards); if(await desktop.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth)>1) fail("desktop overflow"); await desktop.close();
 
     const page=await browser.newPage({viewport:{width:390,height:844}});
     await page.addInitScript(()=>{window.__shareData=null;Object.defineProperty(navigator,"share",{configurable:true,value:async data=>{window.__shareData=data}})});
-    await page.route("**/googletagmanager.com/**",r=>r.abort()); await page.route("**/googlesyndication.com/**",r=>r.abort());
+    await page.route("**/*googletagmanager.com/**",r=>r.abort()); await page.route("**/*googlesyndication.com/**",r=>r.abort());
     if(live){await page.goto(`${origin}/portal/blog/zh/zodiac-compatibility-guide.html`,{waitUntil:"domcontentloaded"});if(!(await page.locator("h1").textContent()).includes("星座配对"))fail("live guide missing");await Promise.all([page.waitForURL(/\/zodiac-match\/\?lang=zh&start=1&surface=zh_zodiac_guide_primary/),page.locator('[data-cta-position="hero"]').click()]);}
     else await page.goto(`${origin}/zodiac-match/?lang=zh&start=1&surface=zh_zodiac_guide_primary`,{waitUntil:"domcontentloaded"});
     await page.waitForFunction(()=>window.zodiacPairCards); await page.selectOption("#first-sign","aries"); await page.selectOption("#second-sign","pisces"); await page.click("#open-card");

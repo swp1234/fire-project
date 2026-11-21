@@ -101,9 +101,14 @@ function verifySource(fx) {
   let quickCheckCount = 0;
   let preconnectCount = 0;
   let missingBlogGtag = [];
+  let missingMaxImg = [];
+  let curatedSvgMeta = [];
   for (const [rel, html] of Object.entries(fx.blogs)) {
     if (!/function\s+gtag\s*\(/i.test(html) || !/G-J8GSWM40TV/.test(html)) {
       missingBlogGtag.push(rel);
+    }
+    if (!/max-image-preview:\s*large/i.test(html) && !/noindex/i.test(html)) {
+      missingMaxImg.push(rel);
     }
     if (/rel="preconnect"[^>]*googlesyndication/i.test(html)) {
       preconnectCount++;
@@ -112,6 +117,13 @@ function verifySource(fx) {
       curatedCount++;
       assert(html.includes('tag=dopabrain-20'), `${rel}: curated card missing dopabrain-20 affiliate tag`);
       assert(/rel="[^"]*\bsponsored\b[^"]*"/i.test(html), `${rel}: curated affiliate link missing rel=sponsored`);
+      if (/property=["']og:image["'][^>]*\.svg/i.test(html) || /name=["']twitter:image["'][^>]*\.svg/i.test(html)) {
+        curatedSvgMeta.push(`${rel} (og/twitter)`);
+      }
+      const ldBlocks = [...html.matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)].map((m) => m[1]).join('\n');
+      if (/"image"[^}\n]*\.svg/i.test(ldBlocks)) {
+        curatedSvgMeta.push(`${rel} (json-ld image)`);
+      }
     }
     if (html.includes('data-bm-sticky="1"')) {
       stickyCount++;
@@ -128,10 +140,12 @@ function verifySource(fx) {
     }
   }
   assert(missingBlogGtag.length === 0, `Sitemap blog pages missing gtag() init: ${missingBlogGtag.slice(0, 5).join(', ')}`);
-  assert(curatedCount >= 1000, `Expected >=1000 curated blog pages, got ${curatedCount}`);
-  assert(stickyCount >= 1000, `Expected >=1000 managed sticky CTA blog pages, got ${stickyCount}`);
-  assert(quickCheckCount >= 600, `Expected >=600 interactive quick-check blog pages across 12 locales, got ${quickCheckCount}`);
-  assert(preconnectCount >= 1000, `Expected >=1000 AdSense preconnect blog pages, got ${preconnectCount}`);
+  assert(missingMaxImg.length === 0, `Sitemap blog pages missing max-image-preview:large: ${missingMaxImg.slice(0, 5).join(', ')}`);
+  assert(curatedSvgMeta.length === 0, `Monetized blog pages using SVG og/twitter/JSON-LD image: ${curatedSvgMeta.slice(0, 5).join(', ')}`);
+  assert(curatedCount >= 1190, `Expected >=1190 curated blog pages, got ${curatedCount}`);
+  assert(stickyCount >= 1170, `Expected >=1170 managed sticky CTA blog pages, got ${stickyCount}`);
+  assert(quickCheckCount >= 720, `Expected >=720 interactive quick-check blog pages across 12 locales, got ${quickCheckCount}`);
+  assert(preconnectCount >= 1190, `Expected >=1190 AdSense preconnect blog pages, got ${preconnectCount}`);
 
   // 4. Zero GA4 blackouts across active monetized sub-apps
   const missingAppGtag = [];
@@ -165,6 +179,7 @@ function verifySource(fx) {
 
 function runMutations(base) {
   const firstCuratedKey = Object.keys(base.blogs).find((k) => base.blogs[k].includes('data-bm-curated="1"'));
+  const firstStickyKey = Object.keys(base.blogs).find((k) => base.blogs[k].includes('data-bm-sticky="1"'));
   const firstQuickKey = Object.keys(base.blogs).find((k) => base.blogs[k].includes('data-bm-check="1"'));
   const firstAppKey = Object.keys(base.activeApps)[0];
   const noPreconnectBlogs = Object.fromEntries(
@@ -174,7 +189,7 @@ function runMutations(base) {
     ['synthetic-page-engage', { ...base, bmJs: `${base.bmJs}\nsendEvent('page_engage');` }],
     ['spam-guard-removed', { ...base, adLoader: base.adLoader.replace('function isSpamReferrer', 'function disabledGuard') }],
     ['missing-sponsored-rel', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: base.blogs[firstCuratedKey].replace(/\bsponsored\b/gi, '') } }],
-    ['suspended-sticky-target', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: base.blogs[firstCuratedKey].replace(/<a class="revenue-sticky-cta" href="\/[a-z0-9-]+\//i, '<a class="revenue-sticky-cta" href="/past-life/') } }],
+    ['suspended-sticky-target', { ...base, blogs: { ...base.blogs, [firstStickyKey]: base.blogs[firstStickyKey].replace(/<a class="revenue-sticky-cta" href="\/[a-z0-9-]+\//i, '<a class="revenue-sticky-cta" href="/past-life/') } }],
     ['suspended-quickcheck-target', { ...base, blogs: { ...base.blogs, [firstQuickKey]: base.blogs[firstQuickKey].replace(/<a class="bm-qc-cta" href="\/[a-z0-9-]+\//i, '<a class="bm-qc-cta" href="/past-life/') } }],
     ['preconnect-stripped', { ...base, blogs: noPreconnectBlogs }],
     ['blog-gtag-blackout', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: base.blogs[firstCuratedKey].replace(/function\s+gtag\s*\(/gi, 'function broken(') } }],
@@ -182,6 +197,8 @@ function runMutations(base) {
     ['404-head-guard-removed', { ...base, page404: base.page404.replace("method: 'HEAD'", "method: 'GET'") }],
     ['404-small-chip-target', { ...base, page404: base.page404.replace(/min-height:\s*44px;/g, 'min-height: 24px;') }],
     ['llms-broken-404-link', { ...base, llmsTxt: `${base.llmsTxt}\n- [Broken](https://dopabrain.com/nonexistent-test-404/)` }],
+    ['discover-max-image-preview-missing', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: base.blogs[firstCuratedKey].replace(/max-image-preview:\s*large/gi, 'max-image-preview:none') } }],
+    ['curated-svg-og-image-regression', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: base.blogs[firstCuratedKey].replace(/(property="og:image"[^>]*content=")[^"]+(")/i, '$1https://dopabrain.com/portal/icon-512.svg$2') } }],
   ];
 
   for (const [name, mutated] of cases) {

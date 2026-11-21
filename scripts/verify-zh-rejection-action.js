@@ -80,9 +80,9 @@ function server() {
 }
 function events(page) { return page.evaluate(()=>(window.dataLayer||[]).map(row=>Array.from(row||[])).filter(row=>row[0]==="event").map(row=>({name:row[1],params:row[2]||{}}))); }
 async function isolate(page) {
-  await page.route("**/googletagmanager.com/**",route=>route.abort());
-  await page.route("**/googlesyndication.com/**",route=>route.abort());
-  await page.route("**/doubleclick.net/**",route=>route.abort());
+  await page.route("**/*googletagmanager.com/**",route=>route.abort());
+  await page.route("**/*googlesyndication.com/**",route=>route.abort());
+  await page.route("**/*doubleclick.net/**",route=>route.abort());
 }
 async function verifyRuntime(live=false) {
   const local=live?null:server(); if(local)await new Promise(resolve=>local.listen(0,"127.0.0.1",resolve));

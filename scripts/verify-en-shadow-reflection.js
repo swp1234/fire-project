@@ -127,9 +127,9 @@ function localServer() {
   });
 }
 async function blockExternal(page) {
-  await page.route('**/googletagmanager.com/**', route => route.abort());
-  await page.route('**/googlesyndication.com/**', route => route.abort());
-  await page.route('**/doubleclick.net/**', route => route.abort());
+  await page.route('**/*googletagmanager.com/**', route => route.abort());
+  await page.route('**/*googlesyndication.com/**', route => route.abort());
+  await page.route('**/*doubleclick.net/**', route => route.abort());
 }
 function events(page) {
   return page.evaluate(() => (window.dataLayer || []).map(row => Array.from(row || [])).filter(row => row[0] === 'event').map(row => ({ name:row[1], params:row[2] || {} })));

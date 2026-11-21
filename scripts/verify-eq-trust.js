@@ -162,7 +162,7 @@ function createServer() {
 }
 
 async function isolate(page) {
-  for (const route of ['**/googletagmanager.com/**', '**/google-analytics.com/**', '**/googlesyndication.com/**', '**/doubleclick.net/**']) {
+  for (const route of ['**/*googletagmanager.com/**', '**/*google-analytics.com/**', '**/*googlesyndication.com/**', '**/*doubleclick.net/**']) {
     await page.route(route, request => request.abort());
   }
 }

@@ -136,8 +136,8 @@ async function verifyRuntime(live = false) {
   try {
     for (const lang of LANGUAGES) {
       const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
-      await page.route("**/googletagmanager.com/**", route => route.abort());
-      await page.route("**/googlesyndication.com/**", route => route.abort());
+      await page.route("**/*googletagmanager.com/**", route => route.abort());
+      await page.route("**/*googlesyndication.com/**", route => route.abort());
       await page.goto(`${origin}/blood-type/?lang=${lang}`, { waitUntil: "domcontentloaded" });
       await page.waitForFunction(() => window.bloodTypeCultureCards);
       const locale = JSON.parse(read(path.join(APP_ROOT, "js", "locales", `${lang}.json`)));
@@ -153,8 +153,8 @@ async function verifyRuntime(live = false) {
 
     const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
     await page.addInitScript(() => { Object.defineProperty(navigator, "share", { configurable: true, value: async () => {} }); });
-    await page.route("**/googletagmanager.com/**", route => route.abort());
-    await page.route("**/googlesyndication.com/**", route => route.abort());
+    await page.route("**/*googletagmanager.com/**", route => route.abort());
+    await page.route("**/*googlesyndication.com/**", route => route.abort());
     if (live) {
       await page.goto(`${origin}/portal/blog/es/blood-type-personality.html`, { waitUntil: "domcontentloaded" });
       if (!(await page.locator('h1').textContent()).includes("tipo de sangre")) fail("live Spanish guide did not deploy");

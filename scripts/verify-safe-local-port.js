@@ -32,6 +32,17 @@ async function main() {
     if (!source.includes("require('./lib/safe-local-port')")) throw new Error(`${relative}: safe local port helper missing`);
   }
 
+  // Prevent broken Playwright glob patterns that fail to match subdomains (e.g. pagead2.googlesyndication.com, www.googletagmanager.com)
+  const scriptsDir = path.join(ROOT, 'scripts');
+  const BAD_GLOB_RE = /['"]\*\*\/(?:googlesyndication\.com|googletagmanager\.com|google-analytics\.com|doubleclick\.net)\/\*\*['"]/;
+  for (const fname of fs.readdirSync(scriptsDir).filter((f) => f.endsWith('.js'))) {
+    if (fname === 'verify-safe-local-port.js') continue;
+    const text = fs.readFileSync(path.join(scriptsDir, fname), 'utf8');
+    if (BAD_GLOB_RE.test(text)) {
+      throw new Error(`scripts/${fname}: broken Playwright glob misses subdomains (use **/*googlesyndication.com/** or regex to prevent 127.0.0.1 AdSense/GA4 leaks)`);
+    }
+  }
+
   const servers = Array.from({ length: 12 }, () => http.createServer((_request, response) => response.end('ok')));
   try {
     const addresses = await Promise.all(servers.map((server) => listenOnSafePort(server)));

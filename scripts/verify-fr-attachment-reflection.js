@@ -107,9 +107,9 @@ function localServer() {
   });
 }
 async function blockExternal(page) {
-  await page.route('**/googletagmanager.com/**', function (route) { return route.abort(); });
-  await page.route('**/googlesyndication.com/**', function (route) { return route.abort(); });
-  await page.route('**/doubleclick.net/**', function (route) { return route.abort(); });
+  await page.route('**/*googletagmanager.com/**', function (route) { return route.abort(); });
+  await page.route('**/*googlesyndication.com/**', function (route) { return route.abort(); });
+  await page.route('**/*doubleclick.net/**', function (route) { return route.abort(); });
 }
 function eventRows(page) {
   return page.evaluate(function () { return (window.dataLayer || []).map(function (row) { return Array.from(row || []); }).filter(function (row) { return row[0] === 'event'; }).map(function (row) { return { name:row[1], params:row[2] || {} }; }); });
