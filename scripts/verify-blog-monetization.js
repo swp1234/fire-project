@@ -89,6 +89,7 @@ function verifySource(fx) {
   assert(/IntersectionObserver/.test(fx.bmJs) && /threshold:\s*0\.5/.test(fx.bmJs), 'blog-monetization.js missing 50%-visibility observer');
   assert(/CURATED_I18N/.test(fx.bmJs) && /localizeCuratedCard/.test(fx.bmJs), 'blog-monetization.js missing 12-locale curated affiliate localizer');
   assert(/NEXT_CHAIN_I18N/.test(fx.bmJs) && /wellness_tool_chain_click/.test(fx.bmJs), 'blog-monetization.js missing 12-locale next-lab discovery chain');
+  assert(/MID_JUMP_I18N/.test(fx.bmJs) && /blog_mid_tool_cta_view/.test(fx.bmJs) && /blog_mid_tool_cta_click/.test(fx.bmJs), 'blog-monetization.js missing early-scroll mid-article tool jump strip');
   assert(/TOOL_CHROME_I18N/.test(fx.bmJs) && /wellness-lab-leads\.json/.test(fx.bmJs), 'blog-monetization.js missing 12-locale tool chrome & lazy heroLead localizer');
   assert(/data-tool-slug/.test(fx.bmJs), 'blog-monetization.js missing exact per-tool bridge slug attribution');
   assert(!/page_engage|ad_impression/i.test(fx.bmJs), 'blog-monetization.js contains forbidden synthetic telemetry');
@@ -236,6 +237,7 @@ function runMutations(base) {
     ['app-missing-sponsored-rel', { ...base, activeApps: { ...base.activeApps, [firstAppKey]: `${base.activeApps[firstAppKey]}\n<a href="https://www.amazon.com/dp/0000000000?tag=dopabrain-20" rel="noopener nofollow">Book</a>` } }],
     ['bm-next-chain-removed', { ...base, bmJs: base.bmJs.replace(/NEXT_CHAIN_I18N/g, 'REMOVED_CHAIN') }],
     ['broken-og-image-404', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: base.blogs[firstCuratedKey].replace(/(property="og:image"[^>]*content=")[^"]+(")/i, '$1https://dopabrain.com/portal/img/og/nonexistent-404.png$2') } }],
+    ['bm-mid-jump-removed', { ...base, bmJs: base.bmJs.replace(/MID_JUMP_I18N/g, 'REMOVED_MID_JUMP') }],
   ];
 
   for (const [name, mutated] of cases) {
