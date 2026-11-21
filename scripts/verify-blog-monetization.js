@@ -107,6 +107,7 @@ function verifySource(fx) {
   let missingBlogGtag = [];
   let missingMaxImg = [];
   let curatedSvgMeta = [];
+  let brokenOgImg = [];
   let brokenToolBridge = [];
   for (const [rel, html] of Object.entries(fx.blogs)) {
     if (!/function\s+gtag\s*\(/i.test(html) || !/G-J8GSWM40TV/.test(html)) {
@@ -123,6 +124,15 @@ function verifySource(fx) {
     }
     if (/class="bm-tb-(?:cta|copy)"/i.test(html)) {
       brokenToolBridge.push(`${rel} (unstyled bm-tb-*)`);
+    }
+    const ogImgMatch = html.match(/property=["']og:image["'][^>]*content=["'](https:\/\/dopabrain\.com\/[^"']+)["']/i);
+    if (ogImgMatch) {
+      const imgRel = ogImgMatch[1].replace('https://dopabrain.com/', '').split('?')[0];
+      const pDirect = path.join(PROJECTS_DIR, ...imgRel.split('/'));
+      const pRoot = path.join(PROJECTS_DIR, 'root-domain', imgRel);
+      if (!fs.existsSync(pDirect) && !fs.existsSync(pRoot)) {
+        brokenOgImg.push(`${rel} (${ogImgMatch[1]})`);
+      }
     }
     if (html.includes('data-bm-curated="1"')) {
       curatedCount++;
@@ -153,10 +163,11 @@ function verifySource(fx) {
   assert(missingBlogGtag.length === 0, `Sitemap blog pages missing gtag() init: ${missingBlogGtag.slice(0, 5).join(', ')}`);
   assert(missingMaxImg.length === 0, `Sitemap blog pages missing max-image-preview:large: ${missingMaxImg.slice(0, 5).join(', ')}`);
   assert(curatedSvgMeta.length === 0, `Monetized blog pages using SVG og/twitter/JSON-LD image: ${curatedSvgMeta.slice(0, 5).join(', ')}`);
+  assert(brokenOgImg.length === 0, `Sitemap blog pages with broken 404 og:image: ${brokenOgImg.slice(0, 5).join(', ')}`);
   assert(brokenToolBridge.length === 0, `Blog tool bridges have orphaned CTA or unstyled bm-tb-* class: ${brokenToolBridge.slice(0, 5).join(', ')}`);
   assert(curatedCount >= 1190, `Expected >=1190 curated blog pages, got ${curatedCount}`);
   assert(stickyCount >= 1170, `Expected >=1170 managed sticky CTA blog pages, got ${stickyCount}`);
-  assert(quickCheckCount >= 720, `Expected >=720 interactive quick-check blog pages across 12 locales, got ${quickCheckCount}`);
+  assert(quickCheckCount >= 1100, `Expected >=1100 interactive quick-check blog pages across 12 locales, got ${quickCheckCount}`);
   assert(preconnectCount >= 1190, `Expected >=1190 AdSense preconnect blog pages, got ${preconnectCount}`);
 
   // 4. Zero GA4 blackouts & 100% rel=sponsored compliance across active monetized sub-apps
@@ -224,6 +235,7 @@ function runMutations(base) {
     ['bm-bridge-slug-attr-removed', { ...base, bmJs: base.bmJs.replace(/data-tool-slug/g, 'data-removed') }],
     ['app-missing-sponsored-rel', { ...base, activeApps: { ...base.activeApps, [firstAppKey]: `${base.activeApps[firstAppKey]}\n<a href="https://www.amazon.com/dp/0000000000?tag=dopabrain-20" rel="noopener nofollow">Book</a>` } }],
     ['bm-next-chain-removed', { ...base, bmJs: base.bmJs.replace(/NEXT_CHAIN_I18N/g, 'REMOVED_CHAIN') }],
+    ['broken-og-image-404', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: base.blogs[firstCuratedKey].replace(/(property="og:image"[^>]*content=")[^"]+(")/i, '$1https://dopabrain.com/portal/img/og/nonexistent-404.png$2') } }],
   ];
 
   for (const [name, mutated] of cases) {
