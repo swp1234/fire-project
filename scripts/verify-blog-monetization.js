@@ -87,6 +87,8 @@ function verifySource(fx) {
   assert(/min-height:\s*44px/.test(fx.bmCss) && /min-width:\s*44px/.test(fx.bmCss), 'blog-monetization.css missing 44px touch target floor');
   assert(/content_sticky_cta_view/.test(fx.bmJs) && /curated_resource_click/.test(fx.bmJs) && /blog_tool_bridge_click/.test(fx.bmJs), 'blog-monetization.js missing required telemetry events');
   assert(/IntersectionObserver/.test(fx.bmJs) && /threshold:\s*0\.5/.test(fx.bmJs), 'blog-monetization.js missing 50%-visibility observer');
+  assert(/CURATED_I18N/.test(fx.bmJs) && /localizeCuratedCard/.test(fx.bmJs), 'blog-monetization.js missing 12-locale curated affiliate localizer');
+  assert(/data-tool-slug/.test(fx.bmJs), 'blog-monetization.js missing exact per-tool bridge slug attribution');
   assert(!/page_engage|ad_impression/i.test(fx.bmJs), 'blog-monetization.js contains forbidden synthetic telemetry');
 
   // 2. Managed ad-loader.js RPM shield
@@ -209,6 +211,8 @@ function runMutations(base) {
     ['curated-svg-og-image-regression', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: base.blogs[firstCuratedKey].replace(/(property="og:image"[^>]*content=")[^"]+(")/i, '$1https://dopabrain.com/portal/icon-512.svg$2') } }],
     ['bm-bridge-orphan-cta', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: `${base.blogs[firstCuratedKey]}\n</section><a class="bm-tool-bridge-cta" href="/portal/tools/grounding-exercise.html">Orphan</a></section>` } }],
     ['bm-bridge-unstyled-tb', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: `${base.blogs[firstCuratedKey]}\n<a class="bm-tb-cta" href="/portal/tools/grounding-exercise.html">Unstyled</a>` } }],
+    ['bm-curated-i18n-removed', { ...base, bmJs: base.bmJs.replace(/CURATED_I18N/g, 'REMOVED_MAP') }],
+    ['bm-bridge-slug-attr-removed', { ...base, bmJs: base.bmJs.replace(/data-tool-slug/g, 'data-removed') }],
   ];
 
   for (const [name, mutated] of cases) {
