@@ -36,7 +36,7 @@ const OFFICIAL_PROFILE_SOURCES = Object.freeze([
   'https://twice.jype.com/Mobile/Profile',
   'https://straykids.jype.com/profile',
 ]);
-const CATALOG_COUNT = 72;
+const CATALOG_COUNT = 82;
 const ROSTER_EVENT_KEYS = Object.freeze({
   kpop_roster_view: ['event_category', 'surface_name', 'content_locale', 'revenue_goal', 'source', 'has_saved_roster'],
   kpop_roster_preset: ['event_category', 'surface_name', 'content_locale', 'revenue_goal', 'preset_id', 'member_count'],

@@ -103,6 +103,7 @@ function verifySource(fx) {
   let missingBlogGtag = [];
   let missingMaxImg = [];
   let curatedSvgMeta = [];
+  let brokenToolBridge = [];
   for (const [rel, html] of Object.entries(fx.blogs)) {
     if (!/function\s+gtag\s*\(/i.test(html) || !/G-J8GSWM40TV/.test(html)) {
       missingBlogGtag.push(rel);
@@ -112,6 +113,12 @@ function verifySource(fx) {
     }
     if (/rel="preconnect"[^>]*googlesyndication/i.test(html)) {
       preconnectCount++;
+    }
+    if (/<\/section>\s*<a\b[^>]*class="bm-(?:tool-bridge-cta|tb-cta)"/i.test(html)) {
+      brokenToolBridge.push(`${rel} (orphaned CTA)`);
+    }
+    if (/class="bm-tb-(?:cta|copy)"/i.test(html)) {
+      brokenToolBridge.push(`${rel} (unstyled bm-tb-*)`);
     }
     if (html.includes('data-bm-curated="1"')) {
       curatedCount++;
@@ -142,6 +149,7 @@ function verifySource(fx) {
   assert(missingBlogGtag.length === 0, `Sitemap blog pages missing gtag() init: ${missingBlogGtag.slice(0, 5).join(', ')}`);
   assert(missingMaxImg.length === 0, `Sitemap blog pages missing max-image-preview:large: ${missingMaxImg.slice(0, 5).join(', ')}`);
   assert(curatedSvgMeta.length === 0, `Monetized blog pages using SVG og/twitter/JSON-LD image: ${curatedSvgMeta.slice(0, 5).join(', ')}`);
+  assert(brokenToolBridge.length === 0, `Blog tool bridges have orphaned CTA or unstyled bm-tb-* class: ${brokenToolBridge.slice(0, 5).join(', ')}`);
   assert(curatedCount >= 1190, `Expected >=1190 curated blog pages, got ${curatedCount}`);
   assert(stickyCount >= 1170, `Expected >=1170 managed sticky CTA blog pages, got ${stickyCount}`);
   assert(quickCheckCount >= 720, `Expected >=720 interactive quick-check blog pages across 12 locales, got ${quickCheckCount}`);
@@ -199,6 +207,8 @@ function runMutations(base) {
     ['llms-broken-404-link', { ...base, llmsTxt: `${base.llmsTxt}\n- [Broken](https://dopabrain.com/nonexistent-test-404/)` }],
     ['discover-max-image-preview-missing', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: base.blogs[firstCuratedKey].replace(/max-image-preview:\s*large/gi, 'max-image-preview:none') } }],
     ['curated-svg-og-image-regression', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: base.blogs[firstCuratedKey].replace(/(property="og:image"[^>]*content=")[^"]+(")/i, '$1https://dopabrain.com/portal/icon-512.svg$2') } }],
+    ['bm-bridge-orphan-cta', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: `${base.blogs[firstCuratedKey]}\n</section><a class="bm-tool-bridge-cta" href="/portal/tools/grounding-exercise.html">Orphan</a></section>` } }],
+    ['bm-bridge-unstyled-tb', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: `${base.blogs[firstCuratedKey]}\n<a class="bm-tb-cta" href="/portal/tools/grounding-exercise.html">Unstyled</a>` } }],
   ];
 
   for (const [name, mutated] of cases) {

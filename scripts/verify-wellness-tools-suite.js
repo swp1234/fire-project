@@ -43,6 +43,16 @@ const NEW_TOOLS = [
   'inner-child-need-decoder',
   'decision-fatigue-declutter',
   'emotional-flashback-grounding',
+  'anxiety-vs-panic-reset',
+  'emotional-exhaustion-recovery',
+  'emotional-validation-reframer',
+  'abandonment-anxiety-soother',
+  'nvc-conflict-script-builder',
+  'morning-energy-architect',
+  'emotional-trigger-decoder',
+  'workplace-stress-triage',
+  'grief-loss-wave-companion',
+  'relationship-green-flag-audit',
 ];
 const EXISTING_FLAGSHIPS = [
   'burnout-stress-differential',
@@ -149,10 +159,10 @@ function verifySource(fx) {
   // 6. Contextual blog tool bridges
   assert(fx.bridgeCount >= 1190, `Expected >=1190 contextual blog tool bridges, got ${fx.bridgeCount}`);
 
-  // 7. Interactive Mental Wellness Lab Pillar Hub (30 tools)
+  // 7. Interactive Mental Wellness Lab Pillar Hub (40 tools)
   const labCanon = 'https://dopabrain.com/portal/tools/wellness-lab.html';
   assert(fx.wellnessLabHtml.includes(`<link rel="canonical" href="${labCanon}">`), 'wellness-lab: canonical missing');
-  assert(fx.wellnessLabHtml.includes('CollectionPage') && fx.wellnessLabHtml.includes('"numberOfItems": 30'), 'wellness-lab: CollectionPage/ItemList(30) schema missing');
+  assert(fx.wellnessLabHtml.includes('CollectionPage') && fx.wellnessLabHtml.includes('"numberOfItems": 40'), 'wellness-lab: CollectionPage/ItemList(40) schema missing');
   assert(fx.wellnessLabHtml.includes('FAQPage') && /class=["'][^"']*faq-grid[^"']*["']/.test(fx.wellnessLabHtml), 'wellness-lab: visible FAQ contract missing');
   assert(fx.wellnessLabHtml.includes('/portal/js/ad-loader.js') && fx.wellnessLabHtml.includes('tag=dopabrain-20') && /\bsponsored\b/i.test(fx.wellnessLabHtml), 'wellness-lab: monetization contract missing');
   assert(!/page_engage|ad_impression|AggregateRating|Math\.random/i.test(fx.wellnessLabHtml + '\n' + fx.wellnessLabJs), 'wellness-lab: forbidden pattern detected');
@@ -197,6 +207,16 @@ function runMutations(base) {
     ['inner-child-missing-canonical', () => { const m = clone(); m.tools['inner-child-need-decoder'].html = m.tools['inner-child-need-decoder'].html.replace('rel="canonical"', 'rel="alt"'); return m; }],
     ['decision-fatigue-hidden-faq', () => { const m = clone(); m.tools['decision-fatigue-declutter'].html = m.tools['decision-fatigue-declutter'].html.replace('class="faq-grid"', 'class="hidden-box"'); return m; }],
     ['flashback-missing-curated', () => { const m = clone(); m.tools['emotional-flashback-grounding'].html = m.tools['emotional-flashback-grounding'].html.replaceAll('tag=dopabrain-20', 'tag=none'); return m; }],
+    ['anxiety-panic-missing-canonical', () => { const m = clone(); m.tools['anxiety-vs-panic-reset'].html = m.tools['anxiety-vs-panic-reset'].html.replace('rel="canonical"', 'rel="alt"'); return m; }],
+    ['exhaustion-hidden-faq', () => { const m = clone(); m.tools['emotional-exhaustion-recovery'].html = m.tools['emotional-exhaustion-recovery'].html.replace('class="faq-grid"', 'class="hidden-box"'); return m; }],
+    ['validation-missing-curated', () => { const m = clone(); m.tools['emotional-validation-reframer'].html = m.tools['emotional-validation-reframer'].html.replaceAll('tag=dopabrain-20', 'tag=none'); return m; }],
+    ['abandonment-missing-canonical', () => { const m = clone(); m.tools['abandonment-anxiety-soother'].html = m.tools['abandonment-anxiety-soother'].html.replace('rel="canonical"', 'rel="alt"'); return m; }],
+    ['nvc-hidden-faq', () => { const m = clone(); m.tools['nvc-conflict-script-builder'].html = m.tools['nvc-conflict-script-builder'].html.replace('class="faq-grid"', 'class="hidden-box"'); return m; }],
+    ['morning-missing-curated', () => { const m = clone(); m.tools['morning-energy-architect'].html = m.tools['morning-energy-architect'].html.replaceAll('tag=dopabrain-20', 'tag=none'); return m; }],
+    ['trigger-missing-canonical', () => { const m = clone(); m.tools['emotional-trigger-decoder'].html = m.tools['emotional-trigger-decoder'].html.replace('rel="canonical"', 'rel="alt"'); return m; }],
+    ['workstress-hidden-faq', () => { const m = clone(); m.tools['workplace-stress-triage'].html = m.tools['workplace-stress-triage'].html.replace('class="faq-grid"', 'class="hidden-box"'); return m; }],
+    ['grief-missing-curated', () => { const m = clone(); m.tools['grief-loss-wave-companion'].html = m.tools['grief-loss-wave-companion'].html.replaceAll('tag=dopabrain-20', 'tag=none'); return m; }],
+    ['greenflag-missing-canonical', () => { const m = clone(); m.tools['relationship-green-flag-audit'].html = m.tools['relationship-green-flag-audit'].html.replace('rel="canonical"', 'rel="alt"'); return m; }],
   ];
   for (const [name, build] of cases) {
     let caught = false;
@@ -515,8 +535,8 @@ async function runRuntime() {
         filterEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'wellness_lab_filter').length,
       }));
       const expectLangQuery = vp.lang === 'en' ? !labBefore.firstHref.includes('?lang=') : labBefore.firstHref.includes(`?lang=${vp.lang}`);
-      assert(labBefore.lang === vp.lang && labBefore.count === 30 && expectLangQuery && labBefore.overflow <= 0, `Wellness Lab initial check failed: ${JSON.stringify(labBefore)}`);
-      assert(labAfter.count === 9 && labAfter.filterEvents === 1, `Wellness Lab filter check failed: ${JSON.stringify(labAfter)}`);
+      assert(labBefore.lang === vp.lang && labBefore.count === 40 && expectLangQuery && labBefore.overflow <= 0, `Wellness Lab initial check failed: ${JSON.stringify(labBefore)}`);
+      assert(labAfter.count === 11 && labAfter.filterEvents === 1, `Wellness Lab filter check failed: ${JSON.stringify(labAfter)}`);
 
       // 17. Gaslighting & Manipulation Reality-Check Log + XSS Escaping
       await page.goto(`${srv.origin}/portal/tools/gaslighting-reality-check.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
@@ -664,6 +684,52 @@ async function runRuntime() {
         completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'flashback_grounding_complete').length,
       }));
       assert(fbCheck.lang === vp.lang && !fbCheck.xss && fbCheck.anchorText === xssPayload && fbCheck.clock !== '01:00' && fbCheck.overflow <= 0 && fbCheck.completeEvents === 1, `Flashback grounding failed: ${JSON.stringify(fbCheck)}`);
+
+      // 26. Anxiety vs. Panic Attack Differential + 90s Adrenaline Wave Timer
+      await page.goto(`${srv.origin}/portal/tools/anxiety-vs-panic-reset.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
+      await page.waitForSelector('#checkBtn');
+      await page.click('#checkBtn');
+      await page.waitForFunction(() => !document.getElementById('resultCard').hidden);
+      await page.click('#waveBtn');
+      await page.waitForTimeout(1150);
+      const apCheck = await page.evaluate(() => ({
+        lang: document.documentElement.lang,
+        clock: document.getElementById('waveClock')?.textContent || '',
+        steps: document.querySelectorAll('#stepList li').length,
+        overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+        completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === 'anxiety_panic_check_complete').length,
+      }));
+      assert(apCheck.lang === vp.lang && apCheck.steps >= 3 && apCheck.clock !== '01:30' && apCheck.overflow <= 0 && apCheck.completeEvents === 1, `Anxiety vs Panic reset failed: ${JSON.stringify(apCheck)}`);
+
+      // 27-35. Nine Wave-31 & Wave-34 Flagship Tools + XSS Escaping
+      const wave31Checks = [
+        ['emotional-exhaustion-recovery', 'emotional_exhaustion_complete'],
+        ['emotional-validation-reframer', 'emotional_validation_complete'],
+        ['abandonment-anxiety-soother', 'abandonment_soother_complete'],
+        ['nvc-conflict-script-builder', 'nvc_conflict_complete'],
+        ['morning-energy-architect', 'morning_architect_complete'],
+        ['emotional-trigger-decoder', 'emotional_trigger_complete'],
+        ['workplace-stress-triage', 'workplace_stress_complete'],
+        ['grief-loss-wave-companion', 'grief_companion_complete'],
+        ['relationship-green-flag-audit', 'green_flag_audit_complete'],
+      ];
+      for (const [slug, evName] of wave31Checks) {
+        await page.goto(`${srv.origin}/portal/tools/${slug}.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
+        await page.waitForSelector('#runBtn');
+        await page.fill('#noteInput', xssPayload);
+        await page.click('#runBtn');
+        await page.waitForFunction(() => !document.getElementById('resultCard').hidden);
+        const wCheck = await page.evaluate((ev) => ({
+          lang: document.documentElement.lang,
+          xss: Boolean(window.__xss),
+          noteText: document.getElementById('noteOut')?.textContent || '',
+          pct: document.getElementById('pctOut')?.textContent || '',
+          overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+          completeEvents: (window.dataLayer || []).filter((r) => r && r[0] === 'event' && r[1] === ev).length,
+          leakedPayload: JSON.stringify(window.dataLayer || []).includes('onerror'),
+        }), evName);
+        assert(wCheck.lang === vp.lang && !wCheck.xss && wCheck.noteText === xssPayload && /%$/.test(wCheck.pct) && wCheck.overflow <= 0 && wCheck.completeEvents === 1 && !wCheck.leakedPayload, `${slug} failed: ${JSON.stringify(wCheck)}`);
+      }
 
       assert(errors.length === 0, `${vp.width}px runtime errors: ${errors.join(' | ')}`);
       await ctx.close();
