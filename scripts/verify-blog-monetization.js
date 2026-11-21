@@ -88,6 +88,7 @@ function verifySource(fx) {
   assert(/content_sticky_cta_view/.test(fx.bmJs) && /curated_resource_click/.test(fx.bmJs) && /blog_tool_bridge_click/.test(fx.bmJs), 'blog-monetization.js missing required telemetry events');
   assert(/IntersectionObserver/.test(fx.bmJs) && /threshold:\s*0\.5/.test(fx.bmJs), 'blog-monetization.js missing 50%-visibility observer');
   assert(/CURATED_I18N/.test(fx.bmJs) && /localizeCuratedCard/.test(fx.bmJs), 'blog-monetization.js missing 12-locale curated affiliate localizer');
+  assert(/TOOL_CHROME_I18N/.test(fx.bmJs) && /wellness-lab-leads\.json/.test(fx.bmJs), 'blog-monetization.js missing 12-locale tool chrome & lazy heroLead localizer');
   assert(/data-tool-slug/.test(fx.bmJs), 'blog-monetization.js missing exact per-tool bridge slug attribution');
   assert(!/page_engage|ad_impression/i.test(fx.bmJs), 'blog-monetization.js contains forbidden synthetic telemetry');
 
@@ -157,14 +158,20 @@ function verifySource(fx) {
   assert(quickCheckCount >= 720, `Expected >=720 interactive quick-check blog pages across 12 locales, got ${quickCheckCount}`);
   assert(preconnectCount >= 1190, `Expected >=1190 AdSense preconnect blog pages, got ${preconnectCount}`);
 
-  // 4. Zero GA4 blackouts across active monetized sub-apps
+  // 4. Zero GA4 blackouts & 100% rel=sponsored compliance across active monetized sub-apps
   const missingAppGtag = [];
+  const missingAppSponsored = [];
   for (const [app, html] of Object.entries(fx.activeApps)) {
     if (!/function\s+gtag\s*\(/i.test(html) || !/G-J8GSWM40TV/.test(html)) {
       missingAppGtag.push(app);
     }
+    const amzTags = [...html.matchAll(/<a\b[^>]*dopabrain-20[^>]*>/gi)].map((m) => m[0]);
+    if (amzTags.some((t) => !/\bsponsored\b/i.test(t))) {
+      missingAppSponsored.push(app);
+    }
   }
   assert(missingAppGtag.length === 0, `Active monetized apps missing gtag() init: ${missingAppGtag.join(', ')}`);
+  assert(missingAppSponsored.length === 0, `Active monetized apps with dopabrain-20 links missing rel=sponsored: ${missingAppSponsored.join(', ')}`);
 
   // 5. Smart 404 recovery & touch targets
   assert(/__dopabrainResolve404Candidate/.test(fx.page404), '404.html missing smart recovery resolver');
@@ -212,7 +219,9 @@ function runMutations(base) {
     ['bm-bridge-orphan-cta', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: `${base.blogs[firstCuratedKey]}\n</section><a class="bm-tool-bridge-cta" href="/portal/tools/grounding-exercise.html">Orphan</a></section>` } }],
     ['bm-bridge-unstyled-tb', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: `${base.blogs[firstCuratedKey]}\n<a class="bm-tb-cta" href="/portal/tools/grounding-exercise.html">Unstyled</a>` } }],
     ['bm-curated-i18n-removed', { ...base, bmJs: base.bmJs.replace(/CURATED_I18N/g, 'REMOVED_MAP') }],
+    ['bm-tool-chrome-i18n-removed', { ...base, bmJs: base.bmJs.replace(/TOOL_CHROME_I18N/g, 'REMOVED_CHROME') }],
     ['bm-bridge-slug-attr-removed', { ...base, bmJs: base.bmJs.replace(/data-tool-slug/g, 'data-removed') }],
+    ['app-missing-sponsored-rel', { ...base, activeApps: { ...base.activeApps, [firstAppKey]: `${base.activeApps[firstAppKey]}\n<a href="https://www.amazon.com/dp/0000000000?tag=dopabrain-20" rel="noopener nofollow">Book</a>` } }],
   ];
 
   for (const [name, mutated] of cases) {
