@@ -90,6 +90,7 @@ function verifySource(fx) {
   assert(/CURATED_I18N/.test(fx.bmJs) && /localizeCuratedCard/.test(fx.bmJs), 'blog-monetization.js missing 12-locale curated affiliate localizer');
   assert(/NEXT_CHAIN_I18N/.test(fx.bmJs) && /wellness_tool_chain_click/.test(fx.bmJs), 'blog-monetization.js missing 12-locale next-lab discovery chain');
   assert(/MID_JUMP_I18N/.test(fx.bmJs) && /blog_mid_tool_cta_view/.test(fx.bmJs) && /blog_mid_tool_cta_click/.test(fx.bmJs), 'blog-monetization.js missing early-scroll mid-article tool jump strip');
+  assert(/BRIDGE_APP_I18N/.test(fx.bmJs) && /syncBridgeLocale/.test(fx.bmJs), 'blog-monetization.js missing 12-locale standalone app bridge lang sync');
   assert(/TOOL_CHROME_I18N/.test(fx.bmJs) && /wellness-lab-leads\.json/.test(fx.bmJs), 'blog-monetization.js missing 12-locale tool chrome & lazy heroLead localizer');
   assert(/data-tool-slug/.test(fx.bmJs), 'blog-monetization.js missing exact per-tool bridge slug attribution');
   assert(!/page_engage|ad_impression/i.test(fx.bmJs), 'blog-monetization.js contains forbidden synthetic telemetry');
@@ -166,25 +167,35 @@ function verifySource(fx) {
   assert(curatedSvgMeta.length === 0, `Monetized blog pages using SVG og/twitter/JSON-LD image: ${curatedSvgMeta.slice(0, 5).join(', ')}`);
   assert(brokenOgImg.length === 0, `Sitemap blog pages with broken 404 og:image: ${brokenOgImg.slice(0, 5).join(', ')}`);
   assert(brokenToolBridge.length === 0, `Blog tool bridges have orphaned CTA or unstyled bm-tb-* class: ${brokenToolBridge.slice(0, 5).join(', ')}`);
-  assert(curatedCount >= 1190, `Expected >=1190 curated blog pages, got ${curatedCount}`);
-  assert(stickyCount >= 1170, `Expected >=1170 managed sticky CTA blog pages, got ${stickyCount}`);
-  assert(quickCheckCount >= 1100, `Expected >=1100 interactive quick-check blog pages across 12 locales, got ${quickCheckCount}`);
-  assert(preconnectCount >= 1190, `Expected >=1190 AdSense preconnect blog pages, got ${preconnectCount}`);
+  assert(curatedCount >= 1249, `Expected >=1249 curated blog pages, got ${curatedCount}`);
+  assert(stickyCount >= 1220, `Expected >=1220 managed sticky CTA blog pages, got ${stickyCount}`);
+  assert(quickCheckCount >= 1150, `Expected >=1150 interactive quick-check blog pages across 12 locales, got ${quickCheckCount}`);
+  assert(preconnectCount >= 1249, `Expected >=1249 AdSense preconnect blog pages, got ${preconnectCount}`);
 
-  // 4. Zero GA4 blackouts & 100% rel=sponsored compliance across active monetized sub-apps
+  // 4. Zero GA4 blackouts, 100% affiliate tag + rel=sponsored compliance & zero SVG OG across active monetized sub-apps
   const missingAppGtag = [];
   const missingAppSponsored = [];
+  const untaggedAppAmazon = [];
+  const svgOgApps = [];
   for (const [app, html] of Object.entries(fx.activeApps)) {
     if (!/function\s+gtag\s*\(/i.test(html) || !/G-J8GSWM40TV/.test(html)) {
       missingAppGtag.push(app);
     }
-    const amzTags = [...html.matchAll(/<a\b[^>]*dopabrain-20[^>]*>/gi)].map((m) => m[0]);
+    const amzTags = [...html.matchAll(/<a\b[^>]*amazon\.com\/dp\/[^>]*>/gi)].map((m) => m[0]);
+    if (amzTags.some((t) => !/dopabrain-20/i.test(t))) {
+      untaggedAppAmazon.push(app);
+    }
     if (amzTags.some((t) => !/\bsponsored\b/i.test(t))) {
       missingAppSponsored.push(app);
     }
+    if (/property=["']og:image["'][^>]*\.svg/i.test(html) || /name=["']twitter:image["'][^>]*\.svg/i.test(html)) {
+      svgOgApps.push(app);
+    }
   }
   assert(missingAppGtag.length === 0, `Active monetized apps missing gtag() init: ${missingAppGtag.join(', ')}`);
-  assert(missingAppSponsored.length === 0, `Active monetized apps with dopabrain-20 links missing rel=sponsored: ${missingAppSponsored.join(', ')}`);
+  assert(untaggedAppAmazon.length === 0, `Active monetized apps with Amazon links missing dopabrain-20 tag: ${untaggedAppAmazon.join(', ')}`);
+  assert(missingAppSponsored.length === 0, `Active monetized apps with Amazon links missing rel=sponsored: ${missingAppSponsored.join(', ')}`);
+  assert(svgOgApps.length === 0, `Active monetized apps using SVG og:image/twitter:image: ${svgOgApps.join(', ')}`);
 
   // 5. Smart 404 recovery & touch targets
   assert(/__dopabrainResolve404Candidate/.test(fx.page404), '404.html missing smart recovery resolver');
@@ -238,6 +249,9 @@ function runMutations(base) {
     ['bm-next-chain-removed', { ...base, bmJs: base.bmJs.replace(/NEXT_CHAIN_I18N/g, 'REMOVED_CHAIN') }],
     ['broken-og-image-404', { ...base, blogs: { ...base.blogs, [firstCuratedKey]: base.blogs[firstCuratedKey].replace(/(property="og:image"[^>]*content=")[^"]+(")/i, '$1https://dopabrain.com/portal/img/og/nonexistent-404.png$2') } }],
     ['bm-mid-jump-removed', { ...base, bmJs: base.bmJs.replace(/MID_JUMP_I18N/g, 'REMOVED_MID_JUMP') }],
+    ['app-untagged-amazon-link', { ...base, activeApps: { ...base.activeApps, [firstAppKey]: `${base.activeApps[firstAppKey]}\n<a href="https://www.amazon.com/dp/0000000000" rel="noopener sponsored">Book</a>` } }],
+    ['app-svg-og-image', { ...base, activeApps: { ...base.activeApps, [firstAppKey]: `${base.activeApps[firstAppKey]}\n<meta property="og:image" content="https://dopabrain.com/icon-512.svg">` } }],
+    ['bm-bridge-lang-sync-removed', { ...base, bmJs: base.bmJs.replace(/BRIDGE_APP_I18N/g, 'REMOVED_BRIDGE_I18N') }],
   ];
 
   for (const [name, mutated] of cases) {

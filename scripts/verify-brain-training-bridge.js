@@ -375,9 +375,14 @@ function serverFor(getHtml) {
       response.end(getHtml());
       return;
     }
-    if (pathname === '/portal/js/ad-loader.js' || pathname === '/portal/js/cross-promo.js') {
+    if (pathname === '/portal/js/ad-loader.js' || pathname === '/portal/js/cross-promo.js' || pathname === '/portal/js/blog-monetization.js') {
       response.writeHead(200, { 'Cache-Control': 'no-store', 'Content-Type': 'application/javascript; charset=utf-8' });
       response.end('/* isolated verifier stub */');
+      return;
+    }
+    if (pathname === '/portal/css/blog-monetization.css') {
+      response.writeHead(200, { 'Cache-Control': 'no-store', 'Content-Type': 'text/css; charset=utf-8' });
+      response.end(fs.readFileSync(path.join(ROOT, 'projects', 'portal', 'css', 'blog-monetization.css'), 'utf8'));
       return;
     }
     response.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });

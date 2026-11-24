@@ -125,7 +125,10 @@ function verifySource(bundle) {
     fail("IQ fabricated ranking, gate, or AI claim remains");
   if (
     /\b20\b|timed|time limit per question|action=start/i.test(
-      `${bundle.html}\n${bundle.manifest}\n${bundle.readme}`,
+      `${bundle.html}\n${bundle.manifest}\n${bundle.readme}`.replace(
+        /dopabrain-20/gi,
+        "dopabrain-tag",
+      ),
     )
   )
     fail("IQ public ten-puzzle contract drifted");
