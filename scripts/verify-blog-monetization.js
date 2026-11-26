@@ -48,6 +48,12 @@ function loadFixture() {
     activeApps[d] = html;
   }
 
+  const blogHubs = {};
+  for (const loc of ['en', 'ko', 'zh', 'ja', 'es', 'pt', 'de', 'fr', 'id', 'tr', 'hi', 'ru']) {
+    const hp = path.join(PORTAL_DIR, 'blog', loc, 'index.html');
+    if (fs.existsSync(hp)) blogHubs[loc] = fs.readFileSync(hp, 'utf8');
+  }
+
   return {
     bmCss: fs.readFileSync(path.join(PORTAL_DIR, 'css', 'blog-monetization.css'), 'utf8'),
     bmJs: fs.readFileSync(path.join(PORTAL_DIR, 'js', 'blog-monetization.js'), 'utf8'),
@@ -56,6 +62,7 @@ function loadFixture() {
     llmsTxt: fs.readFileSync(path.join(PROJECTS_DIR, 'root-domain', 'llms.txt'), 'utf8'),
     llmsFullTxt: fs.readFileSync(path.join(PROJECTS_DIR, 'root-domain', 'llms-full.txt'), 'utf8'),
     blogs,
+    blogHubs,
     activeApps,
   };
 }
@@ -208,6 +215,15 @@ function verifySource(fx) {
   checkLlmsUrls(fx.llmsTxt, 'llms.txt');
   checkLlmsUrls(fx.llmsFullTxt, 'llms-full.txt');
 
+  // 7. All 12 locale blog hubs must have valid closed Wellness Lab hero CTA links
+  const brokenHubs = [];
+  for (const [loc, html] of Object.entries(fx.blogHubs || {})) {
+    const hasValidCta = /<a\s+href="\/portal\/tools\/wellness-lab\.html(?:\?lang=[a-z]{2})?"[^>]*>[^<]+<\/a>/i.test(html);
+    const hasCorruptAnchor = /<a\s+href="\/portal\/tools\/<\/div>/i.test(html);
+    if (!hasValidCta || hasCorruptAnchor) brokenHubs.push(loc);
+  }
+  assert(brokenHubs.length === 0, `Locale blog hub(s) missing valid closed Wellness Lab hero CTA: ${brokenHubs.join(', ')}`);
+
   return {
     blogsChecked: Object.keys(fx.blogs).length,
     curatedCount,
@@ -252,6 +268,7 @@ function runMutations(base) {
     ['app-untagged-amazon-link', { ...base, activeApps: { ...base.activeApps, [firstAppKey]: `${base.activeApps[firstAppKey]}\n<a href="https://www.amazon.com/dp/0000000000" rel="noopener sponsored">Book</a>` } }],
     ['app-svg-og-image', { ...base, activeApps: { ...base.activeApps, [firstAppKey]: `${base.activeApps[firstAppKey]}\n<meta property="og:image" content="https://dopabrain.com/icon-512.svg">` } }],
     ['bm-bridge-lang-sync-removed', { ...base, bmJs: base.bmJs.replace(/BRIDGE_APP_I18N/g, 'REMOVED_BRIDGE_I18N') }],
+    ['blog-hub-broken-wellness-cta', { ...base, blogHubs: { ...base.blogHubs, ja: base.blogHubs.ja.replace(/<a\s+href="\/portal\/tools\/wellness-lab\.html[^"]*"[^>]*>[^<]+<\/a>/i, '<a href="/portal/tools/') } }],
   ];
 
   for (const [name, mutated] of cases) {
