@@ -237,6 +237,12 @@ https://dopabrain.com/hsp-test/?utm_source=threads&utm_medium=social&utm_campaig
 
 ## 5. Viral Growth Execution Checklist
 
+> **Pending Direct-Posting Queue (Agent/Owner Next Promo Sprint — queued 2026-11-27):**
+> - [ ] **DopaBrain — DEV.to (`#showdev`)**: Direct post showcasing 120 browser-private Mental Wellness Labs (zero-backend architecture + 12-locale i18n) with UTM link.
+> - [ ] **DopaBrain — Disquiet (`disquiet.io`)**: Register DopaBrain Mental Wellness Lab product with Playwright-captured screenshots + Makerlog post.
+> - [ ] **DopaBrain & TokenLedger — GeekNews Show GN (`news.hada.io`)**: Unlocked **2026-12-03** (7-day new-account rule) — post TokenLedger first, wait 48h, then post DopaBrain 120-Lab.
+> - [ ] **DopaBrain — Show HN / Product Hunt / FR·DE·JP local channels**: 1 channel per 48h cadence per `docs/MARKETING.md`.
+
 1. **Format Requirements:**
    - Always include the target URL with distinct UTM tags (`utm_source=hackernews|producthunt|geeknews|disquiet|reddit|threads|x|pinterest`, `utm_medium=community|social`, `utm_campaign=*`).
    - Attach or showcase the actual 1080x1920 generated Story Card image as proof of quality.
