@@ -147,6 +147,16 @@ const TOOLS = [
   '/portal/tools/saying-no-to-family-guilt-script.html',
   '/portal/tools/shift-end-evening-winddown-timer.html',
   '/portal/tools/early-morning-waking-cortisol-calm.html',
+  '/portal/tools/layoff-job-security-anxiety-plan.html',
+  '/portal/tools/return-from-vacation-reentry-plan.html',
+  '/portal/tools/meeting-note-action-distiller.html',
+  '/portal/tools/digital-declutter-15min-reset.html',
+  '/portal/tools/driving-highway-anxiety-calm-kit.html',
+  '/portal/tools/needle-blood-draw-faint-calm-kit.html',
+  '/portal/tools/new-city-adult-friendship-plan.html',
+  '/portal/tools/awkward-small-talk-icebreaker-kit.html',
+  '/portal/tools/snoring-partner-sleep-peace-plan.html',
+  '/portal/tools/afternoon-power-nap-timer-guide.html',
   '/portal/tools/index.html'
 ];
 
