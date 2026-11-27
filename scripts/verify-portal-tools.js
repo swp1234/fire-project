@@ -137,6 +137,16 @@ const TOOLS = [
   '/portal/tools/in-law-holiday-boundary-prep.html',
   '/portal/tools/middle-of-night-3am-wake-reset.html',
   '/portal/tools/weekend-sleep-debt-recovery.html',
+  '/portal/tools/year-end-burnout-closure-audit.html',
+  '/portal/tools/manager-1on1-feedback-prep.html',
+  '/portal/tools/inbox-zero-10min-triage.html',
+  '/portal/tools/hyperfocus-exit-transition-cue.html',
+  '/portal/tools/dental-medical-visit-calm-kit.html',
+  '/portal/tools/flying-turbulence-calm-protocol.html',
+  '/portal/tools/texting-anxiety-reply-pace-guide.html',
+  '/portal/tools/saying-no-to-family-guilt-script.html',
+  '/portal/tools/shift-end-evening-winddown-timer.html',
+  '/portal/tools/early-morning-waking-cortisol-calm.html',
   '/portal/tools/index.html'
 ];
 

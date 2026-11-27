@@ -16,7 +16,7 @@ const CANONICAL = 'https://dopabrain.com' + ROUTE;
 const TITLE = '2026년 두뇌 훈련 앱 추천 TOP 10 - 뇌 타입 테스트부터 색상 기억력까지 | DopaBrain';
 const HEADLINE = '2026년 두뇌 훈련 앱 TOP 10 추천';
 const DESCRIPTION = '브라우저에서 실제로 제공되는 두뇌 게임과 테스트 10개의 기능, 이용 방식, 다음 경로를 정리한 가이드입니다. 오락과 연습용이며 개선을 보장하거나 의료 조언을 제공하지 않습니다.';
-const LASTMOD = '2026-08-29';
+const LASTMOD = '2026-11-28';
 const CONTENT_ID = '2026-brain-training-top-10.html';
 const CONTENT_SLUG = '2026-brain-training-top-10';
 
