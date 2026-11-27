@@ -113,6 +113,16 @@ const NEW_TOOLS = [
   'perfectionist-parenting-guilt-reset',
   'sunday-money-admin-sprint-plan',
   'retirement-transition-purpose-map',
+  'dopamine-detox-weekend-planner',
+  'brain-fog-clarity-checklist',
+  'dual-n-back-focus-warmup',
+  'phone-scroll-friction-builder',
+  'reading-attention-span-rebuilder',
+  'caffeine-cutoff-sleep-calculator',
+  'afternoon-slump-recovery-protocol',
+  'study-pomodoro-customizer',
+  'overstimulation-quiet-corner-plan',
+  'mental-clarity-weekly-review',
 ];
 const EXISTING_FLAGSHIPS = [
   'burnout-stress-differential',
@@ -219,18 +229,18 @@ function verifySource(fx) {
   }
 
   // 5. MBTI curated affiliate & tool bridge enhancement
-  assert(fx.mbtiEnhancer.includes('tag=dopabrain-20') && /\bsponsored\b/i.test(fx.mbtiEnhancer) && /curated_resource_click/.test(fx.mbtiEnhancer) && fx.mbtiEnhancer.includes('All 100 Mental Wellness Labs'), 'MBTI enhancer missing curated affiliate or 100-Lab bridge contract');
+  assert(fx.mbtiEnhancer.includes('tag=dopabrain-20') && /\bsponsored\b/i.test(fx.mbtiEnhancer) && /curated_resource_click/.test(fx.mbtiEnhancer) && fx.mbtiEnhancer.includes('All 110 Mental Wellness Labs'), 'MBTI enhancer missing curated affiliate or 110-Lab bridge contract');
 
   // 6. Contextual blog tool bridges
   assert(fx.bridgeCount >= 1249, `Expected >=1249 contextual blog tool bridges, got ${fx.bridgeCount}`);
 
-  // 7. Interactive Mental Wellness Lab Pillar Hub (100 tools + instant local search + 12-locale lead pack)
+  // 7. Interactive Mental Wellness Lab Pillar Hub (110 tools + instant local search + 12-locale lead pack)
   const labCanon = 'https://dopabrain.com/portal/tools/wellness-lab.html';
   assert(fx.wellnessLabHtml.includes(`<link rel="canonical" href="${labCanon}">`), 'wellness-lab: canonical missing');
-  assert(fx.wellnessLabHtml.includes('CollectionPage') && fx.wellnessLabHtml.includes('"numberOfItems": 100'), 'wellness-lab: CollectionPage/ItemList(100) schema missing');
+  assert(fx.wellnessLabHtml.includes('CollectionPage') && fx.wellnessLabHtml.includes('"numberOfItems": 110'), 'wellness-lab: CollectionPage/ItemList(110) schema missing');
   assert(fx.wellnessLabHtml.includes('id="labSearch"'), 'wellness-lab: instant local #labSearch input missing');
   const leadsObj = JSON.parse(fx.wellnessLabLeads);
-  assert(Object.keys(leadsObj).length === 100, `wellness-lab-leads.json must cover 100 tools, got ${Object.keys(leadsObj).length}`);
+  assert(Object.keys(leadsObj).length === 110, `wellness-lab-leads.json must cover 110 tools, got ${Object.keys(leadsObj).length}`);
   for (const slug of NEW_TOOLS) {
     assert(leadsObj[slug] && leadsObj[slug].de && leadsObj[slug].fr && leadsObj[slug].ja && leadsObj[slug].es, `wellness-lab-leads.json missing Tier-1 locales for ${slug}`);
   }
@@ -635,10 +645,10 @@ async function runRuntime() {
       await page.click('.mood-chip[data-mood="panic"]');
       const labMoodCleared = await page.evaluate(() => document.querySelectorAll('#labGrid .lab-card').length);
       const expectLangQuery = vp.lang === 'en' ? !labBefore.firstHref.includes('?lang=') : labBefore.firstHref.includes(`?lang=${vp.lang}`);
-      assert(labBefore.lang === vp.lang && labBefore.count === 100 && labBefore.searchHeight >= 44 && expectLangQuery && labBefore.overflow <= 0, `Wellness Lab initial check failed: ${JSON.stringify(labBefore)}`);
-      assert(labAfter.count === 24 && labAfter.filterEvents === 1, `Wellness Lab filter check failed: ${JSON.stringify(labAfter)}`);
-      assert(labSearch.count >= 1 && labSearch.count < 12 && !labSearch.leakedQuery && labClearedCount === 100, `Wellness Lab search check failed: ${JSON.stringify({ labSearch, labClearedCount })}`);
-      assert(labMood.count === 7 && labMood.moodEvents === 1 && labMoodCleared === 100, `Wellness Lab mood chip check failed: ${JSON.stringify({ labMood, labMoodCleared })}`);
+      assert(labBefore.lang === vp.lang && labBefore.count === 110 && labBefore.searchHeight >= 44 && expectLangQuery && labBefore.overflow <= 0, `Wellness Lab initial check failed: ${JSON.stringify(labBefore)}`);
+      assert(labAfter.count === 25 && labAfter.filterEvents === 1, `Wellness Lab filter check failed: ${JSON.stringify(labAfter)}`);
+      assert(labSearch.count >= 1 && labSearch.count < 12 && !labSearch.leakedQuery && labClearedCount === 110, `Wellness Lab search check failed: ${JSON.stringify({ labSearch, labClearedCount })}`);
+      assert(labMood.count === 7 && labMood.moodEvents === 1 && labMoodCleared === 110, `Wellness Lab mood chip check failed: ${JSON.stringify({ labMood, labMoodCleared })}`);
 
       // 17. Gaslighting & Manipulation Reality-Check Log + XSS Escaping
       await page.goto(`${srv.origin}/portal/tools/gaslighting-reality-check.html?lang=${vp.lang}`, { waitUntil: 'domcontentloaded' });
