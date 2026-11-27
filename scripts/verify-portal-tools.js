@@ -127,6 +127,16 @@ const TOOLS = [
   '/portal/tools/palworld-field-guide.html',
   '/portal/tools/palworld-base-planner.html',
   '/portal/tools/palworld-server-troubleshooter.html',
+  '/portal/tools/salary-negotiation-nerves-prep.html',
+  '/portal/tools/career-pivot-fear-audit.html',
+  '/portal/tools/chronic-lateness-time-buffer.html',
+  '/portal/tools/memory-name-recall-trainer.html',
+  '/portal/tools/social-media-envy-detox.html',
+  '/portal/tools/difficult-phone-call-starter.html',
+  '/portal/tools/partner-chore-fairness-reset.html',
+  '/portal/tools/in-law-holiday-boundary-prep.html',
+  '/portal/tools/middle-of-night-3am-wake-reset.html',
+  '/portal/tools/weekend-sleep-debt-recovery.html',
   '/portal/tools/index.html'
 ];
 
