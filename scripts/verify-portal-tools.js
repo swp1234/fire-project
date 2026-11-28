@@ -167,6 +167,16 @@ const TOOLS = [
   '/portal/tools/parent-adult-child-boundary-plan.html',
   '/portal/tools/sunday-night-insomnia-clock-reset.html',
   '/portal/tools/racing-mind-bedtime-worry-shelf.html',
+  '/portal/tools/sunday-work-email-boundary-plan.html',
+  '/portal/tools/new-job-onboarding-overwhelm-plan.html',
+  '/portal/tools/multitasking-context-switch-audit.html',
+  '/portal/tools/deep-study-note-overload-reset.html',
+  '/portal/tools/social-event-cancel-guilt-script.html',
+  '/portal/tools/crowded-commute-transit-calm-kit.html',
+  '/portal/tools/roommate-shared-space-peace-plan.html',
+  '/portal/tools/group-chat-drama-mute-boundary.html',
+  '/portal/tools/pre-travel-early-flight-sleep-plan.html',
+  '/portal/tools/blue-light-bedroom-scroll-swap.html',
   '/portal/tools/index.html'
 ];
 

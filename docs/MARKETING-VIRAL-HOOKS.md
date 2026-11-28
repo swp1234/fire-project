@@ -237,10 +237,11 @@ https://dopabrain.com/hsp-test/?utm_source=threads&utm_medium=social&utm_campaig
 
 ## 5. Viral Growth Execution Checklist
 
-> **Pending Direct-Posting Queue (Agent/Owner Next Promo Sprint — queued 2026-11-27):**
-> - [ ] **DopaBrain — DEV.to (`#showdev`)**: Direct post showcasing 120 browser-private Mental Wellness Labs (zero-backend architecture + 12-locale i18n) with UTM link.
-> - [ ] **DopaBrain — Disquiet (`disquiet.io`)**: Register DopaBrain Mental Wellness Lab product with Playwright-captured screenshots + Makerlog post.
-> - [ ] **DopaBrain & TokenLedger — GeekNews Show GN (`news.hada.io`)**: Unlocked **2026-12-03** (7-day new-account rule) — post TokenLedger first, wait 48h, then post DopaBrain 120-Lab.
+> **Direct-Posting Execution Log (Updated 2026-11-28):**
+> - [x] **DopaBrain — DEV.to (`#showdev`) LIVE (2026-11-28)**: [150 Browser-Private Mental Wellness Tools Post](https://dev.to/woodori1234max/i-built-150-browser-private-mental-wellness-focus-tools-in-vanilla-js-zero-backend-12-languages-m47) (`utm_campaign=wellness_lab_150`).
+> - [x] **DopaBrain — Disquiet (`disquiet.io`) SUBMITTED (2026-11-28)**: [disquiet.io/products/dopabrain](https://disquiet.io/products/dopabrain) (`승인 대기중`, thumbnail + 2 Playwright screenshots attached; Makerlog unlocks upon approval).
+> - [x] **TokenLedger v9.0 — DEV.to (`#showdev`) LIVE (2026-11-28)**: [The Hidden 40% Tax in Production AI Apps](https://dev.to/woodori1234max/the-hidden-40-tax-in-production-ai-apps-guardrails-multi-agent-swarms-prompt-caching-math-3ja1) (`utm_campaign=finops_v9`).
+> - [ ] **DopaBrain & TokenLedger — GeekNews Show GN (`news.hada.io`)**: Unlocked **2026-12-03** (7-day new-account rule) — post TokenLedger first, wait 48h, then post DopaBrain 160-Lab.
 > - [ ] **DopaBrain — Show HN / Product Hunt / FR·DE·JP local channels**: 1 channel per 48h cadence per `docs/MARKETING.md`.
 
 1. **Format Requirements:**
