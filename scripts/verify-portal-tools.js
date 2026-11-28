@@ -157,6 +157,16 @@ const TOOLS = [
   '/portal/tools/awkward-small-talk-icebreaker-kit.html',
   '/portal/tools/snoring-partner-sleep-peace-plan.html',
   '/portal/tools/afternoon-power-nap-timer-guide.html',
+  '/portal/tools/workplace-micromanager-calm-buffer.html',
+  '/portal/tools/quiet-quitting-energy-boundary-audit.html',
+  '/portal/tools/tab-overload-browser-focus-reset.html',
+  '/portal/tools/writer-blank-page-momentum-kit.html',
+  '/portal/tools/claustrophobia-elevator-mri-calm-kit.html',
+  '/portal/tools/phone-call-voicemail-dread-reset.html',
+  '/portal/tools/toxic-coworker-grey-rock-script.html',
+  '/portal/tools/parent-adult-child-boundary-plan.html',
+  '/portal/tools/sunday-night-insomnia-clock-reset.html',
+  '/portal/tools/racing-mind-bedtime-worry-shelf.html',
   '/portal/tools/index.html'
 ];
 
