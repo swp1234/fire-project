@@ -177,6 +177,16 @@ const TOOLS = [
   '/portal/tools/group-chat-drama-mute-boundary.html',
   '/portal/tools/pre-travel-early-flight-sleep-plan.html',
   '/portal/tools/blue-light-bedroom-scroll-swap.html',
+  '/portal/tools/performance-review-nerves-prep.html',
+  '/portal/tools/freelance-client-scope-creep-guard.html',
+  '/portal/tools/podcast-background-noise-focus-audit.html',
+  '/portal/tools/half-finished-side-project-picker.html',
+  '/portal/tools/waiting-for-medical-test-results-calm.html',
+  '/portal/tools/crowded-grocery-store-sensory-kit.html',
+  '/portal/tools/borrowed-money-friend-awkward-script.html',
+  '/portal/tools/unsolicited-advice-polite-deflector.html',
+  '/portal/tools/late-night-heavy-meal-sleep-reset.html',
+  '/portal/tools/sleep-tracker-orthosomnia-calm-reset.html',
   '/portal/tools/index.html'
 ];
 
